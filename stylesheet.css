@@ -19,6 +19,8 @@ body {
     font-size: 300%;
     font-family: "Segoe-UI-Variable", sans-serif;
     color: #FAFAFA;
+    text-align: center;
+    
 
 }
 
@@ -28,11 +30,25 @@ body {
 }
 
 .splash-text {
-    padding: 300px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
+
+.intro-text {
+    padding-top: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.item {
+    text-decoration: none;
+    display: block;
+}
+
 
 .menu-text-div {
     padding: 20px 0;
@@ -53,7 +69,6 @@ body {
 .portfolio {
     justify-content: center;
     align-items: center;
-    display: flex;
 
 }
 
@@ -61,6 +76,7 @@ body {
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    margin-left: 30%;
 }
 
 .list-desc {
@@ -79,16 +95,7 @@ body {
     
 }
 
-.item-img {
-    
-    object-fit:contain;
 
-    width:400px;
-    height:300px;
-
-    margin-left: 400px;
-
-}
 .input-cursor {
     
     /*margin-top: 5px; try again later 

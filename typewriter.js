@@ -1,6 +1,7 @@
 var profs = [
     " HTML",
     " Javascript",
+    " CSS",
     " Python",
     " Bash",
     " C++",
@@ -11,6 +12,7 @@ var profs = [
 var colours = [
     "orange",
     "yellow",
+    "lightblue",
     "blue",
     "white",
     "green",
