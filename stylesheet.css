@@ -1,0 +1,17 @@
+body {
+    background-color: aliceblue;
+}
+
+.main {
+    align-self: center;
+    align-content: center;
+    font-size: xx-large;
+    text-align: center;
+    
+
+}
+
+.main-text {
+    padding: 120px 0;
+    border: 3px solid black;
+}
