@@ -1,17 +1,56 @@
 body {
-    background-color: aliceblue;
+    background-color: #1D1D1D;
 }
 
-.main {
-    align-self: center;
-    align-content: center;
-    font-size: xx-large;
-    text-align: center;
+@font-face {
+    font-family: "Segoe-UI-Variable";
+    src: url("fonts/Segoe-UI-Variable-Static-Small-Semibold.ttf");
+
+}
+.splash {
+    font-size: 300%;
+    font-family: "Segoe-UI-Variable", sans-serif;
+    color: #FAFAFA;
+
     
 
 }
 
-.main-text {
-    padding: 120px 0;
-    border: 3px solid black;
+.splash-text {
+    padding: 300px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-cursor {
+    
+    /*margin-top: 5px; try again later 
+    depending on if it looks too tall*/
+
+    display: inline-block;
+    max-width: 100%;
+    height: 45px;
+    width: 3px;
+
+    background-color: white;
+    margin-left: 8px;
+
+    animation: blink .4s linear infinite alternate;
+}
+
+@keyframes blink {
+    0% {opacity: 1;}
+    40% {opacity: 1;}
+    60% {opacity: 0;}
+    100% {opacity: 0;}
+
+}
+
+.menu-button {
+    size: 10px;
+}
+
+.buttons {
+    margin-left: 50px;
 }
