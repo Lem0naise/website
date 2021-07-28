@@ -63,8 +63,12 @@ body {
     color: #FAFAFA;
     background-color: transparent;
     outline: none;
-    margin-right: 15px;
-    margin-left:15px;
+
+    padding-right:15px;
+    padding-left:15px;
+
+    overflow:hidden;
+    white-space:normal;
 
 }
 
