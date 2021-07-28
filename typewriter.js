@@ -1,12 +1,12 @@
 var profs = [
-    " HTML",
-    " Javascript",
-    " CSS",
-    " Python",
-    " Bash",
-    " C++",
-    " C#",
-    " SQL",
+    " HTML.",
+    " Javascript.",
+    " CSS.",
+    " Python.",
+    " Bash.",
+    " C++.",
+    " C#.",
+    " SQL.",
 ]
 
 var colours = [
