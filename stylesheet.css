@@ -18,8 +18,11 @@ body {
     font-family: "Segoe-UI-Variable", sans-serif;
     color: #FAFAFA;
 
-    
+}
 
+.menu-text {
+    font-size: 300%;
+    margin-bottom:20px;
 }
 
 .splash-text {
@@ -29,6 +32,61 @@ body {
     align-items: center;
 }
 
+.menu-text-div {
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.list-text {
+    font-family: "Segoe-UI-Variable", sans-serif;
+    font-size: 150%;
+    color: #FAFAFA;
+    text-decoration: none;
+
+}
+
+.portfolio {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+.list-item {
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.list-desc {
+    font-family: "Segoe-UI-Variable", sans-serif;
+    font-size: 90%;
+    color: #FAFAFA;
+    text-align:center;
+    text-decoration: none;
+}
+
+.language {
+    padding-left:10px;
+    font-family: "Segoe-UI-Variable", sans-serif;
+    font-size: 80%;
+    text-decoration: none;
+    
+}
+
+.item-img {
+    
+    object-fit:contain;
+
+    width:400px;
+    height:300px;
+
+    margin-left: 400px;
+
+}
 .input-cursor {
     
     /*margin-top: 5px; try again later 
@@ -71,6 +129,8 @@ body {
     white-space:normal;
 
 }
+
+
 
 @keyframes button-hover {
     0% {filter:opacity(1)}
