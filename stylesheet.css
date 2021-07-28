@@ -7,6 +7,12 @@ body {
     src: url("fonts/Segoe-UI-Variable-Static-Small-Semibold.ttf");
 
 }
+
+@font-face {
+    font-family: "Button";
+    src: url("fonts/Segoe-UI-Variable-Static-Small-Light.ttf");
+}
+
 .splash {
     font-size: 300%;
     font-family: "Segoe-UI-Variable", sans-serif;
@@ -48,9 +54,40 @@ body {
 }
 
 .menu-button {
-    size: 10px;
+    font-size: 150%;
+    max-block-size:100%;
+    size: 50px;
+    border:none;
+    
+    font-family: "Button", sans-serif;
+    color: #FAFAFA;
+    background-color: transparent;
+    outline: none;
+    margin-right: 15px;
+    margin-left:15px;
+
+}
+
+@keyframes button-hover {
+    0% {filter:opacity(1)}
+    100% {filter:opacity(0.6)}
+    
+}
+
+.menu-button:hover {
+    animation: button-hover 0.2s linear forwards;
 }
 
 .buttons {
-    margin-left: 50px;
+    margin-top: 20px;
+    margin-left: 100px;
+    
 }
+
+.dropdown-content {
+    display: none;
+    background-color: #383838;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+
+}
+
