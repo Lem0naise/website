@@ -2,6 +2,8 @@ body {
     background-color: #1D1D1D;
 }
 
+
+
 @font-face {
     font-family: "Segoe-UI-Variable";
     src: url("fonts/Segoe-UI-Variable-Static-Small-Semibold.ttf");
@@ -146,6 +148,12 @@ body {
     margin-top: 20px;
     margin-left: 100px;
     
+}
+
+@media screen and (max-width:600px){
+    .splash {
+        font-size:200%;
+    }
 }
 
 
