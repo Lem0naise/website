@@ -60,7 +60,7 @@ body {
 
 .list-text {
     font-family: "Segoe-UI-Variable", sans-serif;
-    font-size: 150%;
+    font-size: 160%;
     color: #FAFAFA;
     text-decoration: none;
 
@@ -81,7 +81,7 @@ body {
 
 .list-desc {
     font-family: "Segoe-UI-Variable", sans-serif;
-    font-size: 90%;
+    font-size: 130%;
     color: #FAFAFA;
     text-align:center;
     text-decoration: none;
@@ -90,7 +90,7 @@ body {
 .language {
     padding-left:10px;
     font-family: "Segoe-UI-Variable", sans-serif;
-    font-size: 80%;
+    font-size: 120%;
     text-decoration: none;
     
 }
