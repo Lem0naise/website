@@ -170,6 +170,10 @@ body, html {
 }
 
 @media screen and (max-width:600px){
+
+    body {
+        background-color: blue;
+    }
     .splash {
         font-size:200%;
         word-wrap: break-word;
