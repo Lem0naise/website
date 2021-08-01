@@ -172,15 +172,44 @@ body, html {
 @media screen and (max-width:600px){
     .splash {
         font-size:200%;
+        word-wrap: break-word;
     }
 
+    /*Portfolio items*/
+    .list-desc {
+        font-size: 100%;
+    }
+
+
+    .list-item {
+        margin-left: 10%;
+        
+    }
+
+    .list-text {
+        font-size: 140%;
+    }
+    .language { 
+        font-size: 80%;
+    }
+
+    /*Main Items*/
+
+    .no-wrap {
+        font-size: 170%;
+    }
     .main-seperation {
         height: 200em;
     }
 
     .buttons {
         position: relative;
+        margin-left: 40px;
     }
+    
+
+
+
 }
 
 
