@@ -7,8 +7,10 @@ body, html {
     
 }   
 
+
 .main-seperation { 
     height: 40em;
+
 }
 
 .snap-child {
@@ -29,6 +31,9 @@ body, html {
 }
 
 .splash {
+    
+
+
     font-size: 300%;
     font-family: "Segoe-UI-Variable", sans-serif;
     color: #FAFAFA;
@@ -37,6 +42,13 @@ body, html {
 
 }
 
+.no-wrap {
+
+    text-align: right;
+    transition: color 2s;
+}
+
+
 .menu-text {
     font-size: 300%;
     margin-bottom:20px;
@@ -44,8 +56,13 @@ body, html {
 
 .splash-text {
     display: flex;
+    /*
     justify-content: center;
+    */
+    padding-left: 38%;
+    transition: padding 2s;
     align-items: center;
+    
     
 }
 
