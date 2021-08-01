@@ -206,7 +206,7 @@ body, html {
         font-size: 350%;
     }
     .main-seperation {
-        height: 500em;
+        height: 100em;
     }
 
     .buttons {
@@ -214,9 +214,6 @@ body, html {
         margin-left: 40px;
     }
     
-    body {
-        scroll-snap-type: proximity;
-    }
 
     .end-seperation {
         height: 300em;
