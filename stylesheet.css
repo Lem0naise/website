@@ -172,13 +172,13 @@ body, html {
 @media only screen and (max-device-width: 600px) {
 
     .splash {
-        font-size:200%;
+        font-size:400%;
         word-wrap: break-word;
     }
 
     /*Portfolio items*/
     .list-desc {
-        font-size: 100%;
+        font-size: 120%;
     }
 
 
@@ -188,16 +188,16 @@ body, html {
     }
 
     .list-text {
-        font-size: 140%;
+        font-size: 160%;
     }
     .language { 
-        font-size: 80%;
+        font-size: 100%;
     }
 
     /*Main Items*/
 
     .no-wrap {
-        font-size: 170%;
+        font-size: 350%;
     }
     .main-seperation {
         height: 200em;
