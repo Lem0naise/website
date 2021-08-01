@@ -169,7 +169,7 @@ body, html {
     
 }
 
-@media screen and (max-width:800px){
+@media only screen and (max-device-width: 600px) {
 
     .splash {
         font-size:200%;
