@@ -176,6 +176,9 @@ body, html {
         word-wrap: break-word;
     }
 
+    .menu-button {
+        font-size: 250%;
+    }
     /*Portfolio items*/
     .list-desc {
         font-size: 120%;
