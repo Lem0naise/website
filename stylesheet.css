@@ -6,7 +6,9 @@ body, html {
     
 }   
 
-
+.main-seperation { 
+    height: 40em;
+}
 
 .snap-child {
     scroll-snap-align: start;
@@ -170,6 +172,14 @@ body, html {
 @media screen and (max-width:600px){
     .splash {
         font-size:200%;
+    }
+
+    .main-seperation {
+        height: 200em;
+    }
+
+    .buttons {
+        position: relative;
     }
 }
 
