@@ -38,7 +38,7 @@ async function typeSplash(delay = 100) {
     }
 
     let splash = document.getElementById("splash");
-    let prefix = document.getElementById("splashprefix")
+
 
     await waitForMs(500)
     
@@ -46,15 +46,10 @@ async function typeSplash(delay = 100) {
     if (empty){
 
 
-        let word_length = profs[time].length
+
         splash.style.color = colours[time];
 
-        let prefix_padding = (38 - word_length*0.5 + "%")
-        
-        
-        prefix.style.transition = ("padding " + word_length * 0.1 + "s")
-        
-        prefix.style.paddingLeft = prefix_padding;
+ 
         
         var letters = profs[time];
         let i = 0;
@@ -76,8 +71,6 @@ async function typeSplash(delay = 100) {
     else if (!empty){
         await waitForMs(500)
         let i = 0;
-        
-        prefix.style.paddingLeft = "38%";
 
         while(splash.innerHTML.trim() != "") {
 
