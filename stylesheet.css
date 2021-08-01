@@ -1,8 +1,17 @@
-body {
+body, html {
     background-color: #1D1D1D;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(300px);
+    scroll-snap-type: y mandatory;
+    
+}   
+
+
+
+.snap-child {
+    scroll-snap-align: start;
+
 }
-
-
 
 @font-face {
     font-family: "Segoe-UI-Variable";
@@ -154,6 +163,7 @@ body {
 .buttons {
     margin-top: 20px;
     margin-left: 100px;
+    position: fixed;
     
 }
 
