@@ -131,6 +131,9 @@ body, html {
 
 }
 
+.end-seperation {
+    height: 50em;
+}
 .menu-button {
     font-size: 150%;
     max-block-size:100%;
@@ -203,7 +206,7 @@ body, html {
         font-size: 350%;
     }
     .main-seperation {
-        height: 600em;
+        height: 500em;
     }
 
     .buttons {
@@ -211,9 +214,13 @@ body, html {
         margin-left: 40px;
     }
     
+    body {
+        scroll-snap-type: proximity;
+    }
 
-
-
+    .end-seperation {
+        height: 300em;
+    }
 }
 
 
