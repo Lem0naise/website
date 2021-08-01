@@ -13,7 +13,7 @@ var colours = [
     "orange",
     "yellow",
     "lightblue",
-    "blue",
+    "deepbluesky",
     "white",
     "green",
     "olivedrab",
