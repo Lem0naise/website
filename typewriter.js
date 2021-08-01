@@ -87,6 +87,7 @@ async function typeSplash(delay = 100) {
 }
 
 
+
 function waitForMs(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }

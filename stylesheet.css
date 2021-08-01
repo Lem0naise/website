@@ -1,8 +1,9 @@
 body, html {
     background-color: #1D1D1D;
-    scroll-snap-type: mandatory;
+    /*scroll-snap-type: mandatory;*/
     scroll-snap-points-y: repeat(300px);
     scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
     
 }   
 
@@ -12,6 +13,7 @@ body, html {
 
 .snap-child {
     scroll-snap-align: start;
+    flex: none;
 
 }
 
