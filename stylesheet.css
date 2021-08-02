@@ -1,12 +1,15 @@
-body, html {
+body {
     background-color: #1D1D1D;
+    
+    
+}   
+
+html {
     /*scroll-snap-type: mandatory;*/
     scroll-snap-points-y: repeat(300px);
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
-    
-}   
-
+}
 
 .main-seperation { 
     height: 40em;
