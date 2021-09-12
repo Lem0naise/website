@@ -17,8 +17,10 @@ html {
 }
 
 .snap-child {
+    /*
     scroll-snap-align: start;
     flex: none;
+    */
 
 }
 
