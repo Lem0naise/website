@@ -6,9 +6,9 @@ body {
 
 html {
     /*scroll-snap-type: mandatory;*/
-    scroll-snap-points-y: repeat(300px);
+    /*scroll-snap-points-y: repeat(300px);
     scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;
+    scroll-behavior: smooth;*/
 }
 
 .main-seperation { 
