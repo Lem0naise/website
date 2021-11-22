@@ -171,9 +171,14 @@ html {
 
     overflow:hidden;
     white-space:normal;
+    text-decoration: none;
 
 }
 
+
+.separator {
+    margin-top: 20px;
+}
 
 
 @keyframes button-hover {
