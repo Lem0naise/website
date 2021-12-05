@@ -29,7 +29,23 @@ var empty = true;
 async function onEntry() {
     await waitForMs(200);
     typeSplash();
+    await waitForMs(3000);
+
+    uss.scrollIntoView(document.getElementById('portfolio'));
+    //document.getElementById('portfolio').scrollIntoView({behavior:"smooth"});
 }
+
+
+async function home() {
+
+    uss.scrollIntoView(document.getElementById('home'));
+}
+
+async function portfolio() {
+
+    uss.scrollIntoView(document.getElementById('portfolio'));
+}
+
 
 async function typeSplash(delay = 100) {
 

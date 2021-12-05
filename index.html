@@ -18,10 +18,12 @@
 		<script src = "typewriter.js"></script>
 		<link rel="stylesheet" href = "stylesheet.css">
 		
-	
+		<script src="js/universalsmoothscroll-min.js"></script>
+		<script src="js/universalsmoothscroll-ease-functions-min.js"></script>
+
 	</head>
 	
-	<body>	
+	<body onload="init()">	
 		
 
 			
@@ -29,11 +31,11 @@
 		<div class = "buttons snap-child">
 			
 
-			<a href = "#home">
+			<a onclick="home()">
 				<button class = "menu-button">Home</button><!--
 			--></a>
 
-			<a href = "#portfolio">
+			<a onclick="portfolio()">
 				<button class = "menu-button">Portfolio</button><!--
 			--></a>
 			<a href="mailto:zac.i.nolan@gmail.com">
