@@ -15,6 +15,44 @@ var colours = [
     " purple",
 ]
 
+
+
+//Browser detection
+
+
+// Opera 8.0+
+var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+
+// Firefox 1.0+
+var isFirefox = typeof InstallTrigger !== 'undefined';
+
+// Safari 3.0+ "[object HTMLElementConstructor]" 
+var isSafari = navigator.userAgent.indexOf("Safari") != -1;
+
+// Internet Explorer 6-11
+var isIE = /*@cc_on!@*/false || !!document.documentMode;
+
+// Edge 20+
+var isEdge = !isIE && !!window.StyleMedia;
+
+// Chrome 1 - 79
+var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+
+// Edge (based on chromium) detection
+var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
+
+// Blink engine detection
+var isBlink = (isChrome || isOpera) && !!window.CSS;
+
+
+
+
+//ok done finally
+
+
+
+
+
 var time = 0;
 
 document.onload = onEntry()
@@ -27,19 +65,39 @@ async function onEntry() {
     await waitForMs(4000);
 
     
-    uss.scrollIntoView(document.getElementById('portfolio'));
-    //document.getElementById('portfolio').scrollIntoView({behavior:"smooth"});
+    if (isSafari){
+        uss.scrollIntoView(document.getElementById('portfolio'));
+        
+    }
+    else {
+        document.getElementById('portfolio').scrollIntoView({behavior:"smooth"});
+        
+    }
 }
 
 
 async function home() {
 
-    uss.scrollIntoView(document.getElementById('home'));
+    if (isSafari){
+        uss.scrollIntoView(document.getElementById('home'));
+        
+    }
+    else {
+        document.getElementById('home').scrollIntoView({behavior:"smooth"});
+        
+    }
 }
 
 async function portfolio() {
 
-    uss.scrollIntoView(document.getElementById('portfolio'));
+    if (isSafari){
+        uss.scrollIntoView(document.getElementById('portfolio'));
+        
+    }
+    else {
+        document.getElementById('portfolio').scrollIntoView({behavior:"smooth"});
+        
+    }
 }
 
 
