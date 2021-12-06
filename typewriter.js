@@ -3,10 +3,8 @@ var profs = [
     " Javascript.",
     " CSS.",
     " Python.",
-    " Bash.",
-    " C++.",
-    " C#.",
-    " SQL.",
+    " Java."
+
 ]
 
 var colours = [
@@ -14,10 +12,7 @@ var colours = [
     "yellow",
     "lightblue",
     "deepbluesky",
-    "white",
-    "green",
-    "olivedrab",
-    "paleturquoise"
+    " purple",
 ]
 
 var time = 0;
@@ -29,7 +24,7 @@ var empty = true;
 async function onEntry() {
     await waitForMs(200);
     typeSplash();
-    await waitForMs(3000);
+    await waitForMs(4000);
 
     uss.scrollIntoView(document.getElementById('portfolio'));
     //document.getElementById('portfolio').scrollIntoView({behavior:"smooth"});
