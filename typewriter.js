@@ -26,6 +26,7 @@ async function onEntry() {
     typeSplash();
     await waitForMs(4000);
 
+    
     uss.scrollIntoView(document.getElementById('portfolio'));
     //document.getElementById('portfolio').scrollIntoView({behavior:"smooth"});
 }
