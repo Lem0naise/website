@@ -31,9 +31,7 @@
 		<div class = "buttons snap-child">
 			
 
-			<a onclick="home()">
-				<button class = "menu-button">Home</button><!--
-			--></a>
+
 
 			<a onclick="portfolio()">
 				<button class = "menu-button">Portfolio</button><!--
@@ -49,44 +47,35 @@
 
 
 
-		<section id="home" class="separator">	
-		<div class="intro-text">
-			<span class = "splash">
-				I'm Zac.<br>
-			</span>
-		</div>
-
-
-		<div id = "splashprefix" class = "splash-text">
-			
-			
-			<span class = "splash no-wrap"  >
-				I've made programs in&nbsp;
-			</span>
-			<span id= "splash" class = "splash no-wrap">
-				
-			</span>
-
-	
-			<span class="input-cursor"></span>
-	
-		</div>
-
-		</section>
 
 		<!--Seperation of main screen and portfolio screen-->
-		<div class = "main-seperation"></div>
 
 		
 		<section id = "portfolio" class="separator">
 
 		<div style="height: 10em" class = "main-seperation"></div>
 
+
+
+
 		<div class = "menu-text-div">
-			<span class="splash menu-text">
-				<a>My Portfolio</a>
-			</span>
+
+
+			<div id = "splashprefix" class = "splash menu-text"">
+			
+			
+				<span class = "splash menu-text"no-wrap"  >
+					My Projects in
+				</span>
+				<span id= "splash" class = "splash menu-text"></span>
+	
+		
+				<span class="input-cursor"></span>
+		
+			</div>
+
 		</div>
+
 
 		<div class = "portfolio">
 			
@@ -146,7 +135,7 @@
 			</a>
 
 			<br/>
-			<a class = "item" href = "#jsplayground">
+			<a class = "item" onclick = "jsplayground()" href="#">
 				<div class = "list-item">
 					<span class = "list-text">
 						Javascript Playground
@@ -170,14 +159,16 @@
 
 
 		<!--Seperation of portfolio screen and js playground screen-->
-		<div class = "main-seperation"></div>
+		<div id = "jsplayground_seperation" class = "main-seperation" style = "display:none"></div>
 
-		<section id = "jsplayground">
+		<section id = "jsplayground" style="display:none">
 		
 			<div class = "rps">
 
-
-
+				
+				<span class = "list-text">
+					Rock Paper Scissors
+				</span>
 
 
 

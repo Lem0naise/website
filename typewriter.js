@@ -1,9 +1,9 @@
 var profs = [
-    " HTML.",
-    " Javascript.",
-    " CSS.",
-    " Python.",
-    " Java."
+    "HTML.",
+    "Javascript.",
+    "CSS.",
+    "Python.",
+    "Java."
 
 ]
 
@@ -62,17 +62,7 @@ var empty = true;
 async function onEntry() {
     await waitForMs(200);
     typeSplash();
-    await waitForMs(4000);
 
-    
-    if (isSafari){
-        uss.scrollIntoView(document.getElementById('portfolio'));
-        
-    }
-    else {
-        document.getElementById('portfolio').scrollIntoView({behavior:"smooth"});
-        
-    }
 }
 
 
@@ -166,4 +156,17 @@ async function typeSplash(delay = 100) {
 
 function waitForMs(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+function jsplayground() {
+    
+    document.getElementById("jsplayground_seperation").style.display = "block"
+    document.getElementById("jsplayground").style.display = "block"
+
+    uss.scrollIntoView(document.getElementById("jsplayground_seperation"));
+
+}
+
+function rps() {
+    
 }
