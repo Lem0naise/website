@@ -1,3 +1,0 @@
-([('PyQt',
-   '/Users/zacnolan/Documents/Code/HTML/website/dist/PyQt',
-   'EXECUTABLE')],)
