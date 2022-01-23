@@ -209,7 +209,7 @@ html {
 
 
 
-.portfolio{
+div.portfolio{
     opacity: 0%;
     -webkit-animation-name: reveal;
     -webkit-animation-duration: 2s;
