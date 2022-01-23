@@ -132,6 +132,7 @@ html {
 }
 
 
+
 /*this is individual (item)*/
 .word{
     line-height:90px;
@@ -203,7 +204,36 @@ html {
     align-items: center;
     padding-right: 10em;
 
+
 }
+
+
+
+.portfolio{
+    opacity: 0%;
+    -webkit-animation-name: reveal;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+    
+    animation-name: reveal;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+
+
+@keyframes reveal{
+    100% {opacity: 100%;}
+}
+
+@-webkit-keyframes reveal{
+    100% {opacity: 100%;}
+}
+
+
 
 .list-item {
     justify-content: center;
