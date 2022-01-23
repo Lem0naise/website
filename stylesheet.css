@@ -99,7 +99,10 @@ html {
     -webkit-animation-name: change;
     -webkit-animation-duration: 7s;
     -webkit-animation-iteration-count: infinite;
+    -webkit-animation-delay: 2s;
     animation-name: change;
+    animation-delay:2s;
+
     animation-duration: 7s;
     animation-iteration-count: infinite;
 
@@ -110,6 +113,7 @@ html {
     list-style: none;
 
 
+    color: orange;
 }
 
 
@@ -127,10 +131,63 @@ html {
     margin-top:80px;
     margin-bottom:-45px;
 
-    animation: showText 1s;
-    -webkit-animation: showText 1s;
+
+    animation: slidein_text 2s;
+    -webkit-animation: slidein_text 2ss;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+/*last of type div*/
+.splash-reveal{
+
+
+    
+    height:160px;
+    margin-bottom:-125px;
+    overflow:hidden;
+
+    width:100%;
+
+    /*
+    width: 0;
+    animation: reveal_div 3s;
+    -webkit-animation: reveal_div 3s;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+    */
 
 }
+
+
+@keyframes slidein_text {
+    0% { transform: translateX(-100%) }
+    100% { transform: translateX(0);}
+}
+@-webkit-keyframes slidein_text {
+    0% { transform: translateX(-100%) }
+    100% { transform: translateX(0);}
+}
+
+
+
+
+@keyframes reveal_div {
+    0% {width:0px;}
+    30% {width:100%;}
+    100% {width:100%;}
+}
+
+
+
+@-webkit-keyframes reveal_div {
+    0% {width:0px;}
+    30% {width:100%;}
+    100% {width:100%;}
+}
+
+
+
 
 
 @keyframes showText{
@@ -159,8 +216,8 @@ html {
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    animation: showText 1s;
-    -webkit-animation: showText 1s;
+    animation: showText 2s;
+    -webkit-animation: showText 2s;
     
 }
 
