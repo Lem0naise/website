@@ -109,6 +109,7 @@ html {
     text-align: left;
     list-style: none;
 
+
 }
 
 
@@ -125,7 +126,7 @@ html {
     font-size: 200%;
     margin-top:80px;
     margin-bottom:-45px;
-    
+
     
 
 }
@@ -136,6 +137,12 @@ html {
     line-height:90px;
     margin-left: -30px;
     font-size:200%;
+
+    user-select: none; /* supported by Chrome and Opera */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
     
 }
 
