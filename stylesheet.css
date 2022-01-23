@@ -97,13 +97,13 @@ html {
     
 
     -webkit-animation-name: change;
-    -webkit-animation-duration: 9;
+    -webkit-animation-duration: 9s;
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-delay: 1s;
     animation-name: change;
     animation-delay:1s;
 
-    animation-duration: 9;
+    animation-duration: 9s;
     animation-iteration-count: infinite;
 
 
@@ -293,10 +293,12 @@ div.portfolio{
     opacity: 0%;
     -webkit-animation-name: reveal;
     -webkit-animation-duration: 2s;
+    -webkit-animation-delay: 1s;
     -webkit-animation-iteration-count: 1;
     
     animation-name: reveal;
     animation-duration: 2s;
+    animation-delay: 1s;
     animation-iteration-count: 1;
 
     animation-fill-mode:forwards;
