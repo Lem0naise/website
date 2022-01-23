@@ -3,7 +3,6 @@ var profs = [
     "Javascript.",
     "CSS.",
     "Python.",
-    "Java."
 
 ]
 
@@ -12,7 +11,6 @@ var colours = [
     "yellow",
     "lightblue",
     "deepbluesky",
-    " purple",
 ]
 
 

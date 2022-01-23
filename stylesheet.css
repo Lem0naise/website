@@ -19,13 +19,7 @@ html {
 
 }
 
-.snap-child {
-    /*
-    scroll-snap-align: start;
-    flex: none;
-    */
 
-}
 
 @font-face {
     font-family: "Segoe-UI-Variable";
@@ -38,38 +32,12 @@ html {
     src: url("fonts/Segoe-UI-Variable-Static-Small-Light.ttf");
 }
 
-.splash {
-    
 
 
-    font-size: 100%;
-    font-family: "Segoe-UI-Variable", sans-serif;
-    color: #FAFAFA;
-    text-align: center;
-    
-
-}
-
-.no-wrap {
-
-    text-align: right;
-    transition: color 2s;
-}
 
 
-.menu-text {
-    font-size: 200%;
-    margin-bottom:20px;
-}
 
-.splash-text {
-    display: flex;
-    justify-content: center;
-    
-    align-items: center;
-    
-    
-}
+
 
 .intro-text {
     padding-top: 250px;
@@ -84,14 +52,135 @@ html {
     display: block;
 }
 
-
+/*this is complete container (content)*/
 .menu-text-div {
-    padding: 20px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    position:absolute;
+    font-size: 200%;
+
+
+    top:10%;
+    left:35%;
+    height:150px;
+
+
+    
+
+    font-family: "Segoe-UI-Variable", sans-serif;
+    color: #FAFAFA;
+    font-size: 200%;
+    line-height:00px;
+
 
 }
+
+/*this contains list*/
+.list-crop{
+    
+
+    height:90px;
+    overflow:hidden;
+    padding-left: 440px;
+    position:absolute;
+
+
+}
+
+
+/*this is list containing items (list)*/
+.word-container-list{
+
+
+    text-align: left;
+
+    position:relative;
+    
+
+    -webkit-animation-name: change;
+    -webkit-animation-duration: 7s;
+    -webkit-animation-iteration-count: infinite;
+    animation-name: change;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+
+
+    margin-top: 0;
+
+    text-align: left;
+    list-style: none;
+
+}
+
+
+
+
+/*this is original unchanged text (text)*/
+.splash {
+
+    font-family: "Segoe-UI-Variable", sans-serif;
+    color: #FAFAFA;
+
+    text-align: right;
+    transition: color 2s;
+    font-size: 200%;
+    margin-top:80px;
+    margin-bottom:-45px;
+    
+    
+
+}
+
+
+/*this is individual (item)*/
+.word{
+    line-height:90px;
+    margin-left: -30px;
+    font-size:200%;
+    
+}
+
+
+@keyframes change{
+    0%, 12.66%, 100% {transform:translate3d(0,0%,0);}
+    0%, 12.66%, 100% {color:orange;}
+
+    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
+    16.66%, 29.32% {color:green;}
+
+    33.32%,45.98% {transform:translate3d(0,-50%,0);}
+    33.32%,45.98% {color:yellow;}
+
+    49.98%,62.64% {transform:translate3d(0,-75%,0);}
+    49.98%,62.64% {color:lightblue;}
+
+    66.64%,79.3% {transform:translate3d(0,-50%,0);}
+    66.64%,79.3% {color:yellow;}
+
+    83.3%,95.96% {transform:translate3d(0,-25%,0);}
+    83.3%,95.96% {color:green;}
+}
+
+@-webkit-keyframes change{
+    0%, 12.66%, 100% {transform:translate3d(0,0%,0);}
+    0%, 12.66%, 100% {color:orange;}
+
+    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
+    16.66%, 29.32% {color:green;}
+
+    33.32%,45.98% {transform:translate3d(0,-50%,0);}
+    33.32%,45.98% {color:yellow;}
+
+    49.98%,62.64% {transform:translate3d(0,-75%,0);}
+    49.98%,62.64% {color:lightblue;}
+
+    66.64%,79.3% {transform:translate3d(0,-50%,0);}
+    66.64%,79.3% {color:yellow;}
+
+    83.3%,95.96% {transform:translate3d(0,-25%,0);}
+    83.3%,95.96% {color:green;}
+
+}
+
 
 .list-text {
     font-family: "Segoe-UI-Variable", sans-serif;
@@ -102,6 +191,7 @@ html {
 }
 
 .portfolio {
+    padding-top:5rem;
     justify-content: center;
     align-items: center;
     padding-right: 10em;
