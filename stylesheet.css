@@ -60,7 +60,7 @@ html {
 
 
     top:10%;
-    left:35%;
+    left:32%;
     height:150px;
 
 
@@ -82,7 +82,7 @@ html {
     overflow:hidden;
     padding-left: 440px;
     position:absolute;
-
+    
 
 }
 
@@ -127,11 +127,26 @@ html {
     margin-top:80px;
     margin-bottom:-45px;
 
-    
+    animation: showText 1s;
+    -webkit-animation: showText 1s;
 
 }
 
 
+@keyframes showText{
+    0% {opacity: 0%;}
+    0% {transform: translate3d(0, 100px, 0);}
+    100% {transform: translate3d(0, 0, 0);}
+    80% {opacity: 50%;}
+    100% {opacity: 100%;}
+}
+@-webkit-keyframes showText{
+    0% {opacity: 0%;}
+    0% {transform: translate3d(0, 100px, 0);}
+    100% {transform: translate3d(0, 0, 0);}
+    80% {opacity: 50%;}
+    100% {opacity: 100%;}
+}
 
 /*this is individual (item)*/
 .word{
@@ -144,6 +159,8 @@ html {
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
+    animation: showText 1s;
+    -webkit-animation: showText 1s;
     
 }
 
@@ -342,12 +359,15 @@ div.portfolio{
 
     width: 100%;
     height:5em;
+    
     background: #1D1D1D;
 
 
-    margin-top: -20px;
+
+    margin-top: 0px;
     margin-left: 100px;
     position: fixed;
+
     
 }
 
