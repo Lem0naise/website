@@ -137,14 +137,14 @@ html {
     0% {opacity: 0%;}
     0% {transform: translate3d(0, 100px, 0);}
     100% {transform: translate3d(0, 0, 0);}
-    80% {opacity: 50%;}
+
     100% {opacity: 100%;}
 }
 @-webkit-keyframes showText{
     0% {opacity: 0%;}
     0% {transform: translate3d(0, 100px, 0);}
     100% {transform: translate3d(0, 0, 0);}
-    80% {opacity: 50%;}
+
     100% {opacity: 100%;}
 }
 
