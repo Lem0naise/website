@@ -296,7 +296,7 @@ div.portfolio{
     
     font-family: "Button", sans-serif;
     color: #FAFAFA;
-    background-color: transparent;
+
     outline: none;
 
     padding-right:15px;
@@ -306,8 +306,21 @@ div.portfolio{
     white-space:normal;
     text-decoration: none;
 
+
 }
 
+
+@keyframes shine{
+    0% {background-position: 0;}
+    50% {background-position: 100px;}
+    100% {background-position: 200px;}
+}
+
+@-webkit-keyframes shine{
+    0% {background-position: 0;}
+    50% {background-position: 100px;}
+    100% {background-position: 200px;}
+}
 
 .separator {
     margin-top: 20px;
