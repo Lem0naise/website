@@ -97,13 +97,13 @@ html {
     
 
     -webkit-animation-name: change;
-    -webkit-animation-duration: 7s;
+    -webkit-animation-duration: 9;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-delay: 2s;
+    -webkit-animation-delay: 1s;
     animation-name: change;
-    animation-delay:2s;
+    animation-delay:1s;
 
-    animation-duration: 7s;
+    animation-duration: 9;
     animation-iteration-count: infinite;
 
 
@@ -273,10 +273,16 @@ html {
 }
 
 .portfolio {
+
+    position:absolute;
+
+    width:100%;
     padding-top:5rem;
     justify-content: center;
     align-items: center;
     padding-right: 10em;
+    
+    
 
 
 }

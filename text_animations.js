@@ -1,8 +1,3 @@
-document.onload = onEntry()
-
-async function onEntry(){
-
-}
 
 
 function waitForMs(ms) {
