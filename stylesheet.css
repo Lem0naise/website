@@ -148,8 +148,8 @@ html {
 	-webkit-animation: slidein_text 2ss;
 	animation-fill-mode: forwards;
 	-webkit-animation-fill-mode: forwards;
-	-webkit-animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-	animation-timing-function:  cubic-bezier(0.075, 0.82, 0.165, 1);
+	-webkit-animation-timing-function: cubic-bezier(0.4, 0.82, 0.55, 1);
+	animation-timing-function:  cubic-bezier(0.4, 0.82, 0.55, 1);
 
 
 }
@@ -229,11 +229,11 @@ html {
 
 
 @keyframes slidein_text {
-	0% { transform: translateX(-100%) }
+	0% { transform: translateX(-150%) }
 	100% { transform: translateX(0%);}
 }
 @-webkit-keyframes slidein_text {
-	0% { transform: translateX(-100%);}
+	0% { transform: translateX(-150%);}
 	100% { transform: translateX(0%);}
 }
 
