@@ -1,35 +1,44 @@
 body {
-    background-color: #1D1D1D;
-    
-    
+	background-color: #1D1D1D;
+	
+	
 }   
 
 html {
 
-    scroll-behavior: smooth;
 
-    /*scroll-snap-type: mandatory;*/
-    /*scroll-snap-points-y: repeat(300px);
-    scroll-snap-type: y mandatory;
-    scroll-behavior: smooth;*/
+	-webkit-touch-callout: none; 
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	user-select: none; 
+
+
+	scroll-behavior: smooth;
+
+	/*scroll-snap-type: mandatory;*/
+	/*scroll-snap-points-y: repeat(300px);
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;*/
 }
 
 .main-seperation { 
-    height: 40em;
+	height: 40em;
 
 }
 
 
 
 @font-face {
-    font-family: "Segoe-UI-Variable";
-    src: url("fonts/Segoe-UI-Variable-Static-Small-Semibold.ttf");
+	font-family: "Segoe-UI-Variable";
+	src: url("fonts/Segoe-UI-Variable-Static-Small-Semibold.ttf");
 
 }
 
 @font-face {
-    font-family: "Button";
-    src: url("fonts/Segoe-UI-Variable-Static-Small-Light.ttf");
+	font-family: "Button";
+	src: url("fonts/Segoe-UI-Variable-Static-Small-Light.ttf");
 }
 
 
@@ -40,49 +49,49 @@ html {
 
 
 .intro-text {
-    padding-top: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+	padding-top: 250px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 }
 
 .item {
-    text-decoration: none;
-    display: block;
+	text-decoration: none;
+	display: block;
 }
 
 /*this is complete container (content)*/
 .menu-text-div {
 
-    position:absolute;
-    font-size: 200%;
+	position:absolute;
+	font-size: 200%;
 
 
-    top:10%;
-    left:32%;
-    height:150px;
+	top:10%;
+	left:32%;
+	height:150px;
 
 
-    
+	
 
-    font-family: "Segoe-UI-Variable", sans-serif;
-    color: #FAFAFA;
-    font-size: 200%;
-    line-height:00px;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	color: #FAFAFA;
+	font-size: 200%;
+	line-height:00px;
 
 
 }
 
 /*this contains list*/
 .list-crop{
-    
+	
 
-    height:90px;
-    overflow:hidden;
-    padding-left: 440px;
-    position:absolute;
-    
+	height:90px;
+	overflow:hidden;
+	padding-left: 440px;
+	position:absolute;
+	
 
 }
 
@@ -91,29 +100,29 @@ html {
 .word-container-list{
 
 
-    text-align: left;
+	text-align: left;
 
-    position:relative;
-    
+	position:relative;
+	
 
-    -webkit-animation-name: change;
-    -webkit-animation-duration: 9s;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-delay: 1s;
-    animation-name: change;
-    animation-delay:1s;
+	-webkit-animation-name: change;
+	-webkit-animation-duration: 9s;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-delay: 1s;
+	animation-name: change;
+	animation-delay:1s;
 
-    animation-duration: 9s;
-    animation-iteration-count: infinite;
-
-
-    margin-top: 0;
-
-    text-align: left;
-    list-style: none;
+	animation-duration: 9s;
+	animation-iteration-count: infinite;
 
 
-    color: orange;
+	margin-top: 0;
+
+	text-align: left;
+	list-style: none;
+
+
+	color: orange;
 }
 
 
@@ -122,97 +131,97 @@ html {
 /*this is original unchanged text (text)*/
 .splash {
 
-    font-family: "Segoe-UI-Variable", sans-serif;
-    color: #FAFAFA;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	color: #FAFAFA;
 
-    text-align: right;
-    transition: color 2s;
-    font-size: 200%;
-    margin-top:80px;
-    margin-bottom:-45px;
+	text-align: right;
+	transition: color 2s;
+	font-size: 200%;
+	margin-top:80px;
+	margin-bottom:-45px;
 
-    
+	
 
 
 
-    animation: slidein_text 2s;
-    -webkit-animation: slidein_text 2ss;
-    animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    animation-timing-function:  cubic-bezier(0.075, 0.82, 0.165, 1);
+	animation: slidein_text 2s;
+	-webkit-animation: slidein_text 2ss;
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
+	-webkit-animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+	animation-timing-function:  cubic-bezier(0.075, 0.82, 0.165, 1);
 
 
 }
 
 .whiteline-v{
 
-    margin-top: 55px;
-    border-left:5px solid white;
-    height: 60px;
-    position:absolute;
-    animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-    -webkit-animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-    animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;;
+	margin-top: 55px;
+	border-left:5px solid white;
+	height: 60px;
+	position:absolute;
+	animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+	-webkit-animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+	animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;;
 }
 
 @keyframes line-move{
-    0% {
-        transform: translateX(0);
-    }
-    100% {transform: translateX(-20px);}
+	0% {
+		transform: translateX(0);
+	}
+	100% {transform: translateX(-20px);}
 }
 @-webkit-keyframes line-move{
-    0% {
-        transform: translateX(0);
-    }
-    100% {transform: translateX(-20px);}
+	0% {
+		transform: translateX(0);
+	}
+	100% {transform: translateX(-20px);}
 }
 
 .whiteline-h{
-    position:absolute;
-    border-bottom: 5px solid white;
-    width: 200px;
-    height: 5px;
-    margin-left: 450px;
-    margin-top: 82px;
+	position:absolute;
+	border-bottom: 5px solid white;
+	width: 200px;
+	height: 5px;
+	margin-left: 450px;
+	margin-top: 82px;
 
 
-    animation: fade 1s 2s;
-    animation-fill-mode: forwards;
-    -webkit-animation: fade 1s 2s;
+	animation: fade 1s 2s;
+	animation-fill-mode: forwards;
+	-webkit-animation: fade 1s 2s;
 
-    -webkit-animation-fill-mode: forwards;
+	-webkit-animation-fill-mode: forwards;
 
 }
 
 @keyframes fade{
-    0% {
-        opacity: 100%;
-    }
-    100% {
-        opacity: 0%;
-    }
+	0% {
+		opacity: 100%;
+	}
+	100% {
+		opacity: 0%;
+	}
 }
 
 @-webkit-keyframes fade{
-    0% {
-        opacity: 100%;
-    }
-    100% {
-        opacity: 0%;
-    }
+	0% {
+		opacity: 100%;
+	}
+	100% {
+		opacity: 0%;
+	}
 }
 
 /*last of type div*/
 .splash-reveal{
 
-    height:160px;
-    margin-bottom:-125px;   
-    overflow:hidden;
+	height:160px;
+	margin-bottom:-125px;   
+	overflow:hidden;
 
-    width:100%;
+	width:100%;
 
 
   
@@ -220,12 +229,12 @@ html {
 
 
 @keyframes slidein_text {
-    0% { transform: translateX(-100%) }
-    100% { transform: translateX(0%);}
+	0% { transform: translateX(-100%) }
+	100% { transform: translateX(0%);}
 }
 @-webkit-keyframes slidein_text {
-    0% { transform: translateX(-100%);}
-    100% { transform: translateX(0%);}
+	0% { transform: translateX(-100%);}
+	100% { transform: translateX(0%);}
 }
 
 
@@ -237,98 +246,93 @@ html {
 
 
 @keyframes showText{
-    0% {opacity: 0%;}
-    0% {transform: translate3d(0, 100px, 0);}
-    100% {transform: translate3d(0, 0, 0);}
+	0% {opacity: 0%;}
+	0% {transform: translate3d(0, 100px, 0);}
+	100% {transform: translate3d(0, 0, 0);}
 
-    100% {opacity: 100%;}
+	100% {opacity: 100%;}
 }
 @-webkit-keyframes showText{
-    0% {opacity: 0%;}
-    0% {transform: translate3d(0, 100px, 0);}
-    100% {transform: translate3d(0, 0, 0);}
+	0% {opacity: 0%;}
+	0% {transform: translate3d(0, 100px, 0);}
+	100% {transform: translate3d(0, 0, 0);}
 
-    100% {opacity: 100%;}
+	100% {opacity: 100%;}
 }
 
 /*this is individual (item)*/
 .word{
-    line-height:90px;
-    margin-left: -30px;
-    font-size:200%;
+	line-height:90px;
+	margin-left: -30px;
+	font-size:200%;
 
-    user-select: none; /* supported by Chrome and Opera */
-    -webkit-user-select: none; /* Safari */
-    -khtml-user-select: none; /* Konqueror HTML */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    animation: showText 2s;
-    -webkit-animation: showText 2s;
-    
+	animation: showText 2s;
+	-webkit-animation: showText 2s;
+	
 }
 
 
 @keyframes change{
-    0%, 12.66%, 100% {transform:translate3d(0,0%,0);}
-    0%, 12.66%, 100% {color:orange;}
+	0%, 12.66%, 100% {transform:translate3d(0,0%,0);}
+	0%, 12.66%, 100% {color:orange;}
 
-    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-    16.66%, 29.32% {color:green;}
+	16.66%, 29.32% {transform:translate3d(0,-25%,0);}
+	16.66%, 29.32% {color:green;}
 
-    33.32%,45.98% {transform:translate3d(0,-50%,0);}
-    33.32%,45.98% {color:yellow;}
+	33.32%,45.98% {transform:translate3d(0,-50%,0);}
+	33.32%,45.98% {color:yellow;}
 
-    49.98%,62.64% {transform:translate3d(0,-75%,0);}
-    49.98%,62.64% {color:lightblue;}
+	49.98%,62.64% {transform:translate3d(0,-75%,0);}
+	49.98%,62.64% {color:lightblue;}
 
-    66.64%,79.3% {transform:translate3d(0,-50%,0);}
-    66.64%,79.3% {color:yellow;}
+	66.64%,79.3% {transform:translate3d(0,-50%,0);}
+	66.64%,79.3% {color:yellow;}
 
-    83.3%,95.96% {transform:translate3d(0,-25%,0);}
-    83.3%,95.96% {color:green;}
+	83.3%,95.96% {transform:translate3d(0,-25%,0);}
+	83.3%,95.96% {color:green;}
 }
 
 @-webkit-keyframes change{
-    0%, 12.66%, 100% {transform:translate3d(0,0%,0);}
-    0%, 12.66%, 100% {color:orange;}
+	0%, 12.66%, 100% {transform:translate3d(0,0%,0);}
+	0%, 12.66%, 100% {color:orange;}
 
-    16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-    16.66%, 29.32% {color:green;}
+	16.66%, 29.32% {transform:translate3d(0,-25%,0);}
+	16.66%, 29.32% {color:green;}
 
-    33.32%,45.98% {transform:translate3d(0,-50%,0);}
-    33.32%,45.98% {color:yellow;}
+	33.32%,45.98% {transform:translate3d(0,-50%,0);}
+	33.32%,45.98% {color:yellow;}
 
-    49.98%,62.64% {transform:translate3d(0,-75%,0);}
-    49.98%,62.64% {color:lightblue;}
+	49.98%,62.64% {transform:translate3d(0,-75%,0);}
+	49.98%,62.64% {color:lightblue;}
 
-    66.64%,79.3% {transform:translate3d(0,-50%,0);}
-    66.64%,79.3% {color:yellow;}
+	66.64%,79.3% {transform:translate3d(0,-50%,0);}
+	66.64%,79.3% {color:yellow;}
 
-    83.3%,95.96% {transform:translate3d(0,-25%,0);}
-    83.3%,95.96% {color:green;}
+	83.3%,95.96% {transform:translate3d(0,-25%,0);}
+	83.3%,95.96% {color:green;}
 
 }
 
 
 .list-text {
-    font-family: "Segoe-UI-Variable", sans-serif;
-    font-size: 160%;
-    color: #FAFAFA;
-    text-decoration: none;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	font-size: 160%;
+	color: #FAFAFA;
+	text-decoration: none;
 
 }
 
 .portfolio {
 
-    position:absolute;
+	position:absolute;
 
-    width:100%;
-    padding-top:5rem;
-    justify-content: center;
-    align-items: center;
-    padding-right: 10em;
-    
-    
+	width:100%;
+	padding-top:5rem;
+	justify-content: center;
+	align-items: center;
+	padding-right: 10em;
+	
+	
 
 
 }
@@ -336,203 +340,225 @@ html {
 
 
 div.portfolio{
-    opacity: 0%;
-    -webkit-animation-name: reveal;
-    -webkit-animation-duration: 2s;
-    -webkit-animation-delay: 1s;
-    -webkit-animation-iteration-count: 1;
-    
-    animation-name: reveal;
-    animation-duration: 2s;
-    animation-delay: 1s;
-    animation-iteration-count: 1;
+	opacity: 0%;
+	-webkit-animation-name: reveal;
+	-webkit-animation-duration: 2s;
+	-webkit-animation-delay: 1s;
+	-webkit-animation-iteration-count: 1;
+	
+	animation-name: reveal;
+	animation-duration: 2s;
+	animation-delay: 1s;
+	animation-iteration-count: 1;
 
-    animation-fill-mode:forwards;
-    -webkit-animation-fill-mode: forwards;
+	animation-fill-mode:forwards;
+	-webkit-animation-fill-mode: forwards;
 }
 
 
 
 @keyframes reveal{
-    100% {opacity: 100%;}
+	100% {opacity: 100%;}
 }
 
 @-webkit-keyframes reveal{
-    100% {opacity: 100%;}
+	100% {opacity: 100%;}
 }
 
 
 
 .list-item {
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    margin-left: 30%;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	margin-left: 30%;
 }
 
 .list-desc {
-    font-family: "Segoe-UI-Variable", sans-serif;
-    font-size: 130%;
-    color: #FAFAFA;
-    text-align:center;
-    text-decoration: none;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	font-size: 130%;
+	color: #FAFAFA;
+	text-align:center;
+	text-decoration: none;
 }
 
 .language {
-    padding-left:10px;
-    font-family: "Segoe-UI-Variable", sans-serif;
-    font-size: 120%;
-    text-decoration: none;
-    
+	padding-left:10px;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	font-size: 120%;
+	text-decoration: none;
+	
 }
 
 
 .input-cursor {
-    
-    /*margin-top: 5px; try again later 
-    depending on if it looks too tall*/
+	
+	/*margin-top: 5px; try again later 
+	depending on if it looks too tall*/
 
-    display: inline-block;
-    max-width: 100%;
-    height: 65px;
-    width: 3px;
+	display: inline-block;
+	max-width: 100%;
+	height: 65px;
+	width: 3px;
 
-    background-color: white;
-    margin-left: 8px;
-    
+	background-color: white;
+	margin-left: 8px;
+	
 
-    animation: blink .4s linear infinite alternate;
+	animation: blink .4s linear infinite alternate;
 }
 
 @keyframes blink {
-    0% {opacity: 1;}
-    40% {opacity: 1;}
-    60% {opacity: 0;}
-    100% {opacity: 0;}
+	0% {opacity: 1;}
+	40% {opacity: 1;}
+	60% {opacity: 0;}
+	100% {opacity: 0;}
 
 }
 
 .end-seperation {
-    height: 50em;
+	height: 50em;
 }
 .menu-button {
-    margin-top:20px;
-    font-size: 150%;
-    max-block-size:100%;
-    size: 50px;
-    border:none;
-    
-    font-family: "Button", sans-serif;
-    color: #FAFAFA;
+	margin-top:20px;
+	font-size: 150%;
+	max-block-size:100%;
+	size: 50px;
+	border:none;
+	
+	font-family: "Button", sans-serif;
+	color: #FAFAFA;
 
-    outline: none;
+	outline: none;
 
-    padding-right:15px;
-    padding-left:15px;
+	padding-right:15px;
+	padding-left:15px;
 
-    overflow:hidden;
-    white-space:normal;
-    text-decoration: none;
+	overflow:hidden;
+	white-space:normal;
+	text-decoration: none;
 
+	position:relative;
+	top:0;
+	transition: opacity .3s, top .3s;
+	-webkit-transition: opacity .3s, top .3s;
 
-}
-
-
-@keyframes shine{
-    0% {background-position: 0;}
-    50% {background-position: 100px;}
-    100% {background-position: 200px;}
-}
-
-@-webkit-keyframes shine{
-    0% {background-position: 0;}
-    50% {background-position: 100px;}
-    100% {background-position: 200px;}
 }
 
 .separator {
-    margin-top: 20px;
-}
-
-
-@keyframes button-hover {
-    0% {filter:opacity(1)}
-    100% {filter:opacity(0.6)}
-    
+	margin-top: 20px;
 }
 
 .menu-button:hover {
-    animation: button-hover 0.2s linear forwards;
+	opacity: 50%;
+	top: 5%;
 }
 
+@keyframes menu-button-on-intro{
+
+}
+@-webkit-keyframes menu-button-on-intro{
+
+}
 
 .buttons {
 
-    width: 100%;
-    height:5em;
-    
-    background: #1D1D1D;
+	width: 100vw;
+
+	height:5em;
+	
+	background: #1D1D1D;
+	background-color: #1D1D1D;
 
 
 
-    margin-top: 0px;
-    margin-left: 100px;
-    position: fixed;
+	margin-top: 0px;
+	margin-left: 100px;
+	position: fixed;
 
-    
+	
 }
 
-@media only screen and (max-device-width: 600px) {
-
-    .splash {
-        font-size:400%;
-        word-wrap: break-word;
-    }
-
-    .menu-button {
-        font-size: 250%;
-    }
-    /*Portfolio items*/
-    .list-desc {
-        font-size: 80%;
-    }
 
 
-    .list-item {
-        margin-left: 10%;
-        
-    }
+@keyframes intro {
+	100% {
+		width: 100%;
+	}
+	0%{
 
-    .list-text {
-        font-size: 160%;
-    }
-    .language { 
-        font-size: 100%;
-    }
+		width: 10%;
+	}
+	
+}
 
-    /*Main Items*/
+@-webkit-keyframes intro{
+	100% {
+		width: 100%;
+	}
+	0%{
 
-    .no-wrap {
-        font-size: 350%;
-    }
-    .main-seperation {
-        height: 100em;
-    }
+		width: 0;
+	}
+	
+}
+@media only screen and (max-device-width: 1000px) {
 
-    .buttons {
-        position: relative;
-        margin-left: 40px;
-    }
-    
+	.whiteline-v{
+		margin-left:0;
+		filter: blur(50px);
 
-    .end-seperation {
-        height: 300em;
-    }
+	}
+	.splash {
+		font-size:200%;
+		word-wrap: break-word;
+	}
+
+	.menu-button {
+		font-size: 250%;
+	}
+	/*Portfolio items*/
+	.list-desc {
+		font-size: 80%;
+	}
+
+
+	.list-item {
+		margin-left: 10%;
+		
+	}
+
+	.list-text {
+		font-size: 160%;
+	}
+	.language { 
+		font-size: 100%;
+	}
+
+	/*Main Items*/
+
+	.no-wrap {
+		font-size: 350%;
+	}
+	.main-seperation {
+		height: 100em;
+	}
+
+	.buttons {
+		position: relative;
+		margin-left: 40px;
+	}
+	
+
+	.end-seperation {
+		height: 300em;
+	}
 }
 
 
 
 .rps {
 
-    margin-left: 10em;
+	margin-left: 10em;
 }
+
