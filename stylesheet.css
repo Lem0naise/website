@@ -130,19 +130,44 @@ html {
     font-size: 200%;
     margin-top:80px;
     margin-bottom:-45px;
+
     
+
+
+
     animation: slidein_text 2s;
     -webkit-animation: slidein_text 2ss;
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
+    -webkit-animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    animation-timing-function:  cubic-bezier(0.075, 0.82, 0.165, 1);
+
+
 }
 
 .whiteline-v{
-    margin-left: -20px;
+
     margin-top: 55px;
     border-left:5px solid white;
     height: 60px;
     position:absolute;
+    animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;;
+}
+
+@keyframes line-move{
+    0% {
+        transform: translateX(0);
+    }
+    100% {transform: translateX(-20px);}
+}
+@-webkit-keyframes line-move{
+    0% {
+        transform: translateX(0);
+    }
+    100% {transform: translateX(-20px);}
 }
 
 .whiteline-h{
@@ -157,7 +182,9 @@ html {
     animation: fade 1s 2s;
     animation-fill-mode: forwards;
     -webkit-animation: fade 1s 2s;
+
     -webkit-animation-fill-mode: forwards;
+
 }
 
 @keyframes fade{
@@ -181,50 +208,29 @@ html {
 /*last of type div*/
 .splash-reveal{
 
-
-    
     height:160px;
-    margin-bottom:-125px;
+    margin-bottom:-125px;   
     overflow:hidden;
 
     width:100%;
 
-    /*
-    width: 0;
-    animation: reveal_div 3s;
-    -webkit-animation: reveal_div 3s;
-    animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;
-    */
 
+  
 }
 
 
 @keyframes slidein_text {
     0% { transform: translateX(-100%) }
-    100% { transform: translateX(0);}
+    100% { transform: translateX(0%);}
 }
 @-webkit-keyframes slidein_text {
-    0% { transform: translateX(-100%) }
-    100% { transform: translateX(0);}
+    0% { transform: translateX(-100%);}
+    100% { transform: translateX(0%);}
 }
 
 
 
 
-@keyframes reveal_div {
-    0% {width:0px;}
-    30% {width:100%;}
-    100% {width:100%;}
-}
-
-
-
-@-webkit-keyframes reveal_div {
-    0% {width:0px;}
-    30% {width:100%;}
-    100% {width:100%;}
-}
 
 
 
