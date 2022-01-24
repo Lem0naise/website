@@ -130,12 +130,52 @@ html {
     font-size: 200%;
     margin-top:80px;
     margin-bottom:-45px;
-
-
+    
     animation: slidein_text 2s;
     -webkit-animation: slidein_text 2ss;
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
+}
+
+.whiteline-v{
+    margin-left: -20px;
+    margin-top: 55px;
+    border-left:5px solid white;
+    height: 60px;
+    position:absolute;
+}
+
+.whiteline-h{
+    position:absolute;
+    border-bottom: 5px solid white;
+    width: 200px;
+    height: 5px;
+    margin-left: 450px;
+    margin-top: 82px;
+
+
+    animation: fade 1s 2s;
+    animation-fill-mode: forwards;
+    -webkit-animation: fade 1s 2s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+@keyframes fade{
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+@-webkit-keyframes fade{
+    0% {
+        opacity: 100%;
+    }
+    100% {
+        opacity: 0%;
+    }
 }
 
 /*last of type div*/
