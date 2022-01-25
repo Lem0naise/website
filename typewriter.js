@@ -51,6 +51,7 @@ async function onEntry() {
 async function home() {
 
     if (isSafari){
+    
         uss.scrollIntoView(document.getElementById('home'));
         
     }
