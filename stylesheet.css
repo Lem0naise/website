@@ -1,8 +1,47 @@
 body {
 	background-color: #1D1D1D;
-	
-	
+		
 }   
+
+.trapezium{
+	
+	pointer-events:none;
+	position:fixed;
+	top: -200px;
+	left: -230vw;	
+	height: 200vh;
+	width: 500vw;
+
+	background: linear-gradient(110deg, 
+        rgba(0,0,0,0) calc(55% - 1px), 
+        rgba(220, 220,220,1) calc(55%), 
+        rgba(220,220,220,1) calc(55% + 1px)
+    );
+
+	animation: trapezium-intro 1.5s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
+	-webkit-animation: trapezium-intro 1.5s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
+	transition: left .3s ease;
+
+}
+
+.trapezium:hover{
+	transform: translateX(-25%);
+}
+
+
+
+@keyframes trapezium-intro{
+	0% {transform: translateX(200%);}
+	100% {transform: translateX(0);}
+
+}
+@-webkit-keyframes trapezium-intro{
+	0% {transform: translateX(200%);}
+	100% {transform: translateX(0);}
+}
+
+
+
 
 html {
 
@@ -28,6 +67,9 @@ html {
 
 }
 
+.background-canvas{
+
+}
 
 
 @font-face {
@@ -64,21 +106,22 @@ html {
 /*this is complete container (content)*/
 .menu-text-div {
 
-	position:absolute;
+
+	position:fixed;
 	font-size: 200%;
 
 
 	top:10%;
-	left:32%;
+
+	left:12vw;
 	height:150px;
 
-
-	
 
 	font-family: "Segoe-UI-Variable", sans-serif;
 	color: #FAFAFA;
 	font-size: 200%;
 	line-height:00px;
+
 
 
 }
@@ -330,7 +373,10 @@ html {
 	padding-top:5rem;
 	justify-content: center;
 	align-items: center;
-	padding-right: 10em;
+	padding-right: 10em; 
+
+
+	left: -19vw; 
 	
 	
 
@@ -420,6 +466,9 @@ div.portfolio{
 	height: 50em;
 }
 .menu-button {
+	
+	z-index: 4;
+
 	margin-top:20px;
 	font-size: 150%;
 	max-block-size:100%;
@@ -440,10 +489,11 @@ div.portfolio{
 
 	position:relative;
 	top:0;
-	transition: opacity .3s, top .3s;
-	-webkit-transition: opacity .3s, top .3s;
+	transition: opacity .3s, top .3s, color .3s;
+	-webkit-transition: opacity .3s, top .3s, color .3s;
 
-}
+
+}	
 
 .separator {
 	margin-top: 20px;
@@ -463,12 +513,14 @@ div.portfolio{
 
 .buttons {
 
-	width: 100vw;
+	z-index: 1;
+
+	width: fit-content;
 
 	height:5em;
 	
-	background: #1D1D1D;
-	background-color: #1D1D1D;
+
+	
 
 
 
@@ -476,6 +528,8 @@ div.portfolio{
 	margin-left: 100px;
 	position: fixed;
 
+	transition: background 2s;
+	-webkit-transition: background 2s;
 	
 }
 
