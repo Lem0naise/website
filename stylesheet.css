@@ -8,36 +8,34 @@ body {
 	pointer-events:none;
 	position:fixed;
 	top: -200px;
-	left: -230vw;	
-	height: 200vh;
-	width: 500vw;
 
-	background: linear-gradient(110deg, 
-        rgba(0,0,0,0) calc(55% - 1px), 
+	height: 150%;
+	width: 100%;
+
+	background: linear-gradient(70deg, 
+		rgba(220,220,220,1) calc(55% - 1px), 
         rgba(220, 220,220,1) calc(55%), 
-        rgba(220,220,220,1) calc(55% + 1px)
+		rgba(0, 0, 0, 0)calc(55% + 1px)
     );
 
 	animation: trapezium-intro 1.5s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
 	-webkit-animation: trapezium-intro 1.5s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
-	transition: left .3s ease;
+	transition: left .6s ease;
 
 }
 
-.trapezium:hover{
-	transform: translateX(-25%);
-}
+
 
 
 
 @keyframes trapezium-intro{
-	0% {transform: translateX(200%);}
-	100% {transform: translateX(0);}
+	0% {left: -100vw;}
+	100% {left: 0;}
 
 }
 @-webkit-keyframes trapezium-intro{
-	0% {transform: translateX(200%);}
-	100% {transform: translateX(0);}
+	0% {left: -100vw;}
+	100% {left: 0;}
 }
 
 
@@ -80,6 +78,7 @@ html {
 
 @font-face {
 	font-family: "Button";
+	color: #1D1D1D;
 	src: url("fonts/Segoe-UI-Variable-Static-Small-Light.ttf");
 }
 
@@ -105,6 +104,11 @@ html {
 
 /*this is complete container (content)*/
 .menu-text-div {
+
+
+	/*just for now*/
+	opacity: 0;
+
 
 
 	z-index: 0;
@@ -198,16 +202,34 @@ html {
 
 }
 
+
+.splash-pg2{
+	
+	opacity: 100;
+
+	z-index: 2;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	color: #1D1D1D;
+
+	position: fixed;
+	text-align: left;
+	transition: color 2s, opacity .4s;
+	font-size: 10vw;
+	margin-top:20px;
+	margin-bottom:-45px;		
+
+
+}
+
 .whiteline-v{
 
 	margin-top: 55px;
 	border-left:5px solid white;
 	height: 60px;
 	position:absolute;
-	animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-	-webkit-animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1);
-	animation-fill-mode: forwards;
-	-webkit-animation-fill-mode: forwards;;
+	animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+	-webkit-animation: line-move 2s 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+
 }
 
 @keyframes line-move{
@@ -254,7 +276,6 @@ html {
 		opacity: 100%;
 	}
 	100% {
-		opacity: 0%;
 	}
 }
 
@@ -381,9 +402,6 @@ html {
 
 
 	left: -19vw; 
-	
-	
-
 
 }
 
@@ -391,6 +409,12 @@ html {
 
 div.portfolio{
 	opacity: 0%;
+
+
+	/*
+	just commented for now
+
+	
 	-webkit-animation-name: reveal;
 	-webkit-animation-duration: 2s;
 	-webkit-animation-delay: 1s;
@@ -403,6 +427,7 @@ div.portfolio{
 
 	animation-fill-mode:forwards;
 	-webkit-animation-fill-mode: forwards;
+	*/
 }
 
 
@@ -469,8 +494,12 @@ div.portfolio{
 .end-seperation {
 	height: 50em;
 }
-.menu-button {
-	
+.menu-button, .menu-button:visited, .menu-button:active {
+
+	color:#1D1D1D;
+
+
+
 	z-index: 4;
 
 	margin-top:20px;
@@ -479,8 +508,11 @@ div.portfolio{
 	size: 50px;
 	border:none;
 	
+	text-decoration: none;
+
 	font-family: "Button", sans-serif;
-	color: #FAFAFA;
+
+	
 
 	outline: none;
 
@@ -489,15 +521,15 @@ div.portfolio{
 
 	overflow:hidden;
 	white-space:normal;
-	text-decoration: none;
+
 
 	position:relative;
 	top:0;
 	transition: opacity .3s, top .3s, color .3s;
 	-webkit-transition: opacity .3s, top .3s, color .3s;
 
-
 }	
+
 
 .separator {
 	margin-top: 20px;
@@ -523,9 +555,6 @@ div.portfolio{
 
 	height:5em;
 	
-
-	
-
 
 
 	margin-top: 0px;
