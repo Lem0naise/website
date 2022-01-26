@@ -585,6 +585,7 @@ div.portfolio{
 
 .buttons {
 
+	background:none;
 	z-index: 1;
 
 	width: fit-content;
