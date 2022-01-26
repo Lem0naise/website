@@ -367,6 +367,8 @@ html {
 
 .portfolio {
 
+	opacity: 0;
+	
 	position:absolute;
 
 	width:100%;
