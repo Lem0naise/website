@@ -7,20 +7,20 @@ body {
 	
 	pointer-events:none;
 	position:fixed;
-	top: -200px;
+	top: -50%;
 
 	height: 150%;
 	width: 100%;
 
 	background: linear-gradient(70deg, 
-		rgba(220,220,220,1) calc(55% - 1px), 
-        rgba(220, 220,220,1) calc(55%), 
-		rgba(0, 0, 0, 0)calc(55% + 1px)
+		rgba(220,220,220,1) calc(50% - 1px), 
+        rgba(220, 220,220,1) calc(50%), 
+		rgba(0, 0, 0, 0)calc(50% + 1px)
     );
 
-	animation: trapezium-intro 1.5s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
-	-webkit-animation: trapezium-intro 1.5s forwards cubic-bezier(0.075, 0.82, 0.165, 1);
-	transition: left .6s ease;
+	animation: trapezium-intro 1.5s forwards cubic-bezier(0.45, 0.82, 0.165, 1);
+	-webkit-animation: trapezium-intro 1.5s forwards cubic-bezier(0.45, 0.82, 0.165, 1);
+	transition: margin-left 1s ease;
 
 }
 
@@ -107,7 +107,8 @@ html {
 
 
 	/*just for now*/
-	opacity: 0;
+
+	transition: opacity .3s, left .5s ease;
 
 
 
@@ -118,7 +119,7 @@ html {
 
 	top:10%;
 
-	left:12vw;
+	left:-50%;
 	height:150px;
 
 
@@ -214,11 +215,43 @@ html {
 	position: fixed;
 	text-align: left;
 	transition: color 2s, opacity .4s;
-	font-size: 10vw;
-	margin-top:20px;
-	margin-bottom:-45px;		
+	font-size: calc(10vw - 20px);
+	bottom: 40vh;
+	
 
+}
 
+.splash-undertext{
+	
+	opacity: 100;
+
+	z-index: 2;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	color: #1D1D1D;
+
+	position: fixed;
+	text-align: left;
+	transition: opacity .4s, left 1s;
+	font-size: calc(1vw);
+
+	left: -20vw;
+	bottom: 4vh;
+
+}
+
+.splash-undertext-animation{
+	animation: scrollhint 1s 3s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
+	-webkit-animation: scrollhint 1s 3s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
+	transition: opacity .4s, left 1s;
+}
+
+@keyframes scrollhint {
+	0% {left: -20vw;}
+	100% {left: 5vw;}
+}
+@-webkit-keyframes scrollhint{
+	0% {left: -20vw;}
+	100% {left: 5vw;}
 }
 
 .whiteline-v{
@@ -254,6 +287,7 @@ html {
 	margin-top: 82px;
 
 
+
 	animation: fade 1s 2s;
 	animation-fill-mode: forwards;
 	-webkit-animation: fade 1s 2s;
@@ -276,6 +310,7 @@ html {
 		opacity: 100%;
 	}
 	100% {
+		opacity: 0;
 	}
 }
 
@@ -500,6 +535,7 @@ div.portfolio{
 
 
 
+
 	z-index: 4;
 
 	margin-top:20px;
@@ -557,7 +593,7 @@ div.portfolio{
 	
 
 
-	margin-top: 0px;
+	margin-top: 0;
 	margin-left: 100px;
 	position: fixed;
 
