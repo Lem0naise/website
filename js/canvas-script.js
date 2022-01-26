@@ -30,6 +30,7 @@ function trapezium(e){
         trapez.style.marginLeft = "0";
 
         welcome_undertext.style.opacity = 100;
+        welcome_undertext.style.left = "-20vw";
         welcome_undertext.classList.add("splash-undertext-animation");
 
 
