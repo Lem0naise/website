@@ -1,7 +1,10 @@
+//must make the buttons div have no background for some reason cache not clearing
+//also make the portfolio like actuall stuff appear
+
 function trapezium(e){
 
     var trapez = document.getElementById("trapezium");
-    var buttons = document.getElementsByClassName("menu-button");
+    var buttons = document.getElementsByClassName("menu-button"); //list of buttons not actual buttons div
     var main_div = document.getElementsByClassName("menu-text-div")[0];
     //welcome text (text page 2 initially)
     var welcome_undertext = document.getElementsByClassName("splash-undertext")[0];
@@ -43,5 +46,6 @@ function trapezium(e){
 }
 
 
-
 window.addEventListener('wheel', trapezium);
+window.addEventListener('mousewheel', trapezium);
+window.onscroll = trapezium;
