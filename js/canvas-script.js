@@ -13,11 +13,13 @@ function trapezium(e){
     //alert(e.deltaY);
     if (e.deltaY>0 ){
         
-        //going down
-        trapez.style.marginLeft = "-100vw";
-        main_div.style.left = "12vw";
+        //going down (intro)
 
+        trapez.style.marginLeft = "-100vw";  //moves white trapez
+        main_div.style.left = "12vw"; //intro portfolio
 
+        
+        welcome_undertext.style.transition = "opacity .4s, left 1s"
         welcome_undertext.classList.remove("splash-undertext-animation");
         welcome_undertext.style.left = "5vw";
         welcome_undertext.style.opacity = 0;
@@ -26,22 +28,26 @@ function trapezium(e){
         for (let i=0; i < buttons.length; i++) {
             buttons[i].style.color = "#DCDCDC";
         }
+
     }
     else if (e.deltaY <0){
 
-        //going up
-        trapez.style.marginLeft = "0";
+        //going up (outro)
+        trapez.style.marginLeft = "0"; //puts white trapez back where it belongs
 
-        welcome_undertext.style.opacity = 100;
-        welcome_undertext.style.left = "-20vw";
-        welcome_undertext.classList.add("splash-undertext-animation");
+        welcome_undertext.style.opacity = 100; //fades in scrolltext
+        welcome_undertext.style.transition = "none";
+        welcome_undertext.style.left = "-20vw"; //but moves to left 
+
+        welcome_undertext.classList.add("splash-undertext-animation"); //restarts animation
 
 
-        main_div.style.left = "-50%";
+        main_div.style.left = "-50%"; //outro portfolio title
 
         for (let i=0; i < buttons.length; i++) {
             buttons[i].style.color = "#1D1D1D";  
         }
+        
     }
 }
 
