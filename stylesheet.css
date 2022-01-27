@@ -119,7 +119,7 @@ html {
 
 	top:10%;
 
-	left:-50%;
+	left:-100%;
 	height:150px;
 
 
@@ -233,25 +233,27 @@ html {
 	position: fixed;
 	text-align: left;
 	transition: opacity .4s, left 1s;
-	font-size: calc(1vw);
+	font-size: calc(2vw - 4px);
 
-	left: -20vw;
-	bottom: 4vh;
+	left: -50vw;
+
+	top: calc(700px - 10em);
+
 
 }
 
 .splash-undertext-animation{
-	animation: scrollhint 1s 5s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
-	-webkit-animation: scrollhint 1s 5s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
+	animation: scrollhint 1s 3s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
+	-webkit-animation: scrollhint 1s 3s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
 	transition: opacity .4s, left 1s;
 }
 
 @keyframes scrollhint {
-	0% {left: -20vw;}
+	0% {left: -50vw;}
 	100% {left: 5vw;}
 }
 @-webkit-keyframes scrollhint{
-	0% {left: -20vw;}
+	0% {left: -50vw;}
 	100% {left: 5vw;}
 }
 

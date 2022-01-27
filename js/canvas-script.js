@@ -33,16 +33,18 @@ function trapezium(e){
     else if (e.deltaY <0){
 
         //going up (outro)
+
         trapez.style.marginLeft = "0"; //puts white trapez back where it belongs
+        main_div.style.left = "-100%"; //outro portfolio title
+
 
         welcome_undertext.style.opacity = 100; //fades in scrolltext
         welcome_undertext.style.transition = "none";
-        welcome_undertext.style.left = "-20vw"; //but moves to left 
-
+        welcome_undertext.style.left = "-50vw"; //but moves to left 
         welcome_undertext.classList.add("splash-undertext-animation"); //restarts animation
 
 
-        main_div.style.left = "-50%"; //outro portfolio title
+
 
         for (let i=0; i < buttons.length; i++) {
             buttons[i].style.color = "#1D1D1D";  
