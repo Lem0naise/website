@@ -124,7 +124,7 @@ html {
 
 
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #FAFAFA;
+	color: #DCDCDC;
 	font-size: 200%;
 	line-height:00px;
 
@@ -181,7 +181,7 @@ html {
 .splash {
 
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #FAFAFA;
+	color: #DCDCDC;
 
 	text-align: right;
 	transition: color 2s;
@@ -420,14 +420,14 @@ html {
 .list-text {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	font-size: 160%;
-	color: #FAFAFA;
+	color: #DCDCDC;
 	text-decoration: none;
 
 }
 
 .portfolio {
 
-	z-index: 0;
+	z-index: 10;
 
 
 	position:absolute;
@@ -438,15 +438,19 @@ html {
 	align-items: center;
 	padding-right: 10em; 
 
+	
+	left: -100vw; 
 
-	left: -19vw; 
+	transition: opacity .3s, left .5s .5s;
+
+	
 
 }
 
 
 
 div.portfolio{
-	opacity: 0%;
+
 
 
 	/*
@@ -490,7 +494,7 @@ div.portfolio{
 .list-desc {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	font-size: 130%;
-	color: #FAFAFA;
+	color: #DCDCDC;
 	text-align:center;
 	text-decoration: none;
 }
