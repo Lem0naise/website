@@ -190,9 +190,7 @@ html {
 	margin-bottom:-45px;
 
 	
-
-
-
+	
 	animation: slidein_text 2s;
 	-webkit-animation: slidein_text 2ss;
 	animation-fill-mode: forwards;
