@@ -1,0 +1,75 @@
+@font-face {
+	font-family: "Segoe-UI-Variable";
+	src: url("fonts/Segoe-UI-Variable-Static-Small-Semibold.ttf");
+
+}
+
+body {
+    background-color: #1D1D1D;
+
+}
+
+.circle {
+    height: 0;
+    width: 0;
+    background-color: #DCDCDC;
+
+
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    border-radius: 50%;
+    display: inline-block;
+
+    animation: circle 2s 0.2s forwards;
+    box-shadow: inset  0 0 60px 60px #212121;
+
+}
+
+
+
+.circle_text{
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    font-family: "Segoe-UI-Variable", sans-serif;
+    color: #1D1D1D;
+
+}
+
+@keyframes circle{
+    0% {
+        left: 0px;
+        width: 0px;
+        height: 0px;
+        top: 0px;
+    }
+    30%{
+        left: 40%;
+        top: 20%;
+        width: 22vw;
+        height: 22vw;
+    }
+    50% {
+        left: 10%;
+        top: 60%;
+        width: 50vw;
+        height: 50vw;
+    }
+    80% {
+        left: 90%;
+        top: 20%;
+        width: 50vw;
+        height: 50vw;
+    }
+    100% {
+        width: 40vw;
+        height: 40vw;
+    }
+}
+
+
