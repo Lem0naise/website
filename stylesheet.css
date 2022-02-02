@@ -68,7 +68,12 @@ html {
 
 @font-face {
 	font-family: "Segoe-UI-Variable";
-	src: url("fonts/Segoe-UI-Variable-Static-Small-Semibold.ttf");
+
+	src: url("fonts/Segoe-UI-Variable-Static-Small-Bold.ttf");
+
+	/*
+	src: url("fonts/Segoe-UI-Variable-Static-Small-Bold.ttf");
+	*/
 
 }
 
@@ -221,35 +226,86 @@ html {
 	
 	position: absolute;
 	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -40%);
+	right: 50%;
+
 	
 	
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #1D1D1D;
+	color: #DCDCDC;
 	font-size: 100px;
-	
-	animation: border_inset 3s 0.1s forwards;
-	border: 0 inset #DCDCDC;
-	height: 0px;
 	overflow: hidden;
-	background-color: #DCDCDC;
 
+	animation: name_intro 3s forwards;
 	
 }
-@keyframes border_inset {
-	50% {
-		height: 150px;
-		border-width: 20px;
-		top: 50%;
+
+.splash_surname{
+
+	position: absolute;
+	top: 40%;
+	left: 50%;
+
+	
+	
+	font-family: "Segoe-UI-Variable", sans-serif;
+	color: #DCDCDC;
+	font-size: 100px;
+	overflow:hidden;
+
+
+	animation: surname_intro 3s forwards;
+
+
+
+
+}
+
+@keyframes name_intro {
+	0% {
+		top: 70%;
+		opacity: 0;
+		width: 60px;
+	}
+	30%{
+		top: 40%;
+		opacity: 1;
+		width: 60px;
 	}
 	70% {
-
-		top: 50%;
+		top: 40%;
+		opacity: 1;
+		width: 200px;
 	}
 	100% {
-		top: 100%;
+		opacity: 0;
+		top: 70%;
+		width: 200px;
 	}
+
+}
+
+@keyframes surname_intro {
+	0% {
+		top: 70%;
+		opacity: 0;
+		width: 80px;
+	}
+	30%{
+		top: 40%;
+		opacity: 1;
+		width: 80px;
+	}
+	70% {
+		top: 40%;
+		opacity: 1;
+		width: 600px;
+	}
+	100% {
+		opacity: 0;
+		top: 70%;
+
+	}
+
 }
 
 
