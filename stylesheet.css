@@ -19,7 +19,7 @@ body {
 		rgba(0, 0, 0, 0)calc(50% + 1px)
     );
 
-	animation: trapezium-intro 1.5s 1s forwards cubic-bezier(0.45, 0.82, 0.165, 1);
+	animation: trapezium-intro 1.5s 2.5s forwards cubic-bezier(0.45, 0.82, 0.165, 1);
 	transition: margin-left 1s ease;
 
 }
@@ -215,11 +215,42 @@ html {
 
 }
 
+
+
+.splash_name {
+	
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -40%);
+	
+	
+	font-family: "Segoe-UI-Variable", sans-serif;
+	color: #DCDCDC;
+	font-size: 100px;
+	
+	animation: border_inset 3s 0.1s forwards;
+	border: 0 inset #DCDCDC;
+	height: 0px;
+	overflow: hidden;
+
+	
+}
 @keyframes border_inset {
-	100% {
+	50% {
+		height: 150px;
 		border-width: 20px;
+		top: 50%;
+	}
+	70% {
+
+		top: 50%;
+	}
+	100% {
+		top: 100%;
 	}
 }
+
 
 .splash-undertext{
 	
