@@ -49,7 +49,7 @@ body {
 
     width: 0%;
     overflow: hidden;
-    animation: text_intro 1s 1.5s steps(3) forwards;
+    animation: text_intro 1s 1.5s forwards;
 
 }
 

@@ -10,6 +10,7 @@ body {
 	top: -50%;
 
 	height: 150%;
+	left: -100vw;
 	width: 100%;
 
 	background: linear-gradient(70deg, 
@@ -18,8 +19,7 @@ body {
 		rgba(0, 0, 0, 0)calc(50% + 1px)
     );
 
-	animation: trapezium-intro 1.5s forwards cubic-bezier(0.45, 0.82, 0.165, 1);
-	-webkit-animation: trapezium-intro 1.5s forwards cubic-bezier(0.45, 0.82, 0.165, 1);
+	animation: trapezium-intro 1.5s 1s forwards cubic-bezier(0.45, 0.82, 0.165, 1);
 	transition: margin-left 1s ease;
 
 }
@@ -32,10 +32,6 @@ body {
 	0% {left: -100vw;}
 	100% {left: 0;}
 
-}
-@-webkit-keyframes trapezium-intro{
-	0% {left: -100vw;}
-	100% {left: 0;}
 }
 
 
@@ -216,8 +212,13 @@ html {
 	color: #1D1D1D;
 	font-size: calc(10vw - 20px);
 	bottom: 40vh;
-	
 
+}
+
+@keyframes border_inset {
+	100% {
+		border-width: 20px;
+	}
 }
 
 .splash-undertext{
@@ -236,7 +237,7 @@ html {
 	left: -50vw;
 
 	top: calc(700px - 10em);
-
+	
 
 }
 
@@ -424,6 +425,8 @@ html {
 }
 
 .portfolio {
+
+
 
 	z-index: 10;
 
