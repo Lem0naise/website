@@ -226,13 +226,14 @@ html {
 	
 	
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #DCDCDC;
+	color: #1D1D1D;
 	font-size: 100px;
 	
 	animation: border_inset 3s 0.1s forwards;
 	border: 0 inset #DCDCDC;
 	height: 0px;
 	overflow: hidden;
+	background-color: #DCDCDC;
 
 	
 }
