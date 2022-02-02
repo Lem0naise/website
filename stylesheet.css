@@ -80,14 +80,8 @@ html {
 @font-face {
 	font-family: "Button";
 	color: #1D1D1D;
-	src: url("fonts/Segoe-UI-Variable-Static-Small-Light.ttf");
+	src: url("fonts/Segoe-UI-Variable-Static-Small-SemiBold.ttf");
 }
-
-
-
-
-
-
 
 
 .intro-text {
