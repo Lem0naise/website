@@ -55,8 +55,6 @@ function trapezium(e){
         welcome_undertext.classList.add("splash-undertext-animation"); //restarts animation
 
 
-
-
         for (let i=0; i < buttons.length; i++) {
             buttons[i].style.color = "#1D1D1D";  
         }
