@@ -292,7 +292,7 @@ html {
 	70% {
 		top: 40%;
 		opacity: 1;
-		width: 600px;
+		width: 300px;
 	}
 	100% {
 		opacity: 0;
