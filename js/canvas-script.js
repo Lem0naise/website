@@ -68,4 +68,4 @@ function trapezium(e){
 window.addEventListener('wheel', trapezium);
 window.addEventListener('mousewheel', trapezium);
 window.addEventListener('scroll', trapezium);
-window.onscroll = trapezium();
+window.onscroll = trapezium;
