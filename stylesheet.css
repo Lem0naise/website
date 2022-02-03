@@ -244,6 +244,7 @@ html {
 	top: 40%;
 	left: 50%;
 
+
 	
 	
 	font-family: "Segoe-UI-Variable", sans-serif;
@@ -274,11 +275,13 @@ html {
 		top: 40%;
 		opacity: 1;
 		width: 200px;
+		right: 50%;
+		font-size: 100px;
 	}
 	100% {
-		opacity: 0;
-		top: 70%;
+		top: 0%;
 		width: 200px;
+		opacity: 0;
 	}
 }
 
@@ -298,10 +301,15 @@ html {
 		top: 40%;
 		opacity: 1;
 		width: 300px;
+		left: 50%;
+		font-size: 100px;
+
 	}
-	100% {
+	100% {				
+		top: 0%;
+		width: 300px;
+
 		opacity: 0;
-		top: 70%;
 
 	}
 
@@ -328,8 +336,7 @@ html {
 }
 
 .splash-undertext-animation{
-	animation: scrollhint 1s 3s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
-	-webkit-animation: scrollhint 1s 3s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
+	animation: scrollhint 1s 4s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
 	transition: opacity .4s, left 1s;
 }
 
@@ -526,7 +533,7 @@ html {
 	padding-right: 10em; 
 
 	
-	left: -100vw; 
+	left: -200vw; 
 
 	transition: opacity .3s, left .5s .5s;
 
