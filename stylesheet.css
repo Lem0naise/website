@@ -39,6 +39,8 @@ body {
 
 html {
 
+	margin:0;
+
 
 	-webkit-touch-callout: none; 
 	-webkit-user-select: none;
@@ -216,12 +218,11 @@ html {
 }
 
 
-
 .splash_name {
 	
 
 	z-index: 10;
-	
+
 	position: absolute;
 	top: 50%;
 	right: 50%;
