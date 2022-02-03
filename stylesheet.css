@@ -587,14 +587,14 @@ div.portfolio{
 	text-decoration: none;
 	margin-left: 30%;
 
-	transition: opacity 0.5s, margin-top 0.2s;
-	margin-top: 0px;
+	transition: opacity 0.5s, margin-left 0.2s;
+	margin-left: 30%;
 	width: fit-content;
 }
 
 .list-item:hover{
 	opacity: 50%;
-	margin-top: 10px;
+	margin-left: 31%;
 
 }
 
