@@ -206,17 +206,21 @@ html {
 	color: #1D1D1D;
 
 	position: fixed;
+
 	text-align: left;
 	transition: color 2s, opacity .4s;
 	color: #1D1D1D;
 	font-size: calc(10vw - 20px);
-	bottom: 40vh;
+	bottom: 15vw;
 
 }
 
 
 
 .splash_name {
+	
+
+	z-index: 10;
 	
 	position: absolute;
 	top: 50%;
@@ -275,8 +279,8 @@ html {
 		top: 70%;
 		width: 200px;
 	}
-
 }
+
 
 @keyframes surname_intro {
 	0% {
@@ -318,8 +322,7 @@ html {
 
 	left: -50vw;
 
-	top: calc(700px - 10em);
-	
+	bottom: calc(15vw + 10px);
 
 }
 
