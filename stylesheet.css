@@ -97,7 +97,10 @@ html {
 .item {
 	text-decoration: none;
 	display: block;
+
 }
+
+
 
 /*this is complete container (content)*/
 .menu-text-div {
@@ -583,6 +586,16 @@ div.portfolio{
 	align-items: center;
 	text-decoration: none;
 	margin-left: 30%;
+
+	transition: opacity 0.5s, margin-top 0.2s;
+	margin-top: 0px;
+	width: fit-content;
+}
+
+.list-item:hover{
+	opacity: 50%;
+	margin-top: 10px;
+
 }
 
 .list-desc {

@@ -63,8 +63,15 @@ function trapezium(e){
 }
 
 
-window.addEventListener('wheel', trapezium);
-window.addEventListener('mousewheel', trapezium);
-window.addEventListener('scroll', trapezium);
-window.addEventListener('touchmove', trapezium);
-window.onscroll = trapezium;
+function addTrapezium() {
+    window.addEventListener('wheel', trapezium);
+    window.addEventListener('mousewheel', trapezium);
+    window.addEventListener('scroll', trapezium);
+    window.addEventListener('touchmove', trapezium);
+    window.addEventListener('touchstart', trapezium);
+    window.onscroll = trapezium;   
+}
+
+
+//waits 2 secs and then enables trapezium
+setTimeout(addTrapezium, 2000);
