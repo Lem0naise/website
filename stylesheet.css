@@ -741,6 +741,7 @@ div.portfolio{
 }
 @media only screen and (max-device-width: 1000px) {
 
+
 	.whiteline-v{
 		margin-left:0;
 		filter: blur(50px);
@@ -753,23 +754,20 @@ div.portfolio{
 
 	.menu-button {
 		font-size: 250%;
+		color:#DCDCDC;
 	}
+
+	
 	/*Portfolio items*/
 	.list-desc {
-		font-size: 80%;
-	}
-
-
-	.list-item {
-		margin-left: 10%;
-		
+		font-size: 100%;
 	}
 
 	.list-text {
-		font-size: 160%;
+		font-size: 180%;
 	}
 	.language { 
-		font-size: 100%;
+		font-size: 120%;
 	}
 
 	/*Main Items*/
@@ -777,15 +775,17 @@ div.portfolio{
 	.no-wrap {
 		font-size: 350%;
 	}
+
 	.main-seperation {
 		height: 100em;
 	}
 
 	.buttons {
 		position: relative;
-		margin-left: 40px;
+		margin-left: 50vw;
 	}
-	
+
+
 
 	.end-seperation {
 		height: 300em;

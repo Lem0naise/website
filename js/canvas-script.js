@@ -97,9 +97,9 @@ function trapezium(e){
             welcome_undertext.style.opacity = 0;
 
 
-            for (let i=0; i < buttons.length; i++) {
-                buttons[i].style.color = "#DCDCDC";
-            }
+            //dont change button colour if mobile
+
+
         }
 
 
@@ -122,9 +122,7 @@ function trapezium(e){
             welcome_undertext.classList.add("splash-undertext-animation"); //restarts animation
     
     
-            for (let i=0; i < buttons.length; i++) {
-                buttons[i].style.color = "#1D1D1D";  
-            }
+
                     
         }
 
