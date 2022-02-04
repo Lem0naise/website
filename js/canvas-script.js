@@ -127,7 +127,7 @@ function addTrapezium() {
 
     window.addEventListener('mousewheel', trapezium);
 
-    window.addEventListener('touchstart', mobile_trapez);
+    window.addEventListener('touchend', mobile_trapez);
   
 }
 
