@@ -747,8 +747,14 @@ div.portfolio{
 	}
 	.splash {
 		margin-left: 0x;
-		font-size:250%;
+		font-size:230%;
 		word-wrap: break-word;
+		visibility: hidden;
+	}
+	.splash:before{
+		visibility: visible;
+		position: absolute;
+		content: "My Projects: ";
 	}
 
 	.splash-pg2 {
@@ -763,7 +769,8 @@ div.portfolio{
 		color:#DCDCDC;
 	}
 	.word {
-		margin-left: 10px;
+		margin-left: 0px;
+		font-size: 230%;
 		
 	}
 
