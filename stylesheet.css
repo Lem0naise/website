@@ -536,36 +536,11 @@ html {
 	
 	left: -200vw; 
 
-	transition: opacity .3s, left .5s .5s;
-
-	
+	transition: opacity .3s, left .5s;
 
 }
 
 
-
-div.portfolio{
-
-
-
-	/*
-	just commented for now
-
-	
-	-webkit-animation-name: reveal;
-	-webkit-animation-duration: 2s;
-	-webkit-animation-delay: 1s;
-	-webkit-animation-iteration-count: 1;
-	
-	animation-name: reveal;
-	animation-duration: 2s;
-	animation-delay: 1s;
-	animation-iteration-count: 1;
-
-	animation-fill-mode:forwards;
-	-webkit-animation-fill-mode: forwards;
-	*/
-}
 
 
 

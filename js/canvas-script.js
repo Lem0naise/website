@@ -27,7 +27,7 @@ function trapezium(e){
 
         //I AM CURRENTLY TRYING TO MAKE THE PORTFOLIO DIV COME IN IN THE RIGHT TIME
 
-        portfolio_div.style.transition = "opacity .3s, left .5s .5s";
+        portfolio_div.style.transition = "opacity .3s, left .5s";
         main_div.style.transition = "opacity .3s, left .5s ease"; //makes delay so the text comes in last
 
         
