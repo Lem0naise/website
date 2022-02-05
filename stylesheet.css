@@ -645,9 +645,6 @@ div.portfolio{
 
 	color:#1D1D1D;
 
-
-
-
 	z-index: 4;
 
 	margin-top:20px;
@@ -688,12 +685,7 @@ div.portfolio{
 	top: 5%;
 }
 
-@keyframes menu-button-on-intro{
 
-}
-@-webkit-keyframes menu-button-on-intro{
-
-}
 
 .buttons {
 
@@ -764,10 +756,11 @@ div.portfolio{
 	.splash-undertext{
 		font-size: calc(4vw - 4px);
 	}
-	.menu-button {
+	.menu-button, .menu-button:active, .menu-button:visited {
 		font-size: 250%;
 		color:#DCDCDC;
 	}
+	
 	.word {
 		margin-left: 0px;
 		font-size: 230%;
