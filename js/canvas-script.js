@@ -72,6 +72,7 @@ function trapezium(e){
         
 
         var scrolldirection = e.changedTouches[0].screenY;
+        //sets current scrolldirection to a value depending on where the touch ended
 
         if (scrolldirection < old_scrolldirection) {
 
@@ -126,27 +127,36 @@ function trapezium(e){
                     
         }
 
-        old_scrolldirection = scrolldirection;
     }
 
 
 }
 
-function mobile_trapez(e) {
+function mobile_trapez_start(e) {
 
-    console.log(e);
-    trapezium(e);
+
+    //starts of with the start point in the scroll
+    old_scrolldirection = e.changedTouches[0].screenY;
+
 }
 
+function mobile_trapez_end(e){
+
+
+    //now calls the trapezium function with the new value
+    trapezium(e);
+
+}
 
 function addTrapezium() {
 
     window.addEventListener('mousewheel', trapezium);
 
-    window.addEventListener('touchend', mobile_trapez);
+    window.addEventListener('touchstart', mobile_trapez_start)
+    window.addEventListener('touchend', mobile_trapez_end);
   
 }
 
 
 //waits 2 secs and then enables trapezium
-setTimeout(addTrapezium, 2000);
+setTimeout(addTrapezium, 1000);

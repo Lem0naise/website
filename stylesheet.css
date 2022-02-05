@@ -188,7 +188,6 @@ html {
 	font-size: 200%;
 	margin-top:80px;
 	margin-bottom:-45px;
-
 	
 	
 	animation: slidein_text 2s;
@@ -197,7 +196,6 @@ html {
 	-webkit-animation-fill-mode: forwards;
 	-webkit-animation-timing-function: cubic-bezier(0.4, 0.82, 0.55, 1);
 	animation-timing-function:  cubic-bezier(0.4, 0.82, 0.55, 1);
-
 
 }
 
@@ -530,7 +528,7 @@ html {
 	position:absolute;
 	
 	width:100%;
-	padding-top:5rem;
+	margin-top:5rem;
 	justify-content: center;
 	align-items: center;
 	padding-right: 10em; 
@@ -748,26 +746,44 @@ div.portfolio{
 
 	}
 	.splash {
-		font-size:200%;
+		margin-left: 0x;
+		font-size:250%;
 		word-wrap: break-word;
 	}
 
+	.splash-pg2 {
+		font-size: 15vw;
+		bottom: 20vw;
+	}
+	.splash-undertext{
+		font-size: calc(4vw - 4px);
+	}
 	.menu-button {
 		font-size: 250%;
 		color:#DCDCDC;
 	}
+	.word {
+		margin-left: 10px;
+		
+	}
 
 	
 	/*Portfolio items*/
-	.list-desc {
-		font-size: 100%;
+
+
+	.portfolio {
+		margin-bottom: 10vw;
+	}
+	.list-text {
+		font-size: 250%;
 	}
 
-	.list-text {
+	.list-desc {
 		font-size: 180%;
 	}
+
 	.language { 
-		font-size: 120%;
+		font-size: 150%;
 	}
 
 	/*Main Items*/
