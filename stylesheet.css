@@ -459,7 +459,7 @@ html {
 /*this is individual (item)*/
 .word{
 	line-height:90px;
-	margin-left: -30px;
+	margin-left: -15px;
 	font-size:200%;
 
 	animation: showText 2s;
