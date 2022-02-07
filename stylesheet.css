@@ -4,14 +4,24 @@ body {
 }   
 
 
+.rectangle {
+	width: 50vw;
+	background-color: #fefefe;
+	height: 100vh;
+	left: -50vw;
 
-@keyframes trapezium-intro{
-	0% {left: -100vw;}
-	100% {left: 0;}
+	position: absolute;
+	animation: rectangle-intro 1s 2.5s forwards;
+
+
 
 }
 
+@keyframes rectangle-intro{
+	0% {left: -50vw;}
+	100% {left: 0;}
 
+}
 
 
 html {
@@ -177,7 +187,7 @@ html {
 }
 
 
-.splash-pg2{
+.left-title{
 	
 	opacity: 100;
 
@@ -185,7 +195,7 @@ html {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	color: #1D1D1D;
 
-	position: fixed;
+	position: absolute;
 
 	text-align: left;
 	transition: color 2s, opacity .4s;
@@ -700,7 +710,7 @@ html {
 		content: "My Projects: ";
 	}
 
-	.splash-pg2 {
+	.left-title {
 		font-size: 15vw;
 		bottom: 20vw;
 	}
