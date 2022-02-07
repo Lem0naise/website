@@ -14,8 +14,8 @@ body {
 	width: 100%;
 
 	background: linear-gradient(70deg, 
-		rgba(220,220,220,1) calc(50% - 1px), 
-        rgba(220, 220,220,1) calc(50%), 
+		#fefefe calc(50% - 1px), 
+        #fefefe calc(50%), 
 		rgba(0, 0, 0, 0)calc(50% + 1px)
     );
 
@@ -124,7 +124,7 @@ html {
 
 
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #DCDCDC;
+	color: #fefefe;
 	font-size: 200%;
 	line-height:00px;
 
@@ -181,7 +181,7 @@ html {
 .splash {
 
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #DCDCDC;
+	color: #fefefe;
 
 	text-align: right;
 	transition: color 2s;
@@ -231,7 +231,7 @@ html {
 	
 	
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #DCDCDC;
+	color: #fefefe;
 	font-size: 100px;
 	overflow: hidden;
 
@@ -249,7 +249,7 @@ html {
 	
 	
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #DCDCDC;
+	color: #fefefe;
 	font-size: 100px;
 	overflow:hidden;
 
@@ -513,7 +513,7 @@ html {
 .list-text {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	font-size: 160%;
-	color: #DCDCDC;
+	color: #fefefe;
 	text-decoration: none;
 
 }
@@ -574,7 +574,7 @@ html {
 .list-desc {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	font-size: 130%;
-	color: #DCDCDC;
+	color: #fefefe;
 	text-align:center;
 	text-decoration: none;
 }
@@ -733,7 +733,7 @@ html {
 	}
 	.menu-button, .menu-button:active, .menu-button:visited {
 		font-size: 250%;
-		color:#DCDCDC;
+		color:#fefefe;
 	}
 	
 	.word {

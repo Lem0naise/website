@@ -39,7 +39,7 @@ function trapezium(e){
 
 
         for (let i=0; i < buttons.length; i++) {
-            buttons[i].style.color = "#DCDCDC";
+            buttons[i].style.color = "#fefefe";
         }
 
     }
