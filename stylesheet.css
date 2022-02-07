@@ -376,39 +376,38 @@ html {
 
 .whiteline-h{
 	position:absolute;
-	border-bottom: 5px solid white;
-	width: 200px;
-	height: 5px;
-	margin-left: 450px;
-	margin-top: 82px;
+	border-bottom: 20px solid white;
+	width: 0;
+	height: 20px;
+	margin-left: 52.45vw;
+	margin-top: 54vh;
+	z-index: 20;
 
-
-
-	animation: fade 1s 2s;
-	animation-fill-mode: forwards;
-	-webkit-animation: fade 1s 2s;
-
-	-webkit-animation-fill-mode: forwards;
+	transform: translate(-50%, -50%);
+	animation: stretch 2s 1s forwards;
 
 }
 
-@keyframes fade{
-	0% {
-		opacity: 100%;
-	}
-	100% {
-		opacity: 0%;
-	}
-}
 
-@-webkit-keyframes fade{
+@keyframes stretch{
 	0% {
-		opacity: 100%;
+		width: 0;
+	}
+	50% {
+		width: 30vw;
+		opacity: 1;
+		margin-top: 54vh;
+	}
+	60% {
+		width: 30vw;
 	}
 	100% {
 		opacity: 0;
+		width: 0;
 	}
 }
+
+
 
 /*last of type div*/
 .splash-reveal{
