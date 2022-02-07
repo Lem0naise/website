@@ -3,29 +3,6 @@ body {
 		
 }   
 
-.trapezium{
-	
-	pointer-events:none;
-	position:fixed;
-	top: -50%;
-
-	height: 150%;
-	left: -100vw;
-	width: 100%;
-
-	background: linear-gradient(70deg, 
-		#fefefe calc(50% - 1px), 
-        #fefefe calc(50%), 
-		rgba(0, 0, 0, 0)calc(50% + 1px)
-    );
-
-	animation: trapezium-intro 1.5s 2.5s forwards cubic-bezier(0.45, 0.82, 0.165, 1);
-	transition: margin-left 1s ease;
-
-}
-
-
-
 
 
 @keyframes trapezium-intro{
