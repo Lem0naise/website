@@ -10,7 +10,7 @@ body {
 	height: 100vh;
 	left: -50vw;
 
-	position: absolute;
+	position: fixed;
 	animation: rectangle-intro 1s 2.5s forwards;
 
 
@@ -88,9 +88,18 @@ html {
 }
 
 
+.list-text {
+	font-family: "Segoe-UI-Variable", sans-serif;
+	font-size: 160%;
+	color: #fefefe;
+	text-decoration: none;
+
+}
+
+
 
 /*this is complete container (content)*/
-.menu-text-div {
+.portfolio-title {
 
 
 	/*just for now*/
@@ -100,24 +109,44 @@ html {
 
 
 	z-index: 0;
-	position:fixed;
+	position:absolute;
 	font-size: 200%;
-
 
 	top:10%;
 
-	left:-100%;
 	height:150px;
 
 
 	font-family: "Segoe-UI-Variable", sans-serif;
 	color: #fefefe;
 	font-size: 200%;
-	line-height:00px;
-
 
 
 }
+
+
+.portfolio {
+
+	z-index: -2;
+
+	position:absolute;
+	
+	width:50vw;
+
+	justify-content: center;
+	align-items: center;
+
+
+	
+	top: 10vh;
+
+	left: 55vw;
+	transition: opacity .3s;
+	
+
+}
+
+
 
 /*this contains list*/
 .list-crop{
@@ -178,14 +207,15 @@ html {
 	
 	
 	animation: slidein_text 2s;
-	-webkit-animation: slidein_text 2ss;
 	animation-fill-mode: forwards;
-	-webkit-animation-fill-mode: forwards;
-	-webkit-animation-timing-function: cubic-bezier(0.4, 0.82, 0.55, 1);
 	animation-timing-function:  cubic-bezier(0.4, 0.82, 0.55, 1);
 
 }
 
+
+.left-div {
+	left: 5vw;
+}
 
 .left-title{
 	
@@ -199,12 +229,33 @@ html {
 
 	text-align: left;
 	transition: color 2s, opacity .4s;
-	color: #1D1D1D;
-	font-size: calc(10vw - 20px);
-	bottom: 15vw;
+
+
+	font-size: calc(8vw);
+	top: 20vh;
 
 }
 
+.biography {
+
+	position: absolute;
+
+	opacity: 100;
+
+	z-index: 3;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	color: #1D1D1D;
+	width: 45vw;
+
+	text-align: left;
+	transition: color 2s, opacity .4s;
+
+	font-size: 20px;
+	top: calc(20vh + 300px);
+
+
+
+}
 
 .splash_name {
 	
@@ -332,10 +383,7 @@ html {
 	0% {left: -50vw;}
 	100% {left: 5vw;}
 }
-@-webkit-keyframes scrollhint{
-	0% {left: -50vw;}
-	100% {left: 5vw;}
-}
+
 
 .whiteline-v{
 
@@ -354,13 +402,6 @@ html {
 	}
 	100% {transform: translateX(-20px);}
 }
-@-webkit-keyframes line-move{
-	0% {
-		transform: translateX(0);
-	}
-	100% {transform: translateX(-20px);}
-}
-
 .whiteline-h{
 	position:absolute;
 	border-bottom: 20px solid white;
@@ -414,13 +455,6 @@ html {
 	0% { transform: translateX(-150%) }
 	100% { transform: translateX(0%);}
 }
-@-webkit-keyframes slidein_text {
-	0% { transform: translateX(-150%);}
-	100% { transform: translateX(0%);}
-}
-
-
-
 
 
 
@@ -494,38 +528,6 @@ html {
 	83.3%,95.96% {color:green;}
 
 }
-
-
-.list-text {
-	font-family: "Segoe-UI-Variable", sans-serif;
-	font-size: 160%;
-	color: #fefefe;
-	text-decoration: none;
-
-}
-
-.portfolio {
-
-
-
-	z-index: 10;
-
-
-	position:absolute;
-	
-	width:100%;
-	margin-top:5rem;
-	justify-content: center;
-	align-items: center;
-	padding-right: 10em; 
-
-	
-	left: -200vw; 
-
-	transition: opacity .3s, left .5s;
-
-}
-
 
 
 
