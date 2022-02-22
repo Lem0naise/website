@@ -4,6 +4,66 @@ body {
 }   
 
 
+@font-face {
+	font-family: "Segoe-UI-Variable";
+
+	src: url("fonts/Segoe-UI-Variable-Static-Small-Bold.ttf");
+
+	/*
+	src: url("fonts/Segoe-UI-Variable-Static-Small-Bold.ttf");
+	*/
+
+}
+
+@font-face {
+	font-family: "Button";
+	color: #1D1D1D;
+	src: url("fonts/Segoe-UI-Variable-Static-Small-SemiBold.ttf");
+}
+
+
+
+
+html {
+
+	margin:0;
+
+
+	-webkit-touch-callout: none; 
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none; 
+	user-select: none; 
+
+
+	scroll-behavior: smooth;
+
+	/*scroll-snap-type: mandatory;*/
+	/*scroll-snap-points-y: repeat(300px);
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;*/
+}
+
+
+.buttons {
+
+	background:none;
+	z-index: 1;
+
+	width: fit-content;
+
+	height:5vh;
+	
+	margin-top: 0;
+	margin-left: 5vw;
+	position: fixed;
+
+	
+}
+
+
+
 .rectangle {
 	width: 50vw;
 
@@ -45,59 +105,29 @@ body {
 
 
 
-html {
 
-	margin:0;
+.portfolio {
 
+	z-index: -2;
 
-	-webkit-touch-callout: none; 
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none; 
-	user-select: none; 
+	position:absolute;
+	
+	width:50vw;
 
-
-	scroll-behavior: smooth;
-
-	/*scroll-snap-type: mandatory;*/
-	/*scroll-snap-points-y: repeat(300px);
-	scroll-snap-type: y mandatory;
-	scroll-behavior: smooth;*/
-}
-
-.main-seperation { 
-	height: 40em;
-
-}
-
-
-
-@font-face {
-	font-family: "Segoe-UI-Variable";
-
-	src: url("fonts/Segoe-UI-Variable-Static-Small-Bold.ttf");
-
-	/*
-	src: url("fonts/Segoe-UI-Variable-Static-Small-Bold.ttf");
-	*/
-
-}
-
-@font-face {
-	font-family: "Button";
-	color: #1D1D1D;
-	src: url("fonts/Segoe-UI-Variable-Static-Small-SemiBold.ttf");
-}
-
-
-.intro-text {
-	padding-top: 250px;
-	display: flex;
 	justify-content: center;
 	align-items: center;
+
+
 	
+	top: 10vh;
+
+	left: 40vw;
+	transition: opacity .3s;
+	
+
 }
+
+
 
 .item {
 	text-decoration: none;
@@ -144,26 +174,6 @@ html {
 }
 
 
-.portfolio {
-
-	z-index: -2;
-
-	position:absolute;
-	
-	width:50vw;
-
-	justify-content: center;
-	align-items: center;
-
-
-	
-	top: 10vh;
-
-	left: 55vw;
-	transition: opacity .3s;
-	
-
-}
 
 
 
@@ -608,15 +618,14 @@ html {
 
 	outline: none;
 
-	padding-right:15px;
-	padding-left:15px;
+	padding-right:30px;
 
 	overflow:hidden;
 	white-space:normal;
 
 
 	position:relative;
-	top:0;
+
 	transition: opacity .3s, top .3s, color .3s;
 	-webkit-transition: opacity .3s, top .3s, color .3s;
 
@@ -633,22 +642,3 @@ html {
 }
 
 
-
-.buttons {
-
-	background:none;
-	z-index: 1;
-
-	width: fit-content;
-
-	height:5em;
-	
-
-	
-	margin-top: 0;
-	margin-left: 100px;
-	position: fixed;
-
-
-	
-}
