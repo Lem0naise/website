@@ -64,18 +64,6 @@ html {
 
 
 
-.rectangle {
-	width: 50vw;
-
-	background-color: #fefefe;
-	height: 100vh;
-	left: -50vw;
-
-	position: absolute;
-	animation: rectangle-intro 1s 0.3s forwards ease-out;
-
-}
-
 
 @keyframes rectangle-intro{
 	0% {left: -50vw;}
@@ -88,6 +76,7 @@ html {
 	height: 100vh;
 	z-index: 100;
 
+	left: 5vw;
 	top: 20vh;
 
 	position: absolute;
@@ -97,31 +86,30 @@ html {
 .splash {
 
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #1d1d1d;
+	color: #8dd7ff;
 
 	font-size: 5vw;
+	left: 5vw;
+	margin-top: -1vh;
 
 }
 
+.bio{
 
+	font-family: "Segoe-UI-Variable", sans-serif;
+	color: #8dd7ff;
 
+	font-size: 1vw;
+	left: 5vw;
+
+}
 
 .portfolio {
 
 	z-index: -2;
-
-	position:absolute;
 	
-	width:50vw;
+	margin-top: 5vh;
 
-	justify-content: center;
-	align-items: center;
-
-
-	
-	top: 10vh;
-
-	left: 40vw;
 	transition: opacity .3s;
 	
 
@@ -145,6 +133,38 @@ html {
 }
 
 
+
+.list-item {
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	margin-left: 0%;
+
+	transition: opacity 0.5s, margin-left 0.2s;
+	width: fit-content;
+}
+
+.list-item:hover{
+	opacity: 50%;
+	margin-left: 1%;
+
+}
+
+.list-desc {
+	font-family: "Segoe-UI-Variable", sans-serif;
+	font-size: 130%;
+	color: #fefefe;
+	text-align:center;
+	text-decoration: none;
+}
+
+.language {
+	padding-left:10px;
+	font-family: "Segoe-UI-Variable", sans-serif;
+	font-size: 120%;
+	text-decoration: none;
+	
+}
 
 /*this is complete container (content)*/
 .portfolio-title {
@@ -536,38 +556,6 @@ html {
 
 
 
-.list-item {
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-	margin-left: 30%;
-
-	transition: opacity 0.5s, margin-left 0.2s;
-	margin-left: 30%;
-	width: fit-content;
-}
-
-.list-item:hover{
-	opacity: 50%;
-	margin-left: 31%;
-
-}
-
-.list-desc {
-	font-family: "Segoe-UI-Variable", sans-serif;
-	font-size: 130%;
-	color: #fefefe;
-	text-align:center;
-	text-decoration: none;
-}
-
-.language {
-	padding-left:10px;
-	font-family: "Segoe-UI-Variable", sans-serif;
-	font-size: 120%;
-	text-decoration: none;
-	
-}
 
 
 .input-cursor {
@@ -600,7 +588,7 @@ html {
 }
 .menu-button, .menu-button:visited, .menu-button:active {
 
-	color:#1D1D1D;
+	color:#DCDCDC;
 
 	z-index: 4;
 
