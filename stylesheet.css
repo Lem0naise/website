@@ -153,11 +153,10 @@ html {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	font-size: 110%;
 	color: #fefefe;
+	width: 30vw;
+	word-wrap:normal;
 
 	text-decoration: none;
-
-	display: inline;
-
 
 }
 
@@ -276,51 +275,6 @@ html {
 
 
 
-
-
-
-
-
-@keyframes reveal{
-	100% {opacity: 100%;}
-}
-
-@-webkit-keyframes reveal{
-	100% {opacity: 100%;}
-}
-
-
-
-
-
-.input-cursor {
-	
-	/*margin-top: 5px; try again later 
-	depending on if it looks too tall*/
-
-	display: inline-block;
-	max-width: 100%;
-	height: 65px;
-	width: 3px;
-
-	background-color: white;
-	margin-left: 8px;
-	
-
-	animation: blink .4s linear infinite alternate;
-}
-
-@keyframes blink {
-	0% {opacity: 1;}
-	40% {opacity: 1;}
-	60% {opacity: 0;}
-	100% {opacity: 0;}
-
-}
-
-.end-seperation {
-	height: 50em;
-}
 .menu-button, .menu-button:visited, .menu-button:active {
 
 	color:#DCDCDC;
