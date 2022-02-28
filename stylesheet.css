@@ -151,10 +151,26 @@ html {
 
 .list-desc {
 	font-family: "Segoe-UI-Variable", sans-serif;
-	font-size: 130%;
+	font-size: 110%;
 	color: #fefefe;
-	text-align:center;
+
 	text-decoration: none;
+
+	display: inline;
+
+
+}
+
+
+.no-format{
+
+	display: inline;
+
+	font-family: "Segoe-UI-Variable", sans-serif;
+	font-size: 110%;
+	color: #fefefe;
+	text-decoration: none;
+
 }
 
 .language {
@@ -163,6 +179,30 @@ html {
 	font-size: 120%;
 	text-decoration: none;
 	
+}
+
+.right_page {
+	width: 50vw;
+
+	left: 50vw;
+	height: 100vh;
+	position: relative;
+
+}
+
+.right_page img {
+	width: 40vw;
+	top: 20vh;
+	position: absolute;
+	opacity: 0;
+
+	transition: opacity .5s;
+
+	content:url(pics/wordle.png);
+}
+
+.right_page img:hover {
+	opacity: 1;
 }
 
 /*this is complete container (content)*/
@@ -600,9 +640,6 @@ html {
 	text-decoration: none;
 
 	font-family: "Button", sans-serif;
-
-	
-
 	outline: none;
 
 	padding-right:30px;
