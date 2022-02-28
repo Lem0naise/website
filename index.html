@@ -16,10 +16,9 @@
 		<meta name="google-site-verification" content="Mjwi8fp-GIfDM41jXFYDAS7nCmwb3fSguVAirwzQ6Yk" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Zac Nolan</title>
-		<script src = "typewriter.js"></script>
 		<link rel="stylesheet" href = "stylesheet.css">
 
-		<script src="js/script.js"></script>
+		<script src="js/jquery-3.6.0.min.js"></script>
 
 		<meta name="description" content="Zac Nolan - Portfolio containing work experience and contact details"/>
 		<meta name="keywords" content="Zac Nolan, Nolan, Portfolio"/>
@@ -37,10 +36,10 @@
 				A portfolio of my coding projects
 			</div>
 
-			<div class = "portfolio">
+			<div class = "portfolio" id = "portfolio">
 
 				<a class = "item" href = "index.html">
-					<div class = "list-item">
+					<div id = "website_a" class = "list-item">
 						<span class = "list-text">
 							This website
 						</span>
@@ -53,30 +52,28 @@
 						<span style = "color: green" class = "language">
 							CSS
 						</span>
-						<br>
+						<br/>
 
 					</div>  
 				</a>
 				
-				<br/>
 	
 				<a class = "item" href = "https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip">
-					<div class = "list-item">
+					<div id = "wordle" class = "list-item">
 						<span class = "list-text">
 							Wordle
 						</span>
-						<span style = "color: lightblue" class = "language">
+						<span style = "color: lightblue" class = "language">	
 							Python&nbsp;
 						</span>
 	
-						<br>
+						<br/>
 						<span class = "list-desc">
-							Python recreation of <a class="no-format" href="https://www.nytimes.com/games/wordle/index.html">Wordle</a>
+							Python recreation of Wordle
 						</span>
 					</div>  
 				</a>
 	
-				<br/>
 				
 	
 			</div>
@@ -95,14 +92,12 @@
 		</div>
 
 		<div class = "right_page">
-			<img id = "img"/>
-		</div>
-
-
-		
-		
+			<img src = "pics/wordle.png" id = "wordle_img"/>
+			<img id = "website_img"/>
+		</div>		
 		
 
+	<script src="js/script.js"></script>
 	</body>
 	
 </html>

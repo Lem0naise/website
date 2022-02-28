@@ -116,8 +116,8 @@ html {
 }
 
 
-
 .item {
+	margin-top: 3vh;
 	text-decoration: none;
 	display: block;
 
@@ -184,7 +184,7 @@ html {
 .right_page {
 	width: 50vw;
 
-	left: 50vw;
+	left: 45vw;
 	height: 100vh;
 	position: relative;
 
@@ -196,14 +196,10 @@ html {
 	position: absolute;
 	opacity: 0;
 
-	transition: opacity .5s;
+	transition: opacity .75s;
 
-	content:url(pics/wordle.png);
 }
 
-.right_page img:hover {
-	opacity: 1;
-}
 
 /*this is complete container (content)*/
 .portfolio-title {
@@ -281,306 +277,6 @@ html {
 
 
 
-/*this is original unchanged text (text)*/
-
-
-/*last of type div*/
-.splash-reveal{
-
-
-	height:160px;
-	margin-bottom:-125px;   
-	overflow:hidden;
-
-	width:100%;
-
-
-  
-}
-
-
-@keyframes slidein_text {
-	0% { transform: translateX(-300%); }
-	100% { transform: translateX(0%);}
-}
-
-
-.left-div {
-	left: 5vw;
-}
-
-.left-title{
-	
-	opacity: 100;
-
-	z-index: 2;
-	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #1D1D1D;
-
-	position: absolute;
-
-	text-align: left;
-	transition: color 2s, opacity .4s;
-
-
-	font-size: calc(8vw);
-	top: 20vh;
-
-}
-
-.biography {
-
-	position: absolute;
-
-	opacity: 100;
-
-	z-index: 3;
-	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #1D1D1D;
-	width: 45vw;
-
-	text-align: left;
-	transition: color 2s, opacity .4s;
-
-	font-size: 20px;
-	top: calc(20vh + 300px);
-
-
-
-}
-
-.splash_name {
-	
-
-	z-index: 10;
-
-	position: absolute;
-	top: 50%;
-	right: 50%;
-
-	
-	
-	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #fefefe;
-	font-size: 100px;
-	overflow: hidden;
-
-	animation: name_intro 3s forwards;
-	
-}
-
-.splash_surname{
-
-	position: absolute;
-	top: 40%;
-	left: 50%;
-
-
-	
-	
-	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #fefefe;
-	font-size: 100px;
-	overflow:hidden;
-
-
-	animation: surname_intro 3s forwards;
-
-
-
-
-}
-
-@keyframes name_intro {
-	0% {
-		top: 70%;
-		opacity: 0;
-		width: 60px;
-	}
-	30%{
-		top: 40%;
-		opacity: 1;
-		width: 60px;
-	}
-	70% {
-		top: 40%;
-		opacity: 1;
-		width: 200px;
-		right: 50%;
-		font-size: 100px;
-	}
-	100% {
-		top: 0%;
-		width: 200px;
-		opacity: 0;
-	}
-}
-
-
-@keyframes surname_intro {
-	0% {
-		top: 70%;
-		opacity: 0;
-		width: 80px;
-	}
-	30%{
-		top: 40%;
-		opacity: 1;
-		width: 80px;
-	}
-	70% {
-		top: 40%;
-		opacity: 1;
-		width: 300px;
-		left: 50%;
-		font-size: 100px;
-
-	}
-	100% {				
-		top: 0%;
-		width: 300px;
-
-		opacity: 0;
-
-	}
-
-}
-
-
-.splash-undertext{
-	
-	opacity: 100;
-
-	z-index: 2;
-	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #1D1D1D;
-
-	position: fixed;
-	text-align: left;
-	transition: opacity .4s, left 1s;
-	font-size: calc(2vw - 4px);
-
-	left: -50vw;
-
-	bottom: calc(15vw + 10px);
-
-}
-
-.splash-undertext-animation{
-	animation: scrollhint 1s 4s cubic-bezier(0.075, 0.90, 0.95, 1)  forwards;
-	transition: opacity .4s, left 1s;
-}
-
-@keyframes scrollhint {
-	0% {left: -50vw;}
-	100% {left: 5vw;}
-}
-
-
-.whiteline-h{
-	position:absolute;
-	border-bottom: 20px solid white;
-	width: 0;
-	height: 20px;
-	margin-left: 52.45vw;
-	margin-top: 54vh;
-	z-index: 20;
-
-	transform: translate(-50%, -50%);
-	animation: stretch 2s 1s forwards;
-
-}
-
-
-@keyframes stretch{
-	0% {
-		width: 0;
-	}
-	50% {
-		width: 30vw;
-		opacity: 1;
-		margin-top: 54vh;
-	}
-	60% {
-		width: 30vw;
-	}
-	100% {
-		opacity: 0;
-		width: 0;
-	}
-}
-
-
-
-
-
-@keyframes showText{
-	0% {opacity: 0%;}
-	0% {transform: translate3d(0, 100px, 0);}
-	100% {transform: translate3d(0, 0, 0);}
-
-	100% {opacity: 100%;}
-}
-@-webkit-keyframes showText{
-	0% {opacity: 0%;}
-	0% {transform: translate3d(0, 100px, 0);}
-	100% {transform: translate3d(0, 0, 0);}
-
-	100% {opacity: 100%;}
-}
-
-/*this is individual (item)*/
-.word{
-	line-height:90px;
-	margin-left: -15px;
-	font-size:200%;
-
-	animation: showText 2s;
-	-webkit-animation: showText 2s;
-	
-}
-
-
-@keyframes change{
-	0%, 12.66%, 100% {transform:translate3d(0,0%,0);}
-	0%, 12.66%, 100% {color:orange;}
-
-	16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-	16.66%, 29.32% {color:green;}
-
-	33.32%,45.98% {transform:translate3d(0,-50%,0);}
-	33.32%,45.98% {color:yellow;}
-
-	49.98%,62.64% {transform:translate3d(0,-75%,0);}
-	49.98%,62.64% {color:lightblue;}
-
-	66.64%,79.3% {transform:translate3d(0,-50%,0);}
-	66.64%,79.3% {color:yellow;}
-
-	83.3%,95.96% {transform:translate3d(0,-25%,0);}
-	83.3%,95.96% {color:green;}
-}
-
-@-webkit-keyframes change{
-	0%, 12.66%, 100% {transform:translate3d(0,0%,0);}
-	0%, 12.66%, 100% {color:orange;}
-
-	16.66%, 29.32% {transform:translate3d(0,-25%,0);}
-	16.66%, 29.32% {color:green;}
-
-	33.32%,45.98% {transform:translate3d(0,-50%,0);}
-	33.32%,45.98% {color:yellow;}
-
-	49.98%,62.64% {transform:translate3d(0,-75%,0);}
-	49.98%,62.64% {color:lightblue;}
-
-	66.64%,79.3% {transform:translate3d(0,-50%,0);}
-	66.64%,79.3% {color:yellow;}
-
-	83.3%,95.96% {transform:translate3d(0,-25%,0);}
-	83.3%,95.96% {color:green;}
-
-}
 
 
 
@@ -655,10 +351,6 @@ html {
 
 }	
 
-
-.separator {
-	margin-top: 20px;
-}
 
 .menu-button:hover {
 	opacity: 50%;
