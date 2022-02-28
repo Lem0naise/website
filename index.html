@@ -14,25 +14,74 @@
 
 		
 		<meta name="google-site-verification" content="Mjwi8fp-GIfDM41jXFYDAS7nCmwb3fSguVAirwzQ6Yk" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Zac Nolan</title>
-		<script src = "typewriter.js"></script>
 		<link rel="stylesheet" href = "stylesheet.css">
-		
-		<script src="js/universalsmoothscroll-min.js"></script>
-		<script src="js/universalsmoothscroll-ease-functions-min.js"></script>
-		<script src="js/canvas-script.js"></script>
+
+		<script src="js/jquery-3.6.0.min.js"></script>
 
 		<meta name="description" content="Zac Nolan - Portfolio containing work experience and contact details"/>
 		<meta name="keywords" content="Zac Nolan, Nolan, Portfolio"/>
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
-	<body onload="page_load()">	
+	<body>	
 		
-		<div class = "splash_name">Zac</div>
-		<div class = "splash_surname">Nolan</div>
 
-		
+		<div class = "left_page">
+			<div class="splash">
+				Zac Nolan
+			</div>
+			<div class = "bio">
+				A portfolio of my coding projects
+			</div>
+
+			<div class = "portfolio" id = "portfolio">
+
+				<a class = "item" href = "index.html">
+					<div id = "website_a" class = "list-item">
+						<span class = "list-text">
+							This website
+						</span>
+						<span style = "color: orange" class = "language">
+							HTML&nbsp;
+						</span>
+						<span style = "color: yellow" class = "language">
+							Javascript&nbsp;
+						</span>
+						<span style = "color: green" class = "language">
+							CSS
+						</span>
+						<br/>
+
+					</div>  
+				</a>
+				
+	
+				<a class = "item" href = "https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip">
+					<div id = "wordle" class = "list-item">
+						<span class = "list-text">
+							Wordle
+						</span>
+						<span style = "color: lightblue" class = "language">	
+							Python&nbsp;
+						</span>
+	
+						<br/>
+						<span class = "list-desc">
+							Python recreation of Wordle
+						</span>
+					</div>  
+				</a>
+	
+				
+	
+			</div>
+
+
+		</div>
+
+
 		<div class = "buttons">
 			
 			<a href="mailto:zac.i.nolan@gmail.com" class = "menu-button">Contact Me<!--
@@ -42,111 +91,13 @@
 		
 		</div>
 
-
-
-
-
-
-
-		<!--Seperation of main screen and portfolio screen-->
-
-
-
-		<div style="height: 10em" class = "main-seperation"></div>
-
-
-		<div class = "page-2-div">
-			<p class = "splash-pg2">
-				Welcome.
-				<p class = "splash-undertext splash-undertext-animation">
-					Scroll to reveal portfolio 
-				</p>
-			</p>
-
-		</div>
-
-		<div class = "menu-text-div">
-
-			<div id = "splashprefix" class = "menu-text">
-				
-				<div class = "whiteline-v"></div>
-				<div class="splash-reveal">
-					
-					<p class = "splash"  >
-						My Projects in
-					</p>
-				</div>
-	
-				<div class = "list-crop">
-
-					<ul class = "word-container-list">
-						<li class = "word">HTML. </li>
-						<li class = "word">CSS. </li>
-						<li class = "word">Javascript. </li>
-						<li class = "word">Python. </li>
-					</ul>
-					
-				</div>
-				<div class="whiteline-h"></div>
-
-				<!--<span id= "splash" class = "splash menu-text"></span>-->
-	
+		<div class = "right_page">
+			<img src = "pics/wordle.png" id = "wordle_img"/>
+			<img id = "website_img"/>
+		</div>		
 		
-				<!--<span class="input-cursor"></span>-->
-		
-			</div>
 
-		</div>
-
-
-
-		<div class = "portfolio">
-
-			<a class = "item" href = "index.html">
-				<div class = "list-item">
-					<span class = "list-text">
-						This website
-					</span>
-					<span style = "color: orange" class = "language">
-						HTML&nbsp;
-					</span>
-					<span style = "color: yellow" class = "language">
-						Javascript&nbsp;
-					</span>
-					<span style = "color: green" class = "language">
-						CSS
-					</span>
-					<br>
-					<span class = "list-desc">
-						This website.
-					</span>
-				</div>  
-			</a>
-			
-			<br/>
-
-			<a class = "item" href = "https://github.com/Lem0naise/encryption/archive/refs/heads/master.zip">
-				<div class = "list-item">
-					<span class = "list-text">
-						File Encryptor
-					</span>
-					<span style = "color: lightblue" class = "language">
-						Python&nbsp;
-					</span>
-
-					<br>
-					<span class = "list-desc">
-						A Python GUI program to encrypt and decrypt files based on a custom key.
-					</span>
-				</div>  
-			</a>
-
-			<br/>
-			
-
-		</div>
-		
-		<div id="trapezium" class="trapezium"></div>
+	<script src="js/script.js"></script>
 	</body>
 	
 </html>
