@@ -240,6 +240,13 @@ html {
 
 
 @media only screen and (max-aspect-ratio: 9/10) {
+
+	.left_page {
+		width: 100vw;
+	}
+	.list-desc {
+		width: 80vw;
+	}
 	.right_page {
 		display: none;
 	}
