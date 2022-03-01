@@ -239,7 +239,7 @@ html {
 }
 
 
-@media only screen and (max-aspect-ratio: 9/10) {
+@media only screen and (max-aspect-ratio: 1/1) {
 
 	.left_page {
 		width: 100vw;

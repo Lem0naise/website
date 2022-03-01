@@ -20,6 +20,7 @@
 
 		<script src="js/jquery-3.6.0.min.js"></script>
 
+
 		<meta name="description" content="Zac Nolan - Portfolio containing work experience and contact details"/>
 		<meta name="keywords" content="Zac Nolan, Nolan, Portfolio"/>
 		<meta name="author" content="Zac Nolan"/>
@@ -27,7 +28,7 @@
 	
 	<body>	
 		
-
+		
 		<div class = "left_page">
 			<div class="splash">
 				Zac Nolan
@@ -54,14 +55,14 @@
 						</span>
 						<br/>
 						<span class = "list-desc">
-							My portfolio website
+							My portfolio website.
 						</span>
 
 					</div>  
 				</a>
 				
 	
-				<a class = "item" href = "https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip">
+				<a class = "item" target="_blank" data-link = "https://github.com/Lem0naise/wordle" href="https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip" onclick="downloadfile(this);">
 					<div id = "wordle" class = "list-item">
 						<span class = "list-text">
 							Wordle
@@ -72,7 +73,24 @@
 	
 						<br/>
 						<div class = "list-desc">
-							A recreation of the word game Wordle in Python, runnable in your shell
+							A recreation of the word game Wordle in Python, runnable in your shell.
+						</div>
+					</div>  
+				</a>
+
+
+				<a class = "item" href = "https://github.com/Lem0naise/top-trumps/archive/refs/heads/main.zip">
+					<div id = "toptrumps" class = "list-item">
+						<span class = "list-text">
+							Top Trumps
+						</span>
+						<span style = "color: lightblue" class = "language">	
+							Python&nbsp;
+						</span>
+	
+						<br/>
+						<div class = "list-desc">
+							A terminal-based Top Trumps game against a computer.
 						</div>
 					</div>  
 				</a>
@@ -96,11 +114,11 @@
 
 		<div class = "right_page">
 			<img src = "pics/wordle.png" id = "wordle_img"/>
-			<img id = "website_img"/>
-		</div>		
+			<img src="pics/toptrumps.png" id = "toptrumps_img"/>
+		</div>	
+			
+		<script src="js/script.js"></script>
 		
-
-	<script src="js/script.js"></script>
 	</body>
 	
 </html>

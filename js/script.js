@@ -3,9 +3,9 @@ var tings = [
   '1'
 ]
 
-var to_img = {
-  "Wordle": '#wordle_img',
-  "This website": '#website_img',
+
+function downloadfile(item){
+  window.open(item.getAttribute("data-link"));
 }
 
 
@@ -32,4 +32,17 @@ $('#wordle').hover(function() {
     tings[1] = '1';
   }
 })
+
+
+$('#toptrumps').hover(function() {
+  
+  $('#toptrumps_img').css('opacity', tings[1]);
+  if(tings[1]=='1'){
+    tings[1] = '0';
+  }
+  else{
+    tings[1] = '1';
+  }
+})
+
 
