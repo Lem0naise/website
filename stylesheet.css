@@ -29,13 +29,6 @@ html {
 	margin:0;
 
 
-	-webkit-touch-callout: none; 
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none; 
-	user-select: none; 
-
 
 	scroll-behavior: smooth;
 
@@ -49,7 +42,7 @@ html {
 .buttons {
 
 	background:none;
-	z-index: 1;
+	z-index: 10;
 
 	width: fit-content;
 
@@ -63,18 +56,10 @@ html {
 }
 
 
-
-
-@keyframes rectangle-intro{
-	0% {left: -50vw;}
-	100% {left: 0;}
-
-}
-
 .left_page {
 	width: 50vw;
-	height: 100vh;
-	z-index: 100;
+	height: 80vh;
+	z-index: 5;
 
 	left: 5vw;
 	top: 20vh;
@@ -88,7 +73,7 @@ html {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	color: #8dd7ff;
 
-	font-size: 5vw;
+	font-size: 80px;
 	left: 5vw;
 	margin-top: -1vh;
 
@@ -99,7 +84,7 @@ html {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	color: #8dd7ff;
 
-	font-size: 1vw;
+	font-size: 15px;
 	left: 5vw;
 
 }
@@ -153,11 +138,10 @@ html {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	font-size: 110%;
 	color: #fefefe;
+	width: 30vw;
+	word-wrap:normal;
 
 	text-decoration: none;
-
-	display: inline;
-
 
 }
 
@@ -201,126 +185,7 @@ html {
 }
 
 
-/*this is complete container (content)*/
-.portfolio-title {
 
-
-	/*just for now*/
-
-	transition: opacity .3s, left .5s ease;
-
-
-	left: 55vw;
-
-	z-index: 0;
-	position:absolute;
-	font-size: 200%;
-
-
-
-	height:150px;
-
-
-	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #fefefe;
-	font-size: 200%;
-
-
-}
-
-
-
-
-
-/*this contains list*/
-.list-crop{
-	
-
-	height:90px;
-	overflow:hidden;
-	padding-left: 440px;
-	position:absolute;
-	
-
-}
-
-
-/*this is list containing items (list)*/
-.word-container-list{
-
-
-	text-align: left;
-
-	position:relative;
-	
-
-	-webkit-animation-name: change;
-	-webkit-animation-duration: 9s;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-delay: 1s;
-	animation-name: change;
-	animation-delay:1s;
-
-	animation-duration: 9s;
-	animation-iteration-count: infinite;
-
-
-	top: 0;
-
-	text-align: left;
-	list-style: none;
-
-
-	color: orange;
-}
-
-
-
-
-
-
-
-
-@keyframes reveal{
-	100% {opacity: 100%;}
-}
-
-@-webkit-keyframes reveal{
-	100% {opacity: 100%;}
-}
-
-
-
-
-
-.input-cursor {
-	
-	/*margin-top: 5px; try again later 
-	depending on if it looks too tall*/
-
-	display: inline-block;
-	max-width: 100%;
-	height: 65px;
-	width: 3px;
-
-	background-color: white;
-	margin-left: 8px;
-	
-
-	animation: blink .4s linear infinite alternate;
-}
-
-@keyframes blink {
-	0% {opacity: 1;}
-	40% {opacity: 1;}
-	60% {opacity: 0;}
-	100% {opacity: 0;}
-
-}
-
-.end-seperation {
-	height: 50em;
-}
 .menu-button, .menu-button:visited, .menu-button:active {
 
 	color:#DCDCDC;
@@ -328,6 +193,7 @@ html {
 	z-index: 4;
 
 	margin-top:20px;
+	top: 0vh;
 	font-size: 150%;
 	max-block-size:100%;
 	size: 50px;
@@ -354,7 +220,20 @@ html {
 
 .menu-button:hover {
 	opacity: 50%;
-	top: 5%;
+	top: 0.5vh;
 }
 
 
+@media only screen and (max-aspect-ratio: 1/1) {
+
+	.left_page {
+		width: 100vw;
+	}
+	.list-desc {
+		width: 80vw;
+	}
+	.right_page {
+		display: none;
+	}
+
+}
