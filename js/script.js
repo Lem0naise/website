@@ -6,6 +6,7 @@ var tings = [
 
 function downloadfile(item){
   window.open(item.getAttribute("data-link"));
+
 }
 
 
