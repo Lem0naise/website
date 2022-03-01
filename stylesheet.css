@@ -88,7 +88,7 @@ html {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	color: #8dd7ff;
 
-	font-size: 5vw;
+	font-size: 80px;
 	left: 5vw;
 	margin-top: -1vh;
 
@@ -99,7 +99,7 @@ html {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	color: #8dd7ff;
 
-	font-size: 1vw;
+	font-size: 15px;
 	left: 5vw;
 
 }
@@ -200,80 +200,6 @@ html {
 }
 
 
-/*this is complete container (content)*/
-.portfolio-title {
-
-
-	/*just for now*/
-
-	transition: opacity .3s, left .5s ease;
-
-
-	left: 55vw;
-
-	z-index: 0;
-	position:absolute;
-	font-size: 200%;
-
-
-
-	height:150px;
-
-
-	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #fefefe;
-	font-size: 200%;
-
-
-}
-
-
-
-
-
-/*this contains list*/
-.list-crop{
-	
-
-	height:90px;
-	overflow:hidden;
-	padding-left: 440px;
-	position:absolute;
-	
-
-}
-
-
-/*this is list containing items (list)*/
-.word-container-list{
-
-
-	text-align: left;
-
-	position:relative;
-	
-
-	-webkit-animation-name: change;
-	-webkit-animation-duration: 9s;
-	-webkit-animation-iteration-count: infinite;
-	-webkit-animation-delay: 1s;
-	animation-name: change;
-	animation-delay:1s;
-
-	animation-duration: 9s;
-	animation-iteration-count: infinite;
-
-
-	top: 0;
-
-	text-align: left;
-	list-style: none;
-
-
-	color: orange;
-}
-
-
 
 .menu-button, .menu-button:visited, .menu-button:active {
 
@@ -282,6 +208,7 @@ html {
 	z-index: 4;
 
 	margin-top:20px;
+	top: 0vh;
 	font-size: 150%;
 	max-block-size:100%;
 	size: 50px;
@@ -308,7 +235,15 @@ html {
 
 .menu-button:hover {
 	opacity: 50%;
-	top: 5%;
+	top: 0.5vh;
 }
 
 
+@media only screen and (max-aspect-ratio: 9/10) {
+	.right_page {
+		display: none;
+	}
+	.bio {
+		color: #dcdcdc;
+	}
+}
