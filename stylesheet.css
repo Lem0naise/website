@@ -59,13 +59,40 @@ html {
 .button_margin {
 
 	z-index: 11;
-	width: 100vw;
+	width: 20vw;
+	overflow: hidden;
+
 	height:5vh;
 	margin-top: 0;
+	position: absolute;
+	margin-left: -20vw;
+	
+	transition: opacity .5s, margin-left .5s;
 
-	position: fixed;
 
-	margin-left: 5vw;
+}
+
+.hamburger {
+
+	left: 1vw;
+
+	position: absolute;
+	max-height: 3.5vh;
+	filter: invert();
+
+	transition: opacity .5s, transform .5s;
+
+
+}
+
+.hamburger:hover {
+	opacity: 50%;
+}
+
+
+.button-image {
+	max-height: 3vh;
+	filter: invert();
 }
 
 .left_page {
@@ -259,10 +286,6 @@ html {
 	top: 0.5vh;
 }
 
-.button-image {
-	max-height: 3vh;
-	filter: invert();
-}
 
 @media only screen and (max-aspect-ratio: 1/1) {
 
