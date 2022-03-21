@@ -74,7 +74,7 @@ html {
 	z-index: 5;
 
 	left: 5vw;
-	top: 20vh;
+	top: 10vh;
 
 	position: absolute;
 
@@ -259,6 +259,10 @@ html {
 	top: 0.5vh;
 }
 
+.button-image {
+	max-height: 3vh;
+	filter: invert();
+}
 
 @media only screen and (max-aspect-ratio: 1/1) {
 
