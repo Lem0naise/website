@@ -60,7 +60,7 @@ html {
 
 	z-index: -1;
 	width: 20vw;
-	--width_value: wide;
+	--width_value: "wide";
 
 
 	overflow: hidden;

@@ -21,14 +21,16 @@ function hamburger() {
     let width_value = getComputedStyle(buttons).getPropertyValue("--width_value")
 
 
+    width_value = $.trim(width_value);
+
     console.log(width_value);
     console.log(width_value == 'thin')
 
     //if the screen is smaller (so the buttons need to be further on the right)
-    if (width_value == "thin"){
-
+    if (width_value == 'thin'){
       console.log("yeah")
       buttons.style.marginLeft = "10vw";
+
     }
     else{
       buttons.style.marginLeft = "5vw";
