@@ -58,8 +58,11 @@ html {
 
 .button_margin {
 
-	z-index: 11;
+	z-index: -1;
 	width: 20vw;
+	--width_value: wide;
+
+
 	overflow: hidden;
 
 	height:5vh;
@@ -297,6 +300,12 @@ html {
 	}
 	.right_page {
 		display: none;
+	}
+
+	.button_margin {
+		width: 100vw;
+		--width_value: thin;
+
 	}
 
 }

@@ -1,18 +1,42 @@
 let hamburger_int = 0
 
-
+//function to reveal buttons on hamburger click
 function hamburger() {
 
+
+  //finding elements
   let buttons = document.getElementById("button_margin");
   let hamburger = document.getElementById("hamburger");
 
+
+  //if the buttons are hidden
   if (hamburger_int == 0){
 
+    //rotate hamburger
     hamburger.style.transform = "rotate(90deg)";
     buttons.style.opacity = "1";
-    buttons.style.marginLeft = "5vw";
+
+
+    //getting width value for the buttons (whether thin or wide screen)
+    let width_value = getComputedStyle(buttons).getPropertyValue("--width_value")
+
+
+    console.log(width_value);
+    console.log(width_value == 'thin')
+
+    //if the screen is smaller (so the buttons need to be further on the right)
+    if (width_value == "thin"){
+
+      console.log("yeah")
+      buttons.style.marginLeft = "10vw";
+    }
+    else{
+      buttons.style.marginLeft = "5vw";
+    }
+
     hamburger_int = 1;
   }
+
   else{
 
     hamburger.style.transform = "";
