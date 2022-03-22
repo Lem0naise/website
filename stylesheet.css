@@ -65,6 +65,8 @@ html {
 
 	overflow: hidden;
 
+	opacity: 0;
+	
 	height:5vh;
 	margin-top: 0;
 	position: absolute;
