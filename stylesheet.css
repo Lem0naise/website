@@ -7,13 +7,19 @@ body {
 
 
 @font-face {
-	font-family: "Segoe-UI-Variable";
+	font-family: "font";
 
-	src: url("fonts/Segoe-UI-Variable-Static-Small-Bold.ttf");
 
-	/*
-	src: url("fonts/Segoe-UI-Variable-Static-Small-Bold.ttf");
-	*/
+	src: url("fonts/Comfortaa-Medium.ttf");
+
+
+
+}
+
+@font-face {
+	font-family: "title-font";
+
+	src: url("fonts/Righteous-Regular.ttf");
 
 }
 
@@ -101,10 +107,10 @@ html {
 .splash {
 
 	text-align: center;
-	font-family: "Segoe-UI-Variable", sans-serif;
+	font-family: "title-font", sans-serif;
 	color: #FFCB9A;
 
-	font-size: 80px;
+	font-size: 100px;
 
 
 
@@ -136,7 +142,7 @@ html {
 
 	text-align: center;
 
-	font-family: "Segoe-UI-Variable", sans-serif;
+	font-family: "font", sans-serif;
 	color: #FFCB9A;
 
 	font-size: 15px;
@@ -170,7 +176,7 @@ html {
 
 
 .list-text {
-	font-family: "Segoe-UI-Variable", sans-serif;
+	font-family: "font", sans-serif;
 	font-size: 160%;
 	color: #D1E8E2;
 	text-decoration: none;
@@ -198,9 +204,13 @@ html {
 
 }
 
+.list-item:hover div{
+	width: 30vw;
+}
+
 .list-desc {
 
-	font-family: "Segoe-UI-Variable", sans-serif;
+	font-family: "font", sans-serif;
 	font-size: 90%;
 	color: #D1E8E2;
 	width: 30vw;
@@ -216,16 +226,32 @@ html {
 
 	display: inline;
 
-	font-family: "Segoe-UI-Variable", sans-serif;
+	font-family: "font", sans-serif;
 	font-size: 110%;
 	color: #D1E8E2;
 	text-decoration: none;
 
 }
 
+.languages {
+
+	margin-top: 0.5vh;
+
+	text-align: left;
+	display: inline-block;
+	width: 0vw;
+	overflow:hidden;
+	white-space: nowrap;
+	position: absolute;
+
+	transition: width 1s;
+
+}
+
 .language {
+
 	padding-left:10px;
-	font-family: "Segoe-UI-Variable", sans-serif;
+	font-family: "font", sans-serif;
 	font-size: 120%;
 	text-decoration: none;
 	
@@ -234,9 +260,11 @@ html {
 .right_page {
 	width: 50vw;
 
+	/*temp*/
 	width: 0vw;
 	overflow:hidden;
 	/*this is temp*/
+
 	left: 45vw;
 	height: 100vh;
 	position: relative;
