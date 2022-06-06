@@ -1,5 +1,7 @@
+
+/*DCDCDC whhite*/
 body {
-	background-color: #1D1D1D;
+	background-color: #2C3531;
 		
 }   
 
@@ -17,7 +19,7 @@ body {
 
 @font-face {
 	font-family: "Button";
-	color: #1D1D1D;
+	color: #5CDB95;
 	src: url("fonts/Segoe-UI-Variable-Static-Small-SemiBold.ttf");
 }
 
@@ -43,13 +45,15 @@ html {
 
 	z-index: 10;
 
-	width: 100vw;
+	width: 120vw;
 
-	background-color:#1D1D1D;
+	background-color:#2C3531;
 
-	height:5vh;
+	height: 12.5vh;
 	
-	margin-top: 0;
+	margin-top: -5vw;
+	margin-left: -1vw;
+
 
 	position: fixed;
 
@@ -60,38 +64,19 @@ html {
 
 	z-index: -1;
 	width: 20vw;
-	--width_value: "wide";
-
 
 	overflow: hidden;
 
-	opacity: 0;
+	opacity: 1;
 	
 	height:5vh;
-	margin-top: 0;
+	margin-top: 5vw;
 	position: absolute;
-	margin-left: -20vw;
+	margin-left: 5vw;
 	
 	transition: opacity .5s, margin-left .5s;
 
 
-}
-
-.hamburger {
-
-	left: 1vw;
-
-	position: absolute;
-	max-height: 3.5vh;
-	filter: invert();
-
-	transition: opacity .5s, transform .5s;
-
-
-}
-
-.hamburger:hover {
-	opacity: 50%;
 }
 
 
@@ -100,13 +85,14 @@ html {
 	filter: invert();
 }
 
+
 .left_page {
-	width: 50vw;
+	width: 100vw;
 	height: 80vh;
 	z-index: 5;
 
-	left: 5vw;
-	top: 10vh;
+
+	top: 15vh;
 
 	position: absolute;
 
@@ -114,11 +100,12 @@ html {
 
 .splash {
 
+	text-align: center;
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #8dd7ff;
+	color: #FFCB9A;
 
 	font-size: 80px;
-	left: 5vw;
+
 
 
 }
@@ -135,7 +122,7 @@ html {
 @keyframes title_intro {
 	0%{ 
 		opacity: 0;
-		margin-top:-4vh;
+		margin-top:100vh;
 
 	};
 	100% {
@@ -147,8 +134,10 @@ html {
 
 .bio{
 
+	text-align: center;
+
 	font-family: "Segoe-UI-Variable", sans-serif;
-	color: #8dd7ff;
+	color: #FFCB9A;
 
 	font-size: 15px;
 	left: 5vw;
@@ -156,6 +145,8 @@ html {
 }
 
 .portfolio {
+
+	text-align: center;
 
 	z-index: -2;
 	
@@ -168,6 +159,9 @@ html {
 
 
 .item {
+	
+	text-align: center;
+
 	margin-top: 3vh;
 	text-decoration: none;
 	display: block;
@@ -178,34 +172,40 @@ html {
 .list-text {
 	font-family: "Segoe-UI-Variable", sans-serif;
 	font-size: 160%;
-	color: #fefefe;
+	color: #D1E8E2;
 	text-decoration: none;
+
+
 
 }
 
 
 .list-item {
-	justify-content: center;
-	align-items: center;
-	text-decoration: none;
-	margin-left: 0%;
 
-	transition: opacity 0.5s, margin-left 0.2s;
-	width: fit-content;
+	text-align:center;
+	width: 100vw;
+
+	text-decoration: none;
+	margin-left: 0vw;
+
+	transition: opacity 0.5s, margin-left 1s, scale 0.2s;
+
 }
 
 .list-item:hover{
 	opacity: 50%;
-	margin-left: 1%;
+	scale: 1.1;
 
 }
 
 .list-desc {
+
 	font-family: "Segoe-UI-Variable", sans-serif;
-	font-size: 110%;
-	color: #fefefe;
+	font-size: 90%;
+	color: #D1E8E2;
 	width: 30vw;
 	word-wrap:normal;
+	margin-top: 1vh;
 
 	text-decoration: none;
 
@@ -218,7 +218,7 @@ html {
 
 	font-family: "Segoe-UI-Variable", sans-serif;
 	font-size: 110%;
-	color: #fefefe;
+	color: #D1E8E2;
 	text-decoration: none;
 
 }
@@ -234,6 +234,9 @@ html {
 .right_page {
 	width: 50vw;
 
+	width: 0vw;
+	overflow:hidden;
+	/*this is temp*/
 	left: 45vw;
 	height: 100vh;
 	position: relative;
@@ -254,7 +257,7 @@ html {
 
 .menu-button, .menu-button:visited, .menu-button:active {
 
-	color:#DCDCDC;
+	color:#D1E8E2;
 
 	z-index: 4;
 
@@ -287,8 +290,21 @@ html {
 
 
 .menu-button:hover {
+	top: 0.1vh;
 	opacity: 50%;
-	top: 0.5vh;
+
+}
+
+.pic_title {
+	width: 80%;
+	margin-top: 16vh;
+	position: absolute;
+	text-align: center;
+
+	opacity: 0;
+
+	transition: opacity .75s;
+
 }
 
 

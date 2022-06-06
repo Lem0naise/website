@@ -1,100 +1,111 @@
-let hamburger_int = 0
-
-//function to reveal buttons on hamburger click
-function hamburger() {
-
-
-  //finding elements
-  let buttons = document.getElementById("button_margin");
-  let hamburger = document.getElementById("hamburger");
-
-
-  //if the buttons are hidden
-  if (hamburger_int == 0){
-
-    //rotate hamburger
-    hamburger.style.transform = "rotate(90deg)";
-    buttons.style.opacity = "1";
-
-
-    //getting width value for the buttons (whether thin or wide screen)
-    let width_value = getComputedStyle(buttons).getPropertyValue("--width_value")
-
-
-    width_value = $.trim(width_value);
-
-    console.log(width_value);
-    console.log(width_value == 'thin')
-
-    //if the screen is smaller (so the buttons need to be further on the right)
-    if (width_value == 'thin'){
-      console.log("yeah")
-      buttons.style.marginLeft = "10vw";
-
-    }
-    else{
-      buttons.style.marginLeft = "5vw";
-    }
-
-    hamburger_int = 1;
-  }
-
-  else{
-
-    hamburger.style.transform = "";
-    buttons.style.opacity = "0";
-    buttons.style.marginLeft = "-20vw";
-    hamburger_int = 0;
-  }
-
-}
-
-
 var tings = [
   '1',
   '1'
 ]
+// i dont fucking know what this is either fam
+// just copy it whenver u want to make a new function
+// i spent ages on it and i didnt bother to write comments lmao
+
+var list = [ // list of all slideshowing images
+  'wordle',
+  'toptrumps'
+]
 
 function downloadfile(item){
   window.open(item.getAttribute("data-link"));
+}
+
+
+// image to longer and more formal string
+var img_to_str = {
+  'wordle': "Wordle",
+  'toptrumps': "Top Trumps",
+}
+
+
+function slideshowhover(name, opacity){ //hover without the weird toggling
+
+  $("#"+name+"_img").css('opacity', opacity); // set the named image to visible
+  textchange(img_to_str[name]); // change the text to the named image's name
 
 }
 
 
-$('#website_a').hover(function() {
+var i = 0
+// function to change the picture every couple of seconds
+function slideshow(){
 
-  $('#website_img').css('opacity', tings[0]);
+  console.log(i)
+  console.log(list[i])
 
-  if(tings[0]=='1'){
-    tings[0] = '0';
+  if (i!=0){
+    slideshowhover(list[i-1], 0); //hide previous image
   }
   else{
-    tings[0] = '1';
+    console.log("last img bois")
+    slideshowhover(list[list.length-1], 0) // hide last image
   }
-})
+ 
+  slideshowhover(list[i], 1); // show next image
+
+  if (i+1>=list.length){
+    i=0
+  }
+  else{
+    i+=1;
+  }
 
 
-$('#wordle').hover(function() {
+  setTimeout(slideshow, 8000); // wait 4 seconds and then show next pic
+
+}
+setTimeout(slideshow, 1000); // run the first slideshow 1 second after
+
+// to change the title text
+function textchange(text){
+  $('#pic_title').css('opacity', tings[1]);
+  $('#pic_title').html(text);
+}
+
+
+// combined hover function 
+function hover(name){
+
+
+  for (i=0;i++;i<list.length){ //hide all other images
+    slideshowhover(list[i], 0) // hide that image
+  }
+
+  $("#"+name+"_img").css('opacity', tings[1]); // set the named image to visible
+  textchange(img_to_str[name]); // change the text to the named image's name
   
-  $('#wordle_img').css('opacity', tings[1]);
+  // will change this in a second, this is just toggling im pretty sure
   if(tings[1]=='1'){
     tings[1] = '0';
   }
   else{
     tings[1] = '1';
   }
+
+
+}
+
+
+// each individual picture hover function
+
+$('#wordle').hover(function() {
+  
+  hover("wordle");
+
 })
 
 
 $('#toptrumps').hover(function() {
-  
-  $('#toptrumps_img').css('opacity', tings[1]);
-  if(tings[1]=='1'){
-    tings[1] = '0';
-  }
-  else{
-    tings[1] = '1';
-  }
+   
+  hover("toptrumps");
+
 })
+
+
 
 

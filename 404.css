@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #1D1D1D;
+    background-color: #5CDB95;
 
 }
 
@@ -15,7 +15,7 @@ body {
     left: 38vw;
     position: absolute;
     top: 37.5%;
-    background-color: #dcdcdc;
+    background-color: #053868;
     width: 400px;
 
     border: 0 inset rgba(231, 231, 210, 0.65);
@@ -45,7 +45,7 @@ body {
 
     font-size: 200px;
     font-family: "Segoe-UI-Variable", sans-serif;
-    color: #1D1D1D;
+    color: #5CDB95;
 
     width: 0%;
     overflow: hidden;
@@ -56,7 +56,7 @@ body {
 .circle_text a{
 
     font-family: "Segoe-UI-Variable", sans-serif;
-    color: #1D1D1D;
+    color: #5CDB95;
     text-decoration: none;
 
 }
