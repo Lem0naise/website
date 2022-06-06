@@ -2,9 +2,16 @@
 /*DCDCDC whhite*/
 body {
 	background-color: #2C3531;
-		
+
+	animation: body_intro 2s;
 }   
 
+@keyframes body_intro {
+	0% {
+		background-color: rgba(255, 255, 255, 1);
+		background-blend-mode: hue;
+	}
+}
 
 @font-face {
 	font-family: "font";
@@ -62,10 +69,22 @@ html {
 
 
 	position: fixed;
-
+	animation: zindex 2s;
+	/*makes the buttons appear after the intro*/
 	
 }
 
+@keyframes zindex {
+	0% {
+		opacity: 0%;
+	}
+	50% {
+		opacity:0%;
+	}
+	100% {
+		opacity: 1;
+	}
+}
 .button_margin {
 
 	z-index: -1;
@@ -102,6 +121,7 @@ html {
 
 	position: absolute;
 
+
 }
 
 .splash {
@@ -120,21 +140,18 @@ html {
 	
 	margin-top: -1vh;
 
-	animation: title_intro 1s;
+
 
 }
 
 
 @keyframes title_intro {
 	0%{ 
-		opacity: 0;
-		margin-top:100vh;
-
+		opacity:0;
 	};
 	100% {
-		opacity: 1;
-		margin-top: -1vh;
 
+		opacity: 1;
 	};
 }
 
@@ -181,9 +198,11 @@ html {
 	color: #D1E8E2;
 	text-decoration: none;
 
-
+	transition: opacity 0.5s;
 
 }
+
+
 
 
 .list-item {
@@ -194,19 +213,29 @@ html {
 	text-decoration: none;
 	margin-left: 0vw;
 
-	transition: opacity 0.5s, margin-left 1s, scale 0.2s;
+	transition: margin-left 1s, transform 0.2s;
 
 }
 
 .list-item:hover{
-	opacity: 50%;
-	scale: 1.1;
+
+	transform: scale(1.1);
 
 }
 
 .list-item:hover div{
 	width: 30vw;
 }
+
+.list-item:hover .list-text{ 
+	opacity: 50%;
+}
+.list-item:hover .list-desc {
+	opacity: 50%;
+}
+
+
+
 
 .list-desc {
 
@@ -218,6 +247,8 @@ html {
 	margin-top: 1vh;
 
 	text-decoration: none;
+
+	transition: opacity 0.5s;
 
 }
 
