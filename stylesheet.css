@@ -219,6 +219,7 @@ html {
 
 .list-item {
 
+	cursor: pointer;
 	text-align:center;
 	width: fit-content;
 	
@@ -238,7 +239,7 @@ html {
 }
 
 .list-item:hover div{
-	width: 30vw;
+	max-width: 50vw;
 }
 
 .list-item:hover .list-text{ 
@@ -284,12 +285,13 @@ html {
 
 	text-align: left;
 	display: inline-block;
-	width: 0vw;
+	width: fit-content;
+	max-width: 0vw;
 	overflow:hidden;
 	white-space: nowrap;
 	position: absolute;
 
-	transition: width 1s;
+	transition: max-width 1s;
 
 }
 

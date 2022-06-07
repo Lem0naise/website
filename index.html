@@ -26,10 +26,10 @@
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
-	<body>	
+	<body onclick="unmove()">	
 		
 		
-		<div class = "left_page">
+		<div class = "left_page" id = "left_page">
 
 			<div class = "splash_title">
 				<div class="splash">
@@ -42,72 +42,66 @@
 
 			<div class = "portfolio" id = "portfolio">
 
-				<a class = "item" href = "index.html">
-					<div id = "website_a" class = "list-item">
-						<span class = "list-text">
-							This website
+				<div onclick = "moveleft('website')" id = "website_a" class = "list-item">
+					<span class = "list-text">
+						This website
+					</span>
+					<div class="languages">
+						<span style = "color: orange" class = "language">
+							HTML&nbsp;
 						</span>
-						<div class="languages">
-							<span style = "color: orange" class = "language">
-								HTML&nbsp;
-							</span>
-							<span style = "color: yellow" class = "language">
-								Javascript&nbsp;
-							</span>
-							<span style = "color: limegreen" class = "language">
-								CSS&nbsp;
-							</span>
-						</div>
-						<br/>
-						<span class = "list-desc">
-							My portfolio website.
+						<span style = "color: yellow" class = "language">
+							Javascript&nbsp;
 						</span>
+						<span style = "color: limegreen" class = "language">
+							CSS&nbsp;
+						</span>
+					</div>
+					<br/>
+					<span class = "list-desc">
+						My portfolio website.
+					</span>
 
-					</div>  
-				</a>
+				</div>  
+
 				
-				<a class = "item" data-link = "https://github.com/Lem0naise/wordle" href="https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip" onclick="downloadfile(this);">
-					<div id = "wordle" class = "list-item">
-						<span class = "list-text">
-							Wordle
+				<br/>
+
+				<div onclick = "moveleft('wordle')" id = "wordle" class = "list-item">
+					<span class = "list-text">
+						Wordle
+					</span>
+					<div class="languages">
+						<span style = "color: lightblue" class = "language">	
+							Python&nbsp;
 						</span>
-						<div class="languages">
-							<span style = "color: lightblue" class = "language">	
-								Python&nbsp;
-							</span>
-						</div>
-						<br/>
-						<span class = "list-desc">
-							Play wordle in your terminal.
-						</span>
-					</div>  
-				</a>
+					</div>
+					<br/>
+					<span class = "list-desc">
+						Play wordle in your terminal.
+					</span>
+				</div>  
 
 
-				<a class = "item" data-link = "https://github.com/Lem0naise/top-trumps" href = "https://github.com/Lem0naise/top-trumps/archive/refs/heads/main.zip" onclick="downloadfile(this);"">
-					<div id = "toptrumps" class = "list-item">
-						<span class = "list-text">
-							Top Trumps
-						</span>
-						<div class="languages">
-							<span style = "color: lightblue" class = "language">	
-								Python&nbsp;
-							</span>
-						</div>
+				<br/>
 
-	
-						<br/>
-						<span class = "list-desc">
-							Play top trumps in your terminal.
+				<div onclick = "moveleft('toptrumps')" id = "toptrumps" class = "list-item">
+					<span class = "list-text">
+						Top Trumps
+					</span>
+					<div class="languages">
+						<span style = "color: lightblue" class = "language">	
+							Python&nbsp;
 						</span>
-					</div>  
-				</a>
-	
-				
-	
+					</div>
+
+
+					<br/>
+					<span class = "list-desc">
+						Play top trumps in your terminal.
+					</span>
+				</div> 	
 			</div>
-
-
 		</div>
 
 
