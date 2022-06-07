@@ -3,15 +3,8 @@
 body {
 	background-color: #2C3531;
 
-	animation: body_intro 2s;
-}   
 
-@keyframes body_intro {
-	0% {
-		background-color: rgba(255, 255, 255, 1);
-		background-blend-mode: hue;
-	}
-}
+}   
 
 @font-face {
 	font-family: "font";
@@ -78,7 +71,7 @@ html {
 	0% {
 		opacity: 0%;
 	}
-	50% {
+	30% {
 		opacity:0%;
 	}
 	100% {
@@ -121,8 +114,12 @@ html {
 
 	position: absolute;
 
+	transition: width .5s;
+	animation: title_intro 2s;
 
 }
+
+
 
 .splash {
 
@@ -131,8 +128,6 @@ html {
 	color: #FFCB9A;
 
 	font-size: 100px;
-
-
 
 }
 
@@ -171,11 +166,28 @@ html {
 
 	text-align: center;
 
+
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+	align-items: center;
+
 	z-index: -2;
 	
 	margin-top: 5vh;
 
 	transition: opacity .3s;
+
+
+	-webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
 	
 
 }
@@ -208,7 +220,9 @@ html {
 .list-item {
 
 	text-align:center;
-	width: 100vw;
+	width: fit-content;
+	
+	white-space: nowrap;
 
 	text-decoration: none;
 	margin-left: 0vw;
