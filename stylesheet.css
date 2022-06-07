@@ -6,6 +6,9 @@ body {
 
 }   
 
+.break {
+	height: 30px;
+}
 @font-face {
 	font-family: "font";
 	src: url("fonts/Comfortaa-Medium.woff");
