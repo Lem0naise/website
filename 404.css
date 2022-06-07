@@ -1,11 +1,11 @@
 @font-face {
 	font-family: "Segoe-UI-Variable";
-	src: url("fonts/Segoe-UI-Variable-Static-Small-Semibold.ttf");
+	src: url("fonts/Righteous-Regular.woff");
 
 }
 
 body {
-    background-color: #5CDB95;
+    background-color: #2C3531;
 
 }
 
@@ -15,7 +15,7 @@ body {
     left: 38vw;
     position: absolute;
     top: 37.5%;
-    background-color: #053868;
+    background-color: #2C3531;
     width: 400px;
 
     border: 0 inset rgba(231, 231, 210, 0.65);
@@ -41,11 +41,11 @@ body {
 
     left: 40vw;
     position: absolute;
-    top: 35%;
+    top: 37.5%;
 
     font-size: 200px;
     font-family: "Segoe-UI-Variable", sans-serif;
-    color: #5CDB95;
+    color: #FFCB9A;
 
     width: 0%;
     overflow: hidden;
@@ -56,7 +56,7 @@ body {
 .circle_text a{
 
     font-family: "Segoe-UI-Variable", sans-serif;
-    color: #5CDB95;
+    color: #FFCB9A;
     text-decoration: none;
 
 }
