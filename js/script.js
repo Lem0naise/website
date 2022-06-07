@@ -7,7 +7,8 @@ var left = false //this variable is true when the page has moved to the left
 // combined hover function 
 function moveleft(name){
 
-
+  
+  console.log($('#portfolio').children());
   console.log("cool", name);
   console.log(left);
 

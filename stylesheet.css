@@ -8,42 +8,18 @@ body {
 
 @font-face {
 	font-family: "font";
-
-
 	src: url("fonts/Comfortaa-Medium.ttf");
-
-
-
 }
 
 @font-face {
 	font-family: "title-font";
-
 	src: url("fonts/Righteous-Regular.ttf");
-
 }
-
-@font-face {
-	font-family: "Button";
-	color: #5CDB95;
-	src: url("fonts/Segoe-UI-Variable-Static-Small-SemiBold.ttf");
-}
-
-
 
 
 html {
-
 	margin:0;
-
-
-
 	scroll-behavior: smooth;
-
-	/*scroll-snap-type: mandatory;*/
-	/*scroll-snap-points-y: repeat(300px);
-	scroll-snap-type: y mandatory;
-	scroll-behavior: smooth;*/
 }
 
 
