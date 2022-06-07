@@ -9,10 +9,17 @@ function moveleft(name){
 
   
   console.log($('#portfolio').children());
+
+  
   console.log("cool", name);
   console.log(left);
 
   $('#left_page').css("width", "50vw");
+  $('#right_page').css("width", "45vw");
+
+
+  $('#right_page').find("#"+name).css("opacity", "1");
+
   
   if (!left){
     setTimeout(function(){left = true;}, 500);
@@ -26,6 +33,11 @@ function unmove() {
 
   if (left){
     $('#left_page').css("width", "100vw");
+    $('#right_page').css("width", "0vw");
+
+    setTimeout(function() {$('#right_page').children().css("opacity", "0");}, 500);
+    // rehide the image onces its behind the left page
+    
     left = false;
   }
 

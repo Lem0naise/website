@@ -9,6 +9,7 @@ body {
 .break {
 	height: 25px;
 }
+
 @font-face {
 	font-family: "font";
 	src: url("fonts/Comfortaa-Medium.woff");
@@ -95,6 +96,8 @@ html {
 
 	transition: width .5s;
 	animation: title_intro 2s;
+
+	background-color: #2C3531;
 
 }
 
@@ -278,7 +281,7 @@ html {
 
 	padding-left:10px;
 	font-family: "font", sans-serif;
-	font-size: 120%;
+	font-size: 1vw;
 	text-decoration: none;
 	
 }
@@ -291,19 +294,21 @@ html {
 	overflow:hidden;
 	/*this is temp*/
 
-	left: 45vw;
+	left: 50vw;
 	height: 95vh;
 	position: relative;
+
+	transition: width 1s;
 
 }
 
 .right_page img {
+
 	width: 40vw;
 	top: 20vh;
 	position: absolute;
 	opacity: 0;
 
-	transition: opacity .75s;
 
 }
 
