@@ -8,12 +8,12 @@ body {
 
 @font-face {
 	font-family: "font";
-	src: url("fonts/Comfortaa-Medium.ttf");
+	src: url("fonts/Comfortaa-Medium.woff");
 }
 
 @font-face {
 	font-family: "title-font";
-	src: url("fonts/Righteous-Regular.ttf");
+	src: url("fonts/Righteous-Regular.woff");
 }
 
 
