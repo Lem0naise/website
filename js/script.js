@@ -7,25 +7,27 @@ var left = false //this variable is true when the page has moved to the left
 // combined hover function 
 function moveleft(name){
 
-  if (!left){ // if the page is not already split
+  console.log($('#left_page').css("--too_small"))
+  if ($('#left_page').css("--too_small") != '"true"'){ // if the page is not too small
+    if (!left){ // if the page is not already split
 
-    $('#left_page').css("width", "50vw"); //split the page into two
-    $('#right_page').css("width", "45vw");
+      $('#left_page').css("width", "50vw"); //split the page into two
+      $('#right_page').css("width", "45vw");
 
-    $('#right_page').find("#"+name).css("opacity", "1"); // show relevant image
-    
-    setTimeout(function(){left = true;}, 500); // set 'split' variable to true after .5 seconds
+      $('#right_page').find("#"+name).css("opacity", "1"); // show relevant image
+      
+      setTimeout(function(){left = true;}, 500); // set 'split' variable to true after .5 seconds
 
+    }
+
+    else {  // if the page is already split and you clicked on a button, close and reopen the window
+
+      console.log("so here we have to close and open it again");
+
+      unmove(true, name); // so first move this back
+      
+    }
   }
-
-  else {  // if the page is already split and you clicked on a button, close and reopen the window
-
-    console.log("so here we have to close and open it again");
-
-    unmove(true, name); // so first move this back
-    
-  }
-
 }
 
 function unmove(second=false, name='') {

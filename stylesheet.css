@@ -89,6 +89,7 @@ html {
 	height: 80vh;
 	z-index: 5;
 
+	--too_small: "false";
 
 	top: 15vh;
 
@@ -371,6 +372,8 @@ html {
 
 	.left_page {
 		width: 100vw;
+		--too_small: "true";
+
 	}
 	.list-desc {
 		width: 80vw;
