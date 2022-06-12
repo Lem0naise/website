@@ -295,13 +295,25 @@ html {
 	background-color: #4C5551;
 	border: 2px solid #D1E8E2;
 	border-radius: 5px;
-	-webkit-transition: border .5s, background-color .5s;
-	-o-transition: border .5s, background-color .5s;
-	transition: border .5s, background-color .5s;
+	-webkit-transition: border .5s, background-color .5s, color .5s;
+	-o-transition: border .5s, background-color .5s, color .5s;
+	transition: border .5s, background-color .5s, color .5s;
 }
 .selected_square {
 	border: 3px solid #F1F8F2;
 	background-color: #5C6561;
+}
+.wrong_square {
+	color: #63716d;
+	border: 2px solid #63716d;
+}
+.correct_square {
+	color: #90d69b;
+	border: 2px solid #90d69b;
+}
+.in_square {
+	color: #f78379;
+	border: 2px solid #f78379;
 }
 .menu-button, .menu-button:visited, .menu-button:active {
 	color:#D1E8E2;

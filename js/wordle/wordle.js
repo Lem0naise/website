@@ -80,17 +80,27 @@ function backspace() {
     }
 }
 function submit(){
-    console.log(guess.toLowerCase());
-
     if ((words.includes(guess.toLowerCase())) || (answers.includes(guess.toLowerCase()))){ // if the guess is a valid word
-        console.log(guess);
-        guess = '';
-        current_row += 1;
-        current_column = 0;
+        guess = guess.toLowerCase();
+        // verifying the word
+        for (i=0;i<5;i++){
+            if (answer.includes(guess[i])){
+                if (guess[i] == answer[i]){
+                    $('#square'+current_row+i).addClass('correct_square');
+                }
+                else{
+                    $('#square'+current_row+i).addClass('in_square');
+                }
+            }
+            else {
+                $('#square'+current_row+i).addClass('wrong_square');
+            }
+        }
+        guess = ''; // reset guess
+        current_row += 1; current_column = 0;// go onto the next row
         $('#square'+current_row+current_column).addClass('selected_square'); // select that square
     }
-    else {
-        console.log("not in words lmaoo")
+    else { // the guess is not a valid word / too short
+        console.log("Not a valid guess.");
     }
-  
 }
