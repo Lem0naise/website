@@ -51,7 +51,6 @@ function letter(letter){ // letter input
         // don't set the square to the letter
     }
 }
-
 function backspace() {
     if (current_column > 0) {current_column -= 1;}
     $('#square' + current_row + current_column).html(''); // set square to nothing
