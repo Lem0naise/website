@@ -111,15 +111,18 @@ function submit(){
             if (answer.includes(guess[i]) && (alphabet_letters[guess[i].toUpperCase()] < (answer.match(new RegExp(guess[i], "g")) || []).length)){ // if not ran out of letters
                 if (guess[i] == answer[i]){
                     $('#square'+current_row+i).addClass('correct_square'); // letter is correct
+                    $('#' +guess[i].toUpperCase()).addClass("letter_correct");
                     alphabet_letters[guess[i].toUpperCase()] += 1; // add one to tracked letter
                 }
                 else{
                     $('#square'+current_row+i).addClass('in_square'); // letter is in word
+                    $('#' +guess[i].toUpperCase()).addClass("letter_in"); 
                     alphabet_letters[guess[i].toUpperCase()] += 1; // add one to tracked letter
                 }
             }
             else {
                 $('#square'+current_row+i).addClass('wrong_square'); // if its wrong
+                $('#' +guess[i].toUpperCase()).addClass("letter_wrong"); 
             }
         }
         guess = ''; // reset guess
@@ -149,6 +152,7 @@ function win(answer){
     $('#alphabet').css('opacity', '0');
     $('#alphabet').css('user-select', 'text');
     setTimeout(function(){$('#alphabet').html("Congratulations! The word was " + answer + ". You guessed it after " + (current_row+1) + " guesses.");}, 250);
+    setTimeout(function(){$('#alphabet').css('width', '30vw');}, 250);
     setTimeout(function(){$('#alphabet').css('opacity', '1');}, 250);
 }
 function lose(){

@@ -278,6 +278,16 @@ html {
 	height: fit-content;
 	display: inline-block;
 	margin-right: 1vw;
+	transition: color .5s, border .5s;
+}
+.letter_correct {
+	color: #90d69b;
+}
+.letter_in{
+	color: #f78379;
+}
+.letter_wrong {
+	color: #63716d;
 }
 .guesses {
 	-moz-user-select: none;
