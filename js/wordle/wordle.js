@@ -27,14 +27,14 @@ function get_answer() {
 function wordle(){
     get_words(); // run the get words function to populate answers[] and words[]
     answer = get_answer(); // get an answer
-    $('#right_page').html(''); // clear page
+    $('#wordle_content').html(''); // clear page
 
     current_row = 0;
     current_column = 0;
 
     //spaces for guesses on load
     for (i=0; i<5; i++){
-        $('#right_page').append("<div class = 'guesses' id = 'guesses" + i + "'></div>");
+        $('#wordle_content').append("<div class = 'guesses' id = 'guesses" + i + "'></div>");
         for (j=0; j<5;j++){
             $('#guesses' + i).append("<div id='square"+ i + j + "' class = 'square'></div>")
         }
@@ -43,12 +43,16 @@ function wordle(){
 
     $('#square' + current_row + current_column).addClass('selected_square'); // set the first square to selected
 
-    $('#right_page').append('<div class = "alphabet" id = "alphabet"></div>');
-    var keyboard = [['Q', 'W', 'E', 'R', 'T', 'Y', "U", 'I', 'O', 'P'], ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'], ['Z', 'X', 'C', 'V', 'B', 'N', 'M']]
+    $('#wordle_content').append('<div class = "alphabet" id = "alphabet"></div>');
+    var keyboard = [['Q', 'W', 'E', 'R', 'T', 'Y', "U", 'I', 'O', 'P'], ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'], ['Z', 'X', 'C', 'V', 'B', 'N', 'M', '\<'], ['Enter']]
     // alphabet on load
     for (i=0;i<keyboard.length;i++){
         for (j=0;j<keyboard[i].length;j++){
-            $("#alphabet").append("<div onclick = 'letter(" + keyboard[i][j] + ".innerHTML.trim())' class='alphabet_letter' id = '" + keyboard[i][j] + "'>" + keyboard[i][j]+ "</div>")
+            if (keyboard[i][j] == "<"){
+                $("#alphabet").append("<div onclick = 'backspace()' class='alphabet_letter' id = '" + keyboard[i][j] + "'>" + keyboard[i][j]+ "</div>")
+            }
+            else {$("#alphabet").append("<div onclick = 'letter(" + keyboard[i][j] + ".innerHTML.trim())' class='alphabet_letter' id = '" + keyboard[i][j] + "'>" + keyboard[i][j]+ "</div>")}
+          
         }
         $("#alphabet").append("<br/>");
     }
@@ -72,7 +76,11 @@ window.onkeydown = function(e) {
     }
 }
 function letter(letter){ // letter input
+    if (letter == "<") {backspace();return} // if they pressed backspace icon
+    if (letter == "Enter") {submit();return} // if they pressed enter
+
     if (current_column <= 4){
+        console.log(letter);
         guess += letter.toLowerCase();
         $('#square' + current_row + current_column).html(letter); // set square to letters
         $('#square'+current_row+current_column).removeClass('selected_square'); // unselect that square

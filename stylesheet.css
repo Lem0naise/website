@@ -225,7 +225,6 @@ html {
 	/*temp*/
 	width: 100vw;
 	overflow:hidden;
-	/*this is temp*/
 	margin-left: 100vw;
 	top: 10vh;
 	height: 90vh;
@@ -233,6 +232,10 @@ html {
 	-webkit-transition: margin-left .75s;
 	-o-transition: margin-left .75s;
 	transition: margin-left .75s;
+}
+.wordle_content {
+	width: 100vw;
+	height: 90vh;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -244,11 +247,19 @@ html {
 	    -ms-flex-align: center;
 	        align-items: center;
 }
-.right_page img {
-	width: 40vw;
-	top: 20vh;
-	position: absolute;
-	opacity: 0;
+.back {
+	-moz-user-select: none;
+	-ms-user-select: none;
+		user-select: none;
+   -webkit-user-select: none;
+   cursor: pointer;
+   font-family: "font", sans-serif;
+   color: #D1E8E2;
+   font-size: 160%;
+
+   position: absolute;
+   margin-left: 5vw;
+   margin-top: 0vw;
 }
 .alphabet {
 	-moz-user-select: none;
