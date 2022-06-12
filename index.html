@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 	<head>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
@@ -8,29 +7,20 @@
 		window.dataLayer = window.dataLayer || [];
 		function gtag(){dataLayer.push(arguments);}
 		gtag('js', new Date());
-
 		gtag('config', 'G-QQDX6JZ0XF');
 		</script>
-
-		
 		<meta name="google-site-verification" content="Mjwi8fp-GIfDM41jXFYDAS7nCmwb3fSguVAirwzQ6Yk" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Zac Nolan</title>
 		<link rel="stylesheet" href = "stylesheet.css">
-
 		<script src="js/jquery-3.6.0.min.js"></script>
-
-
 		<meta name="description" content="Zac Nolan - Portfolio containing work experience and contact details"/>
 		<meta name="keywords" content="Zac Nolan, Nolan, Portfolio"/>
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
-	<body onclick="unmove()">	
-		
-		
+	<body>	
 		<div class = "left_page" id = "left_page">
-
 			<div class = "splash_title">
 				<div class="splash">
 					Zac Nolan
@@ -39,9 +29,7 @@
 					Passionate programmer and student living in the UK
 				</div>
 			</div>
-
 			<div class = "portfolio" id = "portfolio">
-
 				<div onclick = "moveleft('website')" id = "website_a" class = "list-item">
 					<span class = "list-text">
 						This website
@@ -61,30 +49,23 @@
 					<span class = "list-desc">
 						My portfolio website.
 					</span>
-
-				</div>  
-
-				
+				</div>  				
 				<div class = "break"></div>
-
 				<div onclick = "moveleft('wordle')" id = "wordle" class = "list-item">
 					<span class = "list-text">
 						Wordle
 					</span>
 					<div class="languages">
-						<span style = "color: lightblue" class = "language">	
-							Python&nbsp;
+						<span style = "color: yellow" class = "language">
+							Javascript&nbsp;
 						</span>
 					</div>
 					<br/>
 					<span class = "list-desc">
-						Play wordle in your terminal.
+						Play wordle right here.
 					</span>
 				</div>  
-
 				<div class = "break"></div>
-
-
 				<div onclick = "moveleft('toptrumps')" id = "toptrumps" class = "list-item">
 					<span class = "list-text">
 						Top Trumps
@@ -94,8 +75,6 @@
 							Python&nbsp;
 						</span>
 					</div>
-
-
 					<br/>
 					<span class = "list-desc">
 						Play top trumps in your terminal.
@@ -104,28 +83,20 @@
 			</div>
 		</div>
 
-
 		<div class = "buttons">
-		
 			<div class="button_margin" id="button_margin">
 				<a href="mailto:zac.i.nolan@gmail.com" class = "menu-button"><img class="button-image" src="pics/email.png"><!--
 				--></a>
 				<a target = "_blank" href="https://github.com/Lem0naise" class = "menu-button" onload="last_button_load()"><img class="button-image" src="pics/github.png"><!--
 				--></a>
 			</div>
-		
 		</div>
 
 		<div class = "right_page" id = "right_page">
-			<div id = "pic_title" class = "pic_title list-desc">Wordle</div>
-			<img src = "pics/wordle.png" id = "wordle"/>
-			<img src="pics/toptrumps.png" id = "toptrumps"/>
 		</div>	
 			
 		<script src="js/script.js"></script>
-		<script src="js/wordle/wordle.js"></script>
-
-		
+		<script src="js/wordle/wordle.js"></script>	
+		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 	</body>
-	
 </html>
