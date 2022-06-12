@@ -19,7 +19,6 @@ function moveleft(name){
     setTimeout(function(){left = true;}, 500); // set 'split' variable to true after .5 seconds
   }
   else {  // if the page is already split and you clicked on a button, close and reopen the window
-    console.log("so here we have to close and open it again");
     unmove(true, name); // so first move this back
     
   }
@@ -27,13 +26,10 @@ function moveleft(name){
 }
 function unmove(second=false, name='') {
   if (left){
-    console.log("starting moving back right");
     $('#left_page').css("margin-left", "0vw");
     $('#right_page').css("margin-left", "100vw");// unsplit the pages
     //setTimeout(function() {$('#right_page').children().css("opacity", "0");}, 500);
     // rehide the image onces its behind the left page
-    
-    console.log("finished moving back right");
     left = false; // set left back to false because the page is unsplit
     setTimeout(function() {
       if (second){  // if you then need to reopen it with a new page (i.e the user clicked a button instead of the page)

@@ -27,7 +27,6 @@ function get_answer() {
 function wordle(){
     get_words(); // run the get words function to populate answers[] and words[]
     answer = get_answer(); // get an answer
-    console.log(answer);
     $('#right_page').html(''); // clear page
 
     current_row = 0;
