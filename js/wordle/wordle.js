@@ -1,8 +1,11 @@
 var current_row = 0;
 var current_column = 0;
+var guess = '';
+var answer = '';
 
 function wordle(){
 
+    answer = get_answer(); // get an answer
     $('#right_page').html(''); // clear page
 
     current_row = 0;
@@ -29,6 +32,25 @@ function wordle(){
     console.log("wordle time!!!!");
 }
 
+function get_answer() {
+    var answersFrame = document.getElementById("answers");
+    var wordsFrame = document.getElementById('words');
+
+    var answersContents = answersFrame.contentWindow.document.body.childNodes[0].innerHTML;
+    var wordsContents = wordsFrame.contentWindow.document.body.childNodes[0].innerHTML;
+
+    /*
+    while (strRawContents.indexOf("\r") >= 0)
+        strRawContents = strRawContents.replace("\r", "");
+    var arrLines = strRawContents.split("\n");
+    alert("File " + oFrame.src + " has " + arrLines.length + " lines");
+    for (var i = 0; i < arrLines.length; i++) {
+        var curLine = arrLines[i];
+        alert("Line #" + (i + 1) + " is: '" + curLine + "'");
+    */
+   console.log(answersContents);
+
+}
 window.onkeydown = function(e) {
     if (playing_wordle){
         e.which // get key code
@@ -37,9 +59,9 @@ window.onkeydown = function(e) {
             letter(letter_input);
         }
         else if (e.which == 8) { backspace(); }// if it is backspace
+        else if (e.which == 13) { submit();} // if it is enter
     }
 }
-
 function letter(letter){ // letter input
     if (current_column <= 4){
         $('#square' + current_row + current_column).html(letter); // set square to letters
@@ -54,4 +76,7 @@ function letter(letter){ // letter input
 function backspace() {
     if (current_column > 0) {current_column -= 1;}
     $('#square' + current_row + current_column).html(''); // set square to nothing
+}
+function submit(){
+
 }
