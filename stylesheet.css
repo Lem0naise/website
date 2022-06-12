@@ -19,6 +19,9 @@ html {
 	scroll-behavior: smooth;
 }
 .buttons {
+	-moz-user-select: none;
+	 -ms-user-select: none;
+	     user-select: none;
 	z-index: 10;
 	width: 120vw;
 	background-color:#2C3531;
@@ -225,7 +228,7 @@ html {
 	/*this is temp*/
 	margin-left: 100vw;
 	top: 10vh;
-	height: 80vh;
+	height: 90vh;
 	position: relative;
 	-webkit-transition: margin-left .75s;
 	-o-transition: margin-left .75s;
@@ -260,8 +263,11 @@ html {
 	height: -webkit-fit-content;
 	height: -moz-fit-content;
 	height: fit-content;
-	width: 30vw;
+	width: fit-content;
 	text-align: center;
+	-webkit-transition: opacity .25s;
+	-o-transition: opacity .25s;
+	transition: opacity .25s;
 }
 .alphabet_letter {
 	font-family: "font", sans-serif;
@@ -274,6 +280,9 @@ html {
 	margin-right: 1vw;
 }
 .guesses {
+	-moz-user-select: none;
+	-ms-user-select: none;
+		user-select: none;
 	margin-top: 5vh;
 	height: -webkit-fit-content;
 	height: -moz-fit-content;
@@ -286,6 +295,9 @@ html {
 	display: flex;
 }
 .square {
+	-moz-user-select: none;
+	-ms-user-select: none;
+		user-select: none;
 	margin-right: 1vw;
 	text-align:center;
 	font-size:200%;
@@ -316,6 +328,9 @@ html {
 	border: 2px solid #f78379;
 }
 .menu-button, .menu-button:visited, .menu-button:active {
+	-moz-user-select: none;
+	-ms-user-select: none;
+		user-select: none;
 	color:#D1E8E2;
 	z-index: 4;
 	margin-top:20px;
