@@ -280,14 +280,14 @@ html {
 	margin-right: 1vw;
 	transition: color .5s, border .5s;
 }
-.letter_correct {
-	color: #90d69b;
+.letter_wrong {
+	color: #63716d;
 }
 .letter_in{
 	color: #f78379;
 }
-.letter_wrong {
-	color: #63716d;
+.letter_correct {
+	color: #90d69b;
 }
 .guesses {
 	-moz-user-select: none;
