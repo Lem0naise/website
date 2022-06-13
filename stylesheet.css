@@ -5,6 +5,7 @@ body {
 	overflow:hidden;
 	position: relative;
 	background-color: #2C3531;
+	-webkit-tap-highlight-color: transparent;
 }
 .break {
 	height: 25px;
