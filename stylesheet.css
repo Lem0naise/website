@@ -341,7 +341,7 @@ html {
 	line-height: 65px;
 	position:relative;
 	background-color: #4C5551;
-	border: 2px solid #D1E8E2;
+	border: 2px solid #FFCB9A;
 	border-radius: 5px;
 	-webkit-transition: border .5s, background-color .5s, color .5s;
 	-o-transition: border .5s, background-color .5s, color .5s;
