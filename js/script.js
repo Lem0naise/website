@@ -50,3 +50,8 @@ $(document).keypress(function(e){
 	  unmove();
   }
 });
+$(document).keydown(function(e){
+	if (e.which == 27){ // 27 is key code for escape
+		unmove();
+	}
+});
