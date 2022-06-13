@@ -24,7 +24,7 @@ html {
 .buttons {
 	-moz-user-select: none;
 	 -ms-user-select: none;
-	     user-select: none;
+		 user-select: none;
 	z-index: 10;
 	width: 120vw;
 	background-color:#2C3531;
@@ -33,7 +33,7 @@ html {
 	margin-left: -1vw;
 	position: fixed;
 	-webkit-animation: zindex 2s;
-	        animation: zindex 2s;
+			animation: zindex 2s;
 	/*makes the buttons appear after the intro*/
 }
 @-webkit-keyframes zindex {
@@ -74,7 +74,7 @@ html {
 .button-image {
 	max-height: 3vh;
 	-webkit-filter: invert();
-	        filter: invert();
+			filter: invert();
 }
 .left_page {
 	width: 100vw;
@@ -88,7 +88,7 @@ html {
 	-o-transition: margin-left .75s;
 	transition: margin-left .75s;;
 	-webkit-animation: title_intro 2s;;
-	        animation: title_intro 2s;
+			animation: title_intro 2s;
 	background-color: #2C3531;
 }
 .splash {
@@ -126,19 +126,19 @@ html {
 .portfolio {
 	text-align: center;
 	display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+	display: -ms-flexbox;
+	display: flex;
 	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+		-ms-flex-align: center;
+			align-items: center;
 	z-index: -2;
 	margin-top: 5vh;
 	-webkit-transition: opacity .3s;
 	-o-transition: opacity .3s;
 	transition: opacity .3s;
 	-webkit-box-orient: vertical;
-    -ms-flex-direction: column;
-    flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
 }
 .item {
 	text-align: center;
@@ -172,8 +172,8 @@ html {
 }
 .list-item:hover{
 	-webkit-transform: scale(1.1);
-	    -ms-transform: scale(1.1);
-	        transform: scale(1.1);
+		-ms-transform: scale(1.1);
+			transform: scale(1.1);
 }
 .list-item:hover div{
 	max-width: 50vw;
@@ -243,31 +243,36 @@ html {
 	display: flex;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
-	    -ms-flex-direction: column;
-	        flex-direction: column;
+		-ms-flex-direction: column;
+			flex-direction: column;
 	-webkit-box-align: center;
-	    -ms-flex-align: center;
-	        align-items: center;
+		-ms-flex-align: center;
+			align-items: center;
 }
 .back {
 	z-index: 100;
 	-moz-user-select: none;
 	-ms-user-select: none;
-		user-select: none;
-   -webkit-user-select: none;
-   cursor: pointer;
-   font-family: "font", sans-serif;
-   color: #D1E8E2;
-   font-size: 160%;
-
-   position: absolute;
-   margin-left: 5vw;
-   margin-top: 0vw;
+	user-select: none;
+	-webkit-user-select: none;
+	cursor: pointer;
+	font-family: "font", sans-serif;
+	color: #D1E8E2;
+	font-size: 160%;
+	margin-left: 10vw;
+	position: absolute;
+	opacity: 0;
+	margin-top: 0vw;
+	transition:opacity .75s;
+	-webkit-transition:opacity .75s;
+	-moz-transition:opacity .75s;
+	-ms-transition:opacity .75s;
+	-o-transition:opacity .75s;
 }
 .alphabet {
 	-moz-user-select: none;
 	 -ms-user-select: none;
-	     user-select: none;
+		 user-select: none;
 	-webkit-user-select: none;
 	cursor: pointer;
 	font-family: "font", sans-serif;
@@ -397,7 +402,7 @@ html {
 		--width_value: thin;
 	}
 	.back {
-		margin-left: 1vw;
+		margin-left: 20vw;
 	}
 	.alphabet_letter {
 		margin-right: 4vw;

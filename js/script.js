@@ -12,6 +12,9 @@ function moveleft(name){
     setTimeout(function(){$('#left_page').css("opacity", "0");}, 500)
     $('#right_page').css("margin-left", "0vw");
     $('#right_page').css("opacity", "1");
+    $('#back').css("opacity", "1");
+    $('#back').css("cursor", "pointer");
+
     
     if (!playing_wordle){
       $('#right_page').find("#"+name).css("opacity", "1"); // show relevant image
@@ -31,6 +34,8 @@ function unmove(second=false, name='') {
     $('#left_page').css("margin-left", "0vw");
     $('#left_page').css("opacity", "1");
     $('#right_page').css("margin-left", "100vw");// unsplit the pages
+    $('#back').css("opacity", "0");
+    setTimeout(function(){$('#back').css("cursor", "default");}, 500);
     setTimeout(function(){$('#right_page').css("opacity", "0");}, 500)
     //setTimeout(function() {$('#right_page').children().css("opacity", "0");}, 500);
     // rehide the image onces its behind the left page
