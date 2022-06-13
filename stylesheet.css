@@ -251,6 +251,7 @@ html {
 	        align-items: center;
 }
 .back {
+	z-index: 100;
 	-moz-user-select: none;
 	-ms-user-select: none;
 		user-select: none;
@@ -389,11 +390,17 @@ html {
 	transition: opacity .75s;
 }
 @media only screen and (max-aspect-ratio: 1/1) {
-	.list-desc {
-		width: 80vw;
+	.alphabet {
+		width: 100vw;
 	}
 	.button_margin {
 		width: 100vw;
 		--width_value: thin;
+	}
+	.back {
+		margin-left: 1vw;
+	}
+	.alphabet_letter {
+		margin-right: 4vw;
 	}
 }
