@@ -30,7 +30,6 @@ function wordle(){ // this runs when you click the wordle button
     won = false; // set won back to false
     get_words(); // run the get words function to populate answers[] and words[]
     answer = get_answer(); // get an answer
-    console.log(answer);
 
     $('#wordle_content').html(''); // clear page
 
@@ -169,7 +168,10 @@ function win(answer){
     $('#alphabet').css('opacity', '0');
     $('#alphabet').css('user-select', 'text');
     setTimeout(function(){$('#alphabet').html("Congratulations! The word was " + answer + ". You guessed it after " + (current_row+1) + " guesses.");}, 250);
-    setTimeout(function(){$('#alphabet').css('width', '30vw');}, 250);
+
+    var aspect_ratio = $(window).height() / $(window).width();
+    if (aspect_ratio < 1){setTimeout(function(){$('#alphabet').css('width', '30vw');}, 250);}
+
     setTimeout(function(){$('#alphabet').css('opacity', '1');}, 250);
 }
 function lose(){
