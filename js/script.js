@@ -1,6 +1,19 @@
+function checkParams(){
+	const queryString = window.location.search;
+	const urlParams = new URLSearchParams(queryString);
+	console.log(urlParams);
+	console.log(urlParams.get(wordle));
+	if (urlParams.get(wordle) == true){
+		wordle();
+	}
+}
+
+
 function downloadfile(item){
   window.open(item.getAttribute("data-link"));
+  window.location.href = (item.getAttribute("data-download"));
 }
+
 var left = false //this variable is true when the page has moved to the left
 var playing_wordle = false // this is true if currently playing wordle
 

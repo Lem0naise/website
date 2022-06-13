@@ -19,7 +19,7 @@
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
-	<body>	
+	<body onload="checkParams()">	
 		<div class = "left_page" id = "left_page">
 			<div class = "splash_title">
 				<div class="splash">
@@ -63,6 +63,21 @@
 					<br/>
 					<span class = "list-desc">
 						Play wordle right here.
+					</span>
+				</div>
+				<div class = "break"></div>
+				<div onclick = "downloadfile(this)" data-link="https://github.com/Lem0naise/wordle" data-download ='https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip' id = "wordle" class = "list-item">
+					<span class = "list-text">
+						Wordle in shell
+					</span>
+					<div class="languages">
+						<span style = "color: cyan" class = "language">
+							Python&nbsp;
+						</span>
+					</div>
+					<br/>
+					<span class = "list-desc">
+						Play wordle in your terminal.
 					</span>
 				</div>  
 				<div class = "break"></div>
