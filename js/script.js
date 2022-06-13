@@ -1,16 +1,8 @@
 function checkParams(){
-	console.log("checking rn");
 	const queryString = window.location.search;
-	console.log(queryString);
-	const urlParams = new URLSearchParams(queryString);
-	console.log(urlParams);
-	console.log(urlParams.get(wordle));
-	if (urlParams.get(wordle) == true){
-		wordle();
-	}
+	if (queryString.includes("wordle=true")){moveleft("wordle");}
 }
-
-window.onload = checkParams();
+window.addEventListener('load', checkParams());
 
 function downloadfile(item){
   window.open(item.getAttribute("data-link"));
@@ -32,7 +24,7 @@ function moveleft(name){
 	$('#back').css("opacity", "1");
 	$('#back').css("cursor", "pointer");
 
-	if (playing_wordle){wordle();} // if they clicked wordle, start the wordle function
+	if (playing_wordle){play_wordle();} // if they clicked wordle, start the wordle function
 	setTimeout(function(){left = true;}, 500); // set 'split' (left) variable to true after .5 seconds
   }
 

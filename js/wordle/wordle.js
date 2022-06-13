@@ -24,7 +24,7 @@ function get_answer() {
     var index = Math.floor(Math.random() * answers.length);
     return answers[index];
 }
-function wordle(){ // this runs when you click the wordle button
+function play_wordle(){ // this runs when you click the wordle button
 
     document.title = "Wordle - Zac Nolan"
     won = false; // set won back to false
@@ -121,7 +121,6 @@ function submit(){
 
         for (i=0;i<5;i++){ // checking for completely right ones first
             if (guess[i] == answer[i]){
-                console.log(guess[i], i, " is correct");
                 alphabet_letters[guess[i].toUpperCase()] += 1;
                 $('#square'+current_row+i).addClass('correct_square'); 
                 $('#' +guess[i].toUpperCase()).addClass("letter_correct"); 
