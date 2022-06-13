@@ -24,7 +24,7 @@ function get_answer() {
     var index = Math.floor(Math.random() * answers.length);
     return answers[index];
 }
-function play_wordle(){ // this runs when you click the wordle button
+function wordle(){ // this runs when you click the wordle button
 
     document.title = "Wordle - Zac Nolan"
     won = false; // set won back to false
@@ -67,7 +67,6 @@ function play_wordle(){ // this runs when you click the wordle button
     */
 }
 
-
 window.onkeydown = function(e) {
     if (playing_wordle){
         e.which // get key code
@@ -77,6 +76,7 @@ window.onkeydown = function(e) {
         }
         else if (e.which == 8) { backspace(); }// if it is backspace
         else if (e.which == 13) { submit();} // if it is enter
+        else if (e.which == 27) { unmove();} //  if it is escape
     }
 }
 function letter(letter){ // letter input

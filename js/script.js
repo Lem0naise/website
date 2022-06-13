@@ -2,7 +2,7 @@ function checkParams(){
 	const queryString = window.location.search;
 	if (queryString.includes("wordle=true")){moveleft("wordle");}
 }
-window.addEventListener('load', checkParams());
+window.addEventListener('load', setTimeout(checkParams(), 1000));
 
 function downloadfile(item){
   window.open(item.getAttribute("data-link"));
@@ -24,7 +24,7 @@ function moveleft(name){
 	$('#back').css("opacity", "1");
 	$('#back').css("cursor", "pointer");
 
-	if (playing_wordle){play_wordle();} // if they clicked wordle, start the wordle function
+	if (playing_wordle){wordle();} // if they clicked wordle, start the wordle function
 	setTimeout(function(){left = true;}, 500); // set 'split' (left) variable to true after .5 seconds
   }
 
@@ -51,15 +51,3 @@ function unmove(name='') {
 	left = false; // set left back to false because the page is unsplit
   }
 }
-
-// so the page moves back when u click escape
-$(document).keypress(function(e){
-  if (e.which == 27){ // 27 is key code for escape
-	  unmove();
-  }
-});
-$(document).keydown(function(e){
-	if (e.which == 27){ // 27 is key code for escape
-		unmove();
-	}
-});
