@@ -24,7 +24,9 @@ function get_answer() {
     var index = Math.floor(Math.random() * answers.length);
     return answers[index];
 }
-function wordle(){
+function wordle(){ // this runs when you click the wordle button
+
+    document.title = "Wordle - Zac Nolan"
     won = false; // set won back to false
     get_words(); // run the get words function to populate answers[] and words[]
     answer = get_answer(); // get an answer
