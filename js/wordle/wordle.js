@@ -25,8 +25,11 @@ function get_answer() {
     return answers[index];
 }
 function wordle(){
+    won = false; // set won back to false
     get_words(); // run the get words function to populate answers[] and words[]
     answer = get_answer(); // get an answer
+    console.log(answer);
+
     $('#wordle_content').html(''); // clear page
 
     current_row = 0;
@@ -80,7 +83,6 @@ function letter(letter){ // letter input
     if (letter == "Enter") {submit();return} // if they pressed enter
 
     if (current_column <= 4){
-        console.log(letter);
         guess += letter.toLowerCase();
         $('#square' + current_row + current_column).html(letter); // set square to letters
         $('#square'+current_row+current_column).removeClass('selected_square'); // unselect that square
@@ -102,8 +104,10 @@ function backspace() {
 function submit(){
     set_alphabet_letters(); // reset alphabet tracker to zero
     guess = guess.toLowerCase();
-    console.log(guess);
 
+    // leper answer
+    // popes guess
+    
     if (guess == answer){
         if (!won){win(answer);} // win 
         won = true;
@@ -113,19 +117,23 @@ function submit(){
         if ((current_row == 4) && (!won))  { // if this is the last guess
             lose(); // lose
         }
+
+        for (i=0;i<5;i++){ // checking for completely right ones first
+            if (guess[i] == answer[i]){
+                console.log(guess[i], i, " is correct");
+                alphabet_letters[guess[i].toUpperCase()] += 1;
+                $('#square'+current_row+i).addClass('correct_square'); 
+                $('#' +guess[i].toUpperCase()).addClass("letter_correct"); 
+            }
+        }
+
         // verifying the word
         for (i=0;i<5;i++){
             if (answer.includes(guess[i]) && (alphabet_letters[guess[i].toUpperCase()] < (answer.match(new RegExp(guess[i], "g")) || []).length)){ // if not ran out of letters
-                if (guess[i] == answer[i]){
-                    $('#square'+current_row+i).addClass('correct_square'); // letter is correct
-                    $('#' +guess[i].toUpperCase()).addClass("letter_correct");
-                    alphabet_letters[guess[i].toUpperCase()] += 1; // add one to tracked letter
-                }
-                else{
-                    $('#square'+current_row+i).addClass('in_square'); // letter is in word
-                    $('#' +guess[i].toUpperCase()).addClass("letter_in"); 
-                    alphabet_letters[guess[i].toUpperCase()] += 1; // add one to tracked letter
-                }
+                $('#square'+current_row+i).addClass('in_square'); // letter is in word
+                $('#' +guess[i].toUpperCase()).addClass("letter_in"); 
+                alphabet_letters[guess[i].toUpperCase()] += 1; // add one to tracked letter
+            
             }
             else {
                 $('#square'+current_row+i).addClass('wrong_square'); // if its wrong

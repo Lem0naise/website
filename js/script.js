@@ -21,8 +21,7 @@ function moveleft(name){
   else {  // if the page is already split and you clicked on a button, close and reopen the window
     unmove(true, name); // so first move this back
     
-  }
-  
+  } 
 }
 function unmove(second=false, name='') {
   if (left){

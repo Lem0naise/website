@@ -301,7 +301,7 @@ html {
 	color: #f78379;
 }
 .letter_correct {
-	color: #90d69b;
+	color: #90d69b !important;
 }
 .guesses {
 	-moz-user-select: none;
@@ -343,13 +343,13 @@ html {
 	color: #63716d;
 	border: 2px solid #63716d;
 }
-.correct_square {
-	color: #90d69b;
-	border: 2px solid #90d69b;
-}
 .in_square {
 	color: #f78379;
 	border: 2px solid #f78379;
+}
+.correct_square {
+	color: #90d69b;
+	border: 2px solid #90d69b;
 }
 .menu-button, .menu-button:visited, .menu-button:active {
 	-moz-user-select: none;
