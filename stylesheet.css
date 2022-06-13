@@ -274,6 +274,7 @@ html {
 	 -ms-user-select: none;
 		 user-select: none;
 	-webkit-user-select: none;
+	-webkit-tap-highlight-color: transparent;
 	cursor: pointer;
 	font-family: "font", sans-serif;
 	color: #D1E8E2;
