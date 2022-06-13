@@ -7,6 +7,9 @@ body {
 	background-color: #2C3531;
 	-webkit-tap-highlight-color: transparent;
 }
+* {
+	-webkit-tap-highlight-color: transparent;
+}
 .break {
 	height: 25px;
 }
