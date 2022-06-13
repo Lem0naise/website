@@ -1,5 +1,7 @@
 function checkParams(){
+	console.log("checking rn");
 	const queryString = window.location.search;
+	console.log(queryString);
 	const urlParams = new URLSearchParams(queryString);
 	console.log(urlParams);
 	console.log(urlParams.get(wordle));
@@ -8,6 +10,7 @@ function checkParams(){
 	}
 }
 
+window.onload = checkParams();
 
 function downloadfile(item){
   window.open(item.getAttribute("data-link"));
