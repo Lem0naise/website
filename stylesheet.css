@@ -221,11 +221,10 @@ html {
 .language {
 	padding-left:10px;
 	font-family: "font", sans-serif;
-	font-size: 1vw;
+	font-size: 100%;
 	text-decoration: none;
 }
 .right_page {
-	/*temp*/
 	width: 100vw;
 	overflow:hidden;
 	margin-left: 100vw;

@@ -9,14 +9,17 @@ function moveleft(name){
     if (name == "wordle"){ playing_wordle=true; }
     //move the right page and move the left page
     $('#left_page').css("margin-left", "-200vw");
+    setTimeout(function(){$('#left_page').css("opacity", "0");}, 500)
     $('#right_page').css("margin-left", "0vw");
+    $('#right_page').css("opacity", "1");
+    
     if (!playing_wordle){
       $('#right_page').find("#"+name).css("opacity", "1"); // show relevant image
     }
     else if (playing_wordle){ // if is wordle, start playing wordle
       wordle();
     }
-    setTimeout(function(){left = true;}, 500); // set 'split' variable to true after .5 seconds
+    setTimeout(function(){left = true;}, 500); // set 'split' (left) variable to true after .5 seconds
   }
   else {  // if the page is already split and you clicked on a button, close and reopen the window
     unmove(true, name); // so first move this back
@@ -26,7 +29,9 @@ function moveleft(name){
 function unmove(second=false, name='') {
   if (left){
     $('#left_page').css("margin-left", "0vw");
+    $('#left_page').css("opacity", "1");
     $('#right_page').css("margin-left", "100vw");// unsplit the pages
+    setTimeout(function(){$('#right_page').css("opacity", "0");}, 500)
     //setTimeout(function() {$('#right_page').children().css("opacity", "0");}, 500);
     // rehide the image onces its behind the left page
     left = false; // set left back to false because the page is unsplit
