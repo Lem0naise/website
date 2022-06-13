@@ -274,6 +274,7 @@ html {
 	-o-transition:opacity .75s;
 }
 .alphabet {
+	outline: none;
 	-moz-user-select: none;
 	 -ms-user-select: none;
 		 user-select: none;
@@ -294,6 +295,7 @@ html {
 	transition: opacity .25s;
 }
 .alphabet_letter {
+	outline: none;
 	font-family: "font", sans-serif;
 	color: #D1E8E2;
 	font-size: 160%;
