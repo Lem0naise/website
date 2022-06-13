@@ -19,7 +19,7 @@
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
-	<body onload="checkParams()">	
+	<body>	
 		<div class = "left_page" id = "left_page">
 			<div class = "splash_title">
 				<div class="splash">
@@ -113,7 +113,7 @@
 			<div class = "wordle_content" id = "wordle_content"/>
 		</div>	
 			
-		<script src="js/script.js"></script>
+		<script onload="(function(){setTimeout(checkParams(), 200)})" src="js/script.js"></script>
 		<script src="js/wordle/wordle.js"></script>	
 		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 	</body>
