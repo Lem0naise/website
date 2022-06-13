@@ -1,6 +1,9 @@
-/*DCDCDC whhite*/
+.html{
+	background-color: #2C3531;
+}
 body {
 	overflow:hidden;
+	position: relative;
 	background-color: #2C3531;
 }
 .break {
@@ -288,7 +291,7 @@ html {
 	height: -moz-fit-content;
 	height: fit-content;
 	display: inline-block;
-	margin-right: 1vw;
+	margin-right: 2vw;
 	transition: color .5s, border .5s;
 }
 .letter_wrong {
@@ -304,7 +307,7 @@ html {
 	-moz-user-select: none;
 	-ms-user-select: none;
 		user-select: none;
-	margin-top: 5vh;
+	margin-top: 3vw;
 	height: -webkit-fit-content;
 	height: -moz-fit-content;
 	height: fit-content;
