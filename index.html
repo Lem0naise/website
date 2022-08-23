@@ -19,99 +19,28 @@
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
-	<body>	
-		<div class = "left_page" id = "left_page">
-			<div class = "splash_title">
-				<div class="splash">
+	<body>
+		<div class = "page" id = "left_page">
+			<div class = 'back_image'>
+				<img id="back-image" src = "pics/background.webp" onload = "background_load()" >
+			</div>
+			<div class = "splash">
+				<div class="name">
 					Zac Nolan
 				</div>
 				<div class = "bio">
-					Passionate programmer and student living in the UK
+					Student and passionate coder from the UK
 				</div>
 			</div>
-			<div class = "portfolio" id = "portfolio">
-				<div id = "website_a" class = "list-item">
-					<span class = "list-text">
-						This website
-					</span>
-					<div class="languages">
-						<span style = "color: orange" class = "language">
-							HTML&nbsp;
-						</span>
-						<span style = "color: yellow" class = "language">
-							Javascript&nbsp;
-						</span>
-						<span style = "color: limegreen" class = "language">
-							CSS&nbsp;
-						</span>
-					</div>
-					<br/>
-					<span class = "list-desc">
-						My portfolio website.
-					</span>
-				</div>  				
-				<div class = "break"></div>
-				<div onclick = "moveleft('wordle')" id = "wordle" class = "list-item">
-					<span class = "list-text">
-						Wordle
-					</span>
-					<div class="languages">
-						<span style = "color: yellow" class = "language">
-							Javascript&nbsp;
-						</span>
-					</div>
-					<br/>
-					<span class = "list-desc">
-						Play wordle right here.
-					</span>
+			<div class = "sticky_container">
+				<div id = "wordle" class = "sticky">
+					<img id = "wordle1" src = "pics/wordle.webP">
+					<div id="wordle_text">Wordle in your terminal</div>
+					<img id="wordle2" src = "pics/wordleweb.webp">
 				</div>
-				<div class = "break"></div>
-				<div onclick = "downloadfile(this)" data-link="https://github.com/Lem0naise/wordle" data-download ='https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip' id = "wordle" class = "list-item">
-					<span class = "list-text">
-						Wordle
-					</span>
-					<div class="languages">
-						<span style = "color: cyan" class = "language">
-							Python&nbsp;
-						</span>
-					</div>
-					<br/>
-					<span class = "list-desc">
-						Play wordle in your terminal.
-					</span>
-				</div>  
-				<div class = "break"></div>
-				<div id = "toptrumps" class = "list-item">
-					<span class = "list-text">
-						Top Trumps
-					</span>
-					<div class="languages">
-						<span style = "color: lightblue" class = "language">	
-							Python&nbsp;
-						</span>
-					</div>
-					<br/>
-					<span class = "list-desc">
-						Play top trumps in your terminal.
-					</span>
-				</div> 	
 			</div>
+			
 		</div>
-
-		<div class = "buttons">
-			<div class="button_margin" id="button_margin">
-				<div class = "back" id = "back" onclick="unmove()">Back</div>
-				<a href="mailto:zac.i.nolan@gmail.com" class = "menu-button"><img class="button-image" src="pics/email.png"><!--
-				--></a>
-				<a target = "_blank" href="https://github.com/Lem0naise" class = "menu-button" onload="last_button_load()"><img class="button-image" src="pics/github.png"><!--
-				--></a>
-			</div>
-		</div>
-
-
-		<div class = "right_page" id = "right_page">
-			<div class = "wordle_content" id = "wordle_content"/>
-		</div>	
 			
 		<script src="js/wordle/wordle.js"></script>	
 		<script src="js/script.js"></script>

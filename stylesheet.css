@@ -1,11 +1,20 @@
-.html{
-	background-color: #2C3531;
+#wrapper{
+	position: absolute;
+	width: 100%;
+
+}
+html {
+	margin:0;
+	scroll-behavior: smooth;
+	overflow-x:hidden;
+	width: 100%;
 }
 body {
-	overflow:hidden;
-	position: relative;
+
+	width: 100%;
 	background-color: #2C3531;
 	-webkit-tap-highlight-color: transparent;
+	position: relative;
 }
 * {
 	-webkit-tap-highlight-color: transparent;
@@ -15,77 +24,20 @@ body {
 }
 @font-face {
 	font-family: "font";
-	src: url("fonts/Comfortaa-Medium.woff");
+	src: url("fonts/Roboto-Light.woff");
 }
 @font-face {
 	font-family: "title-font";
-	src: url("fonts/Righteous-Regular.woff");
+	src: url("fonts/Roboto-Bold.woff");
 }
-html {
-	margin:0;
-	scroll-behavior: smooth;
-}
-.buttons {
-	-moz-user-select: none;
-	 -ms-user-select: none;
-		 user-select: none;
-	z-index: 10;
-	width: 120vw;
-	background-color:#2C3531;
-	height: 12.5vh;
-	margin-top: -5vw;
-	margin-left: -1vw;
-	position: fixed;
-	-webkit-animation: zindex 2s;
-			animation: zindex 2s;
-	/*makes the buttons appear after the intro*/
-}
-@-webkit-keyframes zindex {
-	0% {
-		opacity: 0%;
-	}
-	30% {
-		opacity:0%;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-@keyframes zindex {
-	0% {
-		opacity: 0%;
-	}
-	30% {
-		opacity:0%;
-	}
-	100% {
-		opacity: 1;
-	}
-}
-.button_margin {
-	z-index: -1;
-	width: 20vw;
-	overflow: hidden;
-	opacity: 1;
-	height:5vh;
-	margin-top: 5vw;
-	position: absolute;
-	margin-left: 5vw;
-	-webkit-transition: opacity .5s, margin-left .5s;
-	-o-transition: opacity .5s, margin-left .5s;
-	transition: opacity .5s, margin-left .5s;
-}
-.button-image {
-	max-height: 3vh;
-	-webkit-filter: invert();
-			filter: invert();
-}
-.left_page {
+
+
+.page {
 	width: 100vw;
-	height: 80vh;
+	height: 400vh;
 	z-index: 5;
 	--too_small: "false";
-	top: 15vh;
+	top: -2vh;
 	margin-left: 0vw;
 	position: absolute;
 	-webkit-transition: margin-left .75s;
@@ -94,56 +46,96 @@ html {
 	-webkit-animation: title_intro 2s;;
 			animation: title_intro 2s;
 	background-color: #2C3531;
+
 }
+
+
+.back_image {
+	margin-top: 0;
+	margin-left: 0;
+	position: fixed;
+	height: 100vh;
+	width: 140vw;
+	z-index: -10;
+	opacity: 0;
+	transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+}
+.back_image img{
+	height: 110%;
+	width: 100%;
+
+}
+
+
 .splash {
+	width: 100vw;
+	margin-top: 20vh;
+	opacity: 0;
+	transition: opacity 1s;
+	-webkit-transition: opacity 1s;
+	-moz-transition: opacity 1s;
+	-ms-transition: opacity 1s;
+	-o-transition: opacity 1s;
+	position: fixed;
+
+}
+
+.name {
 	text-align: center;
 	font-family: "title-font", sans-serif;
-	color: #FFCB9A;
-	font-size: 100px;
-}
-.splash_title {
-	margin-top: -1vh;
-}
-@-webkit-keyframes title_intro {
-	0%{
-		opacity:0;
-	};
-	100% {
-		opacity: 1;
-	};
-}
-@keyframes title_intro {
-	0%{
-		opacity:0;
-	};
-	100% {
-		opacity: 1;
-	};
+	color: #FEEAFA;
+	font-size: 150px;
 }
 .bio{
 	text-align: center;
 	font-family: "font", sans-serif;
-	color: #FFCB9A;
-	font-size: 15px;
+	color: #FEEAFA;
+	font-size: 25px;
 	left: 5vw;
 }
-.portfolio {
-	text-align: center;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-		-ms-flex-align: center;
-			align-items: center;
-	z-index: -2;
-	margin-top: 5vh;
-	-webkit-transition: opacity .3s;
-	-o-transition: opacity .3s;
-	transition: opacity .3s;
-	-webkit-box-orient: vertical;
-	-ms-flex-direction: column;
-	flex-direction: column;
+
+
+.sticky_container {
+	margin-left: 5vw;
+	height: 400vh;
 }
+.sticky {
+	position: sticky;
+	top: 25vh;
+	opacity: 0;
+	margin-top: 25vh;
+}
+.sticky img{
+	height: 50vh;
+}
+.sticky div {
+	font-family: "font", sans-serif;
+	font-size: 60px;
+	color: #FEEAFA;
+	float: right;
+	width: 50%;
+	opacity: 0;
+	margin-top: 20vh;
+}
+
+#wordle2 {
+	opacity:0;
+	display:none;
+	margin-top: -50vh;
+	position: absolute;
+	transform: translateX(60vw);
+	-webkit-transform: translateX(60vw);
+	-moz-transform: translateX(60vw);
+	-ms-transform: translateX(60vw);
+	-o-transform: translateX(60vw);
+}
+
+
+
 .item {
 	text-align: center;
 	margin-top: 3vh;
@@ -215,7 +207,7 @@ html {
 	width: -moz-fit-content;
 	width: fit-content;
 	max-width: 0vw;
-	overflow:hidden;
+
 	white-space: nowrap;
 	position: absolute;
 	-webkit-transition: max-width 1s;
@@ -230,7 +222,7 @@ html {
 }
 .right_page {
 	width: 100vw;
-	overflow:hidden;
+
 	margin-left: 100vw;
 	top: 10vh;
 	height: 90vh;
@@ -379,7 +371,6 @@ html {
 	font-family: "Button", sans-serif;
 	outline: none;
 	padding-right:30px;
-	overflow:hidden;
 	white-space:normal;
 	position:relative;
 	-o-transition: opacity .3s, top .3s, color .3s;
