@@ -98,7 +98,24 @@ body {
 	left: 5vw;
 }
 
-
+.label-text {
+	position: fixed;
+	width: 50vw;
+	text-align: center;
+	margin-left: 50vw;
+	margin-top: 50vh;
+	font-family: "title-font", sans-serif;
+	color: #FEEAFA;
+	font-size: 80px;
+	opacity: 0;
+}
+.label-desc {
+	width: 100%;
+	text-align: center;
+	font-family: "font", sans-serif;
+	color: #FEEAFA;
+	font-size: 30px;
+}
 .sticky_container {
 	margin-left: 5vw;
 	margin-top: 0;
@@ -109,10 +126,9 @@ body {
 	top: 30vh;
 	opacity: 0;
 	margin-left: -100vw;
-
 }
 .sticky img{
-	height: 50vh;
+	width: 45vw;
 }
 .sticky div {
 	font-family: "font", sans-serif;
@@ -124,19 +140,9 @@ body {
 	margin-top: 20vh;
 }
 
-#wordle2 {
-	opacity:0;
-	display:none;
-	margin-top: -50vh;
-	position: absolute;
-	transform: translateX(60vw);
-	-webkit-transform: translateX(60vw);
-	-moz-transform: translateX(60vw);
-	-ms-transform: translateX(60vw);
-	-o-transform: translateX(60vw);
+#top_trumps {
+	top: 20vh;
 }
-
-
 
 
 
