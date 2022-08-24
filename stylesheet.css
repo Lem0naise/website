@@ -30,6 +30,11 @@ body {
 	font-family: "title-font";
 	src: url("fonts/Roboto-Bold.woff");
 }
+.font {
+	font-family: "font", sans-serif;
+	color: #FEEAFA;
+	font-size: 30px;
+}
 .buttons {
 	z-index: 2;
 	position:fixed;
@@ -43,6 +48,13 @@ body {
 	font-size: 20px;
 	margin-left: 3vw;
 	width: fit-content;
+}
+.que {
+	font-family: "title-font", sans-serif;
+	font-size: 70px;
+}
+.ans {
+	font-size: 30px;
 }
 
 .page {
@@ -143,6 +155,7 @@ body {
 	height: 100vh;
 }
 .sticky {
+	height: fit-content;
 	position: sticky;
 	top: 30vh;
 	opacity: 0;
@@ -151,18 +164,13 @@ body {
 .sticky img{
 	width: 45vw;
 }
-.sticky div {
-	font-family: "font", sans-serif;
-	font-size: 60px;
-	color: #FEEAFA;
-	float: right;
-	width: 50%;
-	opacity: 0;
-	margin-top: 20vh;
-}
+
 
 #top_trumps {
 	top: 20vh;
+}
+#extendedbio {
+	top: 15vh;
 }
 
 
