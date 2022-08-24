@@ -99,20 +99,26 @@ function scrolled(scrollPos) {
 		for (x=0;x<set_triggers.length;x++){ // incrementing trigger pos by 1 viewport
 			trigger_pos.push(set_triggers[x] + (winHeight*i));
 		}
+		if (scrollPos >= trigger_pos[3]){
+			$('.label-text').eq(i).css("display", "none"); // hiding old label as to download the new one
+		}
 		if (scrollPos >= trigger_pos[2]){
 			$('.sticky').eq(i).css("transform", "translate(" + scale(scrollPos, trigger_pos[2], trigger_pos[3], 100, 85, true) + "vw," + 0 + ")")
 			$('.sticky').eq(i).css("opacity", scale(scrollPos, trigger_pos[2], trigger_pos[3], 1, 0, true))
+			$('.label-text').eq(i).css("display", "block")
 			$('.label-text').eq(i).css("opacity", scale(scrollPos, trigger_pos[3]-(winHeight/2), trigger_pos[3], 1, 0));
 		}
 		else{
 			if (scrollPos >= trigger_pos[0]){
 				$('.sticky').eq(i).css("transform", "translate(" + scale(scrollPos, trigger_pos[0], trigger_pos[1], 85, 100, true) + "vw," + 0 + ")")
 				$('.sticky').eq(i).css("opacity", scale(scrollPos, trigger_pos[0], trigger_pos[1], 0, 1, true));
+				$('.label-text').eq(i).css("display", "block")
 				$('.label-text').eq(i).css("opacity", scale(scrollPos, trigger_pos[1], trigger_pos[1]+(winHeight/2), 0, 1));
 			}
 			else{
 				$('.sticky').eq(i).css("transform", "none");
 				$('.label-text').eq(i).css("opacity", 0);
+				$('.label-text').eq(i).css("display", "none")
 			}
 		}
 	}

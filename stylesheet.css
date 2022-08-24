@@ -155,18 +155,20 @@ body {
 	color: #FEEAFA;
 	font-size: 30px;
 }
-.label-langs {
-	margin-top: 1vh;
+.label-link {
+	z-index: 100;
 	width: 100%;
 	text-align: center;
-	font-family: "font", sans-serif;
+	font-family: "title-font", sans-serif;
 	color: #FEEAFA;
+	text-decoration: none;
 	font-size: 20px;
 }
 .sticky_container {
 	margin-left: 5vw;
 	margin-top: 0;
 	height: 100vh;
+	width: 50vw;
 }
 .sticky {
 	height: fit-content;
@@ -174,6 +176,7 @@ body {
 	top: 30vh;
 	opacity: 0;
 	margin-left: -100vw;
+	width: 50vw;
 }
 .sticky img{
 	width: 45vw;
