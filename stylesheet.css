@@ -180,14 +180,17 @@ body {
 }
 .sticky img{
 	width: 45vw;
-	border-radius: 12px;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
-	-ms-border-radius: 12px;
-	-o-border-radius: 12px;
+
 }
 #euler {top: 15vh;}
 #fant {top: 15vh;}
+#fant img{
+	border-radius: 25px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	-ms-border-radius: 25px;
+	-o-border-radius: 25px;
+}
 #extendedbio {
 	top: 15vh;
 }
