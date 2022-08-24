@@ -142,7 +142,7 @@ body {
 	width: 50vw;
 	text-align: center;
 	margin-left: 50vw;
-	margin-top: 50vh;
+	margin-top: 40vh;
 	font-family: "title-font", sans-serif;
 	color: #FEEAFA;
 	font-size: 80px;
@@ -173,17 +173,21 @@ body {
 .sticky {
 	height: fit-content;
 	position: sticky;
-	top: 30vh;
+	top: 25vh;
 	opacity: 0;
 	margin-left: -100vw;
 	width: 50vw;
 }
 .sticky img{
 	width: 45vw;
+	border-radius: 12px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
 }
-#top_trumps {
-	top: 20vh;
-}
+#euler {top: 15vh;}
+#fant {top: 15vh;}
 #extendedbio {
 	top: 15vh;
 }
