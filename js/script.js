@@ -26,15 +26,16 @@ function scale (number, inMin, inMax, outMin, outMax, limit=false) {
 	var ans = (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 	if (!limit) {return ans;}//if normal then return
 	else{ // if want to limit at range
-		if (ans > outMax || ans < outMin){
-			if (outMax - outMin <0){
-				ans = ans - outMin;
-				ans = ans + outMax;
-				return ans;
-			}
+		if (outMax - outMin >0){ // if positive range
+			if (ans > outMax){return outMax;}
+			else if (ans < outMin){return outMin;}
 			else{return ans;}
 		}
-		else{return ans;}
+		else{// negative range
+			if (ans < outMax){return outMax;}
+			else if (ans > outMin){return outMin;}
+			else{return ans;}
+		}
 	}
 }
 
@@ -43,45 +44,65 @@ function scale (number, inMin, inMax, outMin, outMax, limit=false) {
 //SCROLLING FUNCTION
 let lastScroll = 0;
 let ticking = false;
-var first_time = true;
-var item_list;
 
 
-var trigger_pos = [
-	[250, 350, 450, 600]
+var is_ready = false;
+function ready(){
+
+	$('.sticky_container').eq(0).css("margin-top", "100vh") //adding margin to topmost sticky container
+
+
+	for (j=0;j<trigger_pos.length;j++){
+		for (x=0;x<trigger_pos[j].length;x++){
+			trigger_pos[j][x] = (trigger_pos[j][x] * window.innerHeight/100)
+
+		}
+	}
+
+	console.log(trigger_pos)
+	is_ready = true;
+}
+
+
+var trigger_pos = [ //[appear, finish appearing, disappear, finish disappearing]
+	[0, 50, 120, 150],
+	[100, 150, 200, 300]
 ]
+
 function scrolled(scrollPos) {
 	
-	if (first_time){
-		item_list = [ // [item, appear, sticky, disappear, description item]
-			[$('#wordle'), 250, 450, 600, $('#wordle_text')], // wordle
-		]	
+	if (!is_ready){
+		ready();
 	}
-	first_time = false;
 
 	console.log(scrollPos)	
 
 	// DO STUFF BELOW HERE ON SCROLL
 
 	// fading title and moving background image
-	if (scrollPos <= 185){
-  		$('#back-image').css("opacity", scale(scrollPos, 0, 200, 1, 0))}
-	if (scrollPos >= 185){
-		$('.splash').css("transition", "none")
-		$('.splash').css("opacity", scale(scrollPos, 185, 250, 1, 0))
-	}else{$('.splash').css("opacity", 1)}
+	if (scrollPos <= 250){
+  		$('#back-image').css("opacity", scale(scrollPos, 0, 250, 1, 0.2));
+		$('.splash').css("transition", "none");
+		$('.splash').css("opacity", scale(scrollPos, 0, 250, 1, 0));
+	}else{
+		$('#back-image').css("opacity", 0.2);
+		$('.splash').css("opacity", 0);
+	}
 
 
 	for (i=0;i<trigger_pos.length;i++){
 		if (scrollPos >= trigger_pos[i][2]){
-			//stfu kill youself
+			$('.sticky').eq(i).css("transform", "translate(" + scale(scrollPos, trigger_pos[i][2], trigger_pos[i][3], 100, 0, true) + "vw," + 0 + ")")
+			$('.sticky').eq(i).css("opacity", scale(scrollPos, trigger_pos[i][2], trigger_pos[i][3], 1, 0, true))
 		}
 		else{
 			if (scrollPos >= trigger_pos[i][0]){
-				$('#wordle').css("transform", "translate(" + scale(scrollPos, trigger_pos[i][0], trigger_pos[i][1], 0, 50) + "vw," + 0 + ")")
+				console.log("we moving it ")
+				$('.sticky').eq(i).css("transform", "translate(" + scale(scrollPos, trigger_pos[i][0], trigger_pos[i][1], 0, 100, true) + "vw," + 0 + ")")
+				$('.sticky').eq(i).css("opacity", scale(scrollPos, trigger_pos[i][0], trigger_pos[i][1], 0, 1, true))
 			}
 			else{
-				$('#wordle').css("transform", "none")
+				$('.sticky').eq(i).css("transform", "none")
 			}
 		}
 	}
