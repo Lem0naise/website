@@ -116,6 +116,14 @@ body {
 	color: #FEEAFA;
 	font-size: 30px;
 }
+.label-langs {
+	margin-top: 1vh;
+	width: 100%;
+	text-align: center;
+	font-family: "font", sans-serif;
+	color: #FEEAFA;
+	font-size: 20px;
+}
 .sticky_container {
 	margin-left: 5vw;
 	margin-top: 0;
