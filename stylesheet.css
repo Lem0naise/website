@@ -49,6 +49,20 @@ body {
 	margin-left: 3vw;
 	width: fit-content;
 }
+.link{
+	text-decoration: none;
+	cursor: pointer;
+	color: inherit;
+	text-shadow: none;
+	transition: all .5s;
+	-moz-transition: all .5s;
+	-ms-transition: all .5s;
+	-o-transition: all .5s;
+	-webkit-transition: all .5s;
+}
+.link:hover{
+	opacity: .5;
+}
 .que {
 	font-family: "title-font", sans-serif;
 	font-size: 70px;

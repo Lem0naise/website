@@ -10,6 +10,7 @@ function downloadfile(item){
 }
 
 
+
 // ONLOAD OF IMG
 function background_load(){
 	if (document.getElementById("back-image").complete){
