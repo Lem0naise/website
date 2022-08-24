@@ -30,12 +30,25 @@ body {
 	font-family: "title-font";
 	src: url("fonts/Roboto-Bold.woff");
 }
+.buttons {
+	z-index: 2;
+	position:fixed;
+	width: 100vw;
 
+}
+.menu_button {
+	float:left;
+	font-family: "font", sans-serif;
+	color: #FEEAFA;
+	font-size: 20px;
+	margin-left: 3vw;
+	width: fit-content;
+}
 
 .page {
 	width: 100vw;
 	height: 400vh;
-	z-index: 5;
+	z-index: 1;
 	--too_small: "false";
 	top: -2vh;
 	margin-left: 0vw;
