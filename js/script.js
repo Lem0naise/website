@@ -99,13 +99,13 @@ function scrolled(scrollPos) {
 			trigger_pos.push(set_triggers[x] + (winHeight*i));
 		}
 		if (scrollPos >= trigger_pos[2]){
-			$('.sticky').eq(i).css("transform", "translate(" + scale(scrollPos, trigger_pos[2], trigger_pos[3], 100, 0, true) + "vw," + 0 + ")")
+			$('.sticky').eq(i).css("transform", "translate(" + scale(scrollPos, trigger_pos[2], trigger_pos[3], 100, 75, true) + "vw," + 0 + ")")
 			$('.sticky').eq(i).css("opacity", scale(scrollPos, trigger_pos[2], trigger_pos[3], 1, 0, true))
 			$('.label-text').eq(i).css("opacity", scale(scrollPos, trigger_pos[3]-(winHeight/2), trigger_pos[3], 1, 0));
 		}
 		else{
 			if (scrollPos >= trigger_pos[0]){
-				$('.sticky').eq(i).css("transform", "translate(" + scale(scrollPos, trigger_pos[0], trigger_pos[1], 0, 100, true) + "vw," + 0 + ")")
+				$('.sticky').eq(i).css("transform", "translate(" + scale(scrollPos, trigger_pos[0], trigger_pos[1], 75, 100, true) + "vw," + 0 + ")")
 				$('.sticky').eq(i).css("opacity", scale(scrollPos, trigger_pos[0], trigger_pos[1], 0, 1, true));
 				$('.label-text').eq(i).css("opacity", scale(scrollPos, trigger_pos[1], trigger_pos[1]+(winHeight/2), 0, 1));
 			}
