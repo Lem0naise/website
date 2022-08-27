@@ -15,6 +15,7 @@ body {
 	background-color: #2C3531;
 	-webkit-tap-highlight-color: transparent;
 	position: relative;
+	margin-top: 0;
 }
 * {
 	-webkit-tap-highlight-color: transparent;
@@ -36,32 +37,34 @@ body {
 	font-size: 30px;
 }
 .buttons {
+	background: #191e1bf5;
 	z-index: 2;
-	position:fixed;
+	position:absolute;
+	top: 0;
+	height: 60px;
 	width: 100vw;
-
 }
 .menu_button {
-	float:left;
-	font-family: "font", sans-serif;
-	color: #FEEAFA;
-	font-size: 20px;
-	margin-left: 3vw;
-	width: fit-content;
-}
-.link{
 	text-decoration: none;
 	cursor: pointer;
-	color: inherit;
-	text-shadow: none;
+	float:left;
+	position: relative;
+    height: 60px;
+    width: 60px;
+	background-size: 40%;
+	background-repeat: no-repeat;
+    background-position: 50% 50%;
+	background-color: #191e1bf5;
 	transition: all .5s;
 	-moz-transition: all .5s;
 	-ms-transition: all .5s;
 	-o-transition: all .5s;
 	-webkit-transition: all .5s;
+
 }
-.link:hover{
-	opacity: .5;
+.menu_button:hover{
+	filter: invert();
+	-webkit-filter: invert();
 }
 .que {
 	font-family: "title-font", sans-serif;
@@ -87,7 +90,6 @@ body {
 	background-color: #2C3531;
 
 }
-
 
 .back_image {
 	margin-top: 0;
