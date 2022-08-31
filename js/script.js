@@ -44,7 +44,6 @@ function scale (number, inMin, inMax, outMin, outMax, limit=false) {
 let lastScroll = 0;
 let ticking = false;
 document.getElementById("page").addEventListener('scroll', (e) => {
-	console.log("scrolled");
 	lastScroll = document.getElementById("page").scrollTop;
 	if (!ticking) {
 	  window.requestAnimationFrame(() => {
@@ -59,7 +58,6 @@ document.getElementById("page").addEventListener('scroll', (e) => {
 var oldScroll = 0;
 // ON SCROLL FUNCTION
 function scrolled(scrollPos) {
-	console.log("scrolled properly");
 	var winHeight = window.innerHeight;
 	if (scrollPos-oldScroll < 1 && scrollPos/winHeight < 1){ // if scrolling back up to the splash
 		$('.back_image').css("opacity", 1);
