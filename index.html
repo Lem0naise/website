@@ -15,16 +15,17 @@
 		<link rel="stylesheet" href = "stylesheet.css">
 		<script src="js/jquery-3.6.0.min.js"></script>
 		<meta name="description" content="Zac Nolan - Portfolio containing work experience and contact details"/>
-		<meta name="keywords" content="Zac Nolan, Nolan, Portfolio"/>
+		<meta name="keywords" content="Zac Nolan, Zac, Nolan, Portfolio"/>
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
 	<body onload="ready()">
-		<div class = "page" id = "left_page">
-			<div class = 'back_image'>
-				<img id="back-image" src = "pics/background.webp" onload = "background_load()" >
-			</div>
-			<div class = "splash">
+		<div class = 'back_image'>
+			<img id="back-image" src = "pics/background.webp" onload = "background_load()" >
+		</div>
+
+		<div class = "page" id = "page">
+			<div class = "scrollItem splash">
 				<div class="name">
 					Zac Nolan
 				</div>
@@ -32,51 +33,67 @@
 					Student and passionate coder from the UK
 				</div>
 			</div>
-			<div class = 'label-text'></div>
-			<div class = 'label-text'>Wordle
-				<div class = 'label-desc'>The popular word game playable in your terminal</div>
-				<a class = 'label-link' href = 'https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip'>Download</a>
+			<div id="extendedbio" class = "scrollItem extendedbio">
+				<div class = 'font que'>Who am I?</div>
+				<div class = "font ans">I'm an A-Level student living in London.</div>
+				<div class = 'font que'><br/>What are my interests?</div>
+				<div class = "font ans">I love programming, but I also do photography and creative writing in my free time.</div>
+				<div class = 'font que'><br/>What are my goals?</div>
+				<div class = "font ans">I hope to work in the software engineering or data analysis fields.</div>
+				<div class = 'font que'><br/>What have I made?</div>
+				<div class = "font ans">Scroll down to view some of my projects.</div>
 			</div>
-			<div class = 'label-text'>Euler-Mascheroni Constant
-				<div class = 'label-desc'>Calculation in Python using converging series</div>
-			</div>
-			<div class = 'label-text'>Fantasteroids
-				<div class = 'label-desc'>A fully fledged video game based on the classic 1979 arcade game</div>
-			</div>
-			<div class = "sticky_container">
-				<div id = "extendedbio" class = "sticky">
-					<div class = 'font que'>Who am I?</div>
-					<div class = "font ans">I'm an A-Level student living in London.</div>
-					<div class = 'font que'><br/>What are my interests?</div>
-					<div class = "font ans">I love programming, but I also do photography and creative writing in my free time.</div>
-					<div class = 'font que'><br/>What are my goals?</div>
-					<div class = "font ans">I hope to work in the software engineering or data analysis fields.</div>
-					<div class = 'font que'><br/>What have I made?</div>
-					<div class = "font ans">Scroll down to view some of my projects.</div>
+			<div class = "scrollItem projects">
+				<p class = "projects_title">Projects</p>
+
+				<div class = "gridcontainer">
+					<div class = "image">
+						<img src = "pics/wordle.webp">
+						<div class = "font item">
+							<p class = "title">Wordle</p>
+							<p class = "desc">The popular word game playable in your terminal.<br/><br/>
+								<a class = "link" href = 'https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip'>Download now</a>
+							</p>	
+						</div>
+					</div>
+
+
+					<div class = "image">
+						<img src = "pics/euler.webp">
+						<div class = "font item">
+							<p class = "title">Euler-Mascheroni Constant</p>
+							<p class = "desc">Calculation in Python using converging series.</p>
+						</div>
+					</div>
+	
+
+
+					<div class = "image">
+						<img src = "pics/fantasteroids.webp">
+						<div class = "font item">
+							<p class = "title">Fantasteroids</p>
+							<p class = "desc">A fully-fledged video game based on the 1979 arcade classic.<br/><br/>
+								<a class = "link">On Steam soon!</a>
+							</p>
+						</div>
+					</div>
+
 				</div>
 			</div>
-			<div class = "sticky_container">
-				<div id = "wordle" class = "sticky">
-					<img src = "pics/wordle.webp">
+			<div class = "scrollItem contactMe">
+				<p class = "font projects_title">Contact Me</p>
+				<div id="contacts" class = "contacts">
+					<div class = 'font que'>Email</div>
+					<div class = "font ans">You can contact me by email at <a class = "contact" href = "mailto:zac.i.nolan@gmail.com">zac.i.nolan@gmail.com</a>.</div>
+					<div class = 'font que'><br/>Github</div>
+					<div class = "font ans">You can visit my github at <a target="_blank" class = "contact" href = "https://github.com/Lem0naise">Zac Nolan (lem0naise)</a>.</div>
 				</div>
 			</div>
-			<div class = "sticky_container">
-				<div id = "euler" class = "sticky">
-					<img src = "pics/euler.webp">
-				</div>
-			</div>
-			<div class = "sticky_container">
-				<div id = "fant" class = "sticky">
-					<img src = "pics/fantasteroids.webp" style="width:40vw">
-				</div>
-			</div>
-			
 		</div>
 		<div class = "buttons">
 			<a style="background-image: url('pics/github.webp')" class = "menu_button" href = "https://github.com/Lem0naise" target="_blank">
 			<a style="background-image: url('pics/email.webp')"class = "menu_button" href = "mailto:zac.i.nolan@gmail.com"></a>
 		</div>
-		<script src="js/wordle/wordle.js"></script>	
 		<script src="js/script.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 	</body>
