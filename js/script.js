@@ -59,6 +59,7 @@ document.getElementById("page").addEventListener('scroll', (e) => {
 var oldScroll = 0;
 // ON SCROLL FUNCTION
 function scrolled(scrollPos) {
+	console.log("scrolled properly");
 	var winHeight = window.innerHeight;
 	if (scrollPos-oldScroll < 1 && scrollPos/winHeight < 1){ // if scrolling back up to the splash
 		$('.back_image').css("opacity", 1);
