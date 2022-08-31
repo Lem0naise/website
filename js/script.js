@@ -44,6 +44,7 @@ function scale (number, inMin, inMax, outMin, outMax, limit=false) {
 let lastScroll = 0;
 let ticking = false;
 document.getElementById("page").addEventListener('scroll', (e) => {
+	console.log("scrolled");
 	lastScroll = document.getElementById("page").scrollTop;
 	if (!ticking) {
 	  window.requestAnimationFrame(() => {
