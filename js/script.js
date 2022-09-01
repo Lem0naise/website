@@ -58,15 +58,41 @@ document.getElementById("page").addEventListener('scroll', (e) => {
 var oldScroll = 0;
 // ON SCROLL FUNCTION
 function scrolled(scrollPos) {
+
 	var winHeight = window.innerHeight;
-	if (scrollPos-oldScroll < 1 && scrollPos/winHeight < 1){ // if scrolling back up to the splash
-		$('.back_image').css("opacity", 1);
+	var scrollPosvh = scrollPos/winHeight; // scrollPos in vh
+
+	if (scrollPosvh < 1){ // if scrolling back up to the splash
+		$('.back_image').css("opacity", scale(scrollPosvh, 0.8, 0, 0.2, 1, true));
 	}
-	else if (scrollPos/winHeight > 2.5){ // if right at the bottom (contact me page)
-		$('.back_image').css("opacity", 0.1);
-	}
-	else if (scrollPos/winHeight > 0){ // if on the normal pages
+	else if (scrollPosvh > 0){ // if on the normal pages
 		$('.back_image').css("opacity", 0.2);
 	}
+
+	if (checkVisible($('#extendedbio'))){ // once the second page (FAQ / extended bio) is visible
+		var bio_offset = $('#extendedbio').offset().top/winHeight;
+		$('#extendedbio').css("transform", "translateX(" + scale(bio_offset, 0.5, 0, -10, 0, true) + "vw)");
+		$('#extendedbio').css("opacity", scale(bio_offset, 0.5, 0, 0, 1, true))
+	}
+
+	if (checkVisible($('.projects'))){
+		var projects_offset = $(".projects").offset().top/winHeight;
+		$(".projects_title").css("opacity", scale(projects_offset, 1, 0.6, 0, 1, true));
+		var i = 0
+		$(".image").each(function(){
+			$(this).css("opacity", scale(projects_offset, 0.8-i, 0.5-i, 0, 1, true));
+			$(this).css("margin-top", scale(projects_offset, 0.8-i, 0.5-i, 10, 0, true) + "vh");
+			i+=0.2;
+		})
+
+	}
+
+	/*
+	else if (scrollPosvh> 2.5){ // if right at the bottom (contact me page)
+		$('.back_image').css("opacity", 0.1);
+	}
+
+	*/
+
 	oldScroll = scrollPos;
 }

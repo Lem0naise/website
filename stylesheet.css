@@ -94,7 +94,7 @@ body {
 	height: 100vh;
 
 	position: absolute;
-	scroll-snap-type: y mandatory;
+
 	overflow-y: scroll;
 	overflow-x: visible;
 	z-index: 1;
@@ -116,7 +116,6 @@ body {
 .scrollItem {
 	position: relative;
 	height: 100vh;
-	scroll-snap-align: start;
 	overflow:hidden;
 }
 
@@ -130,12 +129,8 @@ body {
 
 	text-decoration: underline;
 	text-decoration-thickness: 10px;
-	opacity: 1;
-	transition: all 1s;
-	-webkit-transition: all 1s;
-	-moz-transition: all 1s;
-	-ms-transition: all 1s;
-	-o-transition: all 1s;
+	opacity: 0;
+
 }
 .projects {
 	overflow: visible;
@@ -159,13 +154,17 @@ body {
 	width: 20vw;
 	overflow: hidden;
 	position: relative;
-	opacity: 1;
+
 	border-radius: 10px;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
 	background-color: #2C3531;
+	
+	margin-top: 10vh;
+	opacity: 0;
+
 }
 .image:hover img {
 	opacity: 0.2;
@@ -196,6 +195,11 @@ body {
 	-moz-transition: opacity .5s;
 	-ms-transition: opacity .5s;
 	-o-transition: opacity .5s;
+	border-radius: 10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
 
 }
 .title {
@@ -244,11 +248,7 @@ body {
 	width: 140vw;
 	z-index: -10;
 	opacity: 0;
-	transition: opacity 1s;
-	-webkit-transition: opacity 1s;
-	-moz-transition: opacity 1s;
-	-ms-transition: opacity 1s;
-	-o-transition: opacity 1s;
+
 }
 .back_image img{
 	height: 110%;
@@ -258,7 +258,6 @@ body {
 
 .splash {
 
-	scroll-snap-align: start;
 	z-index: 10;
 	width: 100%;
 	opacity: 0;
@@ -274,6 +273,12 @@ body {
 	padding-top: 10vh;
 	height: 90vh;
 	max-height: 90vh;
+	opacity: 0;
+	transform: translateX(-50vw);
+	-webkit-transform: translateX(-50vw);
+	-moz-transform: translateX(-50vw);
+	-ms-transform: translateX(-50vw);
+	-o-transform: translateX(-50vw);
 }
 
 .name {
