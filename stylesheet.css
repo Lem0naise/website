@@ -160,7 +160,7 @@ body {
 	-moz-border-radius: 10px;
 	-ms-border-radius: 10px;
 	-o-border-radius: 10px;
-	background-color: #2C3531;
+
 	
 	margin-top: 10vh;
 	opacity: 0;
@@ -175,7 +175,7 @@ body {
 
 
 .image img{
-	max-height: 30vh;
+	max-width: 20vw;
 	align-self:center;
 	position: absolute;
 	opacity: 1;
@@ -186,6 +186,9 @@ body {
 	-o-transition: opacity .5s;
 }
 .item {
+	background-color: #2C3531;
+	min-height: 30vh;
+	max-width: 20vw;
 	width: 100%;
 	text-align: center;
 	position: absolute;
@@ -207,7 +210,7 @@ body {
 .title {
 	opacity: 1;
 	font-family: "title-font", sans-serif;
-	font-size: 40px;
+	font-size: calc(1.5vw + 1vh);
 	text-decoration: underline;
 	text-decoration-color: #FEEAFA00;
 	-moz-text-decoration-color: #FEEAFA00;
@@ -341,6 +344,15 @@ body {
 
 
 @media only screen and (max-width: 1200px) {
+	.que {
+		font-size: 50px;
+	}
+	.ans {
+		font-size: 20px;
+	}
+}
+
+@media only screen and (max-height: 850px) {
 	.que {
 		font-size: 50px;
 	}
