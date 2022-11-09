@@ -329,6 +329,7 @@ body {
 	color: #FEEAFA;
 	text-underline-offset: 5px;
 	text-decoration-color: #FEEAFA22;
+
 	transition: all .5s;
 	-webkit-transition: all .5s;
 	-moz-transition: all .5s;
