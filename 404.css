@@ -1,36 +1,19 @@
 @font-face {
-	font-family: "font";
-	src: url("fonts/Roboto-Bold.woff");
-
+	font-family: consolas;
+	src: url("fonts/Consolas.woff")
 }
 
 body {
-    background-color: #2C3531;
+	background-color: #292429;
 }
 
 .text {
-    margin-left: 10vw;
-    position: absolute;
-    top: 30vh;
-    font-family: "font", sans-serif;
-    font-size: 4vw;
-    color:#FEEAFA;
+	text-align: center;
+    font-family: consolas;
     text-decoration: none;
+	color: #e8e6e3;
 }
 .text a{
     text-decoration: none;
     color: #a298a0;
-}
-.back_image {
-	margin-top: 0;
-	margin-left: 0;
-	position: fixed;
-	height: 100vh;
-	width: 140vw;
-	z-index: -10;
-	opacity: 0.2;
-}
-.back_image img{
-	height: 110%;
-	width: 100%;
 }

@@ -10,6 +10,9 @@
 		gtag('config', 'G-QQDX6JZ0XF');
 		</script>
 		<meta name="google-site-verification" content="Mjwi8fp-GIfDM41jXFYDAS7nCmwb3fSguVAirwzQ6Yk" />
+		<!-- Finished -->
+
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Zac Nolan</title>
 		<link rel="stylesheet" href = "stylesheet.css">
@@ -19,85 +22,26 @@
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
-	<body>
-		<div class = 'back_image'>
-			<img id="back-image" src = "pics/background.webp" onload = "background_load()" >
-		</div>
+	<body onload = "ready()">
 
-		<div class = "page" id = "page">
-			<div class = "scrollItem splash">
-				<div class="name">
-					Zac Nolan
-				</div>
-				<div class = "bio">
-					Student and passionate coder from the UK
-				</div>
-			</div>
-			<div id="extendedbio" class = "scrollItem extendedbio">
-				<div class = 'font que'>Who am I?</div>
-				<div class = "font ans">I'm an A-Level student living in London.</div>
-				<div class = 'font que'><br/>What are my interests?</div>
-				<div class = "font ans">I love programming, but I also do photography and creative writing in my free time.</div>
-				<div class = 'font que'><br/>What are my goals?</div>
-				<div class = "font ans">I hope to work in the software engineering or data analysis fields.</div>
-				<div class = 'font que'><br/>What have I made?</div>
-				<div class = "font ans">Scroll down to view some of my projects.</div>
-			</div>
-			<div class = "scrollItem projects">
-				<p class = "projects_title">Projects</p>
+		<div class = "container">
 
-				<div class = "gridcontainer">
-					<div class = "image">
-						<img src = "pics/wordle.webp">
-						<div class = "font item">
-							<p class = "title">Wordle</p>
-							<p class = "desc">The popular word game, written in Python and playable in your terminal.<br/><br/>
-								<a class = "link" href = 'https://github.com/Lem0naise/wordle/archive/refs/heads/main.zip'>Download now</a>
-							</p>	
-						</div>
-					</div>
-
-
-					<div class = "image">
-						<img src = "pics/euler.webp">
-						<div class = "font item">
-							<p class = "title">Euler-Mascheroni Constant</p>
-							<p class = "desc">Calculation in Python using converging series.</p>
-						</div>
-					</div>
 	
+			<p id = "name" class = "intro">Zac Nolan</p>
+			<p class = "intro">I'm an A-Level student living in London.</p>
+			<p class = "intro">See some of my projects below!</p>
+			
+			<p id = "projects_title" class = "projects">Projects</p>
+			<a class = "project" title = "An arcade game" target = "_blank" href="https://store.steampowered.com/app/1790870/Fantasteroids/">Fantasteroids<p>An arcade game on Steam</p></a>
+			<a class = "project" title = "A word game" target = "_blank" href="https://github.com/Lem0naise/wordle">Wordle<p>A terminal-based word game</p></a>
 
+			<p id = "contact_title" class = "contact">Contact Me</p>
+			<a class = "contact" href = "https://github.com/Lem0naise">GitHub</a>
+			<a class = "contact" href = "mailto:zac1i1nolan@gmail.com">Email</a>
 
-					<div class = "image">
-						<img src = "pics/fantasteroids.webp">
-						<div class = "font item">
-							<p class = "title">Fantasteroids</p>
-							<p class = "desc">A fully-fledged video game written in C++.<br/><br/>
-								<a href = "https://store.steampowered.com/app/1790870/Fantasteroids/" target="_blank" class = "link">On Steam!</a>
-							</p>
-						</div>
-
-					</div>
-
-
-				</div>
-			</div>
-			<div class = "scrollItem contactMe">
-				<p class = "font projects_title">Contact Me</p>
-				<div id="contacts" class = "contacts">
-					<div class = 'font que'>Email</div>
-					<div class = "font ans">You can contact me by email at <a class = "contact" href = "mailto:zac.i.nolan@gmail.com">zac.i.nolan@gmail.com</a>.</div>
-					<div class = 'font que'><br/>Github</div>
-					<div class = "font ans">You can visit my github at <a target="_blank" class = "contact" href = "https://github.com/Lem0naise">Zac Nolan (lem0naise)</a>.</div>
-				</div>
-			</div>
 		</div>
-		<div class = "buttons">
-			<a style="background-image: url('pics/github.webp')" class = "menu_button" href = "https://github.com/Lem0naise" target="_blank">
-			<a style="background-image: url('pics/email.webp')"class = "menu_button" href = "mailto:zac.i.nolan@gmail.com"></a>
-		</div>
-
+	
 		<script src="js/script.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+
 	</body>
 </html>
