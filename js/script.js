@@ -7,7 +7,8 @@ function github(){
 
 var items = [
     ["Fantasteroids", "An arcade game written in C++. It's on Steam for free!", "https://store.steampowered.com/app/1790870/Fantasteroids/"],
-    ["Wordle ", "A word game playable in your terminal, written in Python.", "https://github.com/Lem0naise/wordle"]
+    ["Wordle ", "A word game playable in your terminal, written in Python.", "https://github.com/Lem0naise/wordle"],
+    ["Student Robotics 2023", "An entry to the 2023 Student Robotics Contest.", "https://github.com/Lem0naise/student-robotics-ham"]
 ]
 
 var port = document.getElementById("portfolio")
