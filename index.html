@@ -12,7 +12,6 @@
 		<meta name="google-site-verification" content="Mjwi8fp-GIfDM41jXFYDAS7nCmwb3fSguVAirwzQ6Yk" />
 		<!-- Finished -->
 
-
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Zac Nolan</title>
 		<link rel="stylesheet" href = "stylesheet.css">
@@ -23,21 +22,24 @@
 	</head>
 	
 	<body onload = "ready()">
-
 		<div class = "container">
 
-	
-			<p id = "name" class = "intro">Zac Nolan</p>
-			<p class = "intro">I'm an A-Level student living in London.</p>
-			<p class = "intro">See some of my projects below!</p>
-			
-			<p id = "projects_title" class = "projects">Projects</p>
-			<a class = "project" title = "An arcade game" target = "_blank" href="https://store.steampowered.com/app/1790870/Fantasteroids/">Fantasteroids<p>An arcade game on Steam</p></a>
-			<a class = "project" title = "A word game" target = "_blank" href="https://github.com/Lem0naise/wordle">Wordle<p>A terminal-based word game</p></a>
+			<div class = "bio">
 
-			<p id = "contact_title" class = "contact">Contact Me</p>
-			<a class = "contact" href = "https://github.com/Lem0naise">GitHub</a>
-			<a class = "contact" href = "mailto:zac1i1nolan@gmail.com">Email</a>
+				<img onclick="github()" src="imgs/ghub.webp">
+				<p onclick="github()" id = "name">Hi, I'm Zac Nolan.</p>
+				<p>I'm a student passionate about programming.</p>
+				<p>I primarily use Python, though I also am proficient in C++, Javascript, Java and other languages.</p>
+				<p>Have a look at some of my projects on the right!</p>
+				
+				<p id = "c_title">Contact Me</p>
+				<div class = "contacts">
+					<a class = "contact" href = "mailto:zac1i1nolan@gmail.com">zac1i1nolan@gmail.com</a>
+				</div>
+			</div>
+			<div id = "portfolio" class = "portfolio"> <!--dynamically generated-->
+			</div>
+	
 
 		</div>
 	
