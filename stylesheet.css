@@ -39,7 +39,7 @@ body {
 .item { /*.portfolio div*/
 	padding: 20px;
 	margin-bottom: 10px;
-	background-color: #343134;
+	background-color: #323032;
 	transition: background-color .5s;
 	border-radius: 15px;
 	width: fit-content;
@@ -51,9 +51,7 @@ body {
 	margin: 0;
 	font-size: 30px;
 }
-.item p:nth-of-type(2){
-	font-size: 15px;
-}
+.item p:nth-of-type(2){font-size: 17px;}
 .bio {font-size: 20px;}
 
 #name {
