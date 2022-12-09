@@ -28,16 +28,9 @@ body {
     font-size: 20px;
     font-family: DIN;
     user-select: none;
-    color:#e8e6e3;
-    background: inherit;
+    color:#292429;
     background-clip: text;
-    color: transparent;
-    filter: 
-      sepia(5)      /* add some color to grey so the rest works */
-      saturate(100) /* increase strength of color channels */
-      invert(1)     /* invert the color */
-      grayscale(1)  /* make it grey */
-      contrast(9);  /* make it black/white */
+
 
 }
 .after:after {

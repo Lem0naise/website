@@ -60,6 +60,14 @@ function generate(){
         }
 
         document.getElementById(i.toString() + "p").innerText = `#${h_c[0]}${h_c[1]}${h_c[2]}`;
+
+        // setting black or white depending on brightness
+        if ((cs[i][0]*0.299 + cs[i][1]*0.587 + cs[i][2]*0.114) < 100){
+            document.getElementById(i.toString() + "p").style.color = "#e8e6e3"
+        } 
+        else{
+            document.getElementById(i.toString() + "p").style.color = "#292429"
+        }
     }
      
 }
