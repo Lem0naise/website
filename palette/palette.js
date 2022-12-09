@@ -1,5 +1,5 @@
 function home(){
-    window.open("../index.html", "_self");
+    window.open("..", "_self");
 }
 
 var palette = document.getElementById("palette");
