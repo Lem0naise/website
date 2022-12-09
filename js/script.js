@@ -12,7 +12,7 @@ var items = [
     ["Fantasteroids", "An arcade game written in C++. It's on Steam for free!", "https://store.steampowered.com/app/1790870/Fantasteroids/", false],
     ["Wordle ", "A word game playable in your terminal, written in Python.", "https://github.com/Lem0naise/wordle", false],
     ["Student Robotics 2023", "An entry to the 2023 Student Robotics Contest.", "https://github.com/Lem0naise/student-robotics-ham", false],
-    ["Colour Palette Generator", "A simple web-based colour palette generator for graphic designers.", "palette/palette.html", true]
+    ["Colour Palette Generator", "A simple web-based colour palette generator for graphic designers.", "palette", true]
 ]
 
 var port = document.getElementById("portfolio")
