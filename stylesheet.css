@@ -85,6 +85,10 @@ body {
 		width: 70vw;
 		margin-bottom: 20px;
 	}
+	.item {
+		width: 70vw;
+		
+	}
 	.portfolio {
 		width: 70vw;
 	}

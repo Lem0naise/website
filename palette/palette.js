@@ -26,12 +26,6 @@ function setup() {
         new_p.id = i.toString() + "p";
         new_p.setAttribute("onclick", "copy(this);");
 
-        // copy text
-        //var c_text = document.createElement("p")
-        //c_text.innerText = "Copied to the clipboard!";
-        //c_text.classList.add("copy");
-
-
         new_col.appendChild(new_p); // hex value
         //new_col.appendChild(c_text); // copy text
         palette.appendChild(new_col);   
