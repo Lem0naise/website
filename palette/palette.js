@@ -6327,16 +6327,30 @@ function generate(){
 
 		// finding colour name 
 		var c_name;
-		for (let x = 0; x <= list_colours.length-1; x++){ // go through every colour in the list
-			if (h_c[0] >= list_colours[x]["hex"].match(/.{2}/g)[0]){  // split hex into 3 values
-				if (h_c[1] >= list_colours[x]["hex"].match(/.{2}/g)[1]){  // split hex into 3 values
-					if (h_c[2] >= list_colours[x]["hex"].match(/.{2}/g)[2]){  // split hex into 3 values
-						c_name = list_colours[x]["name"];
-					};
-				};
-			};
-		};
+		var old_d = 9999999999;
 
+		for (let x = 0; x <= list_colours.length-1; x++){ // go through every colour in the list
+
+			// set rgb values to the current column colour
+			var [r1, g1, b1] = [parseInt(h_c[0], 16), parseInt(h_c[1], 16), parseInt(h_c[2], 16)]
+			
+			// set rgb values to a deformatting of the colour string with hex (16)
+			var [r2, g2, b2] = [parseInt(list_colours[x]["hex"].match(/.{2}/g)[0], 16), parseInt(list_colours[x]["hex"].match(/.{2}/g)[1], 16), parseInt(list_colours[x]["hex"].match(/.{2}/g)[2], 16)]
+
+			//let d = (Math.pow((r2-r1)*0.3), 2) + Math.pow(((g2-g1)*0.59), 2) + Math.pow(((b2-b1)*0.11), 2); // calculate Euclidean distance from colour
+			
+			let d = Math.pow(r2-r1, 2) + Math.pow(g2-g1, 2) + Math.pow(b2-b1, 2);
+			
+			if (d<old_d){
+				console.log("Found better!" + d + " vs " + old_d);
+				
+				c_name = list_colours[x]["name"];
+				console.log(c_name);
+				old_d = d;
+			}
+
+			
+		};
 		//var c_name = list_colours.find(obj => {return obj["hex"] ===c_h.substring(1);}); // get colour in array
 		//var c_name = c_name["name"]; // get name from sibling value in array
 
@@ -6344,12 +6358,13 @@ function generate(){
 		// labelling columns with colour_hex codes
 		document.getElementById(i.toString() + "p").innerText = c_h + '\n' + c_name; 
 
-		// setting black or white depending on brightness
+
+		// setting the text to black or white depending on brightness
 		if ((cs[i][0]*0.299 + cs[i][1]*0.587 + cs[i][2]*0.114) < 100){
-			document.getElementById(i.toString() + "p").style.color = "#e8e6e3"
+			document.getElementById(i.toString() + "p").style.color = "#e8e6e3"; // white
 		}
 		else{
-			document.getElementById(i.toString() + "p").style.color = "#292429"
+			document.getElementById(i.toString() + "p").style.color = "#292429"; // black
 		}
 	}
 		 
