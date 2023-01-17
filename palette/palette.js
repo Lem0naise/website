@@ -6276,8 +6276,6 @@ const NUM_COLS = 5;
 
 function copy(e){
 	navigator.clipboard.writeText(e.innerText);
-	console.log(e.offsetWidth);
-	e.style.max = e.width;
 	e.classList.add("after");
 	setTimeout(function(){
 			e.classList.remove("after");
@@ -6289,6 +6287,8 @@ function setup() {
 		let new_col = document.createElement("div");
 		new_col.classList.add("col");
 		new_col.id = i;
+		let col_width = window.innerWidth / NUM_COLS;
+		new_col.style.width = col_width + "px"; // set fixed to fit all columns on screen
 
 		// hex value
 		let new_p = document.createElement("p");
@@ -6361,10 +6361,10 @@ function generate(){
 
 		// setting the text to black or white depending on brightness
 		if ((cs[i][0]*0.299 + cs[i][1]*0.587 + cs[i][2]*0.114) < 100){
-			document.getElementById(i.toString() + "p").style.color = "#e8e6e3"; // white
+			document.getElementById(i.toString() + "p").style.setProperty("color", "#e8e6e3"); // white
 		}
 		else{
-			document.getElementById(i.toString() + "p").style.color = "#292429"; // black
+			document.getElementById(i.toString() + "p").style.setProperty("color", "#292429"); // black
 		}
 	}
 		 
