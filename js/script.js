@@ -9,9 +9,9 @@ function github(){
 }
 
 var items = [ 
-    ["Fantasteroids", "An arcade game written in C++. It's on Steam for free!", "https://store.steampowered.com/app/1790870/Fantasteroids/", false, ["C++", "JSON", "GDScript", "Pixel Art"]],
-    ["Wordle ", "A word game playable in your terminal, written in Python.", "https://github.com/Lem0naise/wordle", false, ["Python"]],
-    ["Colour Palette Generator", "A simple web-based colour palette generator for graphic designers.", "palette", true, ["HTML", "CSS", "Javascript", "NCS"]]
+    ["Fantasteroids", "An arcade game written in C++. It's on Steam for free!", "https://store.steampowered.com/app/1790870/Fantasteroids/", false],
+    ["Wordle ", "A word game playable in your terminal, written in Python.", "https://github.com/Lem0naise/wordle", false],
+    ["Colour Palette Generator", "A simple web-based colour palette generator for graphic designers.", "palette", true]
 ]
 
 var port = document.getElementById("portfolio")
@@ -29,15 +29,10 @@ for (let i = 0; i < items.length; i++){
     let new_desc = document.createElement("p");
     new_desc.innerText = items[i][1];
 
-    let new_langs = document.createElement("p");
-    for (let j = 0; j < items[i][4].length; j++){
-        new_langs.innerText += items[i][4][j] + (j==items[i][4].length-1 ? "" : ",  ");
-    };
-
     // appending
     new_obj.appendChild(new_title);
     new_obj.appendChild(new_desc);
-    new_obj.appendChild(new_langs);
+
 
     port.appendChild(new_obj);
 }
