@@ -7,38 +7,39 @@ body {
 	background-color: #292429;
 	margin: 0;
 }
-
-
-#palette {
-    color: #e8e6e3;
-    display: flex;
-    flex-direction: row;
-}
-
-.col {
-    display: flex;
-    justify-content: center;
-    flex: auto;
-    height: 100vh;
-}
-
-.col p{
-    padding-top: 60vh;
-    width: 100%;
-    text-align: center;
-    font-size: 20px;
+#guesses {
+    position:absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: DIN;
-    user-select: none;
-    color:#292429;
-    background-clip: text;
+}
 
+.row {
+    height: 100px;
+}
+.box{
+    display: inline-block;
+    text-align:center;
+
+    font-family: DIN;
+    font-size: 20px;
+
+    height: 70px;
+    width: 70px;
+    margin: 10px;
+
+    border-color:#e8e6e3;
+    border-width: 5px 5px;
+    border-radius: 5px;
+    background-color: #787878;
+}
+
+#keyboard {
 
 }
-.after:after {
-    opacity: 1;
-    content: "\a Copied!";
-    white-space:pre-wrap;
-}
+
+
 .button {
     position:absolute;
     left: 50%;
@@ -58,35 +59,14 @@ body {
     opacity: 0.8;
 }
 
-#gen_button {
+#new_button {
     bottom: 100px;
+    
 }
 #home_button {
     bottom: 5px;
-    background-color: #292429;
+    background-color: #151315;
     padding: 10px;
     border-radius: 15px;
     color:#e8e6e3;
 }
-
-@media only screen and (max-width: 800px) {
-	#palette {
-		flex-direction: column;
-        height: 100vh;
-	}
-    .col {
-        height: fit-content;
-        width: 100vw !important;
-        justify-content: left;
-        align-items: center;
-    }
-    .col p {
-        width: 30vw;
-        padding-top: 0;
-        height: auto;
-    }
-    .after:after{
-        white-space: nowrap;
-    }
-}
-
