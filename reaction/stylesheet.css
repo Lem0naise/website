@@ -1,0 +1,57 @@
+@font-face {
+	font-family: DIN;
+	src: url("../fonts/DIN.woff2")
+}
+
+body {
+	background-color: #292429;
+	margin: 0;
+}
+
+#screen {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    z-index: 1;
+    pointer-events: auto;
+}
+#text {
+    text-align: center;
+    pointer-events: none;
+    font-family: DIN;
+    margin-top: 40vh;
+    font-size: 50px;
+    color: #e8e6e3;
+}
+
+
+.button {
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: DIN;
+    font-size: 20px;
+    background-color: #FFFFFF;
+    opacity: 0.5;
+    padding: 20px;
+    border: #29242977;
+    box-shadow: none;
+    border-radius: 20px;
+    transition: opacity .5s;
+    z-index: 20;
+}
+.button:hover {
+    opacity: 0.8;
+}
+#home_button {
+    bottom: 5px;
+    background-color: #292429;
+    padding: 10px;
+    border-radius: 15px;
+    color:#e8e6e3;
+}
+
+@media only screen and (max-width: 800px) {
+	
+}
+
