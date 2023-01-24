@@ -128,6 +128,7 @@ function letter(letter){ // letter input
 }
 
 function backspace() {
+    console.log(guess)
     if ((current_column > 0) && (!won)) {
         guess = guess.slice(0, -1); // remove last letter of guess
         deselect(current_row, current_column); // deselect current letter
@@ -191,9 +192,11 @@ function submit(){
                     document.querySelector('#square'+current_row+i).classList.remove('in_square');
                 }
             }, 300);
-            current_column+=1;
-            backspace();
+
         }
+        current_column+=1;
+        backspace();
+
 
     }
 }
