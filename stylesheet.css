@@ -6,6 +6,7 @@
 body {
 	background-color: #292429;
 	margin: 0;
+	overflow: hidden;
 }
 
 .container {
@@ -35,14 +36,15 @@ body {
 .portfolio {
 	width: 50vw;
 	padding-left: 10vw;
+	overflow: auto;
+	height: calc(80vh - 50px);
 }
 .item { /*.portfolio div*/
 	padding: 20px;
 	margin-bottom: 10px;
 	background-color: #323032;
 	border-radius: 15px;
-	width: fit-content;
-
+	width: 25vw;
 	transition: padding .5s, border-radius .5s, background-color .5s;
 }
 .item:hover {
