@@ -9,27 +9,50 @@ body {
 	overflow: hidden;
 }
 
-.menu{
+#menu{
 	width: 100vw;
 	height: 60px;
 	background-color: #191419;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-
 }
-.menu img{
-	height: 80%;
-	vertical-align: middle;
+#hmenu {
+	height: 60%;
+	margin-left: 20px;
+	transition: transform .5s;
 }
-
+#fullmenu{
+	position: absolute;
+	height: 100vh;
+	width: 25vw;
+	transition: margin .5s;
+	margin-left: -50vw;
+	z-index: 10;
+	background-color:#191419;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 100px;
+}
+#fullmenu a{
+	margin-bottom: 20px;
+	text-decoration: none;
+	color:#e8e6e3;
+	font-family: DIN, "aria";
+	font-size: 2rem;
+	transition: opacity .5s;
+}
+#fullmenu a:hover{
+	opacity: 0.5;
+}
 
 .container {
 	margin-top: calc(50px + 10vh);
 	display: flex;
 	flex-direction: row;
 	text-align: left;
-	font-family: DIN;
+	font-family: DIN, "aria";
 	color: #e8e6e3;
 }
 .bio {
@@ -44,7 +67,9 @@ body {
 	opacity: 1;
 	transition: opacity .5s;
 	cursor: pointer;
+	z-index: 0;
 }
+
 
 .portfolio {
 	width: 50vw;
