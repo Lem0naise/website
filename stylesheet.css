@@ -9,8 +9,23 @@ body {
 	overflow: hidden;
 }
 
+.menu{
+	width: 100vw;
+	height: 60px;
+	background-color: #191419;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+}
+.menu img{
+	height: 80%;
+	vertical-align: middle;
+}
+
+
 .container {
-	margin-top: calc(50px + 20vh);
+	margin-top: calc(50px + 10vh);
 	display: flex;
 	flex-direction: row;
 	text-align: left;
@@ -30,9 +45,7 @@ body {
 	transition: opacity .5s;
 	cursor: pointer;
 }
-.bio img:hover {
-	opacity: 0.5;
-}
+
 .portfolio {
 	width: 50vw;
 	padding-left: 10vw;
@@ -76,6 +89,9 @@ body {
 }
 #name:hover {
 	color: #adacaa;
+}
+#name:hover img{
+	opacity: 0.5;
 }
 .contact {
 	font-size: 20px;
