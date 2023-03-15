@@ -21,7 +21,12 @@ body {
 #hmenu {
 	height: 60%;
 	margin-left: 20px;
-	transition: transform .5s;
+	transition: transform .5s, opacity .5s;
+	cursor: pointer;
+
+}
+#hmenu:hover{
+	opacity: 0.5;
 }
 #fullmenu{
 	position: fixed;
