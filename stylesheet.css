@@ -2,18 +2,25 @@
 	font-family: DIN;
 	src: url("fonts/DIN.woff2")
 }
+:root {
+	--background: #292429;
+	--menu: #191419;
+	--text: #e8e6e3;
+	--text-hover: #adacaa;
+	--item: #323032;
+	--item-background: #6868686f;
 
+}
 body {
-	background-color: #292429;
+	background-color: var(--background);
 	margin: 0;
 }
-
 #menu{
 	position: fixed;
 	top: 0;
 	width: 100vw;
 	height: 60px;
-	background-color: #191419;
+	background-color: var(--menu);
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -38,7 +45,7 @@ body {
 	transition: margin .5s;
 	margin-left: -50vw;
 	z-index: 10;
-	background-color:#191419;
+	background-color:var(--menu);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -47,7 +54,7 @@ body {
 #fullmenu a{
 	margin-bottom: 20px;
 	text-decoration: none;
-	color:#e8e6e3;
+	color:var(--text);
 	font-family: DIN, "aria";
 	font-size: 2rem;
 	transition: opacity .5s;
@@ -62,7 +69,7 @@ body {
 	flex-direction: row;
 	text-align: left;
 	font-family: DIN, "aria";
-	color: #e8e6e3;
+	color: var(--text);
 }
 .bio {
 	margin-left: 10vw;
@@ -89,13 +96,13 @@ body {
 .item { /*.portfolio div*/
 	padding: 20px;
 	margin-bottom: 10px;
-	background-color: #323032;
+	background-color: var(--item);
 	border-radius: 15px;
 	width: 25vw;
 	transition: padding .5s, border-radius .5s, background-color .5s;
 }
 .item:hover {
-	background-color: #6868686f;
+	background-color: var(--item-background);
 	border-radius:30px;
 }
 .item:hover p:nth-of-type(3){opacity:1;}
@@ -122,18 +129,18 @@ body {
 	cursor: pointer;
 }
 #name:hover {
-	color: #adacaa;
+	color: var(--text-hover);
 }
 #name:hover img{
 	opacity: 0.5;
 }
 .contact {
 	font-size: 20px;
-	color: #e8e6e3;
+	color: var(--text);
 	transition: color .5s;
 }
 .contact:hover {
-	color: #c4c3c0;
+	color: var(--text-hover);
 }
 #c_title {
 	font-size: 45px;
