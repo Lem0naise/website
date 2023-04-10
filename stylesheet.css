@@ -2,14 +2,21 @@
 	font-family: DIN;
 	src: url("fonts/DIN.woff2")
 }
-:root {
-	--background: #292429;
+/**
+--background: #292429;
 	--menu: #191419;
 	--text: #e8e6e3;
 	--text-hover: #adacaa;
 	--item: #323032;
 	--item-background: #6868686f;
-
+**/
+:root {
+	--background: #e8e6e3;
+	--menu: #323032;
+	--text: #191419;
+	--text-hover: #38303299;
+	--item: #e8e6e3;
+	--item-background: #adacaa;
 }
 body {
 	background-color: var(--background);
@@ -54,7 +61,7 @@ body {
 #fullmenu a{
 	margin-bottom: 20px;
 	text-decoration: none;
-	color:var(--text);
+	color: var(--background);
 	font-family: DIN, "aria";
 	font-size: 2rem;
 	transition: opacity .5s;
@@ -84,6 +91,7 @@ body {
 	transition: opacity .5s;
 	cursor: pointer;
 	z-index: 0;
+	filter: invert()
 }
 
 
