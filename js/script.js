@@ -52,7 +52,7 @@ function hmenu(){
         setTimeout(function(){menu_out = true}, 500)
     }
     else {
-        fmenu.style.marginLeft = "-50vw";
+        fmenu.style.marginLeft = "-80vw";
         hmenu.style.transform = "rotate(0deg)";
         setTimeout(function(){menu_out = false}, 500)
     }

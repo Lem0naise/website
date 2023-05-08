@@ -15,7 +15,7 @@
 	--menu: #323032;
 	--text: #191419;
 	--text-hover: #38303299;
-	--item: #e8e6e3;
+	--item: #d8d6d3;
 	--item-background: #adacaa;
 }
 body {
@@ -50,7 +50,7 @@ body {
 	padding: 50px;
 
 	transition: margin .5s;
-	margin-left: -50vw;
+	margin-left: -80vw;
 	z-index: 10;
 	background-color:var(--menu);
 	display: flex;
@@ -169,6 +169,9 @@ body {
 		
 	}
 	.portfolio {
-		width: 70vw;
+		width: 100vw;
+	}
+	#fullmenu {
+		margin-left: -80vw;
 	}
 }
