@@ -1,62 +1,13 @@
-@font-face {
-	font-family: DIN;
-	src: url("/fonts/DIN.woff2")
-}
-
-body {
-	background-color: #292429;
-	margin: 0;
-}
-
-#menu{
-	position: fixed;
-	top: 0;
-	width: 100vw;
-	height: 60px;
-	background-color: #191419;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-}
 #hmenu {
-	height: 60%;
-	margin-left: 20px;
-	transition: transform .5s;
-}
-#fullmenu{
-	position: fixed;
-	top: 60px;
-	height: 100vh;
-	width: fit-content;
-	padding: 50px;
-
-	transition: margin .5s;
-	margin-left: -50vw;
-	z-index: 10;
-	background-color:#191419;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 100px;
-}
-#fullmenu a{
-	margin-bottom: 20px;
-	text-decoration: none;
-	color:#e8e6e3;
-	font-family: DIN, "aria";
-	font-size: 2rem;
-	transition: opacity .5s;
-}
-#fullmenu a:hover{
-	opacity: 0.5;
+	transform: rotate(-90deg);
 }
 .container {
+	color: var(--text);
 	margin-top: calc(30px + 5vh);
 	display: flex;
 	flex-direction: row;
 	text-align: left;
 	font-family: DIN, "aria";
-	color: #e8e6e3;
 }
 .aboutme_container{
     margin-left: 20vw;
@@ -83,11 +34,12 @@ body {
 	flex-direction: column;
 }
 .f_contact{
+	text-decoration: underline;
+	color:var(--text);
 	font-size: 1.5rem;
-	color: #e8e6e3;
 	transition: color .5s;
 	margin-bottom: 10px;
 }
 .f_contact:hover {
-	color: #c4c3c0;
+	color: var(--text-hover)
 }

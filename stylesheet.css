@@ -37,7 +37,7 @@ body {
 	margin-left: 20px;
 	transition: transform .5s, opacity .5s;
 	cursor: pointer;
-
+	transform: rotate(-90deg);
 }
 #hmenu:hover{
 	opacity: 0.5;

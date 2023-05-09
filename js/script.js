@@ -1,3 +1,8 @@
+window.onload = function(){
+    let hmenu = document.getElementById("hmenu");
+    hmenu.style.transform = "rotate(0deg)";
+}
+
 function openLink(e, internal){
     let target
     if (internal) {target="_self"}
