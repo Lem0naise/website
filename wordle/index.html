@@ -3,6 +3,7 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Unlimited Wordle</title>
+		<link rel="stylesheet" href="../stylesheet.css">
 		<link rel="stylesheet" href = "stylesheet.css">
 		<meta name="description" content="Unlimited Wordle"/>
 		<meta name="keywords" content="Zac Nolan, Wordle"/>
@@ -10,13 +11,20 @@
 	</head>
 	
 	<body onload="wordle();">
+		<div id = "menu">
+			<img id="hmenu" onclick="hmenu()" src="../imgs/hmenu.webp">
+		</div>
+		<div id = "fullmenu">
+			<a href = "/.">PROJECTS</a>
+			<a href = "/aboutme/">ABOUT ME</a>
+		</div>
 
 		<button onclick="wordle()" id = "new_button" class = "button">New Game</button>
-		<button onclick="home()" id = "home_button" class = "button">Home</button>
 		<div id = "content">
 			<!-- dynamically generated rows -->
 		</div>
 
 	</body>
+	<script src = "../js/hmenu.js"></script>
 	<script src = "wordle.js"></script>
 </html>

@@ -85,6 +85,7 @@ function wordle(){ // this runs on page load or new game button press
         document.querySelector("#alphabet").insertAdjacentHTML("beforeend", "<br/>");
     }
 }
+wordle();
 
 
 window.onkeydown = function(e) {
