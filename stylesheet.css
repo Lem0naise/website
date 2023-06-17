@@ -11,7 +11,7 @@
 	--item-background: #6868686f;
 **/
 :root {
-	--background: #e8e6e3;
+	--background: #e8e6e3ff;
 	--menu: #323032;
 	--text: #191419;
 	--text-hover: #38303299;
@@ -61,7 +61,7 @@ body {
 #fullmenu a{
 	margin-bottom: 20px;
 	text-decoration: none;
-	color: var(--background);
+	color: #e8e6e3ff;
 	font-family: DIN, "aria";
 	font-size: 2rem;
 	transition: opacity .5s;
@@ -69,7 +69,6 @@ body {
 #fullmenu a:hover{
 	opacity: 0.5;
 }
-
 .container {
 	margin-top: calc(50px + 10vh);
 	display: flex;
@@ -77,6 +76,18 @@ body {
 	text-align: left;
 	font-family: DIN, "aria";
 	color: var(--text);
+}
+#back {
+	position: absolute;
+	margin: 0;
+	top: 0;
+	z-index: -99;
+	object-fit: cover;
+	height: 100vh;
+	width: 100vw;
+	object-position: center;
+	opacity:0.4;
+	overflow: hidden;
 }
 .bio {
 	margin-left: 10vw;
@@ -93,8 +104,6 @@ body {
 	z-index: 0;
 	filter: invert()
 }
-
-
 .portfolio {
 	width: 50vw;
 	padding-left: 10vw;
@@ -173,5 +182,8 @@ body {
 	}
 	#fullmenu {
 		margin-left: -80vw;
+	}
+	#back {
+		display: none;
 	}
 }
