@@ -13,6 +13,7 @@ function github(){
 var items = [ 
     ["Fantasteroids", "An arcade game written in C++. It's on Steam for free!", "https://store.steampowered.com/app/1790870/Fantasteroids/", false],
     ["Wordle", "An free and unlimited version of the popular word game", "wordle", "true"],
+    ["Planet in Peril", "The website and backend for Planet in Peril, an environmental workshop for schools in the UK.", "https://www.planetperil.com", "false"],
     ["Reaction Time Test ", "A fun website to test your reaction time!", "reaction", true],
     ["Colour Palette Generator", "A web-based colour palette generator for graphic designers.", "palette", true],
     ["Maze Solver", "A program which recognises mazes from your camera and outputs solutions using multiple algorithms.", "https://github.com/Lem0naise/maze-solver", false]
