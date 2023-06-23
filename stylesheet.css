@@ -88,6 +88,8 @@ body {
 	object-position: center;
 	opacity:0.4;
 	overflow: hidden;
+	opacity: 0;
+	transition: opacity 1s;
 }
 .bio {
 	margin-left: 10vw;
