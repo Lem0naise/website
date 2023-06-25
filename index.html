@@ -20,36 +20,28 @@
 		<meta name="author" content="Zac Nolan"/>
 	</head>
 	
-	<body>
-		<img id="back" src="imgs/back.webp" onload="this.style.opacity=1;">
-		<div id = "menu">
-			<img id="hmenu" onclick="hmenu()" src="imgs/hmenu.webp">
-		</div>
-		<div id = "fullmenu">
-			<a href = "/.">PROJECTS</a>
-			<a href = "/aboutme/">ABOUT ME</a>
-		</div>
-		
+	<body >
 		<div class = "container">
-			<div class = "bio">
-
-				<p onclick="github()" id = "name"><img onclick="github()" src="imgs/ghub.webp">Hi, I'm Zac Nolan.</p>
-				<p>My experience is mostly in web development with Javascript and data analysis with Python, though I have also had experience in C++, Java and some other languages.</p>
-				<p>Have a look at some of my projects on the right!</p>
+			<div onclick="github()" id = "name"><img onclick="github()" src="imgs/ghub.webp">Hi, I'm Zac Nolan.</div>
+			<div class = "bio" id="bio">
+				<p>I'm a student and web developer.</p>
+				<p>My experience is mostly in web development and data analysis, though I have also developed projects using languages such as C++.</p>
+				<p>Scroll down to find a list of my projects.</p>
 				
-				<p id = "c_title">Contact Me</p>
+				<p class = "c_title">Contact Me</p>
 				<div class = "contacts">
-					<a class = "contact" href = "mailto:zac1i1nolan@gmail.com">zac1i1nolan@gmail.com</a>
+					<a class = "contact" href = "mailto:zac.i.nolan@gmail.com">zac.i.nolan@gmail.com</a>
 				</div>
-			</div>
-			<div id = "portfolio" class = "portfolio"> <!--dynamically generated-->
-			</div>
-	
+				<a  id="p_title" href="#portfolio" class = "c_title">Projects</a>
 
+			</div>
+		</div>
+
+		<div id = "portfolio" class = "portfolio">
+			<div id="porttitle">Portfolio</div> <!--dynamically generated-->
 		</div>
 	
 		<script src="js/script.js"></script>
-		<script src="js/hmenu.js"></script>
 
 	</body>
 </html>

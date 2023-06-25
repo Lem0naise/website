@@ -11,12 +11,12 @@
 	--item-background: #6868686f;
 **/
 :root {
-	--background: #e8e6e3ff;
-	--menu: #323032;
-	--text: #191419;
-	--text-hover: #38303299;
-	--item: #d8d6d3;
-	--item-background: #adacaa;
+	--background: #121012;
+	--menu: #121012;
+	--text: #d8d6d3;
+	--text-hover: #d8d6d388;
+	--item: #323032;
+	--item-background: #222022;
 }
 body {
 	background-color: var(--background);
@@ -31,70 +31,43 @@ body {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	justify-content: center;
+	opacity: 0;
+	transition: opacity .5s;
+	gap: 50px;
 }
-#hmenu {
-	height: 60%;
-	margin-left: 20px;
-	transition: transform .5s, opacity .5s;
-	cursor: pointer;
-	transform: rotate(-90deg);
+#menu:hover {
+	opacity: 1;
 }
-#hmenu:hover{
-	opacity: 0.5;
-}
-#fullmenu{
-	position: fixed;
-	top: 60px;
-	height: 100vh;
-	width: fit-content;
-	padding: 50px;
+#menu a{
 
-	transition: margin .5s;
-	margin-left: -80vw;
-	z-index: 10;
-	background-color:var(--menu);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding-top: 100px;
-}
-#fullmenu a{
-	margin-bottom: 20px;
 	text-decoration: none;
-	color: #e8e6e3ff;
+	color: var(--text);
 	font-family: DIN, "aria";
 	font-size: 2rem;
 	transition: opacity .5s;
 }
-#fullmenu a:hover{
+#menu a:hover{
 	opacity: 0.5;
 }
+
+
 .container {
 	margin-top: calc(50px + 10vh);
-	display: flex;
-	flex-direction: row;
-	text-align: left;
 	font-family: DIN, "aria";
 	color: var(--text);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }
-#back {
-	position: absolute;
-	margin: 0;
-	top: 0;
-	z-index: -99;
-	object-fit: cover;
-	height: 100vh;
-	width: 100vw;
-	object-position: center;
-	opacity:0.4;
-	overflow: hidden;
-	opacity: 0;
-	transition: opacity 1s;
-}
+
 .bio {
-	margin-left: 10vw;
+	transition: opacity 1s 1.5s;
+	opacity: 0;
+	margin-top: 30px;
 	width: 50vw;
-	text-align: left;
 }
 .bio img {
 	height: 60px;
@@ -104,20 +77,31 @@ body {
 	transition: opacity .5s;
 	cursor: pointer;
 	z-index: 0;
-	filter: invert()
 }
 .portfolio {
-	width: 50vw;
-	padding-left: 10vw;
+	width: 60vw;
+	margin-top: 50vh;
+	margin-left: 20vw;
+	padding: 50px;
+	border-radius: 30px;
 	overflow: auto;
-	height: calc(80vh - 50px);
+	opacity: 0;
+	transition: opacity 1s 2.5s;
+	font-family: DIN, "aria";
+	color: var(--text);
+	background-color: var(--item-background);
+}
+#porttitle {
+	font-size: 70px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 .item { /*.portfolio div*/
 	padding: 20px;
 	margin-bottom: 10px;
 	background-color: var(--item);
 	border-radius: 15px;
-	width: 25vw;
+	width: 60vw;
 	transition: padding .5s, border-radius .5s, background-color .5s;
 }
 .item:hover {
@@ -142,10 +126,10 @@ body {
 
 #name {
 	font-size: 70px;
-	margin: 0;
-	display: inline;
-	transition: color .5s;
+	transition: color .5s, opacity 1s 0.5s;
+	opacity: 0;
 	cursor: pointer;
+	text-align: center;
 }
 #name:hover {
 	color: var(--text-hover);
@@ -153,7 +137,17 @@ body {
 #name:hover img{
 	opacity: 0.5;
 }
+#name img {
+	height: 60px;
+	display: inline-block;
+	margin-right: 15px;
+	opacity: 1;
+	transition: opacity .5s;
+	cursor: pointer;
+	z-index: 0;
+}
 .contact {
+	position: relative;
 	font-size: 20px;
 	color: var(--text);
 	transition: color .5s;
@@ -161,31 +155,32 @@ body {
 .contact:hover {
 	color: var(--text-hover);
 }
-#c_title {
+.c_title {
+	position: relative;
+	margin: 0;
+	margin-top: 50px;
+	color: var(--text);
+	text-decoration: none;
 	font-size: 45px;
+}
+#p_title {
+	transition: opacity .5s;
+}
+#p_title:hover {
+	opacity: 0.5;
 }
 
 
-
 @media only screen and (max-width: 800px) {
-	.container {
-		flex-direction: column;
-	}
 	.bio {
 		width: 70vw;
 		margin-bottom: 20px;
 	}
 	.item {
-		width: 70vw;
-		
 	}
 	.portfolio {
-		width: 100vw;
 	}
 	#fullmenu {
 		margin-left: -80vw;
-	}
-	#back {
-		display: none;
 	}
 }

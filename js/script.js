@@ -1,3 +1,6 @@
+document.getElementById('bio').style.opacity = 1;
+document.getElementById('portfolio').style.opacity = 1;
+document.getElementById('name').style.opacity = 1;
 
 
 function openLink(e, internal){
@@ -17,7 +20,6 @@ var items = [
     ["Reaction Time Test ", "A fun website to test your reaction time!", "reaction", true],
     ["Colour Palette Generator", "A web-based colour palette generator for graphic designers.", "palette", true],
     ["Maze Solver", "A program which recognises mazes from your camera and outputs solutions using multiple algorithms.", "https://github.com/Lem0naise/maze-solver", false]
-
 ]
 
 var port = document.getElementById("portfolio")
@@ -38,7 +40,6 @@ for (let i = 0; i < items.length; i++){
     // appending
     new_obj.appendChild(new_title);
     new_obj.appendChild(new_desc);
-
 
     port.appendChild(new_obj);
 }
