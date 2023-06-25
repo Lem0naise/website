@@ -138,6 +138,15 @@ body {
     bottom: 20px;
 }
 
+#home_button {
+
+    top: 5px;
+    background-color: #292429;
+    padding: 10px;
+    border-radius: 15px;
+    color:#e8e6e3;
+}
+
 
 @media only screen and (max-width: 800px) {
 	
