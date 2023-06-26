@@ -201,6 +201,9 @@ body {
 	#name {
 		font-size: 50px;
 	}
+	#name img {
+		height: 50px;
+	}
 	.item p:nth-of-type(1){ /*title*/
 		margin: 0;
 		font-size: 20px;
@@ -214,6 +217,9 @@ body {
 @media only screen and (max-width: 450px) {
 	#name {
 		font-size: 30px;
+	}
+	#name img {
+		height: 30px;
 	}
 	#porttitle {
 		font-size: 30px;
