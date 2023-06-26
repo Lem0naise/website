@@ -51,7 +51,6 @@ body {
 	opacity: 0.5;
 }
 
-
 .container {
 	margin-top: calc(40vh);
 	font-family: DIN, "aria";
@@ -177,5 +176,47 @@ body {
 	.bio {
 		width: 70vw;
 		margin-bottom: 20px;
+		font-size: 20px;
 	}
+	#name {
+		font-size: 50px;
+	}
+	.item p:nth-of-type(1){ /*title*/
+		margin: 0;
+		font-size: 20px;
+	}
+	.item p:nth-of-type(2){font-size: 14px;} /*description*/
+	.portfolio {
+		left: 10vw;
+		width: 80vw;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.bio {
+		width: 70vw;
+		margin-bottom: 20px;
+		font-size: 20px;
+	}
+	#name {
+		font-size: 50px;
+	}
+	.item p:nth-of-type(1){ /*title*/
+		margin: 0;
+		font-size: 20px;
+	}
+	.item p:nth-of-type(2){font-size: 14px;} /*description*/
+	.portfolio {
+		left: 10vw;
+		width: 80vw;
+	}
+}
+@media only screen and (max-width: 450px) {
+	#name {
+		font-size: 30px;
+	}
+	#porttitle {
+		font-size: 30px;
+	}
+
 }
