@@ -21,24 +21,33 @@
 	</head>
 	
 	<body >
-		<div class = "container">
-			<div onclick="github()" id = "name"><img onclick="github()" src="imgs/ghub.webp">Hi, I'm Zac Nolan.</div>
-			<div class = "bio" id="bio">
-				<p>I'm a student and web developer.</p>
-				<p>My experience is mostly in web development and data analysis, though I have also developed projects using languages such as C++.</p>
-				<p>Scroll down to find a list of my projects.</p>
-				
-				<p class = "c_title">Contact Me</p>
-				<div class = "contacts">
-					<a class = "contact" href = "mailto:zac.i.nolan@gmail.com">zac.i.nolan@gmail.com</a>
+		<div id="back"><img id ='it' src="imgs/back/p3.webp"></div>
+		<div id="menu">
+			<div class="tab" data-name="container" data-type="flex" onclick="tab(0)">About</div>
+			<div class="tab" data-name='portfolio' data-type='block' onclick="tab(1)">Portfolio</div>
+		</div>
+
+		<div id="cont">
+			<div class = "container val" id="container">
+				<div onclick="github()" id = "name"><img onclick="github()" src="imgs/ghub.webp">Hi, I'm Zac Nolan.</div>
+				<div class = "bio" id="bio">
+					<p>I'm a student and web developer.</p>
+					<p>My experience is mostly in web development and data analysis, though I have also developed projects using languages such as C++.</p>
+					
+					<p class = "c_title">Contact Me</p>
+					<div class = "contacts">
+						<a class = "contact" href = "mailto:zac.i.nolan@gmail.com">zac.i.nolan@gmail.com</a>
+					</div>
+					
 				</div>
-				
+			</div>
+	
+			<div id = "portfolio" class = "portfolio val" style="display:none;">
+				<div id="porttitle">Portfolio</div> <!--dynamically generated-->
 			</div>
 		</div>
 
-		<div id = "portfolio" class = "portfolio">
-			<div id="porttitle">Portfolio</div> <!--dynamically generated-->
-		</div>
+		
 	
 		<script src="js/script.js"></script>
 

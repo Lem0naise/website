@@ -1,3 +1,7 @@
+
+document.getElementById('bio').style.opacity = 0;
+document.getElementById('portfolio').style.opacity = 0;
+document.getElementById('name').style.opacity = 0;
 document.getElementById('bio').style.opacity = 1;
 document.getElementById('portfolio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
@@ -6,6 +10,38 @@ setTimeout(function(){
 }, 1500)
 window.scrollTo(0, 0)
 
+window.onscroll = function(e){
+    document.getElementById('it').style.marginTop = (window.scrollY / window.innerHeight)*80 + "vh";
+    document.getElementById('it').style.opacity = 1-(window.scrollY / window.innerHeight)*.5;
+}
+document.getElementById('it').onload = function(){
+    document.getElementById('it').style.opacity = "1";
+    document.getElementById("menu").style.opacity = "1";
+    document.getElementById("menu").style.bottom = "5vh";
+}
+function preloadImage(url){
+    var img=new Image();
+    img.src=url;
+}
+
+cur_tab = 0;
+function tab(new_tab){
+    if (new_tab != cur_tab){
+        let nam = document.getElementsByClassName("tab")[new_tab].dataset.name; 
+        let type = document.getElementsByClassName("tab")[new_tab].dataset.type;
+        let vals = document.getElementsByClassName("val"); // get all tabs
+        vals[cur_tab].style.opacity = "0";
+        setTimeout(function(){
+            vals[cur_tab].style.display = "none"; // hide current tab
+            document.getElementById(nam).style.display = type; // show new tab
+            vals[new_tab].style.opacity = "0";
+            cur_tab = new_tab;
+        }, 300);
+        setTimeout(function(){
+            vals[new_tab].style.opacity = "1";
+        }, 500);
+    }    
+}
 
 function openLink(e, internal){
     let target
@@ -48,3 +84,9 @@ for (let i = 0; i < items.length; i++){
     port.appendChild(new_obj);
 }
 
+
+
+var imgs = 'imgs/back/p'
+for (i=0; i<6; i++){
+    preloadImage(imgs + i + ".webp");
+}
