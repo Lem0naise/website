@@ -210,7 +210,16 @@ body {
 		width: 80vw;
 	}
 }
-
+@media only screen and (max-height: 800px) {
+	.portfolio {
+		max-height: 60vh;
+	}
+}
+@media only screen and (max-height: 600px) {
+	.portfolio {
+		max-height: 50vh;
+	}
+}
 @media only screen and (max-width: 800px) {
 	.bio {
 		width: 70vw;
@@ -228,6 +237,9 @@ body {
 	.portfolio {
 		left: 10vw;
 		width: 80vw;
+	}
+	#porttitle{
+		font-size: 40px;
 	}
 }
 
