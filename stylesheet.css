@@ -134,18 +134,22 @@ body {
 	padding: 20px;
 	margin-bottom: 10px;
 	background-color: var(--item);
-	border-radius: 15px;
+	border-radius: 2px;
 	transition: padding .5s, border-radius .5s, background-color .5s;
+}
+.item a {
+	color: var(--text);
 }
 .item:hover {
 	background-color: var(--item-background);
-	border-radius:30px;
+	border-radius: 5px;
 }
 .item:hover p:nth-of-type(3){opacity:1;}
 
 .item p:nth-of-type(1){ /*title*/
 	margin: 0;
 	font-size: 25px;
+	font-weight: bold;
 }
 .item p:nth-of-type(2){font-size: 17px;} /*description*/
 .item p:nth-of-type(3){/*language*/

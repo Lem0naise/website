@@ -59,7 +59,7 @@ var items = [
     ["Reaction Time Test ", "A very small, light and fun website to test your reaction time!", "reaction", true],
     ["Colour Palette Generator", "A web-based colour palette generator for graphic designers.", "palette", true],
     ["Wordle", "An free and unlimited version of the popular word game, Wordle.", "wordle", "true"],
-    ["Maze Solver", "A program written in Python which recognises mazes from your camera and outputs solutions using multiple different maze traversal algorithms.", "https://github.com/Lem0naise/maze-solver", false]
+    ["Maze Solver", "A program written in Python which recognises mazes from your camera and outputs solutions using multiple different maze traversal algorithms. Worked on in collaboration with <a href='https://danileliasov.com/'>Danil Eliasov</a>.", "https://github.com/Lem0naise/maze-solver", false]
 ]
 
 var port = document.getElementById("portfolio")
@@ -73,9 +73,9 @@ for (let i = 0; i < items.length; i++){
 
     // children
     let new_title = document.createElement("p");
-    new_title.innerText = items[i][0];
+    new_title.innerHTML = items[i][0];
     let new_desc = document.createElement("p");
-    new_desc.innerText = items[i][1];
+    new_desc.innerHTML = items[i][1];
 
     // appending
     new_obj.appendChild(new_title);
