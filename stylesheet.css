@@ -120,7 +120,8 @@ body {
 	color: var(--text);
 	background-color: #00000000;
 	max-height: 70vh;
-	overflow: scroll;
+	overflow-y: scroll;
+	overflow-x: hidden;
 	transition: opacity .3s;
 	opacity: 0;
 }
