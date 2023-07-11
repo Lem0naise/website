@@ -33,6 +33,7 @@ body {
 	overflow-y: visible;
 	z-index: -2;
 	opacity: 0.3;
+	transition: opacity 1s;
 }
 #it {
 	opacity: 0;
