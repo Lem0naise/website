@@ -6,7 +6,7 @@ document.getElementById('bio').style.opacity = 1;
 document.getElementById('portfolio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
 setTimeout(function(){
-    document.getElementsByClassName("container")[0].style.marginTop = "calc(50px + 10vh)"
+    document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
 }, 1500)
 window.scrollTo(0, 0)
 
@@ -17,7 +17,7 @@ window.onscroll = function(e){
 document.getElementById('it').onload = function(){
     document.getElementById('it').style.opacity = "1";
     document.getElementById("menu").style.opacity = "1";
-    document.getElementById("menu").style.bottom = "5vh";
+    document.getElementById("menu").style.top = "0vh";
 }
 function preloadImage(url){
     var img=new Image();
@@ -25,7 +25,11 @@ function preloadImage(url){
 }
 
 cur_tab = 0;
+tab(0);
 function tab(new_tab){
+    document.getElementsByClassName('tab')[cur_tab].classList.remove("active");
+    document.getElementsByClassName('tab')[new_tab].classList.add("active");
+    
     if (new_tab != cur_tab){
         let nam = document.getElementsByClassName("tab")[new_tab].dataset.name; 
         let type = document.getElementsByClassName("tab")[new_tab].dataset.type;
