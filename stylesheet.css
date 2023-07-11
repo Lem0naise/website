@@ -88,11 +88,12 @@ body {
 	color:#d8d6d3;
 	border-radius: 20px;
 	bottom: 0;
-	transition: bottom .5s cubic-bezier(0.19, 1, 0.42, 1), opacity .5s, color .5s, background-color .5s;
+	transition: bottom .5s cubic-bezier(0.19, 1, 0.42, 1), opacity .5s, color .5s, background-color .5s, font-size .5s;
 }
 .active {
 	color:#ffffff;
 	bottom: 1vh;
+	font-size: 60px;
 }
 .tab:hover {
 	bottom: 1vh;
@@ -256,8 +257,9 @@ body {
 	.active {
 		bottom: 0;
 		background-color: var(--item-background);
-
+		font-size: 45px;
 	}
+
 }
 
 @media only screen and (max-width: 450px) {
