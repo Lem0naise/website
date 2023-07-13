@@ -37,10 +37,10 @@ function tab(new_tab){
             document.getElementById(nam).style.display = type; // show new tab
             vals[new_tab].style.opacity = "0";
             cur_tab = new_tab;
-        }, 300);
+        }, 200);
         setTimeout(function(){
             vals[new_tab].style.opacity = "1";
-        }, 500);
+        }, 300);
         if (new_tab == 1){// if portfolio
             document.getElementById("back").style.opacity = 0.1;
         }

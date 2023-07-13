@@ -88,7 +88,7 @@ body {
 	color:#d8d6d3;
 	border-radius: 20px;
 	bottom: 0;
-	transition: bottom .5s cubic-bezier(0.19, 1, 0.42, 1), opacity .5s, color .5s, background-color .5s, font-size .5s;
+	transition: bottom .5s cubic-bezier(0.19, 1, 0.42, 1), opacity .3s, color .3s, background-color .3s, font-size .3s;
 }
 .active {
 	color:#ffffff;
