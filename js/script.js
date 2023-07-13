@@ -61,9 +61,9 @@ function github(){
 }
 
 var items = [ 
-    ["Fantasteroids", "A small but fun arcade game that I wrote in C# and a mix of other languages. It's on Steam for free!", "https://store.steampowered.com/app/1790870/Fantasteroids/", false],
+    ["Fantasteroids", "A fast-paced and fun arcade game that I wrote in C# and a mix of other languages. You can download it on Steam for free!", "https://store.steampowered.com/app/1790870/Fantasteroids/", false],
     ["Planet in Peril", "I built the website and backend for Planet in Peril, an environmental workshop for schools in the UK.", "https://www.planetperil.com", "false"],
-    ["Reaction Time Test ", "A very small, light and fun website to test your reaction time!", "reaction", true],
+    ["Reaction Time Test ", "A very small and light website to test your reaction time!", "reaction", true],
     ["Colour Palette Generator", "A web-based colour palette generator for graphic designers.", "palette", true],
     ["Wordle", "An free and unlimited version of the popular word game, Wordle.", "wordle", "true"],
     ["Maze Solver", "A program written in Python which recognises mazes from your camera and outputs solutions using multiple different maze traversal algorithms. Worked on in collaboration with <a href='https://danileliasov.com/'>Danil Eliasov</a>.", "https://github.com/Lem0naise/maze-solver", false]
