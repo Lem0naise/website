@@ -34,18 +34,21 @@ body {
     background-color: #FFFFFF;
     opacity: 0.5;
     padding: 20px;
+    background-color: #433b43;
     border: #29242977;
     box-shadow: none;
     border-radius: 20px;
     transition: opacity .5s;
     z-index: 20;
+    text-decoration: none;
+    margin-bottom: 20px;
 }
 .button:hover {
     opacity: 0.8;
 }
 #home_button {
     bottom: 5px;
-    background-color: #292429;
+    background-color: #423b42;
     padding: 10px;
     border-radius: 15px;
     color:#e8e6e3;
