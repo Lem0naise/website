@@ -10,14 +10,11 @@ setTimeout(function(){
 }, 1500)
 window.scrollTo(0, 0)
 
-window.onscroll = function(e){
-    document.getElementById('it').style.marginTop = (window.scrollY / window.innerHeight)*80 + "vh";
-    document.getElementById('it').style.opacity = 1-(window.scrollY / window.innerHeight)*.5;
-}
-document.getElementById('it').onload = function(){
+document.getElementById("menu").style.opacity = "1";
+document.getElementById("menu").style.top = "0vh";
+
+window.onload = function(){
     document.getElementById('it').style.opacity = "1";
-    document.getElementById("menu").style.opacity = "1";
-    document.getElementById("menu").style.top = "0vh";
 }
 function preloadImage(url){
     var img=new Image();
@@ -92,11 +89,4 @@ for (let i = 0; i < items.length; i++){
     new_obj.appendChild(new_desc);
 
     port.appendChild(new_obj);
-}
-
-
-
-var imgs = 'imgs/back/p'
-for (i=0; i<6; i++){
-    preloadImage(imgs + i + ".webp");
 }
