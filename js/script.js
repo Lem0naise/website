@@ -1,17 +1,22 @@
-
+//onloads
 document.getElementById('bio').style.opacity = 0;
 document.getElementById('portfolio').style.opacity = 0;
 document.getElementById('name').style.opacity = 0;
 document.getElementById('bio').style.opacity = 1;
 document.getElementById('portfolio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
+
+document.getElementById('left').style.left = '-50vw';
+document.getElementById('right').style.left = '100vw';
+document.getElementById('top').style.top = '-50vh';
+document.getElementById('bottom').style.top = '100vh';
+
 setTimeout(function(){
     document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
 }, 1500)
 window.scrollTo(0, 0)
 
 document.getElementById("menu").style.opacity = "1";
-document.getElementById("menu").style.top = "0vh";
 
 window.onload = function(){
     document.getElementById('it').style.opacity = "1";

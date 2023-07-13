@@ -65,9 +65,9 @@ body {
 	gap: 50px;
 	left: 50%;
 	transform: translateX(-50%);
-	top: -5vh;
+	top: 0vh;
 	opacity: 0;
-	transition: top 1s 2s, opacity 2s 2s;
+	transition: opacity 1s 2s;
 }
 .cont {
 	max-height: 90vh;
@@ -167,9 +167,38 @@ body {
 
 .bio {font-size: 20px;}
 
+.panel {
+	position: fixed;
+	z-index: 405;
+	background: var(--background);
+	width: 50vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	transition: left 1s .5s;
+}
+.panel2 {
+	position: fixed;
+	z-index: 401;
+	background: var(--item-background);
+	width: 100vw;
+	height: 50vh;
+	top: 0;
+	left: 0;
+	transition: top 1s 1.5s;
+}
+#bottom {
+	top: 50vh;
+}
+#right {
+	left: 50vw;
+}
+
 #name {
+	z-index: 402;
 	font-size: 70px;
-	transition: color .5s, opacity 1s 0.5s;
+	transition: color .5s, opacity 1s 0.5s, max-width 2s;
+	overflow: hidden;
 	opacity: 0;
 	cursor: pointer;
 	text-align: center;
