@@ -14,7 +14,7 @@ setTimeout(function(){
     document.getElementById('left').style.display = 'none';
     document.getElementById('top').style.display = 'none';
     document.getElementById('right').style.display = 'none';
-}, 2000);
+}, 4000);
 
 setTimeout(function(){
     document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
