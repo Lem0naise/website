@@ -1,17 +1,27 @@
-
+//onloads
 document.getElementById('bio').style.opacity = 0;
 document.getElementById('portfolio').style.opacity = 0;
 document.getElementById('name').style.opacity = 0;
 document.getElementById('bio').style.opacity = 1;
 document.getElementById('portfolio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
+
+document.getElementById('left').style.left = '-50vw';
+document.getElementById('right').style.left = '100vw';
+document.getElementById('top').style.opacity = '0';
+
+setTimeout(function(){
+    document.getElementById('left').style.display = 'none';
+    document.getElementById('top').style.display = 'none';
+    document.getElementById('right').style.display = 'none';
+}, 2000);
+
 setTimeout(function(){
     document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
 }, 1500)
 window.scrollTo(0, 0)
 
 document.getElementById("menu").style.opacity = "1";
-document.getElementById("menu").style.top = "0vh";
 
 window.onload = function(){
     document.getElementById('it').style.opacity = "1";
@@ -37,10 +47,10 @@ function tab(new_tab){
             document.getElementById(nam).style.display = type; // show new tab
             vals[new_tab].style.opacity = "0";
             cur_tab = new_tab;
-        }, 300);
+        }, 200);
         setTimeout(function(){
             vals[new_tab].style.opacity = "1";
-        }, 500);
+        }, 300);
         if (new_tab == 1){// if portfolio
             document.getElementById("back").style.opacity = 0.1;
         }
