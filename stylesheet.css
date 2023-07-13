@@ -175,20 +175,17 @@ body {
 	height: 100vh;
 	top: 0;
 	left: 0;
-	transition: left 1s .5s;
+	transition: left 1s .25s;
 }
 .panel2 {
 	position: fixed;
 	z-index: 401;
 	background: var(--item-background);
 	width: 100vw;
-	height: 50vh;
+	height: 100vh;
 	top: 0;
-	left: 0;
-	transition: top 1s 1.5s;
-}
-#bottom {
-	top: 50vh;
+	opacity: 1;
+	transition: opacity 1s 1.5s;
 }
 #right {
 	left: 50vw;

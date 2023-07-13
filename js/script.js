@@ -8,8 +8,9 @@ document.getElementById('name').style.opacity = 1;
 
 document.getElementById('left').style.left = '-50vw';
 document.getElementById('right').style.left = '100vw';
-document.getElementById('top').style.top = '-50vh';
-document.getElementById('bottom').style.top = '100vh';
+
+
+document.getElementById('top').style.opacity = '0';
 
 setTimeout(function(){
     document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
