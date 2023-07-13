@@ -17,6 +17,7 @@
 	--text: #d8d6d3;
 	--text-hover: #d8d6d388;
 	--item: #6763673f;
+	--item-background-2: #22202200;
 	--item-background: #222022;
 }
 body {
@@ -147,8 +148,10 @@ body {
 	color: var(--text);
 }
 .item:hover {
-	background-color: var(--item-background);
+	background-color: var(--item-background-2);
 	border-radius: 5px;
+	padding-left: 30px;
+	padding-right: 10px;
 }
 .item:hover p:nth-of-type(3){opacity:1;}
 
@@ -176,6 +179,7 @@ body {
 	top: 0;
 	left: 0;
 	transition: left 1s .25s;
+	pointer-events: none;
 }
 .panel2 {
 	position: fixed;
@@ -186,6 +190,7 @@ body {
 	top: 0;
 	opacity: 1;
 	transition: opacity 1s 1.5s;
+	pointer-events: none;
 }
 #right {
 	left: 50vw;
@@ -276,13 +281,14 @@ body {
 		margin-top: 0;
 		top: 0;
 		background-color: var(--item);
+
 		flex: 1;
 		border-radius: 0;
 
 	}
 	.active {
 		bottom: 0;
-		background-color: var(--item-background);
+		background-color: var(--background);
 		font-size: 50px;
 	}
 }

@@ -8,9 +8,13 @@ document.getElementById('name').style.opacity = 1;
 
 document.getElementById('left').style.left = '-50vw';
 document.getElementById('right').style.left = '100vw';
-
-
 document.getElementById('top').style.opacity = '0';
+
+setTimeout(function(){
+    document.getElementById('left').style.display = 'none';
+    document.getElementById('top').style.display = 'none';
+    document.getElementById('right').style.display = 'none';
+}, 2000);
 
 setTimeout(function(){
     document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
