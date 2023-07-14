@@ -21,7 +21,7 @@
 	--item-background: #222022;
 }
 body {
-	overflow: hidden;
+	overflow-x: hidden;
 	background-color: var(--background);
 	margin: 0;
 }
