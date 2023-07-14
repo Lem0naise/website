@@ -200,10 +200,6 @@ function submit(){
             }, 300);
 
         }
-        current_column+=1;
-        backspace();
-
-
     }
 }
 
