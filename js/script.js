@@ -25,15 +25,12 @@ setTimeout(function(){
 }, 1750);
 
 
-document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
+document.getElementById("container").style.transform = "translateY(calc(50px + 20vh))"
 
 window.scrollTo(0, 0)
 
 document.getElementById("menu").style.opacity = "1";
 
-window.onload = function(){
-    document.getElementById('it').style.opacity = "1";
-}
 function preloadImage(url){
     var img=new Image();
     img.src=url;

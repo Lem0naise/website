@@ -47,7 +47,7 @@ body {
 
 }
 .container {
-	margin-top: calc(40vh);
+	transform: translateY(40vh);
 	font-family: DIN, "aria";
 	color: var(--text);
 	display: flex;
@@ -55,7 +55,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	transition: margin-top 1s 1s, opacity .3s;
+	transition: margin-top 1s 1s, opacity .3s, transform 1s 1s;
 }
 
 #menu {
