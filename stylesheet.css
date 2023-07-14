@@ -89,12 +89,12 @@ body {
 	color:#d8d6d3;
 	border-radius: 20px;
 	bottom: 0;
-	transition: bottom .5s cubic-bezier(0.19, 1, 0.42, 1), opacity .3s, color .3s, background-color .3s, font-size .3s;
+	transition: bottom .5s cubic-bezier(0.19, 1, 0.42, 1), opacity .3s, color .3s, background-color .3s, font-size .3s, transform .3s;
 }
 .active {
 	color:#ffffff;
 	bottom: 1vh;
-	font-size: 60px;
+	transform: scale(1.4);
 }
 .tab:hover {
 	bottom: 1vh;
@@ -254,6 +254,10 @@ body {
 
 
 @media only screen and (max-width: 800px) {
+	.active {
+		font-size: 60px;
+		transform: scale(1);
+	}
 	.panel {
 		top: 0;
 		left: 0;
