@@ -178,7 +178,7 @@ body {
 	height: 100vh;
 	top: 0;
 	left: 0;
-	transition: left 1s .25s;
+	transition: left 1s .25s, top 1s .25s;
 	pointer-events: none;
 }
 .panel2 {
@@ -254,6 +254,17 @@ body {
 
 
 @media only screen and (max-width: 800px) {
+	.panel {
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 50vh;
+	}
+	#right {
+		left: 0;
+		top: 50vh;
+	}
+
 	.bio {
 		width: 70vw;
 		margin-bottom: 20px;

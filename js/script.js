@@ -6,15 +6,23 @@ document.getElementById('bio').style.opacity = 1;
 document.getElementById('portfolio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
 
-document.getElementById('left').style.left = '-50vw';
-document.getElementById('right').style.left = '100vw';
+if (window.innerWidth > 800){
+    document.getElementById('left').style.left = '-50vw';
+    document.getElementById('right').style.left = '100vw';
+}
+else {
+    document.getElementById('left').style.top = '-50vh';
+    document.getElementById('right').style.top = '100vh';
+}
+
+
 document.getElementById('top').style.opacity = '0';
 
 setTimeout(function(){
     document.getElementById('left').style.display = 'none';
     document.getElementById('top').style.display = 'none';
     document.getElementById('right').style.display = 'none';
-}, 4000);
+}, 1750);
 
 
 document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
