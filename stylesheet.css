@@ -178,7 +178,7 @@ body {
 	height: 100vh;
 	top: 0;
 	left: 0;
-	transition: left 1s .25s, top 1s .25s;
+	transition: left 1s .25s, top 1s .25s, transform 1s .25s;
 	pointer-events: none;
 }
 .panel2 {

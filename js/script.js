@@ -7,12 +7,12 @@ document.getElementById('portfolio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
 
 if (window.innerWidth > 800){
-    document.getElementById('left').style.left = '-50vw';
-    document.getElementById('right').style.left = '100vw';
+    document.getElementById('left').style.transform = 'translateX(-50vw)';
+    document.getElementById('right').style.transform = 'translateX(50vw)';
 }
 else {
-    document.getElementById('left').style.top = '-50vh';
-    document.getElementById('right').style.top = '100vh';
+    document.getElementById('left').style.transform = 'translateY(-50vh)';
+    document.getElementById('right').style.transform = 'translateY(50vh)';
 }
 
 
