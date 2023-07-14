@@ -16,9 +16,9 @@ setTimeout(function(){
     document.getElementById('right').style.display = 'none';
 }, 4000);
 
-setTimeout(function(){
-    document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
-}, 1500)
+
+document.getElementById("container").style.marginTop = "calc(50px + 20vh)"
+
 window.scrollTo(0, 0)
 
 document.getElementById("menu").style.opacity = "1";

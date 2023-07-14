@@ -55,7 +55,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	transition: margin-top 1s, opacity .3s;
+	transition: margin-top 1s 1s, opacity .3s;
 }
 
 #menu {
@@ -68,7 +68,7 @@ body {
 	transform: translateX(-50%);
 	top: 0vh;
 	opacity: 0;
-	transition: opacity 1s 2s;
+	transition: opacity 1s 1.5s;
 }
 .cont {
 	max-height: 90vh;
@@ -189,7 +189,7 @@ body {
 	height: 100vh;
 	top: 0;
 	opacity: 1;
-	transition: opacity 1s 1.5s;
+	transition: opacity 1s .75s;
 	pointer-events: none;
 }
 #right {
@@ -199,7 +199,7 @@ body {
 #name {
 	z-index: 402;
 	font-size: 70px;
-	transition: color .5s, opacity 1s 0.5s, max-width 2s;
+	transition: color .5s, opacity 1s .25s, max-width 2s;
 	overflow: hidden;
 	opacity: 0;
 	cursor: pointer;
