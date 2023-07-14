@@ -31,7 +31,7 @@ function get_answer() {
 }
 
 function wordle(){ // this runs on page load or new game button press
-
+    
     won = false; // set won back to false
     get_words(); // run the get words function to populate answers[] and words[]
     answer = get_answer(); // get an answer
@@ -124,7 +124,8 @@ function letter(letter){ // letter input
         deselect(current_row, current_column);
 
         if (current_column == 4){ // if at the end of the word
-            submit();
+            //submit(); don't submit yet
+            current_column += 1;
             return;
         }
 
@@ -134,7 +135,6 @@ function letter(letter){ // letter input
 }
 
 function backspace() {
-    console.log(guess)
     if ((current_column > 0) && (!won)) {
         guess = guess.slice(0, -1); // remove last letter of guess
         deselect(current_row, current_column); // deselect current letter

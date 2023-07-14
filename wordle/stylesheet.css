@@ -22,6 +22,18 @@ body {
 		-ms-flex-align: center;
 			align-items: center;
 }
+#warning {
+	font-size: 30px;
+	font-family: DIN, arial;
+	color:#D1E8E2;
+	display: none;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+}
 
 .alphabet {
 	outline: none;
@@ -45,31 +57,37 @@ body {
 	transition: opacity .25s;
 }
 .alphabet_letter {
+	background-color: #4a434a;
 	outline: none;
 	font-family: DIN, sans-serif;
 	color: #D1E8E2;
 	font-size: 160%;
 	height: -webkit-fit-content;
 	height: -moz-fit-content;
-	height: fit-content;
+	height: 50px;
+	min-width: 30px;
 	display: inline-block;
-	margin-right: 2vw;
-	transition: color .5s, border .5s;
+	padding-right: 1vw;
+	margin: 2px;
+	border-radius: 5px;
+	padding-left: 1vw;
+	transition: color .5s, border .5s, background-color .5s;
 }
 .letter_wrong {
-	color: #63716d;
+	background-color: #292429;;
 }
 .letter_in{
-	color: #f78379;
+	background-color: #e19e52;
 }
 .letter_correct {
-	color: #90d69b !important;
+	background-color: #90d69b !important;
+	color: #4a434a;
 }
 .guesses {
 	-moz-user-select: none;
 	-ms-user-select: none;
 		user-select: none;
-	margin-top: calc(1vw + 10px);
+	margin-top: calc(0.5vw);
 	height: -webkit-fit-content;
 	height: -moz-fit-content;
 	height: fit-content;
@@ -84,7 +102,7 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 		user-select: none;
-	margin-right: 1vw;
+	margin-right: 0.5vw;
 	text-align:center;
 	font-size:200%;
 	width: 60px;
@@ -116,10 +134,12 @@ body {
 }
 
 .button {
+	text-decoration: none;
     position:absolute;
     left: 50%;
     transform: translateX(-50%);
     font-family: DIN;
+	color:#292429;
     font-size: 20px;
     background-color: #FFFFFF;
     opacity: 0.5;
@@ -148,7 +168,50 @@ body {
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 500px) {
+
+	.alphabet_letter {
+		min-width: 20px;
+		min-height: 20px;
+		font-size: 30px;
+	}
+}
+
+@media only screen and (max-width: 360px),
+	screen and (max-height: 660px){
+		#warning {
+			display: flex;
+		}
+		#new_button {
+			display: none;
+		}
+		#content {
+			display: none;
+		}
+}
+
+
+@media only screen and (max-height: 800px) {
+
+	.guesses {
+		margin-top: 0.2vw;
+	}
+	.square {
+		margin-right: 0.2vw;
+		font-size: 150%;
+		width: calc(20px + 5vh);
+		height: calc(20px + 5vh);
+		line-height: 55px;
+	}
+	#home_button {
+		position: relative;
+	}
+	#new_button {
+		position: relative;
+		height: 20px;
+		top: 20px;
+		bottom: 0;
+	}
 	
 }
 
