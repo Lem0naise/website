@@ -56,6 +56,9 @@ body {
 	-o-transition: opacity .25s;
 	transition: opacity .25s;
 }
+.alphabet a {
+	color:#D1E8E2;
+}
 .alphabet_letter {
 	background-color: #4a434a;
 	outline: none;
