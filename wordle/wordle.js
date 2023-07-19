@@ -114,6 +114,12 @@ function deselect(row, column){
 
 
 function letter(letter){ // letter input
+    document.getElementById(letter).classList.add("pressed");
+    setTimeout(function(){
+        document.getElementById(letter).classList.remove("pressed");
+    }, 300);
+
+
     if (won){return;} // don't do anything if won the game
     if (letter == "<") {backspace();return} // if they pressed backspace icon
     if (letter == "Enter") {submit();return} // if they pressed enter
