@@ -81,7 +81,8 @@ body {
 }
 
 .letter_wrong {
-	background-color: #292429;;
+	background-color: #292429;
+	color: #D1E8E255;
 }
 .letter_in{
 	background-color: #e19e52;
