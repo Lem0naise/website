@@ -59,9 +59,6 @@ body {
 .alphabet a {
 	color:#D1E8E2;
 }
-.pressed {
-	opacity: .5;
-}
 .alphabet_letter {
 	background-color: #4a434a;
 	outline: none;
@@ -93,6 +90,9 @@ body {
 	background-color: #90d69b !important;
 	color: #4a434a;
 	opacity: 1;
+}
+.pressed {
+	opacity: .5;
 }
 .guesses {
 	-moz-user-select: none;
