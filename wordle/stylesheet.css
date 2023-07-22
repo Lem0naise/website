@@ -83,14 +83,16 @@ body {
 .letter_wrong {
 	background-color: #292429;
 	color: #D1E8E255;
-	opacity: 0.5 !important;
+	opacity: 0.5;
 }
 .letter_in{
 	background-color: #e19e52;
+	opacity: 1;
 }
 .letter_correct {
 	background-color: #90d69b !important;
 	color: #4a434a;
+	opacity: 1;
 }
 .guesses {
 	-moz-user-select: none;
