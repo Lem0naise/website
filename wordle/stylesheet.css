@@ -127,20 +127,20 @@ body {
 }
 .selected_square {
 	border: 1px solid #B2b3b2;
-	border-radius: 5px;
+	border-radius: 4px;
 	background-color: #5C6561;
 }
 .wrong_square {
 	color: #63716d;
-	border: 3px solid #63716d;
+	border: 1px solid #63716d;
 }
 .in_square {
 	color: #e19e52;
-	border: 3px solid #e19e52;
+	border: 1px solid #e19e52;
 }
 .correct_square {
 	color: #90d69b;
-	border: 3px solid #90d69b;
+	border: 1px solid #90d69b;
 }
 
 .button {
