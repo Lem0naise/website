@@ -141,6 +141,11 @@ function letter(letter){ // letter input
 }
 
 function backspace() {
+    document.getElementById('<').classList.add("pressed");
+    setTimeout(function(){
+        document.getElementById('<').classList.remove("pressed");
+    }, 300);
+
     if ((current_column > 0) && (!won)) {
         guess = guess.slice(0, -1); // remove last letter of guess
         deselect(current_row, current_column); // deselect current letter
@@ -152,6 +157,11 @@ function backspace() {
 }
 
 function submit(){
+    document.getElementById('Enter').classList.add("pressed");
+    setTimeout(function(){
+        document.getElementById('Enter').classList.remove("pressed");
+    }, 300);
+
     if (won){return;}
     set_alphabet_letters(); // reset alphabet tracker to zero
     guess = guess.toLowerCase();
@@ -177,7 +187,7 @@ function submit(){
 
         // verifying the word
         for (i=0;i<5;i++){
-            if (answer.includes(guess[i]) && (alphabet_letters[guess[i].toUpperCase()] < (answer.match(new RegExp(guess[i], "g")) || []).length)){ // if not ran out of letters
+            if (answer.includes(guess[i]) && (alphabet_letters[guess[i].toUpperCase()] <= (answer.match(new RegExp(guess[i], "g")) || []).length)){ // if not ran out of letters
                 document.querySelector('#square'+current_row+i).classList.add('in_square'); // letter is in word
                 document.querySelector('#' +guess[i].toUpperCase()).classList.add("letter_in"); 
                 alphabet_letters[guess[i].toUpperCase()] += 1; // add one to tracked letter
