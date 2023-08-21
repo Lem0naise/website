@@ -59,9 +59,6 @@ body {
 .alphabet a {
 	color:#D1E8E2;
 }
-.pressed {
-	opacity: .5;
-}
 .alphabet_letter {
 	background-color: #4a434a;
 	outline: none;
@@ -81,14 +78,21 @@ body {
 }
 
 .letter_wrong {
-	background-color: #292429;;
+	background-color: #292429;
+	color: #D1E8E255;
+	opacity: 0.5;
 }
 .letter_in{
 	background-color: #e19e52;
+	opacity: 1;
 }
 .letter_correct {
 	background-color: #90d69b !important;
 	color: #4a434a;
+	opacity: 1;
+}
+.pressed {
+	opacity: .5;
 }
 .guesses {
 	-moz-user-select: none;
@@ -117,27 +121,26 @@ body {
 	line-height: 65px;
 	position:relative;
 	background-color: #4C5551;
-	border: 3px solid #FFCB9A;
-	border-radius: 5px;
-	-webkit-transition: border .5s, background-color .5s, color .5s;
-	-o-transition: border .5s, background-color .5s, color .5s;
-	transition: border .5s, background-color .5s, color .5s;
+	border: 1px solid #F2F3F2;
+	border-radius: 2px;
+	transition: border .5s, background-color .5s, color .5s, border-radius .5s;
 }
 .selected_square {
-	border: 3px solid #F1F8F2;
+	border: 1px solid #B2b3b2;
+	border-radius: 4px;
 	background-color: #5C6561;
 }
 .wrong_square {
 	color: #63716d;
-	border: 3px solid #63716d;
+	border: 1px solid #63716d;
 }
 .in_square {
 	color: #e19e52;
-	border: 3px solid #e19e52;
+	border: 1px solid #e19e52;
 }
 .correct_square {
 	color: #90d69b;
-	border: 3px solid #90d69b;
+	border: 1px solid #90d69b;
 }
 
 .button {
