@@ -75,6 +75,7 @@ body {
 	border-radius: 5px;
 	padding-left: 1vw;
 	transition: color .5s, border .5s, background-color .5s, opacity .1s;
+
 }
 
 .letter_wrong {
@@ -169,41 +170,13 @@ body {
 }
 
 #home_button {
-
     top: 5px;
     background-color: #292429;
     padding: 10px;
     border-radius: 15px;
     color:#e8e6e3;
+	cursor: pointer;
 }
-
-
-@media only screen and (max-width: 500px) {
-	.alphabet_letter {
-		min-width: 30px;
-		min-height: 20px;
-	}
-}
-@media only screen and (max-width: 440px) {
-	.alphabet_letter {
-		min-width: 25px;
-		min-height: 20px;
-	}
-}
-
-@media only screen and (max-width: 360px),
-	screen and (max-height: 660px){
-		#warning {
-			display: flex;
-		}
-		#new_button {
-			display: none;
-		}
-		#content {
-			display: none;
-		}
-}
-
 
 @media only screen and (max-height: 800px) {
 
@@ -225,7 +198,66 @@ body {
 		height: 20px;
 		top: 20px;
 		bottom: 0;
-	}
-	
+	}	
 }
+
+@media only screen and (max-width: 500px) {
+	.alphabet_letter {
+		min-width: calc(4vw);
+		font-size: 30px;
+		min-height: 20px;
+		line-height: 1.5;
+		margin-left: 7px;
+		margin-bottom: 5px;
+	}
+}
+@media only screen and (max-width: 400px) {
+	.alphabet_letter {
+		min-width: calc(4vw);
+		font-size: 30px;
+		min-height: 20px;
+		line-height: 1.5;
+		margin-left: 7px;
+		margin-bottom: 5px;
+	}
+}
+
+
+@media only screen and (max-width: 360px){
+	.alphabet_letter {
+		min-width: calc(4vw);
+		font-size: 25px;
+		height: 40px;
+		line-height: 1.5;
+		margin-left: 7px;
+		margin-bottom: 5px;
+	}
+
+	#new_button {
+		top: 5px;
+		background-color: #292429;
+		padding: 10px;
+		border-radius: 15px;
+		color:#e8e6e3;
+		margin-bottom: 0;
+	}
+
+	#content {
+		margin-top: 10px;
+	}
+}
+
+@media only screen and (max-width: 300px),
+	screen and (max-height: 600px){
+		#warning {
+			display: flex;
+		}
+		#new_button {
+			display: none;
+		}
+		#content {
+			display: none;
+		}
+}
+
 
