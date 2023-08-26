@@ -248,7 +248,7 @@ body {
 }
 
 @media only screen and (max-width: 300px),
-	screen and (max-height: 600px){
+	screen and (max-height: 500px){
 		#warning {
 			display: flex;
 		}
