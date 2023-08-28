@@ -87,16 +87,32 @@ body {
 
 	height: 100px;
 	width: 200px;
-	color:#d8d6d3;
+	color:#757575;
 	border-radius: 20px;
 	bottom: 0;
 	transition: bottom .5s cubic-bezier(0.19, 1, 0.42, 1), opacity .3s, color .3s, background-color .3s, font-size .3s, transform .3s;
+
+	margin: 0;
+	margin-top: 0;
+	top: 0;
+	background-color: var(--item);
+	height: 80px;
+
+	flex: 1;
+	border-radius: 0;
+}
+#menu {
+	width: 100vw;
+	gap: 0;
+	margin-top: 0;
+	top: 0;
 }
 .active {
+	bottom: 0;
+	background-color: var(--background);
 	color:#ffffff;
-	bottom: 1vh;
-	transform: scale(1.4);
 }
+
 .tab:hover {
 	bottom: 1vh;
 	opacity: .8;
@@ -155,7 +171,6 @@ body {
 	transition: padding .5s, border-radius .5s, background-color .5s;
 }
 .item-b:hover {
-	background-color: var(--item-background-2);
 	border-radius: 5px;
 	padding-left: 25px;
 	padding-right: 5px;
@@ -265,10 +280,6 @@ body {
 
 
 @media only screen and (max-width: 800px) {
-	.active {
-		font-size: 60px;
-		transform: scale(1);
-	}
 	.panel {
 		top: 0;
 		left: 0;
@@ -316,7 +327,6 @@ body {
 	.active {
 		bottom: 0;
 		background-color: var(--background);
-		font-size: 50px;
 	}
 }
 
@@ -343,9 +353,6 @@ body {
 	}
 	#container {
 		transform: translateY(20vh) !important;
-	}
-	.active {
-		font-size: 30px;
 	}
 	.portfolio {
 		width: 100vw;
