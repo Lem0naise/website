@@ -104,7 +104,7 @@ body {
 	transition: opacity 1s 1.5s;
 	opacity: 0;
 	margin-top: 30px;
-	width: 30vw;
+	width: 40vw;
 }
 .bio img {
 	height: 60px;
@@ -136,6 +136,28 @@ body {
 	font-size: 70px;
 	text-align: center;
 	margin-bottom: 20px;
+}
+.item-b-title {
+	font-size: 30px;	
+	color: #b0b0b0;
+	font-style: italic;
+	margin:0;
+	margin-bottom: 10px;
+}
+.item-b { /* main page div*/
+	font-style: italic;
+	text-align: left;
+	padding: 20px;
+	margin-bottom: 10px;
+	background-color: var(--item);
+	border-radius: 3px;
+	transition: padding .5s, border-radius .5s, background-color .5s;
+}
+.item-b:hover {
+	background-color: var(--item-background-2);
+	border-radius: 5px;
+	padding-left: 25px;
+	padding-right: 5px;
 }
 .item { /*.portfolio div*/
 	padding: 20px;
@@ -296,6 +318,7 @@ body {
 		margin-top: 0;
 		top: 0;
 		background-color: var(--item);
+		height: 80px;
 
 		flex: 1;
 		border-radius: 0;
@@ -310,19 +333,26 @@ body {
 
 @media only screen and (max-width: 600px) {
 	#name {
-		font-size: 40px;
+		font-size: 35px;
 	}
 	#name img {
-		height: 40px;
+		height: 35px;
+	}
+	#bio {
+		font-size: 17px;
+		width: 80vw;
+	}
+	.contact {
+		font-size: 17px;
 	}
 	.tab {
-		font-size: 35px;
+		font-size: 25px;
 		margin-left: 0;
 		margin-right: 0;
 		width: 150px;
 	}
 	.active {
-		font-size: 40px;
+		font-size: 30px;
 	}
 	.portfolio {
 		width: 100vw;
