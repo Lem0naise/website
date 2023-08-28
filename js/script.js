@@ -54,12 +54,6 @@ function tab(new_tab){
         setTimeout(function(){
             vals[new_tab].style.opacity = "1";
         }, 300);
-        if (new_tab == 1){// if portfolio
-            document.getElementById("back").style.opacity = 0.1;
-        }
-        else{
-            document.getElementById("back").style.opacity = 0.4;
-        }
     }   
 }
 
