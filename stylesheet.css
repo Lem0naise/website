@@ -330,6 +330,7 @@ body {
 	#bio {
 		font-size: 17px;
 		width: 80vw;
+		margin-top: 5px;
 	}
 	.contact {
 		font-size: 17px;
@@ -339,6 +340,9 @@ body {
 		margin-left: 0;
 		margin-right: 0;
 		width: 150px;
+	}
+	#container {
+		transform: translateY(20vh) !important;
 	}
 	.active {
 		font-size: 30px;
