@@ -1,7 +1,7 @@
 //onloads
 document.getElementById('bio').style.opacity = 0;
 document.getElementById('portfolio').style.opacity = 0;
-document.getElementById('name').style.opacity = 0;
+
 document.getElementById('bio').style.opacity = 1;
 document.getElementById('portfolio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
@@ -15,12 +15,10 @@ else {
     document.getElementById('right').style.transform = 'translateY(50vh)';
 }
 
-
-document.getElementById('top').style.opacity = '0';
-
+let background_c = '#121012';
+document.body.style.backgroundColor = background_c;
 setTimeout(function(){
     document.getElementById('left').style.display = 'none';
-    document.getElementById('top').style.display = 'none';
     document.getElementById('right').style.display = 'none';
 }, 1750);
 
