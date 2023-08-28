@@ -16,7 +16,7 @@
 	--menu: #121012;
 	--text: #d8d6d3;
 	--text-hover: #d8d6d388;
-	--item: #6763673f;
+	--item: #252425;
 	--item-background-2: #22202200;
 	--item-background: #222022;
 }
@@ -106,16 +106,15 @@ body {
 	gap: 0;
 	margin-top: 0;
 	top: 0;
+	z-index: 999;
 }
 .active {
-	bottom: 0;
 	background-color: var(--background);
-	color:#ffffff;
+	color:#c7c7c7;
 }
 
 .tab:hover {
-	bottom: 1vh;
-	opacity: .8;
+	color: #c7c7c7;
 }
 .bio {
 	transition: opacity 1s 1s;
@@ -276,6 +275,9 @@ body {
 @media only screen and (max-width: 1300px) {
 	.portfolio {
 		width: 80vw;
+	}
+	#bio{
+		width: 50vw;
 	}
 }
 
