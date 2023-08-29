@@ -1,39 +1,16 @@
 //onloads
 document.getElementById('bio').style.opacity = 0;
-document.getElementById('portfolio').style.opacity = 0;
-
 document.getElementById('bio').style.opacity = 1;
-document.getElementById('portfolio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
 
-if (window.innerWidth > 800){
-    document.getElementById('left').style.transform = 'translateX(-50vw)';
-    document.getElementById('right').style.transform = 'translateX(50vw)';
-}
-else {
-    document.getElementById('left').style.transform = 'translateY(-50vh)';
-    document.getElementById('right').style.transform = 'translateY(50vh)';
-}
 
 let background_c = '#121012';
 document.body.style.backgroundColor = background_c;
-setTimeout(function(){
-    document.getElementById('left').style.display = 'none';
-    document.getElementById('right').style.display = 'none';
-}, 1750);
-
 
 document.getElementById("container").style.transform = "translateY(calc(50px + 20vh))"
-
 window.scrollTo(0, 0)
 
 document.getElementById("menu").style.opacity = "1";
-
-function preloadImage(url){
-    var img=new Image();
-    img.src=url;
-}
-
 cur_tab = 0;
 tab(0);
 function tab(new_tab){
