@@ -1,16 +1,16 @@
 //onloads
-document.getElementById('bio').style.opacity = 0;
+document.getElementById('bio').style.transform = 'translateY(0)';
 document.getElementById('bio').style.opacity = 1;
 document.getElementById('name').style.opacity = 1;
 
-
 let background_c = '#121012';
 document.body.style.backgroundColor = background_c;
-
-document.getElementById("container").style.transform = "translateY(calc(50px + 20vh))"
+document.getElementById("menu").style.opacity = "1";
+document.getElementById("second").style.transform =  'translateY(0)';
+document.getElementById("second").style.opacity = 1;
 window.scrollTo(0, 0)
 
-document.getElementById("menu").style.opacity = "1";
+
 cur_tab = 0;
 tab(0);
 function tab(new_tab){

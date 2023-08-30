@@ -24,7 +24,7 @@ body {
 	overflow-x: hidden;
 	background-color: var(--item-background);
 	margin: 0;
-	transition: background-color 1s .5s;
+	transition: background-color 1s;
 }
 #it {
 	opacity: 0;
@@ -37,7 +37,7 @@ body {
 
 }
 .container {
-	transform: translateY(40vh);
+	transform: translateY(calc(50px + 20vh));
 	font-family: DIN, "aria";
 	color: var(--text);
 	display: flex;
@@ -58,7 +58,7 @@ body {
 	transform: translateX(-50%);
 	top: 0vh;
 	opacity: 0;
-	transition: opacity 1s 1s;
+	transition: opacity 1s;
 }
 .cont {
 	max-height: 90vh;
@@ -106,10 +106,11 @@ body {
 	color: #c7c7c7;
 }
 .bio {
-	transition: opacity 1s .5s;
+	transition: opacity .5s, transform .5s;
 	opacity: 0;
 	margin-top: 30px;
 	width: 40vw;
+	transform: translateY(10%);
 }
 .bio img {
 	height: 60px;
@@ -119,6 +120,11 @@ body {
 	transition: opacity .5s;
 	cursor: pointer;
 	z-index: 0;
+}
+#second {
+	transition: transform 1s, opacity 1s;
+	opacity: 0;
+	transform: translateY(10%);
 }
 .portfolio {
 	width: 60vw;
@@ -201,9 +207,9 @@ body {
 #name {
 	z-index: 409;
 	font-size: 60px;
-	transition: color .5s, opacity 1s 0s, max-width 1s;
+	transition: color .5s, opacity 1s, max-width 1s;
 	overflow: hidden;
-	opacity: 1;
+	opacity: 0;
 	cursor: pointer;
 	text-align: center;
 }
