@@ -121,11 +121,7 @@ body {
 	cursor: pointer;
 	z-index: 0;
 }
-#second {
-	transition: transform 1s, opacity 1s;
-	opacity: 0;
-	transform: translateY(10%);
-}
+
 .portfolio {
 	width: 60vw;
 	margin-top: max(100px, 20vh);
@@ -165,6 +161,11 @@ body {
 	background-color: var(--item);
 	border-radius: 3px;
 	transition: padding .5s, border-radius .5s, background-color .5s;
+}
+#second {
+	transition: transform 1s, opacity 1s, padding .5s, border-radius .5s, background-color .5s;
+	opacity: 0;
+	transform: translateY(10%);
 }
 .item-b:hover {
 	border-radius: 5px;
