@@ -24,20 +24,20 @@
 	
 	<body >
 		<div id="menu">
-			<div class="tab" data-name="container" data-type="flex" onclick="tab(0)">About</div>
-			<div class="tab" data-name='portfolio' data-type='block' onclick="tab(1)">Projects</div>
+			<div tabindex=1 class="tab" data-name="container" data-type="flex" onclick="tab(0)">About</div>
+			<div tabindex=2 class="tab" data-name='portfolio' data-type='block' onclick="tab(1)">Projects</div>
 		</div>
 
 		<div id="cont">
 			<div class = "container val" id="container">
-				<div onclick="github()" id = "name"><img onclick="github()" src="imgs/ghub.webp">Hi, I'm Indy.</div>
+				<div tabindex=3 onclick="github()" id = "name"><img onclick="github()" src="imgs/ghub.webp">Hi, I'm Indy.</div>
 				<div class = "bio" id="bio">
-					<div class="item-b"><p class='item-b-title'>// Skills</p>- Web design <br/>- Server-side JS <br/>- C++ and Unity<br/>- Python and Data Analysis <br/>- SQL and Databases</p>
+					<div tabindex=4 class="item-b"><p class='item-b-title'>// Skills</p>- Web design <br/>- Server-side JS <br/>- C++ and Game Dev<br/>- Python for Data Analysis <br/>- SQL and Database Management</p>
 					</div>
-					<div class="item-b" id="second"><p class='item-b-title'>// Interests</p>When I'm not coding, I like<br/>- Learning languages <br/>- Photography <br/>- Climbing<br/>- Writing <br/>- Video games</p>
+					<div tabindex=5 class="item-b" id="second"><p class='item-b-title'>// Interests</p>When I'm not coding, I like<br/>- Learning languages <br/>- Photography <br/>- Writing <br/>- Video games</p>
 					</div>
 					<div class = "contacts">
-						<a class = "contact" href = "mailto:indigogonolan@gmail.com">indigogo.nolan@gmail.com</a>
+						<a tabindex=6 class = "contact" href = "mailto:indigogonolan@gmail.com">indigogo.nolan@gmail.com</a>
 					</div>
 					
 				</div>
