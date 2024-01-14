@@ -1,7 +1,6 @@
-@font-face {
-	font-family: DIN;
-	src: url("fonts/DIN.woff2")
-}
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&family=Inconsolata:wght@500&display=swap');
+
+
 /**
 --background: #292429;
 	--menu: #191419;
@@ -38,7 +37,7 @@ body {
 }
 .container {
 	transform: translateY(calc(50px + 20vh));
-	font-family: DIN, "aria";
+	font-family:Inconsolata, "aria";
 	color: var(--text);
 	display: flex;
 	flex-direction: column;
@@ -68,7 +67,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-family: DIN;
+	font-family:Inconsolata, "aria";
 	font-variant: small-caps;
 	text-decoration: underline;
 	font-size: 40px;
@@ -132,7 +131,7 @@ body {
 	padding: 50px;
 	border-radius: 30px;
 	overflow: auto;
-	font-family: DIN, "aria";
+	font-family:Inconsolata, "aria";
 	color: var(--text);
 	max-height: 79vh;
 	overflow-y: scroll;
@@ -146,13 +145,7 @@ body {
 	text-align: center;
 	margin-bottom: 20px;
 }
-.item-b-title {
-	font-size: 30px;	
-	color: #b0b0b0;
-	font-style: italic;
-	margin:0;
-	margin-bottom: 10px;
-}
+
 .item-b { /* main page div*/
 	font-style: italic;
 	text-align: left;
@@ -175,10 +168,18 @@ body {
 	padding-right: 5px;
 }
 .item-b-title {
-	transition: transform .5s;
+	font-size: 30px;	
+	color: #b0b0b0;
+	font-style: italic;
+	margin:0;
+	margin-bottom: 10px;
+	font-weight: bold;
+	transition: transform .5s, color .5s;
 }
+
 .item-b:hover p:nth-of-type(1){
 	transform: translateX(10px);
+	color: #eeeeee;
 }
 
 .item { /*.portfolio div*/
@@ -197,6 +198,7 @@ body {
 	padding-left: 30px;
 	padding-right: 10px;
 }
+.item:hover p:nth-of-type(1){color: #eeeeee;}
 .item:hover p:nth-of-type(3){opacity:1;}
 
 
@@ -205,9 +207,16 @@ body {
 	font-size: 25px;
 	font-weight: bold;
 	transform: translateX(0);
+	color: #d0d0d0;
+	transition: color .5s;
 
 }
-.item p:nth-of-type(2){font-size: 17px;} /*description*/
+.item p:nth-of-type(2){/*description*/
+	font-size: 17px;
+	font-weight: 500;
+	letter-spacing: -0.03em;
+
+} 
 .item p:nth-of-type(3){/*language*/
 	font-size: 17px; 
 	opacity: 0; 
@@ -225,6 +234,9 @@ body {
 	opacity: 0;
 	cursor: pointer;
 	text-align: center;
+	font-weight: bold;
+
+	display: flex;
 }
 #name:hover {
 	color: var(--text-hover);
@@ -235,7 +247,7 @@ body {
 #name img {
 	height: 60px;
 	display: inline-block;
-	margin-right: 15px;
+	margin-right: 25px;
 	opacity: 1;
 	transition: opacity .5s;
 	cursor: pointer;
