@@ -1,7 +1,4 @@
-@font-face {
-	font-family: DIN;
-	src: url("../fonts/DIN.woff2")
-}
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&family=Inconsolata:wght@500&display=swap');
 
 body {
 	background-color: #292429;
@@ -18,7 +15,7 @@ body {
 #text {
     text-align: center;
     pointer-events: none;
-    font-family: DIN;
+    font-family:Inconsolata, "arial";
     margin-top: 40vh;
     font-size: 50px;
     color: #e8e6e3;
@@ -29,7 +26,7 @@ body {
     position:absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-family: DIN;
+    font-family:Inconsolata, "arial";
     font-size: 20px;
     background-color: #FFFFFF;
     opacity: 0.5;
