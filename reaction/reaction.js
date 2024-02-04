@@ -1,6 +1,7 @@
 const black = "#292429"
 const white = "#e8e6e3"
 const red = "#962942"
+const green = "#459945"
 var screen_d
 var text
 var timer
@@ -81,7 +82,7 @@ function stopwatch_end(){
 		time_str += t_taken / 1000 + "s"
 	}
 
-	screen_d.style.setProperty("background-color", black);
+	screen_d.style.setProperty("background-color", green);
 	text.style.setProperty("color", white);
 	text.innerHTML = time_str + ".<br>Click anywhere to try again.";
 	state = 'stopped';

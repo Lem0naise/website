@@ -1,7 +1,4 @@
-@font-face {
-	font-family: DIN;
-	src: url("../fonts/DIN.woff2")
-}
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&family=Inconsolata:wght@500&display=swap');
 
 body {
 	background-color: #292429;
@@ -24,7 +21,7 @@ body {
 }
 #warning {
 	font-size: 30px;
-	font-family: DIN, arial;
+	font-family: INCONSOLATA, arial;
 	color:#D1E8E2;
 	display: none;
 	position: fixed;
@@ -43,7 +40,7 @@ body {
 	-webkit-user-select: none;
 	-webkit-tap-highlight-color: transparent;
 	cursor: pointer;
-	font-family: DIN, sans-serif;
+	font-family: INCONSOLATA, sans-serif;
 	color: #D1E8E2;
 	font-size: 160%;
 	margin-top: 5vh;
@@ -62,7 +59,7 @@ body {
 .alphabet_letter {
 	background-color: #4a434a;
 	outline: none;
-	font-family: DIN, sans-serif;
+	font-family: INCONSOLATA, sans-serif;
 	color: #D1E8E2;
 	font-size: 160%;
 	height: -webkit-fit-content;
@@ -103,7 +100,7 @@ body {
 	height: -webkit-fit-content;
 	height: -moz-fit-content;
 	height: fit-content;
-	font-family: DIN, sans-serif;
+	font-family: INCONSOLATA, sans-serif;
 	color: #D1E8E2;
 	font-size: 160%;
 	display: -webkit-box;
@@ -149,7 +146,7 @@ body {
     position:absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-family: DIN;
+    font-family: INCONSOLATA;
 	color:#292429;
     font-size: 20px;
     background-color: #FFFFFF;
