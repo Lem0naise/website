@@ -6,10 +6,32 @@ document.getElementById('name').style.opacity = 1;
 let background_c = '#121012';
 document.body.style.backgroundColor = background_c;
 document.getElementById("menu").style.opacity = "1";
-document.getElementById("second").style.transform =  'translateY(0)';
-document.getElementById("second").style.opacity = 1;
-window.scrollTo(0, 0)
+//document.getElementById("second").style.transform =  'translateY(0)';
+//document.getElementById("second").style.opacity = 1;
+window.scrollTo(0, 0);
+window.onload = function(){
 
+    let grid = document.getElementById("bio")
+    let gridChildren = grid.children;
+    console.log(gridChildren);
+    let i = 0;
+    for (let x=0;x<gridChildren.length;x++){
+        gridChildren[x].style.backgroundColor = "var(--item)";
+    }
+    function childrenLoop() {         
+        setTimeout(function() {  
+            gridChildren[i].style.opacity = "1";
+            gridChildren[i].style.backgroundColor = "";
+            gridChildren[i].style.transform = "translateY(0)";
+            i++;                  
+            if (i < gridChildren.length) {   
+            childrenLoop();
+            }
+        }, 150)
+        
+    }
+    childrenLoop();
+}
 
 cur_tab = 0;
 tab(0);
