@@ -9,6 +9,75 @@ document.getElementById("menu").style.opacity = "1";
 //document.getElementById("second").style.transform =  'translateY(0)';
 //document.getElementById("second").style.opacity = 1;
 window.scrollTo(0, 0);
+
+function load_about() {
+    let grid = document.getElementById("bio")
+    let gridChildren = grid.children;
+    console.log(gridChildren);
+    let i = 0;
+    for (let x=0;x<gridChildren.length;x++){
+        gridChildren[x].style.backgroundColor = "var(--item-background-2)";
+    }
+    function childrenLoop() {         
+        setTimeout(function() {  
+            gridChildren[i].style.opacity = "1";
+            gridChildren[i].style.backgroundColor = "";
+            gridChildren[i].style.transform = "translateY(0)";
+            i++;                  
+            if (i < gridChildren.length) {   
+            childrenLoop();
+            }
+        }, 150)
+        
+    }
+    childrenLoop();
+}
+
+function unload_about() {
+    let grid = document.getElementById("bio") // olding bio
+    let gridChildren = grid.children;
+    console.log(gridChildren);
+    for (let x=0;x<gridChildren.length;x++){
+        gridChildren[x].style.transform = "translateY(10%)";
+        gridChildren[x].style.opacity = "0";
+    }
+}
+
+function load_portfolio(){
+    let grid = document.getElementById("portfolio")
+            let gridChildren = grid.children;
+            console.log(gridChildren);
+            let i = 0;
+            for (let x=0;x<gridChildren.length;x++){
+                //gridChildren[x].classList.add("item_transition")
+                gridChildren[x].style.backgroundColor = "var(--item)";
+            }
+            function childrenLoop() {         
+                setTimeout(function() {  
+                    gridChildren[i].style.opacity = "1";
+                    gridChildren[i].style.backgroundColor = "";
+                    gridChildren[i].style.transform = "translateY(0)";
+                    i++;                  
+                    if (i < gridChildren.length) {   
+                    childrenLoop();
+                    }
+                }, 150)
+                
+            }
+            childrenLoop();
+}
+
+function unload_portfolio(){
+    let grid = document.getElementById("portfolio") // olding portfolio
+    let gridChildren = grid.children;
+    for (let x=0;x<gridChildren.length;x++){
+        gridChildren[x].style.transform = "translateY(10%)";
+        gridChildren[x].style.opacity = "0";
+    }
+
+}
+
+
 window.onload = function(){
 
     let grid = document.getElementById("bio")
@@ -16,7 +85,7 @@ window.onload = function(){
     console.log(gridChildren);
     let i = 0;
     for (let x=0;x<gridChildren.length;x++){
-        gridChildren[x].style.backgroundColor = "var(--item)";
+        gridChildren[x].style.backgroundColor = "var(--item-background-2)";
     }
     function childrenLoop() {         
         setTimeout(function() {  
@@ -53,6 +122,15 @@ function tab(new_tab){
         setTimeout(function(){
             vals[new_tab].style.opacity = "1";
         }, 300);
+
+        if (nam=="portfolio"){ // switching to portfolio
+            unload_about()
+            load_portfolio()
+        }
+        else { // switching to about
+            unload_portfolio()
+            load_about()
+        }
     }   
 }
 
@@ -71,7 +149,6 @@ var items = [
     ["Wordle", "An free and unlimited version of the popular word game, Wordle.", "wordle", "true"],
     ["Reaction Time Test ", "A very small and light website to test your reaction time!", "reaction", true],
     ["Colour Palette Generator", "A web-based colour palette generator for graphic designers.", "palette", true],
-    ["Chalk Stream Poetry", "A poetry competition!", "https://chalkstreampoet.net", "false"],
     ["Maze Solver", "A program written in Python which recognises mazes from your camera and outputs solutions using multiple different maze traversal algorithms. Worked on in collaboration with <a href='https://danileliasov.com/'>Danil Eliasov</a>.", "https://github.com/Lem0naise/maze-solver", false]
 ]
 
@@ -81,6 +158,7 @@ for (let i = 0; i < items.length; i++){
     let new_obj = document.createElement("div")
     new_obj.classList.add("item")
     new_obj.style.cursor = "pointer";
+    new_obj.setAttribute("tabindex", 0)
     new_obj.setAttribute("id", i)
     new_obj.setAttribute("onclick", `openLink(this, ${items[i][3]});`)
 
