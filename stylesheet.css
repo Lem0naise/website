@@ -140,6 +140,9 @@ body {
 	padding-top: 30px;
 	padding-bottom: 10px;
 }
+.bio-item a{
+	color: var(--text);
+}
 
 .portfolio {
 	width: 80vw;
