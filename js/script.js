@@ -148,7 +148,8 @@ var items = [
     ["Reaction Time Test ", "A very small and light website to test your reaction time!", "reaction", true],
     ["Colour Palette Generator", "A web-based colour palette generator for graphic designers.", "palette", true],
     ["Maze Solver", "A program written in Python which recognises mazes from your camera and outputs solutions using multiple different maze traversal algorithms. Worked on in collaboration with <a href='https://danileliasov.com/'>Danil Eliasov</a>.", "https://github.com/Lem0naise/maze-solver", false],
-    ["Student Robotics", "I participated in the 2023 Student Robotics Competition at the University of Southhampton, placing 5th overall, and winning the Social Media Presence prize.", "https://github.com/Lem0naise/student-robotics-ham", false]
+    ["Student Robotics", "I participated in the 2023 Student Robotics Competition at the University of Southhampton, placing 5th overall, and winning the Social Media Presence prize.", "https://github.com/Lem0naise/student-robotics-ham", false], 
+["Climate Stories Library", "I built the front-end and back-end of a website designed to host videos and stories of people around the world and their responses to the climate crisis.","https://www.climatestorieslibrary.com",false]
 
 ]
 
