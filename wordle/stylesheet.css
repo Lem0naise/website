@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
 
 body {
 	background-color: #292429;
@@ -40,7 +41,7 @@ body {
 	-webkit-user-select: none;
 	-webkit-tap-highlight-color: transparent;
 	cursor: pointer;
-	font-family: SUSE, sans-serif;
+	font-family: "Inconsolata", monospace;
 	color: #D1E8E2;
 	font-size: 160%;
 	margin-top: 5vh;
@@ -59,7 +60,7 @@ body {
 .alphabet_letter {
 	background-color: #4a434a;
 	outline: none;
-	font-family: SUSE, sans-serif;
+	font-family: Inconsolata, sans-serif;
 	color: #D1E8E2;
 	font-size: 160%;
 	height: -webkit-fit-content;
@@ -100,7 +101,7 @@ body {
 	height: -webkit-fit-content;
 	height: -moz-fit-content;
 	height: fit-content;
-	font-family: SUSE, sans-serif;
+	font-family: Inconsolata, monospace;
 	color: #D1E8E2;
 	font-size: 160%;
 	display: -webkit-box;
