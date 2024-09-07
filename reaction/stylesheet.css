@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&family=Inconsolata:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 
 body {
 	background-color: #292429;
@@ -15,7 +15,7 @@ body {
 #text {
     text-align: center;
     pointer-events: none;
-    font-family:Inconsolata, "arial";
+    font-family:SUSE, "arial";
     margin-top: 40vh;
     font-size: 50px;
     color: #e8e6e3;
@@ -26,7 +26,7 @@ body {
     position:absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-family:Inconsolata, "arial";
+    font-family:SUSE, "arial";
     font-size: 20px;
     background-color: #FFFFFF;
     opacity: 0.5;

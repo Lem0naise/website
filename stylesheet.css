@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@800&family=Inconsolata:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
 
 
 
@@ -51,7 +51,7 @@ body {
 }
 .container {
 	transform: translateY(calc(50px + 10vh));
-	font-family:Inconsolata, "aria";
+	font-family:SUSE, "aria";
 	color: var(--text);
 	display: flex;
 	flex-direction: column;
@@ -81,7 +81,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-family:Inconsolata, "aria";
+	font-family:SUSE, "aria";
 	font-variant: small-caps;
 	text-decoration: underline;
 	font-size: 40px;
@@ -167,7 +167,7 @@ body {
 	box-sizing: border-box;
 	padding: 50px;
 	border-radius: 30px;
-	font-family:Inconsolata, "aria";
+	font-family:SUSE, "aria";
 	color: var(--text);
 	overflow-y:visible;
 	overflow-x: hidden;
