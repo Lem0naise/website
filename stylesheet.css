@@ -118,7 +118,7 @@ body {
 .tab:hover {
 	color: var(--tab-active);
 }
-.bio img {
+#bio img {
 	height: 60px;
 	display: inline-block;
 	margin-right: 15px;
@@ -127,7 +127,7 @@ body {
 	cursor: pointer;
 	z-index: 0;
 }
-.bio {
+#bio {
 	transition: opacity .5s, transform .5s;
 	opacity: 0;
 	margin-top: 30px;
@@ -193,6 +193,7 @@ body {
 	margin-bottom: 10px;
 	font-weight: bold;
 	transition: transform .5s, color .5s;
+	cursor: pointer;
 }
 
 .bio-item:hover p:nth-of-type(1){
@@ -238,7 +239,7 @@ body {
 }
 .item p:nth-of-type(2){/*description*/
 	font-size: 17px;
-	font-weight: 500;
+	font-weight: 400;
 	letter-spacing: -0.03em;
 
 } 
@@ -305,12 +306,18 @@ body {
 	background-color: var(--item-background-2);
 }
 
+.bio-item-list {
+	padding-left: 20px;
+	margin-top: 0;
+	margin-bottom: 5px;
+}
+
 @media only screen and (max-width: 1300px) {
 	.portfolio {
-		width: 80vw;
+		width: 95vw;
 	}
 	#bio{
-		width: 85vw;
+		width: 95vw;
 	}
 }
 
@@ -321,23 +328,28 @@ body {
 		width: 95vw;
 		margin-bottom: 20px;
 		font-size: 20px;
+		grid-template-columns: 1fr 1fr;
 	}
 
+	.item {
+		margin:10px;
+		margin-left: 0px;
+		margin-right: 0px;
+		padding: 15px;
+		padding-top: 20px;
+	}
 	.item p:nth-of-type(1){ /*title*/
 		margin: 0;
-		font-size: 27px;
+		font-size: 24px;
 	}
-	.item p:nth-of-type(2){font-size: 17px;} /*description*/
-	.bio-item p:nth-of-type(1){ /*title*/
-		font-size: 28px;
+	.item p:nth-of-type(2){font-size: 16px; margin-top: 2px; margin-bottom: 3px;} /*description*/
+	.item-b-title{ /*title*/ 
+		font-size: 24px;
 	}
-	.bio-item{font-size: 18px;} /*description*/
+	.bio-item{font-size: 16px;} /*description*/
 	.portfolio {
 		grid-template-columns: 1fr 1fr;
-		width: 90vw;
-	}
-	#bio {
-		grid-template-columns: 1fr 1fr;
+		width: 95vw;
 	}
 	#menu {
 		width: 100vw;
@@ -364,6 +376,9 @@ body {
 
 @media only screen and (max-width: 700px) {
 	
+	.bio-item-list {
+		margin-bottom: 10px;
+	}
 	#name {
 		font-size: 45px;
 		margin-bottom: 20px;
@@ -373,7 +388,6 @@ body {
 	}
 	#bio {
 		font-size: 17px;
-		width: 80vw;
 		margin-top: 5px;
 	}
 	.contact {
@@ -387,12 +401,16 @@ body {
 	}
 	#container {
 		transform: translateY(20vh) !important;
+		margin: 0px;
 	}
+
 	#bio { 
 		grid-template-columns: 1fr;
+		width: 95vw;
 	}
 	.bio-item{
 		margin: 10px;
+		padding-bottom: 5px;
 	}
 	.portfolio {
 		width: 90vw;
@@ -408,6 +426,6 @@ body {
 		font-size: 24px;
 		font-weight: bold;
 	}
-	.item p:nth-of-type(2){font-size: 17px;} /*description*/
+	.item p:nth-of-type(2){font-size: 16px; font-weight: normal;} /*description*/
 	
 }
