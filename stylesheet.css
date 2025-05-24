@@ -149,24 +149,11 @@ main {
 	flex-wrap: wrap;
 }
 
-.contact-cta {
+
+/* Contact Dropdown Styles */
+.contact-dropdown {
+	position: relative;
 	display: inline-block;
-	padding: 12px 24px;
-
-	color: white;
-	text-decoration: none;
-	font-weight: 500;
-	font-size: 16px;
-	transition: all 0.3s;
-
-	background: transparent;
-	border: 2px solid var(--border);
-	border-radius: 6px;
-}
-
-.contact-cta:hover {
-	background: #5855eb;
-	transform: translateY(-2px);
 }
 
 .projects-cta {
@@ -186,11 +173,71 @@ main {
 	font-family: inherit;
 }
 
+
 .projects-cta:hover {
 	background: var(--item);
 	border-color: var(--accent);
 	color: var(--accent);
-	transform: translateY(-2px);
+}
+
+
+.contact-cta {
+	display: inline-block;
+	padding: 12px 24px;
+
+	color: white;
+	text-decoration: none;
+	font-weight: 500;
+	font-size: 16px;
+	transition: all 0.3s;
+
+	background: transparent;
+	border: 2px solid var(--border);
+	border-radius: 6px;
+	cursor: pointer;
+	font-family: inherit;
+	min-width: 160px;
+	width: 100%;
+}
+
+.contact-cta:hover {
+	background: #5855eb;
+}
+
+
+.dropdown-menu {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background: var(--item);
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	margin-top: 4px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	z-index: 1000;
+	overflow: hidden;
+	min-width: 160px;
+}
+
+.dropdown-item {
+	display: block;
+	padding: 12px 16px;
+	color: var(--text);
+	text-decoration: none;
+	font-size: 14px;
+	font-weight: 500;
+	transition: background-color 0.2s;
+	border: none;
+	background: none;
+	width: 100%;
+	text-align: left;
+}
+
+.dropdown-item:hover {
+	background: var(--accent);
+	color: white;
 }
 
 /* Bio Section */
@@ -391,9 +438,15 @@ main {
 	}
 	
 	.contact-cta,
+	.contact-dropdown,
 	.projects-cta {
 		padding: 10px 20px;
 		font-size: 14px;
+	}
+	
+	.dropdown-item {
+		padding: 10px 14px;
+		font-size: 13px;
 	}
 	
 	#bio {
@@ -475,9 +528,15 @@ main {
 	
 	.contact-cta,
 	.projects-cta {
-		width: 100%;
-		max-width: 200px;
+		width: 200px;
 		text-align: center;
+	}
+	
+	.dropdown-menu {
+		left: 50%;
+		right: auto;
+		transform: translateX(-50%);
+		min-width: 200px;
 	}
 }
 
