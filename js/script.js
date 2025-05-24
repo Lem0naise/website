@@ -146,4 +146,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const dropdown = document.getElementById('contactDropdown');
+        const toggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdown && !dropdown.contains(event.target) && !toggle.contains(event.target)) {
+            dropdown.style.display = 'none';
+        }
+    });
 });
+
+function toggleDropdown() {
+    const dropdown = document.getElementById('contactDropdown');
+    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
