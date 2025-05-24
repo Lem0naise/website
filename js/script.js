@@ -1,17 +1,13 @@
 //onloads
 document.getElementById('bio').style.transform = 'translateY(0)';
 document.getElementById('bio').style.opacity = 1;
-document.getElementById('name').style.opacity = 1;
+document.getElementById('header').style.opacity = 1;
 
-document.getElementById("menu").style.opacity = "1";
-//document.getElementById("second").style.transform =  'translateY(0)';
-//document.getElementById("second").style.opacity = 1;
 window.scrollTo(0, 0);
 
 function load_about() {
     let grid = document.getElementById("bio")
     let gridChildren = grid.children;
-    console.log(gridChildren);
     let i = 0;
     for (let x=0;x<gridChildren.length;x++){
         gridChildren[x].style.backgroundColor = "var(--item-background-2)";
@@ -25,62 +21,53 @@ function load_about() {
             if (i < gridChildren.length) {   
             childrenLoop();
             }
-        }, 150)
-        
+        }, 100)
     }
     childrenLoop();
 }
 
 function unload_about() {
-    let grid = document.getElementById("bio") // olding bio
+    let grid = document.getElementById("bio")
     let gridChildren = grid.children;
-    console.log(gridChildren);
     for (let x=0;x<gridChildren.length;x++){
-        gridChildren[x].style.transform = "translateY(10%)";
+        gridChildren[x].style.transform = "translateY(20px)";
         gridChildren[x].style.opacity = "0";
     }
 }
 
 function load_portfolio(){
-    let grid = document.getElementById("portfolio")
-            let gridChildren = grid.children;
-            console.log(gridChildren);
-            let i = 0;
-            for (let x=0;x<gridChildren.length;x++){
-                //gridChildren[x].classList.add("item_transition")
-                gridChildren[x].style.backgroundColor = "var(--item)";
-            }
-            function childrenLoop() {         
-                setTimeout(function() {  
-                    gridChildren[i].style.opacity = "1";
-                    gridChildren[i].style.backgroundColor = "";
-                    gridChildren[i].style.transform = "translateY(0)";
-                    i++;                  
-                    if (i < gridChildren.length) {   
-                    childrenLoop();
-                    }
-                }, 150)
-                
-            }
+    let grid = document.getElementById("portfolio-grid")
+    let gridChildren = grid.children;
+    let i = 0;
+    for (let x=0;x<gridChildren.length;x++){
+        gridChildren[x].style.backgroundColor = "var(--item)";
+    }
+    function childrenLoop() {         
+        setTimeout(function() {  
+            gridChildren[i].style.opacity = "1";
+            gridChildren[i].style.backgroundColor = "";
+            gridChildren[i].style.transform = "translateY(0)";
+            i++;                  
+            if (i < gridChildren.length) {   
             childrenLoop();
+            }
+        }, 100)
+    }
+    childrenLoop();
 }
 
 function unload_portfolio(){
-    let grid = document.getElementById("portfolio") // olding portfolio
+    let grid = document.getElementById("portfolio-grid")
     let gridChildren = grid.children;
     for (let x=0;x<gridChildren.length;x++){
-        gridChildren[x].style.transform = "translateY(10%)";
+        gridChildren[x].style.transform = "translateY(20px)";
         gridChildren[x].style.opacity = "0";
     }
-
 }
 
-
 window.onload = function(){
-
     let grid = document.getElementById("bio")
     let gridChildren = grid.children;
-    console.log(gridChildren);
     let i = 0;
     for (let x=0;x<gridChildren.length;x++){
         gridChildren[x].style.backgroundColor = "var(--item-background-2)";
@@ -94,8 +81,7 @@ window.onload = function(){
             if (i < gridChildren.length) {   
             childrenLoop();
             }
-        }, 150)
-        
+        }, 100)
     }
     childrenLoop();
 }
@@ -109,23 +95,23 @@ function tab(new_tab){
     if (new_tab != cur_tab){
         let nam = document.getElementsByClassName("tab")[new_tab].dataset.name; 
         let type = document.getElementsByClassName("tab")[new_tab].dataset.type;
-        let vals = document.getElementsByClassName("val"); // get all tabs
+        let vals = document.getElementsByClassName("val");
         vals[cur_tab].style.opacity = "0";
         setTimeout(function(){
-            vals[cur_tab].style.display = "none"; // hide current tab
-            document.getElementById(nam).style.display = type; // show new tab
+            vals[cur_tab].style.display = "none";
+            document.getElementById(nam).style.display = type;
             vals[new_tab].style.opacity = "0";
             cur_tab = new_tab;
-        }, 200);
+        }, 50);
         setTimeout(function(){
             vals[new_tab].style.opacity = "1";
-        }, 300);
+        }, 100);
 
-        if (nam=="portfolio"){ // switching to portfolio
+        if (nam=="portfolio"){
             unload_about()
             load_portfolio()
         }
-        else { // switching to about
+        else {
             unload_portfolio()
             load_about()
         }
@@ -153,7 +139,7 @@ var items = [
     ["Student Robotics", "I participated in a team in the 2023 Student Robotics Competition at the University of Southampton, placing 5th overall, and winning the Social Media Presence prize.", "https://github.com/Lem0naise/student-robotics-ham", false], 
 ]
 
-var port = document.getElementById("portfolio")
+var port = document.getElementById("portfolio-grid")
 
 for (let i = 0; i < items.length; i++){
     let new_obj = document.createElement("div")
@@ -162,13 +148,11 @@ for (let i = 0; i < items.length; i++){
     new_obj.setAttribute("id", i)
     new_obj.setAttribute("onclick", `openLink(this, ${items[i][3]});`)
 
-    // children
-    let new_title = document.createElement("p");
+    let new_title = document.createElement("h4");
     new_title.innerHTML = items[i][0];
     let new_desc = document.createElement("p");
     new_desc.innerHTML = items[i][1];
 
-    // appending
     new_obj.appendChild(new_title);
     new_obj.appendChild(new_desc);
 

@@ -22,43 +22,54 @@
 		<meta name="author" content="Indigo Nolan, Indy Nolan"/>
 	</head>
 	
-	<body >
-		<div id="menu">
-			<div tabindex=1 class="tab" data-name="container" data-type="flex" onclick="tab(0)">About</div>
-			<div tabindex=2 class="tab" data-name='portfolio' data-type='grid' onclick="tab(1)">Projects</div>
-		</div>
+	<body>
+		<header id="header">
+			<div class="header-content">
+				<div class="logo" onclick="github()">
+					<img src="imgs/ghub.webp" alt="GitHub">
+					<span>Indigo Nolan</span>
+				</div>
+				<nav id="menu">
+					<div tabindex=1 class="tab" data-name="container" data-type="grid" onclick="tab(0)">About</div>
+					<div tabindex=2 class="tab" data-name='portfolio' data-type='grid' onclick="tab(1)">Projects</div>
+				</nav>
+			</div>
+		</header>
 
-		<div id="cont">
-			<div class = "container val" id="container">
-				<div tabindex=0 onclick="github()" id = "name"><img onclick="github()" src="imgs/ghub.webp">Hi, I'm Indigo.</div>
-				<div class = "bio" id="bio">
+		<main id="cont">
+			<section class="container val" id="container">
+				<div class="hero">
+					<h1>Hi, I'm Indigo.</h1>
+					<p class="hero-subtitle">Student & Developer based in the UK</p>
 					
+					<div class="hero-actions">
+						<button class="projects-cta" onclick="tab(1)">View Projects</button>
+						<a class="contact-cta" href="mailto:indigogonolan@gmail.com">Get in touch</a>
+					</div>
+				</div>
+				
+				<div class="bio" id="bio">
 					<div tabindex=0 class="bio-item">
-						<p class='item-b-title'>// Interests</p>
-						When I'm not coding, I enjoy:
-						<ul class="bio-item-list">
+						<h3>Interests</h3>
+						<ul>
 							<li>Learning languages</li>
 							<li><a target='_blank' href="https://www.flickr.com/people/indigon/">Photography</a></li>
-							<li><a target='_blank' href="https://www.goodreads.com/indynolan">Reading</a> </li>
+							<li><a target='_blank' href="https://www.goodreads.com/indynolan">Reading</a></li>
 							<li>Video Games</li>
 						</ul>
 					</div>
 					<div tabindex=0 class="bio-item">
-						<p class='item-b-title'>// Songs</p>
-						
-						My current top songs are:
-						<ul class="bio-item-list">
+						<h3>Currently Playing</h3>
+						<ul>
 							<li>Bizarre Love Triangle, New Order</li>
 							<li>Vienna, Ultravox</li>
-							<li>Wishing, A Flock of Seagulls </li>
+							<li>Wishing, A Flock of Seagulls</li>
 							<li>Le Chant des Cygnes, Babel Babel</li>
 						</ul>
-						
 					</div>
 					<div tabindex=0 class="bio-item">
-						<p class='item-b-title'>// Games</p>
-						My top games are:
-						<ul class="bio-item-list">
+						<h3>Favorite Games</h3>
+						<ul>
 							<li>Portal 1 & 2</li>
 							<li>Rimworld</li>
 							<li>OpenTTD</li>
@@ -66,10 +77,8 @@
 						</ul>
 					</div>
 					<div tabindex=0 class="bio-item">
-						<p class='item-b-title'>// Books</p>
-						
-						My top books are:
-						<ul class="bio-item-list">
+						<h3>Reading List</h3>
+						<ul>
 							<li>Tomorrow and Tomorrow and Tomorrow</li>
 							<li>Before the Coffee Gets Cold</li>
 							<li>Zazie Dans Le Metro</li>
@@ -77,29 +86,28 @@
 						</ul>
 					</div>
 					<div tabindex=0 class="bio-item">
-						<p class='item-b-title'>// Movies</p>
-						My top movies are:
-						<ul class="bio-item-list">
+						<h3>Cinema</h3>
+						<ul>
 							<li>Dr Strangelove</li>
 							<li>Trainspotting</li>
 							<li>12 Angry Men</li>
 							<li>Duel</li>
+						</ul>
 					</div>
-					
-					
 				</div>
-				<div class = "contacts">
-					<a tabindex=0 class = "contact" href = "mailto:indigogonolan@gmail.com">indigogo.nolan@gmail.com</a>
+			</section>
+	
+			<section id="portfolio" class="portfolio val" style="display:none !important;">
+				<div class="portfolio-header">
+					<h2>Selected Projects</h2>
+					<p class="mobile-hide">A collection of projects I've built and contributed to</p>
 				</div>
-			</div>
-	
-			<div id = "portfolio" class = "portfolio val" style="display:none !important;">
+				<div class="portfolio-grid" id="portfolio-grid">
+					<!-- Projects will be populated by JavaScript -->
+				</div>
+			</section>
+		</main>
 		
-			</div>
-		</div>
-		
-	
 		<script src="js/script.js"></script>
-
 	</body>
 </html>
