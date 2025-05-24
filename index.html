@@ -13,13 +13,41 @@
 		<!-- Finished -->
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Indigo Nolan</title>
+		<title>Indigo Nolan - Student & Developer Portfolio | UK</title>
 		<link rel="stylesheet" href = "stylesheet.css?version=0.1">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 
-		<meta name="description" content="Hi, I'm Indigo Nolan, a student and web developer based in the UK."/>
-		<meta name="keywords" content="Indigo Nolan, Indy Nolan, Indy, Zac Nolan, Nolan, Zac, Indigo, Indigo Nolan, Developer, Portfolio"/>
-		<meta name="author" content="Indigo Nolan, Indy Nolan"/>
+		<meta name="description" content="Indigo Nolan is a UK-based student and web developer. View projects including CashCat budgeting app, Fantasteroids game, and web development tools."/>
+		<meta name="keywords" content="Indigo Nolan, web developer, student developer, portfolio, CashCat, Fantasteroids, web development, UK developer"/>
+		<meta name="author" content="Indigo Nolan"/>
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://indigonolan.com/">
+		<meta property="og:title" content="Indigo Nolan - Student & Developer Portfolio">
+		<meta property="og:description" content="UK-based student and web developer. View my projects including apps, games, and web development tools.">
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:title" content="Indigo Nolan - Student & Developer Portfolio">
+		<meta property="twitter:description" content="UK-based student and web developer. View my projects including apps, games, and web development tools.">
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Indigo Nolan",
+			"jobTitle": "Student & Developer",
+			"url": "https://indigonolan.com",
+			"sameAs": [
+				"https://github.com/Lem0naise",
+			],
+			"knowsAbout": ["Web Development", "Game Development", "Photography", "Software Engineering"],
+			"alumniOf": "Southampton University",
+			"description": "Student and web developer based in the UK, specializing in web applications and game development."
+		}
+		</script>
 	</head>
 	
 	<body>
@@ -52,14 +80,14 @@
 					<div tabindex=0 class="bio-item">
 						<h3>Interests</h3>
 						<ul>
-							<li>Learning languages</li>
+							<li>Learning Languages & Travelling</li>
 							<li><a target='_blank' href="https://www.flickr.com/people/indigon/">Photography</a></li>
-							<li><a target='_blank' href="https://www.goodreads.com/indynolan">Reading</a></li>
-							<li>Video Games</li>
+							<li>Reading & Writing</a></li>
+							<li>History & Politics</li>
 						</ul>
 					</div>
 					<div tabindex=0 class="bio-item">
-						<h3>Currently Playing</h3>
+						<h3>Currently Listening</h3>
 						<ul>
 							<li>Bizarre Love Triangle, New Order</li>
 							<li>Vienna, Ultravox</li>
@@ -68,7 +96,16 @@
 						</ul>
 					</div>
 					<div tabindex=0 class="bio-item">
-						<h3>Favorite Games</h3>
+						<h3>Random Obsessions</h3>
+						<ul>
+							<li>What the best electoral system is</li>
+							<li>Frutiger Aero and retro aesthetics</li>
+							<li>The commercialisation of the internet</li>
+							<li>How QWERTY became the standard</li>
+						</ul>
+					</div>
+					<div tabindex=0 class="bio-item">
+						<h3>Most-Played Games</h3>
 						<ul>
 							<li>Portal 1 & 2</li>
 							<li>Rimworld</li>
@@ -77,7 +114,7 @@
 						</ul>
 					</div>
 					<div tabindex=0 class="bio-item">
-						<h3>Reading List</h3>
+						<h3>Top Books</h3>
 						<ul>
 							<li>Tomorrow and Tomorrow and Tomorrow</li>
 							<li>Before the Coffee Gets Cold</li>
@@ -86,7 +123,7 @@
 						</ul>
 					</div>
 					<div tabindex=0 class="bio-item">
-						<h3>Cinema</h3>
+						<h3>Favourite Films</h3>
 						<ul>
 							<li>Dr Strangelove</li>
 							<li>Trainspotting</li>
@@ -94,6 +131,7 @@
 							<li>Duel</li>
 						</ul>
 					</div>
+					
 				</div>
 			</section>
 	
@@ -103,7 +141,46 @@
 					<p class="mobile-hide">A collection of projects I've built and contributed to</p>
 				</div>
 				<div class="portfolio-grid" id="portfolio-grid">
-					<!-- Projects will be populated by JavaScript -->
+					<!-- SEO-friendly project content -->
+					<article class="item project-item" data-url="https://cashcat.indigonolan.com" data-external="false">
+						<h4>CashCat</h4>
+						<p>A user-focused personal budgeting app, building with Josh Wilcox! In Early Access and open to testers right now.</p>
+					</article>
+					
+					<article class="item project-item" data-url="https://store.steampowered.com/app/1790870/Fantasteroids/" data-external="false">
+						<h4>Fantasteroids</h4>
+						<p>A fast-paced and fun arcade game that I made. You can download it on Steam for free!</p>
+					</article>
+					
+					<article class="item project-item" data-url="https://www.climatestorieslibrary.com" data-external="false">
+						<h4>Climate Stories Library</h4>
+						<p>The framework of a website designed to host videos and stories of people around the world and their responses to the climate crisis.</p>
+					</article>
+					
+					<article class="item project-item" data-url="wordle" data-external="true">
+						<h4>Wordle</h4>
+						<p>An free and unlimited version of the popular word game, Wordle.</p>
+					</article>
+					
+					<article class="item project-item" data-url="reaction" data-external="true">
+						<h4>Reaction Time Test</h4>
+						<p>A tiny website to test your reaction time.</p>
+					</article>
+					
+					<article class="item project-item" data-url="palette" data-external="true">
+						<h4>Colour Palette Generator</h4>
+						<p>A web-based colour palette generator for graphic designers.</p>
+					</article>
+					
+					<article class="item project-item" data-url="https://github.com/Lem0naise/maze-solver" data-external="false">
+						<h4>Maze Solver</h4>
+						<p>A Python program to solve mazes using the user's camera. Worked on in collaboration with <a href='https://danileliasov.com/'>Danil Eliasov</a>.</p>
+					</article>
+					
+					<article class="item project-item" data-url="https://github.com/Lem0naise/student-robotics-ham" data-external="false">
+						<h4>Student Robotics</h4>
+						<p>I participated in a team in the 2023 Student Robotics Competition at the University of Southampton, placing 5th overall, and winning the Social Media Presence prize.</p>
+					</article>
 				</div>
 			</section>
 		</main>
