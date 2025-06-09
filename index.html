@@ -48,8 +48,22 @@
 			"alumniOf": {
 				"@type": "EducationalOrganization",
 				"name": "University of Southampton"
+			},
+			"description": "Student and web developer based in the UK, specializing in web applications and game development.",
+			"hasCredential": [
+				{
+					"@type": "CreativeWork",
+					"name": "CashCat Budgeting App",
+					"description": "Personal budgeting application in early access",
+					"url": "https://cashcat.app"
 				},
-			"description": "Student and web developer based in the UK, specializing in web applications and game development."
+				{
+					"@type": "CreativeWork", 
+					"name": "Fantasteroids Game",
+					"description": "Fast-paced arcade game available on Steam",
+					"url": "https://store.steampowered.com/app/1790870/Fantasteroids/"
+				}
+			]
 		}
 		</script>
 	</head>
@@ -70,30 +84,74 @@
 
 		<main id="cont">
 			<section class="container val" id="container">
-				<div class="hero">
-					<h1>Hi, I'm Indigo.</h1>
-					<p class="hero-subtitle">Student & Developer based in the UK</p>
-					
-					<div class="hero-actions">
-						<button class="projects-cta" onclick="tab(1)">View Projects -></button>
-						<div class="contact-dropdown">
-							<button class="contact-cta dropdown-toggle" onclick="toggleDropdown()">Get in touch -></button>
-							<div class="dropdown-menu" id="contactDropdown">
-								<a href="https://github.com/Lem0naise" target="_blank" class="dropdown-item">💻  GitHub</a>
-								<a href="https://linkedin.com/in/indigonolan" target="_blank" class="dropdown-item">👔  LinkedIn</a>
-								<a href="mailto:indigogonolan@gmail.com" class="dropdown-item">📩  Email</a>
+				<div class="hero-featured-container">
+					<div class="hero-content">
+						<h1>Hi, I'm Indigo.</h1>
+						<p class="hero-subtitle">Student & Developer based in the UK</p>
+						
+						<div class="hero-actions">
+							<button class="projects-cta" onclick="tab(1)">View All Projects -></button>
+							<div class="contact-dropdown">
+								<button class="contact-cta dropdown-toggle" onclick="toggleDropdown()">Get in touch -></button>
+								<div class="dropdown-menu" id="contactDropdown">
+									<a href="https://github.com/Lem0naise" target="_blank" class="dropdown-item" rel="noopener">💻  GitHub</a>
+									<a href="https://linkedin.com/in/indigonolan" target="_blank" class="dropdown-item" rel="noopener">👔  LinkedIn</a>
+									<a href="mailto:indigogonolan@gmail.com" class="dropdown-item">📩  Email</a>
+								</div>
 							</div>
 						</div>
 					</div>
+
+					<div class="featured-content-wrapper">
+						<div class="featured-label">Featured Project</div>
+						<article class="featured-item" itemscope itemtype="https://schema.org/SoftwareApplication">
+							<div class="featured-content">
+								<div class="featured-title-line">
+									<div class="cash-cat-title"><strong>Cash<p class="inline-text">Cat</p></strong></div>
+									<div class="featured-badge">🚀 In Early Access</div>
+								</div>
+								
+								<p class="featured-description" itemprop="description">A user-focused personal budgeting app I am building with Josh Wilcox! It is in Early Access right now.</p>
+								<div class="featured-links">
+									<a href="https://cashcat.app" target="_blank" class="featured-link-primary" rel="noopener" itemprop="url">Try CashCat →</a>
+									<a href="https://cashcat.indigonolan.com/" target="_blank" class="featured-link-alt" rel="noopener">Alternate Link</a>
+								</div>
+							</div>
+						</article>
+					</div>
 				</div>
-				
+
+				<!-- Quick Projects Preview -->
+				<section class="quick-projects">
+					<div class="quick-projects-header">
+						<h2>Recent Projects</h2>
+						<button class="view-all-btn" onclick="tab(1)">View All →</button>
+					</div>
+					<div class="quick-projects-grid">
+						<article class="quick-item" itemscope itemtype="https://schema.org/VideoGame">
+							<h4 itemprop="name">🎮 <a href="https://store.steampowered.com/app/1790870/Fantasteroids/" target="_blank" rel="noopener" itemprop="url">Fantasteroids</a></h4>
+							<p itemprop="description">Fast-paced arcade game available free on Steam</p>
+						</article>
+						<article class="quick-item" itemscope itemtype="https://schema.org/WebSite">
+							<h4 itemprop="name">🌍 <a href="https://www.climatestorieslibrary.com" target="_blank" rel="noopener" itemprop="url">Climate Stories Library</a></h4>
+							<p itemprop="description">Website framework for climate crisis stories</p>
+						</article>
+						<article class="quick-item" itemscope itemtype="https://schema.org/WebApplication">
+							<h4 itemprop="name">🎯 <a href="wordle" target="_blank" rel="noopener" itemprop="url">Wordle</a></h4>
+							<p itemprop="description">Free and unlimited word game</p>
+						</article>
+					</div>
+				</section>
+
+				<h2>About Me</h2>
 				<div class="bio" id="bio">
+					
 					<div tabindex=0 class="bio-item">
 						<h3>Interests</h3>
 						<ul>
 							<li>Learning Languages & Travelling</li>
 							<li><a target='_blank' href="https://www.flickr.com/people/indigon/">Photography</a></li>
-							<li>Reading & Writing</a></li>
+							<li>Reading & Writing</li>
 							<li>History & Politics</li>
 						</ul>
 					</div>
@@ -148,49 +206,53 @@
 	
 			<section id="portfolio" class="portfolio val" style="display:none !important;">
 				<div class="portfolio-header">
-					<h2>Selected Projects</h2>
-					<p class="mobile-hide">A collection of projects I've built and contributed to</p>
+					<h2>Portfolio</h2>
+					<p class="mobile-hide">A collection of web applications, games, and tools I've built and contributed to</p>
 				</div>
 				<div class="portfolio-grid" id="portfolio-grid">
-					<!-- SEO-friendly project content -->
-					<article class="item project-item" data-url="https://cashcat.app" data-external="false">
-						<h4>CashCat</h4>
-						<p>A user-focused personal budgeting app, building with Josh Wilcox! In Early Access and open to testers right now. <a target="_blank" href='https://cashcat.indigonolan.com/'>Alternate Link Here</a></p>
+					<article class="item project-item" itemscope itemtype="https://schema.org/WebApplication">
+						<h4 itemprop="name"><a href="https://cashcat.app" target="_blank" rel="noopener" itemprop="url">CashCat - Personal Budgeting App</a></h4>
+						<p itemprop="description">A user-focused personal budgeting application built with Josh Wilcox. Currently in Early Access and open to beta testers. Features expense tracking, budget planning, and financial insights. <a href='https://cashcat.indigonolan.com/' target="_blank" rel="noopener">Alternate link</a></p>
 					</article>
 					
-					<article class="item project-item" data-url="https://store.steampowered.com/app/1790870/Fantasteroids/" data-external="false">
-						<h4>Fantasteroids</h4>
-						<p>A fast-paced and fun arcade game that I made. You can download it on Steam for free!</p>
+					<article class="item project-item" itemscope itemtype="https://schema.org/VideoGame">
+						<h4 itemprop="name"><a href="https://store.steampowered.com/app/1790870/Fantasteroids/" target="_blank" rel="noopener" itemprop="url">Fantasteroids - Arcade Game</a></h4>
+						<p itemprop="description">A fast-paced and fun arcade Asteroids-style game available free on Steam. Features leaderboards and retro-inspired graphics.</p>
 					</article>
 					
-					<article class="item project-item" data-url="https://www.climatestorieslibrary.com" data-external="false">
-						<h4>Climate Stories Library</h4>
-						<p>The framework of a website designed to host videos and stories of people around the world and their responses to the climate crisis.</p>
+					<article class="item project-item" itemscope itemtype="https://schema.org/WebSite">
+						<h4 itemprop="name"><a href="https://www.climatestorieslibrary.com" target="_blank" rel="noopener" itemprop="url">Climate Stories Library</a></h4>
+						<p itemprop="description">A comprehensive website framework designed to host videos and stories from people around the world sharing their responses to the climate crisis. Built with accessibility and global reach in mind.</p>
 					</article>
 					
-					<article class="item project-item" data-url="wordle" data-external="true">
-						<h4>Wordle</h4>
-						<p>A free and unlimited version of the popular word game, Wordle.</p>
+					<article class="item project-item" itemscope itemtype="https://schema.org/WebApplication">
+						<h4 itemprop="name"><a href="wordle" target="_blank" rel="noopener" itemprop="url">Unlimited Wordle - Word Game</a></h4>
+						<p itemprop="description">A free and unlimited version of the popular word puzzle game Wordle. Play as many times as you want!</p>
 					</article>
 					
-					<article class="item project-item" data-url="reaction" data-external="true">
-						<h4>Reaction Time Test</h4>
-						<p>A tiny website to test your reaction time.</p>
+					<article class="item project-item" itemscope itemtype="https://schema.org/WebApplication">
+						<h4 itemprop="name"><a href="reaction" target="_blank" rel="noopener" itemprop="url">Reaction Time Test Tool</a></h4>
+						<p itemprop="description">A minimalist web application to test and measure your reaction time.</p>
 					</article>
 					
-					<article class="item project-item" data-url="palette" data-external="true">
-						<h4>Colour Palette Generator</h4>
-						<p>A web-based colour palette generator for graphic designers.</p>
+					<article class="item project-item" itemscope itemtype="https://schema.org/WebApplication">
+						<h4 itemprop="name"><a href="palette" target="_blank" rel="noopener" itemprop="url">Color Palette Generator</a></h4>
+						<p itemprop="description">A web-based color palette generator designed for graphic designers and web developers.</p>
 					</article>
 					
-					<article class="item project-item" data-url="https://github.com/Lem0naise/maze-solver" data-external="false">
-						<h4>Maze Solver</h4>
-						<p>A Python program to solve mazes using the user's camera. Worked on in collaboration with <a target="_blank" href='https://danileliasov.com/'>Danil Eliasov</a>.</p>
+					<article class="item project-item" itemscope itemtype="https://schema.org/SoftwareSourceCode">
+						<h4 itemprop="name"><a href="https://github.com/Lem0naise/maze-solver" target="_blank" rel="noopener" itemprop="url">Maze Solver</a></h4>
+						<p itemprop="description">A Python computer vision program that solves mazes using the user's camera input. Developed in collaboration with <a href='https://danileliasov.com/' target="_blank" rel="noopener">Danil Eliasov</a>, featuring image processing and pathfinding algorithms.</p>
 					</article>
 					
-					<article class="item project-item" data-url="https://github.com/Lem0naise/student-robotics-ham" data-external="false">
-						<h4>Student Robotics</h4>
-						<p>I participated in a team in the 2023 Student Robotics Competition at the University of Southampton, placing 5th overall, and winning the Social Media Presence prize.</p>
+					<article class="item project-item" itemscope itemtype="https://schema.org/Event">
+						<h4 itemprop="name"><a href="https://github.com/Lem0naise/student-robotics-ham" target="_blank" rel="noopener" itemprop="url">Student Robotics Competition</a></h4>
+						<p itemprop="description">Participated in a team for the 2023 Student Robotics Competition at the University of Southampton. Placed 5th overall and won the Social Media Presence prize for our team's documentation and outreach efforts.</p>
+					</article>
+					
+					<article class="item project-item github-special" itemscope itemtype="https://schema.org/ProfilePage">
+						<h4 itemprop="name"><a href="https://github.com/Lem0naise" target="_blank" rel="noopener" itemprop="url">🔍 Explore More on my GitHub</a></h4>
+						<p itemprop="description">There might be more interesting projects and experiments on my GitHub profile. Feel free to explore and see what else I've been working on!</p>
 					</article>
 				</div>
 			</section>

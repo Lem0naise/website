@@ -6,27 +6,53 @@ document.getElementById('header').style.opacity = 1;
 window.scrollTo(0, 0);
 
 function load_about() {
-    let grid = document.getElementById("bio")
+    // Animate featured project
+    let featured = document.querySelector('.featured-item');
+    if (featured) {
+        featured.style.opacity = '0';
+        featured.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            featured.style.opacity = '1';
+            featured.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    
+    // Animate quick projects
+    let quickItems = document.querySelectorAll('.quick-item');
+    quickItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, 200 + (index * 100));
+    });
+    
+     let grid = document.getElementById("bio")
     let gridChildren = grid.children;
-    let i = 0;
     for (let x=0;x<gridChildren.length;x++){
-        gridChildren[x].style.backgroundColor = "var(--item-background-2)";
-    }
-    function childrenLoop() {         
         setTimeout(function() {  
-            gridChildren[i].style.opacity = "1";
-            gridChildren[i].style.backgroundColor = "";
-            gridChildren[i].style.transform = "translateY(0)";
-            i++;                  
-            if (i < gridChildren.length) {   
-            childrenLoop();
-            }
-        }, 100)
+            gridChildren[x].style.opacity = "1";
+            gridChildren[x].style.transform = "translateY(0)";
+        }, 200 + (x * 100));
     }
-    childrenLoop();
 }
 
 function unload_about() {
+    // Hide featured project
+    let featured = document.querySelector('.featured-item');
+    if (featured) {
+        featured.style.opacity = '0';
+        featured.style.transform = 'translateY(20px)';
+    }
+    
+    // Hide quick projects
+    let quickItems = document.querySelectorAll('.quick-item');
+    quickItems.forEach(item => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+    });
+    
     let grid = document.getElementById("bio")
     let gridChildren = grid.children;
     for (let x=0;x<gridChildren.length;x++){
@@ -66,24 +92,36 @@ function unload_portfolio(){
 }
 
 window.onload = function(){
+    // Animate featured project on load
+    let featured = document.querySelector('.featured-item');
+    if (featured) {
+        featured.style.opacity = '0';
+        featured.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            featured.style.opacity = '1';
+            featured.style.transform = 'translateY(0)';
+        }, 100);
+    }
+    
+    // Animate quick projects on load
+    let quickItems = document.querySelectorAll('.quick-item');
+    quickItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(20px)';
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, 200 + (index * 100));
+    });
+    
     let grid = document.getElementById("bio")
     let gridChildren = grid.children;
-    let i = 0;
     for (let x=0;x<gridChildren.length;x++){
-        gridChildren[x].style.backgroundColor = "var(--item-background-2)";
-    }
-    function childrenLoop() {         
         setTimeout(function() {  
-            gridChildren[i].style.opacity = "1";
-            gridChildren[i].style.backgroundColor = "";
-            gridChildren[i].style.transform = "translateY(0)";
-            i++;                  
-            if (i < gridChildren.length) {   
-            childrenLoop();
-            }
-        }, 100)
+            gridChildren[x].style.opacity = "1";
+            gridChildren[x].style.transform = "translateY(0)";
+        }, 200 + (x * 100));
     }
-    childrenLoop();
 }
 
 cur_tab = 0;
@@ -118,33 +156,52 @@ function tab(new_tab){
     }   
 }
 
-function openLink(element, internal){
-    let target = internal ? "_self" : "_blank";
-    let url = element.getAttribute('data-url');
-    window.open(url, target);
-} 
-
-function github(){
-    window.open("https://github.com/Lem0naise");
-}
-
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle project items in portfolio section
     const projectItems = document.querySelectorAll('.project-item');
     
     projectItems.forEach((item, index) => {
         item.setAttribute('tabindex', 0);
         item.setAttribute('id', index);
         
-        const isExternal = item.getAttribute('data-external') === 'true';
-        item.setAttribute('onclick', `openLink(this, ${isExternal});`);
-        
-        // Add keyboard support
-        item.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                openLink(this, isExternal);
-            }
-        });
+        const anchorLink = item.querySelector('h4 a');
+        if (anchorLink) {
+            // Use the same mechanism as quick-items for consistency
+            item.addEventListener('click', function(e) {
+                // Don't trigger if clicking directly on the link
+                if (e.target.tagName !== 'A') {
+                    anchorLink.click();
+                }
+            });
+            
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    anchorLink.click();
+                }
+            });
+        }
+    });
+
+    // Handle quick items with anchor links
+    const quickItems = document.querySelectorAll('.quick-item');
+    quickItems.forEach(item => {
+        const anchorLink = item.querySelector('h4 a');
+        if (anchorLink) {
+            item.addEventListener('click', function(e) {
+                // Don't trigger if clicking directly on the link
+                if (e.target.tagName !== 'A') {
+                    anchorLink.click();
+                }
+            });
+            
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    anchorLink.click();
+                }
+            });
+        }
     });
 
     // Close dropdown when clicking outside
