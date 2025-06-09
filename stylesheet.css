@@ -181,6 +181,7 @@ main {
 	height: 100%;
 	display: flex;
 	align-items: center;
+	cursor: pointer;
 }
 
 .featured-item::before {
@@ -200,7 +201,7 @@ main {
 }
 
 .featured-item:hover {
-	transform: translateY(-4px);
+	transform: translateY(4px);
 	box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
 }
 

@@ -1,157 +1,129 @@
-//onloads
+// Initial page setup
 document.getElementById('bio').style.transform = 'translateY(0)';
 document.getElementById('bio').style.opacity = 1;
 document.getElementById('header').style.opacity = 1;
-
 window.scrollTo(0, 0);
 
-function load_about() {
-    // Animate featured project
-    let featured = document.querySelector('.featured-item');
-    if (featured) {
-        featured.style.opacity = '0';
-        featured.style.transform = 'translateY(20px)';
+// Animation helper functions
+function animateElements(elements, startDelay = 0, delayIncrement = 100) {
+    elements.forEach((element, index) => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
         setTimeout(() => {
-            featured.style.opacity = '1';
-            featured.style.transform = 'translateY(0)';
-        }, 100);
-    }
-    
-    // Animate quick projects
-    let quickItems = document.querySelectorAll('.quick-item');
-    quickItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, 200 + (index * 100));
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }, startDelay + (index * delayIncrement));
     });
+}
+
+function hideElements(elements) {
+    elements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+    });
+}
+
+function animateAboutContent() {
+    // Animate quick projects
+    const quickProjectItems = document.querySelectorAll('.quick-item');
+    animateElements(quickProjectItems, 200);
     
-     let grid = document.getElementById("bio")
-    let gridChildren = grid.children;
-    for (let x=0;x<gridChildren.length;x++){
-        setTimeout(function() {  
-            gridChildren[x].style.opacity = "1";
-            gridChildren[x].style.transform = "translateY(0)";
-        }, 200 + (x * 100));
-    }
+    // Animate bio grid items
+    const bioGrid = document.getElementById("bio");
+    const bioItems = Array.from(bioGrid.children);
+    animateElements(bioItems, 200);
+}
+
+function hideAboutContent() {
+    // Hide quick projects
+    const quickProjectItems = document.querySelectorAll('.quick-item');
+    hideElements(quickProjectItems);
+    
+    // Hide bio grid items
+    const bioGrid = document.getElementById("bio");
+    const bioItems = Array.from(bioGrid.children);
+    hideElements(bioItems);
+}
+
+function load_about() {
+    animateAboutContent();
 }
 
 function unload_about() {
-    // Hide featured project
-    let featured = document.querySelector('.featured-item');
-    if (featured) {
-        featured.style.opacity = '0';
-        featured.style.transform = 'translateY(20px)';
-    }
-    
-    // Hide quick projects
-    let quickItems = document.querySelectorAll('.quick-item');
-    quickItems.forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-    });
-    
-    let grid = document.getElementById("bio")
-    let gridChildren = grid.children;
-    for (let x=0;x<gridChildren.length;x++){
-        gridChildren[x].style.transform = "translateY(20px)";
-        gridChildren[x].style.opacity = "0";
-    }
+    hideAboutContent();
 }
 
-function load_portfolio(){
-    let grid = document.getElementById("portfolio-grid")
-    let gridChildren = grid.children;
-    let i = 0;
-    for (let x=0;x<gridChildren.length;x++){
-        gridChildren[x].style.backgroundColor = "var(--item)";
-    }
-    function childrenLoop() {         
-        setTimeout(function() {  
-            gridChildren[i].style.opacity = "1";
-            gridChildren[i].style.backgroundColor = "";
-            gridChildren[i].style.transform = "translateY(0)";
-            i++;                  
-            if (i < gridChildren.length) {   
-            childrenLoop();
+function load_portfolio() {
+    const portfolioGrid = document.getElementById("portfolio-grid");
+    const portfolioItems = Array.from(portfolioGrid.children);
+    
+    // Set initial background color for all items
+    portfolioItems.forEach(item => {
+        item.style.backgroundColor = "var(--item)";
+    });
+    
+    // Animate items sequentially
+    let currentIndex = 0;
+    function animateNextItem() {         
+        setTimeout(() => {  
+            portfolioItems[currentIndex].style.opacity = "1";
+            portfolioItems[currentIndex].style.backgroundColor = "";
+            portfolioItems[currentIndex].style.transform = "translateY(0)";
+            currentIndex++;                  
+            if (currentIndex < portfolioItems.length) {   
+                animateNextItem();
             }
-        }, 100)
-    }
-    childrenLoop();
-}
-
-function unload_portfolio(){
-    let grid = document.getElementById("portfolio-grid")
-    let gridChildren = grid.children;
-    for (let x=0;x<gridChildren.length;x++){
-        gridChildren[x].style.transform = "translateY(20px)";
-        gridChildren[x].style.opacity = "0";
-    }
-}
-
-window.onload = function(){
-    // Animate featured project on load
-    let featured = document.querySelector('.featured-item');
-    if (featured) {
-        featured.style.opacity = '0';
-        featured.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            featured.style.opacity = '1';
-            featured.style.transform = 'translateY(0)';
         }, 100);
     }
-    
-    // Animate quick projects on load
-    let quickItems = document.querySelectorAll('.quick-item');
-    quickItems.forEach((item, index) => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, 200 + (index * 100));
-    });
-    
-    let grid = document.getElementById("bio")
-    let gridChildren = grid.children;
-    for (let x=0;x<gridChildren.length;x++){
-        setTimeout(function() {  
-            gridChildren[x].style.opacity = "1";
-            gridChildren[x].style.transform = "translateY(0)";
-        }, 200 + (x * 100));
-    }
+    animateNextItem();
 }
 
-cur_tab = 0;
+function unload_portfolio() {
+    const portfolioGrid = document.getElementById("portfolio-grid");
+    const portfolioItems = Array.from(portfolioGrid.children);
+    hideElements(portfolioItems);
+}
+
+window.onload = function() {
+    animateAboutContent();
+}
+
+let currentTab = 0;
 tab(0);
-function tab(new_tab){
-    document.getElementsByClassName('tab')[cur_tab].classList.remove("active");
-    document.getElementsByClassName('tab')[new_tab].classList.add("active");
+
+function tab(newTabIndex) {
+    const tabs = document.getElementsByClassName('tab');
+    const tabValues = document.getElementsByClassName("val");
     
-    if (new_tab != cur_tab){
-        let nam = document.getElementsByClassName("tab")[new_tab].dataset.name; 
-        let type = document.getElementsByClassName("tab")[new_tab].dataset.type;
-        let vals = document.getElementsByClassName("val");
-        vals[cur_tab].style.opacity = "0";
-        setTimeout(function(){
-            vals[cur_tab].style.display = "none";
-            document.getElementById(nam).style.display = type;
-            vals[new_tab].style.opacity = "0";
-            cur_tab = new_tab;
+    // Update active tab styling
+    tabs[currentTab].classList.remove("active");
+    tabs[newTabIndex].classList.add("active");
+    
+    if (newTabIndex !== currentTab) {
+        const targetName = tabs[newTabIndex].dataset.name; 
+        const displayType = tabs[newTabIndex].dataset.type;
+        
+        // Hide current content
+        tabValues[currentTab].style.opacity = "0";
+        setTimeout(() => {
+            tabValues[currentTab].style.display = "none";
+            document.getElementById(targetName).style.display = displayType;
+            tabValues[newTabIndex].style.opacity = "0";
+            currentTab = newTabIndex;
         }, 50);
-        setTimeout(function(){
-            vals[new_tab].style.opacity = "1";
+        
+        // Show new content
+        setTimeout(() => {
+            tabValues[newTabIndex].style.opacity = "1";
         }, 100);
 
-        if (nam=="portfolio"){
-            unload_about()
-            load_portfolio()
-        }
-        else {
-            unload_portfolio()
-            load_about()
+        // Handle section-specific animations
+        if (targetName === "portfolio") {
+            unload_about();
+            load_portfolio();
+        } else {
+            unload_portfolio();
+            load_about();
         }
     }   
 }
@@ -166,9 +138,27 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const anchorLink = item.querySelector('h4 a');
         if (anchorLink) {
-            // Use the same mechanism as quick-items for consistency
             item.addEventListener('click', function(e) {
-                // Don't trigger if clicking directly on the link
+                if (e.target.tagName !== 'A') {
+                    anchorLink.click();
+                }
+            });
+            
+            item.addEventListener('keydown', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    anchorLink.click();
+                }
+            });
+        }
+    });
+
+    // Handle featured items with anchor links
+    const featuredItems = document.querySelectorAll('.featured-item');
+    featuredItems.forEach(item => {
+        const anchorLink = item.querySelector('div div a');
+        if (anchorLink) {
+            item.addEventListener('click', function(e) {
                 if (e.target.tagName !== 'A') {
                     anchorLink.click();
                 }
@@ -189,7 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const anchorLink = item.querySelector('h4 a');
         if (anchorLink) {
             item.addEventListener('click', function(e) {
-                // Don't trigger if clicking directly on the link
                 if (e.target.tagName !== 'A') {
                     anchorLink.click();
                 }
@@ -218,4 +207,8 @@ document.addEventListener('DOMContentLoaded', function() {
 function toggleDropdown() {
     const dropdown = document.getElementById('contactDropdown');
     dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+}
+
+function github() {
+    window.open('https://github.com/Lem0naise', '_blank');
 }
