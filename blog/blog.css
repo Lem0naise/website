@@ -16,7 +16,7 @@
 .blog-subtitle {
     font-size: 18px;
     color: var(--title);
-    margin: 0 0 24px;
+    margin: 0 0 4px;
     font-weight: 400;
     line-height: 1.6;
 }
@@ -88,6 +88,17 @@
     display: inline;
 }
 
+.post-author {
+    background: var(--item);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin: 0;
+    font-size: 13px;
+    color: var(--title);
+    display: inline;
+
+}
 
 .blog-post h3 {
     font-size: 20px;
@@ -159,13 +170,6 @@
     font-size: 14px;
     color: var(--title);
     margin-bottom: 20px;
-}
-
-.post-date {
-    background: var(--item);
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
 }
 
 
@@ -293,7 +297,7 @@
 
 @media (max-width: 768px) {
     .blog-header {
-        padding: 40px 16px 32px;
+        padding: 40px 16px 20px;
     }
     
     .blog-header h1 {
@@ -322,7 +326,6 @@
     }
     
     .post-meta {
-        flex-direction: column;
         align-items: flex-start;
         gap: 6px;
     }
@@ -336,7 +339,7 @@
     }
     
     .post-header {
-        padding: 32px 0;
+        padding: 32px 0 20px;
     }
     
     .post-title {
