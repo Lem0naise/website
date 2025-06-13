@@ -1,7 +1,6 @@
 // Initial page setup
 document.getElementById('bio').style.transform = 'translateY(0)';
 document.getElementById('bio').style.opacity = 1;
-document.getElementById('header').style.opacity = 1;
 window.scrollTo(0, 0);
 
 // Animation helper functions

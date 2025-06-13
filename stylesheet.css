@@ -40,7 +40,7 @@ body {
 	backdrop-filter: blur(10px);
 	border-bottom: 1px solid var(--border);
 	z-index: 1000;
-	opacity: 0;
+	opacity: 1;
 	transition: opacity 0.5s;
 }
 
