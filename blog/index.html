@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Blog - Indigo Nolan</title>
+		<link rel="stylesheet" href="../stylesheet.css?version=0.1">
+        <link rel="stylesheet" href="blog.css">
+		<link rel="icon" type="image/x-icon" href="../favicon.ico">
+		
+		<meta name="description" content="Personal thoughts and musings from Indigo Nolan. Don't take anything too seriously."/>
+		<meta name="keywords" content="Indigo Nolan, blog, thoughts, personal, writing"/>
+		<meta name="author" content="Indigo Nolan"/>
+	
+	</head>
+	
+	<body>
+		<header id="header">
+			<div class="header-content">
+				<div class="logo" onclick="window.location.href='../'">
+					<img src="../imgs/ghub.webp" alt="GitHub">
+					<span>Indigo Nolan</span>
+				</div>
+				<nav id="menu">
+					<div class="tab" onclick="window.location.href='../'">Home</div>
+					<div class="tab active">Blog</div>
+				</nav>
+			</div>
+		</header>
+
+		<main style="padding-top: 70px;">
+			<div class="blog-header">
+				<h1>Blog</h1>
+				<p class="blog-subtitle">Random musings and observations on things. Don't take anything here too seriously.</p>
+			</div>
+
+			<div class="blog-posts">
+				<div class="posts-header">
+					<h2>Recent Posts</h2>
+					<div class="post-count">1 posts</div>
+				</div>
+				
+				<div id="blog-posts-container">
+			
+					<article class="blog-post">
+						<h3><a href="posts/why-we-use-qwerty.html">Why I Still Use QWERTY (And Why I Shouldn't)</a></h3>
+                        <span class="post-date">June 13, 2025</span>
+					</article>
+					
+				</div>
+				
+			</div>
+		</main>
+		
+		<script>
+			// Simple script to show header on load
+			window.addEventListener('load', function() {
+				document.getElementById('header').style.opacity = '1';
+			});
+		</script>
+	</body>
+</html>

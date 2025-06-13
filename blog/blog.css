@@ -1,0 +1,345 @@
+.blog-header {
+    text-align: center;
+    padding: 60px 0 40px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-header h1 {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+.blog-subtitle {
+    font-size: 18px;
+    color: var(--title);
+    margin: 0 0 24px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.blog-posts {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.posts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.posts-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text);
+}
+
+.post-count {
+    font-size: 14px;
+    color: var(--title);
+    background: var(--item);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+.blog-post {
+    background: var(--item);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.blog-post:hover {
+    background: var(--item-background-2);
+    border-color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: var(--title);
+}
+
+.post-date {
+    background: var(--item);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    margin: 0;
+    font-size: 13px;
+    color: var(--title);
+    display: inline;
+}
+
+
+.blog-post h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: var(--text);
+    line-height: 1.3;
+}
+
+.blog-post h3 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.blog-post:hover h3 a {
+    color: var(--accent);
+}
+
+
+.back-home {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 12px 24px;
+    background: transparent;
+    border: 2px solid var(--border);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.back-home:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+
+.post-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.post-header {
+    text-align: center;
+    padding: 40px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 10px;
+}
+
+.post-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+.post-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--title);
+    margin-bottom: 20px;
+}
+
+.post-date {
+    background: var(--item);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+}
+
+
+.post-content {
+    line-height: 1.8;
+    font-size: 20px;
+    color: var(--text);
+}
+
+.post-content p {
+    margin: 0 0 24px;
+}
+
+.post-content h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 40px 0 20px;
+    color: var(--text);
+}
+
+.post-content h3 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 32px 0 16px;
+    color: var(--text);
+}
+
+.post-content a {
+    color: var(--accent-light);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s;
+}
+
+.post-content a:hover {
+    border-bottom-color: var(--accent);
+}
+
+.post-content blockquote {
+    background: var(--item);
+    border-left: 4px solid var(--accent);
+    padding: 20px 24px;
+    margin: 32px 0;
+    border-radius: 8px;
+    font-style: italic;
+    color: var(--title);
+}
+
+.post-content code {
+    background: var(--item);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 14px;
+}
+
+.post-content ul, .post-content ol {
+    margin: 0 0 24px;
+    padding-left: 24px;
+}
+
+.post-content li {
+    margin-bottom: 8px;
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 60px 0 40px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
+}
+
+.nav-link {
+    display: inline-block;
+    padding: 12px 24px;
+    background: transparent;
+    border: 2px solid var(--border);
+    color: var(--accent);
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.nav-link:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.nav-link.primary {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.nav-link.primary:hover {
+    background: var(--item);
+    color: var(--accent);
+}
+
+@media (max-width: 768px) {
+    .blog-header {
+        padding: 40px 16px 32px;
+    }
+    
+    .blog-header h1 {
+        font-size: 36px;
+    }
+    
+    .blog-subtitle {
+        font-size: 16px;
+    }
+    
+    .blog-posts {
+        padding: 0 16px;
+    }
+    
+    .posts-header {
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .posts-header h2 {
+        font-size: 24px;
+    }
+    
+    .blog-post {
+        padding: 14px;
+    }
+    
+    .post-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+    
+    .blog-post h3 {
+        font-size: 18px;
+    }
+    
+    .post-container {
+        padding: 0 16px;
+    }
+    
+    .post-header {
+        padding: 32px 0;
+    }
+    
+    .post-title {
+        font-size: 32px;
+    }
+    
+    .post-content {
+        font-size: 15px;
+    }
+    
+    .post-content h2 {
+        font-size: 24px;
+    }
+    
+    .post-content h3 {
+        font-size: 20px;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+        gap: 16px;
+    }
+    
+    .blog-post h3 {
+        font-size: 18px;
+    }
+}
