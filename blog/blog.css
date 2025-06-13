@@ -232,6 +232,27 @@
     margin-bottom: 8px;
 }
 
+.post-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    height: auto;
+    border-radius: 8px;
+    margin: 0px auto;
+    display: block;
+    margin-top: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.caption {
+    font-size: 14px;
+    color: var(--title);
+    text-align: center;
+    font-style: italic;
+    margin: -24px 0 32px;
+    line-height: 1.4;
+}
+
 .post-navigation {
     display: flex;
     justify-content: space-between;
