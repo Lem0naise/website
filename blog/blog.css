@@ -257,6 +257,11 @@
     line-height: 1.4;
 }
 
+.column-2 {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}
 .post-navigation {
     display: flex;
     justify-content: space-between;
