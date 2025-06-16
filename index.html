@@ -17,8 +17,8 @@
 		<link rel="stylesheet" href = "stylesheet.css?version=0.2">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 
-		<meta name="description" content="Indigo Nolan is a UK-based student and web developer. View projects including CashCat budgeting app, Fantasteroids game, and web development tools."/>
-		<meta name="keywords" content="Indigo Nolan, web developer, student developer, portfolio, CashCat, Fantasteroids, web development, UK developer"/>
+		<meta name="description" content="Indigo Nolan is a UK-based student, tutor and web developer offering maths and computer science tutoring. View projects including CashCat budgeting app, Fantasteroids game, and web development tools."/>
+		<meta name="keywords" content="Indigo Nolan, web developer, tutoring, tutor, student developer, portfolio, CashCat, Fantasteroids, web development, UK developer"/>
 		<meta name="author" content="Indigo Nolan"/>
 		
 		<!-- Open Graph / Facebook -->
@@ -38,7 +38,7 @@
 			"@context": "https://schema.org",
 			"@type": "Person",
 			"name": "Indigo Nolan",
-			"jobTitle": "Student & Developer",
+			"jobTitle": "Student & Developer, Tutor",
 			"url": "https://indigonolan.com",
 			"sameAs": [
 				"https://github.com/Lem0naise",
@@ -76,9 +76,9 @@
 					<span>Indigo Nolan</span>
 				</div>
 				<nav id="menu">
-					<div tabindex=1 class="tab" data-name="container" data-type="grid" onclick="tab(0)">Home</div>
-					<div tabindex=2 class="tab" data-name='portfolio' data-type='grid' onclick="tab(1)">Projects</div>
-					<div tabindex=3 class="tab" data-name='blog' data-type='grid' onclick="window.location.href='./blog'">Blog</div>
+					<div class="tab active">Home</div>
+					<div class="tab" onclick="window.location.href='./portfolio'">Projects</div>
+					<div class="tab" onclick="window.location.href='./blog'">Blog</div>
 				</nav>
 			</div>
 		</header>
@@ -91,7 +91,7 @@
 						<p class="hero-subtitle">Student & Developer based in the UK</p>
 						
 						<div class="hero-actions">
-							<button class="projects-cta" onclick="openTutoringModal()">Looking for a Tutor?</button>
+							<button class="projects-cta" onclick="scrollToTutoring()">Looking for a Tutor?</button>
 							<button class="projects-cta" onclick="window.location.href='./blog'">Read My Blog -></button>
 							<div class="contact-dropdown">
 								<button class="contact-cta dropdown-toggle" onclick="toggleDropdown()">Get in touch -></button>
@@ -126,7 +126,7 @@
 				<section class="quick-projects">
 					<div class="quick-projects-header">
 						<h2>Recent Projects</h2>
-						<button class="projects-cta" onclick="tab(1)">View All Projects →</button>
+						<button class="projects-cta" onclick="window.location.href='./portfolio'">View All Projects →</button>
 					</div>
 					<div class="quick-projects-grid">
 						<article class="quick-item" itemscope itemtype="https://schema.org/VideoGame">
@@ -144,6 +144,71 @@
 					</div>
 				</section>
 
+			<!-- Tutoring Section -->
+			<section id="tutoring" class="tutoring-section">
+				<div class="container">
+					<h2>Tutoring</h2>
+					
+					<div class="tutoring-details">
+						<div class="service-section">
+							<h3>What I Offer</h3>
+							<ul>
+								<li><strong>Mathematics</strong> - 9 and A* in Maths GCSE and A-level respectively</li>
+								<li><strong>Computer Science</strong> - 9 in Computer Science GCSE and now studying Computer Science at University</li>
+								<li><strong>Programming Fundamentals</strong> - Python, Assembly Code, Algorithms</li>
+								<li><strong>Web Development</strong> - HTML, CSS, JavaScript, responsive design</li>
+								<li><strong>Other Support</strong> - Coursework help, exam preparation</li>
+								<li><strong>Free Consultation</strong> - A free 15-minute consultation with a student or their parent to discuss goals</li>
+							</ul>
+						</div>
+
+						<div class="pricing-section">
+							<div class="pricing-header">
+								<h3>Pricing</h3>
+								<div class="pricing-toggle">
+									<button class="pricing-btn active" onclick="setPricing('gcse')">GCSE</button>
+									<button class="pricing-btn" onclick="setPricing('alevel')">A-Level</button>
+								</div>
+							</div>
+							<div class="pricing-grid">
+								<div class="pricing-card">
+									<h4>Individual Sessions</h4>
+									<div class="price" id="individual-price">£24/hour</div>
+									<p>Perfect for occasional help</p>
+								</div>
+								<div class="pricing-card featured-pricing">
+									<h4>Package Deal</h4>
+									<div class="price" id="package-price">£20/hour</div>
+									<p>5+ hours booked in advance</p>
+								</div>
+								<div class="pricing-card">
+									<h4>Project Support</h4>
+									<div class="price" id="project-price">£30/hour</div>
+									<p>Intensive coursework help</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="contact-section">
+							<h3>Get in Touch</h3>
+							<div class="contact-methods">
+								<div class="contact-method">
+									<strong>📧 Email:</strong>
+									<a href="mailto:indigogo.nolan@gmail.com">indigogo.nolan@gmail.com</a>
+								</div>
+								<div class="contact-method">
+									<strong>📱 Phone:</strong>
+									<a>+44 7775 156078</a>
+								</div>
+							</div>
+							<p><em>Sessions conducted online via video call. Send me a message with your experience level and learning goals!</em></p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<section id="aboutme" class="aboutme-section">
 				<h2>About Me</h2>
 				<div class="bio" id="bio">
 					
@@ -192,120 +257,10 @@
 					</div>
 					
 				</div>
+				</section>
 			</section>
 	
-			<section id="portfolio" class="portfolio val" style="display:none !important;">
-				<div class="portfolio-header">
-					<h2>Portfolio</h2>
-					<p class="mobile-hide">A collection of web applications, games, and tools I've built and contributed to</p>
-				</div>
-				<div class="portfolio-grid" id="portfolio-grid">
-					<article class="item project-item" itemscope itemtype="https://schema.org/WebApplication">
-						<h4 itemprop="name"><a href="https://cashcat.app" target="_blank" rel="noopener" itemprop="url">CashCat - Personal Budgeting App</a></h4>
-						<p itemprop="description">A user-focused personal budgeting application built with Josh Wilcox. Currently in Early Access and open to beta testers. Features expense tracking, budget planning, and financial insights. <a href='https://cashcat.indigonolan.com/' target="_blank" rel="noopener">Alternate link</a></p>
-					</article>
-					
-					<article class="item project-item" itemscope itemtype="https://schema.org/VideoGame">
-						<h4 itemprop="name"><a href="https://store.steampowered.com/app/1790870/Fantasteroids/" target="_blank" rel="noopener" itemprop="url">Fantasteroids - Arcade Game</a></h4>
-						<p itemprop="description">A fast-paced and fun arcade Asteroids-style game available free on Steam. Features leaderboards and retro-inspired graphics.</p>
-					</article>
-					
-					<article class="item project-item" itemscope itemtype="https://schema.org/WebSite">
-						<h4 itemprop="name"><a href="https://www.climatestorieslibrary.com" target="_blank" rel="noopener" itemprop="url">Climate Stories Library</a></h4>
-						<p itemprop="description">A comprehensive website framework designed to host videos and stories from people around the world sharing their responses to the climate crisis. Built with accessibility and global reach in mind.</p>
-					</article>
-					
-					<article class="item project-item" itemscope itemtype="https://schema.org/WebApplication">
-						<h4 itemprop="name"><a href="wordle" target="_blank" rel="noopener" itemprop="url">Unlimited Wordle - Word Game</a></h4>
-						<p itemprop="description">A free and unlimited version of the popular word puzzle game Wordle. Play as many times as you want!</p>
-					</article>
-					
-					<article class="item project-item" itemscope itemtype="https://schema.org/WebApplication">
-						<h4 itemprop="name"><a href="reaction" target="_blank" rel="noopener" itemprop="url">Reaction Time Test Tool</a></h4>
-						<p itemprop="description">A minimalist web application to test and measure your reaction time.</p>
-					</article>
-					
-					<article class="item project-item" itemscope itemtype="https://schema.org/WebApplication">
-						<h4 itemprop="name"><a href="palette" target="_blank" rel="noopener" itemprop="url">Color Palette Generator</a></h4>
-						<p itemprop="description">A web-based color palette generator designed for graphic designers and web developers.</p>
-					</article>
-					
-					<article class="item project-item" itemscope itemtype="https://schema.org/SoftwareSourceCode">
-						<h4 itemprop="name"><a href="https://github.com/Lem0naise/maze-solver" target="_blank" rel="noopener" itemprop="url">Maze Solver</a></h4>
-						<p itemprop="description">A Python computer vision program that solves mazes using the user's camera input. Developed in collaboration with <a href='https://danileliasov.com/' target="_blank" rel="noopener">Danil Eliasov</a>, featuring image processing and pathfinding algorithms.</p>
-					</article>
-					
-					<article class="item project-item" itemscope itemtype="https://schema.org/SoftwareSourceCode">
-						<h4 itemprop="name"><a href="https://github.com/Lem0naise/student-robotics-ham" target="_blank" rel="noopener" itemprop="url">Student Robotics Competition</a></h4>
-						<p itemprop="description">Participated in a team for the 2023 Student Robotics Competition at the University of Southampton. Placed 5th overall and won the Social Media Presence prize for our team's documentation and outreach efforts.</p>
-					</article>
-					
-					<article class="item project-item github-special" itemscope itemtype="https://schema.org/SoftwareSourceCode">
-						<h4 itemprop="name"><a href="https://github.com/Lem0naise" target="_blank" rel="noopener" itemprop="url">🔍 Explore More on my GitHub</a></h4>
-						<p itemprop="description">There might be more interesting projects and experiments on my GitHub profile. Feel free to explore and see what else I've been working on!</p>
-					</article>
-				</div>
-			</section>
-		</main>
-
-		<!-- Tutoring Modal -->
-		<div id="tutoringModal" class="modal">
-			<div class="modal-content">
-				<span class="close" onclick="closeTutoringModal()">&times;</span>
-				<h2>Tutoring</h2>
-				
-				<div class="tutoring-details">
-					<div class="service-section">
-						<h3>What I Offer</h3>
-						<ul>
-							<li><strong>Mathematics</strong> - 9 and A* in Maths GCSE and A-level respectively</li>
-							<li><strong>Computer Science</strong> - 9 in Computer Science GCSE and now studying Computer Science at University</li>
-							<li><strong>Programming Fundamentals</strong> - Python, Assembly Code, Algorithms</li>
-							<li><strong>Web Development</strong> - HTML, CSS, JavaScript, responsive design</li>
-							<li><strong>Other Support</strong> - Coursework help, exam preparation</li>
-							<li><strong>Free Consultation</strong> - A free 15-minute consultation with a student or their parent to discuss goals</li>
-						</ul>
-					</div>
-
-					<div class="pricing-section">
-						<h3>Pricing</h3>
-						<div class="pricing-grid">
-							<div class="pricing-card">
-								<h4>Individual Sessions</h4>
-								<div class="price">£25/hour</div>
-								<p>Perfect for occasional help</p>
-							</div>
-							<div class="pricing-card featured-pricing">
-								<h4>Package Deal</h4>
-								<div class="price">£18/hour</div>
-								<p>5+ hours booked in advance</p>
-							</div>
-							<div class="pricing-card">
-								<h4>Project Support</h4>
-								<div class="price">£30/hour</div>
-								<p>Intensive coursework help</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="contact-section">
-						<h3>Get in Touch</h3>
-						<div class="contact-methods">
-							<div class="contact-method">
-								<strong>📧 Email:</strong>
-								<a href="mailto:indigogo.nolan@gmail.com">indigogo.nolan@gmail.com</a>
-							</div>
-							<div class="contact-method">
-								<strong>📱 Phone:</strong>
-								<a>+44 7775 156078</a>
-							</div>
-						</div>
-						<p><em>Sessions conducted online via video call. Send me a message with your experience level and learning goals!</em></p>
-					</div>
-				</div>
-			</div>
-		</div>
-		
+			</main>
 		<script src="js/script.js"></script>
 	</body>
 </html>
