@@ -211,3 +211,29 @@ function toggleDropdown() {
 function github() {
     window.open('https://github.com/Lem0naise', '_blank');
 }
+
+// Tutoring Modal Functions
+function openTutoringModal() {
+    document.getElementById('tutoringModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeTutoringModal() {
+    document.getElementById('tutoringModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking outside of it
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('tutoringModal');
+    if (event.target === modal) {
+        closeTutoringModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeTutoringModal();
+    }
+});

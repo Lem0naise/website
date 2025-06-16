@@ -14,7 +14,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Indigo Nolan - Student & Developer Portfolio | UK</title>
-		<link rel="stylesheet" href = "stylesheet.css?version=0.1">
+		<link rel="stylesheet" href = "stylesheet.css?version=0.2">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 
 		<meta name="description" content="Indigo Nolan is a UK-based student and web developer. View projects including CashCat budgeting app, Fantasteroids game, and web development tools."/>
@@ -91,7 +91,7 @@
 						<p class="hero-subtitle">Student & Developer based in the UK</p>
 						
 						<div class="hero-actions">
-							<button class="projects-cta" onclick="tab(1)">View All Projects -></button>
+							<button class="projects-cta" onclick="openTutoringModal()">Looking for a Tutor?</button>
 							<button class="projects-cta" onclick="window.location.href='./blog'">Read My Blog -></button>
 							<div class="contact-dropdown">
 								<button class="contact-cta dropdown-toggle" onclick="toggleDropdown()">Get in touch -></button>
@@ -126,7 +126,7 @@
 				<section class="quick-projects">
 					<div class="quick-projects-header">
 						<h2>Recent Projects</h2>
-						<button class="view-all-btn" onclick="tab(1)">View All →</button>
+						<button class="projects-cta" onclick="tab(1)">View All Projects →</button>
 					</div>
 					<div class="quick-projects-grid">
 						<article class="quick-item" itemscope itemtype="https://schema.org/VideoGame">
@@ -247,6 +247,64 @@
 				</div>
 			</section>
 		</main>
+
+		<!-- Tutoring Modal -->
+		<div id="tutoringModal" class="modal">
+			<div class="modal-content">
+				<span class="close" onclick="closeTutoringModal()">&times;</span>
+				<h2>Tutoring</h2>
+				
+				<div class="tutoring-details">
+					<div class="service-section">
+						<h3>What I Offer</h3>
+						<ul>
+							<li><strong>Mathematics</strong> - 9 and A* in Maths GCSE and A-level respectively</li>
+							<li><strong>Computer Science</strong> - 9 in Computer Science GCSE and now studying Computer Science at University</li>
+							<li><strong>Programming Fundamentals</strong> - Python, Assembly Code, Algorithms</li>
+							<li><strong>Web Development</strong> - HTML, CSS, JavaScript, responsive design</li>
+							<li><strong>Other Support</strong> - Coursework help, exam preparation</li>
+							<li><strong>Free Consultation</strong> - A free 15-minute consultation with a student or their parent to discuss goals</li>
+						</ul>
+					</div>
+
+					<div class="pricing-section">
+						<h3>Pricing</h3>
+						<div class="pricing-grid">
+							<div class="pricing-card">
+								<h4>Individual Sessions</h4>
+								<div class="price">£25/hour</div>
+								<p>Perfect for occasional help</p>
+							</div>
+							<div class="pricing-card featured-pricing">
+								<h4>Package Deal</h4>
+								<div class="price">£18/hour</div>
+								<p>5+ hours booked in advance</p>
+							</div>
+							<div class="pricing-card">
+								<h4>Project Support</h4>
+								<div class="price">£30/hour</div>
+								<p>Intensive coursework help</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="contact-section">
+						<h3>Get in Touch</h3>
+						<div class="contact-methods">
+							<div class="contact-method">
+								<strong>📧 Email:</strong>
+								<a href="mailto:indigogo.nolan@gmail.com">indigogo.nolan@gmail.com</a>
+							</div>
+							<div class="contact-method">
+								<strong>📱 Phone:</strong>
+								<a>+44 7775 156078</a>
+							</div>
+						</div>
+						<p><em>Sessions conducted online via video call. Send me a message with your experience level and learning goals!</em></p>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<script src="js/script.js"></script>
 	</body>

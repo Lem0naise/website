@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&display=swap');
 
 :root {
 	--background: #121012;
@@ -548,9 +549,9 @@ main {
 }
 
 .view-all-btn {
-	background: transparent;
+	background: var(--accent);
 	border: 2px solid var(--border);
-	color: var(--accent);
+	color: white;
 	padding: 8px 16px;
 	border-radius: 6px;
 	font-size: 14px;
@@ -644,7 +645,150 @@ main {
 	font-style: italic;
 }
 
-/* Mobile Responsiveness */
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: var(--background);
+    margin: 5% auto;
+    padding: 32px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 700px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.close {
+    color: var(--title);
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: var(--text);
+}
+
+.tutoring-details h2 {
+    color: var(--text);
+    margin: 0 0 24px;
+    font-size: 28px;
+}
+
+.service-section, .pricing-section, .contact-section {
+    margin-bottom: 32px;
+}
+
+.tutoring-details h3 {
+    color: var(--text);
+    font-size: 20px;
+    margin: 0 0 16px;
+}
+
+.tutoring-details ul {
+    color: var(--title);
+    line-height: 1.6;
+    margin: 0 0 16px;
+    padding-left: 20px;
+}
+
+.tutoring-details li {
+    margin-bottom: 8px;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.pricing-card {
+    background: var(--item);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.pricing-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.pricing-card.featured-pricing {
+    border-color: var(--accent);
+    background: var(--item-background-2);
+}
+
+.pricing-card h4 {
+    color: var(--text);
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.price {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent);
+    margin: 0 0 12px;
+	font-family: 'Gabarito';
+}
+
+.pricing-card p {
+    color: var(--title);
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.contact-methods {
+    margin: 16px 0;
+}
+
+.contact-method {
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: var(--title);
+}
+
+.contact-method a {
+    color: var(--accent);
+    text-decoration: none;
+    margin-left: 8px;
+}
+
+.contact-method a:hover {
+    text-decoration: underline;
+}
+
+.contact-section p {
+    color: var(--title);
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 16px;
+}
+
 @media (max-width: 1024px) {
 	#bio {
 		grid-template-columns: repeat(2, 1fr);
@@ -658,6 +802,14 @@ main {
 
 @media (max-width: 768px) {
 
+
+	.pricing-card {
+		padding: 10px;
+	}
+
+	.modal-content {
+		max-height: 100vh;
+	}
 	.header-content {
 		padding: 0 16px;
 		height: 60px;
