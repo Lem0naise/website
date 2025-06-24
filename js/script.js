@@ -60,6 +60,17 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdown.style.display = 'none';
         }
     });
+    
+    // Smooth scroll behavior for navigation
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            this.classList.add('active');
+        });
+    });
 });
 
 function toggleDropdown() {
@@ -77,6 +88,37 @@ function scrollToTutoring() {
         behavior: 'smooth',
         block: 'start'
     });
+}
+
+// Scroll to specific sections
+function scrollToSection(sectionId) {
+    // Check if we're looking for tutoring and redirect to tutoring page
+    if (sectionId === 'tutoring') {
+        window.location.href = './tutoring';
+        return;
+    }
+    
+    const section = document.getElementById(sectionId);
+    if (section) {
+        section.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    }
+}
+
+// Toggle contact info visibility
+function toggleContactInfo() {
+    const contactSection = document.getElementById('contact-info');
+    if (contactSection.style.display === 'none' || contactSection.style.display === '') {
+        contactSection.style.display = 'block';
+        contactSection.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+        });
+    } else {
+        contactSection.style.display = 'none';
+    }
 }
 
 // Pricing toggle functionality
@@ -100,7 +142,26 @@ function setPricing(level) {
     event.target.classList.add('active');
     
     // Update prices
-    document.getElementById('individual-price').textContent = pricingData[level].individual;
-    document.getElementById('package-price').textContent = pricingData[level].package;
-    document.getElementById('project-price').textContent = pricingData[level].project;
+    const individualPrice = document.getElementById('individual-price');
+    const packagePrice = document.getElementById('package-price');
+    const projectPrice = document.getElementById('project-price');
+    
+    if (individualPrice) individualPrice.textContent = pricingData[level].individual;
+    if (packagePrice) packagePrice.textContent = pricingData[level].package;
+    if (projectPrice) projectPrice.textContent = pricingData[level].project;
 }
+
+// Handle project item clicks
+document.addEventListener('DOMContentLoaded', function() {
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach(item => {
+        const link = item.querySelector('h4 a');
+        if (link) {
+            item.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'A') {
+                    link.click();
+                }
+            });
+        }
+    });
+});

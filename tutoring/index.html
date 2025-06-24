@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQDX6JZ0XF"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-QQDX6JZ0XF');
+		</script>
+		<meta name="google-site-verification" content="Mjwi8fp-GIfDM41jXFYDAS7nCmwb3fSguVAirwzQ6Yk" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tutoring Services - Indigo Nolan | Maths & Computer Science</title>
+		<link rel="stylesheet" href = "../stylesheet.css?version=0.3">
+		<link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+		<meta name="description" content="Professional tutoring services by Indigo Nolan. Maths and Computer Science tutoring for GCSE and A-Level students. Online sessions with flexible pricing."/>
+		<meta name="keywords" content="Indigo Nolan, tutoring, maths tutor, computer science tutor, GCSE, A-Level, online tutoring, UK"/>
+		<meta name="author" content="Indigo Nolan"/>
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://indigonolan.com/tutoring">
+		<meta property="og:title" content="Tutoring Services - Indigo Nolan">
+		<meta property="og:description" content="Professional maths and computer science tutoring for GCSE and A-Level students.">
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image">
+		<meta property="twitter:title" content="Tutoring Services - Indigo Nolan">
+		<meta property="twitter:description" content="Professional maths and computer science tutoring for GCSE and A-Level students.">
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "EducationalOrganization",
+			"name": "Indigo Nolan Tutoring Services",
+			"url": "https://indigonolan.com/tutoring",
+			"description": "Professional tutoring services for Mathematics and Computer Science at GCSE and A-Level",
+			"founder": {
+				"@type": "Person",
+				"name": "Indigo Nolan"
+			},
+			"areaServed": "United Kingdom",
+			"serviceType": ["Mathematics Tutoring", "Computer Science Tutoring", "Programming Tutoring", "Web Development Training"],
+			"offers": [
+				{
+					"@type": "Offer",
+					"name": "GCSE Individual Sessions",
+					"price": "25",
+					"priceCurrency": "GBP",
+					"description": "One-on-one tutoring sessions for GCSE level"
+				},
+				{
+					"@type": "Offer", 
+					"name": "A-Level Individual Sessions",
+					"price": "30",
+					"priceCurrency": "GBP",
+					"description": "One-on-one tutoring sessions for A-Level"
+				},
+				{
+					"@type": "Offer",
+					"name": "Package Deal",
+					"price": "20",
+					"priceCurrency": "GBP",
+					"description": "Discounted rate for 5+ hours booked in advance"
+				}
+			],
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"telephone": "+44-7775-156078",
+				"email": "indigogo.nolan@gmail.com",
+				"contactType": "customer service"
+			}
+		}
+		</script>
+	</head>
+	
+	<body>
+		<header id="header">
+			<div class="header-content">
+				<div class="logo" onclick="window.location.href='../'">
+					<span>Indigo Nolan</span>
+				</div>
+				<nav id="menu">
+					<a href="../" class="tab">Home</a>
+					<a href="../portfolio" class="tab">Projects</a>
+					<a href="./" class="tab active">Tutoring</a>
+					<a href="../blog" class="tab">Blog</a>
+				</nav>
+			</div>
+		</header>
+
+		<main id="cont">>
+			<!-- Services Section -->
+			<section class="content-section">
+				<div class="section-content">
+                    <h1>Tutoring Services 📚</h1>
+					<div class="services-grid">
+						<div class="service-card">
+							<div class="service-icon">📐</div>
+							<h3>Mathematics</h3>
+							<p>GCSE (Grade 9) and A-Level (A*) qualified. Covering algebra, geometry, calculus, statistics, and exam preparation.</p>
+						</div>
+						<div class="service-card">
+							<div class="service-icon">💻</div>
+							<h3>Computer Science</h3>
+							<p>GCSE (Grade 9) qualified, currently studying at University. Programming fundamentals, algorithms, and theory.</p>
+						</div>
+						<div class="service-card">
+							<div class="service-icon">🌐</div>
+							<h3>Web Development</h3>
+							<p>HTML, CSS, JavaScript, responsive design, and modern web development practices.</p>
+						</div>
+						<div class="service-card">
+							<div class="service-icon">🐍</div>
+							<h3>Programming</h3>
+							<p>Python fundamentals, algorithms, data structures, and assembly code basics.</p>
+						</div>
+						<div class="service-card">
+							<div class="service-icon">📝</div>
+							<h3>Coursework Support</h3>
+							<p>Help with assignments, projects, and intensive coursework preparation.</p>
+						</div>
+						<div class="service-card">
+							<div class="service-icon">💬</div>
+							<h3>Free Consultation</h3>
+							<p>15-minute consultation with student or parent to discuss goals and learning plans.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Pricing Section -->
+			<section class="content-section pricing-section">
+				<div class="section-content">
+					<h2>Pricing</h2>
+					
+					<div class="pricing-header">
+						<div class="pricing-toggle">
+							<button class="pricing-btn active" onclick="setPricing('gcse')">GCSE Level</button>
+							<button class="pricing-btn" onclick="setPricing('alevel')">A-Level</button>
+						</div>
+					</div>
+					
+					<div class="pricing-grid">
+						<div class="pricing-card">
+							<h4>Individual Sessions</h4>
+							<div class="price" id="individual-price">£25/hour</div>
+							<p>Perfect for occasional help and one-off questions</p>
+							<ul>
+								<li>Flexible scheduling</li>
+								<li>Personalized attention</li>
+								<li>No commitment required</li>
+							</ul>
+						</div>
+						<div class="pricing-card featured-pricing">
+							<h4>Package Deal</h4>
+							<div class="price" id="package-price">£20/hour</div>
+							<p>Best value for regular tutoring sessions</p>
+							<ul>
+								<li>5+ hours booked in advance</li>
+								<li>Structured learning plan</li>
+								<li>Progress tracking</li>
+							</ul>
+						</div>
+						<div class="pricing-card">
+							<h4>Project Support</h4>
+							<div class="price" id="project-price">£30/hour</div>
+							<p>Intensive help for coursework and projects</p>
+							<ul>
+								<li>Dedicated project guidance</li>
+								<li>Code review and feedback</li>
+								<li>Assignment preparation</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- Contact Section -->
+			<section class="content-section pricing-section">
+				<div class="section-content">
+					<h2>Get in Touch</h2>
+					
+					<div class="contact-grid">
+						<div class="contact-info">
+							<h3>Ready to start learning?</h3>
+							<p>Send me a message with your experience level and learning goals. I'll get back to you within 24 hours to discuss how I can help.</p>
+							
+							<div class="contact-methods-tutoring">
+								<div class="contact-method-tutoring">
+									<strong>📧 Email:</strong>
+									<a href="mailto:indigogo.nolan@gmail.com">indigogo.nolan@gmail.com</a>
+								</div>
+								<div class="contact-method-tutoring">
+									<strong>📱 Phone:</strong>
+									<span>+44 7775 156078</span>
+								</div>
+							</div>
+						</div>
+						
+						<div class="contact-benefits">
+							<h3>What to expect</h3>
+							<ul>
+								<li>✅ Free 15-minute consultation</li>
+								<li>✅ Personalized learning plan</li>
+								<li>✅ Flexible scheduling</li>
+								<li>✅ Online sessions via video call</li>
+								<li>✅ Progress tracking and feedback</li>
+								<li>✅ Resource recommendations</li>
+							</ul>
+						</div>
+					</div>
+					
+					<div class="session-info">
+						<p><em>All sessions are conducted online via video call. Perfect for students across the UK and beyond!</em></p>
+					</div>
+				</div>
+			</section>
+		</main>
+		<script src="../js/script.js"></script>
+	</body>
+</html>
