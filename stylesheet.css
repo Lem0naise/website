@@ -133,10 +133,6 @@ main {
 	font-weight: 600;
 	margin: 0 0 32px;
 	color: var(--text);
-
-
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .options-grid {
@@ -885,25 +881,45 @@ main {
 		font-size: 18px;
 	}
 	
+	.welcome-content h1 {
+		margin: 0;
+	}
 	.looking-for h2 {
 		font-size: 20px;
+		margin-bottom: 0px;
 	}
 	
 	.option-card {
-		padding: 10px;
+		padding: 5px;
+		padding-left: 15px;
 		width: 80vw;
 		flex-shrink: 0;
+		text-align: left;
 	}
 
+
 	.option-icon {
-		font-size: 24px;
-		margin-bottom: 2px;
-		margin-top: 0;
+		display: none;
 	}
 
 	.option-card h3 {
 		margin-bottom: 4px;
+		display: flex;
+		align-items: center;
+		gap: 8px;
 	}
+
+	.option-card h3::before {
+		font-size: 20px;
+	}
+
+	.option-card:nth-child(1) h3::before { content: "💻"; }
+	.option-card:nth-child(2) h3::before { content: "📚"; }
+	.option-card:nth-child(3) h3::before { content: "📸"; }
+	.option-card:nth-child(4) h3::before { content: "✍️"; }
+	.option-card:nth-child(5) h3::before { content: "🙋‍♂️"; }
+	.option-card:nth-child(6) h3::before { content: "📞"; }
+	
 	
 	.content-section {
 		padding: 20px 0px;
@@ -1011,6 +1027,7 @@ main {
 	}
 	
 	.options-grid {
+		margin-top: 15px;
 		grid-template-columns: 1fr;
 	}
 	
