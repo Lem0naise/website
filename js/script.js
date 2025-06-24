@@ -82,44 +82,6 @@ function github() {
     window.open('https://github.com/Lem0naise', '_blank');
 }
 
-// Scroll to tutoring section
-function scrollToTutoring() {
-    document.getElementById('tutoring').scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
-
-// Scroll to specific sections
-function scrollToSection(sectionId) {
-    // Check if we're looking for tutoring and redirect to tutoring page
-    if (sectionId === 'tutoring') {
-        window.location.href = './tutoring';
-        return;
-    }
-    
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
-    }
-}
-
-// Toggle contact info visibility
-function toggleContactInfo() {
-    const contactSection = document.getElementById('contact-info');
-    if (contactSection.style.display === 'none' || contactSection.style.display === '') {
-        contactSection.style.display = 'block';
-        contactSection.scrollIntoView({ 
-            behavior: 'smooth',
-            block: 'start'
-        });
-    } else {
-        contactSection.style.display = 'none';
-    }
-}
 
 // Pricing toggle functionality
 const pricingData = {
