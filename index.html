@@ -10,27 +10,26 @@
 		gtag('config', 'G-QQDX6JZ0XF');
 		</script>
 		<meta name="google-site-verification" content="Mjwi8fp-GIfDM41jXFYDAS7nCmwb3fSguVAirwzQ6Yk" />
-		<!-- Finished -->
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Indigo Nolan - Student & Developer Portfolio | UK</title>
-		<link rel="stylesheet" href = "stylesheet.css?version=0.2">
+		<title>Indigo Nolan - Developer Portfolio | UK</title>
+		<link rel="stylesheet" href = "stylesheet.css?version=0.3">
 		<link rel="icon" type="image/x-icon" href="favicon.ico">
 
-		<meta name="description" content="Indigo Nolan is a UK-based student, tutor and web developer offering maths and computer science tutoring. View projects including CashCat budgeting app, Fantasteroids game, and web development tools."/>
+		<meta name="description" content="Indigo Nolan is a UK-based tutor and web developer offering maths and computer science tutoring. View projects including CashCat budgeting app, Fantasteroids game, and web development tools."/>
 		<meta name="keywords" content="Indigo Nolan, web developer, tutoring, tutor, student developer, portfolio, CashCat, Fantasteroids, web development, UK developer"/>
 		<meta name="author" content="Indigo Nolan"/>
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website">
 		<meta property="og:url" content="https://indigonolan.com/">
-		<meta property="og:title" content="Indigo Nolan - Student & Developer Portfolio">
-		<meta property="og:description" content="UK-based student and web developer. View my projects including apps, games, and web development tools.">
+		<meta property="og:title" content="Indigo Nolan - Developer Portfolio">
+		<meta property="og:description" content="UK-based web developer. View my projects including apps, games, and web development tools.">
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:title" content="Indigo Nolan - Student & Developer Portfolio">
-		<meta property="twitter:description" content="UK-based student and web developer. View my projects including apps, games, and web development tools.">
+		<meta property="twitter:title" content="Indigo Nolan - Developer Portfolio">
+		<meta property="twitter:description" content="UK-based and web developer. View my projects including apps, games, and web development tools.">
 		
 		<!-- Structured Data -->
 		<script type="application/ld+json">
@@ -38,7 +37,7 @@
 			"@context": "https://schema.org",
 			"@type": "Person",
 			"name": "Indigo Nolan",
-			"jobTitle": "Student & Developer, Tutor",
+			"jobTitle": "Web Developer, Tutor",
 			"url": "https://indigonolan.com",
 			"sameAs": [
 				"https://github.com/Lem0naise",
@@ -49,7 +48,7 @@
 				"@type": "EducationalOrganization",
 				"name": "University of Southampton"
 			},
-			"description": "Student and web developer based in the UK, specializing in web applications and game development.",
+			"description": "Web developer based in the UK, specializing in web applications and game development.",
 			"hasCredential": [
 				{
 					"@type": "CreativeWork",
@@ -71,196 +70,180 @@
 	<body>
 		<header id="header">
 			<div class="header-content">
-				<div class="logo" onclick="github()">
-					<img src="imgs/ghub.webp" alt="GitHub">
-					<span>Indigo Nolan</span>
-				</div>
+				<a class="logo" href='./'>Indigo Nolan</a>
 				<nav id="menu">
-					<div class="tab active">Home</div>
-					<div class="tab" onclick="window.location.href='./portfolio'">Projects</div>
-					<div class="tab" onclick="window.location.href='./blog'">Blog</div>
+					<a href="./" class="tab active">Home</a>
+					<a href="./portfolio" class="tab">Projects</a>
+					<a href="./tutoring" class="tab">Tutoring</a>
+					<a href="./blog" class="tab">Blog</a>
 				</nav>
 			</div>
 		</header>
 
 		<main id="cont">
-			<section class="container val" id="container">
-				<div class="hero-featured-container">
-					<div class="hero-content">
-						<h1>Hi, I'm Indigo.</h1>
-						<p class="hero-subtitle">Student & Developer based in the UK</p>
-						
-						<div class="hero-actions">
-							<button class="projects-cta" onclick="scrollToTutoring()">Looking for a Tutor?</button>
-							<button class="projects-cta" onclick="window.location.href='./blog'">Read My Blog -></button>
-							<div class="contact-dropdown">
-								<button class="contact-cta dropdown-toggle" onclick="toggleDropdown()">Get in touch -></button>
-								<div class="dropdown-menu" id="contactDropdown">
-									<a href="https://github.com/Lem0naise" target="_blank" class="dropdown-item" rel="noopener">💻  GitHub</a>
-									<a href="https://linkedin.com/in/indigonolan" target="_blank" class="dropdown-item" rel="noopener">👔  LinkedIn</a>
-									<a href="mailto:indigogonalan@gmail.com" class="dropdown-item">📩  Email</a>
-								</div>
-							</div>
+			<section class="welcome-section">
+				<div class="welcome-content">
+					<h1>Hi, I'm Indigo! 👋</h1>
+					
+					<div class="looking-for">
+						<h2>What are you here for?</h2>
+						<div class="options-grid">
+							<a class="option-card" href="#projects">
+								<div class="option-icon">💻</div>
+								<h3>My projects</h3>
+								<p>Games and web development</p>
+							</a>
+							
+							<a class="option-card" href="./tutoring">
+								<div class="option-icon">📚</div>
+								<h3>Tutoring</h3>
+								<p>Maths & computer science</p>
+							</a>
+							
+							<a class="option-card" href='https://www.flickr.com/people/indigon/' target="_blank">
+								<div class="option-icon">📸</div>
+								<h3>My photography</h3>
+								<p>Photojournalism and wildlife</p>
+							</a>
+							
+							<a class="option-card" href="./blog">
+								<div class="option-icon">✍️</div>
+								<h3>My Blog</h3>
+								<p>Random thoughts</p>
+							</a>
+							
+							<a class="option-card" href="#about">
+								<div class="option-icon">🙋‍♂️</div>
+								<h3>About Me</h3>
+								<p>Interests and hobbies</p>
+							</a>
+							
+							<a class="option-card" href="#contact-info">
+								<div class="option-icon">📞</div>
+								<h3>Contact info</h3>
+								<p>Get in touch</p>
+							</a>
 						</div>
 					</div>
-
-					<div class="featured-content-wrapper">
-						<div class="featured-label">Featured Project</div>
-						<article class="featured-item" itemscope itemtype="https://schema.org/SoftwareApplication">
-							<div class="featured-content">
-								<div class="featured-title-line">
-									<div class="cash-cat-title" itemprop="name">CashCat</div>
-								</div>
-								
-								<p class="featured-description" itemprop="description">A free and user-focused personal budgeting webapp. Currently being built in collaboration with Josh Wilcox! In early access right now.</p>
-								<div class="featured-links">
-									<a href="https://cashcat.app" target="_blank" class="featured-link-primary" rel="noopener" itemprop="url">Try CashCat →</a>
-									<a href="https://cashcat.indigonolan.com/" target="_blank" class="featured-link-alt" rel="noopener">Alternate Link</a>
-								</div>
-							</div>
-						</article>
-					</div>
 				</div>
+			</section>
 
-				<!-- Quick Projects Preview -->
-				<section class="quick-projects">
-					<div class="quick-projects-header">
-						<h2>Recent Projects</h2>
-						<button class="projects-cta" onclick="window.location.href='./portfolio'">View All Projects →</button>
-					</div>
-					<div class="quick-projects-grid">
-						<article class="quick-item" itemscope itemtype="https://schema.org/VideoGame">
+
+			<!-- Projects Section -->
+			<section id="projects" class="content-section">
+				<div class="section-content">
+					<h2>Recent Projects</h2>
+					
+					<article class="featured-project" itemscope itemtype="https://schema.org/SoftwareApplication">
+						<div class="featured-content">
+							<div class="featured-header">
+								<h3 itemprop="name">CashCat</h3>
+								<span class="featured-badge">Featured</span>
+							</div>
+							<p itemprop="description">A free and user-focused personal budgeting webapp. Currently being built in collaboration with Josh Wilcox! In early access right now.</p>
+							<div class="project-links">
+								<a href="https://cashcat.app" target="_blank" class="primary-link" rel="noopener" itemprop="url">Try CashCat →</a>
+								<a href="https://cashcat.indigonolan.com/" target="_blank" class="secondary-link" rel="noopener">Alternate Link</a>
+							</div>
+						</div>
+					</article>
+
+					<div class="projects-grid">
+						<article class="project-item" itemscope itemtype="https://schema.org/VideoGame">
 							<h4 itemprop="name">🎮 <a href="https://store.steampowered.com/app/1790870/Fantasteroids/" target="_blank" rel="noopener" itemprop="url">Fantasteroids</a></h4>
 							<p itemprop="description">Fast-paced arcade game available free on Steam</p>
 						</article>
-						<article class="quick-item" itemscope itemtype="https://schema.org/WebSite">
+						<article class="project-item" itemscope itemtype="https://schema.org/WebSite">
 							<h4 itemprop="name">🌍 <a href="https://www.climatestorieslibrary.com" target="_blank" rel="noopener" itemprop="url">Climate Stories Library</a></h4>
 							<p itemprop="description">Website framework for climate crisis stories</p>
 						</article>
-						<article class="quick-item" itemscope itemtype="https://schema.org/WebApplication">
+						<article class="project-item" itemscope itemtype="https://schema.org/WebApplication">
 							<h4 itemprop="name">🎯 <a href="wordle" target="_blank" rel="noopener" itemprop="url">Wordle</a></h4>
 							<p itemprop="description">Free and unlimited word game</p>
 						</article>
 					</div>
-				</section>
 
-			<!-- Tutoring Section -->
-			<section id="tutoring" class="tutoring-section">
-				<div class="container">
-					<h2>Tutoring</h2>
-					
-					<div class="tutoring-details">
-						<div class="service-section">
-							<h3>What I Offer</h3>
+					<div class="view-all">
+						<button class="view-all-btn" onclick="window.location.href='./portfolio'">View All Projects →</button>
+					</div>
+				</div>
+			</section>
+
+			<!-- About Section -->
+			<section id="about" class="content-section">
+				<div class="section-content">
+					<h2>About Me</h2>
+					<div class="about-grid">
+						<div class="about-item">
+							<h3>Interests</h3>
 							<ul>
-								<li><strong>Mathematics</strong> - 9 and A* in Maths GCSE and A-level respectively</li>
-								<li><strong>Computer Science</strong> - 9 in Computer Science GCSE and now studying Computer Science at University</li>
-								<li><strong>Programming Fundamentals</strong> - Python, Assembly Code, Algorithms</li>
-								<li><strong>Web Development</strong> - HTML, CSS, JavaScript, responsive design</li>
-								<li><strong>Other Support</strong> - Coursework help, exam preparation</li>
-								<li><strong>Free Consultation</strong> - A free 15-minute consultation with a student or their parent to discuss goals</li>
+								<li>Learning Languages & Travelling</li>
+								<li><a target='_blank' href="https://www.flickr.com/people/indigon/">Photography</a></li>
+								<li>Reading & Writing</li>
+								<li>History & Politics</li>
 							</ul>
 						</div>
-
-						<div class="pricing-section">
-							<div class="pricing-header">
-								<h3>Pricing</h3>
-								<div class="pricing-toggle">
-									<button class="pricing-btn active" onclick="setPricing('gcse')">GCSE</button>
-									<button class="pricing-btn" onclick="setPricing('alevel')">A-Level</button>
-								</div>
-							</div>
-							<div class="pricing-grid">
-								<div class="pricing-card">
-									<h4>Individual Sessions</h4>
-									<div class="price" id="individual-price">£25/hour</div>
-									<p>Perfect for occasional help</p>
-								</div>
-								<div class="pricing-card featured-pricing">
-									<h4>Package Deal</h4>
-									<div class="price" id="package-price">£20/hour</div>
-									<p>5+ hours booked in advance</p>
-								</div>
-								<div class="pricing-card">
-									<h4>Project Support</h4>
-									<div class="price" id="project-price">£30/hour</div>
-									<p>Intensive coursework help</p>
-								</div>
-							</div>
+						<div class="about-item">
+							<h3>Currently Listening</h3>
+							<ul>
+								<li>Bizarre Love Triangle, New Order</li>
+								<li>Vienna, Ultravox</li>
+								<li>Wishing, A Flock of Seagulls</li>
+								<li>Starlight, Muse</li>
+								<li>Mr E's Beautiful Blues, Eels</li>
+							</ul>
 						</div>
-
-						<div class="contact-section">
-							<h3>Get in Touch</h3>
-							<div class="contact-methods">
-								<div class="contact-method">
-									<strong>📧 Email:</strong>
-									<a href="mailto:indigogo.nolan@gmail.com">indigogo.nolan@gmail.com</a>
-								</div>
-								<div class="contact-method">
-									<strong>📱 Phone:</strong>
-									<a>+44 7775 156078</a>
-								</div>
-							</div>
-							<p><em>Sessions conducted online via video call. Send me a message with your experience level and learning goals!</em></p>
+						<div class="about-item">
+							<h3>Top Games</h3>
+							<ul>
+								<li>Portal 1 & 2</li>
+								<li>Rimworld</li>
+								<li>OpenTTD</li>
+								<li>Suzerain</li>
+								<li>Papers Please</li>
+								<li>Professor Layton</li>
+								<li>The Sims (2)</li>
+							</ul>
+						</div>
+						<div class="about-item">
+							<h3>Top Books and Films</h3>
+							<ul>
+								<li>Tomorrow and Tomorrow and Tomorrow</li>
+								<li>12 Angry Men</li>
+								<li>Before the Coffee Gets Cold</li>
+								<li>Sinners</li>
+								<li>Smiley's People</li>
+								<li>Duel</li>
+								<li>The Man Who Killed Himself</li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</section>
 
 
-			<section id="aboutme" class="aboutme-section">
-				<h2>About Me</h2>
-				<div class="bio" id="bio">
-					
-					<div tabindex=0 class="bio-item">
-						<h3>Interests</h3>
-						<ul>
-							<li>Learning Languages & Travelling</li>
-							<li><a target='_blank' href="https://www.flickr.com/people/indigon/">Photography</a></li>
-							<li>Reading & Writing</li>
-							<li>History & Politics</li>
-						</ul>
+			<!-- Contact Info (Initially Hidden) -->
+			<section id="contact-info" class="contact-info-section">
+				<div class="contact-content">
+					<h2>Let's get in touch!</h2>
+					<div class="contact-methods">
+						<a href="https://github.com/Lem0naise" target="_blank" class="contact-method" rel="noopener">
+							<span class="contact-icon">💻</span>
+							<span>GitHub</span>
+						</a>
+						<a href="https://linkedin.com/in/indigonolan" target="_blank" class="contact-method" rel="noopener">
+							<span class="contact-icon">👔</span>
+							<span>LinkedIn</span>
+						</a>
+						<a href="mailto:indigogo.nolan@gmail.com" class="contact-method">
+							<span class="contact-icon">📩</span>
+							<span>Email</span>
+						</a>
 					</div>
-					<div tabindex=0 class="bio-item">
-						<h3>Currently Listening</h3>
-						<ul>
-							<li>Bizarre Love Triangle, New Order</li>
-							<li>Vienna, Ultravox</li>
-							<li>Wishing, A Flock of Seagulls</li>
-							<li>Le Chant des Cygnes, Babel Babel</li>
-						</ul>
-					</div>
-
-					<div tabindex=0 class="bio-item">
-						<h3>Top Games</h3>
-						<ul>
-							<li>Portal 1 & 2</li>
-							<li>Rimworld</li>
-							<li>OpenTTD</li>
-							<li>Suzerain</li>
-							<li>Papers Please</li>
-							<li>Professor Layton</li>
-							<li>The Sims (2)</li>
-						</ul>
-					</div>
-					<div tabindex=0 class="bio-item">
-						<h3>Top Books and Films</h3>
-						<ul>
-							<li>Tomorrow and Tomorrow and Tomorrow</li>
-							<li>12 Angry Men</li>
-							<li>Before the Coffee Gets Cold</li>
-							<li>Sinners</li>
-							<li>Smiley's People</li>
-							<li>Duel</li>
-							<li>The Man Who Killed Himself</li>
-						</ul>
-					</div>
-					
 				</div>
-				</section>
 			</section>
-	
-			</main>
+		</main>
 		<script src="js/script.js"></script>
 	</body>
 </html>
+							

@@ -60,6 +60,17 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdown.style.display = 'none';
         }
     });
+    
+    // Smooth scroll behavior for navigation
+    const tabs = document.querySelectorAll('.tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            // Add active class to clicked tab
+            this.classList.add('active');
+        });
+    });
 });
 
 function toggleDropdown() {
@@ -71,13 +82,6 @@ function github() {
     window.open('https://github.com/Lem0naise', '_blank');
 }
 
-// Scroll to tutoring section
-function scrollToTutoring() {
-    document.getElementById('tutoring').scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-    });
-}
 
 // Pricing toggle functionality
 const pricingData = {
@@ -100,7 +104,26 @@ function setPricing(level) {
     event.target.classList.add('active');
     
     // Update prices
-    document.getElementById('individual-price').textContent = pricingData[level].individual;
-    document.getElementById('package-price').textContent = pricingData[level].package;
-    document.getElementById('project-price').textContent = pricingData[level].project;
+    const individualPrice = document.getElementById('individual-price');
+    const packagePrice = document.getElementById('package-price');
+    const projectPrice = document.getElementById('project-price');
+    
+    if (individualPrice) individualPrice.textContent = pricingData[level].individual;
+    if (packagePrice) packagePrice.textContent = pricingData[level].package;
+    if (projectPrice) projectPrice.textContent = pricingData[level].project;
 }
+
+// Handle project item clicks
+document.addEventListener('DOMContentLoaded', function() {
+    const projectItems = document.querySelectorAll('.project-item');
+    projectItems.forEach(item => {
+        const link = item.querySelector('h4 a');
+        if (link) {
+            item.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'A') {
+                    link.click();
+                }
+            });
+        }
+    });
+});
