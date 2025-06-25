@@ -64,7 +64,6 @@ function wordle(){ // this runs on page load or new game button press
 
     document.querySelector('#square' + current_row + current_column).classList.add('selected_square'); // set the first square to selected
 
-
     // keyboard 
     let alphabet = document.createElement("div");
     alphabet.classList.add("alphabet");
@@ -73,16 +72,19 @@ function wordle(){ // this runs on page load or new game button press
 
     var keyboard = [['Q', 'W', 'E', 'R', 'T', 'Y', "U", 'I', 'O', 'P'], ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'], ['Z', 'X', 'C', 'V', 'B', 'N', 'M', '\<', "Enter"]]
 
-    // keyboard
+    // keyboard - create rows properly
     for (i=0;i<keyboard.length;i++){
+        // Create a row container for each keyboard row
+        let keyboardRow = document.createElement("div");
+        keyboardRow.classList.add("keyboard-row");
+        document.querySelector("#alphabet").appendChild(keyboardRow);
+        
         for (j=0;j<keyboard[i].length;j++){
             if (keyboard[i][j] == "<"){
-                document.querySelector("#alphabet").insertAdjacentHTML("beforeend", "<div onclick = 'backspace()' class='alphabet_letter' id = '" + keyboard[i][j] + "'>" + keyboard[i][j]+ "</div>")
+                keyboardRow.insertAdjacentHTML("beforeend", "<div onclick = 'backspace()' class='alphabet_letter' id = '" + keyboard[i][j] + "'>" + keyboard[i][j]+ "</div>")
             }
-            else {document.querySelector("#alphabet").insertAdjacentHTML("beforeend", "<div onclick = 'letter(" + keyboard[i][j] + ".innerHTML.trim())' class='alphabet_letter' id = '" + keyboard[i][j] + "'>" + keyboard[i][j]+ "</div>")}
-          
+            else {keyboardRow.insertAdjacentHTML("beforeend", "<div onclick = 'letter(" + keyboard[i][j] + ".innerHTML.trim())' class='alphabet_letter' id = '" + keyboard[i][j] + "'>" + keyboard[i][j]+ "</div>")}
         }
-        document.querySelector("#alphabet").insertAdjacentHTML("beforeend", "<br/>");
     }
 }
 wordle();
@@ -204,6 +206,7 @@ function submit(){
             current_row += 1; current_column = 0;// go onto the next row
             select(current_row, current_column); // select that square
         }
+   
     }
     else { // the guess is not a valid word / too short
         // make a red flash sort of thing

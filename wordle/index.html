@@ -1,25 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-QQDX6JZ0XF"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'G-QQDX6JZ0XF');
+		</script>
+
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Unlimited Wordle</title>
-		<link rel="stylesheet" href="../stylesheet.css?version=0.1">
-		<link rel="stylesheet" href = "stylesheet.css?version=0.1">
-		<meta name="description" content="Unlimited Wordle"/>
-		<meta name="keywords" content="Zac Nolan, Wordle"/>
-		<meta name="author" content="Zac Nolan"/>
+		<title>Unlimited Wordle - Free Word Game | Indigo Nolan</title>
+		<link rel="stylesheet" href="../stylesheet.css?version=0.4">
+		<link rel="stylesheet" href="stylesheet.css?version=0.2">
+		<link rel="icon" type="image/x-icon" href="../favicon.ico">
+		
+		<meta name="description" content="Play unlimited Wordle games for free! Guess the 5-letter word in 6 tries. No daily limits, infinite puzzles. Created by Indigo Nolan."/>
+		<meta name="keywords" content="Wordle, unlimited wordle, word game, puzzle, free games, 5 letter words, Indigo Nolan"/>
+		<meta name="author" content="Indigo Nolan"/>
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://indigonolan.com/wordle/">
+		<meta property="og:title" content="Unlimited Wordle - Free Word Game">
+		<meta property="og:description" content="Play unlimited Wordle games for free! No daily limits, infinite word puzzles.">
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary">
+		<meta property="twitter:title" content="Unlimited Wordle - Free Word Game">
+		<meta property="twitter:description" content="Play unlimited Wordle games for free! No daily limits, infinite word puzzles.">
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "VideoGame",
+			"name": "Unlimited Wordle",
+			"description": "Free unlimited word guessing game where players have 6 attempts to guess a 5-letter word",
+			"url": "https://indigonolan.com/wordle/",
+			"genre": "Word Game",
+			"gamePlatform": "Web Browser",
+			"operatingSystem": "Any",
+			"applicationCategory": "Game",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"author": {
+				"@type": "Person",
+				"name": "Indigo Nolan",
+				"url": "https://indigonolan.com"
+			}
+		}
+		</script>
 	</head>
 	
 	<body onload="wordle();">
+
 		<div id="warning">
-			Play in portrait / on a bigger device.
-		</div>
-		<button onclick='window.open("..", "_self");' id = "home_button" class = "button">Home</button>
-		<a href="." id = "new_button" class = "button">New Game</a>
-		<div id = "content">
-			<!-- dynamically generated rows -->
+			<div class="warning-content">
+				<h2>📱 Better on bigger screens</h2>
+				<p>This game works best in portrait mode or on larger devices for the optimal experience.</p>
+			</div>
 		</div>
 
+		<main id="game-container">
+			<section class="game-header">
+				<div class="game-title">
+					<h1>Unlimited Wordle</h1>
+				</div>
+				<div class="game-controls">
+					<a href="../portfolio" id="home_button" class="control-btn">← Home</button>
+					<a href="." id="new_button" class="control-btn primary">New Game</a>
+				</div>
+			</section>
+
+			<section id="content" class="game-content">
+				<!-- dynamically generated rows -->
+			</section>
+
+			<section class="game-rules">
+				<details>
+					<summary>How to play</summary>
+					<div class="rules-content">
+						<ul>
+							<li>Guess the word in 6 tries</li>
+							<li>Each guess must be a valid 5-letter word</li>
+							<li>After each guess, tiles change color to show how close you are</li>
+							<li><span class="example correct">Green</span> = letter is in the word and in the right spot</li>
+							<li><span class="example in">Yellow</span> = letter is in the word but wrong spot</li>
+							<li><span class="example wrong">Gray</span> = letter is not in the word</li>
+						</ul>
+					</div>
+				</details>
+			</section>
+		</main>
+
+		<script src="wordle.js"></script>
 	</body>
-	<script src = "wordle.js"></script>
 </html>
