@@ -265,6 +265,7 @@ main {
 	margin-left: 10vw;
 	margin-right: 10vw;
 	cursor: pointer;
+	line-height: 1.3;
 }
 
 .featured-header {
@@ -346,6 +347,7 @@ main {
 	transition: all 0.3s;
 	box-shadow: 0 2px 8px var(--card-shadow);
 	cursor: pointer;
+	line-height: 1.3;
 }
 
 .project-item:hover {
