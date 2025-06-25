@@ -955,13 +955,19 @@ main {
 	.featured-project h3 {
 		font-size: 24px;
 	}
-	
+		
+
+	.project-item {
+		padding: 10px;
+	}
+
 	.projects-grid {
 		grid-template-columns: 1fr;
 		gap: 16px;
 	}
 	
 	.about-grid {
+		max-width: 90vw;
 		grid-template-columns: 1fr;
 		gap: 16px;
 	}
@@ -1048,7 +1054,7 @@ main {
 	}
 	
 	.featured-header {
-		flex-direction: column;
+		flex-direction: row;
 		align-items: flex-start;
 		gap: 12px;
 	}
