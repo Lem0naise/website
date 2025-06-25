@@ -178,7 +178,7 @@
 }
 
 .post-content p {
-    margin: 0 0 24px;
+    margin: 0 0 1.5rem;
 }
 
 .post-content h2 {
@@ -239,7 +239,7 @@
     max-height: 70vh;
     height: auto;
     border-radius: 8px;
-    margin: 0px auto;
+    margin: 10px auto;
     display: block;
     margin-top: 20px;
     border: 1px solid var(--border);
@@ -251,7 +251,6 @@
     color: var(--title);
     text-align: center;
     font-style: italic;
-    margin: -24px 0 32px;
     line-height: 1.4;
 }
 
