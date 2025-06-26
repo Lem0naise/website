@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Not Found - Indigo Nolan</title>
-    <link rel="stylesheet" href="404.css">
+    <link rel="stylesheet" href="stylesheet.css?version=0.4">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta name="description" content="Page not found - Indigo Nolan's website" />
 </head>
@@ -12,24 +12,26 @@
 <body>
     <header id="header">
         <div class="header-content">
-            <div class="logo" onclick="window.location.href='https://indigonolan.com'">
-                <img src="imgs/ghub.webp" alt="GitHub">
-                <span>Indigo Nolan</span>
-            </div>
+            <a class="logo" href="./">Indigo Nolan</a>
             <nav id="menu">
-                <div class="tab" onclick="window.location.href='https://indigonolan.com'">Home</div>
+                <a href="./" class="tab">Home</a>
+                <a href="./portfolio" class="tab">Projects</a>
+                <a href="./tutoring" class="tab">Tutoring</a>
+                <a href="./blog" class="tab">Blog</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <div class="container">
-            <div class="error-content">
-                <h1>404</h1>
-                <h2>Page Not Found</h2>
-                <p>Hmmm, what are you looking for? Whatever it was, it doesn't exist (anymore). If it was something you still want to find, contact me at my new site and I'll see if I can find it!</p>
-                <div class="error-actions">
-                    <button class="home-cta" onclick="window.location.href='https://indigonolan.com'">Go Home</button>
+    <main style="padding-top: 70px;">
+        <div class="welcome-section">
+            <div class="welcome-content">
+                <h1 style="font-size: 120px; font-weight: 700; color: var(--accent); margin: 0 0 16px;">404</h1>
+                <h2 style="font-size: 36px; font-weight: 600; margin: 0 0 24px; color: var(--text);">Page Not Found</h2>
+                <p style="font-size: 18px; color: var(--text-light); margin: 0 0 48px; max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 48px;">
+                    Hmmm, what are you looking for? Whatever it was, it doesn't exist (anymore). If it was something you still want to find, contact me and I'll see if I can find it!
+                </p>
+                <div style="display: flex; justify-content: center; gap: 16px;">
+                    <a href="./" class="view-all-btn" style="text-decoration: none;">Go Home</a>
                 </div>
             </div>
         </div>
