@@ -44,6 +44,7 @@
     font-weight: 600;
     margin: 0;
     color: var(--text);
+    
 }
 
 .post-count {
@@ -186,10 +187,12 @@
 }
 
 .post-content h2 {
-    font-size: 28px;
+    line-height: 1.2;
+    font-size: 32px;
     font-weight: 600;
     margin: 40px 0 20px;
     color: var(--text);
+    font-family: 'Inconsolata', monospace;
 }
 
 .post-content h3 {
@@ -365,7 +368,7 @@
     }
     
     .post-content h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
     
     .post-content h3 {
