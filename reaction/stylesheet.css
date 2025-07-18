@@ -1,8 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+
+:root {
+	--background: #fffef3;
+	--text: #2d2d2d;
+	--text-light: #cecece;
+	--accent: #8b5a83;
+	--accent-light: #a67ca0;
+	--accent-soft: #f0e6ed;
+	--border: #e8e6e0;
+	--card-bg: #ffffff;
+	--success: #7c9885;
+	--warning: #d4a574;
+	--error: #c85a5a;
+}
 
 body {
-	background-color: #292429;
+	background-color: var(--background);
 	margin: 0;
+	font-family: 'Inconsolata', monospace;
 }
 
 #screen {
@@ -11,47 +26,136 @@ body {
     position: absolute;
     z-index: 1;
     pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
 }
+
 #text {
     text-align: center;
     pointer-events: none;
-    font-family:SUSE, "arial";
-    margin-top: 40vh;
-    font-size: 50px;
-    color: #e8e6e3;
+    font-family: 'Inconsolata', monospace;
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
 }
 
-
-.button {
-    position:absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family:SUSE, "arial";
-    font-size: 20px;
-    background-color: #FFFFFF;
-    opacity: 0.5;
-    padding: 20px;
-    background-color: #433b43;
-    border: #29242977;
-    box-shadow: none;
-    border-radius: 20px;
-    transition: opacity .5s;
-    z-index: 20;
-    text-decoration: none;
-    margin-bottom: 20px;
+#main-text {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
 }
-.button:hover {
+
+#sub-text {
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-light);
     opacity: 0.8;
 }
+
+.reaction-time {
+    font-size: 72px !important;
+    font-weight: 700 !important;
+    color: var(--text-light) !important;
+    margin: 16px 0 !important;
+}
+
+.button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Inconsolata', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    z-index: 20;
+    text-decoration: none;
+    color: var(--text);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.button:hover {
+    background-color: var(--accent);
+    color: white;
+    border-color: var(--accent);
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
 #home_button {
-    bottom: 5px;
-    background-color: #423b42;
-    padding: 10px;
-    border-radius: 15px;
-    color:#e8e6e3;
+    bottom: 24px;
+}
+
+/* State-specific styling */
+.screen-waiting {
+    background-color: var(--text) !important;
+}
+
+.screen-waiting #text {
+    color: var(--background) !important;
+}
+
+.screen-go {
+    background-color: var(--background) !important;
+}
+
+.screen-go #text {
+    color: var(--text) !important;
+}
+
+.screen-early {
+    background-color: var(--error) !important;
+}
+
+.screen-early #text {
+    color: white !important;
+}
+
+.screen-success {
+    background-color: var(--success) !important;
+}
+
+.screen-success #text {
+    color: white !important;
 }
 
 @media only screen and (max-width: 800px) {
-	
+    #main-text {
+        font-size: 36px;
+    }
+    
+    .reaction-time {
+        font-size: 56px !important;
+    }
+    
+    #sub-text {
+        font-size: 16px;
+    }
+    
+    .button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    #main-text {
+        font-size: 28px;
+    }
+    
+    .reaction-time {
+        font-size: 42px !important;
+    }
+    
+    #sub-text {
+        font-size: 14px;
+    }
 }
 

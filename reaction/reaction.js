@@ -3,19 +3,14 @@ const white = "#e8e6e3"
 const red = "#962942"
 const green = "#459945"
 var screen_d
-var text
+var mainText
+var subText
 var timer
-
-function home(){
-	alert("yoo");
-	window.href = '..';
-}
-
 
 var state = "stopped";
 // stopped, white
 
-function screen_click(){ // when screen clicked
+function screen_click(){ 
 	if (state=="white"){stopwatch_end();}
 	else if (state=='stopped'){ start();}
 	else if (state =='timer'){ early();}
@@ -24,22 +19,23 @@ function screen_click(){ // when screen clicked
 function start(){
 	clearTimeout(timer);
 	state = "timer";
-	text = document.getElementById("text");
+	mainText = document.getElementById("main-text");
+	subText = document.getElementById("sub-text");
 	screen_d = document.getElementById("screen");
-	screen_d.style.setProperty("background-color", black);
-	text.style.setProperty("color", white);
-	screen_d = document.getElementById("screen");
-	text = document.getElementById("text");
-	text.innerText = "Wait..."
+	
+	// Apply waiting state
+	screen_d.className = "screen-waiting";
+	mainText.innerText = "Wait...";
+	subText.innerText = "";
 
 	let max = 4000;
 	let min = 1000;
-	let wait = Math.random() * (max - min + 1) + min; // random wait time 
+	let wait = Math.random() * (max - min + 1) + min;
 
-	timer = setTimeout(function(){ // once screen turns white
-		screen_d.style.setProperty("background-color", white); 
-		text.style.setProperty("color", black);
-		text.innerText = "Go!";
+	timer = setTimeout(function(){
+		screen_d.className = "screen-go";
+		mainText.innerText = "Go!";
+		subText.innerText = "";
 		state = 'white';
 		stopwatch_start();
 	}, wait)
@@ -49,41 +45,41 @@ function early(){
 	clearTimeout(timer);
 
 	state = 'stopped';
-	text = document.getElementById("text");
-	text.innerText = "Too early!"
-	screen_d = document.getElementById("screen");
-	screen_d.style.setProperty("background-color", red);
+	screen_d.className = "screen-early";
+	mainText.innerText = "Too early!";
+	subText.innerText = "Wait for the signal";
 
-	let wait = 1000;
+	let wait = 1500;
 	timer = setTimeout(function(){ 	
 		start()
 	}, wait)
 }
 
-
 // ~~~ STOPWATCH ~~~~
 
-var t_taken = 0; // time taken
+var t_taken = 0;
 var start_d = new Date;
 var end_d = new Date;
 
-function stopwatch_start(){ // when screen turns white
+function stopwatch_start(){
 	start_d = Date.now()
 }
+
 function stopwatch_end(){
 	state = 'calculating';
 	end_d = Date.now()
 	t_taken = end_d - start_d;
-	let time_str = "Reaction time of "
+	
+	let time_display = "";
 	if (t_taken < 1000){
-		time_str += t_taken + "ms"
-	}
-	else {
-		time_str += t_taken / 1000 + "s"
+		time_display = t_taken + "ms";
+	} else {
+		time_display = (t_taken / 1000).toFixed(2) + "s";
 	}
 
-	screen_d.style.setProperty("background-color", green);
-	text.style.setProperty("color", white);
-	text.innerHTML = time_str + ".<br>Click anywhere to try again.";
+	screen_d.className = "screen-success";
+	mainText.innerHTML = `<span class="reaction-time">${time_display}</span>`;
+	subText.innerText = "Click anywhere to try again";
 	state = 'stopped';
 }
+	
