@@ -237,9 +237,12 @@ main {
 
 /* Content Sections */
 .content-section {
-	padding: 60px 24px;
+	padding: 56px 24px;
 	max-width: 80vw;
 	margin: 0 auto;
+}
+.all-projects {
+	padding-top: 0;
 }
 
 .section-content {
