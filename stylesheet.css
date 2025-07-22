@@ -31,11 +31,6 @@ body {
 
 /* Keyframes for animations */
 
-@keyframes pulse {
-	0%, 100% { transform: scale(1); }
-	50% { transform: scale(1.05); }
-}
-
 
 @keyframes shake {
 	0%, 100% { transform: translateX(0); }
@@ -147,11 +142,6 @@ body {
 	background: var(--accent);
 	color: white;
 	border-color: var(--accent);
-	animation: pulse 2s infinite;
-}
-
-.tab.active:hover {
-	animation: pulse 1s ease-in-out infinite;
 }
 
 /* Main Content */
@@ -416,6 +406,7 @@ main {
 	transition: all 0.3s;
 	position: relative;
 	overflow: hidden;
+	transform: scale(1);
 }
 
 .featured-project::before {
@@ -433,7 +424,6 @@ main {
 .featured-project:hover {
 	transform: scale(1.02);
 	box-shadow: 0 12px 30px rgba(139, 90, 131, 0.3);
-	animation: pulse 2s ease-in-out infinite;
 }
 
 .featured-project:hover::before {
@@ -668,12 +658,12 @@ main {
 
 .view-all-btn:hover {
 	transform: translateY(-2px) scale(1.05);
-	animation: pulse 1.5s ease-in-out infinite;
 }
 
 .view-all-btn:hover::before {
 	left: 0;
 }
+
 
 /* Tutoring Section */
 .tutoring-section {
@@ -815,7 +805,7 @@ main {
 }
 
 .pricing-btn.active:hover {
-	animation: pulse 1s ease-in-out infinite;
+	transform: scale(1.05)
 }
 
 .pricing-grid {
@@ -871,9 +861,6 @@ main {
 	position: relative;
 }
 
-.pricing-card.featured-pricing:hover {
-	animation: pulse 2s ease-in-out infinite;
-}
 
 .pricing-card h4 {
 	color: var(--text);
@@ -1249,7 +1236,13 @@ main {
 .github-special:hover {
 	transform: translateY(-4px) scale(1.02);
 	box-shadow: 0 12px 30px rgba(45, 45, 45, 0.3);
-	animation: rainbow 3s ease-in-out infinite;
+}
+.github-special:hover h4 a{
+	color: var(--accent-soft);
+}
+
+.github-special:hover p {
+	color: var(--accent-soft);
 }
 
 .github-special:hover::before {
@@ -1476,6 +1469,15 @@ main {
 		padding: 24px;
 	}
 }
+
+
+.all-projects {
+	padding-top: 0;
+}
+.first-project {
+	padding-bottom: 0;
+}
+
 
 @media (max-width: 480px) {
 
