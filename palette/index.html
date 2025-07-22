@@ -3,20 +3,55 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Colour Palette Generator</title>
-		<link rel="stylesheet" href = "stylesheet.css?version=0.1">
-		<meta name="description" content="Colour Palette Generator"/>
-		<meta name="keywords" content="Zac Nolan, Colour Palette"/>
-		<meta name="author" content="Zac Nolan"/>
+		<link rel="stylesheet" href="stylesheet.css?version=1.0">
+		<meta name="description" content="Generate beautiful color palettes with multiple harmony modes"/>
+		<meta name="keywords" content="Indigo Nolan, Colour Palette, Color Generator, Design Tools"/>
+		<meta name="author" content="Indigo Nolan"/>
 	</head>
 	
 	<body>
+		<main id="main-content">
+			<!-- Tool Header -->
+			<div class="tool-header">
+				<div class="tool-title">
+					<h1>Colour Palette Generator</h1>
+					<p class="tool-subtitle">Create beautiful, harmonious color palettes for your designs</p>
+				</div>
+				
+				<div class="tool-controls">
+					<div class="harmony-selector">
+						<button id="random-btn" class="harmony-btn active" data-mode="random">Random</button>
+						<button id="monochromatic-btn" class="harmony-btn" data-mode="monochromatic">Monochromatic</button>
+						<button id="analogous-btn" class="harmony-btn" data-mode="analogous">Analogous</button>
+						<button id="complementary-btn" class="harmony-btn" data-mode="complementary">Complementary</button>
+						<button id="triadic-btn" class="harmony-btn" data-mode="triadic">Triadic</button>
+					</div>
+					
+					<div class="action-controls">
+						<button id="generate-btn" class="control-btn primary">Generate New Palette</button>
+						<button id="export-btn" class="control-btn">Export Palette</button>
+					</div>
+				</div>
+			</div>
 
-		<button onclick="generate()" id = "gen_button" class = "button">Generate</button>
-		<button onclick='window.open("..", "_self");' id = "home_button" class = "button">Home</button>
-		<div id = "palette">
-			<!-- dynamically generated columns -->
+			<!-- Palette Display -->
+			<div id="palette-container">
+				<div id="palette" class="palette-grid">
+					<!-- dynamically generated columns -->
+				</div>
+			</div>
+
+			<!-- Simple Instructions -->
+			<div class="instructions">
+				<p><strong>Shortcuts:</strong> Space/Enter = Generate • R = Random Mode • E = Export • Click colors to copy hex codes</p>
+				<!-- Home Button -->
+		<div class="home-button-container">
+			<a href="../portfolio" class="home-btn">← Home</a>
 		</div>
+			</div>
+		</main>
 
+		
 	</body>
-	<script src = "palette.js"></script>
+	<script src="palette.js"></script>
 </html>
