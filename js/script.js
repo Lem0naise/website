@@ -1,16 +1,4 @@
-// Animation helper functions
-function animateElements(elements, startDelay = 0, delayIncrement = 100) {
-    elements.forEach((element, index) => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        setTimeout(() => {
-            element.style.opacity = '1';
-            element.style.transform = 'translateY(0)';
-        }, startDelay + (index * delayIncrement));
-    });
-}
-
-// Intersection Observer for scroll animations
+// Intersection Observer for scroll animations - removed entrance animations
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -19,61 +7,16 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Only add animate class for non-entrance effects
             entry.target.classList.add('animate');
-            
-            // Animate child elements with stagger effect
-            if (entry.target.classList.contains('projects-grid')) {
-                const projectItems = entry.target.querySelectorAll('.project-item');
-                projectItems.forEach((item, index) => {
-                    item.style.setProperty('--item-delay', index);
-                    setTimeout(() => {
-                        item.classList.add('animate');
-                    }, index * 100);
-                });
-            }
-            
-            if (entry.target.classList.contains('about-grid')) {
-                const aboutItems = entry.target.querySelectorAll('.about-item');
-                aboutItems.forEach((item, index) => {
-                    setTimeout(() => {
-                        item.classList.add('animate');
-                    }, index * 200);
-                });
-            }
         }
     });
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Observe elements for scroll animations
-    const animatedElements = document.querySelectorAll('.content-section, .projects-grid, .about-grid, .project-item, .about-item, .options-grid');
+    // Observe elements for scroll animations (non-entrance effects only)
+    const animatedElements = document.querySelectorAll('.content-section');
     animatedElements.forEach(el => observer.observe(el));
-
-    // Animate option cards when options grid comes into view
-    const optionsGrid = document.querySelector('.options-grid');
-    if (optionsGrid) {
-        const optionCards = optionsGrid.querySelectorAll('.option-card');
-        
-        // Create a specific observer for the options grid
-        const optionsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                    
-                    // Animate option cards with stagger
-                    optionCards.forEach((card, index) => {
-                        setTimeout(() => {
-                            card.classList.add('animate');
-                        }, index * 150);
-                    });
-                    
-                    optionsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.3 });
-        
-        optionsObserver.observe(optionsGrid);
-    }
 
     // Add hover sound effect simulation (visual feedback)
     const interactiveElements = document.querySelectorAll('.option-card, .project-item, .contact-method, .tab');
@@ -118,38 +61,8 @@ document.addEventListener('DOMContentLoaded', function() {
             welcomeContent.style.transform = `translateY(${rate}px)`;
             welcomeContent.style.opacity = opacity;
             
-            // Hide options grid when scrolling up past welcome section
-            const welcomeSectionBottom = welcomeSection.offsetTop + welcomeSection.offsetHeight;
-            const optionsGrid = document.querySelector('.options-grid');
-            
-            if (optionsGrid && scrolled > welcomeSectionBottom * 0.7) {
-                optionsGrid.style.opacity = Math.max(0, 1 - (scrolled - welcomeSectionBottom * 0.7) / 200);
-                optionsGrid.style.transform = `translateY(${Math.min(50, (scrolled - welcomeSectionBottom * 0.7) / 4)}px)`;
-            } else if (optionsGrid && optionsGrid.classList.contains('animate')) {
-                optionsGrid.style.opacity = '';
-                optionsGrid.style.transform = '';
-            }
-            
             lastScrollY = scrolled;
         });
-    }
-
-    // Typing effect for welcome message (start immediately, no delay)
-    const welcomeTitle = document.querySelector('.welcome-content h1');
-    if (welcomeTitle) {
-        // Start options grid animation after welcome animations complete
-        setTimeout(() => {
-            const optionsGrid = document.querySelector('.options-grid');
-            if (optionsGrid && !optionsGrid.classList.contains('animate')) {
-                optionsGrid.classList.add('animate');
-                const optionCards = optionsGrid.querySelectorAll('.option-card');
-                optionCards.forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('animate');
-                    }, index * 150);
-                });
-            }
-        },800); // Trigger after swoosh + color sweep complete (1s + 1.5s + 0.3s buffer)
     }
 
     // Handle featured items with anchor links
@@ -309,12 +222,3 @@ function setPricing(level) {
         }
     });
 }
-
-// Add page load animation
-window.addEventListener('load', () => {
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
-});

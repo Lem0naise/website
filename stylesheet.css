@@ -59,7 +59,6 @@ body {
 	border-bottom: 1px solid var(--border);
 	z-index: 1000;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-	animation: fadeInUp 0.6s ease-out;
 }
 
 .header-content {
@@ -174,7 +173,6 @@ main {
 	width: 80vw;
 	padding-bottom: 10vh;
 	top: 0;
-	animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .welcome-content h1 {
@@ -192,7 +190,6 @@ main {
 	color: var(--text-light);
 	margin: 0 0 48px;
 	font-weight: 400;
-	animation: slideInLeft 0.8s ease-out 0.4s both;
 }
 
 .looking-for h2 {
@@ -200,7 +197,6 @@ main {
 	font-weight: 600;
 	margin: 0 0 32px;
 	color: var(--text);
-	animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
 .options-grid {
@@ -211,9 +207,6 @@ main {
 	margin-left: auto;
 	margin-right: auto;
 	justify-content: center;
-	opacity: 0;
-	transform: translateY(50px);
-	transition: all 0.8s ease-out;
 }
 
 .options-grid.animate {
@@ -310,7 +303,6 @@ main {
 	padding: 40px 24px;
 	background: var(--accent-soft);
 	border-top: 1px solid var(--border);
-	animation: fadeInUp 1s ease-out;
 }
 
 .contact-content {
@@ -324,7 +316,6 @@ main {
 	font-weight: 600;
 	margin: 0 0 32px;
 	color: var(--text);
-	animation: fadeInUp 0.8s ease-out;
 }
 
 .contact-methods {
@@ -387,23 +378,6 @@ main {
 	padding: 56px 24px;
 	max-width: 80vw;
 	margin: 0 auto;
-	opacity: 0;
-	transform: translateY(30px);
-	transition: all 0.6s ease-out;
-}
-
-.content-section.animate {
-	opacity: 1;
-	transform: translateY(0);
-}
-
-.all-projects {
-	padding-top: 0;
-}
-
-.section-content {
-	max-width: 80vw;
-	margin: 0 auto;
 }
 
 .content-section h2 {
@@ -421,15 +395,10 @@ main {
 	position: absolute;
 	bottom: -5px;
 	left: 50%;
-	width: 0;
+	width: 60px;
 	height: 3px;
 	background: linear-gradient(90deg, var(--accent), var(--accent-light));
-	transition: all 0.6s ease;
 	transform: translateX(-50%);
-}
-
-.content-section.animate h2::after {
-	width: 60px;
 }
 
 /* Featured Project */
