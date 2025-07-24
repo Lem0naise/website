@@ -12,6 +12,10 @@ class ColorPaletteGenerator {
 		this.colorNameCache = new Map();
 		this.colorsData = null; // Will hold the loaded colors
 		
+		// Golden ratio for aesthetically pleasing spacing
+		this.GOLDEN_RATIO = 1.618033988749;
+		this.PHI = (1 + Math.sqrt(5)) / 2;
+		
 		this.init();
 	}
 
@@ -178,12 +182,21 @@ class ColorPaletteGenerator {
 
 	generateMonochromatic() {
 		const colors = [];
-		const baseSat = 60 + Math.random() * 30;
+		const baseSat = 65 + Math.random() * 25; // Higher base saturation
+		const hueShift = (Math.random() - 0.5) * 20; // Subtle hue shifts for more natural look
+		
+		// Use golden ratio for lightness distribution
+		const lightnessValues = this.getGoldenRatioLightness();
 		
 		for (let i = 0; i < this.NUM_COLS; i++) {
-			const lightness = 20 + (i * 60 / (this.NUM_COLS - 1));
-			const saturation = baseSat - (i * 10);
-			colors.push(this.hslToRgb(this.baseHue, Math.max(saturation, 20), lightness));
+			// Subtle hue variation for more natural monochromatic scheme
+			const hue = (this.baseHue + hueShift * (i / this.NUM_COLS)) % 360;
+			// Saturation curve - higher in middle values, lower at extremes
+			const saturationCurve = 1 - Math.pow((i / (this.NUM_COLS - 1)) * 2 - 1, 2);
+			const saturation = Math.max(15, baseSat * saturationCurve);
+			const lightness = lightnessValues[i];
+			
+			colors.push(this.hslToRgb(hue, saturation, lightness));
 		}
 		
 		return colors;
@@ -191,12 +204,26 @@ class ColorPaletteGenerator {
 
 	generateAnalogous() {
 		const colors = [];
-		const spread = 60; // degrees
+		const spread = 45 + Math.random() * 30; // 45-75 degree spread for better harmony
+		const baseSat = 60 + Math.random() * 30;
+		const baseLightness = 45 + Math.random() * 20;
+		
+		// Use fibonacci sequence for spacing
+		const fibSequence = this.getFibonacciSpacing(this.NUM_COLS);
 		
 		for (let i = 0; i < this.NUM_COLS; i++) {
-			const hue = (this.baseHue + (i * spread / (this.NUM_COLS - 1)) - spread/2) % 360;
-			const saturation = 50 + Math.random() * 40;
-			const lightness = 30 + Math.random() * 50;
+			// Distribute hues using fibonacci ratios for more natural spacing
+			const hueOffset = (fibSequence[i] * spread) - (spread / 2);
+			const hue = (this.baseHue + hueOffset) % 360;
+			
+			// Vary saturation with sine wave for smooth transitions
+			const satVariation = Math.sin((i / (this.NUM_COLS - 1)) * Math.PI) * 20;
+			const saturation = Math.max(30, baseSat + satVariation);
+			
+			// Lightness follows a gentle curve
+			const lightVariation = Math.sin((i / (this.NUM_COLS - 1)) * Math.PI * 2) * 15;
+			const lightness = Math.max(25, Math.min(85, baseLightness + lightVariation));
+			
 			colors.push(this.hslToRgb(hue, saturation, lightness));
 		}
 		
@@ -206,12 +233,32 @@ class ColorPaletteGenerator {
 	generateComplementary() {
 		const colors = [];
 		const complementHue = (this.baseHue + 180) % 360;
+		const baseSat = 65 + Math.random() * 25;
+		const baseLightness = 50 + Math.random() * 20;
+		
+		// Create split-complementary for more sophisticated palette
+		const splitAngle = 30; // degrees
+		const hues = [
+			this.baseHue,
+			(complementHue - splitAngle + 360) % 360,
+			complementHue,
+			(complementHue + splitAngle) % 360,
+			this.baseHue
+		];
 		
 		for (let i = 0; i < this.NUM_COLS; i++) {
-			const useBase = i % 2 === 0;
-			const hue = useBase ? this.baseHue : complementHue;
-			const saturation = 50 + Math.random() * 30;
-			const lightness = 25 + Math.random() * 50;
+			const hue = hues[i];
+			
+			// Weight towards base color family for cohesion
+			const isBaseFamily = i === 0 || i === 4;
+			const saturation = isBaseFamily ? 
+				baseSat + Math.random() * 15 : 
+				baseSat * 0.8 + Math.random() * 20;
+			
+			// Alternate lightness for contrast while maintaining harmony
+			const lightnessOffset = (i % 2 === 0) ? 10 : -10;
+			const lightness = Math.max(20, Math.min(80, baseLightness + lightnessOffset + (Math.random() - 0.5) * 20));
+			
 			colors.push(this.hslToRgb(hue, saturation, lightness));
 		}
 		
@@ -220,12 +267,39 @@ class ColorPaletteGenerator {
 
 	generateTriadic() {
 		const colors = [];
-		const hues = [this.baseHue, (this.baseHue + 120) % 360, (this.baseHue + 240) % 360];
+		const hues = [
+			this.baseHue, 
+			(this.baseHue + 120) % 360, 
+			(this.baseHue + 240) % 360
+		];
+		
+		const baseSat = 60 + Math.random() * 25;
+		const baseLightness = 50 + Math.random() * 15;
+		
+		// Create more sophisticated triadic with supporting colors
+		const extendedHues = [
+			hues[0],
+			(hues[0] + 30) % 360, // Analogous support
+			hues[1],
+			(hues[1] + 30) % 360, // Analogous support
+			hues[2]
+		];
 		
 		for (let i = 0; i < this.NUM_COLS; i++) {
-			const hue = hues[i % 3];
-			const saturation = 50 + Math.random() * 30;
-			const lightness = 30 + Math.random() * 40;
+			const hue = extendedHues[i];
+			const isPrimary = i % 2 === 0; // Primary triadic colors
+			
+			// Primary colors get higher saturation
+			const saturation = isPrimary ? 
+				baseSat + Math.random() * 20 : 
+				baseSat * 0.7 + Math.random() * 15;
+			
+			// Create visual hierarchy with lightness
+			const lightnessVariation = isPrimary ? 
+				(Math.random() - 0.5) * 30 : 
+				(Math.random() - 0.5) * 20;
+			const lightness = Math.max(25, Math.min(75, baseLightness + lightnessVariation));
+			
 			colors.push(this.hslToRgb(hue, saturation, lightness));
 		}
 		
@@ -234,22 +308,126 @@ class ColorPaletteGenerator {
 
 	generateRandom() {
 		const colors = [];
-		const baseColor = [Math.random() * 255, Math.random() * 255, Math.random() * 255];
+		
+		// Use perceptually uniform color distribution
+		const baseHue = Math.random() * 360;
+		const harmony = Math.random();
+		
+		if (harmony < 0.3) {
+			// Warm harmony
+			return this.generateWarmHarmony();
+		} else if (harmony < 0.6) {
+			// Cool harmony  
+			return this.generateCoolHarmony();
+		} else {
+			// Balanced random with good color relationships
+			return this.generateBalancedRandom();
+		}
+	}
+	
+	generateWarmHarmony() {
+		const colors = [];
+		const warmHues = [0, 30, 60, 45, 15]; // Reds, oranges, yellows
+		const baseSat = 70 + Math.random() * 20;
+		const baseLightness = 55 + Math.random() * 15;
 		
 		for (let i = 0; i < this.NUM_COLS; i++) {
-			const variance = Math.random() * 100;
-			const direction = Math.random() > 0.5 ? 1 : -1;
+			const hue = (warmHues[i] + Math.random() * 20 - 10) % 360;
+			const saturation = baseSat + (Math.random() - 0.5) * 25;
+			const lightness = baseLightness + (Math.random() - 0.5) * 30;
 			
-			const color = [
-				Math.max(0, Math.min(255, baseColor[0] + (Math.random() * variance * direction))),
-				Math.max(0, Math.min(255, baseColor[1] + (Math.random() * variance * direction))),
-				Math.max(0, Math.min(255, baseColor[2] + (Math.random() * variance * direction)))
-			];
-			
-			colors.push(color);
+			colors.push(this.hslToRgb(hue, Math.max(40, saturation), Math.max(25, Math.min(80, lightness))));
 		}
 		
 		return colors;
+	}
+	
+	generateCoolHarmony() {
+		const colors = [];
+		const coolHues = [180, 210, 240, 200, 160]; // Blues, cyans, blue-greens
+		const baseSat = 65 + Math.random() * 25;
+		const baseLightness = 50 + Math.random() * 20;
+		
+		for (let i = 0; i < this.NUM_COLS; i++) {
+			const hue = (coolHues[i] + Math.random() * 20 - 10) % 360;
+			const saturation = baseSat + (Math.random() - 0.5) * 20;
+			const lightness = baseLightness + (Math.random() - 0.5) * 35;
+			
+			colors.push(this.hslToRgb(hue, Math.max(35, saturation), Math.max(20, Math.min(85, lightness))));
+		}
+		
+		return colors;
+	}
+	
+	generateBalancedRandom() {
+		const colors = [];
+		const baseHue = Math.random() * 360;
+		
+		// Use golden angle for optimal distribution
+		const goldenAngle = 137.508; // degrees
+		
+		for (let i = 0; i < this.NUM_COLS; i++) {
+			const hue = (baseHue + i * goldenAngle) % 360;
+			
+			// Use beta distribution for more natural saturation
+			const saturation = this.betaDistribution(2, 5) * 60 + 30; // Tends towards medium-high
+			
+			// Use normal distribution for lightness
+			const lightness = this.normalDistribution(50, 15);
+			
+			colors.push(this.hslToRgb(hue, saturation, Math.max(15, Math.min(85, lightness))));
+		}
+		
+		return colors;
+	}
+	
+	// Helper functions for better color distribution
+	getGoldenRatioLightness() {
+		const values = [];
+		const phi = this.GOLDEN_RATIO;
+		
+		for (let i = 0; i < this.NUM_COLS; i++) {
+			// Use golden ratio to create pleasing lightness progression
+			const ratio = i / (this.NUM_COLS - 1);
+			const adjusted = Math.pow(ratio, 1/phi); // Golden ratio curve
+			const lightness = 20 + adjusted * 60; // 20% to 80% range
+			values.push(lightness);
+		}
+		
+		return values;
+	}
+	
+	getFibonacciSpacing(count) {
+		const fib = [0, 1];
+		for (let i = 2; i < count; i++) {
+			fib[i] = fib[i-1] + fib[i-2];
+		}
+		
+		// Normalize to 0-1 range
+		const max = Math.max(...fib);
+		return fib.map(f => f / max);
+	}
+	
+	// Statistical distributions for more natural randomness
+	betaDistribution(alpha, beta) {
+		// Simplified beta distribution using rejection sampling
+		let u1, u2;
+		do {
+			u1 = Math.random();
+			u2 = Math.random();
+		} while (u1 === 0);
+		
+		const x = Math.pow(u1, 1/alpha);
+		const y = Math.pow(u2, 1/beta);
+		return x / (x + y);
+	}
+	
+	normalDistribution(mean, stdDev) {
+		// Box-Muller transform for normal distribution
+		const u1 = Math.random();
+		const u2 = Math.random();
+		const z0 = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+		return mean + z0 * stdDev;
 	}
 
 	findClosestColorName(rgb) {
