@@ -541,6 +541,13 @@ main {
 	margin-bottom: 40px;
 }
 
+.project-item-link {
+	text-decoration: none;
+	color: inherit;
+	display: flex;
+	height: 100%;
+}
+
 .project-item {
 	background: var(--card-bg);
 	border: 1px solid var(--border);
@@ -552,6 +559,10 @@ main {
 	line-height: 1.3;
 	position: relative;
 	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
 }
 
 .project-item::before {
