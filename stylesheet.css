@@ -885,6 +885,7 @@ main {
 	font-weight: 700;
 	color: var(--accent);
 	margin: 0 0 16px;
+	transition: all .3s;
 }
 
 .pricing-card p {
@@ -1075,6 +1076,89 @@ main {
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 	gap: 24px;
 	margin-bottom: 40px;
+}
+
+/* Compact Services Grid for Tutoring */
+.services-intro {
+	text-align: left;
+	font-size: 1.1rem;
+	color: var(--text-light);
+	margin-bottom: 2rem;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.services-grid-compact {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.service-card-compact {
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 12px;
+	padding: 1.25rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	box-shadow: 0 2px 8px var(--card-shadow);
+	position: relative;
+	overflow: hidden;
+}
+
+.service-card-compact::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -100%;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(135deg, var(--accent-soft), transparent);
+	transition: left 0.4s ease;
+	z-index: 0;
+}
+
+.service-card-compact:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px var(--hover-shadow);
+	border-color: var(--accent-light);
+}
+
+.service-card-compact:hover::before {
+	left: 0;
+}
+
+.service-card-compact > * {
+	position: relative;
+	z-index: 1;
+}
+
+.service-icon-small {
+	font-size: 1.75rem;
+	flex-shrink: 0;
+	transition: transform 0.3s ease;
+}
+
+.service-card-compact:hover .service-icon-small {
+	transform: scale(1.15);
+}
+
+.service-card-compact h4 {
+	margin: 0 0 0.25rem 0;
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--text);
+}
+
+.service-card-compact p {
+	margin: 0;
+	font-size: 0.9rem;
+	color: var(--text-light);
+	line-height: 1.3;
 }
 
 .service-card {
@@ -1466,6 +1550,28 @@ main {
 		gap: 16px;
 	}
 	
+	.services-grid-compact {
+		grid-template-columns: 1fr;
+		gap: 0.75rem;
+	}
+	
+	.service-card-compact {
+		padding: 1rem;
+		gap: 0.75rem;
+	}
+	
+	.service-icon-small {
+		font-size: 1.5rem;
+	}
+	
+	.service-card-compact h4 {
+		font-size: 1rem;
+	}
+	
+	.service-card-compact p {
+		font-size: 0.85rem;
+	}
+	
 	.service-card {
 		padding: 20px;
 	}
@@ -1529,6 +1635,29 @@ main {
 	
 	.services-grid {
 		grid-template-columns: 1fr;
+	}
+	
+	.services-grid-compact {
+		grid-template-columns: 1fr;
+		gap: 0.5rem;
+	}
+	
+	.service-card-compact {
+		padding: 0.875rem;
+		gap: 0.625rem;
+	}
+	
+	.service-icon-small {
+		font-size: 1.25rem;
+	}
+	
+	.service-card-compact h4 {
+		font-size: 0.95rem;
+		margin-bottom: 0.125rem;
+	}
+	
+	.service-card-compact p {
+		font-size: 0.8rem;
 	}
 	
 	.service-card {
