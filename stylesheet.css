@@ -75,10 +75,12 @@ body {
 	font-size: 20px;
 	cursor: pointer;
 	transition: all 0.3s;
-	color: var(--text);
+	color: var(--accent-light);
 	text-decoration: none;
 	position: relative;
 	overflow: hidden;
+	animation: rainbow 15s ease-in-out infinite;
+
 }
 
 .logo::before {
@@ -386,7 +388,7 @@ main {
 
 /* Content Sections */
 .content-section {
-	padding: 56px 24px;
+	padding: 45px 24px;
 	max-width: 80vw;
 	margin: 0 auto;
 }
@@ -1374,7 +1376,9 @@ main {
 .section-separator {
     height: 4px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 60px auto;
+    margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 40px;
     max-width: 80%;
     position: relative;
     overflow: hidden;
@@ -1494,7 +1498,7 @@ main {
 	
 	
 	.content-section {
-		padding: 20px 0px;
+		padding: 5px 0px;
 		min-width: 95vw;
 		margin-left: 2.5vw;
 		margin-right: 2.5vw;
@@ -1722,5 +1726,30 @@ main {
 		font-size: 11px;
 		margin-bottom: 4px;
 		padding: 2px 4px;
+	}
+}
+
+/* SVG icon for project titles (replaces emoji) */
+.project-icon {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 0.1em;
+	margin-bottom: 0.15em;
+	fill: var(--accent);
+	animation: rainbowsvg 15s ease-in-out infinite;
+}
+.icon-invert {
+	fill: var(--accent-soft);
+}
+
+/* On mobile, slightly reduce icon size for better fit */
+@media (max-width: 768px) {
+	.project-icon {
+		width: 1.2em;
+		height: 1.2em;
+		margin-right: 0.3em;
+		margin-bottom: 0.1em;
 	}
 }
