@@ -39,8 +39,12 @@ body {
 }
 
 @keyframes rainbow {
-	0% { filter: hue-rotate(0deg); color: var(--accent-light) }
-	50% { filter: hue-rotate(360deg); color: var(--accent-light) }
+	0% { filter: hue-rotate(0deg);  }
+	50% { filter: hue-rotate(360deg); }
+}
+@keyframes rainbowsvg {
+	0% { filter: hue-rotate(0deg); }
+	50% { filter: hue-rotate(360deg); }
 }
 
 /* Header */
@@ -71,10 +75,12 @@ body {
 	font-size: 20px;
 	cursor: pointer;
 	transition: all 0.3s;
-	color: var(--text);
+	color: var(--accent-light);
 	text-decoration: none;
 	position: relative;
 	overflow: hidden;
+	animation: rainbow 15s ease-in-out infinite;
+
 }
 
 .logo::before {
@@ -171,7 +177,7 @@ main {
 	margin: 0 0 16px;
 	color: var(--accent-light);
 	transition: all 0.3s;
-	animation: rainbow 5s ease-in-out infinite;
+	animation: rainbow 15s ease-in-out infinite;
 }
 
 
@@ -246,10 +252,27 @@ main {
 	transform: scale(1.2);
 }
 
+
 .option-icon {
 	font-size: 32px;
 	margin-bottom: 16px;
 	transition: all 0.3s;
+}
+
+.option-img {
+	width: 48px;
+	height: 48px;
+	object-fit: contain;
+	margin-bottom: 16px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	fill: var(--accent);
+	animation: rainbowsvg 15s ease-in-out infinite;
+}
+
+.option-card .option-icon {
+	display: none;
 }
 
 .option-card h3 {
@@ -365,7 +388,7 @@ main {
 
 /* Content Sections */
 .content-section {
-	padding: 56px 24px;
+	padding: 45px 24px;
 	max-width: 80vw;
 	margin: 0 auto;
 }
@@ -1353,7 +1376,9 @@ main {
 .section-separator {
     height: 4px;
     background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 60px auto;
+    margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 40px;
     max-width: 80%;
     position: relative;
     overflow: hidden;
@@ -1367,7 +1392,7 @@ main {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
-    animation: shimmer 3s ease-in-out infinite;
+    animation: shimmer 8s ease-in-out infinite;
 }
 
 @keyframes shimmer {
@@ -1385,6 +1410,15 @@ main {
 }
 
 
+.section-content h2 {
+	color: var(--accent);
+	animation: rainbow 15s ease-in-out infinite;
+}
+
+.contact-content h2 {
+	color: var(--accent);
+	animation: rainbow 15s ease-in-out infinite;
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -1448,23 +1482,19 @@ main {
 		margin-bottom: 4px;
 		display: flex;
 		align-items: center;
+		justify-content: left;
 		gap: 8px;
 	}
-
-	.option-card h3::before {
-		font-size: 20px;
+	.option-img {
+		margin: 0;
+		display: inline;
+		width: 1.5em;
+		height: 1.5em;
 	}
 
-	.option-card:nth-child(1) h3::before { content: "💻"; }
-	.option-card:nth-child(2) h3::before { content: "📚"; }
-	.option-card:nth-child(3) h3::before { content: "📸"; }
-	.option-card:nth-child(4) h3::before { content: "✍️"; }
-	.option-card:nth-child(5) h3::before { content: "🙋‍♂️"; }
-	.option-card:nth-child(6) h3::before { content: "📞"; }
-	
 	
 	.content-section {
-		padding: 20px 0px;
+		padding: 5px 0px;
 		min-width: 95vw;
 		margin-left: 2.5vw;
 		margin-right: 2.5vw;
@@ -1692,5 +1722,30 @@ main {
 		font-size: 11px;
 		margin-bottom: 4px;
 		padding: 2px 4px;
+	}
+}
+
+/* SVG icon for project titles (replaces emoji) */
+.project-icon {
+	width: 1.5em;
+	height: 1.5em;
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 0.1em;
+	margin-bottom: 0.15em;
+	fill: var(--accent);
+	animation: rainbowsvg 15s ease-in-out infinite;
+}
+.icon-invert {
+	fill: var(--accent-soft);
+}
+
+/* On mobile, slightly reduce icon size for better fit */
+@media (max-width: 768px) {
+	.project-icon {
+		width: 1.2em;
+		height: 1.2em;
+		margin-right: 0.3em;
+		margin-bottom: 0.1em;
 	}
 }

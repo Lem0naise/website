@@ -46,24 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Enhanced parallax effect for welcome section with scroll direction
-    const welcomeSection = document.querySelector('.welcome-section');
-    const welcomeContent = document.querySelector('.welcome-content');
-    let lastScrollY = 0;
     
-    if (welcomeSection && welcomeContent) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.3; // Negative for upward movement
-            const opacity = Math.max(0, 1 - scrolled / (window.innerHeight * 0.8));
-            
-            // Apply parallax transform
-            welcomeContent.style.transform = `translateY(${rate}px)`;
-            welcomeContent.style.opacity = opacity;
-            
-            lastScrollY = scrolled;
-        });
-    }
 
     // Handle featured items with anchor links
     const featuredItems = document.querySelectorAll('.featured-item');
