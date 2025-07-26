@@ -1482,20 +1482,16 @@ main {
 		margin-bottom: 4px;
 		display: flex;
 		align-items: center;
+		justify-content: left;
 		gap: 8px;
 	}
-
-	.option-card h3::before {
-		font-size: 20px;
+	.option-img {
+		margin: 0;
+		display: inline;
+		width: 1.5em;
+		height: 1.5em;
 	}
 
-	.option-card:nth-child(1) h3::before { content: "💻"; }
-	.option-card:nth-child(2) h3::before { content: "📚"; }
-	.option-card:nth-child(3) h3::before { content: "📸"; }
-	.option-card:nth-child(4) h3::before { content: "✍️"; }
-	.option-card:nth-child(5) h3::before { content: "🙋‍♂️"; }
-	.option-card:nth-child(6) h3::before { content: "📞"; }
-	
 	
 	.content-section {
 		padding: 5px 0px;
