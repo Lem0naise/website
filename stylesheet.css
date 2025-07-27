@@ -567,8 +567,24 @@ main {
 .project-item-link {
 	text-decoration: none;
 	color: inherit;
-	display: flex;
+	display: block;
 	height: 100%;
+}
+
+.project-item-link:focus .project-item,
+.project-item-link:hover .project-item {
+	/* Forward hover to the card for accessibility */
+	transform: translateY(-4px) rotate(1deg);
+	box-shadow: 0 8px 25px var(--hover-shadow);
+	border-color: var(--accent-light);
+}
+.project-item-link:focus .project-item {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+.project-item-link:active .project-item {
+	transform: scale(0.98);
 }
 
 .project-item {
