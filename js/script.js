@@ -145,6 +145,36 @@ document.addEventListener('DOMContentLoaded', function() {
         // Clean up old trail points
         mouseTrail = mouseTrail.filter(point => Date.now() - point.time < 500);
     });
+    
+    // Short story toggle functionality for blog
+    const shortStoryToggle = document.getElementById('short-story-toggle');
+    if (shortStoryToggle) {
+        let isFilteringShortStories = false;
+        
+        shortStoryToggle.addEventListener('click', function() {
+            const blogPosts = document.querySelectorAll('.blog-post');
+            
+            if (!isFilteringShortStories) {
+                // Show only short stories
+                blogPosts.forEach(post => {
+                    if (!post.classList.contains('short-story')) {
+                        post.classList.add('not-short-story');
+                    }
+                });
+                this.textContent = 'Show All';
+                this.classList.add('active');
+                isFilteringShortStories = true;
+            } else {
+                // Show all posts
+                blogPosts.forEach(post => {
+                    post.classList.remove('not-short-story');
+                });
+                this.textContent = 'Short Stories';
+                this.classList.remove('active');
+                isFilteringShortStories = false;
+            }
+        });
+    }
 });
 
 function toggleDropdown() {
