@@ -161,7 +161,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         post.classList.add('not-short-story');
                     }
                 });
-                this.textContent = 'Show All';
                 this.classList.add('active');
                 isFilteringShortStories = true;
             } else {
@@ -169,7 +168,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 blogPosts.forEach(post => {
                     post.classList.remove('not-short-story');
                 });
-                this.textContent = 'Short Stories';
                 this.classList.remove('active');
                 isFilteringShortStories = false;
             }
