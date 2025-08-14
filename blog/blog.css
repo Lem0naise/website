@@ -303,7 +303,8 @@
 .short-story-content p {
     margin-bottom: 0.0em;
     text-indent: 3em;
-					font-family: "EB Garamond", "SUSE, serif;
+					font-family: "EB Garamond", "SUSE", serif;
+		font-weight: 500;
 }
 .short-story-content p:first-of-type {
     text-indent: 0;
@@ -445,3 +446,4 @@
         font-size: 18px;
     }
 }
+fyip
