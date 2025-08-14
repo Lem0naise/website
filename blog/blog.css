@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=SUSE:wght@400');
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 
 
 .blog-header {
@@ -303,8 +302,7 @@
 .short-story-content p {
     margin-bottom: 0.0em;
     text-indent: 3em;
-					font-family: "EB Garamond", "SUSE", serif;
-		font-weight: 500;
+				
 }
 .short-story-content p:first-of-type {
     text-indent: 0;
