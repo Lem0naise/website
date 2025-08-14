@@ -67,17 +67,15 @@
     font-size: 14px;
     color: var(--title);
     background: var(--item);
-    padding: 6px 12px;
+    padding: 9px 12px;
     border-radius: 6px;
     border: 1px solid var(--border);
     cursor: pointer;
     transition: all 0.3s;
-        font-family: 'Inconsolata', monospace;
+    font-family: 'Inconsolata', monospace;
 }
 
 .toggle-btn:hover {
-    background: var(--accent);
-    color: white;
     border-color: var(--accent);
 }
 
@@ -290,6 +288,17 @@
     margin-top: 20px;
     border: 1px solid var(--border);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.short-story-content {
+
+}
+.short-story-content p {
+    margin-bottom: 0.2em;
+    text-indent: 3em;
+}
+.short-story-content p:nth-child(1) {
+    text-indent: 0;
 }
 
 .caption {
