@@ -855,7 +855,8 @@ main {
 }
 
 .pricing-btn.active:hover {
-	transform: scale(1.05)
+	transform: scale(1.05);
+	color: var(--accent);
 }
 
 .pricing-grid {
@@ -1765,4 +1766,15 @@ main {
 		margin-right: 0.3em;
 		margin-bottom: 0.1em;
 	}
+}
+
+
+
+.small-margin {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.remove-bottom {
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
