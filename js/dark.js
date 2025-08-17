@@ -1,4 +1,5 @@
 let darkMode = localStorage.getItem("dark-mode") | 'false';
+document.body.classList.add('disable-transitions');
 
 (function() { 
     if (localStorage.getItem('dark-mode') === 'true'){
@@ -7,6 +8,9 @@ let darkMode = localStorage.getItem("dark-mode") | 'false';
     else {
         document.body.classList.remove('dark-mode');
     }
+    setTimeout(() => {
+        document.body.classList.remove('disable-transitions');
+    }, 50); // 50ms is usually enough
 })();
 
 document.addEventListener("DOMContentLoaded", function() { 
