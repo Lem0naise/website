@@ -1527,7 +1527,7 @@ main {
 	.featured-project {
 		margin-right: 0;
 		margin-left: 0;
-		margin-bottom: 0;
+		margin-bottom: 15px;
 		padding: 24px;
 	}
 	
