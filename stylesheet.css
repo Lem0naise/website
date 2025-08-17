@@ -78,13 +78,9 @@ body {
 	left: 0;
 	right: 0;
 	background: var(--background);
-	backdrop-filter: blur(10px);
 	border-bottom: 1px solid var(--border);
 	z-index: 1000;
-	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
- 
-
 
 #header svg {
 	height: 20px;
