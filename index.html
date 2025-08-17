@@ -69,7 +69,7 @@
 		</script>
 	</head>
 	
-	<body>
+	<body class="dark-mode">
 		<header id="header">
 			<div class="header-content">
 				<a class="logo" href='./'>Indigo Nolan</a>
@@ -77,6 +77,9 @@
 					<a href="./" class="tab active">Home</a>
 					<a href="./portfolio" class="tab">Projects</a>
 					<a href="./blog" class="tab">Writing</a>
+					<span class="tab tab-svg">
+						<svg onclick="toggle()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path id='toggle-button' d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" /></svg>
+					</span>
 				</nav>
 			</div>
 		</header>
@@ -94,7 +97,7 @@
 								
 								<h3><svg class='option-img'  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6,2C4.89,2 4,2.89 4,4V12C4,13.11 4.89,14 6,14H18C19.11,14 20,13.11 20,12V4C20,2.89 19.11,2 18,2H6M6,4H18V12H6V4M4,15C2.89,15 2,15.89 2,17V20C2,21.11 2.89,22 4,22H20C21.11,22 22,21.11 22,20V17C22,15.89 21.11,15 20,15H4M8,17H20V20H8V17M9,17.75V19.25H13V17.75H9M15,17.75V19.25H19V17.75H15Z" /></svg>
 									My Projects</h3>
-								<p>Games and web development</p>
+								<p>Games + web dev</p>
 							</a>
 
 
@@ -102,7 +105,7 @@
 								<!-- inline SVG from imgs/account.svg -->
 								
 								<h3><svg class ='option-img' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" /></svg> About Me</h3>
-								<p>Interests and hobbies</p>
+								<p>Interests + hobbies</p>
 							</a>
 							
 							
@@ -110,14 +113,14 @@
 								<!-- inline SVG from imgs/camera.svg -->
 								
 								<h3><svg class='option-img'  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z" /></svg> Photography</h3>
-								<p>Journalism, wildlife & more</p>
+								<p>Protests + wildlife</p>
 							</a>
 							
 							<a class="option-card" href="./blog">
 								<!-- inline SVG from imgs/notebook.svg -->
 								
 								<h3><svg class='option-img' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3,7V5H5V4C5,2.89 5.9,2 7,2H13V9L15.5,7.5L18,9V2H19C20.05,2 21,2.95 21,4V20C21,21.05 20.05,22 19,22H7C5.95,22 5,21.05 5,20V19H3V17H5V13H3V11H5V7H3M7,11H5V13H7V11M7,7V5H5V7H7M7,19V17H5V19H7Z" /></svg> Writing and Blog</h3>
-								<p>Random thoughts & short stories</p>
+								<p>Opinions + short stories</p>
 							</a>
 							
 							
@@ -132,7 +135,7 @@
 								<!-- inline SVG from imgs/school.svg -->
 								
 								<h3><svg class='option-img' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z" /></svg> Tutoring</h3>
-								<p>Maths & Computer Science</p>
+								<p>Maths + CS</p>
 							</a>
 
 						</div>
@@ -263,5 +266,6 @@
 			</section>
 		</main>
 		<script src="js/script.js"></script>
+		<script src="js/dark.js"></script>
 	</body>
 </html>

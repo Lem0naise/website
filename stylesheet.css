@@ -13,6 +13,26 @@
 	--hover-shadow: rgba(0, 0, 0, 0.12);
 	--success: #7c9885;
 	--warning: #d4a574;
+	--github-special: #404040;
+}
+
+body.dark-mode {
+	--text: #fffef3;
+	--background: #2d2d2d;
+	--text-light: #b7b7b7;
+	--accent: #aa82a4;
+	--accent-light: #bd92b7;
+	--accent-soft: #3d3d3d;
+	--border: #503f28;
+	--card-bg: #3d3d3d;
+	--card-shadow: rgba(0, 0, 0, 0.08);
+	--hover-shadow: rgba(0, 0, 0, 0.12);
+	--success: #7c9885;
+	--warning: #d4a574;
+	--github-special: #222222;
+}
+body.dark-mode a {
+	color: white;
 }
 
 * {
@@ -53,12 +73,23 @@ body {
 	top: 0;
 	left: 0;
 	right: 0;
-	background: rgba(255, 254, 243, 0.95);
+	background: var(--background);
 	backdrop-filter: blur(10px);
 	border-bottom: 1px solid var(--border);
 	z-index: 1000;
 	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+ 
+
+
+#header svg {
+	height: 20px;
+	padding-bottom: 2px;
+	vertical-align: middle;
+	fill: var(--accent);
+	animation: rainbowsvg 15s ease-in-out infinite;
+}
+
 
 .header-content {
 	max-width: 1200px;
@@ -150,6 +181,17 @@ body {
 	border-color: var(--accent);
 }
 
+.tab-svg {
+	height: 100%;
+}
+.tab-svg.active{
+	background: initial;
+	color: initial;
+	border-color: transparent;
+}
+
+
+
 /* Main Content */
 main {
 	padding-top: 70px;
@@ -240,7 +282,7 @@ main {
 	transform: translateY(-4px) scale(1.02);
 	box-shadow: 0 8px 25px var(--hover-shadow);
 	border-color: var(--accent-light);
-	background: linear-gradient(135deg, var(--card-bg), var(--accent-soft));
+
 }
 
 .option-card:hover::before {
@@ -1018,7 +1060,7 @@ main {
 	left: -100%;
 	width: 100%;
 	height: 100%;
-	background: linear-gradient(135deg, var(--accent-soft), transparent);
+	background: var(--accent-light);
 	transition: left 0.4s ease;
 	z-index: 0;
 }
@@ -1344,7 +1386,7 @@ main {
 
 /* GitHub Special Styling */
 .github-special {
-	background: linear-gradient(135deg, var(--text), #404040);
+	background: var(--accent);
 	color: white;
 	position: relative;
 	overflow: hidden;
@@ -1383,6 +1425,7 @@ main {
 .github-special:hover::before {
 	left: 0;
 }
+
 
 .github-special > * {
 	position: relative;
