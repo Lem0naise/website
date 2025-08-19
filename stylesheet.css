@@ -13,6 +13,7 @@
 	--accent-soft: #f0e6ed;
 	--border: #e8e6e0;
 	--card-bg: #ffffff;
+	--method-bg: #ffffff;
 	--card-shadow: rgba(0, 0, 0, 0.08);
 	--hover-shadow: rgba(0, 0, 0, 0.12);
 	--success: #7c9885;
@@ -29,6 +30,7 @@ body.dark-mode {
 	--accent-soft: #3d3d3d;
 	--border: #503f28;
 	--card-bg: #3d3d3d;
+	--method-bg: #595959;
 	--card-shadow: rgba(0, 0, 0, 0.08);
 	--hover-shadow: rgba(0, 0, 0, 0.12);
 	--success: #7c9885;
@@ -383,7 +385,7 @@ main {
 	align-items: center;
 	gap: 8px;
 	padding: 12px 20px;
-	background: var(--card-bg);
+	background: var(--method-bg);
 	border: 1px solid var(--border);
 	border-radius: 12px;
 	color: var(--text);
