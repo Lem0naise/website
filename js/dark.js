@@ -1,13 +1,17 @@
-let darkMode = localStorage.getItem("dark-mode") | 'false';
 document.body.classList.add('disable-transitions');
 
 (function() { 
-    if (localStorage.getItem('dark-mode') === 'true'){
-        document.body.classList.add("dark-mode");
+    const storedPreference = localStorage.getItem('dark-mode');
+    let isDarkMode;
+
+    if (storedPreference === null){
+        isDarkMode = window.matchMedia &&  window.matchMedia('(prefers-color-scheme: dark)').matches;
+    } else { // user has a preference
+        isDarkMode = storedPreference === 'true'
     }
-    else {
-        document.body.classList.remove('dark-mode');
-    }
+
+    document.body.classList.toggle('dark-mode', isDarkMode);
+
     setTimeout(() => {
         document.body.classList.remove('disable-transitions');
     }, 50); // 50ms is usually enough
