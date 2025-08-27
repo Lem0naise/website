@@ -1770,12 +1770,11 @@ main {
 @media (max-width: 480px) {
 
 	.welcome-content h1 {
-		font-size: 40px;
+		font-size: 32px;
 	}
 	
 	.welcome-subtitle {
-		font-size: 20px;
-		text-align: left;
+		font-size: 18px;
 	}
 	
 	.options-grid {
