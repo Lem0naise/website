@@ -24,7 +24,7 @@
 body {
 	background-color: var(--background);
 	margin: 0;
-	font-family: 'Inconsolata', arial, sans-serif;
+	font-family: var(--font-main), arial, sans-serif;
 	color: var(--text);
 	line-height: 1.6;
 }

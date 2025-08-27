@@ -17,7 +17,7 @@
 body {
 	background-color: var(--background);
 	margin: 0;
-	font-family: 'Inconsolata', monospace;
+	font-family: var(--font-main), monospace;
 }
 
 #screen {
@@ -35,7 +35,7 @@ body {
 #text {
     text-align: center;
     pointer-events: none;
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--font-main), monospace;
     color: var(--text);
     display: flex;
     flex-direction: column;
@@ -67,7 +67,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--font-main), monospace;
     font-size: 16px;
     font-weight: 500;
     background-color: var(--card-bg);

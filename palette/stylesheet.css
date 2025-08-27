@@ -23,7 +23,7 @@
 body {
 	background-color: var(--background);
 	margin: 0;
-	font-family: 'Inconsolata', monospace;
+	font-family: var(--font-main), monospace;
 	color: var(--text);
 	line-height: 1.6;
 	overflow-x: hidden;
@@ -320,7 +320,7 @@ body {
 	font-weight: 700;
 	margin: 0 0 0.5rem 0;
 	color: var(--text);
-	font-family: 'Inconsolata', monospace;
+	font-family: var(--font-main), monospace;
 	letter-spacing: 0.5px;
 }
 
