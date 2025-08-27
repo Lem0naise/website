@@ -299,6 +299,11 @@
     border: 1px solid var(--border);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
+.pixel-image {
+    min-height: 80px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+}
 
 .short-story-content p {
     margin-bottom: 0.0em;
