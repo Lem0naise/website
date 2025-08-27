@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=SUSE:wght@400');
-
-
+@import url('https://fonts.googleapis.com/css2?family=family=Faculty+Glyphic');
 
 .blog-header {
     text-align: center;
@@ -225,7 +223,7 @@
     max-width: 80vw;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Syne Mono';
+    font-family: 'Faculty Glyphic';
 }
 
 .post-content p {
@@ -422,10 +420,11 @@
     }
     
     .post-header {
-        padding: 32px 0 20px;
+        padding: 12px 0 0px;
     }
     
     .post-title {
+        text-align: left;
         font-size: 32px;
     }
     
