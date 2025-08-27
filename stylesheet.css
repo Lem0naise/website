@@ -1642,9 +1642,12 @@ main {
 		margin-right: 0;
 		margin-left: 0;
 		margin-top: 10px;
-		margin-bottom: 0px;
+		margin-bottom: 20px;
 		padding: 24px;
 		padding-bottom: 5px;
+	}
+	.remove-padding {
+		margin-bottom: 0px;
 	}
 
 	
