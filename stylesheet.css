@@ -19,6 +19,8 @@
 	--success: #7c9885;
 	--warning: #d4a574;
 	--github-special: #404040;
+
+	--font-main: 'Inconsolata';
 }
 
 body.dark-mode {
@@ -49,7 +51,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: var(--background);
-	font-family: 'Inconsolata', monospace;
+	font-family: var(--font-main), monospace;
 	color: var(--text);
 	line-height: 1.6;
 	overflow-x: hidden;

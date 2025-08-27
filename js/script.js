@@ -4,39 +4,52 @@ const observerOptions = {
     rootMargin: '0px 0px -50px 0px'
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Observe elements for scroll animations (non-entrance effects only)
-    const animatedElements = document.querySelectorAll('.content-section');
-    animatedElements.forEach(el => observer.observe(el));
-    
-    // Short story toggle functionality for blog
-    const shortStoryToggle = document.getElementById('short-story-toggle');
-    if (shortStoryToggle) {
-        let isFilteringShortStories = false;
-        
-        shortStoryToggle.addEventListener('click', function() {
-            const blogPosts = document.querySelectorAll('.blog-post');
-            
-            if (!isFilteringShortStories) {
-                // Show only short stories
-                blogPosts.forEach(post => {
-                    if (!post.classList.contains('short-story')) {
-                        post.classList.add('not-short-story');
-                    }
-                });
-                this.classList.add('active');
-                isFilteringShortStories = true;
+
+document.addEventListener('DOMContentLoaded', () => {
+    let activeFilters = new Set(); 
+    const tagFilters = document.querySelectorAll('.tag-filter');
+    const blogPosts = document.querySelectorAll('.blog-post');
+    const countElement = document.querySelector('.posts-header h2');
+
+    updatePostCount(blogPosts.length);
+
+    tagFilters.forEach(button => {
+        button.addEventListener('click', () => {
+            const selectedTag = button.dataset.tag;
+            button.classList.toggle('active');
+            if (button.classList.contains('active')) {
+                activeFilters.add(selectedTag);
             } else {
-                // Show all posts
-                blogPosts.forEach(post => {
-                    post.classList.remove('not-short-story');
-                });
-                this.classList.remove('active');
-                isFilteringShortStories = false;
+                activeFilters.delete(selectedTag);
             }
+            filterPosts();
         });
+    });
+
+    function filterPosts() {
+        const activeFiltersArray = [...activeFilters]; // Convert Set to Array for filtering.
+
+        blogPosts.forEach(post => {
+            const postTags = post.dataset.tags ? post.dataset.tags.split(',').map(tag => tag.trim()) : [];
+            const isVisible = activeFilters.size === 0 || activeFiltersArray.some(filter => postTags.includes(filter));
+
+            post.classList.toggle('not-selected', !isVisible);
+        });
+
+        // Update the post count after filtering.
+        const visibleCount = document.querySelectorAll('.blog-post:not(.not-selected)').length;
+        updatePostCount(visibleCount);
     }
-});
+
+    function updatePostCount(count) {
+        if (countElement) {
+            countElement.textContent = `${count} Post${count !== 1 ? 's' : ''}`;
+        }
+    }
+})
+
+// end toggle code
+
 
 // Pricing toggle functionality with animations
 const pricingData = {

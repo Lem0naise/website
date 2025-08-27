@@ -46,8 +46,12 @@
 .header-controls {
     display: flex;
     align-items: center;
-    gap: 12px;
-        font-family: 'Inconsolata', monospace;
+    gap: 8px;
+    font-family: var(--font-main), monospace;
+}
+.header-controls * {
+    flex-wrap: nowrap;
+    flex-shrink: 0;
 }
 
 .posts-header h2 {
@@ -55,19 +59,11 @@
     font-weight: 600;
     margin: 0;
     color: var(--text);
-    
+    flex-shrink: 0;
 }
 
-.post-count {
-    font-size: 14px;
-    color: var(--title);
-    background: var(--item);
-    padding: 6px 12px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-}
 
-.toggle-btn {
+.tag-filter {
     font-size: 14px;
     color: var(--title);
     background: var(--item);
@@ -76,20 +72,23 @@
     border: 1px solid var(--border);
     cursor: pointer;
     transition: all 0.3s;
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--font-main), monospace;
 }
 
-.toggle-btn:hover {
+.tag-filter:hover {
+    background: var(--hover-bg);
     border-color: var(--accent);
 }
 
-.toggle-btn.active {
+.tag-filter.active {
     background: var(--accent);
     color: white;
     border-color: var(--accent);
 }
 
-.not-short-story {
+
+
+.not-selected {
     display: none;
 }
 
@@ -130,6 +129,10 @@
     font-size: 13px;
     color: var(--title);
     display: inline;
+}
+.post-tag {
+    background: var(--accent-soft);
+
 }
 
 .blog-post h3 {
@@ -235,7 +238,7 @@
     font-weight: 600;
     margin: 40px 0 20px;
     color: var(--text);
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--font-main), monospace;
 }
 
 .post-content h3 {
@@ -264,7 +267,7 @@
     border-radius: 8px;
     font-style: italic;
     color: var(--title);
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--font-main), monospace;
 }
 
 .post-content code {
@@ -272,7 +275,7 @@
     border: 1px solid var(--border);
     padding: 2px 8px;
     border-radius: 4px;
-    font-family: 'Inconsolata', 'Menlo', monospace;
+    font-family: var(--font-main), 'Menlo', monospace;
     font-size: 16px;
 }
 
@@ -358,6 +361,11 @@
 }
 
 @media (max-width: 768px) {
+    .header-controls {
+        margin-left: 15px;
+        padding-bottom: 5px;
+    }
+
     .post-information {
         padding: 3px 6px;
     }
@@ -383,8 +391,7 @@
     }
     
     .header-controls {
-        flex-direction: column;
-        align-items: flex-end;
+        overflow: scroll;
         gap: 8px;
     }
     
