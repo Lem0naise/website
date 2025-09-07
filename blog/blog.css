@@ -16,7 +16,6 @@ h2, h3, h4 {
     margin: 0 0 16px;
     letter-spacing: -0.02em;
     line-height: 1;
-
     color: var(--accent-light);
     animation: rainbow 15s ease-in-out infinite;
 }

@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
 
 /* Color palette matching main site */
 :root {
@@ -14,6 +16,7 @@
 	--hover-shadow: rgba(0, 0, 0, 0.12);
 	--success: #7c9885;
 	--warning: #d4a574;
+	--font-main: 'Syne Mono';
 }
 
 * {
