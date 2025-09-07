@@ -4,7 +4,9 @@ title: "Fantasteroids - Deep Dive"
 date: 2022-09-09 14:15:00 +0100
 author: Indigo Nolan
 permalink: /fantasteroids
-tags: project-deep-dive
+tags: 
+    - coding
+    - project-deep-dive
 ---
 [Here's a link to the game!](https://store.steampowered.com/app/1790870/Fantasteroids/)
 
