@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{{page.title}} - Indigo Nolan</title>
+		<link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}">
+
+        <link rel="stylesheet" href="{{'/blog/blog.css' | relative_url }}">
+		<link rel="icon" type="image/x-icon" href="../../favicon.ico">
+		
+		<meta name="description" content="{{page.excerpt | default: site.description | escape | truncate: 100}}"/>
+		<meta name="keywords" content=""/>
+		<meta name="author" content="Indigo Nolan"/>
+
+	
+    	<meta property="og:title" content="{{ page.title | default: site.title }}">
+		<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
+		<meta property="og:url" content="{{ page.url | absolute_url }}">
+		<meta property="og:site_name" content="{{ site.title }}">
+		<meta property="og:type" content="article">
+		{% if page.image %}
+		<meta property="og:image" content="{{ page.image | absolute_url }}">
+		{% elsif site.image %}
+		<meta property="og:image" content="{{ site.image | absolute_url }}">
+		{% endif %}
+
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="{{ page.title | default: site.title }}">
+		<meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
+		<meta name="twitter:image" content="{{ page.image | default: site.image | absolute_url }}">
+
+	</head>
+	
+	<body>
+		<header id="header">
+			<div class="header-content">
+				<a class="logo" href='../'>Indigo Nolan</a>
+				<nav id="menu">
+					<a href="{{ '/' | relative_url}}" class="tab">Home</a>
+					<a href="{{ '/portfolio' | relative_url}}" class="tab">Projects</a>
+
+					<a href="{{ '/blog' | relative_url}}" class="tab active">Writing</a>
+					<span onclick="toggle()" class="tab tab-svg">
+						<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path id='toggle-button' d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" /></svg>
+					</span>
+				</nav>
+			</div>
+		</header>
+
+		<main style="padding-top: 70px;">
+			<article class="post-container">
+				<header class="post-header">
+					<h1 class="post-title">{{page.title}}</h1>
+					<div class="post-meta">
+
+						<div class="post-information">{{ page.date | date: "%B %d, %Y" }}</div>
+						<div class="post-information">Indigo</div>
+						<div class="post-information">{{page.tags}}</div>
+					</div>
+				</header>
+
+				<div class="post-content">
+					{{content}}
+				</div>
+
+				<nav class="post-navigation">
+					<a href="{{ '/blog' | relative_url}}" class="nav-link primary">← Back to Blog</a>
+					<a href="{{ '/' | relative_url}}" class="nav-link">Home</a>
+				</nav>
+			</article>
+		</main>
+	</body>
+	<script src="{{ '/js/dark.js' | relative_url }}"></script>
+</html>

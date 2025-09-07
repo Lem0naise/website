@@ -1,0 +1,38 @@
+---
+layout: default
+title: Blog and Writing
+permalink: /blog/
+description: "Personal blog by Indigo Nolan covering technology, UX design, programming, short stories, and random observations."
+---
+
+<div class="blog-header">
+    <h1>Blog</h1>
+    <p class="blog-subtitle">On my blog, I post random observations, some tech-related, some not, short stories, and project deep-dives. I also publish <a href="https://allegedly.news"> satire news articles at allegedly.news</a>, and write <a href='https://kresimiria.wiki'>fictional worldbuilding at kresimiria.wiki</a>. I hope to improve at all kinds of writing as I practice.</p>
+</div>
+
+<div class="blog-posts">
+    <div class="posts-header">
+        <h2>{{ site.posts.size }} Posts</h2>
+        <div class="header-controls">
+            <button class="tag-filter" data-tag='project'>Projects</button>
+            <button class="tag-filter" data-tag='short-story'>Short Stories</button>
+            <button class="tag-filter" data-tag='thoughts'>Thoughts</button>
+            <button class="tag-filter" data-tag='tech'>Tech / UX</button>
+            <button class="tag-filter" data-tag='random'>Random</button>
+        </div>
+    </div>
+    
+    <div id="blog-posts-container">
+        {% for post in site.posts %}
+        <article class="blog-post" data-tags="{{ post.tags | join: ' ' }}">
+            <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+            <span class="post-information">{{ post.date | date: "%B %d, %Y" }}</span>
+            
+            {% if post.tags.first %}
+            <span class="post-information post-tag">{{ post.tags.first }}</span>
+            {% endif %}
+        </article>
+        {% endfor %}
+    </div>
+    
+</div>
