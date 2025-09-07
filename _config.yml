@@ -1,0 +1,11 @@
+
+title: Indigo's Blog
+email: lemonaise.dev@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  A blog by Indigo Nolan
+baseurl: "/" # the subpath of your site, e.g. /blog
+url: "https://indigonolan.com" # the base hostname & protocol for your site, e.g. http://example.com
+
+
+plugins:
+  - jekyll-feed
