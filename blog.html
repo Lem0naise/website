@@ -7,8 +7,8 @@ description: "Personal blog by Indigo Nolan covering technology, UX design, prog
 
 <div class="blog-header">
     <h1>Blog</h1>
-    <p class="blog-subtitle">Also <a href="{{ "/feed.xml" | relative_url }}">subscribe to the blog's RSS,</a> view my <a href="https://allegedly.news"> satire news articles</a>, or my <a href='https://kresimiria.wiki'>fictional worldbuilding</a>.</p>
-    <div class="section-separator" style="margin-top: 10px; margin-bottom: 10px;"></div>
+
+
     {% capture tags %}
         {% for tag in site.tags %}
             {{ tag[0] }}
@@ -28,6 +28,11 @@ description: "Personal blog by Indigo Nolan covering technology, UX design, prog
 
         <div id="blog-posts-container">
     
+
+
+     <div class="section-separator" style="margin-top: 10px; margin-bottom: 10px;"></div>
+
+
             <h2 class="tag-heading">latest</h2>
             {% for post in site.posts limit: 3 %}
              <article class="blog-post">
@@ -36,6 +41,9 @@ description: "Personal blog by Indigo Nolan covering technology, UX design, prog
                         <span class="post-information">{{ post.tags[0] }}</span>
             </article>
             {% endfor %}
+
+            <p class="blog-subtitle">subscribe via <a href="{{ "/feed.xml" | relative_url }}">RSS</a> • <a href="https://allegedly.news">satire news</a> • <a href='https://kresimiria.wiki'>fictional worldbuilding</a></p>
+   
 
         {% for tag in sortedtags %}
             <div class="tag-group">
