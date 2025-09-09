@@ -1,1 +1,1 @@
-# https://indigonolan.com
+# https://indigo.spot
