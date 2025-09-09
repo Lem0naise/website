@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic');
+
 
 .disable-transitions *, .disable-transitions, .disable-transitions *:before, .disable-transitions *:after {
     transition: none !important;
@@ -21,7 +23,9 @@
 	--github-special: #404040;
 
 	--font-main: 'Syne Mono';
+	--font-small: 'Faculty Glyphic';
 }
+
 
 body.dark-mode {
 	--text: #fffef3;
@@ -201,7 +205,7 @@ main {
 
 /* Welcome Section */
 .welcome-section {
-	min-height: 100vh;
+	min-height: 90vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -210,7 +214,7 @@ main {
 
 .welcome-content {
 	text-align: center;
-	width: 80vw;
+	width: 91vw;
 	padding-bottom: 10vh;
 	top: 0;
 }
@@ -238,7 +242,7 @@ main {
 
 
 .looking-for h2 {
-	font-size: 28px;
+	font-size: 23px;
 	font-weight: 600;
 	margin: 0 0 32px;
 	color: var(--text);
@@ -351,6 +355,18 @@ main {
 .option-card:hover p {
 	color: var(--text);
 }
+
+.smaller {
+	padding: 20px;
+}
+.smaller h3 {
+	font-size: 14px;
+}
+.smaller p {
+	font-size: 12px;
+}
+
+
 
 /* Add staggered delay for option cards */
 .option-card:nth-child(1) { --delay: 0.1s; }
@@ -1165,6 +1181,7 @@ main {
 	line-height: 1.8;
 	color: var(--text-light);
 	text-align: left;
+	font-family: var(--font-small);
 }
 
 .about-item ul li {
@@ -1574,6 +1591,7 @@ main {
 	}
 	
 	.welcome-section {
+		padding-top: 1.5rem;
 		padding-left: 0;
 		padding-right: 0;
 	}
@@ -1587,15 +1605,17 @@ main {
 	.welcome-subtitle {
 		font-size: 20px;
 	}
-	
 	.welcome-content h1 {
 		margin: 0;
 	}
 	.looking-for h2 {
-		font-size: 20px;
+		font-size: 16px;
 		margin-bottom: 0px;
 	}
 	
+	.options-grid {
+		align-items: baseline;
+	}
 	.option-card {
 		padding: 5px;
 		padding-left: 15px;
@@ -1603,6 +1623,7 @@ main {
 		flex-shrink: 0;
 		text-align: left;
 	}
+
 
 
 	.option-icon {
@@ -1622,6 +1643,14 @@ main {
 		width: 1.5em;
 		height: 1.5em;
 	}
+
+	.smaller h3 {
+		font-size: 18px;
+	}
+	.smaller p {
+		font-size: 14px;
+	}
+
 
 	
 	.content-section {
@@ -1786,7 +1815,7 @@ main {
 	}
 	
 	.option-card {
-		padding: 16px;
+		padding: 10px;
 	}
 	
 	.featured-header {
