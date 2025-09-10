@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic');
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
 
 .blog-header {
     text-align: center;
@@ -63,35 +63,6 @@ h2, h3, h4 {
     flex-shrink: 0;
 }
 
-
-.tag-filter {
-    font-size: 14px;
-    color: var(--title);
-    background: var(--item);
-    padding: 9px 12px;
-    border-radius: 6px;
-    border: 1px solid var(--border);
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: var(--font-main), monospace;
-}
-
-.tag-filter:hover {
-    background: var(--hover-bg);
-    border-color: var(--accent);
-}
-
-.tag-filter.active {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
-}
-
-
-
-.not-selected {
-    display: none;
-}
 
 .blog-post {
     background: var(--item);
