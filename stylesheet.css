@@ -24,6 +24,7 @@
 	--success: #7c9885;
 	--warning: #d4a574;
 	--github-special: #404040;
+	--border-colour: #222222;
 
 	--font-main: 'Syne Mono';
 	--font-small: 'Faculty Glyphic';
@@ -46,6 +47,8 @@ body.dark-mode {
 	--success: #7c9885;
 	--warning: #d4a574;
 	--github-special: #222222;
+
+	--border-colour: white;
 }
 body.dark-mode a {
 	color: white;
