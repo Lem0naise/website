@@ -961,8 +961,11 @@ main {
 
 /* Enhanced separator for mobile */
 @media (max-width: 768px) {
+	.project-links {
+		display: none;
+	}
     .section-separator {
-        margin: 40px auto;
+        margin: 20px auto;
         max-width: 90%;
     }
 }

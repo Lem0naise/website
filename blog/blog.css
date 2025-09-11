@@ -2,7 +2,7 @@
 
 .blog-header {
     text-align: center;
-    padding: 40px 0 10px;
+    padding: 10px 0 10px;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -201,6 +201,7 @@ h2, h3, h4 {
     font-family: 'Faculty Glyphic';
 }
 .tag-heading {
+    margin-bottom: 1rem;
     text-decoration: underline;
 }
 .post-content p {
@@ -350,7 +351,7 @@ h2, h3, h4 {
         padding: 3px 6px;
     }
     .blog-header {
-        padding: 10px 16px 5px;
+        padding: 5px 16px 5px;
     }
     
     .blog-header h1 {
