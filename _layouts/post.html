@@ -54,7 +54,11 @@
 					<div class="post-meta">
 
 						<div class="post-information">{{ page.date | date: "%B %d, %Y" }}</div>
-						<div class="post-information">{{page.tags | join: ' • '}}</div>
+						<div class="post-information">
+							{% for tag in page.tags %}
+							<a href="{{'/blog#' | append: tag | relative_url}}">{{ tag }}</a> {% unless forloop.last%} • {% endunless %}
+							{% endfor %}
+						</div>
 					</div>
 				</header>
 
