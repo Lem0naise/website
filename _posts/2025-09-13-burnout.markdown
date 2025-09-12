@@ -1,0 +1,50 @@
+---
+layout: post
+title: "Burnout and impostor syndrome (take life a little slower)"
+date: 2025-09-13 00:41:00 +0100
+author: Indigo Nolan
+permalink: /blog/burnout
+tags: 
+  - reflection
+  - coding
+---
+Burnout sucks. We've all been there, developers, creatives, students, everybody. You've been working on a project for months, you've almost finished a chapter in your book, you're 90% done with your assignment but - you just can't keep going. 
+
+I struggle with burnout a lot. As somebody who loves coding, I spend most of my time with my head buried in IDEs and the terminal. However, I'm also (like many people) notoriously bad at finishing projects. I'm getting better at this, and it's important to train your brain to focus better, but burnout can come at you when you're least expecting it. 
+
+Most recently, I've been trying to expand my Political Playground game (that's been out for a while now) into a new format, using Voronoi diagrams for electoral map generation and bundling all of the code into a simpler, and lighter Vite app. That sounds exciting, right? (If you have no idea what I'm talking about, just keep reading, I don't nerd out again. If you're a nerd about map games and coding, I'll write another post about this later.) 
+
+But for some reason, I keep opening and closing my laptop, opening and closing my editor, and procrastinating basic tasks for days on end. I just can't get anywhere with it, not because I'm not interested in it (I would love to finish and play it) or because I'm running into technical problems (though there'll be lots of them down the line) but just because I can't find the energy or motivation to do it.
+
+## Take life a little slower
+
+Burnout can come from many different problems. In this case, I think I need to take some time away from my laptop. I have piles of books waiting to be read, and an immense outdoors waiting for long walks to be taken, and I think I will indulge that for a little while. Spending too much time in the same environment can lead to stagnation in your creative process, and ideas don't flow as well when you're focusing hard on things than when you're relaxed. 
+
+But it's hard to relax, when as a Computer Science student myself, the 'grind mindset' of internships and constantly building and shipping things is being shoved down my throat nonstop. Burnout isn't an isolated problem - it more often than not correlates with things like impostor syndrome, anxiety, feeling overwhelmed, or outpaced by people around you. All of which I, and many if not all students, will experience at frequent points in their life. 
+
+Nowhere is this grind mindset more visible and overwhelming than on social media. I spend a lot of time on Twitter nowadays, almost certainly way too much. I like it because I've perfected my algorithm over the years and it shows me a great balance of what I like - politics, creative writing, techy stuff, and lots of developers I follow who are making cool stuff. (My favourite at the moment is @dhh, the inventor of Ruby on Rails, who's making Omarchy Linux - check him out if you haven't seen, some truly excellent stuff there.)
+
+All of this overwhelms me to an extent. Every day when I scroll twitter I am bombarded with the dismal state of the world right now, immediately followed by some 18-year old college dropout living in San Francisco, who has just created another utterly meaningless AI company with a $300mln ARR. If you know what I'm talking about, you will almost certainly have seen dozens of seemingly identical AI startups being sold at ridiculous valuations. 
+
+The impostor syndrome grows by the day. How can I, somebody who struggles to even finish a passion project, compete with people younger than me who are selling their companies for millions? Especially when it seems like their companies are all 'AI-powered bespoke business solutions for clients around the world to drive increases in shareholder value'. (I know this is a limited and naive view, and I'm sure each AI start-up has their noble goal, but this is what it looks like from the outside, just so you know.) 
+
+It all makes me think 'oh, I should get into AI, this is where all the money is.' But there's a reason I haven't yet. And I realised recently, it's simply because I don't want to. I don't *want* to create a ChatGPT wrapper. There may be one day where I think of an amazing idea involving AI and become super passionate about an AI-powered project, but right now I don't *want* to build a project involving AI, and why should I, just because that's what all the companies are shouting for? 
+
+## The value of real work
+
+The other day, I saw somebody on Twitter raving about this method they use to make hundreds of thousands of pounds from Amazon. Usually, when somebody is saying this, it's a scam to sell you their $1000 get rich quick course, but in this case it seemed like they were legit. However, the method they used depressed the hell out of me. They claimed to be a "writer", and their "method" was, you guessed it, churning out thousands of AI-generated eBooks, one of which will go viral on Tiktok and you'll sell hundreds and thousands of $3 copies of the book on Amazon, for little to no effort. 
+
+This saddens me in many ways. Not only the fact that it works, which means people are morally bankrupt enough to sell and buy AI generated books, but that people actually make money off this. We could all do this right now, for a limited time until Amazon clamps down, but we could each make a little bit of money from this. But should we? Is it worth sacrificing yourself for that? Is it worth stooping to that level? As somebody who likes to call themselves creative, and I've written quite a lot before, it hurts to see people finding the 'ultimate shortcut', 'the hack', to something where the process of creating is as integral, if not more, than the final product itself. 
+
+Burnout is often caused by lack of  tangible results. If you are working on something which you genuinely care about, but other people fail to see the value in, like a passion project, then burnout can come quick and fast. You see peers around you have quicker and greater success, from something you believe is less valuable. That's the reality of life - people see value in all sorts of things, some people are natural salespeople and will simply be more successful because of how they approach building and creating things. An author can write the best book known to humanity, but if they keep it hidden away, nobody will be any the wiser. Equally, somebody can make middling software, but be the world's greatest salesperson, and make billions. (See: Oracle, Atlassian). 
+
+It's hard to know how to progress when you're in a burnout rut. I think a break is simple, but the most important first step. Whether you're a student, a working professional, a freelancer, or anybody else, taking some screen-free time for yourself is incredibly important. Banging your head against VS Code again and again isn't going to magically make your code work - but taking a couple days off the project, drinking lots of water, and going for some walks, might clear your mind like you've never experienced before. 
+
+If you find yourself caught up in the whirl of intensity that I often am, I would also recommend you take some time to think about what life, and more specifically your career and what you do with your life, means to you. It's absolutely worth it to spend time on creative projects you care about. It's absolutely worth it to spend time on projects you believe other people will appreciate, and it's most importantly absolutely worth it to spend time working hard to achieve academic or professional goals that you don't necessarily enjoy but you know will help you get further in life. 
+
+But it's *not* worth doing these things if they are detrimental to your mental and physical health, your wellbeing or your human relationships. Burnout and impostor syndrome thrive when our mental health declines, and it's incredibly easy to spiral and take both your productivity and enjoyment of life down with you. 
+
+Life is not a race, despite what everything tells us daily, and creativity isn't a competition. We each will have different outlooks on life, and that's okay. Many people treat life as a competition, and if that works for you, congratulations. Many other people, like me, are constantly stressed about the competitive state of life. But it's important to understand that this is a construct - you can disengage from it, and take life at your own pace. 'Getting left behind' is a reasonable fear I hear from others and myself frequently, but that's another thing that is worth thinking about and getting over. You can get left behind. That's okay. This isn't a race. You can go to university at the age of fifty. You can start writing a book at the age of thirty. You can change careers at the age of sixty-five. These are all things that people do, and will always do. 
+
+To think about such existential things like these, we will also all have different coping mechanisms. When I find myself stressed by the rapid pace of the overwhelming world, I like to detach from reality. I like to take a walk in the closest green space I can find, like a park or a riverside, and read a book in the fresh air. I find it helps my brain relax, and teaches me to take life a little slower. 
+
