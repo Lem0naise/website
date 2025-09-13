@@ -798,6 +798,9 @@ main {
 .about-item:hover::before {
 	left: 0;
 }
+.about-item b {
+	text-decoration: underline;
+}
 
 .about-item:nth-child(even):hover {
 	transform: translateY(-6px) rotate(-2deg);
