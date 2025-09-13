@@ -4,7 +4,6 @@
 .tutoring-section {
 	background: var(--accent-soft);
 	border-radius: 20px;
-	margin: 40px 0;
 	margin: auto auto;
 }
 
@@ -428,10 +427,6 @@
 
 
 
-.small-margin {
-	padding-left: 10px;
-	padding-right: 10px;
-}
 .remove-bottom {
 	margin-bottom: 0;
 	padding-bottom: 0;

@@ -1,18 +1,18 @@
 // Pricing toggle functionality with animations
 const pricingData = {
-    gcse: {
+    g: {
         individual: '£25/hour',
         package: '£20/hour',
         project: '£30/hour'
     },
-    alevel: {
+    a: {
         individual: '£30/hour',
         package: '£25/hour',
         project: '£35/hour'
     }
 };
 
-function setPricing(level) {
+function setPricing(level, targetButton) {
     // Update active button with animation
     const buttons = document.querySelectorAll('.pricing-btn');
     buttons.forEach(btn => {
@@ -20,11 +20,11 @@ function setPricing(level) {
         btn.style.transform = 'scale(1)';
     });
     
-    event.target.classList.add('active');
-    event.target.style.transform = 'scale(1.05)';
+    targetButton.classList.add('active');
+    targetButton.style.transform = 'scale(1.05)';
     
     setTimeout(() => {
-        event.target.style.transform = 'scale(1)';
+        targetButton.style.transform = 'scale(1)';
     }, 200);
     
     // Update prices with fade animation
@@ -47,3 +47,13 @@ function setPricing(level) {
         }
     });
 }
+
+// Add event listeners
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.pricing-btn').forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            const level = btn.dataset.level; // Add data-level="gcse" to HTML
+            setPricing(level, event.target);
+        });
+    });
+});
