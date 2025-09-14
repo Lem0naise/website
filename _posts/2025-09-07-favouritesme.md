@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Why I built favourites.me"
+title: "Why I'm building favourites.me"
 date: 2025-09-07 18:00:00 +0100
 author: Indigo Nolan
 permalink: /favourites-me
 tags: 
     - coding
-    - project-deep-dive
+    - project-updates
 ---
 I have always been a bit of a nerd about statistics and collecting data. I've kept a journal for over seven years, and I religiously track books I read, movies I watch, and games I play. Until about a year ago, I did what most people do and tracked my books and reviewed them on [Goodreads](https://www.goodreads.com), my movies on [Letterboxd](https://letterboxd.com), and my games on [Steam](https://store.steampowered.com). 
 
