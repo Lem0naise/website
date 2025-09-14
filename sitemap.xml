@@ -9,127 +9,132 @@
 
 <url>
   <loc>https://indigo.spot/</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://indigo.spot/portfolio/</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://indigo.spot/blog/</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://indigo.spot/photos</loc>
-  <lastmod>2025-09-11T14:09:36+00:00</lastmod>
+  <loc>https://indigo.spot/photos/</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://indigo.spot/tutoring/</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
-  <priority>0.70</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/portfolio/IndigoNolan-Resume.pdf</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://indigo.spot/wordle/</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://indigo.spot/blog/bad-ux-design-undermining-democracy</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://indigo.spot/reaction/</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/palette/</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://indigo.spot/portfolio/IndigoNolan-Resume.pdf</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <priority>0.80</priority>
 </url>
 <url>
   <loc>https://indigo.spot/favourites-me</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/the-ease-of-contactless</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/shifting-nature-of-a-political-party</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/fantasteroids</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/wordle/</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/reaction/</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/palette/</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/burnout</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/the-ease-of-contactless</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/shifting-nature-of-a-political-party</loc>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/blog/online-safety-act</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/bad-ux-design-undermining-democracy</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/blog/stop-putting-ai-everywhere</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/blog/monopoly-is-designed-to-be-bad</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/blog/black-and-white-phone</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/blog/qwerty</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/blog/language-as-lossy-compression</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/writing/when-its-cold-id-like-to-die</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/writing/2245</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/writing/solstice-and-sulphur</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/writing/hot-hot-coffee</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/wordle/.</loc>
-  <lastmod>2025-09-09T14:08:36+00:00</lastmod>
+  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 
