@@ -128,11 +128,16 @@ body {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	left: 0;
+
+	transform: translateX(-100%);
+
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(90deg, transparent, rgba(139, 90, 131, 0.2), transparent);
-	transition: left 0.5s;
+	transition: transform 0.5s;
+
+	will-change: transform;
 }
 
 .logo:hover {
@@ -141,7 +146,7 @@ body {
 }
 
 .logo:hover::before {
-	left: 100%;
+	transform: translateX(100%);
 }
 
 #menu {
@@ -167,12 +172,15 @@ body {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	transform: translateX(-100%);
 	width: 100%;
 	height: 100%;
+	left: 0;
 	background: var(--accent-soft);
-	transition: left 0.3s ease;
+	transition: transform 0.3s ease;
 	z-index: -1;
+
+	will-change: transform;
 }
 
 .tab:hover {
@@ -182,7 +190,7 @@ body {
 }
 
 .tab:hover::before {
-	left: 0;
+	transform: translateX(0);
 }
 
 .tab.active {
@@ -267,12 +275,15 @@ main {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(135deg, var(--accent-soft), var(--accent-light));
-	transition: left 0.4s ease;
+	transition: transform 0.4s ease;
 	z-index: -1;
+
+	will-change: transform;
+	transform: translateX(-100%);
 }
 
 .option-card:hover {
@@ -282,7 +293,7 @@ main {
 }
 
 .option-card:hover::before {
-	left: 0;
+	transform: translateX(0);
 }
 
 .option-img {
@@ -389,12 +400,16 @@ main {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background: var(--accent);
-	transition: left 0.3s ease;
+	transition: transform 0.3s ease;
 	z-index: -1;
+
+	will-change: transform;
+
+	transform: translateX(-100%);
 }
 
 .contact-method:hover {
@@ -405,7 +420,7 @@ main {
 }
 
 .contact-method:hover::before {
-	left: 0;
+	transform: translateX(0);
 }
 
 /* Content Sections */
@@ -545,12 +560,15 @@ main {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background: rgba(255, 255, 255, 0.3);
-	transition: left 0.3s ease;
+	transition: transform 0.3s ease;
 	z-index: -1;
+
+	transform: translateX(-100%);
+	will-change: transform;
 }
 
 .primary-link:hover {
@@ -558,7 +576,7 @@ main {
 }
 
 .primary-link:hover::before {
-	left: 0;
+	transform: translateX(0);
 }
 
 /* Projects Grid */
@@ -598,12 +616,15 @@ main {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	left:0;
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(135deg, var(--accent-soft), transparent);
-	transition: left 0.4s ease;
 	z-index: 0;
+
+	transform: translateX(-100%);
+	will-change: transform;
+	transition: transform 0.4s ease;
 }
 
 .project-item:hover {
@@ -613,7 +634,7 @@ main {
 }
 
 .project-item:hover::before {
-	left: 0;
+	transform: translateX(0);;
 }
 
 .project-item:nth-child(even):hover {
@@ -692,12 +713,16 @@ main {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background: var(--accent);
-	transition: left 0.3s ease;
+	transition: transform 0.3s ease;
 	z-index: -1;
+
+	will-change: transform;
+
+	transform: translateX(-100%);
 }
 
 .project-blog-button:hover {
@@ -708,7 +733,7 @@ main {
 }
 
 .project-blog-button:hover::before {
-	left: 0;
+	transform: translateX(0);
 }
 
 
@@ -737,12 +762,16 @@ main {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background: var(--accent-light);
-	transition: left 0.3s ease;
+	transition: transform 0.3s ease;
 	z-index: -1;
+
+	will-change: transform;
+
+	transform: translateX(-100%);
 }
 
 .view-all-btn:hover {
@@ -750,7 +779,7 @@ main {
 }
 
 .view-all-btn:hover::before {
-	left: 0;
+	transform: translateX(0);
 }
 
 
@@ -759,10 +788,15 @@ main {
 /* About Section */
 .about-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	grid-template-columns: 1fr 1fr;
 	gap: 24px;
 	max-width: 80vw;
 	margin: 0 auto;
+}
+
+.about-stretch {
+	grid-column: 1 / -1;
+	grid-row: 2;
 }
 
 .about-item {
@@ -777,27 +811,12 @@ main {
 	overflow: hidden;
 }
 
-.about-item::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
-	background: var(--accent-light);
-	transition: left 0.4s ease;
-	z-index: 0;
-}
-
 .about-item:hover {
 	transform: translateY(-6px) rotate(2deg);
 	box-shadow: 0 12px 30px var(--hover-shadow);
 	border-color: var(--accent-light);
 }
 
-.about-item:hover::before {
-	left: 0;
-}
 .about-item b {
 	text-decoration: underline;
 }
@@ -862,12 +881,16 @@ main {
 	content: '';
 	position: absolute;
 	top: 0;
-	left: -100%;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background: var(--accent-light);
-	transition: left 0.3s ease;
+	transition: transform 0.3s ease;
 	z-index: -1;
+
+	will-change: transform;
+
+	transform: translateX(-100%);
 }
 
 .about-item ul li:hover {
@@ -876,7 +899,7 @@ main {
 }
 
 .about-item ul li:hover::before {
-	left: 0;
+	transform: translateX(0);
 }
 
 /* Services Grid */
@@ -903,11 +926,6 @@ main {
 
 .github-special::before {
 	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
 	background: linear-gradient(135deg, #404040, var(--text));
 	transition: left 0.4s ease;
 	z-index: 0;
@@ -920,10 +938,6 @@ main {
 
 .github-special:hover p {
 	color: var(--accent-soft);
-}
-
-.github-special:hover::before {
-	left: 0;
 }
 
 
@@ -949,21 +963,27 @@ main {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
+    left: 0;
+
+	transform: translateX(-100%);
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
     animation: shimmer 8s ease-in-out infinite;
+
+	will-change: transform;
 }
 
 @keyframes shimmer {
-    0% { left: -100%; }
-    50% { left: 100%; }
-    100% { left: -100%; }
+    0% { transform: translateX(-100%); }
+    50% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
 /* Enhanced separator for mobile */
 @media (max-width: 768px) {
+
+
 	.project-links {
 		display: none;
 	}
@@ -1126,15 +1146,14 @@ main {
 		gap: 16px;
 	}
 	
+	
 	.about-grid {
-		max-width: 90vw;
+		max-width: 95vw;
 		grid-template-columns: 1fr;
 		gap: 16px;
 	}
-	
-	.about-grid {
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-		gap: 16px;
+	.about-stretch {
+		grid-row: 3;
 	}
 	
 	.about-item {
