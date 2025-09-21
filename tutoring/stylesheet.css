@@ -58,26 +58,11 @@
 	overflow: hidden;
 }
 
-.tutoring-section li::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(90deg, var(--accent-soft), var(--accent-light));
-	transition: left 0.3s ease;
-	z-index: -1;
-}
 
 .tutoring-section li:hover {
 	border-color: var(--accent-light);
 	transform: translateX(4px);
 	color: white;
-}
-
-.tutoring-section li:hover::before {
-	left: 0;
 }
 
 .pricing-header {
@@ -163,27 +148,12 @@
 	overflow: hidden;
 }
 
-.pricing-card::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: -100%;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(135deg, var(--accent-soft), transparent);
-	transition: left 0.4s ease;
-	z-index: 0;
-}
-
 .pricing-card:hover {
 	transform: translateY(-4px) scale(1.02);
 	box-shadow: 0 8px 25px var(--hover-shadow);
 	border-color: var(--accent-light);
 }
 
-.pricing-card:hover::before {
-	left: 0;
-}
 
 .pricing-card > * {
 	position: relative;
