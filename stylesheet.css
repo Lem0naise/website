@@ -96,6 +96,7 @@ body {
 	height: 20px;
 	padding-bottom: 4px;
 	vertical-align: middle;
+	will-change: filter;
 	fill: var(--accent);
 	animation: rainbowsvg 15s ease-in-out infinite;
 }
@@ -142,7 +143,7 @@ body {
 
 .logo:hover {
 	color: var(--accent);
-	animation: wobble 0.6s ease-in-out;
+
 }
 
 .logo:hover::before {
@@ -500,9 +501,6 @@ main {
 	transition: all 0.3s;
 }
 
-.featured-project:hover h3 {
-	animation: wobble 0.6s ease-in-out;
-}
 
 .featured-badge {
 	background: rgba(255, 255, 255, 0.2);
@@ -612,30 +610,12 @@ main {
 	height: 100%;
 }
 
-.project-item::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left:0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(135deg, var(--accent-soft), transparent);
-	z-index: 0;
-
-	transform: translateX(-100%);
-	will-change: transform;
-	transition: transform 0.4s ease;
-}
-
 .project-item:hover {
 	transform: translateY(-4px) rotate(1deg);
 	box-shadow: 0 8px 25px var(--hover-shadow);
 	border-color: var(--accent-light);
 }
 
-.project-item:hover::before {
-	transform: translateX(0);;
-}
 
 .project-item:nth-child(even):hover {
 	transform: translateY(-4px) rotate(-1deg);
@@ -673,9 +653,7 @@ main {
 	transition: all 0.3s;
 }
 
-.project-item:hover h4 {
-	animation: wobble 0.6s ease-in-out;
-}
+
 
 .project-item:hover h4 {
 	transform: translateX(5px);
@@ -812,8 +790,6 @@ main {
 }
 
 .about-item:hover {
-	transform: translateY(-6px) rotate(2deg);
-	box-shadow: 0 12px 30px var(--hover-shadow);
 	border-color: var(--accent-light);
 }
 
@@ -821,9 +797,6 @@ main {
 	text-decoration: underline;
 }
 
-.about-item:nth-child(even):hover {
-	transform: translateY(-6px) rotate(-2deg);
-}
 
 .about-item > * {
 	position: relative;
@@ -842,9 +815,6 @@ main {
 	transition: all 0.3s;
 }
 
-.about-item:hover h3 {
-	animation: wobble 0.6s ease-in-out;
-}
 
 .about-item h3::before {
 	font-size: 24px;
@@ -913,33 +883,15 @@ main {
 /* GitHub Special Styling */
 .github-special {
 	background: var(--accent);
-	color: white;
 	position: relative;
 	overflow: hidden;
 }
 .github-special h4 {
-	color: var(--accent-soft);
+	color: white;
 }
 .github-special p {
-	color: var(--accent-soft);
+	color: white;
 }
-
-.github-special::before {
-	content: '';
-	background: linear-gradient(135deg, #404040, var(--text));
-	transition: left 0.4s ease;
-	z-index: 0;
-}
-
-.github-special:hover {
-	transform: translateY(-4px) scale(1.02);
-	box-shadow: 0 12px 30px rgba(45, 45, 45, 0.3);
-}
-
-.github-special:hover p {
-	color: var(--accent-soft);
-}
-
 
 .github-special > * {
 	position: relative;
