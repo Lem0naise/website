@@ -239,6 +239,10 @@ main {
 	transition: all 0.3s;
 	animation: rainbow 15s ease-in-out infinite;
 }
+.welcome-content h1 a {
+	text-decoration: none;
+	color: var(--accent-light);
+}
 
 
 .looking-for h2 {
