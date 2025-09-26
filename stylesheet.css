@@ -727,9 +727,9 @@ main {
 	background: var(--accent);
 	color: white;
 	border: none;
-	padding: 12px 24px;
-	border-radius: 8px;
-	font-size: 16px;
+	padding: 22px 30px;
+	border-radius: 16px;
+	font-size: 18px;
 	font-weight: 600;
 	cursor: pointer;
 	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1165,7 +1165,7 @@ main {
 	animation: rainbowsvg 15s ease-in-out infinite;
 }
 .icon-invert {
-	fill: var(--accent-soft);
+	fill: white;
 }
 
 /* On mobile, slightly reduce icon size for better fit */
