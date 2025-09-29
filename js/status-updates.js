@@ -6,7 +6,7 @@ const WEATHER_CODES = {
     0: { desc: 'Clear sky', message: 'A perfectly clear sky.' },
     1: { desc: 'Mainly clear', message: 'A mainly clear sky with a few clouds.' },
     2: { desc: 'Partly cloudy', message: 'A mix of sun and clouds today.' },
-    3: { desc: 'Overcast', message: 'A blanket of clouds overhead.' },
+    3: { desc: 'Overcast', message: 'A thick blanket of clouds.' },
     45: { desc: 'Fog', message: 'It\'s quite foggy out there.' },
     48: { desc: 'Depositing rime fog', message: 'A chilling, freezing fog has settled in.' },
     51: { desc: 'Light drizzle', message: 'A light, steady drizzle is falling.' },

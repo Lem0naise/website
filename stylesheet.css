@@ -1233,7 +1233,7 @@ main {
 	background: var(--card-bg);
 	border: 1px solid var(--border);
 	border-radius: 16px;
-	padding: 0;
+
 	margin: 15px auto;
 
 	box-shadow: 0 8px 25px var(--hover-shadow);
@@ -1248,7 +1248,10 @@ main {
 
 	text-align: left;
 	font-weight: regular;
+
+	padding: 0px 14px;
 }
+
 
 .status-text {
 	color: var(--accent-light);
@@ -1260,7 +1263,8 @@ main {
 	transform: translateY(0) scale(1);
 	pointer-events: auto;
 	max-height: 400px;
-	padding: 14px;
+	padding: 15px 14px;
+
 }
 
 .status-content ul {
@@ -1271,7 +1275,7 @@ main {
 
 .status-content ul li {
 	margin-bottom: 4px;
-	padding: 3px 16px;
+	padding: 3px 2px 3px 5px;
 	background: var(--accent-soft);
 	border-radius: 8px;
 	transition: all 0.3s;
@@ -1359,9 +1363,13 @@ main {
 		margin-bottom: 15px;
 		margin-top: 10px;
 		width: 80vw;
+		padding: 0 5px;
 
 	}
+
 	.status-updates.expanded .status-content {
-		padding: 14px;
+		padding: 5px 8px;
+
 	}
+
 }
