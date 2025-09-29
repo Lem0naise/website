@@ -82,7 +82,17 @@
 					<h1><a href="https://github.com/Lem0naise">Hi, I'm Indigo!</a></h1>
 					
 					<div class="looking-for">
-						<h2>I build apps, take photos, and write about things.</h2>
+						<div class='status-updates' id='status-updates'>
+							<button class='status-button' id='status-button'>What am I doing now?</button>
+							<div class='status-content' id='status-content'>
+								<ul>
+									<li id='custom-status'>Currently: Unwinding</li>
+									<li id='weather-status'>My weather: Probably raining.</li>
+									<li id='github-activity'>GitHub: Coding</li>
+									
+								</ul>
+							</div>
+						</div>
 						<div class="options-grid">
 							<a class="option-card option-primary" href="./portfolio">
 								
@@ -135,6 +145,7 @@
 						</div>
 					</div>
 				</div>
+				
 			</section>
 
 			<div class="section-separator"></div>
@@ -256,5 +267,6 @@
 			</section>
 		</main>
 		<script src="js/dark.js?version=0.1"></script>
+		<script src="js/status-updates.js"></script>
 	</body>
 </html>
