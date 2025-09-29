@@ -1247,8 +1247,13 @@ main {
 	width: max(300px, 40%);
 
 	text-align: left;
+	font-weight: regular;
 }
 
+.status-text {
+	color: var(--accent-light);
+	font-weight: bold;
+}
 
 .status-updates.expanded .status-content {
 	opacity: 1;
@@ -1277,7 +1282,7 @@ main {
 	border-left: 3px solid var(--accent);
 }
 .status-content ul li a {
-	color: var(--text-light);
+	color: var(--accent-light);
 }
 
 .status-content ul li::before {

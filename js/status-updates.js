@@ -120,6 +120,8 @@ class StatusUpdates {
         this.applyCurrentlyDoing();
         this.applyWeatherStatus();
 
+
+        setInterval(() => this.applyCurrentlyDoing(), 40000)
         // add new here
         
     }
@@ -129,11 +131,13 @@ class StatusUpdates {
 
             this.isExpanded = false;
             this.statusDiv.classList.remove('expanded');
+            this.statusButton.textContent='What am I doing now?'
         }
         else {
 
             this.isExpanded = true;
             this.statusDiv.classList.add('expanded');
+            this.statusButton.textContent= 'Hide my status'
         }
     }
 
@@ -189,7 +193,7 @@ class StatusUpdates {
                 const hoursAgo = Math.floor(timeDiff / (1000 * 60 * 60));
                 console.log(activity.date);
                 const timeText = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
-                this.githubActivity.innerHTML = `Latest Git commit: <span style="color: var(--accent);"><a href="https://github.com/${activity.repo}">${activity.repo.split('/')[1]}</span>, ${timeText}</a>.`;
+                this.githubActivity.innerHTML = `Latest Git commit: <span class='status-text'><a href="https://github.com/${activity.repo}">${activity.repo.split('/')[1]}</span>, ${timeText}</a>.`;
         } else {
             this.githubActivity.textContent = 'GitHub: Building something cool...';
         }
@@ -218,11 +222,11 @@ class StatusUpdates {
                 const isOvernightEvent = event.start > event.end;
                 if (isOvernightEvent) {
                     if (currentTime >= event.start || currentTime < event.end) {
-                        return event.activity;
+                         return `It's ${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}, I'm probably <span class='status-text'>${event.activity}</span>`;
                     }
                 } else {
                     if (currentTime >= event.start && currentTime < event.end) {
-                        return event.activity;
+                        return `It's ${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}, I'm probably <span class='status-text'>${event.activity}<span>`;
                     }
                 }
             }
@@ -232,7 +236,7 @@ class StatusUpdates {
     }
     
     applyCurrentlyDoing() {
-        this.currentlyDoing.innerHTML = `Right now, I'm probably <span style="color: var(--text-light);">${this.generateCurrentlyDoing()}</span>`
+        this.currentlyDoing.innerHTML = this.generateCurrentlyDoing();
 
     }
 
@@ -296,7 +300,7 @@ class StatusUpdates {
         try {
             const weatherData = await this.getWeatherStatus();
             const weather = await this.getFunWeatherMessage(weatherData)
-            this.weatherStatus.innerHTML = `My weather: <span style="color: var(--text-light);">${weather}</span>`  
+            this.weatherStatus.innerHTML = `My weather: <span class='status-text'>${weather}</span>`  
         }
         catch (error) {console.log(error)}
     }
