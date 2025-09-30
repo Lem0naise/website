@@ -782,7 +782,7 @@ main {
 }
 
 .about-item {
-	background: var(--card-bg);
+
 	border: 1px solid var(--border);
 	border-radius: 16px;
 	padding: 28px;
