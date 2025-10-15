@@ -5,11 +5,11 @@ const allDays = [...weekdays, ...weekends];
 const WEATHER_CODES = {
     0: { desc: 'Clear sky', message: 'A perfectly clear sky.' },
     1: { desc: 'Mainly clear', message: 'A mainly clear sky with a few clouds.' },
-    2: { desc: 'Partly cloudy', message: 'A mix of sun and clouds today.' },
-    3: { desc: 'Overcast', message: 'A thick blanket of clouds.' },
+    2: { desc: 'Partly cloudy', message: 'A mix of sun and clouds.' },
+    3: { desc: 'Overcast', message: 'Cloudy, as usual.' },
     45: { desc: 'Fog', message: 'It\'s quite foggy out there.' },
     48: { desc: 'Depositing rime fog', message: 'A chilling, freezing fog has settled in.' },
-    51: { desc: 'Light drizzle', message: 'A light, steady drizzle is falling.' },
+    51: { desc: 'Light drizzle', message: 'A steady drizzle is falling.' },
     53: { desc: 'Moderate drizzle', message: 'A persistent, moderate drizzle.' },
     55: { desc: 'Dense drizzle', message: 'A dense drizzle is making everything damp.' },
     56: { desc: 'Light freezing drizzle', message: 'A light, icy drizzle is coming down.' },
@@ -131,7 +131,7 @@ class StatusUpdates {
 
             this.isExpanded = false;
             this.statusDiv.classList.remove('expanded');
-            this.statusButton.textContent='What am I doing now?'
+            this.statusButton.textContent='What am I up to?'
         }
         else {
 
