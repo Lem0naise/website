@@ -3,34 +3,34 @@ const weekends = ['Saturday', 'Sunday'];
 const allDays = [...weekdays, ...weekends];
 
 const WEATHER_CODES = {
-    0: { desc: 'Clear sky', message: 'A perfectly clear sky.' },
-    1: { desc: 'Mainly clear', message: 'A mainly clear sky with a few clouds.' },
-    2: { desc: 'Partly cloudy', message: 'A mix of sun and clouds.' },
-    3: { desc: 'Overcast', message: 'Cloudy, as usual.' },
-    45: { desc: 'Fog', message: 'It\'s quite foggy out there.' },
-    48: { desc: 'Depositing rime fog', message: 'A chilling, freezing fog has settled in.' },
-    51: { desc: 'Light drizzle', message: 'A steady drizzle is falling.' },
-    53: { desc: 'Moderate drizzle', message: 'A persistent, moderate drizzle.' },
-    55: { desc: 'Dense drizzle', message: 'A dense drizzle is making everything damp.' },
-    56: { desc: 'Light freezing drizzle', message: 'A light, icy drizzle is coming down.' },
-    57: { desc: 'Dense freezing drizzle', message: 'Be careful in the dense, freezing drizzle.' },
-    61: { desc: 'Slight rain', message: 'Just a spot of light rain.' },
-    63: { desc: 'Moderate rain', message: 'A steady rain is coming down.' },
-    65: { desc: 'Heavy rain', message: 'Heavy rain is coming down hard.' },
-    66: { desc: 'Light freezing rain', message: 'Light freezing rain could make things icy.' },
-    67: { desc: 'Heavy freezing rain', message: 'Be cautious, heavy freezing rain is falling.' },
-    71: { desc: 'Slight snow', message: 'A light dusting of snow is falling.' },
-    73: { desc: 'Moderate snow', message: 'The snow is coming down steadily.' },
-    75: { desc: 'Heavy snow', message: 'A heavy blanket of snow is falling.' },
-    77: { desc: 'Snow grains', message: 'Fine grains of snow are in the air.' },
-    80: { desc: 'Slight rain showers', message: 'Light, passing rain showers.' },
-    81: { desc: 'Moderate rain showers', message: 'Scattered, moderate rain showers.' },
-    82: { desc: 'Violent rain showers', message: 'Watch out for intense downpours.' },
-    85: { desc: 'Slight snow showers', message: 'Brief and light snow showers are passing through.' },
-    86: { desc: 'Heavy snow showers', message: 'Bursts of heavy snow are expected.' },
-    95: { desc: 'Thunderstorm', message: 'A thunderstorm is brewing.' },
-    96: { desc: 'Thunderstorm with light hail', message: 'A thunderstorm is rolling in with some light hail.' },
-    99: { desc: 'Thunderstorm with heavy hail', message: 'Take cover! A thunderstorm is dropping heavy hail.' }
+    0: { desc: 'Clear sky', message: 'a perfectly clear sky!' },
+    1: { desc: 'Mainly clear', message: 'mainly clear with a few clouds.' },
+    2: { desc: 'Partly cloudy', message: 'a mix of sun and clouds.' },
+    3: { desc: 'Overcast', message: 'cloudy, as usual.' },
+    45: { desc: 'Fog', message: 'quite foggy out there.' },
+    48: { desc: 'Depositing rime fog', message: 'chilling, freezing fog.' },
+    51: { desc: 'Light drizzle', message: 'a steady drizzle.' },
+    53: { desc: 'Moderate drizzle', message: 'persistent, moderate drizzle.' },
+    55: { desc: 'Dense drizzle', message: 'dense drizzle making everything damp.' },
+    56: { desc: 'Light freezing drizzle', message: 'light, icy drizzle.' },
+    57: { desc: 'Dense freezing drizzle', message: 'dense, freezing drizzle.' },
+    61: { desc: 'Slight rain', message: 'just a spot of light rain.' },
+    63: { desc: 'Moderate rain', message: 'steady rain.' },
+    65: { desc: 'Heavy rain', message: 'heavy rain coming down hard.' },
+    66: { desc: 'Light freezing rain', message: 'light freezing rain.' },
+    67: { desc: 'Heavy freezing rain', message: 'heavy freezing rain.' },
+    71: { desc: 'Slight snow', message: 'a light dusting of snow.' },
+    73: { desc: 'Moderate snow', message: 'steady snow.' },
+    75: { desc: 'Heavy snow', message: 'heavy snow.' },
+    77: { desc: 'Snow grains', message: 'fine grains of snow in the air.' },
+    80: { desc: 'Slight rain showers', message: 'light, passing rain showers.' },
+    81: { desc: 'Moderate rain showers', message: 'scattered, moderate rain showers.' },
+    82: { desc: 'Violent rain showers', message: 'intense downpours!' },
+    85: { desc: 'Slight snow showers', message: 'brief, light snow showers.' },
+    86: { desc: 'Heavy snow showers', message: 'bursts of heavy snow.' },
+    95: { desc: 'Thunderstorm', message: 'a thunderstorm brewing.' },
+    96: { desc: 'Thunderstorm with light hail', message: 'a thunderstorm with light hail.' },
+    99: { desc: 'Thunderstorm with heavy hail', message: 'a thunderstorm with heavy hail!' }
 };
 
 
@@ -45,13 +45,18 @@ const schedule = [
         activity: 'attempting a new PB at Parkrun.',
         days: ['Saturday'],
         start: 9,
-        end: 9.5, 
+        end: 10, 
     },
-
+    {
+        activity: 'at my bouldering gym.',
+        days: ['Monday', 'Wednesday', 'Friday', 'Saturday','Sunday'],
+        start: 19,
+        end: 22, 
+    },
     {
         activity: 'eating dinner.',
         days: allDays,
-        start: 19, 
+        start: 18, 
         end: 20, 
     },
     {
@@ -121,7 +126,7 @@ class StatusUpdates {
         this.applyWeatherStatus();
 
 
-        setInterval(() => this.applyCurrentlyDoing(), 40000)
+        setInterval(() => this.applyCurrentlyDoing(), 60000)
         // add new here
         
     }
@@ -153,11 +158,11 @@ class StatusUpdates {
             if (pushEvent) {
                 return {
                     repo: pushEvent.repo.name,
-                    message: pushEvent.payload.commits[0]?.message || 'Working on code',
                     date: new Date(pushEvent.created_at)
                 };
             }
         } catch (error) {
+            console.log(error);
             return null;
         }
     }
@@ -175,7 +180,6 @@ class StatusUpdates {
 
         try {
             const activity = await this.getRecentGitHubActivity();
-
             localStorage.setItem('githubActivity', JSON.stringify({
                 data: activity,
                 timestamp: Date.now()
@@ -193,9 +197,9 @@ class StatusUpdates {
                 const hoursAgo = Math.floor(timeDiff / (1000 * 60 * 60));
                 console.log(activity.date);
                 const timeText = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
-                this.githubActivity.innerHTML = `Latest Git commit: <span class='status-text'><a href="https://github.com/${activity.repo}">${activity.repo.split('/')[1]}</span>, ${timeText}</a>.`;
+                this.githubActivity.innerHTML = `My latest Git commit was to <span class='status-text'><a target="_blank" href="https://github.com/${activity.repo}">${activity.repo.split('/')[1]}</span>, ${timeText}</a>.`;
         } else {
-            this.githubActivity.textContent = 'GitHub: Building something cool...';
+            this.githubActivity.textContent = 'Building <a href="github.com/Lem0naise/cashcat">CashCat</a>...';
         }
     }
 
@@ -300,7 +304,7 @@ class StatusUpdates {
         try {
             const weatherData = await this.getWeatherStatus();
             const weather = await this.getFunWeatherMessage(weatherData)
-            this.weatherStatus.innerHTML = `My weather: <span class='status-text'>${weather}</span>`  
+            this.weatherStatus.innerHTML = `My weather is <span class='status-text'>${weather}</span>`  
         }
         catch (error) {console.log(error)}
     }
