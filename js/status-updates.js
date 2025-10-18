@@ -197,9 +197,9 @@ class StatusUpdates {
                 const hoursAgo = Math.floor(timeDiff / (1000 * 60 * 60));
                 console.log(activity.date);
                 const timeText = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
-                this.githubActivity.innerHTML = `My latest Git commit was to <span class='status-text'><a target="_blank" href="https://github.com/${activity.repo}">${activity.repo.split('/')[1]}</span>, ${timeText}</a>.`;
+                this.githubActivity.innerHTML = `My last Git commit was to <span class='status-text'><a target="_blank" href="https://github.com/${activity.repo}">${activity.repo.split('/')[1]}</span>, ${timeText}</a>.`;
         } else {
-            this.githubActivity.textContent = 'Building <a href="github.com/Lem0naise/cashcat">CashCat</a>...';
+            this.githubActivity.innerHTML= 'Building <a target="_blank" href="https://github.com/Lem0naise/cashcat">CashCat</a>...';
         }
     }
 
