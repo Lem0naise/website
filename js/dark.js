@@ -1,24 +1,5 @@
-document.body.classList.add('disable-transitions');
-
-(function() { 
-    const storedPreference = localStorage.getItem('dark-mode');
-    let isDarkMode;
-
-    if (storedPreference === null){
-        isDarkMode = window.matchMedia &&  window.matchMedia('(prefers-color-scheme: dark)').matches;
-    } else { // user has a preference
-        isDarkMode = storedPreference === 'true'
-    }
-
-    document.body.classList.toggle('dark-mode', isDarkMode);
-
-    setTimeout(() => {
-        document.body.classList.remove('disable-transitions');
-    }, 50); // 50ms is usually enough
-})();
-
 document.addEventListener("DOMContentLoaded", function() { 
-    setDarkIcon(document.body.classList.contains("dark-mode"));
+    setDarkIcon(document.documentElement.classList.contains("dark-mode"));
 })
 
 function setDarkIcon(isDark) {
@@ -33,8 +14,8 @@ function setDarkIcon(isDark) {
 
 // Expose toggle globally for onclick
 function toggle() {
-    const isDark = !document.body.classList.contains('dark-mode');
-    document.body.classList.toggle('dark-mode', isDark);
+    const isDark = !document.documentElement.classList.contains('dark-mode');
+    document.documentElement.classList.toggle('dark-mode', isDark);
     localStorage.setItem('dark-mode', isDark ? 'true' : 'false');
     setDarkIcon(isDark);
 }

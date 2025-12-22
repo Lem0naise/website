@@ -31,7 +31,7 @@
 
 
 
-body.dark-mode {
+html.dark-mode {
 	--text: #fffef3;
 	--background: #1d1d1d;
 	--text-light: #b7b7b7;
@@ -49,7 +49,7 @@ body.dark-mode {
 
 	--border-colour: white;
 }
-body.dark-mode a {
+html.dark-mode a {
 	color: white;
 }
 
