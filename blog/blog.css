@@ -247,13 +247,35 @@ h2, h3, h4, .stream-entry {
 }
 
 .post-content code {
-    background: var(--item);
+    background: var(--item-background-2);
     border: 1px solid var(--border);
-    padding: 2px 8px;
+    padding: 2px 6px;
     border-radius: 4px;
-    font-family: var(--font-main), 'Menlo', monospace;
-    font-size: 16px;
+    font-family: 'Syne Mono', 'Consolas', monospace;
+    font-size: 0.85em;
+    color: inherit;
     white-space: pre-wrap;
+}
+
+.post-content pre {
+    background: #1e1e1e;
+    color: #e0e0e0;    
+    padding: 20px;
+    border-radius: 8px;
+    margin: 24px 0;
+    overflow-x: auto; 
+    border: 1px solid var(--border);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+
+.post-content pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    color: inherit;
+    white-space: pre;
 }
 
 .post-content ul, .post-content ol {
