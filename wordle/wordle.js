@@ -226,7 +226,7 @@ function win(answer){
 
     document.querySelector('#alphabet').style.setProperty('opacity', '0');
     document.querySelector('#alphabet').style.setProperty('user-select', 'text');
-    setTimeout(function(){document.querySelector('#alphabet').innerHTML = ("Congratulations! The word was " + "<a target='_blank' href='https://www.dictionary.com/browse/" + answer + "'>" + answer + "</a>" + ". You guessed it after " + (current_row+1) + " guesses.");}, 250);
+    setTimeout(function(){document.querySelector('#alphabet').innerHTML = ("Congratulations! The word was " + "<a target='_blank' href='https://www.dictionary.com/browse/" + answer + "'>" + answer + "</a>" + "You guessed it after " + (current_row+1) + " guesses.");}, 250);
 
     //var aspect_ratio = $(window).css.height() / $(window).css.width();
     //if (aspect_ratio < 1){setTimeout(function(){$('#alphabet').style.setProperty('width', '30vw');}, 250);}
