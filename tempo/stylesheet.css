@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+:root {
+	--background: #fffef3;
+	--text: #2d2d2d;
+	--text-light: #666;
+	--accent: #8b5a83;
+	--accent-light: #a67ca0;
+	--accent-soft: #f0e6ed;
+	--border: #e8e6e0;
+	--card-bg: #ffffff;
+	--success: #7c9885;
+	--warning: #d4a574;
+	--error: #c85a5a;
+	--font-main: 'Syne Mono';
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--background);
+	margin: 0;
+	font-family: var(--font-main), monospace;
+	overflow: hidden;
+}
+
+#screen {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	z-index: 1;
+	pointer-events: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	user-select: none;
+	transition: background-color 0.15s ease;
+}
+
+#screen.tapped {
+	background-color: var(--accent-soft);
+}
+
+#text {
+	text-align: center;
+	pointer-events: none;
+	font-family: var(--font-main), monospace;
+	color: var(--text);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+}
+
+#bpm-display {
+	font-size: 180px;
+	font-weight: 700;
+	line-height: 1;
+	letter-spacing: -0.02em;
+	color: var(--text);
+	font-family: var(--font-main), monospace;
+	transition: color 0.15s ease;
+}
+
+#screen.tapped #bpm-display {
+	color: var(--accent);
+}
+
+#instruction {
+	font-size: 28px;
+	color: var(--text-light);
+	font-weight: 400;
+	text-transform: lowercase;
+}
+
+#tap-count {
+	font-size: 16px;
+	color: var(--text-light);
+	opacity: 0.7;
+}
+
+/* Home button */
+.home-button {
+	position: fixed;
+	top: 24px;
+	left: 24px;
+	width: 48px;
+	height: 48px;
+	background-color: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: var(--text);
+	font-size: 24px;
+	transition: all 0.2s ease;
+	z-index: 10;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.home-button:hover {
+	background-color: var(--accent-soft);
+	border-color: var(--accent);
+	color: var(--accent);
+	transform: scale(1.05);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	#bpm-display {
+		font-size: 120px;
+	}
+	
+	#instruction {
+		font-size: 22px;
+	}
+	
+	#tap-count {
+		font-size: 14px;
+	}
+	
+	.home-button {
+		width: 40px;
+		height: 40px;
+		font-size: 20px;
+		top: 16px;
+		left: 16px;
+	}
+}
+
+@media (max-width: 480px) {
+	#bpm-display {
+		font-size: 90px;
+	}
+	
+	#instruction {
+		font-size: 18px;
+	}
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Tap Tempo - BPM Calculator</title>
+		<meta name="description" content="Calculate BPM by tapping along with the beat. A simple, accurate tap tempo tool for musicians and producers."/>
+		<meta name="keywords" content="tap tempo, BPM calculator, tempo finder, beats per minute, music tools, Indigo Nolan"/>
+		<meta name="author" content="Indigo Nolan"/>
+		<meta name="robots" content="index, follow">
+		<link rel="canonical" href="https://indigo.spot/tempo/">
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://indigo.spot/tempo/">
+		<meta property="og:title" content="Tap Tempo - BPM Calculator">
+		<meta property="og:description" content="Calculate BPM by tapping along with the beat. A simple, accurate tap tempo tool for musicians and producers.">
+		<meta property="og:site_name" content="Indigo Nolan">
+		
+		<!-- Twitter -->
+		<meta property="twitter:url" content="https://indigo.spot/tempo/">
+		<meta property="twitter:title" content="Tap Tempo - BPM Calculator">
+		<meta property="twitter:description" content="Calculate BPM by tapping along with the beat. A simple, accurate tap tempo tool for musicians and producers.">
+		
+		<!-- Additional SEO -->
+		<meta name="theme-color" content="#fffef3">
+		<link rel="icon" type="image/x-icon" href="../favicon.ico">
+		<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+		
+		<link rel="stylesheet" href="stylesheet.css?version=1.0">
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebApplication",
+			"name": "Tap Tempo",
+			"description": "Calculate BPM by tapping along with the beat. A simple, accurate tap tempo tool for musicians and producers.",
+			"url": "https://indigo.spot/tempo/",
+			"author": {
+				"@type": "Person",
+				"name": "Indigo Nolan"
+			},
+			"applicationCategory": "MusicApplication",
+			"operatingSystem": "Web Browser"
+		}
+		</script>
+	</head>
+	
+	<body>
+		<div id="screen">
+			<div id="text">
+				<div id="bpm-display">--</div>
+				<div id="instruction">tap to begin</div>
+				<div id="tap-count"></div>
+			</div>
+		</div>
+		
+		<!-- Home Button -->
+		<a href="/" class="home-button" aria-label="Return to homepage">↖</a>
+		
+		<script src="tempo.js?version=1.0"></script>
+	</body>
+</html>
