@@ -462,7 +462,7 @@ main {
 	background-size: 400% 400%;
 	border-radius: 16px;
 	padding: 32px;
-	margin-bottom: 40px;
+	margin-bottom: 10px;
 	color: white;
 	margin-left: 10vw;
 	margin-right: 10vw;
@@ -495,7 +495,7 @@ main {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin-bottom: 16px;
+	margin-bottom: 10px;
 }
 
 .featured-project h3 {
@@ -524,7 +524,7 @@ main {
 
 .featured-project p {
 	font-size: 16px;
-	margin: 0 0 24px;
+	margin: 0 0 12px;
 	opacity: 0.9;
 	transition: opacity 0.3s ease;
 }
@@ -1073,9 +1073,9 @@ main {
 		margin-right: 0;
 		margin-left: 0;
 		margin-top: 10px;
-		margin-bottom: 20px;
+		margin-bottom: 10px;
 		padding: 24px;
-		padding-bottom: 15px;
+		padding-bottom: 5px;
 	}
 	.remove-padding {
 		margin-bottom: 0px;
