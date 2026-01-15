@@ -94,8 +94,15 @@
 				<div class="timer-container">
 					<div id="timer-phase" class="timer-phase"></div>
 					<div id="timer-topic" class="timer-topic"></div>
-					<div id="timer-display" class="timer-display">00:00</div>
-					<div id="timer-progress" class="timer-progress">0% done</div>
+					
+					<div class="timer-circle-container">
+						<svg class="progress-ring" viewBox="0 0 200 200">
+							<circle class="progress-ring-bg" cx="100" cy="100" r="90"></circle>
+							<circle class="progress-ring-circle" cx="100" cy="100" r="90"></circle>
+						</svg>
+						<div id="timer-display" class="timer-display">00:00</div>
+					</div>
+					
 					<div class="timer-actions">
 						<button id="pause-btn" class="action-btn">Pause</button>
 						<button id="end-cycle-btn" class="action-btn danger">End Cycle</button>

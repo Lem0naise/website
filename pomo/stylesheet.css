@@ -256,15 +256,55 @@ body {
 	margin-bottom: 40px;
 }
 
+.timer-circle-container {
+	position: relative;
+	width: 400px;
+	height: 400px;
+	margin: 0 auto 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.progress-ring {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	transform: rotate(-90deg);
+}
+
+.progress-ring-bg {
+	fill: none;
+	stroke: var(--border);
+	stroke-width: 8;
+}
+
+.progress-ring-circle {
+	fill: none;
+	stroke: var(--accent);
+	stroke-width: 8;
+	stroke-linecap: round;
+	stroke-dasharray: 565.48;
+	stroke-dashoffset: 565.48;
+	transition: stroke-dashoffset 0.3s ease, stroke 0.3s ease;
+}
+
+.timer-container.break .progress-ring-circle {
+	stroke: var(--break-color);
+}
+
 .timer-display {
-	font-size: 120px;
+	font-size: 72px;
 	font-weight: 700;
 	color: var(--accent);
 	line-height: 1;
-	margin-bottom: 24px;
 	font-family: var(--font-main), monospace;
 	letter-spacing: -0.02em;
 	transition: color 0.3s ease;
+	position: relative;
+	z-index: 1;
 }
 
 .timer-container.break .timer-display {
@@ -546,8 +586,13 @@ body {
 		padding: 24px;
 	}
 	
+	.timer-circle-container {
+		width: 280px;
+		height: 280px;
+	}
+	
 	.timer-display {
-		font-size: 80px;
+		font-size: 48px;
 	}
 	
 	.timer-topic {

@@ -297,9 +297,10 @@ class PomoUI {
 		const phaseEl = document.getElementById('timer-phase');
 		const topicEl = document.getElementById('timer-topic');
 		const displayEl = document.getElementById('timer-display');
-		const progressEl = document.getElementById('timer-progress');
 		const timerContainer = document.querySelector('.timer-container');
 		const pauseBtn = document.getElementById('pause-btn');
+		const progressCircle = document.querySelector('.progress-ring-circle');
+		const circumference = 2 * Math.PI * 90;
 
 		phaseEl.textContent = this.timer.phase.label;
 		
@@ -355,7 +356,10 @@ class PomoUI {
 				displayEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 			}
 
-			progressEl.textContent = `${this.timer.getProgress()}% done`;
+			const progress = this.timer.getProgress();
+			
+			const offset = circumference - (progress / 100) * circumference;
+			progressCircle.style.strokeDashoffset = offset;
 		}, 100);
 	}
 
