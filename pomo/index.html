@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Pomodoro Timer - Focus & Productivity Tracker | Indigo Nolan</title>
+		<meta name="description" content="A simple Pomodoro timer to boost your productivity. Track your work sessions, log completed tasks, and visualize your progress over time."/>
+		<meta name="keywords" content="pomodoro timer, productivity, focus timer, time management, work sessions, Indigo Nolan"/>
+		<meta name="author" content="Indigo Nolan"/>
+		<meta name="robots" content="index, follow">
+		<link rel="canonical" href="https://indigo.spot/pomo/">
+		
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://indigo.spot/pomo/">
+		<meta property="og:title" content="Pomodoro Timer - Focus & Productivity Tracker">
+		<meta property="og:description" content="A simple Pomodoro timer to boost your productivity. Track your work sessions, log completed tasks, and visualize your progress over time.">
+		<meta property="og:site_name" content="Indigo Nolan">
+		
+		<meta property="twitter:url" content="https://indigo.spot/pomo/">
+		<meta property="twitter:title" content="Pomodoro Timer - Focus & Productivity Tracker">
+		<meta property="twitter:description" content="A simple Pomodoro timer to boost your productivity. Track your work sessions, log completed tasks, and visualize your progress over time.">
+		
+		<meta name="theme-color" content="#fffef3">
+		<link rel="icon" type="image/x-icon" href="../favicon.ico">
+		<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+		
+		<link rel="stylesheet" href="stylesheet.css?version=2.0">
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebApplication",
+			"name": "Pomodoro Timer",
+			"description": "A simple Pomodoro timer to boost your productivity. Track your work sessions, log completed tasks, and visualize your progress over time.",
+			"url": "https://indigo.spot/pomo/",
+			"author": {
+				"@type": "Person",
+				"name": "Indigo Nolan"
+			},
+			"applicationCategory": "ProductivityApplication",
+			"operatingSystem": "Web Browser"
+		}
+		</script>
+	</head>
+	
+	<body>
+		<main id="main-content">
+			<div id="menu-view" class="view active">
+				<div class="menu-container">
+					<h1 class="app-title">Pomodoro Timer</h1>
+					<p class="app-subtitle">Focus, work, track your productivity</p>
+					
+					<div class="menu-buttons">
+						<button id="begin-btn" class="menu-btn primary">Begin a Pomo</button>
+						<button id="log-btn" class="menu-btn">Log a Completed Session</button>
+						<button id="view-btn" class="menu-btn">View Summary</button>
+						<button id="data-btn" class="menu-btn">Import/Export Data</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="begin-view" class="view">
+				<div class="form-container">
+					<h2>Start a Pomodoro Cycle</h2>
+					
+					<div class="form-group">
+						<label for="work-input">Work Session (minutes)</label>
+						<input type="number" id="work-input" min="1" step="1" value="25">
+					</div>
+					
+					<div class="form-group">
+						<label for="short-break-input">Short Break (minutes)</label>
+						<input type="number" id="short-break-input" min="1" step="1" value="5">
+					</div>
+					
+					<div class="form-group">
+						<label for="long-break-input">Long Break (minutes)</label>
+						<input type="number" id="long-break-input" min="1" step="1" value="15">
+					</div>
+					
+					<div class="form-group">
+						<label for="topic-input">Topic</label>
+						<input type="text" id="topic-input" placeholder="What are you working on?">
+					</div>
+					
+					<div class="form-actions">
+						<button id="start-cycle-btn" class="action-btn primary">Start Cycle</button>
+						<button id="cancel-begin-btn" class="action-btn secondary">Cancel</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="timer-view" class="view">
+				<div class="timer-container">
+					<div id="timer-phase" class="timer-phase"></div>
+					<div id="timer-topic" class="timer-topic"></div>
+					<div id="timer-display" class="timer-display">00:00</div>
+					<div id="timer-progress" class="timer-progress">0% done</div>
+					<div class="timer-actions">
+						<button id="pause-btn" class="action-btn">Pause</button>
+						<button id="end-cycle-btn" class="action-btn danger">End Cycle</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="cycle-complete-view" class="view">
+				<div class="complete-container">
+					<h2>Cycle Complete!</h2>
+					<p id="cycle-message"></p>
+					<div class="form-actions">
+						<button id="start-another-btn" class="action-btn primary">Start Another Cycle</button>
+						<button id="back-to-menu-btn" class="action-btn secondary">Back to Menu</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="log-view" class="view">
+				<div class="form-container">
+					<h2>Log a Completed Session</h2>
+					
+					<div class="form-group">
+						<label for="log-date-input">Date</label>
+						<input type="date" id="log-date-input">
+					</div>
+					
+					<div class="form-group">
+						<label for="log-minutes-input">Minutes</label>
+						<input type="number" id="log-minutes-input" min="1" step="1" placeholder="25">
+					</div>
+					
+					<div class="form-group">
+						<label for="log-topic-input">Topic</label>
+						<input type="text" id="log-topic-input" placeholder="What did you work on?">
+					</div>
+					
+					<div class="form-actions">
+						<button id="save-log-btn" class="action-btn primary">Save Log</button>
+						<button id="cancel-log-btn" class="action-btn secondary">Cancel</button>
+					</div>
+				</div>
+			</div>
+
+			<div id="summary-view" class="view">
+				<div class="summary-container">
+					<h2>Day-by-Day Summary</h2>
+					<div id="summary-content" class="summary-content"></div>
+					<button id="back-from-summary-btn" class="action-btn secondary">Back to Menu</button>
+				</div>
+			</div>
+
+			<div id="data-view" class="view">
+				<div class="data-container">
+					<h2>Import/Export Data</h2>
+					
+					<div class="data-section">
+						<h3>Export Data</h3>
+						<p>Download your Pomodoro data as JSON</p>
+						<button id="export-data-btn" class="action-btn">Export Data (pomo-data.json)</button>
+					</div>
+					
+					<div class="data-section">
+						<h3>Import Data</h3>
+						<p>Upload previously exported JSON file to restore your data</p>
+						<div class="import-section">
+							<label for="import-file" class="action-btn">Choose File</label>
+							<input type="file" id="import-file" accept=".json" style="display: none;">
+							<span id="import-filename"></span>
+						</div>
+					</div>
+					
+					<div class="data-section danger-zone">
+						<h3>Clear All Data</h3>
+						<p>Warning: This will permanently delete all your Pomodoro records</p>
+						<button id="clear-data-btn" class="action-btn danger">Clear All Data</button>
+					</div>
+					
+					<button id="back-from-data-btn" class="action-btn secondary">Back to Menu</button>
+				</div>
+			</div>
+		</main>
+
+		<div id="toast-container"></div>
+
+		<a href="/" class="home-button" aria-label="Return to homepage">↖</a>
+		
+		<script src="pomo.js?version=2.0"></script>
+	</body>
+</html>
