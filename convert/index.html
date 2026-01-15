@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Media Converter Command Generator </title>
+		<meta name="description" content="Generate copy-paste terminal commands for converting images, videos, and audio files on Linux. Using ImageMagick and FFmpeg."/>
+		<meta name="keywords" content="media converter, imagemagick, ffmpeg, linux commands, image conversion, video conversion, audio conversion, Indigo Nolan"/>
+		<meta name="author" content="Indigo Nolan"/>
+		<meta name="robots" content="index, follow">
+		<link rel="canonical" href="https://indigo.spot/convert/">
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://indigo.spot/convert/">
+		<meta property="og:title" content="Media Converter - Command Generator">
+		<meta property="og:description" content="Generate copy-paste terminal commands for converting images, videos, and audio files on Linux.">
+		<meta property="og:site_name" content="Indigo Nolan">
+		
+		<!-- Twitter -->
+		<meta property="twitter:url" content="https://indigo.spot/convert/">
+		<meta property="twitter:title" content="Media Converter - Command Generator">
+		<meta property="twitter:description" content="Generate copy-paste terminal commands for converting images, videos, and audio files on Linux.">
+		
+		<!-- Additional SEO -->
+		<meta name="theme-color" content="#fffef3">
+		<link rel="icon" type="image/x-icon" href="../favicon.ico">
+		<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+		
+		<link rel="stylesheet" href="stylesheet.css?version=1.0">
+		
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebApplication",
+			"name": "Media Converter Command Generator",
+			"description": "Generate copy-paste terminal commands for converting images, videos, and audio files on Linux using ImageMagick and FFmpeg.",
+			"url": "https://indigo.spot/convert/",
+			"author": {
+				"@type": "Person",
+				"name": "Indigo Nolan"
+			},
+			"applicationCategory": "DeveloperApplication",
+			"operatingSystem": "Linux"
+		}
+		</script>
+	</head>
+	
+	<body>
+		<main id="main-content">
+			<!-- Tool Header -->
+			<div class="tool-header">
+				<div class="tool-title">
+					<h1>Media Converting Commmands</h1>
+					<p class="tool-subtitle">Generate copy-paste terminal commands for Linux media conversion</p>
+				</div>
+				
+				<!-- Category Selection -->
+				<div class="category-selector">
+					<button class="category-btn active" data-category="image">Image</button>
+					<button class="category-btn" data-category="video">Video</button>
+					<button class="category-btn" data-category="audio">Audio</button>
+				</div>
+			</div>
+
+			<!-- Conversion Options -->
+			<div class="conversion-container">
+				<!-- Image Conversion -->
+				<div id="image-section" class="conversion-section active">
+					<div class="conversion-grid">
+						<div class="option-group">
+							<label for="image-from">From Format:</label>
+							<select id="image-from" class="format-select">
+								<option value="jpg">JPEG (.jpg)</option>
+								<option value="png">PNG (.png)</option>
+								<option value="gif">GIF (.gif)</option>
+								<option value="bmp">BMP (.bmp)</option>
+								<option value="webp">WebP (.webp)</option>
+								<option value="tiff">TIFF (.tiff)</option>
+								<option value="svg">SVG (.svg)</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="image-to">To Format:</label>
+							<select id="image-to" class="format-select">
+								<option value="png">PNG (.png)</option>
+								<option value="jpg">JPEG (.jpg)</option>
+								<option value="gif">GIF (.gif)</option>
+								<option value="bmp">BMP (.bmp)</option>
+								<option value="webp">WebP (.webp)</option>
+								<option value="tiff">TIFF (.tiff)</option>
+								<option value="pdf">PDF (.pdf)</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="image-resize">Resize:</label>
+							<select id="image-resize" class="format-select">
+								<option value="">No resize</option>
+								<option value="50%">50% size</option>
+								<option value="75%">75% size</option>
+								<option value="1920x1080">1920x1080 (Full HD)</option>
+								<option value="1280x720">1280x720 (HD)</option>
+								<option value="800x600">800x600</option>
+								<option value="640x480">640x480</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="image-quality">Quality (JPEG/WebP):</label>
+							<select id="image-quality" class="format-select">
+								<option value="">Default</option>
+								<option value="100">100% (Best)</option>
+								<option value="90">90% (High)</option>
+								<option value="80">80% (Good)</option>
+								<option value="70">70% (Medium)</option>
+								<option value="60">60% (Low)</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Video Conversion -->
+				<div id="video-section" class="conversion-section">
+					<div class="conversion-grid">
+						<div class="option-group">
+							<label for="video-from">From Format:</label>
+							<select id="video-from" class="format-select">
+								<option value="mp4">MP4 (.mp4)</option>
+								<option value="avi">AVI (.avi)</option>
+								<option value="mkv">MKV (.mkv)</option>
+								<option value="mov">MOV (.mov)</option>
+								<option value="wmv">WMV (.wmv)</option>
+								<option value="flv">FLV (.flv)</option>
+								<option value="webm">WebM (.webm)</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="video-to">To Format:</label>
+							<select id="video-to" class="format-select">
+								<option value="mp4">MP4 (.mp4)</option>
+								<option value="avi">AVI (.avi)</option>
+								<option value="mkv">MKV (.mkv)</option>
+								<option value="mov">MOV (.mov)</option>
+								<option value="webm">WebM (.webm)</option>
+								<option value="gif">GIF (.gif)</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="video-codec">Video Codec:</label>
+							<select id="video-codec" class="format-select">
+								<option value="">Default</option>
+								<option value="libx264">H.264 (libx264)</option>
+								<option value="libx265">H.265/HEVC (libx265)</option>
+								<option value="libvpx">VP8 (libvpx)</option>
+								<option value="libvpx-vp9">VP9 (libvpx-vp9)</option>
+								<option value="copy">Copy (no re-encode)</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="video-resolution">Resolution:</label>
+							<select id="video-resolution" class="format-select">
+								<option value="">Original</option>
+								<option value="1920:1080">1920x1080 (Full HD)</option>
+								<option value="1280:720">1280x720 (HD)</option>
+								<option value="854:480">854x480 (SD)</option>
+								<option value="640:360">640x360</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="video-fps">Frame Rate (FPS):</label>
+							<select id="video-fps" class="format-select">
+								<option value="">Original</option>
+								<option value="60">60 fps</option>
+								<option value="30">30 fps</option>
+								<option value="24">24 fps</option>
+								<option value="15">15 fps</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="video-bitrate">Bitrate:</label>
+							<select id="video-bitrate" class="format-select">
+								<option value="">Default</option>
+								<option value="5000k">5000k (High)</option>
+								<option value="2500k">2500k (Medium)</option>
+								<option value="1000k">1000k (Low)</option>
+								<option value="500k">500k (Very Low)</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Audio Conversion -->
+				<div id="audio-section" class="conversion-section">
+					<div class="conversion-grid">
+						<div class="option-group">
+							<label for="audio-from">From Format:</label>
+							<select id="audio-from" class="format-select">
+								<option value="mp3">MP3 (.mp3)</option>
+								<option value="wav">WAV (.wav)</option>
+								<option value="flac">FLAC (.flac)</option>
+								<option value="aac">AAC (.aac)</option>
+								<option value="ogg">OGG (.ogg)</option>
+								<option value="m4a">M4A (.m4a)</option>
+								<option value="wma">WMA (.wma)</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="audio-to">To Format:</label>
+							<select id="audio-to" class="format-select">
+								<option value="mp3">MP3 (.mp3)</option>
+								<option value="wav">WAV (.wav)</option>
+								<option value="flac">FLAC (.flac)</option>
+								<option value="aac">AAC (.aac)</option>
+								<option value="ogg">OGG (.ogg)</option>
+								<option value="m4a">M4A (.m4a)</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="audio-bitrate">Bitrate:</label>
+							<select id="audio-bitrate" class="format-select">
+								<option value="">Default</option>
+								<option value="320k">320k (Best)</option>
+								<option value="256k">256k (High)</option>
+								<option value="192k">192k (Good)</option>
+								<option value="128k">128k (Medium)</option>
+								<option value="96k">96k (Low)</option>
+								<option value="64k">64k (Very Low)</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="audio-sample-rate">Sample Rate:</label>
+							<select id="audio-sample-rate" class="format-select">
+								<option value="">Default</option>
+								<option value="48000">48000 Hz</option>
+								<option value="44100">44100 Hz (CD Quality)</option>
+								<option value="32000">32000 Hz</option>
+								<option value="22050">22050 Hz</option>
+								<option value="16000">16000 Hz</option>
+							</select>
+						</div>
+
+						<div class="option-group">
+							<label for="audio-channels">Channels:</label>
+							<select id="audio-channels" class="format-select">
+								<option value="">Default</option>
+								<option value="2">Stereo (2)</option>
+								<option value="1">Mono (1)</option>
+							</select>
+						</div>
+					</div>
+				</div>
+
+				<!-- Command Output -->
+				<div class="command-output">
+					<div class="command-header">
+						<h3>Generated Command:</h3>
+						<button id="copy-btn" class="copy-btn">Copy</button>
+					</div>
+					
+					<div id="command-display" class="command-box">
+						<code id="command-text">Select options above to generate a command</code>
+					</div>
+                    <div class="filename-inputs">
+						<div class="filename-group">
+							<label for="input-filename">Input File:</label>
+							<input type="text" id="input-filename" class="filename-input" placeholder="input" value="input">
+						</div>
+						<div class="filename-group">
+							<label for="output-filename">Output File:</label>
+							<input type="text" id="output-filename" class="filename-input" placeholder="output" value="output">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Instructions -->
+			<div class="instructions">
+				<h4>Quick Guide:</h4>
+                No converting is actually done, this is just so I don't have to memorise all the terminal commands! 
+				<ul>
+					<li><strong>Image:</strong> Uses ImageMagick's <code>convert</code> command</li>
+					<li><strong>Video:</strong> Uses FFmpeg for video format conversion and encoding</li>
+					<li><strong>Audio:</strong> Uses FFmpeg for audio file conversion</li>
+					<li>Install tools: <code>sudo apt install imagemagick ffmpeg</code> (Debian/Ubuntu)</li>
+				</ul>
+			</div>
+
+			<!-- Home Button -->
+			<div class="home-button-container">
+				<a href="../" class="home-btn">← Home</a>
+			</div>
+		</main>
+
+		<script src="convert.js?version=1.0"></script>
+	</body>
+</html>
