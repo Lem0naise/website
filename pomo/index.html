@@ -50,19 +50,6 @@
 					<h1 class="app-title">Pomodoro Timer</h1>
 					<p class="app-subtitle">Focus, work, track your productivity</p>
 					
-					
-					<div class="menu-buttons">
-					
-						<button id="begin-btn" class="menu-btn primary">Begin a Pomo</button>
-
-						<button id="manage-tasks-btn" class="menu-btn primary">Manage Tasks</button>
-						<button id="log-btn" class="menu-btn">Log a Completed Session</button>
-						
-						<button id="view-btn" class="menu-btn">View Summary</button>
-						<button id="data-btn" class="menu-btn">Import/Export Data</button>
-					</div>
-
-
 					<div class="daily-goal-section">
 						<div class="goal-header">
 							<h3>Today's Goal</h3>
@@ -80,6 +67,44 @@
 							<button id="cancel-goal-btn" class="action-btn secondary">Cancel</button>
 						</div>
 					</div>
+
+					<div class="menu-grid">
+						<button id="begin-btn" class="menu-btn-large primary">
+							<svg class="play-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+								<polygon points="5 3 19 12 5 21 5 3"></polygon>
+							</svg>
+							<span>Begin a Pomo</span>
+						</button>
+
+						<button id="manage-tasks-btn" class="menu-btn-small">
+							<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M9 11l3 3L22 4"></path>
+								<path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"></path>
+							</svg>
+							<span>Tasks</span>
+						</button>
+						
+						<button id="log-btn" class="menu-btn-small">
+							<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M12 5v14M5 12h14"></path>
+							</svg>
+							<span>Log</span>
+						</button>
+						
+						<button id="view-btn" class="menu-btn-small">
+							<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z"></path>
+							</svg>
+							<span>Summary</span>
+						</button>
+						
+						<button id="data-btn" class="menu-btn-small">
+							<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+								<path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12"></path>
+							</svg>
+							<span>Import/Export</span>
+						</button>
+					</div>
 				</div>
 			</div>
 
@@ -87,7 +112,14 @@
 				<div class="tasks-container">
 					<h2>Manage Today's Tasks</h2>
 					
-					<div class="add-task-section">
+				
+
+					<div class="tasks-list-section">
+						<h3>Today's Tasks</h3>
+						<div id="tasks-list" class="tasks-list"></div>
+					</div>
+
+						<div class="add-task-section">
 						<h3>Add New Task</h3>
 						<div class="form-group">
 							<label for="new-task-subject">Subject</label>
@@ -99,11 +131,6 @@
 							<input type="text" id="new-task-name" placeholder="e.g., Past papers, Quiz, Flashcards">
 						</div>
 						<button id="add-task-btn" class="action-btn primary">Add Task</button>
-					</div>
-
-					<div class="tasks-list-section">
-						<h3>Today's Tasks</h3>
-						<div id="tasks-list" class="tasks-list"></div>
 					</div>
 
 					<button id="back-from-tasks-btn" class="action-btn secondary">Back to Menu</button>
