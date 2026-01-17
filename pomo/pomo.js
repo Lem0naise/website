@@ -16,16 +16,19 @@ class PomoData {
 			const parsed = JSON.parse(data);
 			this.sessions = parsed.sessions || [];
 			this.settings = parsed.settings || { work: 25, shortBreak: 5, longBreak: 15, dailyGoal: 120 };
+			this.tasks = parsed.tasks || [];
 		} else {
 			this.sessions = [];
 			this.settings = { work: 25, shortBreak: 5, longBreak: 15, dailyGoal: 120 };
+			this.tasks = [];
 		}
 	}
 
 	save() {
 		localStorage.setItem(STORAGE_KEY, JSON.stringify({
 			sessions: this.sessions,
-			settings: this.settings
+			settings: this.settings,
+			tasks: this.tasks
 		}));
 	}
 
@@ -155,10 +158,51 @@ class PomoData {
 		return result;
 	}
 
+	// Task management
+	addTask(subject, taskName) {
+		this.tasks.push({
+			id: Date.now(),
+			subject,
+			taskName,
+			completed: false,
+			createdAt: new Date().toISOString()
+		});
+		this.save();
+	}
+
+	toggleTask(taskId) {
+		const task = this.tasks.find(t => t.id === taskId);
+		if (task) {
+			task.completed = !task.completed;
+			this.save();
+		}
+	}
+
+	deleteTask(taskId) {
+		this.tasks = this.tasks.filter(t => t.id !== taskId);
+		this.save();
+	}
+
+	getActiveTasks() {
+		return this.tasks.filter(t => !t.completed);
+	}
+
+	getAllSubjects() {
+		const subjects = new Set();
+		this.sessions.forEach(s => {
+			if (s.topic) subjects.add(s.topic);
+		});
+		this.tasks.forEach(t => {
+			if (t.subject) subjects.add(t.subject);
+		});
+		return Array.from(subjects).sort();
+	}
+
 	export() {
 		return JSON.stringify({
 			sessions: this.sessions,
 			settings: this.settings,
+			tasks: this.tasks,
 			exportDate: new Date().toISOString()
 		}, null, 2);
 	}
@@ -170,6 +214,9 @@ class PomoData {
 				this.sessions = data.sessions;
 				if (data.settings) {
 					this.settings = data.settings;
+				}
+				if (data.tasks) {
+					this.tasks = data.tasks;
 				}
 				this.save();
 				return true;
@@ -253,8 +300,9 @@ class PomoTimer {
 			this.interval = null;
 		}
 		
+		// Return elapsed time in minutes with decimal precision
 		const elapsed = (new Date() - this.startTime) / 1000 / 60;
-		return Math.round(elapsed);
+		return Math.max(0.01, Math.round(elapsed * 100) / 100); // Round to 2 decimal places, minimum 0.01
 	}
 
 	getTimeLeft() {
@@ -309,6 +357,7 @@ class PomoUI {
 	}
 
 	initializeUI() {
+		document.getElementById('manage-tasks-btn').addEventListener('click', () => this.showTasks());
 		document.getElementById('begin-btn').addEventListener('click', () => this.showBegin());
 		document.getElementById('log-btn').addEventListener('click', () => this.showView('log-view'));
 		document.getElementById('view-btn').addEventListener('click', () => this.showSummary());
@@ -340,15 +389,32 @@ class PomoUI {
 		document.getElementById('clear-data-btn').addEventListener('click', () => this.clearData());
 		document.getElementById('back-from-data-btn').addEventListener('click', () => this.showView('menu-view'));
 
-		['work-input', 'short-break-input', 'long-break-input', 'topic-input'].forEach(id => {
+		// Tasks management
+		document.getElementById('add-task-btn').addEventListener('click', () => this.addTask());
+		document.getElementById('back-from-tasks-btn').addEventListener('click', () => this.showView('menu-view'));
+
+		['work-input', 'short-break-input', 'long-break-input', 'custom-subject-input', 'custom-task-input'].forEach(id => {
 			document.getElementById(id).addEventListener('keypress', (e) => {
 				if (e.key === 'Enter') this.startCycle();
+			});
+		});
+
+		['new-task-subject', 'new-task-name'].forEach(id => {
+			document.getElementById(id).addEventListener('keypress', (e) => {
+				if (e.key === 'Enter') this.addTask();
 			});
 		});
 
 		['log-minutes-input', 'log-topic-input'].forEach(id => {
 			document.getElementById(id).addEventListener('keypress', (e) => {
 				if (e.key === 'Enter') this.saveLog();
+			});
+		});
+
+		// Auto-select custom task radio when typing in custom input
+		['custom-subject-input', 'custom-task-input'].forEach(id => {
+			document.getElementById(id).addEventListener('focus', () => {
+				document.getElementById('custom-task-radio').checked = true;
 			});
 		});
 
@@ -365,6 +431,13 @@ class PomoUI {
 		// Update goal tracker when returning to menu
 		if (viewId === 'menu-view') {
 			this.updateGoalDisplay();
+		}
+		
+		// Populate subject suggestions in log view
+		if (viewId === 'log-view') {
+			const subjects = this.data.getAllSubjects();
+			const datalist = document.getElementById('subject-suggestions-log');
+			datalist.innerHTML = subjects.map(s => `<option value="${s}">`).join('');
 		}
 	}
 
@@ -402,10 +475,96 @@ class PomoUI {
 		document.getElementById('goal-edit').style.display = 'none';
 	}
 
+	showTasks() {
+		// Populate subject suggestions
+		const subjects = this.data.getAllSubjects();
+		const datalist = document.getElementById('subject-suggestions-tasks');
+		datalist.innerHTML = subjects.map(s => `<option value="${s}">`).join('');
+		
+		this.renderTasksList();
+		this.showView('tasks-view');
+	}
+
+	renderTasksList() {
+		const tasksList = document.getElementById('tasks-list');
+		const allTasks = this.data.tasks;
+		
+		if (allTasks.length === 0) {
+			tasksList.innerHTML = '<div class="tasks-list-empty">No tasks yet. Add your first task above!</div>';
+			return;
+		}
+		
+		tasksList.innerHTML = allTasks.map(task => `
+			<div class="task-item ${task.completed ? 'completed' : ''}">
+				<input type="checkbox" ${task.completed ? 'checked' : ''} onchange="app.toggleTaskUI(${task.id})">
+				<div class="task-details">
+					<div class="task-subject-name">${task.subject}</div>
+					<div class="task-task-name">${task.taskName}</div>
+				</div>
+				<button class="task-delete-btn" onclick="app.deleteTaskUI(${task.id})">Delete</button>
+			</div>
+		`).join('');
+	}
+
+	addTask() {
+		const subject = document.getElementById('new-task-subject').value.trim();
+		const taskName = document.getElementById('new-task-name').value.trim();
+		
+		if (!subject || !taskName) {
+			this.showToast('Please enter both subject and task name', 'error');
+			return;
+		}
+		
+		this.data.addTask(subject, taskName);
+		document.getElementById('new-task-subject').value = '';
+		document.getElementById('new-task-name').value = '';
+		this.renderTasksList();
+		this.showToast('Task added!', 'success');
+	}
+
+	toggleTaskUI(taskId) {
+		this.data.toggleTask(taskId);
+		this.renderTasksList();
+	}
+
+	deleteTaskUI(taskId) {
+		if (confirm('Delete this task?')) {
+			this.data.deleteTask(taskId);
+			this.renderTasksList();
+			this.showToast('Task deleted', 'success');
+		}
+	}
+
 	showBegin() {
 		document.getElementById('work-input').value = this.data.settings.work;
 		document.getElementById('short-break-input').value = this.data.settings.shortBreak;
 		document.getElementById('long-break-input').value = this.data.settings.longBreak;
+		
+		// Populate subject suggestions
+		const subjects = this.data.getAllSubjects();
+		const datalist = document.getElementById('subject-suggestions');
+		datalist.innerHTML = subjects.map(s => `<option value="${s}">`).join('');
+		
+		// Populate active tasks
+		const activeTasks = this.data.getActiveTasks();
+		const taskList = document.getElementById('task-list');
+		
+		if (activeTasks.length === 0) {
+			taskList.innerHTML = '<p class="no-tasks-msg" style="color: var(--text-light); font-size: 14px; margin: 8px 0;">No active tasks. Add some in Manage Tasks!</p>';
+		} else {
+			taskList.innerHTML = activeTasks.map(task => `
+				<div class="task-option">
+					<input type="radio" name="task-choice" id="task-${task.id}" value="${task.id}">
+					<label for="task-${task.id}">
+						<span class="task-subject">${task.subject}</span> — <span class="task-name">${task.taskName}</span>
+					</label>
+				</div>
+			`).join('');
+		}
+		
+		// Default to custom task
+		document.getElementById('custom-task-radio').checked = true;
+		
 		this.showView('begin-view');
 	}
 
@@ -413,17 +572,51 @@ class PomoUI {
 		const work = parseFloat(document.getElementById('work-input').value);
 		const shortBreak = parseFloat(document.getElementById('short-break-input').value);
 		const longBreak = parseFloat(document.getElementById('long-break-input').value);
-		const topic = document.getElementById('topic-input').value.trim();
 		
 		if (!work || work <= 0 || !shortBreak || shortBreak <= 0 || !longBreak || longBreak <= 0) {
 			this.showToast('Please enter valid durations', 'error');
 			return;
 		}
 
-		this.data.updateSettings(work, shortBreak, longBreak);
-		this.timer.initCycle(work, shortBreak, longBreak, topic);
+		// Get selected task or custom input
+		let subject = '';
+		let taskName = '';
 		
-		document.getElementById('topic-input').value = '';
+		const selectedTaskRadio = document.querySelector('input[name="task-choice"]:checked');
+		if (!selectedTaskRadio) {
+			this.showToast('Please select a task or enter custom', 'error');
+			return;
+		}
+		
+		if (selectedTaskRadio.value === 'custom') {
+			subject = document.getElementById('custom-subject-input').value.trim();
+			taskName = document.getElementById('custom-task-input').value.trim();
+			
+			if (!subject) {
+				this.showToast('Please enter a subject', 'error');
+				return;
+			}
+			
+			if (!taskName) {
+				this.showToast('Please enter a task name', 'error');
+				return;
+			}
+		} else {
+			// Find the selected task
+			const taskId = parseInt(selectedTaskRadio.value);
+			const task = this.data.tasks.find(t => t.id === taskId);
+			if (task) {
+				subject = task.subject;
+				taskName = task.taskName;
+			}
+		}
+
+		this.data.updateSettings(work, shortBreak, longBreak);
+		this.timer.initCycle(work, shortBreak, longBreak, subject);
+		this.timer.taskName = taskName; // Store task name for display
+		
+		document.getElementById('custom-subject-input').value = '';
+		document.getElementById('custom-task-input').value = '';
 		
 		this.showView('timer-view');
 		this.updateTimerDisplay();
@@ -441,7 +634,11 @@ class PomoUI {
 		phaseEl.textContent = this.timer.phase.label;
 		
 		if (this.timer.topic && this.timer.phase.type === 'work') {
-			topicEl.textContent = this.timer.topic;
+			// Display "Subject - Task Name" format
+			const displayText = this.timer.taskName 
+				? `${this.timer.topic} — ${this.timer.taskName}`
+				: this.timer.topic;
+			topicEl.textContent = displayText;
 		} else {
 			topicEl.textContent = this.timer.phase.type === 'break' ? 'Take a break!' : '';
 		}
@@ -466,7 +663,8 @@ class PomoUI {
 				if (this.timer.phase.type === 'work') {
 					const date = this.timer.startTime.toISOString().split('T')[0];
 					const time = this.timer.startTime.toTimeString().split(' ')[0];
-					this.data.addSession(date, time, this.timer.duration, this.timer.topic);
+					const topic = this.timer.topic || 'Untitled';
+					this.data.addSession(date, time, this.timer.duration, topic);
 				}
 
 				this.timer.nextPhase();
@@ -508,19 +706,32 @@ class PomoUI {
 	}
 
 	endCycle() {
-    if (this.timer.isRunning && this.timer.phase.type === 'work') {
-        const elapsed = this.timer.stop();
-        if (elapsed >= 1) {
-            const date = this.timer.startTime.toISOString().split('T')[0];
-            const time = this.timer.startTime.toTimeString().split(' ')[0];
-            this.data.addSession(date, time, elapsed, this.timer.topic);
-            this.showToast(`Saved ${elapsed} minutes of work`, 'success');
-        }
-    } else {
-        this.timer.stop();
-    }
-    this.showView('menu-view');
-}
+		if (this.timer.isRunning && this.timer.phase.type === 'work') {
+			const elapsed = this.timer.stop();
+			// Save any amount of time worked, even if less than 1 minute
+			if (elapsed > 0) {
+				const date = this.timer.startTime.toISOString().split('T')[0];
+				const time = this.timer.startTime.toTimeString().split(' ')[0];
+				const topic = this.timer.topic || 'Untitled';
+				this.data.addSession(date, time, elapsed, topic);
+				
+				// Format time display
+				let timeStr;
+				if (elapsed >= 1) {
+					const minutes = Math.floor(elapsed);
+					const seconds = Math.round((elapsed - minutes) * 60);
+					timeStr = seconds > 0 ? `${minutes} min ${seconds} sec` : `${minutes} min`;
+				} else {
+					const seconds = Math.round(elapsed * 60);
+					timeStr = `${seconds} sec`;
+				}
+				this.showToast(`Saved ${timeStr} of work`, 'success');
+			}
+		} else {
+			this.timer.stop();
+		}
+		this.showView('menu-view');
+	}
 
 	completeCycle() {
 		this.timer.stop();
