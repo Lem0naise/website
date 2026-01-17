@@ -50,6 +50,24 @@
 					<h1 class="app-title">Pomodoro Timer</h1>
 					<p class="app-subtitle">Focus, work, track your productivity</p>
 					
+					<div class="daily-goal-section">
+						<div class="goal-header">
+							<h3>Today's Goal</h3>
+							<button id="edit-goal-btn" class="edit-goal-btn">Edit</button>
+						</div>
+						<div id="goal-display" class="goal-display">
+							<div class="goal-progress-bar">
+								<div id="goal-progress-fill" class="goal-progress-fill"></div>
+							</div>
+							<div id="goal-text" class="goal-text">0 / 120 minutes</div>
+						</div>
+						<div id="goal-edit" class="goal-edit" style="display: none;">
+							<input type="number" id="goal-input" min="0" step="30" value="120" placeholder="Minutes">
+							<button id="save-goal-btn" class="action-btn primary">Save</button>
+							<button id="cancel-goal-btn" class="action-btn secondary">Cancel</button>
+						</div>
+					</div>
+					
 					<div class="menu-buttons">
 						<button id="begin-btn" class="menu-btn primary">Begin a Pomo</button>
 						<button id="log-btn" class="menu-btn">Log a Completed Session</button>
@@ -149,7 +167,36 @@
 
 			<div id="summary-view" class="view">
 				<div class="summary-container">
-					<h2>Day-by-Day Summary</h2>
+					<h2>Summary & Statistics</h2>
+					
+					<div id="stats-overview" class="stats-overview">
+						<div class="stat-card">
+							<div class="stat-label">Total Time</div>
+							<div id="stat-total" class="stat-value">0 min</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-label">This Week</div>
+							<div id="stat-week" class="stat-value">0 min</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-label">This Month</div>
+							<div id="stat-month" class="stat-value">0 min</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-label">Current Streak</div>
+							<div id="stat-streak" class="stat-value">0 days</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-label">Best Day</div>
+							<div id="stat-best-day" class="stat-value">—</div>
+						</div>
+						<div class="stat-card">
+							<div class="stat-label">Top Topic</div>
+							<div id="stat-top-topic" class="stat-value">—</div>
+						</div>
+					</div>
+					
+					<h3 class="section-title">Day-by-Day Breakdown</h3>
 					<div id="summary-content" class="summary-content"></div>
 					<button id="back-from-summary-btn" class="action-btn secondary">Back to Menu</button>
 				</div>

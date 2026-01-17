@@ -15,10 +15,10 @@ class PomoData {
 		if (data) {
 			const parsed = JSON.parse(data);
 			this.sessions = parsed.sessions || [];
-			this.settings = parsed.settings || { work: 25, shortBreak: 5, longBreak: 15 };
+			this.settings = parsed.settings || { work: 25, shortBreak: 5, longBreak: 15, dailyGoal: 120 };
 		} else {
 			this.sessions = [];
-			this.settings = { work: 25, shortBreak: 5, longBreak: 15 };
+			this.settings = { work: 25, shortBreak: 5, longBreak: 15, dailyGoal: 120 };
 		}
 	}
 
@@ -35,8 +35,96 @@ class PomoData {
 	}
 
 	updateSettings(work, shortBreak, longBreak) {
-		this.settings = { work, shortBreak, longBreak };
+		this.settings = { work, shortBreak, longBreak, dailyGoal: this.settings.dailyGoal };
 		this.save();
+	}
+
+	updateDailyGoal(goal) {
+		this.settings.dailyGoal = parseInt(goal);
+		this.save();
+	}
+
+	getTodayTotal() {
+		const today = new Date().toISOString().split('T')[0];
+		return this.sessions
+			.filter(s => s.date === today)
+			.reduce((sum, s) => sum + s.minutes, 0);
+	}
+
+	getStatistics() {
+		if (this.sessions.length === 0) {
+			return {
+				total: 0,
+				thisWeek: 0,
+				thisMonth: 0,
+				currentStreak: 0,
+				bestDay: null,
+				topTopic: null
+			};
+		}
+
+		// Total time
+		const total = this.sessions.reduce((sum, s) => sum + s.minutes, 0);
+
+		// This week
+		const now = new Date();
+		const weekAgo = new Date(now);
+		weekAgo.setDate(weekAgo.getDate() - 7);
+		const weekAgoStr = weekAgo.toISOString().split('T')[0];
+		const thisWeek = this.sessions
+			.filter(s => s.date >= weekAgoStr)
+			.reduce((sum, s) => sum + s.minutes, 0);
+
+		// This month
+		const monthAgo = new Date(now);
+		monthAgo.setMonth(monthAgo.getMonth() - 1);
+		const monthAgoStr = monthAgo.toISOString().split('T')[0];
+		const thisMonth = this.sessions
+			.filter(s => s.date >= monthAgoStr)
+			.reduce((sum, s) => sum + s.minutes, 0);
+
+		// Current streak
+		const dates = [...new Set(this.sessions.map(s => s.date))].sort().reverse();
+		let currentStreak = 0;
+		const today = new Date().toISOString().split('T')[0];
+		
+		for (let i = 0; i < dates.length; i++) {
+			const expectedDate = new Date(today);
+			expectedDate.setDate(expectedDate.getDate() - i);
+			const expectedStr = expectedDate.toISOString().split('T')[0];
+			
+			if (dates[i] === expectedStr) {
+				currentStreak++;
+			} else {
+				break;
+			}
+		}
+
+		// Best day
+		const dayTotals = {};
+		this.sessions.forEach(s => {
+			dayTotals[s.date] = (dayTotals[s.date] || 0) + s.minutes;
+		});
+		const bestDayEntry = Object.entries(dayTotals).sort((a, b) => b[1] - a[1])[0];
+		const bestDay = bestDayEntry ? { date: bestDayEntry[0], minutes: bestDayEntry[1] } : null;
+
+		// Top topic
+		const topicTotals = {};
+		this.sessions.forEach(s => {
+			const topic = s.topic || 'Untitled';
+			topicTotals[topic] = (topicTotals[topic] || 0) + s.minutes;
+		});
+		const topTopicEntry = Object.entries(topicTotals).sort((a, b) => b[1] - a[1])[0];
+		const topTopic = topTopicEntry ? { name: topTopicEntry[0], minutes: topTopicEntry[1] } : null;
+
+		return {
+			total,
+			thisWeek,
+			thisMonth,
+			currentStreak,
+			bestDay,
+			topTopic
+		};
 	}
 
 	getTotalsByDate() {
@@ -226,6 +314,11 @@ class PomoUI {
 		document.getElementById('view-btn').addEventListener('click', () => this.showSummary());
 		document.getElementById('data-btn').addEventListener('click', () => this.showView('data-view'));
 
+		// Daily goal tracker
+		document.getElementById('edit-goal-btn').addEventListener('click', () => this.editGoal());
+		document.getElementById('save-goal-btn').addEventListener('click', () => this.saveGoal());
+		document.getElementById('cancel-goal-btn').addEventListener('click', () => this.cancelGoalEdit());
+
 		document.getElementById('start-cycle-btn').addEventListener('click', () => this.startCycle());
 		document.getElementById('cancel-begin-btn').addEventListener('click', () => this.showView('menu-view'));
 
@@ -258,12 +351,55 @@ class PomoUI {
 				if (e.key === 'Enter') this.saveLog();
 			});
 		});
+
+		document.getElementById('goal-input').addEventListener('keypress', (e) => {
+			if (e.key === 'Enter') this.saveGoal();
+		});
 	}
 
 	showView(viewId) {
 		document.querySelectorAll('.view').forEach(view => view.classList.remove('active'));
 		document.getElementById(viewId).classList.add('active');
 		this.currentView = viewId;
+		
+		// Update goal tracker when returning to menu
+		if (viewId === 'menu-view') {
+			this.updateGoalDisplay();
+		}
+	}
+
+	updateGoalDisplay() {
+		const todayTotal = this.data.getTodayTotal();
+		const goal = this.data.settings.dailyGoal;
+		const percentage = Math.min((todayTotal / goal) * 100, 100);
+		
+		document.getElementById('goal-progress-fill').style.width = percentage + '%';
+		document.getElementById('goal-text').textContent = `${todayTotal} / ${goal} minutes`;
+	}
+
+	editGoal() {
+		document.getElementById('goal-display').style.display = 'none';
+		document.getElementById('goal-edit').style.display = 'flex';
+		document.getElementById('goal-input').value = this.data.settings.dailyGoal;
+		document.getElementById('goal-input').focus();
+	}
+
+	saveGoal() {
+		const newGoal = parseInt(document.getElementById('goal-input').value);
+		if (!newGoal || newGoal <= 0) {
+			this.showToast('Please enter a valid goal', 'error');
+			return;
+		}
+		
+		this.data.updateDailyGoal(newGoal);
+		this.cancelGoalEdit();
+		this.updateGoalDisplay();
+		this.showToast('Daily goal updated', 'success');
+	}
+
+	cancelGoalEdit() {
+		document.getElementById('goal-display').style.display = 'block';
+		document.getElementById('goal-edit').style.display = 'none';
 	}
 
 	showBegin() {
@@ -372,10 +508,19 @@ class PomoUI {
 	}
 
 	endCycle() {
-		this.timer.stop();
-		this.showView('menu-view');
-		this.showToast('Cycle ended', 'success');
-	}
+    if (this.timer.isRunning && this.timer.phase.type === 'work') {
+        const elapsed = this.timer.stop();
+        if (elapsed >= 1) {
+            const date = this.timer.startTime.toISOString().split('T')[0];
+            const time = this.timer.startTime.toTimeString().split(' ')[0];
+            this.data.addSession(date, time, elapsed, this.timer.topic);
+            this.showToast(`Saved ${elapsed} minutes of work`, 'success');
+        }
+    } else {
+        this.timer.stop();
+    }
+    this.showView('menu-view');
+}
 
 	completeCycle() {
 		this.timer.stop();
@@ -411,12 +556,50 @@ class PomoUI {
 	}
 
 	showSummary() {
+		const stats = this.data.getStatistics();
+		
+		// Update statistics cards
+		const formatTime = (mins) => {
+			const hours = Math.floor(mins / 60);
+			const minutes = mins % 60;
+			if (hours > 0) {
+				return `${hours}h ${minutes}m`;
+			}
+			return `${minutes} min`;
+		};
+
+		document.getElementById('stat-total').textContent = formatTime(stats.total);
+		document.getElementById('stat-week').textContent = formatTime(stats.thisWeek);
+		document.getElementById('stat-month').textContent = formatTime(stats.thisMonth);
+		document.getElementById('stat-streak').textContent = stats.currentStreak + (stats.currentStreak === 1 ? ' day' : ' days');
+		
+		if (stats.bestDay) {
+			document.getElementById('stat-best-day').textContent = formatTime(stats.bestDay.minutes);
+			document.getElementById('stat-best-day').parentElement.title = `Best day: ${stats.bestDay.date}`;
+		} else {
+			document.getElementById('stat-best-day').textContent = '—';
+		}
+		
+		if (stats.topTopic) {
+			document.getElementById('stat-top-topic').textContent = stats.topTopic.name;
+			document.getElementById('stat-top-topic').parentElement.title = `${formatTime(stats.topTopic.minutes)} total`;
+		} else {
+			document.getElementById('stat-top-topic').textContent = '—';
+		}
+
+		// Render day-by-day breakdown
 		const contentEl = document.getElementById('summary-content');
 		const totals = this.data.getTotalsByDate();
 
 		if (totals.length === 0) {
 			contentEl.innerHTML = '<div class="summary-empty">No sessions recorded yet. Start your first cycle!</div>';
 		} else {
+
+			const sessionCount = this.data.sessions.length;
+			if (sessionCount > 0 && sessionCount % 5 === 0) {
+				this.showToast('Tip: Export your data to back it up!', 'success');
+			}
+			
 			const allTopics = new Set();
 			totals.forEach(day => {
 				Object.keys(day.topics).forEach(topic => allTopics.add(topic));
@@ -536,4 +719,5 @@ class PomoUI {
 let app;
 window.addEventListener('DOMContentLoaded', () => {
 	app = new PomoUI();
+	app.updateGoalDisplay();
 });
