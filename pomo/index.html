@@ -196,7 +196,16 @@
 
 			<div id="timer-view" class="view">
 				<div class="timer-container">
-					<div id="timer-phase" class="timer-phase"></div>
+					<div id="timer-schedule" class="timer-schedule">
+						<div class="schedule-item">
+							<span class="schedule-label" id="next-phase-label">Next phase starts:</span>
+							<span id="next-start-time" class="schedule-time">--:--</span>
+						</div>
+						<div class="schedule-item">
+							<span class="schedule-label">Cycle completes:</span>
+							<span id="cycle-end-time" class="schedule-time">--:--</span>
+						</div>
+					</div>
 					<div id="timer-topic" class="timer-topic"></div>
 					
 					<div class="timer-circle-container">

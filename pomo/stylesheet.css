@@ -672,6 +672,43 @@ body {
 	padding: 60px 20px;
 }
 
+.timer-schedule {
+	margin: 0 auto 20px;
+	max-width: 500px;
+	padding: 12px 20px;
+	background-color: transparent;
+	border-radius: 8px;
+	display: flex;
+	flex-direction: row;
+	gap: 24px;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.schedule-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+	font-size: 11px;
+}
+
+.schedule-label {
+	color: var(--text-light);
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 1.5px;
+	font-size: 11px;
+}
+
+.schedule-time {
+	color: var(--text);
+	font-weight: 600;
+	font-family: var(--font-main), monospace;
+	letter-spacing: 0.5px;
+	font-size: 13px;
+}
+
 .timer-phase {
 	font-size: 18px;
 	color: var(--text-light);
@@ -689,6 +726,7 @@ body {
 	font-size: 24px;
 	color: var(--text-light);
 	margin-bottom: 40px;
+	font-weight: 500;
 }
 
 .timer-circle-container {
@@ -1534,6 +1572,24 @@ body {
 	/* Timer view */
 	.timer-container {
 		padding: 20px 12px;
+	}
+
+	.timer-schedule {
+		margin: 0 auto 16px;
+		padding: 8px 12px;
+		gap: 16px;
+	}
+	
+	.schedule-item {
+		font-size: 10px;
+	}
+	
+	.schedule-label {
+		font-size: 10px;
+	}
+	
+	.schedule-time {
+		font-size: 12px;
 	}
 
 	.timer-phase {

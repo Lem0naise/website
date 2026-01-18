@@ -763,15 +763,12 @@ class PomoUI {
 	}
 
 	updateTimerDisplay() {
-		const phaseEl = document.getElementById('timer-phase');
 		const topicEl = document.getElementById('timer-topic');
 		const displayEl = document.getElementById('timer-display');
 		const timerContainer = document.querySelector('.timer-container');
 		const pauseBtn = document.getElementById('pause-btn');
 		const progressCircle = document.querySelector('.progress-ring-circle');
 		const circumference = 2 * Math.PI * 90;
-
-		phaseEl.textContent = this.timer.phase.label;
 		
 		if (this.timer.topic && this.timer.phase.type === 'work') {
 			// Display "Subject - Task Name" format
@@ -780,7 +777,14 @@ class PomoUI {
 				: this.timer.topic;
 			topicEl.textContent = displayText;
 		} else {
-			topicEl.textContent = this.timer.phase.type === 'break' ? 'Take a break!' : '';
+			// Display break type in uppercase
+			if (this.timer.phase.label === 'Short Break') {
+				topicEl.textContent = 'Take a Short Break!';
+			} else if (this.timer.phase.label === 'Long Break') {
+				topicEl.textContent = 'Take a Long Break!';
+			} else {
+				topicEl.textContent = '';
+			}
 		}
 
 		if (this.timer.phase.type === 'break') {
@@ -788,6 +792,9 @@ class PomoUI {
 		} else {
 			timerContainer.classList.remove('break');
 		}
+		
+		// Update schedule times
+		this.updateScheduleTimes();
 
 		this.timer.interval = setInterval(() => {
 			if (this.timer.isPaused) {
@@ -835,6 +842,42 @@ class PomoUI {
 			const offset = circumference - (progress / 100) * circumference;
 			progressCircle.style.strokeDashoffset = offset;
 		}, 100);
+	}
+	
+	updateScheduleTimes() {
+		const formatTime = (date) => {
+			const hours = date.getHours();
+			const minutes = date.getMinutes();
+			const ampm = hours >= 12 ? 'PM' : 'AM';
+			const displayHours = hours % 12 || 12;
+			return `${displayHours}:${String(minutes).padStart(2, '0')} ${ampm}`;
+		};
+		
+		// Calculate next phase start time and cycle end time
+		const currentEndTime = this.timer.endTime;
+		let nextPhaseTime = new Date(currentEndTime);
+		let cycleEndTime = new Date(currentEndTime);
+		
+		// Add remaining phases to calculate cycle end
+		for (let i = this.timer.currentPhaseIndex + 1; i < this.timer.cyclePhases.length; i++) {
+			cycleEndTime = new Date(cycleEndTime.getTime() + this.timer.cyclePhases[i].duration * 60 * 1000);
+		}
+		
+		// Update next phase info
+		const nextPhaseLabel = document.getElementById('next-phase-label');
+		const nextStartTime = document.getElementById('next-start-time');
+		
+		if (this.timer.currentPhaseIndex + 1 < this.timer.cyclePhases.length) {
+			const nextPhase = this.timer.cyclePhases[this.timer.currentPhaseIndex + 1];
+			nextPhaseLabel.textContent = `${nextPhase.label} starts:`;
+			nextStartTime.textContent = formatTime(nextPhaseTime);
+		} else {
+			nextPhaseLabel.textContent = 'Next phase:';
+			nextStartTime.textContent = 'None (last phase)';
+		}
+		
+		// Update cycle end time
+		document.getElementById('cycle-end-time').textContent = formatTime(cycleEndTime);
 	}
 
 	togglePause() {
