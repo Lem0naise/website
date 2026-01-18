@@ -48,10 +48,16 @@ const schedule = [
         end: 10, 
     },
     {
-        activity: 'at my bouldering gym.',
+        activity: 'at the gym or climbing.',
         days: ['Monday', 'Wednesday', 'Friday', 'Saturday','Sunday'],
         start: 19,
         end: 22, 
+    },
+        {
+    activity: 'preparing for the week ahead.',
+        days: ["Sunday"],
+        start: 21,
+        end: 24
     },
     {
         activity: 'eating dinner.',
@@ -65,14 +71,12 @@ const schedule = [
         start: 7, 
         end: 9, 
     },
-
     {
         activity: 'at lectures, unfortunately.',
         days: weekdays,
         start: 9,
         end: 17,
     },
-
     {
         activity: 'sleeping.',
         days: allDays,
@@ -276,7 +280,7 @@ class StatusUpdates {
             }
         }
         const lat = 50.9065389; 
-        const lon = -1.4083186;
+        const lon = -1.4063186;
         const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=weather_code&forecast_days=2`;
 
         try {

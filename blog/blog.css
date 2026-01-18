@@ -55,6 +55,69 @@ h2, h3, h4, .stream-entry {
     flex-shrink: 0;
 }
 
+
+.theme-filter-btn {
+    background: var(--item);
+    border: 1px solid var(--border);
+    padding: 8px 16px;
+    border-radius: 6px;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 14px;
+    font-family: var(--font-main), monospace;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.theme-filter-btn:hover {
+    background: var(--item-background-2);
+    border-color: var(--accent);
+}
+
+.filter-icon {
+    font-size: 16px;
+}
+
+.theme-dropdown {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+    padding: 16px;
+    background: var(--item);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.3s;
+}
+
+.theme-dropdown.hidden {
+    display: none;
+}
+
+.theme-tag {
+    background: var(--item-background-2);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--text);
+    text-decoration: none;
+    transition: all 0.3s;
+    font-family: var(--font-main), monospace;
+}
+
+.theme-tag:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
 .posts-header h2 {
     font-size: 28px;
     font-weight: 600;
