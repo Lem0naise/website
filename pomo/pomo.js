@@ -264,6 +264,37 @@ class PomoTimer {
 		this.startNextPhase();
 	}
 
+	initCycleWithBlocks(blocks, topic) {
+		this.reset();
+		this.topic = topic;
+		
+		// Convert cycle blocks to phases
+		let workCount = 0;
+		this.cyclePhases = blocks.map(block => {
+			let phaseType, label;
+			
+			if (block.type === 'work') {
+				workCount++;
+				phaseType = 'work';
+				label = `Work Session ${workCount}`;
+			} else if (block.type === 'short-break') {
+				phaseType = 'break';
+				label = 'Short Break';
+			} else if (block.type === 'long-break') {
+				phaseType = 'break';
+				label = 'Long Break';
+			}
+			
+			return {
+				type: phaseType,
+				duration: block.duration,
+				label: label
+			};
+		});
+		
+		this.startNextPhase();
+	}
+
 	startNextPhase() {
 		if (this.currentPhaseIndex >= this.cyclePhases.length) {
 			return false;
@@ -371,6 +402,12 @@ class PomoUI {
 		document.getElementById('start-cycle-btn').addEventListener('click', () => this.startCycle());
 		document.getElementById('cancel-begin-btn').addEventListener('click', () => this.showView('menu-view'));
 
+		// Cycle builder
+		document.getElementById('reset-classic-btn').addEventListener('click', () => this.resetToClassic());
+		document.getElementById('add-work-btn').addEventListener('click', () => this.addBlock('work', 25));
+		document.getElementById('add-short-break-btn').addEventListener('click', () => this.addBlock('short-break', 5));
+		document.getElementById('add-long-break-btn').addEventListener('click', () => this.addBlock('long-break', 20));
+
 		document.getElementById('pause-btn').addEventListener('click', () => this.togglePause());
 		document.getElementById('end-cycle-btn').addEventListener('click', () => this.endCycle());
 
@@ -393,7 +430,7 @@ class PomoUI {
 		document.getElementById('add-task-btn').addEventListener('click', () => this.addTask());
 		document.getElementById('back-from-tasks-btn').addEventListener('click', () => this.showView('menu-view'));
 
-		['work-input', 'short-break-input', 'long-break-input', 'custom-subject-input', 'custom-task-input'].forEach(id => {
+		['custom-subject-input', 'custom-task-input'].forEach(id => {
 			document.getElementById(id).addEventListener('keypress', (e) => {
 				if (e.key === 'Enter') this.startCycle();
 			});
@@ -421,6 +458,9 @@ class PomoUI {
 		document.getElementById('goal-input').addEventListener('keypress', (e) => {
 			if (e.key === 'Enter') this.saveGoal();
 		});
+
+		// Initialize cycle blocks array
+		this.cycleBlocks = [];
 	}
 
 	showView(viewId) {
@@ -536,10 +576,6 @@ class PomoUI {
 	}
 
 	showBegin() {
-		document.getElementById('work-input').value = this.data.settings.work;
-		document.getElementById('short-break-input').value = this.data.settings.shortBreak;
-		document.getElementById('long-break-input').value = this.data.settings.longBreak;
-		
 		// Populate subject suggestions
 		const subjects = this.data.getAllSubjects();
 		const datalist = document.getElementById('subject-suggestions');
@@ -565,16 +601,100 @@ class PomoUI {
 		// Default to custom task
 		document.getElementById('custom-task-radio').checked = true;
 		
+		// Initialize with classic pomodoro pattern
+		this.resetToClassic();
+		
 		this.showView('begin-view');
 	}
 
-	startCycle() {
-		const work = parseFloat(document.getElementById('work-input').value);
-		const shortBreak = parseFloat(document.getElementById('short-break-input').value);
-		const longBreak = parseFloat(document.getElementById('long-break-input').value);
+	resetToClassic() {
+		this.cycleBlocks = [
+			{ type: 'work', duration: 25, id: Date.now() + 0 },
+			{ type: 'short-break', duration: 5, id: Date.now() + 1 },
+			{ type: 'work', duration: 25, id: Date.now() + 2 },
+			{ type: 'long-break', duration: 20, id: Date.now() + 3 }
+		];
+		this.renderCycleBlocks();
+	}
+
+	addBlock(type, defaultDuration) {
+		this.cycleBlocks.push({
+			type,
+			duration: defaultDuration,
+			id: Date.now()
+		});
+		this.renderCycleBlocks();
+	}
+
+	removeBlock(blockId) {
+		this.cycleBlocks = this.cycleBlocks.filter(b => b.id !== blockId);
+		this.renderCycleBlocks();
+	}
+
+	moveBlockUp(blockId) {
+		const index = this.cycleBlocks.findIndex(b => b.id === blockId);
+		if (index > 0) {
+			[this.cycleBlocks[index - 1], this.cycleBlocks[index]] = [this.cycleBlocks[index], this.cycleBlocks[index - 1]];
+			this.renderCycleBlocks();
+		}
+	}
+
+	moveBlockDown(blockId) {
+		const index = this.cycleBlocks.findIndex(b => b.id === blockId);
+		if (index < this.cycleBlocks.length - 1) {
+			[this.cycleBlocks[index], this.cycleBlocks[index + 1]] = [this.cycleBlocks[index + 1], this.cycleBlocks[index]];
+			this.renderCycleBlocks();
+		}
+	}
+
+	updateBlockDuration(blockId, newDuration) {
+		const block = this.cycleBlocks.find(b => b.id === blockId);
+		if (block) {
+			block.duration = parseFloat(newDuration) || 1;
+		}
+	}
+
+	renderCycleBlocks() {
+		const container = document.getElementById('cycle-blocks');
 		
-		if (!work || work <= 0 || !shortBreak || shortBreak <= 0 || !longBreak || longBreak <= 0) {
-			this.showToast('Please enter valid durations', 'error');
+		if (this.cycleBlocks.length === 0) {
+			container.innerHTML = '<div style="text-align: center; color: var(--text-light); padding: 40px;">Add blocks to build your cycle</div>';
+			return;
+		}
+
+		const getBlockLabel = (block) => {
+			if (block.type === 'work') return 'Work';
+			if (block.type === 'short-break') return 'Short Break';
+			if (block.type === 'long-break') return 'Long Break';
+			return block.type;
+		};
+
+		container.innerHTML = this.cycleBlocks.map((block, index) => `
+			<div class="cycle-block ${block.type}" data-block-id="${block.id}">
+				<div class="cycle-block-info">
+					<div class="cycle-block-type">${getBlockLabel(block)}</div>
+					<div class="cycle-block-duration">
+						<input type="number" min="1" step="1" value="${block.duration}" 
+							onchange="app.updateBlockDuration(${block.id}, this.value)"
+							onclick="event.stopPropagation()">
+						<span>min</span>
+					</div>
+				</div>
+				<div class="cycle-block-controls">
+					<button class="cycle-block-arrow" ${index === 0 ? 'disabled' : ''} 
+						onclick="app.moveBlockUp(${block.id})">↑</button>
+					<button class="cycle-block-arrow" ${index === this.cycleBlocks.length - 1 ? 'disabled' : ''} 
+						onclick="app.moveBlockDown(${block.id})">↓</button>
+					<button class="cycle-block-remove" onclick="app.removeBlock(${block.id})">Remove</button>
+				</div>
+			</div>
+		`).join('');
+
+	}
+
+	startCycle() {
+		if (this.cycleBlocks.length === 0) {
+			this.showToast('Please add at least one block to your cycle', 'error');
 			return;
 		}
 
@@ -611,8 +731,8 @@ class PomoUI {
 			}
 		}
 
-		this.data.updateSettings(work, shortBreak, longBreak);
-		this.timer.initCycle(work, shortBreak, longBreak, subject);
+		// Initialize timer with custom cycle blocks
+		this.timer.initCycleWithBlocks(this.cycleBlocks, subject);
 		this.timer.taskName = taskName; // Store task name for display
 		
 		document.getElementById('custom-subject-input').value = '';

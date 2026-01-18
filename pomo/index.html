@@ -139,23 +139,8 @@
 
 			<div id="begin-view" class="view">
 				<div class="form-container">
-					<h2>Start a Pomodoro Cycle</h2>
+					<h2>Build Your Pomodoro Cycle</h2>
 					
-					<div class="form-group">
-						<label for="work-input">Work Session (minutes)</label>
-						<input type="number" id="work-input" min="1" step="1" value="25">
-					</div>
-					
-					<div class="form-group">
-						<label for="short-break-input">Short Break (minutes)</label>
-						<input type="number" id="short-break-input" min="1" step="1" value="5">
-					</div>
-					
-					<div class="form-group">
-						<label for="long-break-input">Long Break (minutes)</label>
-						<input type="number" id="long-break-input" min="1" step="1" value="15">
-					</div>
-
 					<div class="task-selection">
 						<label>Choose a task or enter custom:</label>
 						<div id="task-list" class="task-list"></div>
@@ -169,6 +154,36 @@
 								<datalist id="subject-suggestions"></datalist>
 								<input type="text" id="custom-task-input" placeholder="Task (e.g., Debug login)">
 							</div>
+						</div>
+					</div>
+
+					<div class="cycle-builder-section">
+						<div class="builder-header">
+							<h3>Cycle</h3>
+							<button id="reset-classic-btn" class="action-btn secondary small">Reset to Classic</button>
+						</div>
+						
+						<div id="cycle-blocks" class="cycle-blocks"></div>
+						
+						<div class="add-block-section">
+							<button id="add-work-btn" class="add-block-btn work">
+								<svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M12 5v14M5 12h14"></path>
+								</svg>
+								<span>Work</span>
+							</button>
+							<button id="add-short-break-btn" class="add-block-btn short-break">
+								<svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M12 5v14M5 12h14"></path>
+								</svg>
+								<span>Short Break</span>
+							</button>
+							<button id="add-long-break-btn" class="add-block-btn long-break">
+								<svg class="icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M12 5v14M5 12h14"></path>
+								</svg>
+								<span>Long Break</span>
+							</button>
 						</div>
 					</div>
 					
