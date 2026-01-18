@@ -402,6 +402,7 @@ body {
 	border-radius: 8px;
 	cursor: pointer;
 	transition: all 0.2s ease;
+	user-select: none;
 }
 
 .task-option:hover {
@@ -412,6 +413,7 @@ body {
 .task-option input[type="radio"] {
 	width: auto;
 	cursor: pointer;
+	pointer-events: none;
 }
 
 .task-option label {
@@ -419,6 +421,7 @@ body {
 	cursor: pointer;
 	margin: 0;
 	font-size: 14px;
+	pointer-events: none;
 }
 
 .task-option .task-subject {

@@ -454,6 +454,18 @@ class PomoUI {
 				document.getElementById('custom-task-radio').checked = true;
 			});
 		});
+		
+		// Make entire custom task option clickable
+		document.querySelector('.custom-task-option').addEventListener('click', (e) => {
+			// Don't trigger if clicking on the input fields themselves
+			if (e.target.tagName !== 'INPUT' || e.target.type === 'radio') {
+				document.getElementById('custom-task-radio').checked = true;
+				// Focus the subject input for convenience
+				if (e.target.tagName !== 'INPUT') {
+					document.getElementById('custom-subject-input').focus();
+				}
+			}
+		});
 
 		document.getElementById('goal-input').addEventListener('keypress', (e) => {
 			if (e.key === 'Enter') this.saveGoal();
@@ -596,6 +608,14 @@ class PomoUI {
 					</label>
 				</div>
 			`).join('');
+			
+			// Add click handlers to make entire task option clickable
+			taskList.querySelectorAll('.task-option').forEach(option => {
+				option.addEventListener('click', () => {
+					const radio = option.querySelector('input[type="radio"]');
+					radio.checked = true;
+				});
+			});
 		}
 		
 		// Default to custom task
