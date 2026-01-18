@@ -135,6 +135,7 @@ h2, h3, h4, .stream-entry {
     margin-bottom: 12px;
     transition: all 0.3s;
     cursor: pointer;
+    background: var(--accent-soft);
 }
 
 .blog-post:hover {
