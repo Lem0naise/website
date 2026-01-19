@@ -1256,7 +1256,13 @@ main {
 .status-text {
 	color: var(--accent-light);
 	font-weight: bold;
+	transition: color .5s;
 }
+
+.status-content ul li:hover .status-text {
+	color: black;
+}
+
 
 .status-updates.expanded .status-content {
 	opacity: 1;
@@ -1302,7 +1308,6 @@ main {
 	transform: translateX(-100%);
 	will-change: transform;
 }
-
 .status-content ul li:hover {
 	color: white;
 	transform: translateX(4px) scale(1.02);

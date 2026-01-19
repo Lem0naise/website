@@ -109,6 +109,7 @@ class StatusUpdates {
         
         // add new here
         this.weatherStatus = document.getElementById('weather-status');
+        this.spotifyStatus = document.getElementById('spotify-status');
 
         this.isExpanded = false;
         
@@ -128,9 +129,11 @@ class StatusUpdates {
         this.loadGitHubActivity();
         this.applyCurrentlyDoing();
         this.applyWeatherStatus();
+        this.applySpotifyStatus();
 
 
         setInterval(() => this.applyCurrentlyDoing(), 60000)
+        setInterval(() => this.applySpotifyStatus(), 30000)
         // add new here
         
     }
@@ -201,7 +204,7 @@ class StatusUpdates {
                 const hoursAgo = Math.floor(timeDiff / (1000 * 60 * 60));
                 console.log(activity.date);
                 const timeText = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
-                this.githubActivity.innerHTML = `My last Git commit was to <span class='status-text'><a target="_blank" href="https://github.com/${activity.repo}">${activity.repo.split('/')[1]}</span>, ${timeText}</a>.`;
+                this.githubActivity.innerHTML = `My last Git commit was to <span class='status-text'><a class='status-text' target="_blank" href="https://github.com/${activity.repo}">${activity.repo.split('/')[1]}</span>, ${timeText}</a>.`;
         } else {
             this.githubActivity.innerHTML= 'Building <a target="_blank" href="https://github.com/Lem0naise/cashcat">CashCat</a>...';
         }
@@ -311,6 +314,51 @@ class StatusUpdates {
             this.weatherStatus.innerHTML = `My weather is <span class='status-text'>${weather}</span>`  
         }
         catch (error) {console.log(error)}
+    }
+
+    async getSpotifyStatus() {
+        const cached = localStorage.getItem('spotifyStatus');
+        if (cached) {
+            const {data, timestamp} = JSON.parse(cached);
+            if (Date.now() - timestamp < 30 * 1000) { // 30 second cache
+                return data;
+            }
+        }
+
+        try {
+            const response = await fetch("https://api.lanyard.rest/v1/users/425364681625042960");
+            if (!response.ok) {
+                throw new Error("Network response not okay.");
+            }
+            const data = await response.json();
+            
+            localStorage.setItem('spotifyStatus', JSON.stringify({
+                data,
+                timestamp: Date.now()
+            }));
+            
+            return data;
+        } catch (error) {
+            console.error('Error fetching Spotify status:', error);
+            return null;
+        }
+    }
+
+    async applySpotifyStatus() {
+        try {
+            const lanyardData = await this.getSpotifyStatus();
+            
+            if (lanyardData && lanyardData.success && lanyardData.data.listening_to_spotify && lanyardData.data.spotify) {
+                const spotify = lanyardData.data.spotify;
+                this.spotifyStatus.innerHTML = `Currently listening to <span class='status-text'>${spotify.song}, ${spotify.artist}</span>.`;
+                this.spotifyStatus.style.display = 'list-item';
+            } else {
+                this.spotifyStatus.style.display = 'none';
+            }
+        } catch (error) {
+            console.log(error);
+            this.spotifyStatus.style.display = 'none';
+        }
     }
 
     
