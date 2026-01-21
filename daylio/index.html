@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Daylio CSV Cleaner</title>
+    <meta name="description" content="Clean and split Daylio mood tracker CSV exports by year. Privacy-friendly, runs in your browser.">
+    <meta name="keywords" content="daylio, mood tracker, csv, cleaner, privacy, Indigo Nolan">
+    <meta name="author" content="Indigo Nolan">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://indigo.spot/daylio/">
+    <meta name="theme-color" content="#fffef3">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+    <link rel="stylesheet" href="stylesheet.css?version=1.0">
+</head>
+<body>
+    <main id="main-content">
+        <div class="tool-header">
+            <div class="tool-title">
+                <h1>Daylio CSV Cleaner</h1>
+                <p class="tool-subtitle">Clean and split your Daylio mood tracker CSV by year</p>
+            </div>
+        </div>
+         
+            <form id="upload-form">
+                
+                <label for="csv-upload" class="file-label" >  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>upload-box</title><path d="M5 3H19C20.11 3 21 3.9 21 5V19C21 20.11 20.11 21 19 21H5C3.9 21 3 20.11 3 19V5C3 3.9 3.9 3 5 3M16 17V15H8V17H16M16 11L12 7L8 11H10.5V14H13.5V11H16Z" /></svg>  Upload your Daylio CSV export</label>
+                <input type="file" id="csv-upload" accept=".csv">
+            </form>
+            <div id="download-section" style="display:none;">
+                <h4>Download Cleaned CSVs:</h4>
+                <div id="csv-links"></div>
+                <button id="download-zip" class="small-btn" style="display:none;">Download All as ZIP</button>
+            </div>
+               <div class="instructions">
+                <h4>What is Daylio?</h4>
+                <p><a href='https://daylio.net/' target="_blank"><strong>Daylio</strong></a> is a mood tracking app that lets you record your mood and activities each day. This tool helps you clean and split your Daylio CSV export by year, for easier analysis and token efficiency.</p>
+            </div>
+        <div class="home-button-container">
+            <a href="../" class="home-btn">← Home</a>
+        </div>
+    </main>
+    <script src="clean.js?version=2.0"></script>
+    <script src="daylio.js?version=2.0"></script>
+</body>
+</html>

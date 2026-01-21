@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
+
+:root {
+	--background: #fffef3;
+	--text: #2d2d2d;
+	--text-light: #666;
+	--accent: #8b5a83;
+	--accent-light: #a67ca0;
+	--accent-soft: #f0e6ed;
+	--border: #e8e6e0;
+	--card-bg: #ffffff;
+	--card-shadow: rgba(0, 0, 0, 0.08);
+	--hover-shadow: rgba(0, 0, 0, 0.12);
+	--success: #7c9885;
+	--warning: #d4a574;
+	--font-main: 'Syne Mono';
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-color: var(--background);
+	margin: 0;
+	font-family: var(--font-main), monospace;
+	color: var(--text);
+	line-height: 1.6;
+	min-height: 100vh;
+}
+
+#main-content {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-bottom: 80px;
+}
+
+.tool-header {
+	padding: 2rem 1.5rem 1.5rem;
+	background: var(--background);
+	text-align: center;
+}
+
+.tool-title h1 {
+	font-size: 2rem;
+	margin: 0 0 0.5rem 0;
+	color: var(--text);
+	font-weight: 700;
+}
+
+.tool-subtitle {
+	font-size: 0.95rem;
+	color: var(--text-light);
+}
+
+.instructions {
+	max-width: 400px;
+	margin: 1.5rem 0 1rem 0;
+	padding: 1rem;
+	background: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.file-label {
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: 600;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+
+.file-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5em;
+	background: var(--accent);
+	color: #fff;
+	border-radius: 5px;
+	padding: 0.5rem 1.2rem;
+	font-size: 1rem;
+	font-family: var(--font-main), monospace;
+	cursor: pointer;
+	transition: background 0.15s;
+	margin-bottom: 1.5rem;
+	border: none;
+	box-shadow: 0 2px 6px var(--hover-shadow);
+	font-weight: 600;
+}
+
+.file-label svg {
+	width: 2em;
+	height: 2em;
+	fill: currentColor;
+	vertical-align: middle;
+	margin-left: 0.2em;
+	pointer-events: none;
+}
+
+.file-label:hover {
+	background: var(--accent-light);
+}
+
+#download-section {
+	max-width: 500px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin-top: 2rem;
+}
+
+#csv-links {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 1rem;
+	margin-bottom: 1rem;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.download-btn, .small-btn {
+	background: var(--accent);
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	padding: 0.5rem 1.2rem;
+	font-size: 1rem;
+	font-family: var(--font-main), monospace;
+	cursor: pointer;
+	transition: background 0.15s;
+	box-shadow: 0 2px 6px var(--hover-shadow);
+}
+
+.download-btn:hover, .small-btn:hover {
+	background: var(--accent-light);
+}
+
+.small-btn {
+	font-size: 0.9rem;
+	padding: 0.4rem 1rem;
+	margin-top: 0.5rem;
+	background: var(--accent-soft);
+	color: var(--accent);
+	border: 1px solid var(--accent-light);
+}
+
+.home-button-container {
+	margin-top: 2rem;
+	text-align: center;
+}
+
+.home-btn {
+	display: inline-block;
+	padding: 0.5rem 1.2rem;
+	background: var(--accent);
+	color: #fff;
+	border-radius: 5px;
+	text-decoration: none;
+	font-family: var(--font-main), monospace;
+	font-size: 1rem;
+	transition: background 0.15s;
+}
+
+.home-btn:hover {
+	background: var(--accent-light);
+}
