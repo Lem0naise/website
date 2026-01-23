@@ -876,13 +876,14 @@ main {
 	transform: translateX(0);
 }
 
-/* Services Grid */
+.about-intro {
+	margin-bottom: 20px;
+}
 
-/* Compact Services Grid for Tutoring */
+#small-tools {
+	scroll-margin-top: 80px;
+}
 
-/* Enhanced Pricing Section */
-
-/* Contact Section */
 
 /* GitHub Special Styling */
 .github-special {
