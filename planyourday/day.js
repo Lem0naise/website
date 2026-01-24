@@ -31,7 +31,7 @@ class DayPlanner {
         this.panelToggle = document.getElementById('panel-toggle');
         this.taskPanel = document.getElementById('task-panel');
 
-        // Cleanup HTML elements if needed
+        // Cleanup: Hide multi-day elements if they exist in HTML
         const multiDayElements = ['days-ahead', 'future-start-group', 'task-day-group'];
         multiDayElements.forEach(id => {
             const el = document.getElementById(id);
@@ -75,7 +75,9 @@ class DayPlanner {
         if (startTime && deadline) {
             const s = this.timeToMinutes(startTime);
             const d = this.timeToMinutes(deadline);
-            if (d <= s + duration) return this.showStatus('Deadline is too tight', 'error');
+            if (s !== null && d !== null && d <= s + duration) {
+                return this.showStatus('Deadline is too tight', 'error');
+            }
         }
 
         const taskData = {
@@ -139,19 +141,19 @@ class DayPlanner {
     }
 
     timeToMinutes(timeStr) {
-        if (!timeStr) return 0;
+        if (!timeStr) return null;
         const parts = timeStr.split(':');
-        if (parts.length < 2) return 0;
+        if (parts.length < 2) return null;
         
         const hours = Number(parts[0]);
         const minutes = Number(parts[1]);
         
-        if (isNaN(hours) || isNaN(minutes)) return 0;
+        if (isNaN(hours) || isNaN(minutes)) return null;
         return hours * 60 + minutes;
     }
 
     minutesToTime(minutes) {
-        if (isNaN(minutes)) return "00:00"; 
+        if (typeof minutes !== 'number' || isNaN(minutes)) return "00:00"; 
         const hours = Math.floor(minutes / 60);
         const mins = minutes % 60;
         return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
@@ -201,14 +203,13 @@ class DayPlanner {
         const generationSeed = Date.now();
         
         let startDayMin = this.timeToMinutes(this.dayStartInput.value);
-        // Default to now if empty (avoid NaN)
-        if (!this.dayStartInput.value) {
+        if (startDayMin === null) {
             const now = new Date();
             startDayMin = now.getHours() * 60 + now.getMinutes();
         }
 
         let endDayMin = this.timeToMinutes(this.dayEndInput.value);
-        if (!this.dayEndInput.value) endDayMin = 18 * 60; 
+        if (endDayMin === null) endDayMin = 18 * 60; 
 
         if (startDayMin >= endDayMin) {
             return this.showStatus('Start time must be before End time', 'error');
@@ -247,7 +248,7 @@ class DayPlanner {
             const names = schedule.droppedTasks.join(', ');
             this.showStatus(`Warning: Could not fit: ${names}`, 'warning', 6000);
         } else if (isCrunchMode) {
-            this.showStatus('Tight schedule! Prioritized High Priority & Short tasks.', 'warning');
+            this.showStatus('Tight schedule! Priorities respected.', 'warning');
         } else {
             const msg = isRegen ? 'Schedule reshuffled!' : 'Schedule generated successfully!';
             this.showStatus(msg, 'success');
@@ -255,24 +256,29 @@ class DayPlanner {
     }
 
     runScheduler(date, allTasks, startOfDayMinutes, endOfDayMinutes, slackBudget, isCrunchMode, seed) {
-        // Sanitize tasks
+        // Sanitize
         const validTasks = allTasks.filter(t => t && !isNaN(t.duration) && t.duration > 0);
 
-        const fixedTimeTasks = validTasks.filter(t => t.startTime);
-        const deadlineTasks = validTasks.filter(t => t.deadline && !t.startTime);
-        const flexibleTasks = validTasks.filter(t => !t.startTime && !t.deadline);
+        // 1. Identify Fixed Time Tasks (Highest Priority - Anchors)
+        const fixedTimeTasks = validTasks.filter(t => this.timeToMinutes(t.startTime) !== null);
+        
+        // 2. Identify Pool Tasks (Everything else - Deadlines AND Flexible mixed)
+        // We mix them so that Priority can override Deadline ordering
+        const poolTasks = validTasks.filter(t => !fixedTimeTasks.includes(t));
 
         const priorityWeight = { high: 3, medium: 2, low: 1 };
         
-        flexibleTasks.sort((a, b) => {
+        // Sorting Logic for the Pool
+        poolTasks.sort((a, b) => {
             const pDiff = priorityWeight[b.priority] - priorityWeight[a.priority];
+            
+            // Primary Sort: Priority (High > Medium > Low)
             if (pDiff !== 0) return pDiff; 
 
-            if (isCrunchMode) {
-                return a.duration - b.duration;
-            } else {
-                return (this.seededRandom(seed + a.id) - 0.5);
-            }
+            // Secondary Sort: Randomness (for visual variety on regenerate)
+            // Note: We deliberately do NOT sort by deadline here. 
+            // We want High Priority tasks to be picked first, even if they don't have a deadline.
+            return (this.seededRandom(seed + a.id) - 0.5);
         });
 
         const blocks = [];
@@ -281,11 +287,8 @@ class DayPlanner {
         let droppedTasks = [];
 
         const addBlock = (task, start) => {
-            // Safety check for start time
-            if (isNaN(start)) {
-                console.error("Attempted to add block with NaN start", task);
-                return;
-            }
+            if (typeof start !== 'number' || isNaN(start) || !isFinite(start)) return;
+            
             blocks.push({
                 type: 'task', startTime: start, duration: task.duration,
                 name: task.name, priority: task.priority
@@ -307,40 +310,46 @@ class DayPlanner {
             return true;
         };
 
-        const findFirstSlot = (duration, minStartTime) => {
-            let safeMin = isNaN(minStartTime) ? startOfDayMinutes : minStartTime;
+        // Updated Helper: findFirstSlot now accepts an optional maxEndTime
+        const findFirstSlot = (duration, minStartTime, maxEndTime = null) => {
+            let safeMin = (typeof minStartTime === 'number' && !isNaN(minStartTime)) ? minStartTime : startOfDayMinutes;
             let candidateStart = Math.max(safeMin, startOfDayMinutes);
             
-            if (isRangeFree(candidateStart, duration)) return candidateStart;
+            // Check candidate start against deadline immediately
+            if (maxEndTime !== null && candidateStart + duration > maxEndTime) {
+                // If the very first possible slot is already too late, we can't search simply.
+                // However, we must continue to check gaps.
+            } else if (isRangeFree(candidateStart, duration)) {
+                return candidateStart;
+            }
             
+            // Check gaps between blocks
             for (const block of blocks) {
                 const blockEnd = block.startTime + block.duration;
                 if (blockEnd < candidateStart) continue;
+                
+                // If this gap starts too late for our deadline, stop searching? 
+                // No, a later gap might be smaller, but we are looking for valid time.
+                // Check if this specific gap fits the constraints
+                if (maxEndTime !== null && blockEnd + duration > maxEndTime) continue;
+
                 if (isRangeFree(blockEnd, duration)) return blockEnd;
             }
             return null;
         };
 
-        // 1. Fixed Tasks
+        // --- PHASE 1: Schedule Fixed Tasks ---
         fixedTimeTasks.forEach(task => {
             const start = this.timeToMinutes(task.startTime);
-            if (start >= startOfDayMinutes) addBlock(task, start);
-            else droppedTasks.push(task.name);
-        });
-
-        // 2. Deadline Tasks
-        deadlineTasks.forEach(task => {
-            const deadline = this.timeToMinutes(task.deadline);
-            const slot = findFirstSlot(task.duration, startOfDayMinutes);
-            if (slot !== null && (slot + task.duration) <= deadline) {
-                addBlock(task, slot);
+            if (start !== null && start >= startOfDayMinutes) {
+                addBlock(task, start);
             } else {
                 droppedTasks.push(task.name);
             }
         });
 
-        // 3. Flexible Tasks
-        let tasksRemaining = [...flexibleTasks];
+        // --- PHASE 2: Schedule Pool Tasks (Mixed Priority) ---
+        let tasksRemaining = [...poolTasks];
         let stuckCounter = 0;
         const BREAK_CHANCE = 0.3; 
         let currentBudget = slackBudget;
@@ -350,6 +359,7 @@ class DayPlanner {
             let earliestStart = startOfDayMinutes;
             let dependencyMet = true;
 
+            // Dependency Check
             if (task.afterTaskId) {
                 if (scheduledTaskIds.has(parseInt(task.afterTaskId))) {
                     earliestStart = scheduledTaskEndTimes.get(parseInt(task.afterTaskId));
@@ -364,34 +374,38 @@ class DayPlanner {
                 continue;
             }
 
+            // Deadline Constraint Logic
+            let maxEndTime = null;
+            if (task.deadline) {
+                maxEndTime = this.timeToMinutes(task.deadline);
+            }
+
             let scheduled = false;
             
-            // --- Break Scheduling ---
+            // Try Break + Task
             const wantBreak = this.seededRandom(seed + task.id + stuckCounter) < BREAK_CHANCE;
             
             if (wantBreak && currentBudget >= 15) {
-                const options = [];
-                if (currentBudget >= 15) options.push(15);
-                if (currentBudget >= 30) options.push(30);
-                if (currentBudget >= 45) options.push(45);
-                if (currentBudget >= 60) options.push(60);
-                
-                // FIX: Use numeric seed offset instead of string concatenation
-                // "brk" string was causing NaN in seededRandom math
-                const pickIndex = Math.floor(this.seededRandom(seed + task.id + 999) * options.length);
-                const breakDur = options[pickIndex];
-                
-                const slotWithBreak = findFirstSlot(task.duration + breakDur, earliestStart);
-                if (slotWithBreak !== null) {
-                    addBlock(task, slotWithBreak + breakDur);
-                    scheduled = true;
-                    currentBudget -= breakDur;
+                const options = [15, 30, 45, 60].filter(o => currentBudget >= o);
+                if (options.length > 0) {
+                    const pickIndex = Math.floor(this.seededRandom(seed + task.id + 999) * options.length);
+                    const breakDur = options[pickIndex];
+                    
+                    // Check if Break + Task fits before deadline
+                    // If task has deadline 5pm, break starts at 3:00 (30m), task starts 3:30 (60m) -> End 4:30. OK.
+                    const slotWithBreak = findFirstSlot(task.duration + breakDur, earliestStart, maxEndTime);
+                    
+                    if (slotWithBreak !== null) {
+                        addBlock(task, slotWithBreak + breakDur); // Add Task
+                        scheduled = true;
+                        currentBudget -= breakDur;
+                    }
                 }
             }
 
-            // Fallback
+            // Fallback: Just Task
             if (!scheduled) {
-                const slot = findFirstSlot(task.duration, earliestStart);
+                const slot = findFirstSlot(task.duration, earliestStart, maxEndTime);
                 if (slot !== null) {
                     addBlock(task, slot);
                     scheduled = true;
@@ -410,7 +424,7 @@ class DayPlanner {
             droppedTasks = droppedTasks.concat(tasksRemaining.map(t => t.name));
         }
 
-        // 4. Fill Free Time
+        // --- PHASE 3: Fill Gaps ---
         const finalBlocks = [];
         let lastEnd = startOfDayMinutes;
         blocks.sort((a, b) => a.startTime - b.startTime);
