@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Day Planner - Smart Task Scheduler | Indigo Nolan</title>
+		<meta name="theme-color" content="#fffef3">
+		<link rel="stylesheet" href="stylesheet.css?version=2.0">
+
+		<meta name="description" content="A smart day planner that helps you organize your tasks and schedule them throughout the day. Generate optimized schedules based on task duration and priority."/>
+		<meta name="keywords" content="day planner, task scheduler, productivity, time management, daily planning, Indigo Nolan"/>
+		<meta name="author" content="Indigo Nolan"/>
+		<meta name="robots" content="index, follow">
+		<link rel="canonical" href="https://indigo.spot/day/">
+		
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://indigo.spot/day/">
+		<meta property="og:title" content="Day Planner - Smart Task Scheduler">
+		<meta property="og:description" content="A smart day planner that helps you organize your tasks and schedule them throughout the day.">
+		<meta property="og:site_name" content="Indigo Nolan">
+		
+		<meta property="twitter:url" content="https://indigo.spot/day/">
+		<meta property="twitter:title" content="Day Planner - Smart Task Scheduler">
+		<meta property="twitter:description" content="A smart day planner that helps you organize your tasks and schedule them throughout the day.">
+		
+		<meta name="theme-color" content="#fffef3">
+		<link rel="icon" type="image/x-icon" href="../favicon.ico">
+		<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+		
+		<link rel="stylesheet" href="stylesheet.css?version=1.0">
+		
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "WebApplication",
+			"name": "Day Planner",
+			"description": "A smart day planner that helps you organize your tasks and schedule them throughout the day.",
+			"url": "https://indigo.spot/planyourday/",
+			"author": {
+				"@type": "Person",
+				"name": "Indigo Nolan"
+			},
+			"applicationCategory": "ProductivityApplication",
+			"operatingSystem": "Web Browser"
+		}
+		</script>
+	</head>
+	
+	<body>
+		<main id="main-content">
+			<div id="planner-view" class="view active">
+				<div class="header-container">
+					<h1 class="app-title">Day Planner</h1>
+				</div>
+
+				<div class="settings-bar">
+					<div class="setting-group">
+						<label for="days-ahead">Days:</label>
+						<input type="number" id="days-ahead" min="1" max="7" value="1" class="input-compact">
+					</div>
+					<div class="setting-group">
+						<label for="day-start">Start:</label>
+						<input type="time" id="day-start" class="input-compact">
+					</div>
+					<div class="setting-group">
+						<label for="day-end">End:</label>
+						<input type="time" id="day-end" value="18:00" class="input-compact">
+					</div>
+				</div>
+
+				<div class="task-input-section" id="task-panel">
+					<div class="panel-header" id="panel-toggle">
+						<h2>Manage Tasks</h2>
+						<button class="toggle-icon">▼</button>
+					</div>
+					
+					<div class="panel-content">
+						<div class="task-form-compact">
+							<div class="primary-inputs">
+								<input type="text" id="task-name" placeholder="Task name..." class="input-field">
+								<input type="number" id="task-duration" placeholder="Minutes" min="5" step="5" class="input-field small">
+								<select id="task-priority" class="input-field small">
+									<option value="high">High</option>
+									<option value="medium" selected>Med</option>
+									<option value="low">Low</option>
+								</select>
+							</div>
+							
+							<div class="constraint-inputs">
+								<div class="c-group">
+									<label>Start:</label>
+									<input type="time" id="task-start-time" class="input-field tiny">
+								</div>
+								<div class="c-group">
+									<label>By:</label>
+									<input type="time" id="task-deadline" class="input-field tiny">
+								</div>
+								<div class="c-group">
+									<label>After:</label>
+									<select id="task-after" class="input-field tiny">
+										<option value="">None</option>
+									</select>
+								</div>
+								<button id="add-task-btn" class="action-btn primary small-btn">Add</button>
+							</div>
+						</div>
+
+						<div id="tasks-list" class="tasks-list"></div>
+					</div>
+				</div>
+
+				<div class="action-section">
+					<button id="generate-schedule-btn" class="menu-btn-large primary">
+						<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+							<line x1="16" y1="2" x2="16" y2="6"></line>
+							<line x1="8" y1="2" x2="8" y2="6"></line>
+							<line x1="3" y1="10" x2="21" y2="10"></line>
+						</svg>
+						<span id="generate-btn-text">Generate Schedule</span>
+					</button>
+				</div>
+
+				<div id="schedule-display" class="schedule-display"></div>
+				<div id="status-message" class="status-message"></div>
+			</div>
+		</main>
+
+		<script src="day.js"></script>
+	</body>
+</html>
