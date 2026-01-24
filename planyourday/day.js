@@ -1,10 +1,11 @@
-// Day Planner Application
+// Day Planner Application - Single Day Optimized
 const STORAGE_KEY = 'dayPlannerTasks';
 
 class DayPlanner {
     constructor() {
         this.tasks = [];
         this.currentSchedule = null;
+        this.editingTaskId = null; 
         this.loadTasks();
         this.initializeUI();
     }
@@ -22,14 +23,23 @@ class DayPlanner {
         this.generateScheduleBtn = document.getElementById('generate-schedule-btn');
         this.scheduleDisplay = document.getElementById('schedule-display');
         this.statusMessage = document.getElementById('status-message');
-        this.daysAheadInput = document.getElementById('days-ahead');
         this.generateBtnText = document.getElementById('generate-btn-text');
         
-        // New UI Elements
+        // Time Layout Elements
         this.dayStartInput = document.getElementById('day-start');
         this.dayEndInput = document.getElementById('day-end');
         this.panelToggle = document.getElementById('panel-toggle');
         this.taskPanel = document.getElementById('task-panel');
+
+        // Cleanup HTML elements if needed
+        const multiDayElements = ['days-ahead', 'future-start-group', 'task-day-group'];
+        multiDayElements.forEach(id => {
+            const el = document.getElementById(id);
+            if (el) {
+                el.parentElement.style.display = 'none'; 
+                if(el.classList.contains('c-group')) el.style.display = 'none';
+            }
+        });
 
         // Set Default Start Time to Current Time
         const now = new Date();
@@ -44,7 +54,6 @@ class DayPlanner {
         
         this.generateScheduleBtn.addEventListener('click', () => this.generateSchedule());
         
-        // Toggle Logic
         this.panelToggle.addEventListener('click', () => {
             this.taskPanel.classList.toggle('minimized');
         });
@@ -69,19 +78,50 @@ class DayPlanner {
             if (d <= s + duration) return this.showStatus('Deadline is too tight', 'error');
         }
 
-        const task = {
-            id: Date.now(),
+        const taskData = {
             name, duration, priority,
             startTime: startTime || null,
             deadline: deadline || null,
             afterTaskId: afterTaskId || null
         };
 
-        this.tasks.push(task);
+        if (this.editingTaskId) {
+            const index = this.tasks.findIndex(t => t.id === this.editingTaskId);
+            if (index !== -1) {
+                this.tasks[index] = { ...this.tasks[index], ...taskData };
+                this.showStatus('Task updated', 'success');
+            }
+            this.editingTaskId = null;
+            this.addTaskBtn.textContent = 'Add';
+        } else {
+            this.tasks.push({
+                id: Date.now(),
+                ...taskData
+            });
+            this.showStatus('Task added', 'success');
+        }
+
         this.saveTasks();
         this.renderTasks();
         this.clearInputs();
-        this.showStatus('Task added', 'success');
+    }
+
+    editTask(id) {
+        const task = this.tasks.find(t => t.id === id);
+        if (!task) return;
+
+        this.taskNameInput.value = task.name;
+        this.taskDurationInput.value = task.duration;
+        this.taskPrioritySelect.value = task.priority;
+        this.taskStartTimeInput.value = task.startTime || '';
+        this.taskDeadlineInput.value = task.deadline || '';
+        this.taskAfterSelect.value = task.afterTaskId || '';
+
+        this.editingTaskId = id;
+        this.addTaskBtn.textContent = 'Update';
+        
+        this.taskPanel.classList.remove('minimized');
+        this.taskNameInput.focus();
     }
 
     clearInputs() {
@@ -90,15 +130,28 @@ class DayPlanner {
         this.taskStartTimeInput.value = '';
         this.taskDeadlineInput.value = '';
         this.taskAfterSelect.value = '';
+        
+        if (this.editingTaskId) {
+            this.editingTaskId = null;
+            this.addTaskBtn.textContent = 'Add';
+        }
         this.taskNameInput.focus();
     }
 
     timeToMinutes(timeStr) {
-        const [hours, minutes] = timeStr.split(':').map(Number);
+        if (!timeStr) return 0;
+        const parts = timeStr.split(':');
+        if (parts.length < 2) return 0;
+        
+        const hours = Number(parts[0]);
+        const minutes = Number(parts[1]);
+        
+        if (isNaN(hours) || isNaN(minutes)) return 0;
         return hours * 60 + minutes;
     }
 
     minutesToTime(minutes) {
+        if (isNaN(minutes)) return "00:00"; 
         const hours = Math.floor(minutes / 60);
         const mins = minutes % 60;
         return `${hours.toString().padStart(2, '0')}:${mins.toString().padStart(2, '0')}`;
@@ -106,6 +159,7 @@ class DayPlanner {
 
     removeTask(id) {
         this.tasks = this.tasks.filter(task => task.id !== id);
+        if (this.editingTaskId === id) this.clearInputs(); 
         this.saveTasks();
         this.renderTasks();
     }
@@ -124,14 +178,17 @@ class DayPlanner {
             if (task.startTime) badges += `<span class="constraint-badge">@${task.startTime}</span>`;
             if (task.deadline) badges += `<span class="constraint-badge"><${task.deadline}</span>`;
             
+            const isEditing = this.editingTaskId === task.id ? 'style="border-color:var(--accent); background-color:var(--accent-soft);"' : '';
+
             return `
-                <div class="task-item">
+                <div class="task-item" ${isEditing}>
                     <div class="task-priority-badge ${task.priority}"></div>
                     <div class="task-info">
                         <span class="task-name">${task.name}</span>
-                        <div style="display:flex; gap:4px;">${badges}</div>
+                        <div style="display:flex; gap:4px; flex-wrap:wrap;">${badges}</div>
                     </div>
                     <span class="task-duration">${task.duration}m</span>
+                    <button class="task-remove" style="color:var(--accent); border-color:var(--accent);" onclick="planner.editTask(${task.id})">✎</button>
                     <button class="task-remove" onclick="planner.removeTask(${task.id})">✕</button>
                 </div>
             `;
@@ -141,79 +198,94 @@ class DayPlanner {
     generateSchedule() {
         if (this.tasks.length === 0) return this.showStatus('Add tasks first', 'error');
 
-        const daysAhead = parseInt(this.daysAheadInput.value) || 1;
+        const generationSeed = Date.now();
         
-        // 1. Get Start/End Times from Inputs
-        const startDayMin = this.timeToMinutes(this.dayStartInput.value);
-        const endDayMin = this.timeToMinutes(this.dayEndInput.value);
+        let startDayMin = this.timeToMinutes(this.dayStartInput.value);
+        // Default to now if empty (avoid NaN)
+        if (!this.dayStartInput.value) {
+            const now = new Date();
+            startDayMin = now.getHours() * 60 + now.getMinutes();
+        }
+
+        let endDayMin = this.timeToMinutes(this.dayEndInput.value);
+        if (!this.dayEndInput.value) endDayMin = 18 * 60; 
 
         if (startDayMin >= endDayMin) {
             return this.showStatus('Start time must be before End time', 'error');
         }
 
-        const minutesPerDay = endDayMin - startDayMin;
-        const totalAvailable = minutesPerDay * daysAhead;
-        const totalTaskDuration = this.tasks.reduce((sum, t) => sum + t.duration, 0);
+        const totalAvailable = endDayMin - startDayMin;
+        const totalTaskDuration = this.tasks.reduce((sum, t) => sum + (t.duration || 0), 0);
 
-        // 2. ERROR CHECK: Do tasks fit?
+        let dailySlack = 0;
+        let isCrunchMode = false;
+
         if (totalTaskDuration > totalAvailable) {
-            return this.showStatus(`Impossible! Tasks: ${totalTaskDuration}m. Available: ${totalAvailable}m.`, 'error');
+            isCrunchMode = true;
+            dailySlack = 0;
+        } else {
+            dailySlack = totalAvailable - totalTaskDuration;
         }
 
-        // 3. Minimize Modal & Change Text
         this.taskPanel.classList.add('minimized');
+        const isRegen = this.generateBtnText.textContent.includes("Regenerate");
         this.generateBtnText.textContent = "Regenerate Schedule";
 
-        const schedules = [];
-        for (let day = 0; day < daysAhead; day++) {
-            const date = new Date();
-            date.setDate(date.getDate() + day);
-            
-            // Calculate specific start time for Today vs Future days
-            let dayStart = startDayMin;
-            if (day === 0) {
-                 // For today, ensure we don't schedule in the past if user left input as default
-                 // But strictly respecting the input is better UX usually. 
-                 // We use the input value provided.
-            } else {
-                // For future days, usually start at 9am, but let's stick to the user input for consistency
-                // OR default to 9am if input is "now". 
-                // Let's stick to the user's defined "Start Time" for all days for consistency.
-            }
+        const schedule = this.runScheduler(
+            new Date(), 
+            this.tasks, 
+            startDayMin, 
+            endDayMin, 
+            dailySlack, 
+            isCrunchMode,
+            generationSeed
+        );
 
-            const schedule = this.createDaySchedule(date, day, daysAhead, dayStart, endDayMin);
-            schedules.push(schedule);
+        this.renderSchedule(schedule);
+
+        if (schedule.droppedTasks.length > 0) {
+            const names = schedule.droppedTasks.join(', ');
+            this.showStatus(`Warning: Could not fit: ${names}`, 'warning', 6000);
+        } else if (isCrunchMode) {
+            this.showStatus('Tight schedule! Prioritized High Priority & Short tasks.', 'warning');
+        } else {
+            const msg = isRegen ? 'Schedule reshuffled!' : 'Schedule generated successfully!';
+            this.showStatus(msg, 'success');
         }
-
-        this.renderSchedule(schedules);
-        this.showStatus('Schedule generated!', 'success');
     }
 
-    createDaySchedule(date, dayIndex, totalDays, startOfDayMinutes, endOfDayMinutes) {
-        const seed = Date.now() + dayIndex;
-        
-        // Distribute tasks
-        const tasksPerDay = Math.ceil(this.tasks.length / totalDays);
-        const startIndex = dayIndex * tasksPerDay;
-        const endIndex = Math.min(startIndex + tasksPerDay, this.tasks.length);
-        let dayTasks = this.tasks.slice(startIndex, endIndex);
+    runScheduler(date, allTasks, startOfDayMinutes, endOfDayMinutes, slackBudget, isCrunchMode, seed) {
+        // Sanitize tasks
+        const validTasks = allTasks.filter(t => t && !isNaN(t.duration) && t.duration > 0);
 
-        const fixedTimeTasks = dayTasks.filter(t => t.startTime);
-        const deadlineTasks = dayTasks.filter(t => t.deadline && !t.startTime);
-        const flexibleTasks = dayTasks.filter(t => !t.startTime && !t.deadline);
+        const fixedTimeTasks = validTasks.filter(t => t.startTime);
+        const deadlineTasks = validTasks.filter(t => t.deadline && !t.startTime);
+        const flexibleTasks = validTasks.filter(t => !t.startTime && !t.deadline);
 
-        // Sort flexible tasks
         const priorityWeight = { high: 3, medium: 2, low: 1 };
+        
         flexibleTasks.sort((a, b) => {
             const pDiff = priorityWeight[b.priority] - priorityWeight[a.priority];
-            return pDiff + ((this.seededRandom(seed + a.id) - 0.5) * 0.5);
+            if (pDiff !== 0) return pDiff; 
+
+            if (isCrunchMode) {
+                return a.duration - b.duration;
+            } else {
+                return (this.seededRandom(seed + a.id) - 0.5);
+            }
         });
 
         const blocks = [];
         const scheduledTaskIds = new Set();
         const scheduledTaskEndTimes = new Map();
+        let droppedTasks = [];
 
         const addBlock = (task, start) => {
+            // Safety check for start time
+            if (isNaN(start)) {
+                console.error("Attempted to add block with NaN start", task);
+                return;
+            }
             blocks.push({
                 type: 'task', startTime: start, duration: task.duration,
                 name: task.name, priority: task.priority
@@ -236,7 +308,9 @@ class DayPlanner {
         };
 
         const findFirstSlot = (duration, minStartTime) => {
-            let candidateStart = Math.max(minStartTime, startOfDayMinutes);
+            let safeMin = isNaN(minStartTime) ? startOfDayMinutes : minStartTime;
+            let candidateStart = Math.max(safeMin, startOfDayMinutes);
+            
             if (isRangeFree(candidateStart, duration)) return candidateStart;
             
             for (const block of blocks) {
@@ -251,19 +325,25 @@ class DayPlanner {
         fixedTimeTasks.forEach(task => {
             const start = this.timeToMinutes(task.startTime);
             if (start >= startOfDayMinutes) addBlock(task, start);
+            else droppedTasks.push(task.name);
         });
 
         // 2. Deadline Tasks
         deadlineTasks.forEach(task => {
             const deadline = this.timeToMinutes(task.deadline);
             const slot = findFirstSlot(task.duration, startOfDayMinutes);
-            if (slot !== null && (slot + task.duration) <= deadline) addBlock(task, slot);
+            if (slot !== null && (slot + task.duration) <= deadline) {
+                addBlock(task, slot);
+            } else {
+                droppedTasks.push(task.name);
+            }
         });
 
-        // 3. Flexible Tasks with Break Probability
+        // 3. Flexible Tasks
         let tasksRemaining = [...flexibleTasks];
         let stuckCounter = 0;
-        const BREAK_CHANCE = 0.3; // 30% chance to take a break before a task
+        const BREAK_CHANCE = 0.3; 
+        let currentBudget = slackBudget;
 
         while (tasksRemaining.length > 0 && stuckCounter < tasksRemaining.length * 2) {
             const task = tasksRemaining.shift();
@@ -273,7 +353,7 @@ class DayPlanner {
             if (task.afterTaskId) {
                 if (scheduledTaskIds.has(parseInt(task.afterTaskId))) {
                     earliestStart = scheduledTaskEndTimes.get(parseInt(task.afterTaskId));
-                } else if (dayTasks.find(t => t.id == task.afterTaskId)) {
+                } else if (validTasks.find(t => t.id == task.afterTaskId)) {
                     dependencyMet = false;
                 }
             }
@@ -284,22 +364,32 @@ class DayPlanner {
                 continue;
             }
 
-            // --- BREAK LOGIC ---
-            // Roll dice. If we want a break, try to schedule Task duration + 15 min buffer
-            // If that fits, we add the task at (slot + 15).
-            // If it doesn't fit, we fall back to normal scheduling.
             let scheduled = false;
-            if (this.seededRandom(seed + task.id + stuckCounter) < BREAK_CHANCE) {
-                const breakDuration = 15;
-                const slotWithBreak = findFirstSlot(task.duration + breakDuration, earliestStart);
+            
+            // --- Break Scheduling ---
+            const wantBreak = this.seededRandom(seed + task.id + stuckCounter) < BREAK_CHANCE;
+            
+            if (wantBreak && currentBudget >= 15) {
+                const options = [];
+                if (currentBudget >= 15) options.push(15);
+                if (currentBudget >= 30) options.push(30);
+                if (currentBudget >= 45) options.push(45);
+                if (currentBudget >= 60) options.push(60);
                 
+                // FIX: Use numeric seed offset instead of string concatenation
+                // "brk" string was causing NaN in seededRandom math
+                const pickIndex = Math.floor(this.seededRandom(seed + task.id + 999) * options.length);
+                const breakDur = options[pickIndex];
+                
+                const slotWithBreak = findFirstSlot(task.duration + breakDur, earliestStart);
                 if (slotWithBreak !== null) {
-                    // Schedule task after the break
-                    addBlock(task, slotWithBreak + breakDuration);
+                    addBlock(task, slotWithBreak + breakDur);
                     scheduled = true;
+                    currentBudget -= breakDur;
                 }
             }
 
+            // Fallback
             if (!scheduled) {
                 const slot = findFirstSlot(task.duration, earliestStart);
                 if (slot !== null) {
@@ -308,8 +398,16 @@ class DayPlanner {
                 }
             }
 
-            if (scheduled) stuckCounter = 0;
-            else console.log(`Skipped ${task.name}`);
+            if (scheduled) {
+                stuckCounter = 0;
+            } else {
+                 tasksRemaining.push(task); 
+                 stuckCounter++;
+            }
+        }
+        
+        if (tasksRemaining.length > 0) {
+            droppedTasks = droppedTasks.concat(tasksRemaining.map(t => t.name));
         }
 
         // 4. Fill Free Time
@@ -335,42 +433,43 @@ class DayPlanner {
             });
         }
 
-        return { date, blocks: finalBlocks };
+        return { date, blocks: finalBlocks, droppedTasks };
     }
 
-    renderSchedule(schedules) {
-        this.scheduleDisplay.innerHTML = schedules.map(schedule => {
-            const dateStr = schedule.date.toLocaleDateString('en-US', { weekday: 'long' });
-            
-            const blocksHTML = schedule.blocks.map(block => {
-                const s = block.startTime;
-                const e = block.startTime + block.duration;
-                const timeLabel = `${this.formatTime(Math.floor(s/60), s%60)} - ${this.formatTime(Math.floor(e/60), e%60)}`;
-                const pClass = block.type === 'task' ? `${block.priority}-priority` : 'free-time';
-
-                return `
-                    <div class="time-block ${pClass}">
-                        <div class="time-label">${timeLabel}</div>
-                        <div style="flex:1; display:flex; justify-content:space-between;">
-                            <span class="block-title">${block.name}</span>
-                            <span class="block-duration">${block.duration}m</span>
-                        </div>
-                    </div>
-                `;
-            }).join('');
+    renderSchedule(schedule) {
+        const dateStr = schedule.date.toLocaleDateString('en-US', { 
+            weekday: 'long', month: 'long', day: 'numeric' 
+        });
+        
+        const blocksHTML = schedule.blocks.map(block => {
+            const s = block.startTime;
+            const e = block.startTime + block.duration;
+            const timeLabel = `${this.formatTime(Math.floor(s/60), s%60)} - ${this.formatTime(Math.floor(e/60), e%60)}`;
+            const pClass = block.type === 'task' ? `${block.priority}-priority` : 'free-time';
 
             return `
-                <div class="day-schedule">
-                    <div class="day-header">
-                        <span>${dateStr}</span>
+                <div class="time-block ${pClass}">
+                    <div class="time-label">${timeLabel}</div>
+                    <div style="flex:1; display:flex; justify-content:space-between;">
+                        <span class="block-title">${block.name}</span>
+                        <span class="block-duration">${block.duration}m</span>
                     </div>
-                    <div class="timeline">${blocksHTML}</div>
                 </div>
             `;
         }).join('');
+
+        this.scheduleDisplay.innerHTML = `
+            <div class="day-schedule">
+                <div class="day-header">
+                    <span>${dateStr}</span>
+                </div>
+                <div class="timeline">${blocksHTML}</div>
+            </div>
+        `;
     }
 
     formatTime(hour, minute) {
+        if (isNaN(hour) || isNaN(minute)) return "--:--";
         const period = hour >= 12 ? 'PM' : 'AM';
         const displayHour = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour);
         const displayMin = minute.toString().padStart(2, '0');
@@ -382,16 +481,31 @@ class DayPlanner {
         return x - Math.floor(x);
     }
 
-    showStatus(message, type) {
+    showStatus(message, type, duration = 4000) {
         this.statusMessage.textContent = message;
         this.statusMessage.className = `status-message ${type} visible`;
-        setTimeout(() => this.statusMessage.classList.remove('visible'), 4000);
+        setTimeout(() => this.statusMessage.classList.remove('visible'), duration);
     }
 
     saveTasks() { localStorage.setItem(STORAGE_KEY, JSON.stringify(this.tasks)); }
+    
     loadTasks() {
         const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved) this.tasks = JSON.parse(saved);
+        if (saved) {
+            try {
+                const parsed = JSON.parse(saved);
+                this.tasks = parsed.map(t => ({
+                    ...t,
+                    duration: (typeof t.duration === 'number' && !isNaN(t.duration)) ? t.duration : 30,
+                    priority: ['high', 'medium', 'low'].includes(t.priority) ? t.priority : 'medium',
+                    startTime: t.startTime || null,
+                    deadline: t.deadline || null
+                }));
+            } catch (e) {
+                console.error("Data corruption detected, resetting tasks");
+                this.tasks = [];
+            }
+        }
     }
 }
 

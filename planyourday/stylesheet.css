@@ -214,6 +214,16 @@ body {
 	font-size: 14px;
 }
 
+/* Add this utility class */
+.hidden {
+    display: none !important;
+}
+
+/* Ensure the new day selector fits */
+#task-specific-day {
+    min-width: 90px;
+}
+
 .time-block .time-label { width: 110px; font-weight: 600; flex-shrink: 0; }
 .time-block.high-priority { border-left-color: var(--high-priority); }
 .time-block.medium-priority { border-left-color: var(--medium-priority); }
@@ -283,4 +293,41 @@ body {
 
 .secondary:hover {
 	background-color: var(--accent-soft);
+}
+
+/* Optional Label */
+.optional-label {
+    color: var(--text-light);
+    font-size: 11px;
+    font-style: italic;
+    margin-right: 2px;
+    letter-spacing: 0.2px;
+    vertical-align: middle;
+}
+
+/* Home Button */
+.home-button {
+	position: fixed;
+	top: 24px;
+	left: 24px;
+	width: 48px;
+	height: 48px;
+	background-color: var(--card-bg);
+	border: 1px solid var(--border);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 24px;
+	color: var(--text);
+	text-decoration: none;
+	transition: all 0.2s ease;
+	z-index: 1000;
+}
+
+.home-button:hover {
+	background-color: var(--accent);
+	color: white;
+	border-color: var(--accent);
+	transform: scale(1.05);
 }
