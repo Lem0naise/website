@@ -256,6 +256,13 @@ body {
 	.settings-bar, .primary-inputs, .constraint-inputs { flex-direction: column; align-items: stretch; }
 	.input-compact, .tiny, .small { width: 100%; }
 	.c-group { flex-direction: row; justify-content: space-between; }
+
+	/* Fix widths for inputs in groups */
+    .input-field, .small, .tiny { width: 100%; min-width: 0; }
+    .c-group { display: flex; flex-direction: row; justify-content: space-between; align-items: center; width: 100%; }
+    .c-group label { min-width: 50px; }
+    .c-group .input-with-clear, .c-group .input-field { width: 70%; }
+	
 }
 
 
@@ -285,10 +292,52 @@ body {
 	box-shadow: 0 4px 12px var(--hover-shadow);
 }
 
+/* NEW: Wrapper for input + clear button */
+.input-with-clear {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* NEW: The X button style */
+.clear-time-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0 6px;
+    margin-left: -30px; /* Pull it over the input */
+    z-index: 2;
+    line-height: 1;
+    font-weight: bold;
+}
+
+.clear-time-btn:hover {
+    color: var(--error);
+}
+
+/* Adjust padding on the time inputs so text doesn't hit the X button */
+.input-with-clear input[type="time"] {
+    padding-right: 25px;
+}
+
+
 .secondary {
+
+		padding: 12px 24px;
+	font-family: var(--font-main), monospace;
+	font-size: 16px;
+	font-weight: 600;
+	border: 2px solid var(--border);
+	border-radius: 8px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+
 	background-color: transparent;
 	border-color: var(--accent);
 	color: var(--accent);
+
 }
 
 .secondary:hover {

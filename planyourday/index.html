@@ -84,12 +84,18 @@
                             
                             <div class="constraint-inputs">
                                 <div class="c-group">
-                                    <label for="task-start-time"><span class="optional-label">(optional)</span> Start:</label>
-                                    <input type="time" id="task-start-time" class="input-field tiny">
+                                    <label for="task-start-time">Start:</label>
+                                    <div class="input-with-clear">
+                                        <input type="time" id="task-start-time" class="input-field tiny">
+                                        <button type="button" class="clear-time-btn" data-target="task-start-time" aria-label="Clear start time">×</button>
+                                    </div>
                                 </div>
                                 <div class="c-group">
-                                    <label for="task-deadline"><span class="optional-label">(optional)</span> By:</label>
-                                    <input type="time" id="task-deadline" class="input-field tiny">
+                                    <label for="task-deadline">By:</label>
+                                    <div class="input-with-clear">
+                                        <input type="time" id="task-deadline" class="input-field tiny">
+                                        <button type="button" class="clear-time-btn" data-target="task-deadline" aria-label="Clear deadline">×</button>
+                                    </div>
                                 </div>
                                 <div class="c-group">
                                     <label>After:</label>
@@ -115,6 +121,17 @@
                         </svg>
                         <span id="generate-btn-text">Generate Schedule</span>
                     </button>
+					
+<button id="export-schedule-btn" class="menu-btn-large secondary" style="display: none; margin-top: 10px;">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path>
+        <line x1="16" y1="2" x2="16" y2="6"></line>
+        <line x1="8" y1="2" x2="8" y2="6"></line>
+        <line x1="3" y1="10" x2="21" y2="10"></line>
+        <path d="M12 10v6m-3-3h6"></path> </svg>
+    <span>Export to Calendar</span>
+</button>
+
                 </div>
 
                 <div id="schedule-display" class="schedule-display"></div>

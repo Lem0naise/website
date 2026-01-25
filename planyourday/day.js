@@ -21,6 +21,7 @@ class DayPlanner {
         this.addTaskBtn = document.getElementById('add-task-btn');
         this.tasksList = document.getElementById('tasks-list');
         this.generateScheduleBtn = document.getElementById('generate-schedule-btn');
+        this.exportScheduleBtn = document.getElementById('export-schedule-btn');
         this.scheduleDisplay = document.getElementById('schedule-display');
         this.statusMessage = document.getElementById('status-message');
         this.generateBtnText = document.getElementById('generate-btn-text');
@@ -31,7 +32,7 @@ class DayPlanner {
         this.panelToggle = document.getElementById('panel-toggle');
         this.taskPanel = document.getElementById('task-panel');
 
-        // Cleanup: Hide multi-day elements if they exist in HTML
+        // Cleanup: Hide multi-day elements
         const multiDayElements = ['days-ahead', 'future-start-group', 'task-day-group'];
         multiDayElements.forEach(id => {
             const el = document.getElementById(id);
@@ -41,7 +42,7 @@ class DayPlanner {
             }
         });
 
-        // Set Default Start Time to Current Time
+        // Set Default Start Time
         const now = new Date();
         const currentTimeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
         this.dayStartInput.value = currentTimeStr;
@@ -53,9 +54,19 @@ class DayPlanner {
         });
         
         this.generateScheduleBtn.addEventListener('click', () => this.generateSchedule());
+        this.exportScheduleBtn.addEventListener('click', () => this.exportSchedule()); 
         
         this.panelToggle.addEventListener('click', () => {
             this.taskPanel.classList.toggle('minimized');
+        });
+
+        // NEW: Add logic for clear time buttons
+        document.querySelectorAll('.clear-time-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const targetId = e.target.getAttribute('data-target');
+                const input = document.getElementById(targetId);
+                if (input) input.value = '';
+            });
         });
 
         this.renderTasks();
@@ -242,6 +253,9 @@ class DayPlanner {
             generationSeed
         );
 
+        // Store schedule for export
+        this.currentSchedule = schedule;
+
         this.renderSchedule(schedule);
 
         if (schedule.droppedTasks.length > 0) {
@@ -256,14 +270,12 @@ class DayPlanner {
     }
 
     runScheduler(date, allTasks, startOfDayMinutes, endOfDayMinutes, slackBudget, isCrunchMode, seed) {
-        // Sanitize
         const validTasks = allTasks.filter(t => t && !isNaN(t.duration) && t.duration > 0);
 
         // 1. Identify Fixed Time Tasks (Highest Priority - Anchors)
         const fixedTimeTasks = validTasks.filter(t => this.timeToMinutes(t.startTime) !== null);
         
         // 2. Identify Pool Tasks (Everything else - Deadlines AND Flexible mixed)
-        // We mix them so that Priority can override Deadline ordering
         const poolTasks = validTasks.filter(t => !fixedTimeTasks.includes(t));
 
         const priorityWeight = { high: 3, medium: 2, low: 1 };
@@ -276,8 +288,6 @@ class DayPlanner {
             if (pDiff !== 0) return pDiff; 
 
             // Secondary Sort: Randomness (for visual variety on regenerate)
-            // Note: We deliberately do NOT sort by deadline here. 
-            // We want High Priority tasks to be picked first, even if they don't have a deadline.
             return (this.seededRandom(seed + a.id) - 0.5);
         });
 
@@ -290,8 +300,12 @@ class DayPlanner {
             if (typeof start !== 'number' || isNaN(start) || !isFinite(start)) return;
             
             blocks.push({
-                type: 'task', startTime: start, duration: task.duration,
-                name: task.name, priority: task.priority
+                type: 'task',
+                taskId: task.id, // PERSISTENT ID FOR EXPORT
+                startTime: start, 
+                duration: task.duration,
+                name: task.name, 
+                priority: task.priority
             });
             scheduledTaskIds.add(task.id);
             scheduledTaskEndTimes.set(task.id, start + task.duration);
@@ -310,27 +324,20 @@ class DayPlanner {
             return true;
         };
 
-        // Updated Helper: findFirstSlot now accepts an optional maxEndTime
         const findFirstSlot = (duration, minStartTime, maxEndTime = null) => {
             let safeMin = (typeof minStartTime === 'number' && !isNaN(minStartTime)) ? minStartTime : startOfDayMinutes;
             let candidateStart = Math.max(safeMin, startOfDayMinutes);
             
-            // Check candidate start against deadline immediately
             if (maxEndTime !== null && candidateStart + duration > maxEndTime) {
-                // If the very first possible slot is already too late, we can't search simply.
-                // However, we must continue to check gaps.
+                // First slot fails constraint
             } else if (isRangeFree(candidateStart, duration)) {
                 return candidateStart;
             }
             
-            // Check gaps between blocks
             for (const block of blocks) {
                 const blockEnd = block.startTime + block.duration;
                 if (blockEnd < candidateStart) continue;
                 
-                // If this gap starts too late for our deadline, stop searching? 
-                // No, a later gap might be smaller, but we are looking for valid time.
-                // Check if this specific gap fits the constraints
                 if (maxEndTime !== null && blockEnd + duration > maxEndTime) continue;
 
                 if (isRangeFree(blockEnd, duration)) return blockEnd;
@@ -338,7 +345,7 @@ class DayPlanner {
             return null;
         };
 
-        // --- PHASE 1: Schedule Fixed Tasks ---
+        // --- PHASE 1: Fixed Tasks ---
         fixedTimeTasks.forEach(task => {
             const start = this.timeToMinutes(task.startTime);
             if (start !== null && start >= startOfDayMinutes) {
@@ -348,7 +355,7 @@ class DayPlanner {
             }
         });
 
-        // --- PHASE 2: Schedule Pool Tasks (Mixed Priority) ---
+        // --- PHASE 2: Pool Tasks ---
         let tasksRemaining = [...poolTasks];
         let stuckCounter = 0;
         const BREAK_CHANCE = 0.3; 
@@ -359,7 +366,6 @@ class DayPlanner {
             let earliestStart = startOfDayMinutes;
             let dependencyMet = true;
 
-            // Dependency Check
             if (task.afterTaskId) {
                 if (scheduledTaskIds.has(parseInt(task.afterTaskId))) {
                     earliestStart = scheduledTaskEndTimes.get(parseInt(task.afterTaskId));
@@ -374,7 +380,6 @@ class DayPlanner {
                 continue;
             }
 
-            // Deadline Constraint Logic
             let maxEndTime = null;
             if (task.deadline) {
                 maxEndTime = this.timeToMinutes(task.deadline);
@@ -382,7 +387,7 @@ class DayPlanner {
 
             let scheduled = false;
             
-            // Try Break + Task
+            // Break + Task
             const wantBreak = this.seededRandom(seed + task.id + stuckCounter) < BREAK_CHANCE;
             
             if (wantBreak && currentBudget >= 15) {
@@ -391,19 +396,16 @@ class DayPlanner {
                     const pickIndex = Math.floor(this.seededRandom(seed + task.id + 999) * options.length);
                     const breakDur = options[pickIndex];
                     
-                    // Check if Break + Task fits before deadline
-                    // If task has deadline 5pm, break starts at 3:00 (30m), task starts 3:30 (60m) -> End 4:30. OK.
                     const slotWithBreak = findFirstSlot(task.duration + breakDur, earliestStart, maxEndTime);
-                    
                     if (slotWithBreak !== null) {
-                        addBlock(task, slotWithBreak + breakDur); // Add Task
+                        addBlock(task, slotWithBreak + breakDur); 
                         scheduled = true;
                         currentBudget -= breakDur;
                     }
                 }
             }
 
-            // Fallback: Just Task
+            // Just Task
             if (!scheduled) {
                 const slot = findFirstSlot(task.duration, earliestStart, maxEndTime);
                 if (slot !== null) {
@@ -450,7 +452,71 @@ class DayPlanner {
         return { date, blocks: finalBlocks, droppedTasks };
     }
 
+    // NEW FUNCTION: Export to ICS
+    exportSchedule() {
+        if (!this.currentSchedule || !this.currentSchedule.blocks.length) {
+            return this.showStatus('No schedule to export!', 'error');
+        }
+
+        const date = new Date(); // Today
+        const dateString = date.toISOString().replace(/[-:]/g, '').split('T')[0]; // YYYYMMDD
+
+        let icsContent = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//DayPlanner//EN',
+            'CALSCALE:GREGORIAN',
+            'METHOD:PUBLISH' // Helps import as update
+        ];
+
+        this.currentSchedule.blocks.forEach(block => {
+            // We only export 'task' types, skipping generated free time
+            if (block.type !== 'task') return;
+
+            const startHours = Math.floor(block.startTime / 60);
+            const startMins = block.startTime % 60;
+            const endHours = Math.floor((block.startTime + block.duration) / 60);
+            const endMins = (block.startTime + block.duration) % 60;
+
+            const formatICSDate = (h, m) => {
+                return `${dateString}T${String(h).padStart(2, '0')}${String(m).padStart(2, '0')}00`;
+            };
+
+            const dtStart = formatICSDate(startHours, startMins);
+            const dtEnd = formatICSDate(endHours, endMins);
+
+            // Construct consistent UID
+            const taskUID = `${block.taskId || Date.now()}@dayplanner.app`;
+
+            icsContent.push(
+                'BEGIN:VEVENT',
+                `UID:${taskUID}`, // KEY FOR OVERWRITING
+                `SUMMARY:${block.name}`,
+                `DTSTART:${dtStart}`,
+                `DTEND:${dtEnd}`,
+                `DESCRIPTION:Priority: ${block.priority || 'N/A'}`,
+                'STATUS:CONFIRMED',
+                'SEQUENCE:' + Math.floor(Date.now() / 1000), // Version timestamp
+                'END:VEVENT'
+            );
+        });
+
+        icsContent.push('END:VCALENDAR');
+
+        const blob = new Blob([icsContent.join('\r\n')], { type: 'text/calendar;charset=utf-8' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.setAttribute('download', 'schedule.ics');
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+
+        this.showStatus('Schedule downloaded! Import this .ics file into Google Calendar.', 'success');
+    }
+
     renderSchedule(schedule) {
+        this.exportScheduleBtn.style.display = 'flex'; // Show Export Button
+
         const dateStr = schedule.date.toLocaleDateString('en-US', { 
             weekday: 'long', month: 'long', day: 'numeric' 
         });
