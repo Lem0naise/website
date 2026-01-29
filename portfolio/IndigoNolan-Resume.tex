@@ -1,0 +1,187 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage[default]{sourcesanspro} % Tech-oriented font
+
+% --- Geometry & Setup ---
+\pagestyle{fancy}
+\fancyhf{} 
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins for maximum compactness
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% --- Custom Colors ---
+\definecolor{techBlue}{RGB}{0, 90, 180} % A sharper, tech-focused blue
+
+% --- Section Formatting ---
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries\color{black}
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% --- Custom Commands ---
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\renewcommand\labelitemi{\tiny\color{techBlue}$\bullet$}
+\renewcommand\labelitemii{\tiny\color{techBlue}$\bullet$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% --- RESUME STARTS ---
+\begin{document}
+
+% --- HEADING ---
+\begin{center}
+    {\Huge \textbf{INDIGO NOLAN}} \\ \vspace{4pt}
+    \small 
+    \faPhone\ 07775 156078 \ $|$ \ 
+    \href{mailto:cv@indigonolan.com}{\faEnvelope\ \underline{cv@indigonolan.com}} \ $|$ \ 
+    \href{https://indigonolan.com}{\faGlobe\ \underline{indigonolan.com}} \ $|$ \ 
+    \href{https://github.com/Lem0naise}{\faGithub\ \underline{github.com/Lem0naise}} \ $|$ \ 
+    \href{https://linkedin.com/in/indigonolan}{\faLinkedin\ \underline{linkedin.com/in/indigonolan}}
+    \newline
+    \faMapMarker* \ London / Southampton \ 
+\end{center}
+
+
+% --- EDUCATION ---
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {University of Southampton}{Southampton, UK}
+      {MEng Computer Science $|$ Predicted First}{Expected 2028}
+      \resumeItemListStart
+        \resumeItem{\textbf{Academics:} A$^{*}$A$^{*}$A at A-Level, 11 A*s at GCSE.}
+      \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+
+% --- SKILLS ---
+% Moved up for immediate technical context
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: Python, JavaScript, TypeScript, Java, SQL, HTML/CSS} \\
+     \textbf{Frameworks}{: Next.js, React, React Native, Node.js, GDScript} \\
+     \textbf{DevOps \& Tools}{: Docker, Git, Vercel, Supabase, PostgreSQL, MongoDB, Linux/Bash, Google Cloud Platform (GCP)} \\
+     \textbf{Spoken Languages}{: English (Native), French (B2), Russian (B2), German (B1)}
+    }}
+ \end{itemize}
+
+
+% --- EXPERIENCE ---
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {University of Southampton}{Jan 2026}
+      {Research Assistant}{Southampton, UK}
+      \resumeItemListStart
+        \resumeItem{Engineered a data pipeline to map nighttime environments, integrating quantitative sensor data with qualitative metrics.}
+        \resumeItem{Used hardware (luxmeters, GPS, spectrometers) to capture spatial light/color data, correlating it with user experience.}
+        \resumeItem{Developed a web-based visualization platform to render collected geospatial data for analysis.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Southampton University Students' Union}{June 2025 -- Present}
+      {School President (Electronics \& Computer Science)}{Southampton, UK}
+      \resumeItemListStart
+        \resumeItem{Elected representative for 2,800 students; chaired the committee and liaised directly with senior faculty for curriculum improvements.}
+        \resumeItem{Architected structural changes to the voting system, successfully fixing past under-representation issues.}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Shell AI}{July 2023}
+      {Summer Intern}{London, UK}
+      \resumeItemListStart
+        \resumeItem{Analyzed machine learning models for optimizing real-time oil drilling operations to improve efficiency and safety.}
+        \resumeItem{Co-designed and prototyped a social justice mobile application, pitching the UI/UX architecture to senior Experience Design leads.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+
+% --- PROJECTS ---
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeProjectHeading
+      {\textbf{CashCat} $|$ \emph{Next.js, React, PostgreSQL, REST}}{\href{https://cashcat.app}{cashcat.app}}
+      \resumeItemListStart
+        \resumeItem{Full-stack financial application implementing zero-based budgeting principles with complex state management.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Climate Stories Library} $|$ \emph{Next.js, Supabase, Vercel, Google Cloud Platform \& APIs}}{\href{https://www.climatestorieslibrary.com}{climatestorieslibrary.com}}
+      \resumeItemListStart
+        \resumeItem{Designed a professional website and video backend for a climate organisation, increasing monthly engagement by 1300\% and connecting them with 40+ international clients.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{The Political Playground} $|$ \emph{React, Custom Simulation Engine}}{\href{https://pp.indigo.spot}{pp.indigo.spot}}
+      \resumeItemListStart
+        \resumeItem{Developed a complex election simulation engine featuring coalition mathematics and dynamic voter bloc logic.}
+        \resumeItem{Designed an interactive UI similar to "The Campaign Trail" to gamify democratic education.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{Fantasteroids} $|$ \emph{Godot, Steamworks API, GDScript}}{\href{https://store.steampowered.com/app/1790870/Fantasteroids/}{Fantasteroids on Steam}}
+      \resumeItemListStart
+        \resumeItem{Managed the full development lifecycle of a retro-arcade game, achieving a successful Steam marketplace launch with 300+ players and 90\% positive ratings.}
+      \resumeItemListEnd
+
+    \resumeProjectHeading
+      {\textbf{ESA AstroPi Challenge} $|$ \emph{Python, OpenCV, NumPy}}{}
+      \resumeItemListStart
+        \resumeItem{Wrote an image-processing algorithm deployed on the International Space Station to calculate cloud/land cover from orbit.}
+        \resumeItem{Processed 200+ images daily with high efficiency in a constrained hardware environment.}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+\end{document}
