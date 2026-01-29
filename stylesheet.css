@@ -1385,8 +1385,24 @@ main {
 
 /* CV Page Styles */
 .cv-actions {
+	align-items: center;
+	align-self: center;
+	justify-content: center;
+	gap: 8px;
+	display: flex;
 	text-align: center;
-	margin: 2rem 0;
+	margin: 1rem 0;
+}
+
+@media (max-width: 600px) {
+	.cv-actions {
+		display: grid;
+		grid-template-columns: 50% 50%;
+
+	}
+	.download-link {
+
+	}
 }
 
 .download-link {
@@ -1439,6 +1455,7 @@ main {
 
 .cv-embed embed {
 	width: 100%;
-	height: 600px;
+	min-height: 80vh;
+	max-height: 100vh;
 	border: none;
 }
