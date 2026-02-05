@@ -8,6 +8,11 @@ tags:
     - design
     - coding
 ---
+*This is Part 2 of a 3-part post: [Part 1](../favourites-me) - [Part 3](../headandheart).*
+
+
+---
+
 What does a three-star rating *really* mean? Is it a positive recommendation? Is it a 'meh'? Is it a warning? We've all been trapped for far too long, in my opinion, by the vague tyranny of the five-star system. It's a system that *feels* objective, but is actually deeply personal, often failing to capture how we truly feel about a film, book, or album. 
 
 I'm still trying to design a rating system for [favourites.me](https://favourites.me) that works better than stars. I've been doing it for a [while now](../favourites-me). I started off, as everybody does, with the traditional five-star system. Now the problem with this, which Roger Ebert (film critic for the Chicago Sun-Times) states in [this wonderful article which I will refer back to a lot](https://www.rogerebert.com/roger-ebert/you-give-out-too-many-stars), it's nowhere near perfect. 

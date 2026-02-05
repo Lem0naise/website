@@ -8,6 +8,9 @@ tags:
     - coding
     - project-updates
 ---
+*This is Part 1 of a 3-part post: [Part 2](blog/rating-systems-head-and-heart-and-favourites-me) - [Part 3](headandheart).*
+
+---
 I have always been a bit of a nerd about statistics and collecting data. I've kept a journal for over seven years, and I religiously track books I read, movies I watch, and games I play. Until about a year ago, I did what most people do and tracked my books and reviewed them on [Goodreads](https://www.goodreads.com), my movies on [Letterboxd](https://letterboxd.com), and my games on [Steam](https://store.steampowered.com). 
 
 Over the summer of 2024, when I had a lot more time on my hands than I was used to, I decided to make the leap and compile all the media I had ever consumed into one beautiful Excel spreadsheet (or technically a Google sheet). It started off as a plaintext list, and then I started adding features like ordering by rating, composite ratings, reviews, colour-coding, all the jazz. 
