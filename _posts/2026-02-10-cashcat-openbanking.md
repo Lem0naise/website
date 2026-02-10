@@ -50,4 +50,4 @@ So CashCat, I think, will have to lack the magic of 'it just works'. It feels so
 
 
 
-> *If you're interested in [CashCat](https://cashcat.app)"", which I'm building with [Josh Wilcox](https://josh.software), you can visit our site to see more!*
+> *If you're interested in trying out [CashCat](https://cashcat.app), which I'm building with [Josh Wilcox](https://josh.software), go pay us a visit to see more!*
