@@ -47,3 +47,7 @@ So, the only option seems to be shamefully and manually exporting a CSV from the
 It does turn out parsing bank CSVs is a bit of a nightmare though. Every bank formats the date differently. Some use DD/MM/YYYY, some use YYYY-MM-DD. Some put the merchant in a column called "Description", some split it into "Counterparty", some have two columns for income and outflow, some merge them. It would be great if there was some form of standardisation, with templates provided by regulators. They could be published openly and given to all banks! That would make it much easier to make financial apps. We could call it something like... Open Banking. 
 
 So CashCat, I think, will have to lack the magic of 'it just works'. It feels so weird, in this age of hyper-automation, that I can't do this simply. It is frustrating and disappointing. I am angry, but I'm not sure where to direct that. For now, I have to adapt. 
+
+
+
+> *If you're interested in [CashCat](https://cashcat.app)"", which I'm building with [Josh Wilcox](https://josh.software), you can visit our site to see more!*
