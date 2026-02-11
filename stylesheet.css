@@ -433,6 +433,7 @@ main {
 	padding: 20px 24px;
 	max-width: 80vw;
 	margin: 0 auto;
+	scroll-margin-top: 80px;
 }
 
 .content-section h2 {
@@ -955,6 +956,7 @@ main {
 .section-content h2 {
 	color: var(--accent);
 	animation: rainbow 15s ease-in-out infinite;
+	
 }
 
 .contact-content h2 {
@@ -1014,9 +1016,8 @@ main {
 	}
 	.welcome-content h1 {
 		font-size: 36px;
-	}
-	.welcome-content h1 {
-		margin: 0;
+		margin:0;
+		margin-bottom: 15px;
 	}
 	.looking-for h2 {
 		font-size: 16px;
@@ -1183,208 +1184,20 @@ main {
 }
 
 /* Status Updates */
-.status-updates {
-	z-index: 100;
-	transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-	min-width: 200px;
-	margin-bottom: 10px;
-}
-
-.status-button {
-	background: var(--card-bg);
-	border: 1px solid var(--border);
-	border-radius: 20px;
-	padding: 12px 20px;
-	font-family: var(--font-main), monospace;
-	cursor: pointer;
-	transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-	position: relative;
-	overflow: hidden;
-	white-space: nowrap;
-	box-shadow: 0 2px 8px var(--card-shadow);
-
-	font-size: 23px;
-	font-weight: 600;
-	color: var(--text);
-	margin: 0;
-}
-
-.status-button::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(120deg, var(--accent-soft), var(--accent-soft));
-	transition: transform 0.4s ease;
-	z-index: -1;
-	transform: translateX(-100%);
-	will-change: transform;
-}
-
-.status-button:hover {
-	transform: translateY(-2px) scale(1.05);
-	box-shadow: 0 6px 20px var(--hover-shadow);
-	border-color: var(--accent-light);
-	color: var(--accent);
-}
-
-.status-button:hover::before {
-	transform: translateX(0);
-}
-
-.status-content {
-	background: var(--card-bg);
-	border: 1px solid var(--border);
-	border-radius: 16px;
-
-	margin: 15px auto;
-
-	box-shadow: 0 8px 25px var(--hover-shadow);
-	opacity: 0;
-	transform: translateY(-20px) scale(0.9);
-	pointer-events: none;
-	transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-	position: relative;
-	overflow: hidden;
-	max-height: 0;
-	width: max(300px, 40%);
-
-	text-align: left;
-	font-weight: regular;
-
-	padding: 0px 14px;
-}
-
-
 .status-text {
 	color: var(--accent-light);
 	font-weight: bold;
 	transition: color .5s;
 }
 
-.status-content ul li:hover .status-text {
-	color: black;
-}
-
-
-.status-updates.expanded .status-content {
-	opacity: 1;
-	transform: translateY(0) scale(1);
-	pointer-events: auto;
-	max-height: 400px;
-	padding: 15px 14px;
-
-}
-
-.status-content ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-.status-content ul li {
-	margin-bottom: 4px;
-	padding: 3px 2px 3px 5px;
-	background: var(--accent-soft);
-	border-radius: 8px;
-	transition: all 0.3s;
-	position: relative;
-	overflow: hidden;
-	font-size: 14px;
-	color: var(--text);
-	border-left: 3px solid var(--accent);
-}
-.status-content ul li a {
-	color: var(--accent-light);
-}
-
-.status-content ul li::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: var(--accent-light);
-	transition: transform 0.3s ease;
-	z-index: -1;
-	transform: translateX(-100%);
-	will-change: transform;
-}
-.status-content ul li:hover {
+.about-intro ul li:hover .status-text {
 	color: white;
-	transform: translateX(4px) scale(1.02);
 }
 
-.status-content ul li:hover::before {
-	transform: translateX(0);
-}
-
-.status-content ul li:last-child {
-	margin-bottom: 0;
-}
-
-/* Status item animations with staggered delays */
-.status-updates.expanded .status-content ul li:nth-child(1) {
-	animation: slideInUp 0.6s ease-out 0s both;
-}
-
-.status-updates.expanded .status-content ul li:nth-child(2) {
-	animation: slideInUp 0.6s ease-out 0.1s both;
-}
-
-.status-updates.expanded .status-content ul li:nth-child(3) {
-	animation: slideInUp 0.6s ease-out 0.2s both;
-}
-
-.status-updates.expanded .status-content ul li:nth-child(4) {
-	animation: slideInUp 0.6s ease-out 0.3s both;
-}
-.status-updates.expanded .status-content ul li:nth-child(5) {
-	animation: slideInUp 0.6s ease-out 0.4s both;
-}
-
-@keyframes slideInUp {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
 
 /* Responsive adjustments for status updates */
 @media (max-width: 768px) {
-	.status-updates {
-		margin-top: 10px;
-		width: 100%;
-		margin-bottom: 0;
-	}
-	
-	.status-button {
-		padding: 10px 10px;
-		font-size: 18px;
-		text-align: center;
-	}
-	
-	.status-content {
-		width: 100%;
-		margin-bottom: 15px;
-		margin-top: 10px;
-		width: 80vw;
-		padding: 0 5px;
-
-	}
-
-	.status-updates.expanded .status-content {
-		padding: 5px 8px;
-
-	}
-
+	/* Remove mobile-specific status-updates and status-button styles */
 }
 
 /* CV Page Styles */

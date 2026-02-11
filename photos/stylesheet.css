@@ -149,12 +149,17 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+#photo-title {
+    margin-top: 5px;
+}
 .flickr-link .project-icon {
     width: 20px;
     height: 20px;
     fill: currentColor;
 }
 .photo-intro {
+    margin-top: 10px;
+    line-height: 1.1;
     font-size: 13px;
         margin-bottom: 1.5rem;
     }

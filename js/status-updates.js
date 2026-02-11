@@ -101,31 +101,16 @@ const schedule = [
 
 class StatusUpdates {
     constructor() {
-        this.statusDiv = document.getElementById('status-updates');
-        this.statusButton = document.getElementById('status-button');
-        this.statusContent = document.getElementById('status-content');
         this.githubActivity = document.getElementById('github-activity');
         this.currentlyDoing = document.getElementById('custom-status');
         
-        // add new here
         this.weatherStatus = document.getElementById('weather-status');
         this.spotifyStatus = document.getElementById('spotify-status');
-
-        this.isExpanded = false;
         
         this.init();
     }
     
     init() {
-        this.statusButton.addEventListener('click', () => this.toggle());
-
-        document.addEventListener('click', (e) => {
-            if (this.isExpanded && !this.statusDiv.contains(e.target)){ 
-                this.toggle();
-            }
-        });
-    
-
         this.loadGitHubActivity();
         this.applyCurrentlyDoing();
         this.applyWeatherStatus();
@@ -134,25 +119,8 @@ class StatusUpdates {
 
         setInterval(() => this.applyCurrentlyDoing(), 60000)
         setInterval(() => this.applySpotifyStatus(), 30000)
-        // add new here
-        
     }
     
-    toggle () {
-        if (this.isExpanded) {
-
-            this.isExpanded = false;
-            this.statusDiv.classList.remove('expanded');
-            this.statusButton.textContent='What am I up to?'
-        }
-        else {
-
-            this.isExpanded = true;
-            this.statusDiv.classList.add('expanded');
-            this.statusButton.textContent= 'Hide my status'
-        }
-    }
-
     async getRecentGitHubActivity() {
         const username = 'Lem0naise';
         const url = `https://api.github.com/users/${username}/events/public`;
@@ -233,11 +201,11 @@ class StatusUpdates {
                 const isOvernightEvent = event.start > event.end;
                 if (isOvernightEvent) {
                     if (currentTime >= event.start || currentTime < event.end) {
-                         return `It's ${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}, I'm probably <span class='status-text'>${event.activity}</span>`;
+                         return `It's <span class='status-text'>${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}</span>, I'm probably <span class='status-text'>${event.activity}</span>`;
                     }
                 } else {
                     if (currentTime >= event.start && currentTime < event.end) {
-                        return `It's ${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}, I'm probably <span class='status-text'>${event.activity}<span>`;
+                        return `It's <span class='status-text'>${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}</span>, I'm probably <span class='status-text'>${event.activity}<span>`;
                     }
                 }
             }
