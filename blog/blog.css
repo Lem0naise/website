@@ -128,11 +128,10 @@ h2, h3, h4, .stream-entry {
 
 
 .blog-post {
-    background: var(--item);
     border: 1px solid var(--border);
     border-radius: 8px;
     padding: 6px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     transition: all 0.3s;
     cursor: pointer;
     background: var(--accent-soft);
@@ -176,13 +175,14 @@ h2, h3, h4, .stream-entry {
     font-weight: 600;
     margin: 0 0 8px;
     color: var(--text);
-    line-height: 1.3;
+
     display: inline;
 }
 
 .blog-post h3 a {
     color: inherit;
     text-decoration: none;
+    line-height: 0.8;
     transition: color 0.3s;
 }
 
@@ -231,7 +231,7 @@ h2, h3, h4, .stream-entry {
     margin: 0 0 16px;
     color: var(--text);
     letter-spacing: -0.02em;
-    line-height: 1.2;
+    line-height: 1;
 
     color: var(--accent-light);
     animation: rainbow 15s ease-in-out infinite;
@@ -265,7 +265,8 @@ h2, h3, h4, .stream-entry {
     font-family: 'Faculty Glyphic';
 }
 .tag-heading {
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     text-decoration: underline;
 }
 .post-content p {
@@ -435,6 +436,7 @@ h2, h3, h4, .stream-entry {
     }
 
     .post-information {
+        font-size: 12px;
         padding: 3px 6px;
     }
     .blog-header {
@@ -469,6 +471,10 @@ h2, h3, h4, .stream-entry {
     
     .blog-post {
         padding: 6px;
+        padding-top: 2px;
+        padding-bottom: 2px;
+        margin-bottom: 8px;
+        line-height: 1.3;
     }
     
     .post-meta {
@@ -478,7 +484,10 @@ h2, h3, h4, .stream-entry {
     }
     
     .blog-post h3 {
-        font-size: 16px;
+        font-size: 15px;
+    }
+    .blog-post h3 a {
+        line-height: 1;
     }
     
     .post-container {
