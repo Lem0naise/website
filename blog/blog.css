@@ -274,7 +274,7 @@ h2, h3, h4, .stream-entry {
 
 .post-content h2 {
     line-height: 1.2;
-    font-size: 32px;
+    font-size: 25px;
     font-weight: 600;
     margin: 40px 0 20px;
     color: var(--text);
@@ -503,7 +503,7 @@ h2, h3, h4, .stream-entry {
     }
 
     .post-content h2 {
-        font-size: 28px;
+        font-size: 22#000000px;
     }
     
     .post-content h3 {
