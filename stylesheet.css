@@ -594,6 +594,7 @@ main {
 	color: inherit;
 	display: block;
 	height: 100%;
+	line-height: 0.9;
 }
 
 
@@ -667,7 +668,7 @@ main {
 	margin: 0;
 	font-size: 14px;
 	color: var(--text-light);
-	line-height: 1.5;
+	line-height: 1.3;
 	transition: color 0.3s ease;
 }
 
@@ -835,7 +836,7 @@ main {
 	padding: 0;
 	list-style: none;
 	font-size: 15px;
-	line-height: 1.8;
+	line-height: 1.4;
 	color: var(--text-light);
 	text-align: left;
 	font-family: var(--font-main);
@@ -1066,6 +1067,7 @@ main {
 	}
 	.section-content{
 		max-width: 100vw;
+		line-height: 0.8;
 	}
 	
 	.content-section h2 {
