@@ -1068,7 +1068,7 @@ main {
 	}
 	.section-content{
 		max-width: 100vw;
-		line-height: 0.8;
+		line-height: 1;
 	}
 	
 	.content-section h2 {
