@@ -5,7 +5,7 @@ date: 2025-12-22 11:20:10 +0000
 author: Indigo Nolan
 permalink: /kresimiria
 tags: 
-    - project-updates
+    - projects
     - linguistics
 ---
 

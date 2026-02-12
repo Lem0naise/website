@@ -5,7 +5,7 @@ date: 2026-02-05 10:00:00 +0000
 author: Indigo Nolan
 permalink: /headandheart
 tags: 
-    - project-updates
+    - projects
     - coding
     - design
 ---

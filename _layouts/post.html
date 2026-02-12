@@ -1,77 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{{page.title}} - Indigo Nolan</title>
-		<link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}">
-		<script src="{{ '/js/dark-init.js' | relative_url }}"></script>
-        <link rel="stylesheet" href="{{'/blog/blog.css' | relative_url }}">
-		<link rel="icon" type="image/x-icon" href="../../favicon.ico">
-		
-		<meta name="description" content="{{page.excerpt | default: site.description | escape | truncate: 100}}"/>
-		<meta name="keywords" content=""/>
-		<meta name="author" content="Indigo Nolan"/>
 
-	
-    	<meta property="og:title" content="{{ page.title | default: site.title }}">
-		<meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
-		<meta property="og:url" content="{{ page.url | absolute_url }}">
-		<meta property="og:site_name" content="{{ site.title }}">
-		<meta property="og:type" content="article">
-		{% if page.image %}
-		<meta property="og:image" content="{{ page.image | absolute_url }}">
-		{% elsif site.image %}
-		<meta property="og:image" content="{{ site.image | absolute_url }}">
-		{% endif %}
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{page.title}} - Indigo Nolan</title>
+	<link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}">
+	<script src="{{ '/js/dark-init.js' | relative_url }}"></script>
+	<link rel="stylesheet" href="{{'/blog/blog.css' | relative_url }}">
+	<link rel="icon" type="image/x-icon" href="../../favicon.ico">
 
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="{{ page.title | default: site.title }}">
-		<meta name="twitter:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
-		<meta name="twitter:image" content="{{ page.image | default: site.image | absolute_url }}">
-		<link rel="canonical" href="{{page.url | absolute_url}}"
-	</head>
-	
-	<body>
-		<header id="header">
-			<div class="header-content">
-				<a class="logo" href='../'>Indigo Nolan</a>
-				<nav id="menu">
-					<a href="{{ '/' | relative_url}}" class="tab">Home</a>
-					<a href="{{ '/portfolio' | relative_url}}" class="tab">Projects</a>
+	<meta name="description" content="{{page.excerpt | default: site.description | escape | truncate: 100}}" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Indigo Nolan" />
 
-					<a href="{{ '/blog' | relative_url}}" class="tab active">Blog</a>
-					<span onclick="toggle()" class="tab tab-svg">
-						<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path id='toggle-button' d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" /></svg>
-					</span>
-				</nav>
-			</div>
-		</header>
 
-		<main style="padding-top: 70px;">
-			<article class="post-container">
-				<header class="post-header">
-					<h1 class="post-title">{{page.title}}</h1>
-					<div class="post-meta">
+	<meta property="og:title" content="{{ page.title | default: site.title }}">
+	<meta property="og:description"
+		content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
+	<meta property="og:url" content="{{ page.url | absolute_url }}">
+	<meta property="og:site_name" content="{{ site.title }}">
+	<meta property="og:type" content="article">
+	{% if page.image %}
+	<meta property="og:image" content="{{ page.image | absolute_url }}">
+	{% elsif site.image %}
+	<meta property="og:image" content="{{ site.image | absolute_url }}">
+	{% endif %}
 
-						<div class="post-information">{{ page.date | date: "%B %d, %Y" }}</div>
-						<div class="post-information">
-							{% for tag in page.tags %}
-							<a href="{{'/blog#' | append: tag | relative_url}}">{{ tag }}</a> {% unless forloop.last%} • {% endunless %}
-							{% endfor %}
-						</div>
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ page.title | default: site.title }}">
+	<meta name="twitter:description"
+		content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
+	<meta name="twitter:image" content="{{ page.image | default: site.image | absolute_url }}">
+	<link rel="canonical" href="{{page.url | absolute_url}}" </head>
+
+<body>
+	<header id="header">
+		<div class="header-content">
+			<a class="logo" href='../'>Indigo Nolan</a>
+			<nav id="menu">
+				<a href="{{ '/' | relative_url}}" class="tab">Home</a>
+				<a href="{{ '/portfolio' | relative_url}}" class="tab">Projects</a>
+
+				<a href="{{ '/blog' | relative_url}}" class="tab active">Blog</a>
+				<span onclick="toggle()" class="tab tab-svg">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+						<path id='toggle-button'
+							d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
+					</svg>
+				</span>
+			</nav>
+		</div>
+	</header>
+
+	<main style="padding-top: 70px;">
+		<article class="post-container">
+			<header class="post-header">
+				<h1 class="post-title">{{page.title}}</h1>
+				<div class="post-meta">
+
+					<div class="post-information">{{ page.date | date: "%B %d, %Y" }}</div>
+					<div class="post-information">
+						{% for tag in page.tags %}
+						<a href="{{'/blog#' | append: tag | relative_url}}">{{ tag }}</a> {% unless forloop.last%} • {%
+						endunless %}
+						{% endfor %}
 					</div>
-				</header>
-
-				<div class="post-content">
-					{{content}}
 				</div>
+			</header>
 
-				<nav class="post-navigation">
-					<a href="{{ '/blog' | relative_url}}" class="nav-link primary">← Back to Blog</a>
-					<a href="{{ '/' | relative_url}}" class="nav-link">Home</a>
-				</nav>
-			</article>
-		</main>
-	</body>
-	<script src="{{ '/js/dark.js' | relative_url }}"></script>
+			<div class="post-content">
+				{{content}}
+			</div>
+
+			<div class="section-separator"></div>
+
+			<div class="related-posts">
+				<h3>Related Posts</h3>
+				<div class="related-posts-grid">
+					{% assign maxRelated = 4 %}
+					{% assign minCommonTags = 1 %}
+					{% assign maxRelatedCounter = 0 %}
+
+					{% for post in site.posts %}
+					{% assign sameTagCount = 0 %}
+					{% assign commonTags = '' %}
+
+					{% for tag in post.tags %}
+					{% if page.tags contains tag %}
+					{% assign sameTagCount = sameTagCount | plus: 1 %}
+					{% capture tag_markup %} <span class="label label-default">{{ tag }}</span> {% endcapture %}
+					{% assign commonTags = commonTags | append: tag_markup %}
+					{% endif %}
+					{% endfor %}
+
+					{% if sameTagCount >= minCommonTags %}
+					{% unless post.url == page.url %}
+					<article class="blog-post">
+						<h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+						<span class="post-information">{{ post.date | date: "%-d %b %Y" }}</span>
+						<span class="post-information">{{ post.tags[0] }}</span>
+					</article>
+					{% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
+					{% if maxRelatedCounter >= maxRelated %}
+					{% break %}
+					{% endif %}
+					{% endunless %}
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+
+			<nav class="post-navigation">
+				<a href="{{ '/blog' | relative_url}}" class="nav-link primary">← Back to Blog</a>
+				<a href="{{ '/' | relative_url}}" class="nav-link">Home</a>
+			</nav>
+		</article>
+
+
+
+	</main>
+</body>
+<script src="{{ '/js/dark.js' | relative_url }}"></script>
+
 </html>

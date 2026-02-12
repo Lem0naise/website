@@ -6,7 +6,7 @@ author: Indigo Nolan
 permalink: /fantasteroids
 tags: 
     - coding
-    - project-updates
+    - projects
 ---
 [Here's a link to the game!](https://store.steampowered.com/app/1790870/Fantasteroids/)
 

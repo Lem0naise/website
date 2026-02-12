@@ -5,7 +5,7 @@ date: 2026-01-10 11:20:10 +0000
 author: Indigo Nolan
 permalink: /politicalplayground
 tags: 
-    - project-updates
+    - projects
     - coding
     - democracy
 ---
