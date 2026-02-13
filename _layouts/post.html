@@ -112,9 +112,26 @@
 
 			<nav class="post-navigation">
 				<a href="{{ '/blog' | relative_url}}" class="nav-link primary">← Back to Blog</a>
+				<button onclick="goToRandomPost()" class="nav-link random-btn">Random Post</button>
 				<a href="{{ '/' | relative_url}}" class="nav-link">Home</a>
 			</nav>
 		</article>
+
+		<!-- Add random post functionality -->
+		<script>
+			const allPosts = [
+				{% for post in site.posts %}
+			"{{ post.url | relative_url }}"{% unless forloop.last %}, {% endunless %}
+			{% endfor %}
+			];
+
+			function goToRandomPost() {
+				const currentUrl = '{{ page.url | relative_url }}';
+				const otherPosts = allPosts.filter(url => url !== currentUrl);
+				const randomPost = otherPosts[Math.floor(Math.random() * otherPosts.length)];
+				window.location.href = randomPost;
+			}
+		</script>
 
 
 
