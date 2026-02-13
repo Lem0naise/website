@@ -13,7 +13,7 @@ I've been happily running Fedora 42 on my Framework laptop for a couple of weeks
 
 I knew this would mean partitioning my main NVMe drive - so I dutifully ignored all the massive red warning boxes in every tutorial telling me how dangerous this was when it was the only place I had a running linux system. While I could have easily wiped my drive and started fresh, my goal was to perform this surgery without losing my stable Fedora install. I'd heard all about how unstable Arch Linux was, and I ideally wanted to have some system alive and ready to run in case I needed to do, you know, things like Bluetooth, Wifi, use my microphone, external displays, that sort of thing.
 
-### The Partitioning Surgery
+## The Partitioning Surgery
 
 My first move was to try and partition from *within* Fedora. This was a non-starter; you can't resize the foundation while you're standing in the house. The solution was booting from a dedicated <a href='https://gparted.org/'>GParted Live USB</a> to perform the operation from a neutral environment.
 
@@ -76,7 +76,25 @@ My old nemesis. I ran `findmnt /data` and saw the problem - my root drive hadn't
 
 I cannot thank the team behind the caelestia dotfiles enough. The Hyprland config, along with the <a href='https://github.com/caelestia-dots/shell'>Quickshell config</a>, makes this the prettiest operating system I've ever used, with almost no competition. 
 
-After less than an hour of installing `fish` and all the pre-requisite packages, running the installation scripts, erroring, debugging, rebooting, and tweaking Hyprland config, I was satisfied. 
+After less than an hour of installing `fish` and all the pre-requisite packages, running the installation scripts, erroring, debugging, rebooting, and tweaking Hyprland config, I was satisfied. Here are some of my custom configs:
+
+
+``` 
+#--# hypr-vars.conf
+$browser = firefox
+$editor = code
+$touchpadDisableTyping = false
+$workspaceGaps = 10
+$windowGapsIn = 5
+$windowGapsOut = 10
+$singleWindowGapsOut = 5
+$windowOpacity = 0.95
+$windowRounding = 10
+
+$kbMoveWinToWs = Super+Shift 
+$kbSystemMonitor = Super, Escape
+```
+
 
 ![My caelestia config](/assets/imgs/caelestia.png)
 
@@ -86,7 +104,7 @@ Look at this. Could you ever go back?
 
 One of the most surprising things I experienced was when I plugged my laptop into my HDMI cable, fully expecting absolutely nothing to happen, the display to tear, or some horrendously scaled image to appear - only for a beautifully intact, perfectly scaled monitor to materialise in front of my eyes. It actually worked *better* on Hyprland / Arch than it did on Fedora with GNOME. There's no going back now.
 
-Yes, it does get a bit tiring connecting to WiFi and Bluetooth devices with my terminal using `nmcli dev wifi connect "eduroam"` and `bluetootctl devices` (and yes, I know there are GUI tools for that, but my terminal is too beautiful to not use) and it's probably good practice for me to understand more about the operating system anyway - for when it inevitably breaks and I need to fix it on the fly. 
+Yes, it does get a bit tiring connecting to WiFi and Bluetooth devices with my terminal using `nmcli dev wifi connect "eduroam"` and `bluetootctl devices`, but it's probably good practice for me to understand more about the operating system anyway - for when it inevitably breaks and I need to fix it on the fly. 
 
 Most importantly, I can now, finally, say:
 
