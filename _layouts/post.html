@@ -74,8 +74,26 @@
 
 			<div class="section-separator"></div>
 
+			{% if page.manual_related %}
 			<div class="related-posts">
 				<h3>Related Posts</h3>
+				<div class="related-posts-grid">
+					{% for link in page.manual_related %}
+					{% assign valid_post = site.posts | where: "url", link | first %}
+					{% if valid_post %}
+					<article class="blog-post">
+						<h3><a href="{{ valid_post.url | relative_url }}">{{ valid_post.title }}</a></h3>
+						<span class="post-information">{{ valid_post.date | date: "%-d %b %Y" }}</span>
+						<span class="post-information">{{ valid_post.tags[0] }}</span>
+					</article>
+					{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+			{% endif %}
+
+			<div class="related-posts">
+				<h3>More Posts</h3>
 				<div class="related-posts-grid">
 					{% assign maxRelated = 4 %}
 					{% assign minCommonTags = 1 %}

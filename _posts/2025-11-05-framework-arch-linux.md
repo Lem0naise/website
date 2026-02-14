@@ -7,6 +7,8 @@ permalink: /blog/framework-laptop-with-fedora-arch-linux-dualboot
 tags: 
     - linux
     - coding
+manual_related: 
+    - /blog/framework-laptop-linux-fedora
 ---
 
 I've been happily running Fedora 42 on my Framework laptop for a couple of weeks, but I recently got that itch that every Linux user gets (it's always distro-hopping time). Somewhere on the internet I'd seen the <a href='https://github.com/caelestia-dots/caelestia'>Caelestia dotfiles</a>, and spun up an Arch Linux VM with the config applied - I was blown away. It looked incredible, and I almost immediately knew I had to have it running on bare metal. This sparked an amazing project that I could distract myself from university assignments with - dual-booting Arch alongside my existing Fedora install. And because I love taking risks, I decided I also wanted a shared data partition so I could share `~/Documents` (and importantly `steamapps`) between the two systems.

@@ -8,6 +8,9 @@ tags:
     - projects
     - coding
     - design
+manual_related: 
+    - /blog/rating-systems-head-and-heart-and-favourites-me
+    - /favourites-me
 ---
 *This is Part 3 of a 3-part post: [Part 1](../favourites-me) - [Part 2](blog/rating-systems-head-and-heart-and-favourites-me).*
 

@@ -7,6 +7,9 @@ permalink: /blog/rating-systems-head-and-heart-and-favourites-me
 tags: 
     - design
     - coding
+manual_related: 
+    - /favourites-me
+    - /headandheart
 ---
 *This is Part 2 of a 3-part post: [Part 1](../favourites-me) - [Part 3](../headandheart).*
 

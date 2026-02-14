@@ -7,6 +7,8 @@ permalink: /blog/framework-laptop-linux-fedora
 tags: 
     - linux
     - coding
+manual_related: 
+    - /blog/framework-laptop-with-fedora-arch-linux-dualboot
 ---
 For about five years now, I've been using my Macbook Air 2020 with the M1 chip as my daily driver. To be honest, even though it might get me crucified in some developer communities, I do love it and would still recommend a Macbook Air to Computer Science students, especially the newer ones with the M3 and M4 chips - absolute powerhouses. Battery life is great, performance is great, fanless and light. 
 
