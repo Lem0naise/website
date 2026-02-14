@@ -918,7 +918,6 @@ main {
 }
 
 .retro-counter {
-	font-family: 'Courier New', monospace;
 	background: linear-gradient(135deg, var(--accent), var(--accent-light));
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;

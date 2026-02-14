@@ -186,7 +186,10 @@ class StatusUpdates {
 
             let html = `My last Git commit was to <span class='status-text'><a class='status-text' target="_blank" href="https://github.com/${data.repo}">${data.repo.split('/')[1]}</span>, ${timeText}</a>`;
 
-            if (data.streak > 2) {
+            if (data.streak > 10) {
+                html += `, and I'm on a <span class='status-text'>10+ day coding streak</span>`;
+            }
+            else if (data.streak > 2) {
                 html += `, and I'm on a <span class='status-text'>${data.streak} day coding streak</span>`;
             }
             html += '.';
@@ -363,8 +366,7 @@ class StatusUpdates {
             const events = await response.json();
 
             // Get push events and extract dates
-            const pushEvents = events.filter(e => e.type === 'PushEvent');
-            const commitDates = pushEvents.map(e => {
+            const commitDates = events.map(e => {
                 const date = new Date(e.created_at);
                 return date.toDateString();
             });
