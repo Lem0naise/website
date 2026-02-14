@@ -18,7 +18,7 @@ manual_related:
 
 What does a three-star rating *really* mean? Is it a positive recommendation? Is it a 'meh'? Is it a warning? We've all been trapped for far too long, in my opinion, by the vague tyranny of the five-star system. It's a system that *feels* objective, but is actually deeply personal, often failing to capture how we truly feel about a film, book, or album. 
 
-I'm still trying to design a rating system for [favourites.me](https://favourites.me) that works better than stars. I've been doing it for a [while now](../favourites-me). I started off, as everybody does, with the traditional five-star system. Now the problem with this, which Roger Ebert (film critic for the Chicago Sun-Times) states in [this wonderful article which I will refer back to a lot](https://www.rogerebert.com/roger-ebert/you-give-out-too-many-stars), it's nowhere near perfect. 
+I'm still trying to design a rating system for [favourites.me](https://headandheart.app) that works better than stars. I've been doing it for a [while now](../favourites-me). I started off, as everybody does, with the traditional five-star system. Now the problem with this, which Roger Ebert (film critic for the Chicago Sun-Times) states in [this wonderful article which I will refer back to a lot](https://www.rogerebert.com/roger-ebert/you-give-out-too-many-stars), it's nowhere near perfect. 
 
 Consider you watch a film, and then decide to give it a 2.5 star rating. Let's say that the rating scale permits 0 stars and permits 5 stars. This means that 2.5 stars is the exact middle that you can possibly give the film. It's mediocre. It's okay. It's neither good nor bad. But this isn't how 2.5 stars is interpreted socially. 2.5 stars means a *bad* movie. 2.5 stars means you would recommend against it to your friends. Or maybe it doesn't - it's so easy to interpret differently. It's the same reason that 60 or even 70% can have felt like a bad grade at school - everything is subjective and when in perspective can be interpreted differently. So a different scale is needed, one which does not have the stigma attached to it that the five-star system does.
 
@@ -34,7 +34,7 @@ Now, the great thing about this scale, is that it provides a middle point that I
 
 Because I am a massive nerd, for my [excel spreadsheet](../favourites-me) and original idea, I had a scaling system which went from 1-100. I liked this because it was essentially a five-star system, scaled onto a 1-10 system, and zoomed in onto a 1-100 system. This meant I was able to differentiate between two films which were both 8/10. I liked this a lot, especially when it meant I could tell the difference between all the films I gave five stars in very granular terms. 
 
-The problem with this, of course, is that you run into uncertainties. Much like Roger Ebert, who is much more culturally educated and has so much more authority to talk about this, I also *enjoy* watching films. I do not go to watch a film with the idea to criticise and review it - I go with the idea of pleasure, and then by an extension of my desire to view statistics and numbers, I rate and review it afterwards. The same goes for books and video games (and everything else you can track on [favourites.me](https://favourites.me)).
+The problem with this, of course, is that you run into uncertainties. Much like Roger Ebert, who is much more culturally educated and has so much more authority to talk about this, I also *enjoy* watching films. I do not go to watch a film with the idea to criticise and review it - I go with the idea of pleasure, and then by an extension of my desire to view statistics and numbers, I rate and review it afterwards. The same goes for books and video games (and everything else you can track on [favourites.me](https://headandheart.app)).
 
 So, I ended up with a large bias towards higher ratings, and a significant lack of lower ratings (because it feels *mean* to give a film a rating in the 40s! Even if objectively, it's the equivalent of rating in the 60s but leaning towards dislike!) But they clearly have very different vibes. Even giving a film I quite liked a rating in the 60s felt harsh.
 
@@ -91,7 +91,7 @@ I feel this captures a lot of the nuance that is lost with a 1-axis scale. I tes
 
 ![The head vs heart chart](/assets/imgs/fme5.png)
 
-I'm about to begin implementing this on [favourites.me](https://favourites.me). I'll transition from the 0-100 scale soon, but my eventual goal is to offer all possible rating systems, and even user-customisable ones in the future. I want you to *own* your media, but at the same time I want to explore the psychology of enjoyment and how different people rate and review media.
+I'm about to begin implementing this on [favourites.me](https://headandheart.app). I'll transition from the 0-100 scale soon, but my eventual goal is to offer all possible rating systems, and even user-customisable ones in the future. I want you to *own* your media, but at the same time I want to explore the psychology of enjoyment and how different people rate and review media.
 
 It will require a lot of work to get just right, so [let me know what you think about this scale](mailto:fme@indigonolan.com), and hopefully you'll see it live soon!
 
