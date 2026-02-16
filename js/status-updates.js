@@ -119,7 +119,7 @@ class StatusUpdates {
                 this.getCodingStreak()
             ]);
 
-            const combinedData = { ...activity, streak: streakData.streak };
+            const combinedData = { ...activity, streak: streakData.streak, total:streakData.totalContributions, createdAt: streakData.createdAt };
             this.displayGithubActivity(combinedData);
 
         } catch (error) {
@@ -133,12 +133,29 @@ class StatusUpdates {
             const hoursAgo = Math.floor(timeDiff / (1000 * 60 * 60));
             const timeText = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
 
-            let html = `Last commit to <a class='status-text' target="_blank" href="https://github.com/${data.repo}">${data.repo.split('/')[1]}</a> ${timeText}`;
+            let html = `Last commit to <a class='status-text' target="_blank" href="https://github.com/${data.repo}">${data.repo.split('/')[1]}</a> ${timeText}.`;
 
+
+            
             if (data.streak > 0) {
-                 html += `, on a <span class='status-text'>${data.streak}-day streak</span>.`;
-            } else {
-                html += '.';
+                 html += ` On a <span class='status-text'>${data.streak}-day streak</span>.`;
+            }
+            if (data.total > 0){
+                  html += ` <span class='status-text'>${data.total.toLocaleString()}</span> total contributions`;
+                  if (data.createdAt) { 
+                    const createdYear = new Date(data.createdAt).getFullYear();
+                    const currentYear = new Date().getFullYear();
+                    const yearsActive = currentYear - createdYear;
+
+                    // Handle the "0 years" case for brand new accounts
+                    const yearText = yearsActive <= 1 ? "year" : `${yearsActive} years`;
+
+                    html += ` over the last <span class='status-text'>${yearText}</span>.`;
+                  }
+                  else {
+                  }
+            }
+             else {
             }
 
             this.githubActivity.innerHTML = html;
@@ -216,7 +233,7 @@ class StatusUpdates {
     }
     
     formatStatus(h, m, activity) {
-        return `It's <span class='status-text'>${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}</span>, I'm probably <span class='status-text'>${activity}</span>`;
+        return `It's <span class='status-text'>${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}</span>: I'm probably <span class='status-text'>${activity}</span>`;
     }
 
     applyCurrentlyDoing() {
