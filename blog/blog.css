@@ -300,6 +300,9 @@ h4,
     color: var(--text);
 
     font-family: var(--font-main), monospace;
+
+    color: var(--accent-light);
+    animation: rainbow 15s ease-in-out infinite;
 }
 
 .post-content a {
