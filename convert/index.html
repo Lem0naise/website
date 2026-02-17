@@ -59,8 +59,7 @@
 				<!-- Category Selection -->
 				<div class="category-selector">
 					<button class="category-btn active" data-category="image">Image</button>
-					<button class="category-btn" data-category="video">Video</button>
-					<button class="category-btn" data-category="audio">Audio</button>
+					<button class="category-btn" data-category="video-audio">Video & Audio</button>
 				</div>
 			</div>
 
@@ -122,8 +121,8 @@
 					</div>
 				</div>
 
-				<!-- Video Conversion -->
-				<div id="video-section" class="conversion-section">
+				<!-- Video & Audio Conversion -->
+				<div id="video-audio-section" class="conversion-section">
 					<div class="conversion-grid">
 						<div class="option-group">
 							<label for="video-from">From Format:</label>
@@ -135,6 +134,13 @@
 								<option value="wmv">WMV (.wmv)</option>
 								<option value="flv">FLV (.flv)</option>
 								<option value="webm">WebM (.webm)</option>
+								<option value="mp3">MP3 (.mp3)</option>
+								<option value="wav">WAV (.wav)</option>
+								<option value="flac">FLAC (.flac)</option>
+								<option value="aac">AAC (.aac)</option>
+								<option value="ogg">OGG (.ogg)</option>
+								<option value="m4a">M4A (.m4a)</option>
+								<option value="wma">WMA (.wma)</option>
 							</select>
 						</div>
 
@@ -147,6 +153,12 @@
 								<option value="mov">MOV (.mov)</option>
 								<option value="webm">WebM (.webm)</option>
 								<option value="gif">GIF (.gif)</option>
+								<option value="mp3">MP3 (.mp3)</option>
+								<option value="wav">WAV (.wav)</option>
+								<option value="flac">FLAC (.flac)</option>
+								<option value="aac">AAC (.aac)</option>
+								<option value="ogg">OGG (.ogg)</option>
+								<option value="m4a">M4A (.m4a)</option>
 							</select>
 						</div>
 
@@ -185,7 +197,7 @@
 						</div>
 
 						<div class="option-group">
-							<label for="video-bitrate">Bitrate:</label>
+							<label for="video-bitrate">Video Bitrate:</label>
 							<select id="video-bitrate" class="format-select">
 								<option value="">Default</option>
 								<option value="5000k">5000k (High)</option>
@@ -194,39 +206,9 @@
 								<option value="500k">500k (Very Low)</option>
 							</select>
 						</div>
-					</div>
-				</div>
-
-				<!-- Audio Conversion -->
-				<div id="audio-section" class="conversion-section">
-					<div class="conversion-grid">
-						<div class="option-group">
-							<label for="audio-from">From Format:</label>
-							<select id="audio-from" class="format-select">
-								<option value="mp3">MP3 (.mp3)</option>
-								<option value="wav">WAV (.wav)</option>
-								<option value="flac">FLAC (.flac)</option>
-								<option value="aac">AAC (.aac)</option>
-								<option value="ogg">OGG (.ogg)</option>
-								<option value="m4a">M4A (.m4a)</option>
-								<option value="wma">WMA (.wma)</option>
-							</select>
-						</div>
 
 						<div class="option-group">
-							<label for="audio-to">To Format:</label>
-							<select id="audio-to" class="format-select">
-								<option value="mp3">MP3 (.mp3)</option>
-								<option value="wav">WAV (.wav)</option>
-								<option value="flac">FLAC (.flac)</option>
-								<option value="aac">AAC (.aac)</option>
-								<option value="ogg">OGG (.ogg)</option>
-								<option value="m4a">M4A (.m4a)</option>
-							</select>
-						</div>
-
-						<div class="option-group">
-							<label for="audio-bitrate">Bitrate:</label>
+							<label for="audio-bitrate">Audio Bitrate:</label>
 							<select id="audio-bitrate" class="format-select">
 								<option value="">Default</option>
 								<option value="320k">320k (Best)</option>
@@ -290,8 +272,7 @@
                 No converting is actually done, this is just so I don't have to memorise all the terminal commands! 
 				<ul>
 					<li><strong>Image:</strong> Uses ImageMagick's <code>convert</code> command</li>
-					<li><strong>Video:</strong> Uses FFmpeg for video format conversion and encoding</li>
-					<li><strong>Audio:</strong> Uses FFmpeg for audio file conversion</li>
+					<li><strong>Video & Audio:</strong> Uses FFmpeg for video and audio format conversion</li>
 					<li>Install tools: <code>sudo apt install imagemagick ffmpeg</code> (Debian/Ubuntu)</li>
 				</ul>
 			</div>

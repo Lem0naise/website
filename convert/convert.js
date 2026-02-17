@@ -2,8 +2,7 @@
 const categoryBtns = document.querySelectorAll('.category-btn');
 const sections = {
 	image: document.getElementById('image-section'),
-	video: document.getElementById('video-section'),
-	audio: document.getElementById('audio-section')
+	'video-audio': document.getElementById('video-audio-section'),
 };
 
 let currentCategory = 'image';
@@ -40,8 +39,9 @@ const videoResolution = document.getElementById('video-resolution');
 const videoFps = document.getElementById('video-fps');
 const videoBitrate = document.getElementById('video-bitrate');
 
-const audioFrom = document.getElementById('audio-from');
-const audioTo = document.getElementById('audio-to');
+// Keep the audio elements for the merged section
+const audioFrom = document.getElementById('video-from'); // Using video selects for combined section
+const audioTo = document.getElementById('video-to');
 const audioBitrate = document.getElementById('audio-bitrate');
 const audioSampleRate = document.getElementById('audio-sample-rate');
 const audioChannels = document.getElementById('audio-channels');
@@ -54,7 +54,7 @@ const outputFilename = document.getElementById('output-filename');
 // Add event listeners to all selects
 [imageFrom, imageTo, imageResize, imageQuality,
  videoFrom, videoTo, videoCodec, videoResolution, videoFps, videoBitrate,
- audioFrom, audioTo, audioBitrate, audioSampleRate, audioChannels].forEach(select => {
+ audioBitrate, audioSampleRate, audioChannels].forEach(select => {
 	select.addEventListener('change', generateCommand);
 });
 
@@ -69,10 +69,8 @@ function generateCommand() {
 	
 	if (currentCategory === 'image') {
 		command = generateImageCommand();
-	} else if (currentCategory === 'video') {
-		command = generateVideoCommand();
-	} else if (currentCategory === 'audio') {
-		command = generateAudioCommand();
+	} else if (currentCategory === 'video-audio') {
+		command = generateVideoAudioCommand();
 	}
 	
 	commandText.textContent = command;
@@ -107,93 +105,128 @@ function generateImageCommand() {
 	return command;
 }
 
-function generateVideoCommand() {
+function generateVideoAudioCommand() {
 	const from = videoFrom.value;
 	const to = videoTo.value;
 	const codec = videoCodec.value;
 	const resolution = videoResolution.value;
 	const fps = videoFps.value;
-	const bitrate = videoBitrate.value;
-	const inputName = inputFilename.value.trim() || 'input';
-	const outputName = outputFilename.value.trim() || 'output';
-	
-	let command = 'ffmpeg -i ' + inputName + '.' + from;
-	
-	// Add codec if specified
-	if (codec) {
-		if (codec === 'copy') {
-			command += ' -c copy';
-		} else {
-			command += ' -c:v ' + codec;
-		}
-	}
-	
-	// Add resolution if specified
-	if (resolution) {
-		command += ' -vf scale=' + resolution;
-	}
-	
-	// Add FPS if specified
-	if (fps) {
-		command += ' -r ' + fps;
-	}
-	
-	// Add bitrate if specified
-	if (bitrate) {
-		command += ' -b:v ' + bitrate;
-	}
-	
-	// Special handling for GIF output
-	if (to === 'gif') {
-		if (!resolution) {
-			command += ' -vf "fps=10,scale=640:-1:flags=lanczos"';
-		} else if (!fps) {
-			command += ' -vf "fps=10"';
-		}
-	}
-	
-	command += ' ' + outputName + '.' + to;
-	
-	return command;
-}
-
-function generateAudioCommand() {
-	const from = audioFrom.value;
-	const to = audioTo.value;
-	const bitrate = audioBitrate.value;
+	const videoBitrateValue = videoBitrate.value;
+	const audioBitrateValue = audioBitrate.value;
 	const sampleRate = audioSampleRate.value;
 	const channels = audioChannels.value;
 	const inputName = inputFilename.value.trim() || 'input';
 	const outputName = outputFilename.value.trim() || 'output';
 	
+	const videoFormats = ['mp4', 'avi', 'mkv', 'mov', 'wmv', 'flv', 'webm', 'gif'];
+	const audioFormats = ['mp3', 'wav', 'flac', 'aac', 'ogg', 'm4a', 'wma'];
+	
+	const isVideoInput = videoFormats.includes(from);
+	const isVideoOutput = videoFormats.includes(to);
+	const isAudioInput = audioFormats.includes(from);
+	const isAudioOutput = audioFormats.includes(to);
+	
 	let command = 'ffmpeg -i ' + inputName + '.' + from;
 	
-	// Add bitrate if specified
-	if (bitrate) {
-		command += ' -b:a ' + bitrate;
-	}
-	
-	// Add sample rate if specified
-	if (sampleRate) {
-		command += ' -ar ' + sampleRate;
-	}
-	
-	// Add channels if specified
-	if (channels) {
-		command += ' -ac ' + channels;
-	}
-	
-	// Specific codec recommendations
-	if (to === 'mp3') {
-		if (!bitrate) {
-			// Don't add default codec, let ffmpeg choose
+	// Handle video-to-video conversion
+	if (isVideoInput && isVideoOutput) {
+		// Add video codec if specified
+		if (codec) {
+			if (codec === 'copy') {
+				command += ' -c copy';
+			} else {
+				command += ' -c:v ' + codec;
+			}
 		}
-	} else if (to === 'aac' || to === 'm4a') {
-		command += ' -c:a aac';
-	} else if (to === 'ogg') {
-		command += ' -c:a libvorbis';
-	} else if (to === 'flac') {
-		command += ' -c:a flac';
+		
+		// Add resolution if specified
+		if (resolution) {
+			command += ' -vf scale=' + resolution;
+		}
+		
+		// Add FPS if specified
+		if (fps) {
+			command += ' -r ' + fps;
+		}
+		
+		// Add video bitrate if specified
+		if (videoBitrateValue) {
+			command += ' -b:v ' + videoBitrateValue;
+		}
+		
+		// Add audio bitrate if specified
+		if (audioBitrateValue) {
+			command += ' -b:a ' + audioBitrateValue;
+		}
+		
+		// Special handling for GIF output
+		if (to === 'gif') {
+			if (!resolution) {
+				command += ' -vf "fps=10,scale=640:-1:flags=lanczos"';
+			} else if (!fps) {
+				command += ' -vf "fps=10"';
+			}
+		}
+	}
+	// Handle audio-to-audio conversion
+	else if (isAudioInput && isAudioOutput) {
+		// Add audio bitrate if specified
+		if (audioBitrateValue) {
+			command += ' -b:a ' + audioBitrateValue;
+		}
+		
+		// Add sample rate if specified
+		if (sampleRate) {
+			command += ' -ar ' + sampleRate;
+		}
+		
+		// Add channels if specified
+		if (channels) {
+			command += ' -ac ' + channels;
+		}
+		
+		// Specific codec recommendations
+		if (to === 'mp3') {
+			// Let ffmpeg choose default codec
+		} else if (to === 'aac' || to === 'm4a') {
+			command += ' -c:a aac';
+		} else if (to === 'ogg') {
+			command += ' -c:a libvorbis';
+		} else if (to === 'flac') {
+			command += ' -c:a flac';
+		}
+	}
+	// Handle video-to-audio conversion (extract audio)
+	else if (isVideoInput && isAudioOutput) {
+		command += ' -vn'; // No video
+		
+		if (audioBitrateValue) {
+			command += ' -b:a ' + audioBitrateValue;
+		}
+		
+		if (sampleRate) {
+			command += ' -ar ' + sampleRate;
+		}
+		
+		if (channels) {
+			command += ' -ac ' + channels;
+		}
+		
+		// Codec selection for audio extraction
+		if (to === 'mp3') {
+			// Let ffmpeg choose
+		} else if (to === 'aac' || to === 'm4a') {
+			command += ' -c:a aac';
+		} else if (to === 'ogg') {
+			command += ' -c:a libvorbis';
+		} else if (to === 'flac') {
+			command += ' -c:a flac';
+		}
+	}
+	// Handle audio-to-video (audio with static image, not common but possible)
+	else if (isAudioInput && isVideoOutput) {
+		// This would need an image input, simplified for now
+		command += ' -f lavfi -i color=black:320x240 -shortest';
 	}
 	
 	command += ' ' + outputName + '.' + to;
