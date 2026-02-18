@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2D Ratings? Head and Heart"
+title: "What if we could rate movies on two axes? Introducing Head and Heart"
 date: 2026-02-05 10:00:00 +0000
 author: Indigo Nolan
 permalink: /headandheart
