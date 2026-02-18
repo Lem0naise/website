@@ -4,7 +4,7 @@ title: "The shifting nature of a political party"
 date: 2025-08-17 14:15:00 +0100
 author: Indigo Nolan
 permalink: /blog/shifting-nature-of-a-political-party
-tags: democracy
+tags: essay
 ---
 It is looking increasingly likely that Zack Polanski will secure the leadership of the Green Party of England and Wales at the end of this month. Polanski, a self-professed 'eco-populist', is pulling away at a rapid pace from his opponents, Adrian Ramsay and Ellie Chowns, who are running as a more establishment joint ticket of co-leaders. Despite the Green Party only holding 4 MPs, and having relatively little say over national affairs, I believe this is one of the most important elections (in the UK) to watch this year - along with the wait-and-see game of Jeremy Corbyn and whatever he's up to, it is a litmus test of whether the British public have enough appetite for left-wing populism.
 

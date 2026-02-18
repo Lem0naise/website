@@ -4,7 +4,7 @@ title: "Language as a lossy compression algorithm"
 date: 2025-06-25 14:15:00 +0100
 author: Indigo Nolan
 permalink: /blog/language-as-lossy-compression
-tags: linguistics
+tags: essay
 ---
 In digital media, 'lossy compression' is the trade-off we make for convenience - we accept the loss of some data from an image to make it small enough to send. I've started to believe we perform this exact same operation on our thoughts every time we open our mouths. Every conversation is an exercise in unintended consequences. We send out carefully crafted sentences, only to find they arrive at their destination scrambled, with half the meaning lost. This isn't a personal failure, but a fundamental limitation of language itself.
 

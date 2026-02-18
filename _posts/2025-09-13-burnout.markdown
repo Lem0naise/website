@@ -5,8 +5,7 @@ date: 2025-09-13 00:41:00 +0100
 author: Indigo Nolan
 permalink: /blog/burnout
 tags: 
-  - reflection
-  - coding
+  - essay
 ---
 Burnout sucks. We've all been there, developers, creatives, students, everybody. You've been working on a project for months, you've almost finished a chapter in your book, you're 90% done with your assignment but - you just can't keep going. 
 

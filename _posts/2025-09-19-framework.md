@@ -5,7 +5,6 @@ date: 2025-09-19 18:00:00 +0100
 author: Indigo Nolan
 permalink: /blog/framework-laptop-linux-fedora
 tags: 
-    - linux
     - coding
 manual_related: 
     - /blog/framework-laptop-with-fedora-arch-linux-dualboot

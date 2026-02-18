@@ -4,7 +4,7 @@ title: "The UK's new threat to digital freedom (my views on the Online Safety Ac
 date: 2025-07-27 14:15:00 +0100
 author: Indigo Nolan
 permalink: /blog/online-safety-act
-tags: democracy
+tags: essay
 ---
 You may have heard the outcry over the recent Online Safety Act, in particular in relation to adult content online; "I now need permission from Keir Starmer to get off" as one Reddit user succinctly put it. But along with [requiring age verification to view adult sites](https://www.bbc.co.uk/news/articles/c1k81lj8nvpo), this act has much worse, far-reaching and frankly dangerous consequences for our society.
 

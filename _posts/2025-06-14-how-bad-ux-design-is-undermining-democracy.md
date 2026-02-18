@@ -5,8 +5,7 @@ date: 2025-06-14 14:15:00 +0100
 author: Indigo Nolan
 permalink: /blog/bad-ux-design-undermining-democracy
 tags: 
-    - democracy
-    - design
+    - essay
 ---
 You've just downloaded a brand-new app onto your phone. You open it up, it asks you for your preferences, and after a little setup, you're in. But wait - nothing is like what you wanted. All the icons are bright blue and all the writing is in Mandarin! That's because this is democracy - the world's favourite colour is blue, and the most-spoken native language in the world is Mandarin, so that's what you get. That's what everybody gets.
 

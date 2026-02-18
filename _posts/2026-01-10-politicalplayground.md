@@ -5,9 +5,7 @@ date: 2026-01-10 11:20:10 +0000
 author: Indigo Nolan
 permalink: /politicalplayground
 tags: 
-    - projects
     - coding
-    - democracy
 ---
 
 
@@ -224,7 +222,7 @@ I’m pretty proud of the flexibility I’ve managed to keep:
 
 * **JSON-Driven Data:** All the party data is stored in a massive JSON file. This makes it incredibly easy to add new scenarios without breaking the core engine.
 * **The Campaign Loop:** Instead of an instant result, the game plays week-by-week. You get prompted with events (e.g., an economic scandal or a foreign policy crisis) that shift the coordinates of either the parties or the voters themselves.
-* **The Custom Party Builder:** I realised this was a must-have to make anybody other than me interesetd in the game. You can merge parties into a coalition or build a new one from scratch, manually setting their -100 -> 100 values on each of the seven axes.
+* **The Custom Party Builder:** I realised this was a must-have to make anybody other than me interested in the game. You can merge parties into a coalition or build a new one from scratch, manually setting their -100 -> 100 values on each of the seven axes.
 
 
 Go check it out at <a href="https://pp.indigo.spot" target="_blank">pp.indigo.spot</a>!
