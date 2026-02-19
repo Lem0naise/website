@@ -9,6 +9,8 @@ url: "https://indigo.spot" # the base hostname & protocol for your site, e.g. ht
 collections:
   stream:
     output: false
+  tils:
+    output: true
 
 plugins:
   - jekyll-feed

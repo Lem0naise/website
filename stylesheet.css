@@ -797,6 +797,65 @@ main {
 
 /* Tutoring Section */
 
+/* Search and Tabs */
+.search-container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.search-input {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	background-color: var(--card-bg);
+	color: var(--text);
+	font-family: var(--font-main);
+	font-size: 16px;
+}
+
+.search-input:focus {
+	outline: none;
+	border-color: var(--accent);
+}
+
+.search-results {
+	margin-top: 20px;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.tabs-container {
+	display: flex;
+	gap: 15px;
+	margin-top: 15px;
+}
+
+.tab-button {
+	background: none;
+	border: none;
+	font-family: var(--font-main);
+	font-size: 18px;
+	cursor: pointer;
+	color: var(--text-light);
+	padding-bottom: 5px;
+	border-bottom: 2px solid transparent;
+	transition: all 0.3s ease;
+}
+
+.tab-button.active {
+	color: var(--accent);
+	border-bottom-color: var(--accent);
+}
+
+.tab-button:hover {
+	color: var(--text);
+}
+
 /* About Section */
 .about-grid {
 	display: grid;
