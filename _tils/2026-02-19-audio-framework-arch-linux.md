@@ -2,7 +2,7 @@
 layout: post
 title: "Fix Audio on Framework Laptop (Arch Linux)"
 date: 2026-02-19 10:00:00 0000
-permalink: /tils/audio-framework-arch-linux
+permalink: /guides/audio-framework-arch-linux
 tags: 
     - linux
     - arch
