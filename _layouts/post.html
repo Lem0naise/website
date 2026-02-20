@@ -149,6 +149,33 @@
 				const randomPost = otherPosts[Math.floor(Math.random() * otherPosts.length)];
 				window.location.href = randomPost;
 			}
+
+			// Add copy buttons to code blocks
+			document.addEventListener("DOMContentLoaded", function () {
+				document.querySelectorAll('.post-content pre').forEach(pre => {
+					const wrapper = document.createElement('div');
+					wrapper.className = 'code-wrapper';
+					pre.parentNode.insertBefore(wrapper, pre);
+					wrapper.appendChild(pre);
+
+					const btn = document.createElement('button');
+					btn.className = 'copy-btn';
+					btn.textContent = 'Copy';
+
+					btn.addEventListener('click', () => {
+						const code = pre.querySelector('code');
+						const text = code ? code.textContent : pre.textContent;
+						navigator.clipboard.writeText(text).then(() => {
+							btn.textContent = 'Copied!';
+							setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+						}).catch(err => {
+							console.error('Failed to copy text: ', err);
+						});
+					});
+
+					wrapper.appendChild(btn);
+				});
+			});
 		</script>
 
 
