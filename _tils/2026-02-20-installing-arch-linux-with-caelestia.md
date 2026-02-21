@@ -11,6 +11,22 @@ tags:
 The core lesson: Do not use `archinstall` for existing multi-boot setups or shared partition schemes. It will likely throw a `ValueError: mount point is not specified`. (You can still use `archinstall` for standard, single-OS installations or when wiping a Windows drive entirely, but for this specific guided setup, you should do it the "Arch Way"). And back your files up! Always back important data up! You will never regret it! I promise!
 
 
+### Pre-Flight: Disable Secure Boot
+
+
+**This step is mandatory for Windows laptops.** Windows laptops almost always have Secure Boot enabled in BIOS/UEFI. The standard Arch Linux ISO and GRUB bootloader do not support Secure Boot out-of-the-box.
+
+1. Restart your laptop and enter BIOS/UEFI setup (typically press `Del`, `F2`, `F10`, or `Esc` during boot—check your manufacturer's splash screen).
+
+2. Locate the **Security** tab and find **Secure Boot**.
+
+3. Set it to **Disabled**.
+
+4. Save and exit. Your laptop will reboot.
+
+5. Now boot from your Arch Live USB.
+
+
 ### Phase 1: Partitioning (The Setup)
 
 
@@ -44,10 +60,18 @@ mount /dev/nvme0n1p1 /mnt/boot/efi
 ```
 
 
-2. Install the base system & generate file system table:
+2. Install the base system, microcode, and generate file system table:
+
+Determine your CPU type and include the appropriate microcode:
 
 ```bash
-pacstrap /mnt base linux linux-firmware nano
+# For Intel CPUs:
+pacstrap /mnt base linux linux-firmware nano intel-ucode
+
+# For AMD CPUs:
+pacstrap /mnt base linux linux-firmware nano amd-ucode
+
+# Then generate the fstab:
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
@@ -60,7 +84,9 @@ arch-chroot /mnt
 
 ### Phase 3: System Configuration & User Setup
 
-This is the most critical initialization step where you set up your timezones, localization, root password, and new user account to prepare for a graphical environment. Run the following step-by-step:
+This is the most critical initialization step where you set up your timezones, localization, root password, new user account, and graphics drivers. Run the following step-by-step.
+
+**Note:** You are currently logged in as `root`. Stay as root for this entire phase.
 
 1. Setup Timezone and Clock:
 
@@ -85,10 +111,24 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 echo "arch-caelestia" > /etc/hostname
 ```
 
-4. Install Required Base Utilities:
+4. Install Required Base Utilities and Graphics Drivers:
+
+First, install the core utilities:
+```bash
+pacman -S sudo networkmanager vim base-devel git fish
+```
+
+Then, install graphics drivers for your hardware:
 
 ```bash
-pacman -S sudo networkmanager vim
+# For Intel GPUs:
+pacman -S mesa vulkan-intel
+
+# For AMD GPUs:
+pacman -S mesa vulkan-radeon
+
+# For NVIDIA GPUs (requires additional Wayland support):
+pacman -S nvidia-dkms nvidia-utils vulkan-icd-loader
 ```
 
 5. Set Passwords & Create User:
@@ -112,14 +152,9 @@ EDITOR=nano visudo
 ```
 Find the line `# %wheel ALL=(ALL:ALL) ALL` and delete the `#` to uncomment it. Save and exit.
 
-7. Log in as your new user:
-
-```bash
-su - your_username
-```
-
 ### Phase 4: Bootloader & Chainloading (GRUB)
 
+**Stay logged in as root for this phase.**
 
 os-prober often fails to detect other operating systems on complex BTRFS subvolumes (like Fedora) or specific Windows setups. A manual chainloader is the most bulletproof fix.
 
@@ -172,6 +207,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 
 ### Phase 5: The Shared Data Drive
 
+**Stay logged in as root for this phase.**
 
 If you created a shared NTFS partition, you need the right driver, or it will silently fail to mount and lock up your file system on boot. 
 
@@ -197,28 +233,58 @@ UUID=your-ntfs-uuid-here  /data  ntfs3  defaults,uid=1000,gid=1000,umask=022  0 
 
 Run `mount -a` to verify it works without throwing permission errors.
 
-### Phase 6: Caelestia Dotfiles (Hyprland)
+### Phase 6: Display Manager (SDDM)
 
+**Stay logged in as root for this phase.**
 
-Caelestia requires fish and an AUR helper to install its Quickshell and Hyprland dependencies. Ensure you are running this as your newly created user (`your_username`), NOT as `root`!
-
-1. Install prerequisites:
+Without a Display Manager, you will reboot into a black text console (TTY) with no graphical login screen. Install and enable SDDM so you can boot into a graphical login screen. If you like, you can replace SDDM with another login manager later.
 
 ```bash
-sudo pacman -S base-devel git fish
+pacman -S sddm qt5-wayland qt6-wayland
+systemctl enable sddm
 ```
 
+### Phase 7: Networking & Bluetooth
 
-2. Install an AUR helper (`yay`):
+**Stay logged in as root for this phase.**
+
+Before rebooting, ensure your new installation won't be completely offline. You already installed NetworkManager in Phase 3.
+
+1. Install Bluez:
+
+```bash
+pacman -S bluez bluez-utils
+```
+
+2. Enable the services so they start automatically on boot:
+
+```bash
+systemctl enable NetworkManager
+systemctl enable bluetooth
+systemctl enable sddm
+```
+
+### Phase 8: Caelestia Dotfiles (Hyprland)
+
+**Now log in as your new user before running these commands.**
+
+```bash
+su - your_username
+```
+
+Caelestia requires fish and an AUR helper to install its Quickshell and Hyprland dependencies.
+
+1. Install an AUR helper (`yay`):
 
 ```bash
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+cd ~
 ```
 
 
-3. Install Caelestia:
+2. Install Caelestia:
 
 ```bash
 yay -S caelestia-shell 
@@ -227,7 +293,7 @@ git clone https://github.com/caelestia-dots/caelestia.git ~/.local/share/caelest
 ```
 
 
-4. Tweak your UI:
+3. Tweak your UI:
 You can modify your window gaps, opacity, and shortcuts by editing `~/.config/hypr/hypr-vars.conf`:
 
 ```plaintext
@@ -240,29 +306,13 @@ $windowOpacity = 0.95
 $windowRounding = 10
 ```
 
-### Phase 7: Networking & Bluetooth
+### Phase 9: Finishing Up
 
-Before rebooting, ensure your new installation won't be completely offline. Caelestia and Arch require a networking manager. You already installed NetworkManager in Phase 3.
-
-1. Install Bluez:
+You are done! Exit the user session and reboot:
 
 ```bash
-sudo pacman -S bluez bluez-utils
-```
-
-2. Enable the services so they start automatically on boot:
-
-```bash
-sudo systemctl enable NetworkManager
-sudo systemctl enable bluetooth
-```
-
-### Phase 8: Finishing Up
-
-You are done! Reboot the system:
-
-```bash
+exit
 reboot
 ```
 
-Once rebooted, you should see GRUB. Choose Arch Linux. When you log in, `NetworkManager` will be running. You can manage your Wi-Fi connections in the terminal via `nmcli device wifi connect "SSID" password "PASSWORD"`, or by using the Caelestia/Hyprland network applets. Welcome to your new, dual-booted Arch setup!
+Once rebooted, you should see the SDDM login screen. Log in with your new user account. SDDM will automatically launch Hyprland (Caelestia). NetworkManager will be running in the background. You can manage your Wi-Fi connections via the Caelestia/Hyprland network applets, or from the terminal using `nmcli device wifi connect "SSID" password "PASSWORD"`. Welcome to your new, dual-booted Arch setup with Hyprland!
