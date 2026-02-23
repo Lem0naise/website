@@ -880,6 +880,8 @@ main {
 	text-align: center;
 	position: relative;
 	overflow: hidden;
+	max-width: 60vw;
+	margin: 0 auto;
 }
 
 .about-item:hover {
@@ -1099,6 +1101,29 @@ main {
 	}
 }
 
+@media (max-width: 1000px) {
+	.about-item {
+		max-width: 100vw;
+		margin: 10px 0;
+	}
+
+	.about-grid {
+		max-width: 95vw;
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}
+
+	.about-stretch {
+		grid-row: 3;
+	}
+
+	.about-item {
+		padding: 20px;
+		max-width: 100vw;
+		margin: 10px 0;
+	}
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
@@ -1247,19 +1272,6 @@ main {
 	}
 
 
-	.about-grid {
-		max-width: 95vw;
-		grid-template-columns: 1fr;
-		gap: 16px;
-	}
-
-	.about-stretch {
-		grid-row: 3;
-	}
-
-	.about-item {
-		padding: 20px;
-	}
 }
 
 
