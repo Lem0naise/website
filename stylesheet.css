@@ -1024,6 +1024,43 @@ main {
 	z-index: 1;
 }
 
+/* GitHub Contribution Graph */
+#github-contributions {
+	display: flex;
+	justify-content: center;
+    background: transparent !important;
+    padding: 8px 4px !important;
+}
+
+#github-contributions:hover {
+    transform: none !important;
+    color: inherit !important;
+}
+
+#github-contributions::before {
+    display: none !important;
+}
+
+.github-contrib-graph {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border-radius: 8px;
+    display: block;
+    opacity: 0.85;
+    transition: opacity 0.3s;
+}
+
+.github-contrib-graph:hover {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .github-contrib-graph {
+        max-width: 100%;
+    }
+}
+
 /* Section Separators */
 .section-separator {
 	height: 4px;
