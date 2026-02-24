@@ -1561,9 +1561,31 @@ main {
 	background: var(--card-bg);
 }
 
-.cv-embed embed {
-	width: 100%;
-	min-height: 80vh;
-	max-height: 100vh;
-	border: none;
+/* Clap Counter */
+#clap-item {
+    transition: transform 0.15s ease;
+    user-select: none;
+}
+
+#clap-item:hover {
+    transform: translateX(4px) scale(1.02) !important;
+    cursor: pointer;
+}
+
+#clap-item:active {
+    transform: scale(0.96) translateX(2px) !important;
+    filter: brightness(1.15);
+}
+
+.kudos-count {
+    font-weight: 700;
+    color: var(--accent-light);
+    animation: glow 2s ease-in-out infinite alternate;
+    transition: color 0.5s;
+}
+
+.about-intro ul li:hover .kudos-count {
+    color: white;
+    animation: none;
+    filter: none;
 }

@@ -65,10 +65,10 @@ class StatusUpdates {
         this.applyCurrentlyDoing();
         this.applyWeatherStatus();
         this.applySpotifyStatus();
-        this.initVisitorCounter();
+        this.initClapCounter(); // <-- changed
 
-        setInterval(() => this.applyCurrentlyDoing(), 60000); // Every minute
-        setInterval(() => this.applySpotifyStatus(), 30000);  // Check Spotify every 30s
+        setInterval(() => this.applyCurrentlyDoing(), 60000);
+        setInterval(() => this.applySpotifyStatus(), 30000);
     }
 
     // --- GITHUB LOGIC ---
@@ -187,25 +187,70 @@ class StatusUpdates {
         }
     }
 
-    // --- VISITOR COUNTER LOGIC ---
+    // --- CLAP COUNTER LOGIC ---
 
-    async initVisitorCounter() {
-        if (!this.visitorCounter) return;
+    getClapClicksThisMinute() {
+        const raw = localStorage.getItem('clapClicks');
+        if (!raw) return { count: 0, windowStart: Date.now() };
+        const parsed = JSON.parse(raw);
+        if (Date.now() - parsed.windowStart > 60 * 1000) {
+            return { count: 0, windowStart: Date.now() };
+        }
+        return parsed;
+    }
 
+    recordClapClick() {
+        const current = this.getClapClicksThisMinute();
+        const updated = { count: current.count + 1, windowStart: current.windowStart };
+        localStorage.setItem('clapClicks', JSON.stringify(updated));
+        return updated.count;
+    }
+
+    formatClapDisplay(count, state = 'default') {
+        const formatted = count.toLocaleString();
+        const suffix = state === 'thanks' ? '— thanks!' : "— <span class='kudos-count'>click</span> to give kudos";
+        return `<span class='kudos-count'>${formatted}</span> kudos ${suffix}`;
+    }
+
+    async initClapCounter() {
+        const clapItem = document.getElementById('clap-item');
+        const clapDisplay = document.getElementById('clap-display');
+        if (!clapItem || !clapDisplay) return;
+
+        let currentCount = 0;
+
+        // Load initial count
         try {
-            // Fetch the global count from your worker
             const response = await fetch(`${API_BASE}/visit`);
             const data = await response.json();
-            
-            // Format: "Visitor #123"
-            this.visitorCounter.innerHTML = `You're visitor <span class='status-text'>#${data.count}</span>!`;
-            
-        } catch (error) {
-            console.error("Counter failed:", error);
-            // Silent failure or static fallback
-            this.visitorCounter.innerHTML = ""; 
-            this.visitorCounter.style.display = "none";
+            currentCount = data.count;
+            clapDisplay.innerHTML = this.formatClapDisplay(currentCount);
+        } catch (e) {
+            clapDisplay.innerHTML = `<span class='kudos-count'>?</span> kudos — <span class='kudos-count'>click</span> to give one!`;
         }
+
+        // Click handler
+        clapItem.addEventListener('click', async () => {
+            const clicksThisMinute = this.getClapClicksThisMinute().count;
+            if (clicksThisMinute >= 10) {
+                clapDisplay.innerHTML = `<span class='kudos-count'>${currentCount.toLocaleString()}</span> kudos — thanks, but slow down! `;
+                return;
+            }
+
+            this.recordClapClick();
+
+            try {
+                const response = await fetch(`${API_BASE}/visit`, { method: 'POST' });
+                const data = await response.json();
+                currentCount = data.count;
+                clapDisplay.innerHTML = this.formatClapDisplay(currentCount, 'thanks');
+                setTimeout(() => {
+                    clapDisplay.innerHTML = this.formatClapDisplay(currentCount, 'default');
+                }, 3000);
+            } catch (e) {
+                clapDisplay.innerHTML = `<span class='kudos-count'>${currentCount.toLocaleString()}</span> kudos — registered (probably)`;
+            }
+        });
     }
 
     // --- SCHEDULE & WEATHER (Unchanged) ---
