@@ -128,6 +128,10 @@
 				</div>
 			</div>
 
+			<div class="post-kudos-section">
+				<div id="post-kudos-inner" class="post-kudos-inner"></div>
+			</div>
+
 			<nav class="post-navigation">
 				<a href="{{ '/blog' | relative_url}}" class="nav-link primary">← Back to Blog</a>
 				<button onclick="goToRandomPost()" class="nav-link random-btn">Random Post</button>
@@ -183,5 +187,15 @@
 	</main>
 </body>
 <script src="{{ '/js/dark.js' | relative_url }}"></script>
+<script src="{{ '/js/kudos.js' | relative_url }}"></script>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		// Navbar compact button
+		mountKudos(document.getElementById('nav-kudos'), { layout: 'button' });
+		// End-of-post kudos banner
+		const inner = document.getElementById('post-kudos-inner');
+		if (inner) mountKudos(inner, { layout: 'button', label: 'Enjoyed it?', ctaText: 'give kudos' });
+	});
+</script>
 
 </html>

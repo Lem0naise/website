@@ -991,11 +991,11 @@ main {
 
 @keyframes glow {
 	from {
-		filter: drop-shadow(0 0 1px var(--accent));
+		filter: drop-shadow(0 0 0px var(--accent));
 	}
 
 	to {
-		filter: drop-shadow(0 0 4px var(--accent-light));
+		filter: drop-shadow(0 0 2px var(--accent-light));
 	}
 }
 
@@ -1028,37 +1028,37 @@ main {
 #github-contributions {
 	display: flex;
 	justify-content: center;
-    background: transparent !important;
-    padding: 8px 4px !important;
+	background: transparent !important;
+	padding: 8px 4px !important;
 }
 
 #github-contributions:hover {
-    transform: none !important;
-    color: inherit !important;
+	transform: none !important;
+	color: inherit !important;
 }
 
 #github-contributions::before {
-    display: none !important;
+	display: none !important;
 }
 
 .github-contrib-graph {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-    opacity: 0.85;
-    transition: opacity 0.3s;
+	width: 100%;
+	max-width: 500px;
+	height: auto;
+	border-radius: 8px;
+	display: block;
+	opacity: 0.85;
+	transition: opacity 0.3s;
 }
 
 .github-contrib-graph:hover {
-    opacity: 1;
+	opacity: 1;
 }
 
 @media (max-width: 768px) {
-    .github-contrib-graph {
-        max-width: 100%;
-    }
+	.github-contrib-graph {
+		max-width: 100%;
+	}
 }
 
 /* Section Separators */
@@ -1563,29 +1563,154 @@ main {
 
 /* Clap Counter */
 #clap-item {
-    transition: transform 0.15s ease;
-    user-select: none;
+	transition: transform 0.15s ease;
+	user-select: none;
 }
 
 #clap-item:hover {
-    transform: translateX(4px) scale(1.02) !important;
-    cursor: pointer;
+	transform: translateX(4px) scale(1.02) !important;
+	cursor: pointer;
 }
 
 #clap-item:active {
-    transform: scale(0.96) translateX(2px) !important;
-    filter: brightness(1.15);
+	transform: scale(0.96) translateX(2px) !important;
+	filter: brightness(1.15);
 }
 
 .kudos-count {
-    font-weight: 700;
-    color: var(--accent-light);
-    animation: glow 2s ease-in-out infinite alternate;
-    transition: color 0.5s;
+	font-weight: 700;
+	color: var(--accent-light);
+	animation: glow 2s ease-in-out infinite alternate;
+	transition: color 0.5s;
 }
 
 .about-intro ul li:hover .kudos-count {
-    color: white;
-    animation: none;
-    filter: none;
+	color: white;
+	animation: none;
+	filter: none;
+}
+
+/* ── Kudos widget (shared) ─────────────────────────────── */
+
+.kudos-widget {
+	user-select: none;
+	transition: transform 0.15s ease;
+}
+
+.kudos-widget:active {
+	transform: scale(0.94);
+}
+
+/* Optional label text inside button kudos widget */
+.kudos-label {
+	color: var(--text-light);
+	font-weight: 500;
+	margin-right: 6px;
+}
+
+/* ── Navbar kudos button ───────────────────────────────── */
+
+.kudos-nav-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+	padding: 5px 12px;
+	border-radius: 99px;
+	border: 1.5px solid var(--accent-light);
+	background: transparent;
+	color: var(--text);
+	font-size: 14px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.kudos-nav-btn:hover {
+	background: var(--accent-soft);
+	border-color: var(--accent);
+	transform: translateY(-1px) scale(1.04);
+	box-shadow: 0 4px 12px var(--hover-shadow);
+}
+
+.kudos-nav-btn .kudos-heart {
+	color: var(--accent-light);
+	font-size: 15px;
+	transition: transform 0.2s;
+	animation: glow 2s ease-in-out infinite alternate;
+}
+
+.kudos-nav-btn:hover .kudos-heart {
+	transform: scale(1.25);
+}
+
+.kudos-nav-btn .kudos-num {
+	color: var(--accent-light);
+	font-weight: 700;
+}
+
+.kudos-nav-btn .kudos-cta {
+	color: var(--text-light);
+	font-weight: 400;
+	font-size: 12px;
+}
+
+/* Hide the CTA text on smaller screens, keep just heart + number */
+@media (max-width: 900px) {
+	.kudos-nav-btn .kudos-cta {
+		display: none;
+	}
+}
+
+/* On very small screens, hide the full button from the nav */
+@media (max-width: 480px) {
+	.kudos-nav-btn {
+		display: none;
+	}
+}
+
+/* ── End-of-post kudos banner ───────────────────────────── */
+
+.post-kudos-section {
+	display: flex;
+	justify-content: center;
+	margin: 32px 0 16px;
+}
+
+.post-kudos-inner {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 14px 28px;
+	border-radius: 99px;
+	border: 1.5px solid var(--accent-light);
+	background: var(--accent-soft);
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: 500;
+	color: var(--text);
+	transition: all 0.25s ease;
+	user-select: none;
+	box-shadow: 0 2px 8px var(--card-shadow);
+}
+
+.post-kudos-inner:hover {
+	background: var(--accent-soft);
+	border-color: var(--accent);
+	transform: translateY(-3px) scale(1.03);
+	box-shadow: 0 8px 20px var(--hover-shadow);
+}
+
+.post-kudos-inner:active {
+	transform: scale(0.97);
+}
+
+.post-kudos-inner .kudos-num {
+	font-weight: 700;
+	color: var(--accent-light);
+	animation: glow 2s ease-in-out infinite alternate;
+}
+
+.post-kudos-inner .kudos-cta {
+	color: var(--text-light);
+	font-size: 14px;
 }

@@ -83,7 +83,7 @@ class StatusUpdates {
         try {
             const response = await fetch(`${API_BASE}/github`);
             const data = await response.json();
-            
+
             localStorage.setItem('codingStreak', JSON.stringify({
                 data,
                 timestamp: Date.now()
@@ -119,7 +119,7 @@ class StatusUpdates {
                 this.getCodingStreak()
             ]);
 
-            const combinedData = { ...activity, streak: streakData.streak, total:streakData.totalContributions, createdAt: streakData.createdAt };
+            const combinedData = { ...activity, streak: streakData.streak, total: streakData.totalContributions, createdAt: streakData.createdAt };
             this.displayGithubActivity(combinedData);
 
         } catch (error) {
@@ -136,13 +136,13 @@ class StatusUpdates {
             let html = `Last commit to <a class='status-text' target="_blank" href="https://github.com/${data.repo}">${data.repo.split('/')[1]}</a> ${timeText}.`;
 
 
-            
+
             if (data.streak > 0) {
-                 html += ` On a <span class='status-text'>${data.streak}-day streak</span>.`;
+                html += ` On a <span class='status-text'>${data.streak}-day streak</span>.`;
             }
-            if (data.total > 0){
-                  html += ` <span class='status-text'>${data.total.toLocaleString()}</span> total contributions`;
-                  if (data.createdAt) { 
+            if (data.total > 0) {
+                html += ` <span class='status-text'>${data.total.toLocaleString()}</span> total contributions`;
+                if (data.createdAt) {
                     const createdYear = new Date(data.createdAt).getFullYear();
                     const currentYear = new Date().getFullYear();
                     const yearsActive = currentYear - createdYear;
@@ -151,11 +151,11 @@ class StatusUpdates {
                     const yearText = yearsActive <= 1 ? "year" : `${yearsActive} years`;
 
                     html += ` over the last <span class='status-text'>${yearText}</span>.`;
-                  }
-                  else {
-                  }
+                }
+                else {
+                }
             }
-             else {
+            else {
             }
 
             this.githubActivity.innerHTML = html;
@@ -187,70 +187,13 @@ class StatusUpdates {
         }
     }
 
-    // --- CLAP COUNTER LOGIC ---
+    // --- CLAP COUNTER LOGIC --- (delegated to shared kudos.js)
 
-    getClapClicksThisMinute() {
-        const raw = localStorage.getItem('clapClicks');
-        if (!raw) return { count: 0, windowStart: Date.now() };
-        const parsed = JSON.parse(raw);
-        if (Date.now() - parsed.windowStart > 60 * 1000) {
-            return { count: 0, windowStart: Date.now() };
-        }
-        return parsed;
-    }
-
-    recordClapClick() {
-        const current = this.getClapClicksThisMinute();
-        const updated = { count: current.count + 1, windowStart: current.windowStart };
-        localStorage.setItem('clapClicks', JSON.stringify(updated));
-        return updated.count;
-    }
-
-    formatClapDisplay(count, state = 'default') {
-        const formatted = count.toLocaleString();
-        const suffix = state === 'thanks' ? '— thanks!' : "— <span class='kudos-count'>click</span> to give kudos";
-        return `<span class='kudos-count'>${formatted}</span> kudos ${suffix}`;
-    }
-
-    async initClapCounter() {
-        const clapItem = document.getElementById('clap-item');
+    initClapCounter() {
         const clapDisplay = document.getElementById('clap-display');
-        if (!clapItem || !clapDisplay) return;
-
-        let currentCount = 0;
-
-        // Load initial count
-        try {
-            const response = await fetch(`${API_BASE}/visit`);
-            const data = await response.json();
-            currentCount = data.count;
-            clapDisplay.innerHTML = this.formatClapDisplay(currentCount);
-        } catch (e) {
-            clapDisplay.innerHTML = `<span class='kudos-count'>?</span> kudos — <span class='kudos-count'>click</span> to give one!`;
-        }
-
-        // Click handler
-        clapItem.addEventListener('click', async () => {
-            const clicksThisMinute = this.getClapClicksThisMinute().count;
-            if (clicksThisMinute >= 10) {
-                clapDisplay.innerHTML = `<span class='kudos-count'>${currentCount.toLocaleString()}</span> kudos — thanks, but slow down! `;
-                return;
-            }
-
-            this.recordClapClick();
-
-            try {
-                const response = await fetch(`${API_BASE}/visit`, { method: 'POST' });
-                const data = await response.json();
-                currentCount = data.count;
-                clapDisplay.innerHTML = this.formatClapDisplay(currentCount, 'thanks');
-                setTimeout(() => {
-                    clapDisplay.innerHTML = this.formatClapDisplay(currentCount, 'default');
-                }, 3000);
-            } catch (e) {
-                clapDisplay.innerHTML = `<span class='kudos-count'>${currentCount.toLocaleString()}</span> kudos — registered (probably)`;
-            }
-        });
+        if (!clapDisplay) return;
+        // Use the shared kudos module (inline layout, homepage-style)
+        window.mountKudos(clapDisplay, { ctaText: 'click to give kudos', layout: 'inline' });
     }
 
     // --- SCHEDULE & WEATHER (Unchanged) ---
@@ -276,7 +219,7 @@ class StatusUpdates {
         }
         return "unwinding.";
     }
-    
+
     formatStatus(h, m, activity) {
         return `It's <span class='status-text'>${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}</span>: I'm probably <span class='status-text'>${activity}</span>`;
     }
@@ -301,13 +244,13 @@ class StatusUpdates {
 
     async applyWeatherStatus() {
         const data = await this.getWeatherStatus();
-        if(!data) return;
-        
+        if (!data) return;
+
         const currentHour = new Date().toISOString().substring(0, 13) + ':00';
         const index = data.hourly.time.findIndex(t => t.startsWith(currentHour));
         const code = index !== -1 ? data.hourly.weather_code[index] : 3;
         const msg = WEATHER_CODES[code]?.message || "experiencing weather.";
-        
+
         this.weatherStatus.innerHTML = `My weather is <span class='status-text'>${msg}</span>`;
     }
 }
