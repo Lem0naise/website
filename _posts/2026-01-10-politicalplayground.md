@@ -9,7 +9,7 @@ tags:
 ---
 
 
-> **TLDR:** I built a tiny (very inaccurate, but fun) political simulation game. You can play it at [pp.indigo.spot](https://pp.indigo.spot).
+> **TLDR:** I built a tiny (very inaccurate, but fun) political simulation game. You can play it at [polplay.indigo.spot](https://polplay.indigo.spot).
 
 ---
 
@@ -225,4 +225,4 @@ I’m pretty proud of the flexibility I’ve managed to keep:
 * **The Custom Party Builder:** I realised this was a must-have to make anybody other than me interested in the game. You can merge parties into a coalition or build a new one from scratch, manually setting their -100 -> 100 values on each of the seven axes.
 
 
-Go check it out at <a href="https://pp.indigo.spot" target="_blank">pp.indigo.spot</a>!
+Go check it out at <a href="https://polplay.indigo.spot" target="_blank">polplay.indigo.spot</a>!
