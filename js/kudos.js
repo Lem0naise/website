@@ -86,7 +86,7 @@ window.mountKudos = async function mountKudos(container, opts = {}) {
 
     const {
         ctaText = 'click to give kudos',
-        thanksText = 'thanks!',
+        thanksText = 'thank you!',
         layout = 'inline',
         label = '',   // optional label shown before heart, e.g. "Enjoyed it?"
     } = opts;
@@ -124,6 +124,15 @@ window.mountKudos = async function mountKudos(container, opts = {}) {
         }
     }
 
+    let renderTimeout = null;
+    function scheduleReset(ms = 3000) {
+        if (renderTimeout) clearTimeout(renderTimeout);
+        renderTimeout = setTimeout(() => {
+            render('default');
+            renderTimeout = null;
+        }, ms);
+    }
+
     render('loading');
 
     try {
@@ -133,23 +142,21 @@ window.mountKudos = async function mountKudos(container, opts = {}) {
         render('default');
     }
 
-    container.addEventListener('click', async () => {
+    container.addEventListener('click', () => {
         const clicks = getRateState().count;
         if (clicks >= KUDOS_MAX) {
             render('slow');
-            setTimeout(() => render('default'), 2000);
+            scheduleReset(2000);
             return;
         }
 
         recordClick();
+        count++; // Optimistic update
         render('thanks');
+        scheduleReset(3000);
 
-        try {
-            count = await postKudos();
-        } catch (_) {
-            // optimistic update already shown
-        }
-
-        setTimeout(() => render('default'), 3000);
+        postKudos().then(newCount => {
+            count = newCount;
+        }).catch(() => { });
     });
 };
