@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Monetising CashCat: Escaping the Google Tax with Lemon Squeezy"
-date: 2026-02-26 08:00:00 +0000
+date: 2026-03-06 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/monetising-cashcat-lemonsqueezy-supabase
 tags: 
