@@ -6,6 +6,9 @@ author: Indigo Nolan
 permalink: /cashcat-open-banking
 tags: 
     - coding
+manual_related: 
+    - /blog/cashcat-on-android-and-ios-mobile-capacitor
+    - /blog/monetising-cashcat-lemonsqueezy-supabase
 ---
 
 Open Banking is a wonderful concept. A more transparent society, boosting competition, allowing immense analytical power of financial data, and only with user's consent and desire! So why is it collapsing? 

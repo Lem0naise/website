@@ -1,6 +1,6 @@
-<!-- ---
+---
 layout: post
-title: "Monetising CashCat: Escaping the Google Tax and Taming Webhooks with Lemon Squeezy"
+title: "Monetising CashCat: Escaping the Google Tax with Lemon Squeezy"
 date: 2026-02-26 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/monetising-cashcat-lemonsqueezy-supabase
@@ -8,40 +8,39 @@ tags:
     - coding
 manual_related: 
     - /blog/cashcat-on-android-and-ios-mobile-capacitor
---- -->
+    - /cashcat-open-banking
+---
 
-Building a personal finance app is inherently ironic. You are spending thousands of hours constructing a tool designed to help people save money, and then - eventually - you have to ask those same people to hand some of that saved money over to you. 
+Building a personal finance app is inherently ironic. You are spending thousands of hours constructing a tool designed to help people save money, and then - eventually - you have to ask those same people to hand some of that saved money over to you. But server costs don't pay themselves!
 
-For the last few months, my focus on CashCat has been entirely technical: finalizing the Capacitor wrappers, perfecting the Next.js routing, and crushing bugs. But server costs don't pay themselves. Database reads (especially the aggressive querying required for dynamic financial charts) start stacking up. It was time to build a monetisation engine. 
+I knew from the outset I didn't want to build a billing engine from scratch (why would you?). Dealing with global tax compliance, VAT MOSS, and currency conversion is a nightmare I wouldn't wish on anyone. So Stripe wouldn't cut it - I needed a Merchant of Record (MoR), not just a payment gateway. Enter [Lemon Squeezy](https://www.lemonsqueezy.com/).
 
-I knew from the outset I didn't want to build a billing engine from scratch. Dealing with global tax compliance, VAT MOSS, and currency conversion is a nightmare I wouldn't wish on anyone. I needed a Merchant of Record (MoR), not just a payment gateway. Enter [Lemon Squeezy](https://www.lemonsqueezy.com/).
+Here is a quick dive into how I wired up Next.js, Supabase, Capacitor, and Lemon Squeezy to build "CashCat Pro" - without getting my app nuked from the Google Play Store.
 
-Here is the deep dive into how I wired up Next.js, Supabase, Capacitor, and Lemon Squeezy to build "CashCat Pro" - without getting my app nuked from the Google Play Store.
+## Friction and Free Trials
 
-## The Strategy: Friction over Free Trials
-
-Pricing psychology is a dark art. I eventually settled on a "CashCat Pro" tier priced at £4.99/mo and £49.99/yr. It safely clears the £3.99 "dead zone" (where you get all the support tickets but none of the actual revenue) and severely undercuts the £100/yr VC-funded juggernauts I'm competing against.
+Pricing psychology is a dark art. I eventually settled on a "CashCat Pro" tier priced at £4.99/mo and £39.99/yr. It safely clears the £1.99 "dead zone" (where you get all the support tickets but none of the actual revenue) and severely undercuts the £100/yr VC-funded juggernauts I'm competing against.
 
 But how do you handle onboarding? The standard SaaS playbook dictates a 7-day free trial. However, a time-based trial for a personal finance app is a massive vulnerability. Users can sign up, import three years of historical CSV bank data, let the app generate all their categorical insights, take screenshots of their spending habits, and then cancel on day 6. The classic "hit-and-run."
 
-Instead, I implemented a strict freemium model governed by action limits, rather than time limits. New users are granted exactly **2 free CSV imports and 3 free CSV exports**. 
+Not only that, I want *users*, not just paying users. I need a solid free plan. So, I implemented a strict freemium model governed by action limits, rather than time limits. New users are granted exactly **2 free CSV imports and 3 free CSV exports**. They are given **unlimited transactions, categories, and budgeting abilities**.
 
 From a technical standpoint, this is incredibly simple to implement. I don't need complex CRON jobs running every minute to check if trials have expired. I don't need to juggle timezone offsets. I just increment integers in the database.
 
-It also guarantees the user reaches the "Aha!" moment. They see the magic of their automated dashboard. But next month, when they need to import their new data, they encounter the friction. The value proposition is already proven; now they just pay for continuity.
+It also guarantees the user reaches the "Aha!" moment that I found was so crucial in premium subscriptions. They see the magic of their automated dashboard. But next month, when they need to import their new data, they encounter the friction. The value proposition is already proven; now they just pay for continuity.
 
-## Supabase: Schema Surgery and The Founder Bypass
+## Supabase Schema
 
 My entire backend relies on Supabase. To handle this new logic, I had to extend my central `profiles` table.
 
 I evaluated Lemon Squeezy's built-in "License Keys" feature, but that’s really designed for downloadable electron apps, not a continuous cloud SaaS. Instead, I wired everything manually by adding three columns to the `profiles` schema:
-*   `is_pro` (boolean, default: false)
+*   `pro` (boolean, default: false)
 *   `free_imports_used` (integer, default: 0)
 *   `free_exports_used` (integer, default: 0)
 
 ### Row Level Security (RLS)
 
-Of course, securing this is paramount. You can't just have a client-side update flipping `is_pro` to true. I updated my Supabase Row Level Security (RLS) policies to ensure that these specific columns can only be modified by the `service_role` key - meaning only my secure server-side API endpoints can touch them.
+Of course, securing this is paramount. You can't just have a client-side update flipping `pro` to true. I updated my Supabase Row Level Security (RLS) policies to ensure that these specific columns can only be modified by the `service_role` key - meaning only my secure server-side API endpoints can touch them.
 
 ### The Founder Bypass
 
@@ -58,7 +57,7 @@ export async function checkSubscription(userId: string, email: string) {
 
   const { data, error } = await supabase
     .from('profiles')
-    .select('is_pro, free_imports_used, free_exports_used')
+    .select('pro, free_imports_used, free_exports_used')
     .eq('id', userId)
     .single();
     
@@ -67,7 +66,7 @@ export async function checkSubscription(userId: string, email: string) {
 ```
 It’s a tiny shortcut, but it's a lifesaver when you're rapidly wiping the local database.
 
-## Webhooks and Next.js: Taming the Beast
+## Webhooks in Next.js
 
 Integrating the checkout flow wasn't too bad. I set up an A Record to map `pro.cashcat.app` directly to Lemon Squeezy's IP address (`3.33.255.208`), giving me a beautiful, white-labeled checkout page.
 
@@ -125,7 +124,7 @@ Using `crypto.timingSafeEqual` is absolutely necessary here to prevent timing at
 
 Here is where the architecture really gets put to the test. As I detailed in my [Capacitor post](/blog/cashcat-on-android-and-ios-mobile-capacitor), CashCat is shipped as an Android app. 
 
-The Google Play Store has a draconian policy: if you unlock digital content or features natively inside an app, you *must* use Google Play Billing. If you route them to an external payment gateway like Stripe or Lemon Squeezy, your app will be banned and permanently removed. They want their 30%. Because I refuse to manage two completely separate billing architectures, I opted for the "Reader App" loophole. 
+The Google Play Store has a draconian policy: if you unlock digital content or features natively inside an app, you *must* use Google Play Billing. If you route them to an external payment gateway like Stripe or Lemon Squeezy, your app will be banned and permanently removed. They want their 30%. Because I refuse to manage two completely separate billing architectures, at least until I start making profit, I opted for the "Reader App" loophole. 
 
 Essentially, you are allowed to have an app where features unlock based on a user's web subscription, as long as you *do not link out* to the payment page from within the app itself.
 
@@ -151,10 +150,7 @@ Instead of a hard block on their 3rd attempt to export data, the UI acts as a co
 
 Once that integer hits the limit, the UI morphs dynamically. The action buttons transform into a sleek, dark-mode call-to-action modal. This modal doesn't just ask for money; it clearly outlines the actual value proposition of CashCat Pro: custom date ranges, complex money flow diagrams, and unlimited data handling.
 
-It converts the user at the exact point of friction, but only after clearly outlining what they stand to gain.
+It converts the user at the exact point of friction, but only after clearly outlining what they stand to gain. Transparent pricing is what I've always wanted in a SaaS product, and it's what I'm trying to build here.
 
-***
-
-Building a monetised application from absolute scratch, bypassing the pitfalls of app store monopolies, and securely handling webhooks has been an exhausting but incredibly satisfying milestone. With Lemon Squeezy handling the tax headaches, Supabase locking down the data, and Capacitor dodging Google's 30% cut, I can finally go back to working on what actually matters: figuring out why my Sankey diagrams look so terrible.
 
 > *If you'd like to check out the finished product (and perhaps hit that import limit yourself), visit [cashcat.app](https://cashcat.app).*

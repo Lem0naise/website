@@ -6,6 +6,9 @@ author: Indigo Nolan
 permalink: /blog/cashcat-on-android-and-ios-mobile-capacitor
 tags: 
     - coding
+manual_related: 
+    - /blog/monetising-cashcat-lemonsqueezy-supabase
+    - /cashcat-open-banking
 ---
 
 Most of my recent work on CashCat has been working on the web version, the Next.js app deployed at [cashcat.app](https://cashcat.app). Because we're focusing on a web-first outlook, this has meant super-fast deployments, easy iterations, and fast development, without any reviewers or gatekeepers in our way. In the modern age, with agentic coding and such rapid progressions in technology, this is vital.
