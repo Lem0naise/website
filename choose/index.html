@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decision Maker</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Matter.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+</head>
+
+<body>
+    <div id="ui-container">
+        <h1>Decision Maker</h1>
+        <p>Enter your choices (one per line):</p>
+        <textarea id="choices-input" rows="6" placeholder="Pizza&#10;Burgers&#10;Sushi&#10;Tacos"></textarea>
+
+        <p class="subtitle">Choose a resolution method:</p>
+        <div class="modes">
+            <button class="mode-btn" data-mode="plinko">Plinko Drop</button>
+            <button class="mode-btn" data-mode="jump">Long Jump</button>
+            <button class="mode-btn" data-mode="royale">Battle Royale</button>
+        </div>
+    </div>
+
+    <div id="game-container" class="hidden">
+        <div id="canvas-container"></div>
+        <button id="back-btn" class="secondary-btn">Back to Choices</button>
+        <div id="winner-display" class="hidden">
+            <h2 id="winner-name">Winner!</h2>
+            <button id="reset-btn" class="primary-btn">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Home button from tempo/stylesheet.css -->
+    <a href="/" class="home-button">⌂</a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
