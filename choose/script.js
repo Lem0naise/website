@@ -107,6 +107,10 @@ function startGame(mode) {
         setupJump();
     } else if (mode === 'royale') {
         setupRoyale();
+    } else if (mode === 'sumo') {
+        setupSumo();
+    } else if (mode === 'lottery') {
+        setupLottery();
     }
 
     Render.run(render);
@@ -518,4 +522,246 @@ function setupRoyale() {
         });
     }, 500);
     gameIntervals.push(chaosInterval);
+}
+
+// 4. SUMO (KING OF THE HILL)
+function setupSumo() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    // Platform in the center
+    const platformW = width * 0.4;
+    const platform = Bodies.rectangle(width / 2, height * 0.7, platformW, 40, {
+        isStatic: true,
+        render: { fillStyle: '#e8e6e0' },
+        friction: 0.8
+    });
+    Composite.add(engine.world, platform);
+
+    // Hazard pendulum 1
+    const pend1Anchor = { x: width / 2 - platformW * 0.3, y: height * 0.1 };
+    const pend1Bob = Bodies.circle(pend1Anchor.x, height * 0.5, 40, {
+        density: 0.1, frictionAir: 0.001,
+        render: { fillStyle: '#d4a574' }
+    });
+    const pend1Constraint = Matter.Constraint.create({
+        pointA: pend1Anchor,
+        bodyB: pend1Bob,
+        stiffness: 1,
+        render: { strokeStyle: '#e8e6e0', lineWidth: 4 }
+    });
+
+    // Hazard pendulum 2
+    const pend2Anchor = { x: width / 2 + platformW * 0.3, y: height * 0.1 };
+    const pend2Bob = Bodies.circle(pend2Anchor.x, height * 0.5, 30, {
+        density: 0.1, frictionAir: 0.001,
+        render: { fillStyle: '#d4a574' }
+    });
+    const pend2Constraint = Matter.Constraint.create({
+        pointA: pend2Anchor,
+        bodyB: pend2Bob,
+        stiffness: 1,
+        render: { strokeStyle: '#e8e6e0', lineWidth: 4 }
+    });
+
+    Composite.add(engine.world, [pend1Bob, pend1Constraint, pend2Bob, pend2Constraint]);
+
+    // Give pendulums initial swing
+    Body.setVelocity(pend1Bob, { x: 15, y: 0 });
+    Body.setVelocity(pend2Bob, { x: -15, y: 0 });
+
+    const balls = [];
+    choices.forEach((choice, i) => {
+        const x = width / 2 + (Math.random() - 0.5) * (platformW * 0.6);
+        const y = height * 0.65 - (i * 40);
+        const ball = createBallWithLabel(x, y, 22, i, {
+            restitution: 0.4,
+            friction: 0.1,
+            density: 0.05
+        });
+        balls.push(ball);
+    });
+    Composite.add(engine.world, balls);
+
+    // Obstacle spawner
+    let frameCount = 0;
+    Events.on(engine, 'beforeUpdate', () => {
+        frameCount++;
+        if (frameCount % 180 === 0) { // roughly every 3 seconds
+            const box = Bodies.rectangle(
+                width / 2 + (Math.random() - 0.5) * platformW,
+                -50,
+                30 + Math.random() * 40,
+                30 + Math.random() * 40,
+                {
+                    density: 0.08,
+                    render: { fillStyle: '#c85a5a' }
+                }
+            );
+            Body.setAngularVelocity(box, (Math.random() - 0.5) * 0.5);
+            Composite.add(engine.world, box);
+        }
+    });
+
+    // Elimination check
+    let activeBallsCount = balls.length;
+    let winnerDeclared = false;
+
+    // Bottom elimination sensor
+    const deathZone = Bodies.rectangle(width / 2, height + 100, width * 2, 60, {
+        isStatic: true, isSensor: true, label: 'death_zone'
+    });
+    Composite.add(engine.world, deathZone);
+
+    Events.on(engine, 'collisionStart', (event) => {
+        if (winnerDeclared) return;
+        event.pairs.forEach((pair) => {
+            let ball;
+            if (pair.bodyA.label === 'death_zone' && pair.bodyB.label.startsWith('ball_')) ball = pair.bodyB;
+            else if (pair.bodyB.label === 'death_zone' && pair.bodyA.label.startsWith('ball_')) ball = pair.bodyA;
+
+            if (ball && !ball.isRemoved) {
+                ball.isRemoved = true;
+                const idx = choiceBalls.findIndex(b => b.ball === ball);
+                if (idx > -1) {
+                    const obj = choiceBalls[idx];
+                    obj.active = false;
+                    obj.labelEl.style.transition = 'all 0.3s ease';
+                    obj.labelEl.style.opacity = '0';
+                    setTimeout(() => obj.labelEl.remove(), 300);
+                }
+                Composite.remove(engine.world, ball);
+                activeBallsCount--;
+
+                if (activeBallsCount === 1) {
+                    winnerDeclared = true;
+                    const winnerObj = choiceBalls.find(b => b.active);
+                    if (winnerObj) {
+                        showWinner(choices[winnerObj.index], choiceColors[winnerObj.index]);
+                        engine.timing.timeScale = 0.2;
+                    }
+                } else if (activeBallsCount === 0 && !winnerDeclared) {
+                    // Draw condition (they all fell at once)
+                    winnerDeclared = true;
+                    showWinner("It's a tie! No one survived.", "#c85a5a");
+                }
+            }
+        });
+    });
+}
+
+// 5. LOTTERY MACHINE
+function setupLottery() {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    engine.gravity.y = 0.5; // Moderate gravity so balls filter down
+
+    const cx = width / 2;
+    const cy = height / 2;
+    const radius = Math.min(width, height) * 0.4;
+    const thickness = 40;
+
+    // Create a circular boundary using polygon segments
+    const segments = 32;
+    const boundaryParts = [];
+    for (let i = 0; i < segments; i++) {
+        const angle = (i / segments) * Math.PI * 2;
+
+        // Skip the bottom segments to create a reliable exit hole
+        if (i === 7 || i === 8 || i === 9) {
+            continue;
+        }
+
+        const x = cx + Math.cos(angle) * radius;
+        const y = cy + Math.sin(angle) * radius;
+        const rect = Bodies.rectangle(x, y, (Math.PI * 2 * radius) / segments + 5, thickness, {
+            isStatic: true,
+            angle: angle,
+            render: { fillStyle: '#e8e6e0' },
+            restitution: 0.9,
+            friction: 0
+        });
+        boundaryParts.push(rect);
+    }
+
+    // Add winning chute at the bottom (widened)
+    const chuteLeft = Bodies.rectangle(cx - 100, cy + radius + 100, thickness, 200, { isStatic: true, render: { fillStyle: '#e8e6e0' } });
+    const chuteRight = Bodies.rectangle(cx + 100, cy + radius + 100, thickness, 200, { isStatic: true, render: { fillStyle: '#e8e6e0' } });
+
+    // Funnels to guide balls from edge of hole into chute smoothly
+    const funnelLeft = Bodies.rectangle(cx - 90, cy + radius + 15, 80, thickness, { isStatic: true, angle: Math.PI / 4, render: { fillStyle: '#e8e6e0' } });
+    const funnelRight = Bodies.rectangle(cx + 90, cy + radius + 15, 80, thickness, { isStatic: true, angle: -Math.PI / 4, render: { fillStyle: '#e8e6e0' } });
+
+    // Win trigger
+    const winSensor = Bodies.rectangle(cx, cy + radius + 180, 200, 20, { isStatic: true, isSensor: true, label: 'win_sensor', render: { fillStyle: '#7c9885' } });
+
+    Composite.add(engine.world, [...boundaryParts, chuteLeft, chuteRight, funnelLeft, funnelRight, winSensor]);
+
+    // Add balls
+    const balls = [];
+    choices.forEach((choice, i) => {
+        const x = cx + (Math.random() - 0.5) * (radius * 0.5);
+        const y = cy + (Math.random() - 0.5) * (radius * 0.5);
+        const ball = createBallWithLabel(x, y, 18, i, {
+            restitution: 0.95, // very bouncy
+            friction: 0,
+            frictionAir: 0.005,
+            density: 0.02
+        });
+
+        // Initial kick
+        Body.setVelocity(ball, {
+            x: (Math.random() - 0.5) * 20,
+            y: (Math.random() - 0.5) * 20
+        });
+
+        balls.push(ball);
+    });
+    Composite.add(engine.world, balls);
+
+    // Chaos blower logic
+    const blowerInterval = setInterval(() => {
+        balls.forEach(ball => {
+            // Only blow balls that are still inside the main chamber (above the chute)
+            if (ball.position.y < cy + radius - 20) {
+                Body.applyForce(ball, ball.position, {
+                    x: (Math.random() - 0.5) * 0.08,
+                    y: (Math.random() - 0.7) * 0.08 // Biased upwards strongly
+                });
+            } else {
+                // In the chute, push them down to ensure they hit the sensor
+                Body.applyForce(ball, ball.position, {
+                    x: 0,
+                    y: 0.02
+                });
+            }
+        });
+    }, 100);
+    gameIntervals.push(blowerInterval);
+
+    // Win detection
+    let winnerDeclared = false;
+    Events.on(engine, 'collisionStart', (event) => {
+        if (winnerDeclared) return;
+        event.pairs.forEach((pair) => {
+            let ball;
+            if (pair.bodyA.label === 'win_sensor' && pair.bodyB.label && pair.bodyB.label.startsWith('ball_')) ball = pair.bodyB;
+            else if (pair.bodyB.label === 'win_sensor' && pair.bodyA.label && pair.bodyA.label.startsWith('ball_')) ball = pair.bodyA;
+
+            if (ball) {
+                winnerDeclared = true;
+                const index = parseInt(ball.label.split('_')[1]);
+                showWinner(choices[index], choiceColors[index]);
+                engine.timing.timeScale = 0.2;
+
+                // Highlight winning ball
+                const winningBall = choiceBalls.find(b => b.index === index);
+                if (winningBall) {
+                    winningBall.ball.render.lineWidth = 5;
+                    winningBall.ball.render.strokeStyle = '#2d2d2d';
+                }
+            }
+        });
+    });
 }

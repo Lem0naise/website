@@ -117,7 +117,7 @@ button:active {
 
 .mode-btn {
     flex: 1 1 calc(33.333% - 10px);
-    min-width: 130px;
+    min-width: 140px;
     font-weight: bold;
     color: var(--accent);
     border-color: var(--accent-light);
