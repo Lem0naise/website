@@ -3,12 +3,59 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Page Not Found - Indigo Nolan</title>
+    <title>404 - Dinopong - Indigo Nolan</title>
     <link rel="stylesheet" href="/stylesheet.css?version=0.6">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="/js/dark-init.js"></script>
     <meta name="description" content="Page not found - Indigo Nolan's website" />
-<link rel="canonical" href="https://indigo.spot/404/">
+    <link rel="canonical" href="https://indigo.spot/404/">
+    <style>
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        canvas {
+            background-color: var(--card-bg);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px var(--card-shadow);
+            max-width: 100%;
+        }
+
+        .instructions {
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 16px;
+            font-size: 14px;
+            max-width: 600px;
+        }
+
+        #restartBtn {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 16px;
+        }
+
+        #restartBtn:hover {
+            background-color: var(--accent-light);
+        }
+    </style>
 </head>
 
 <body>
@@ -20,27 +67,294 @@
                 <a href="/portfolio" class="tab">Projects</a>
                 <a href="/blog" class="tab">Blog</a>
                 <span onclick="toggle()" class="tab tab-svg">
-						<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path id='toggle-button'  d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" /></svg>
-					</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path id='toggle-button'
+                            d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
+                    </svg>
+                </span>
             </nav>
         </div>
     </header>
 
     <main style="padding-top: 70px;">
-        <div class="welcome-section">
-            <div class="welcome-content">
-                <h1 style="font-size: 120px; font-weight: 700; color: var(--accent); margin: 0 0 16px;">404</h1>
-               
-                <p style="font-size: 18px; color: var(--text-light); margin: 0 0 48px; max-width: 500px; margin-left: auto; margin-right: auto; margin-bottom: 48px;">
-                    If you were looking for a blog article, I've recently <a href="/blog">moved my blog articles here, so it'll be there</a>. If you were looking for something else, go to my home page and see if it's moved there! If you still can't find it, contact me with the links on my homepage and I'll see if I can find it for you!
+        <div class="welcome-section"
+            style="min-height: calc(100vh - 70px); align-items: flex-start; padding-top: 20px;">
+            <div class="welcome-content" style="width: 100%; max-width: 900px;">
+                <h1 style="font-size: 64px; font-weight: 700; color: var(--accent); margin: 0 0 8px;">404: Dinopong</h1>
+                <p style="font-size: 18px; color: var(--text-light); margin: 0 0 32px;">
+                    Looks like you're lost. While you're here, why not play a game?
                 </p>
-                <div style="display: flex; justify-content: center; gap: 16px;">
-                    <a href="/" class="view-all-btn" style="text-decoration: none;">Go Home</a>
+                <div class="game-container">
+                    <canvas id="gameCanvas" width="800" height="300"></canvas>
+                    <p class="instructions">
+                        <b>Press SPACE or UP ARROW to jump.</b><br>
+                        Dodge the cacti and hit the pong ball back! If you hit a cactus or miss the ball, game over.
+                    </p>
+                    <button id="restartBtn" onclick="initGame()">Play Again</button>
+                </div>
+                <div style="margin-top: 40px;">
+                    <a href="/" class="view-all-btn"
+                        style="text-decoration: none; padding: 12px 24px; font-size: 16px;">Return to Home</a>
                 </div>
             </div>
         </div>
     </main>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const restartBtn = document.getElementById('restartBtn');
+
+        let isGameOver = false;
+        let score = 0;
+        let frames = 0;
+
+        let dino = {
+            x: 50,
+            y: 200,
+            width: 30,
+            height: 40,
+            dy: 0,
+            gravity: 0.6,
+            jumpPower: -10,
+            grounded: true
+        };
+
+        let pong = {
+            x: 400,
+            y: 100,
+            radius: 8,
+            dx: -5,
+            dy: 3
+        };
+
+        let ai = {
+            x: 770,
+            y: 100,
+            width: 15,
+            height: 60,
+            speed: 4
+        };
+
+        let obstacles = [];
+        let speedMultiplier = 1;
+
+        // Colors
+        let style = getComputedStyle(document.body);
+        let colorDino = style.getPropertyValue('--accent').trim() || '#8b5a83';
+        let colorEnemy = style.getPropertyValue('--text-light').trim() || '#666';
+        let colorBall = style.getPropertyValue('--text').trim() || '#2d2d2d';
+
+        function initGame() {
+            isGameOver = false;
+            score = 0;
+            frames = 0;
+            speedMultiplier = 1;
+
+            dino.y = 200;
+            dino.dy = 0;
+
+            pong.x = 400;
+            pong.y = 100;
+            pong.dx = -5;
+            pong.dy = 3;
+
+            obstacles = [];
+            restartBtn.style.display = 'none';
+
+            // Refresh colors in case of theme toggle
+            style = getComputedStyle(document.body);
+            colorDino = style.getPropertyValue('--accent').trim() || '#8b5a83';
+            colorEnemy = style.getPropertyValue('--text-light').trim() || '#666';
+            colorBall = style.getPropertyValue('--text').trim() || '#2d2d2d';
+
+            requestAnimationFrame(update);
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if ((e.code === 'Space' || e.code === 'ArrowUp') && dino.grounded && !isGameOver) {
+                e.preventDefault();
+                dino.dy = dino.jumpPower;
+                dino.grounded = false;
+            }
+        });
+
+        // Touch support
+        canvas.addEventListener('touchstart', (e) => {
+            if (dino.grounded && !isGameOver) {
+                e.preventDefault();
+                dino.dy = dino.jumpPower;
+                dino.grounded = false;
+            }
+        });
+
+        function spawnObstacle() {
+            let width = 20 + Math.random() * 20;
+            obstacles.push({
+                x: canvas.width,
+                y: 240 - (30 + Math.random() * 20),
+                width: width,
+                height: 30 + Math.random() * 20
+            });
+        }
+
+        function rectIntersect(x1, y1, w1, h1, x2, y2, w2, h2) {
+            return x2 < x1 + w1 && x2 + w2 > x1 && y2 < y1 + h1 && y2 + h2 > y1;
+        }
+
+        function circleRectIntersect(cx, cy, r, rx, ry, rw, rh) {
+            let testX = cx;
+            let testY = cy;
+
+            if (cx < rx) testX = rx;
+            else if (cx > rx + rw) testX = rx + rw;
+            if (cy < ry) testY = ry;
+            else if (cy > ry + rh) testY = ry + rh;
+
+            let distX = cx - testX;
+            let distY = cy - testY;
+            return (distX * distX + distY * distY) <= (r * r);
+        }
+
+        function update() {
+            if (isGameOver) return;
+            frames++;
+
+            if (frames % 600 === 0) speedMultiplier += 0.1;
+
+            // Dino Physics
+            dino.y += dino.dy;
+            if (dino.y + dino.height < 240) {
+                dino.dy += dino.gravity;
+                dino.grounded = false;
+            } else {
+                dino.dy = 0;
+                dino.y = 240 - dino.height;
+                dino.grounded = true;
+            }
+
+            // Obstacles
+            if (frames % Math.floor(100 / speedMultiplier) === 0) {
+                if (Math.random() > 0.3) {
+                    spawnObstacle();
+                }
+            }
+
+            for (let i = 0; i < obstacles.length; i++) {
+                let obs = obstacles[i];
+                obs.x -= 6 * speedMultiplier;
+
+                if (rectIntersect(dino.x, dino.y, dino.width, dino.height, obs.x, obs.y, obs.width, obs.height)) {
+                    gameOver();
+                }
+            }
+
+            // Remove offscreen obstacles
+            obstacles = obstacles.filter(obs => obs.x + obs.width > 0);
+
+            // Pong Physics
+            pong.x += pong.dx * speedMultiplier;
+            pong.y += pong.dy * speedMultiplier;
+
+            // Bounce top/bottom
+            if (pong.y - pong.radius < 0) { pong.y = pong.radius; pong.dy *= -1; }
+            if (pong.y + pong.radius > 240) { pong.y = 240 - pong.radius; pong.dy *= -1; }
+
+            // AI paddle tracking
+            if (pong.dx > 0) {
+                if (ai.y + ai.height / 2 < pong.y) ai.y += ai.speed;
+                else ai.y -= ai.speed;
+            }
+            // keep AI in bounds
+            if (ai.y < 0) ai.y = 0;
+            if (ai.y + ai.height > 240) ai.y = 240 - ai.height;
+
+            // Pong collision with AI
+            if (circleRectIntersect(pong.x, pong.y, pong.radius, ai.x, ai.y, ai.width, ai.height)) {
+                pong.x = ai.x - pong.radius;
+                pong.dx *= -1;
+                pong.dy += (Math.random() - 0.5) * 2;
+            }
+
+            // Pong collision with Dino -> Dino acts as paddle
+            if (circleRectIntersect(pong.x, pong.y, pong.radius, dino.x, dino.y, dino.width, dino.height)) {
+                pong.x = dino.x + dino.width + pong.radius;
+                pong.dx *= -1;
+                pong.dy += (Math.random() - 0.5) * 2;
+                score += 10; // points for pinging ball back
+            }
+
+            // Lose condition: ball passes Dino
+            if (pong.x + pong.radius < 0) {
+                gameOver();
+            }
+
+            score += 0.05 * speedMultiplier; // survival points
+
+            draw();
+            requestAnimationFrame(update);
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Ground line
+            ctx.fillStyle = colorEnemy;
+            ctx.fillRect(0, 240, canvas.width, 2);
+
+            // Draw Dino
+            ctx.fillStyle = colorDino;
+            ctx.fillRect(dino.x, dino.y, dino.width, dino.height);
+            // Dino eye
+            ctx.fillStyle = '#fff';
+            ctx.fillRect(dino.x + 20, dino.y + 5, 4, 4);
+
+            // Draw Obstacles
+            ctx.fillStyle = colorEnemy;
+            for (let obs of obstacles) {
+                ctx.fillRect(obs.x, obs.y, obs.width, obs.height);
+            }
+
+            // Draw AI Paddle
+            ctx.fillStyle = colorDino;
+            ctx.fillRect(ai.x, ai.y, ai.width, ai.height);
+
+            // Draw Pong Ball
+            ctx.beginPath();
+            ctx.arc(pong.x, pong.y, pong.radius, 0, Math.PI * 2);
+            ctx.fillStyle = colorBall;
+            ctx.fill();
+            ctx.closePath();
+
+            // Draw Score
+            ctx.fillStyle = colorBall;
+            ctx.font = '20px "Syne Mono", monospace';
+            ctx.textAlign = 'right';
+            ctx.fillText('Score: ' + Math.floor(score), canvas.width - 20, 30);
+        }
+
+        function gameOver() {
+            isGameOver = true;
+            ctx.fillStyle = 'rgba(0,0,0,0.5)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#fff';
+            ctx.font = '40px "Syne Mono", monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
+
+            ctx.font = '20px "Syne Mono", monospace';
+            ctx.fillText('Final Score: ' + Math.floor(score), canvas.width / 2, canvas.height / 2 + 40);
+
+            restartBtn.style.display = 'block';
+        }
+
+        // Wait for fonts to load before first draw
+        document.fonts.ready.then(() => {
+            initGame();
+        });
+    </script>
+    <script src="/js/dark.js"></script>
 </body>
-	<script src="/js/dark.js"></script>
 
 </html>
