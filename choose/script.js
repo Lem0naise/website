@@ -427,7 +427,7 @@ function setupRoyale() {
         Body.setPosition(hazardCore, { x: hx, y: hy });
 
         // Continuously increase the physical size of the hazard over time
-        const growRate = 1.0005; // 0.05% per frame (~3% per second)
+        const growRate = 1.001; // 0.05% per frame (~3% per second)
         Body.scale(hazard, growRate, growRate);
         Body.scale(hazardCore, growRate, growRate);
 

@@ -4,10 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Decision Maker</title>
+    <title>Decision Maker - Simple Online Choosing Tool & Random Picker</title>
+    <meta name="description"
+        content="A simple and fun online decision maker. Use Plinko, Battle Royale, or Long Jump as a random picker to help you choose between options instantly.">
+    <meta name="keywords"
+        content="decision maker, choose, simple choosing tool, random picker, online decision tool, plinko, battle royale, long jump">
+    <link rel="canonical" href="https://indigo.spot/choose/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://indigo.spot/choose/">
+    <meta property="og:title" content="Decision Maker - Simple Online Choosing Tool">
+    <meta property="og:description"
+        content="Enter your choices and let physics decide! Use Plinko, Battle Royale, or Long Jump to make your next decision fun and easy.">
+    <meta property="og:image" content="https://indigo.spot/choose/og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Decision Maker - Simple Online Choosing Tool">
+    <meta property="twitter:description"
+        content="The fun way to make choices. Enter your options and watch them battle it out in a physics simulation.">
+    <meta property="twitter:image" content="https://indigo.spot/choose/og-image.png">
+
     <link rel="stylesheet" href="style.css">
     <!-- Matter.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Decision Maker",
+      "alternateName": "Simple Choosing Tool",
+      "description": "A fun and simple online decision maker using physics simulations like Plinko, Battle Royale, and Long Jump.",
+      "applicationCategory": "UtilitiesApplication",
+      "genre": "Decision Tool",
+      "url": "https://indigo.spot/choose/",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Indigo Nolan"
+      }
+    }
+    </script>
 </head>
 
 <body>
@@ -21,6 +66,11 @@
             <button class="mode-btn" data-mode="plinko">Plinko Drop</button>
             <button class="mode-btn" data-mode="jump">Long Jump</button>
             <button class="mode-btn" data-mode="royale">Battle Royale</button>
+        </div>
+
+        <div class="seo-footer">
+            <p>This <strong>simple choosing tool</strong> and <strong>random picker</strong> uses physics to help you
+                make any <strong>decision</strong> fun. Choose a mode to begin!</p>
         </div>
     </div>
 

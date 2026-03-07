@@ -247,3 +247,23 @@ button:active {
     font-weight: bold;
     z-index: 10;
 }
+
+.seo-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px dashed var(--border);
+    font-size: 13px;
+    color: var(--text-light);
+}
+
+.seo-footer p {
+    font-size: 13px;
+    line-height: 1.4;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.seo-footer strong {
+    color: var(--accent);
+    font-weight: 500;
+}
