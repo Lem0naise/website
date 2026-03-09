@@ -96,7 +96,7 @@
                 <div class="game-container">
                     <canvas id="gameCanvas" width="800" height="300"></canvas>
                     <p class="instructions">
-                        <b>Press SPACE, UP ARROW, or touch the screen to jump.</b><br>
+                        <b>Press SPACE or touch the screen to jump.</b><br>
                         Dodge the cacti and hit the pong ball back! If you hit a cactus or miss the ball, game over.
                     </p>
 
@@ -111,6 +111,7 @@
     </main>
 
     <script>
+
         const canvas = document.getElementById('gameCanvas');
         const ctx = canvas.getContext('2d');
         const restartBtn = document.getElementById('restartBtn');
@@ -205,7 +206,7 @@
 
         // Touch support
         canvas.addEventListener('touchstart', (e) => {
-            if (dino.grounded && !isGameOver) {
+            if (!isGameOver) {
                 e.preventDefault();
                 jump();
             }
