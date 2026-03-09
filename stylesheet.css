@@ -1793,6 +1793,8 @@ main {
 	body.nav-exit .welcome-content .looking-for {
 		animation: navExitLeft 0.42s cubic-bezier(0.55, 0, 0.85, 0.5) 0.04s both;
 	}
+
+}
 }
 
 @keyframes navExitUp {

@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>404 - Dinopong - Indigo Nolan</title>
-    <link rel="stylesheet" href="/stylesheet.css?version=0.6">
+    <link rel="stylesheet" href="/stylesheet.css?version=0.9">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="/js/dark-init.js"></script>
     <meta name="description" content="Page not found - Indigo Nolan's website" />
@@ -39,21 +39,15 @@
             max-width: 600px;
         }
 
-        #restartBtn {
+      
+        #jumpBtn {
             display: none;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: 16px;
         }
-
-        #restartBtn:hover {
-            background-color: var(--accent-light);
+        @media (max-width: 900px) {
+            
+        #jumpBtn {
+            display: block;
+                
         }
     </style>
 </head>
@@ -90,7 +84,9 @@
                         <b>Press SPACE or UP ARROW to jump.</b><br>
                         Dodge the cacti and hit the pong ball back! If you hit a cactus or miss the ball, game over.
                     </p>
-                    <button id="restartBtn" onclick="initGame()">Play Again</button>
+
+                    <button class='btns404 view-all-btn' id="jumpBtn" onclick="jump()">Jump</button>
+                    <button class='btns404 view-all-btn'  id="restartBtn" onclick="initGame()">Play Again</button>
                 </div>
                 <div style="margin-top: 40px;">
                     <a href="/" class="view-all-btn"
@@ -171,11 +167,14 @@
             requestAnimationFrame(update);
         }
 
+        function jump(){
+            dino.dy = dino.jumpPower;
+            dino.grounded = false;
+        }
         window.addEventListener('keydown', (e) => {
-            if ((e.code === 'Space' || e.code === 'ArrowUp') && dino.grounded && !isGameOver) {
+            if ((e.code === 'Space' || e.code === 'ArrowUp') && !isGameOver) {
                 e.preventDefault();
-                dino.dy = dino.jumpPower;
-                dino.grounded = false;
+                jump();
             }
         });
 
@@ -183,8 +182,7 @@
         canvas.addEventListener('touchstart', (e) => {
             if (dino.grounded && !isGameOver) {
                 e.preventDefault();
-                dino.dy = dino.jumpPower;
-                dino.grounded = false;
+                jump();
             }
         });
 
