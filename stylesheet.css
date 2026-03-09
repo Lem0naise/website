@@ -922,6 +922,16 @@ main {
 .about-item:hover {
 	border-color: var(--accent-light);
 }
+.about-item a {
+	transition: color .2s;
+	-webkit-transition: color .2s;
+	-moz-transition: color .2s;
+	-ms-transition: color .2s;
+	-o-transition: color .2s;
+}
+.about-item ul li:hover a {
+	color: white;
+}
 
 .about-item b {
 	text-decoration: underline;
@@ -960,7 +970,7 @@ main {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 1.4;
 	color: var(--text-light);
 	text-align: left;
@@ -1284,6 +1294,9 @@ main {
 		align-items: center;
 		justify-content: left;
 		gap: 8px;
+	}
+	.option-card p {
+		display:none;
 	}
 
 	.option-img {
