@@ -2,20 +2,49 @@
 	'use strict';
 
 	var DESKTOP_BP = 900;
+	var HOME_PATHS = ['', '/'];
+
+	function isHomePage() {
+		var path = window.location.pathname.replace(/\/$/, '');
+		return HOME_PATHS.indexOf(path) !== -1;
+	}
+
+	function resetHomeExitState() {
+		if (!isHomePage()) return;
+		document.body.classList.remove('nav-exit');
+	}
+
+	function shouldAnimateLink(href) {
+		if (!href) return false;
+		if (/^(https?:)?\/\//.test(href)) return false;
+		if (href.charAt(0) === '#') return false;
+
+		var target = new URL(href, window.location.href);
+		if (target.pathname === window.location.pathname && target.search === window.location.search) {
+			return false;
+		}
+
+		return true;
+	}
 
 	/* ── Home page: exit animation on option-card click ── */
 	function initHomeTransition() {
-		var cards = document.querySelectorAll('.option-card');
-		if (!cards.length) return;
+		if (!isHomePage()) return;
 
-		[].forEach.call(cards, function (card) {
-			card.addEventListener('click', function (e) {
+		var triggers = document.querySelectorAll('.option-card, #menu a.tab, .view-all-btn');
+		if (!triggers.length) return;
+
+		[].forEach.call(triggers, function (trigger) {
+			trigger.addEventListener('click', function (e) {
+				if (e.defaultPrevented) return;
+				if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
 				// Desktop only
 				if (window.innerWidth < DESKTOP_BP) return;
 
-				var href = card.getAttribute('href');
+				var href = trigger.getAttribute('href');
 				// Skip external links and anchor-only links
-				if (!href || /^(https?:)?\/\//.test(href) || href.charAt(0) === '#') return;
+				if (!shouldAnimateLink(href)) return;
 
 				e.preventDefault();
 
@@ -58,7 +87,13 @@
 	}
 
 	document.addEventListener('DOMContentLoaded', function () {
+		resetHomeExitState();
 		initHomeTransition();
 		initSidebar();
+	});
+
+	window.addEventListener('pageshow', function () {
+		// Back/forward cache can restore the page with nav-exit still applied.
+		resetHomeExitState();
 	});
 }());
