@@ -1371,6 +1371,46 @@ main {
 	padding-top: 0;
 }
 
+/* Extra Links Section */
+.extra-links-section {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	justify-content: center;
+	margin-top: 16px;
+	flex-wrap: wrap;
+}
+
+.extra-links-label {
+	font-size: 14px;
+	color: var(--text-light);
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+}
+
+.extra-links {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.extra-link {
+	font-size: 16px;
+	color: var(--text-light);
+	text-decoration: none;
+	padding: 3px 10px;
+	border: 1px solid var(--border);
+	border-radius: 20px;
+	transition: all 0.2s;
+}
+
+.extra-link:hover {
+	color: var(--accent);
+	border-color: var(--accent-light);
+	background: var(--accent-soft);
+}
+
 
 @media (max-width: 480px) {
 
