@@ -43,12 +43,27 @@
         #jumpBtn {
             display: none;
         }
+
+         h1 {
+            font-size: 54px; font-weight: 700; color: var(--accent); margin: 0 0 8px;
+         }
+
         @media (max-width: 900px) {
             
-        #jumpBtn {
-            display: block;
+            #jumpBtn {
+                display: block;
+                }     
                 
+                h1 {
+                    font-size: 30px;
+                }
+                body {
+                    padding: 10px;
+                }
         }
+
+
+         
     </style>
 </head>
 
@@ -74,18 +89,17 @@
         <div class="welcome-section"
             style="min-height: calc(100vh - 70px); align-items: flex-start; padding-top: 20px;">
             <div class="welcome-content" style="width: 100%; max-width: 900px;">
-                <h1 style="font-size: 64px; font-weight: 700; color: var(--accent); margin: 0 0 8px;">404: Dinopong</h1>
+                <h1 >404: Dinopong</h1>
                 <p style="font-size: 18px; color: var(--text-light); margin: 0 0 32px;">
                     Looks like you're lost. While you're here, why not play a game?
                 </p>
                 <div class="game-container">
                     <canvas id="gameCanvas" width="800" height="300"></canvas>
                     <p class="instructions">
-                        <b>Press SPACE or UP ARROW to jump.</b><br>
+                        <b>Press SPACE, UP ARROW, or touch the screen to jump.</b><br>
                         Dodge the cacti and hit the pong ball back! If you hit a cactus or miss the ball, game over.
                     </p>
 
-                    <button class='btns404 view-all-btn' id="jumpBtn" onclick="jump()">Jump</button>
                     <button class='btns404 view-all-btn'  id="restartBtn" onclick="initGame()">Play Again</button>
                 </div>
                 <div style="margin-top: 40px;">
@@ -103,6 +117,7 @@
 
         let isGameOver = false;
         let score = 0;
+        let finalScore = 0;
         let frames = 0;
 
         let dino = {
@@ -134,6 +149,8 @@
 
         let obstacles = [];
         let speedMultiplier = 1;
+        const OBSTACLE_BALL_COLLISION_COOLDOWN_MS = 100;
+        let lastObstacleBallCollisionTime = 0;
 
         // Colors
         let style = getComputedStyle(document.body);
@@ -144,8 +161,10 @@
         function initGame() {
             isGameOver = false;
             score = 0;
+            finalScore = 0;
             frames = 0;
             speedMultiplier = 1;
+            lastObstacleBallCollisionTime = 0;
 
             dino.y = 200;
             dino.dy = 0;
@@ -172,9 +191,15 @@
             dino.grounded = false;
         }
         window.addEventListener('keydown', (e) => {
-            if ((e.code === 'Space' || e.code === 'ArrowUp') && !isGameOver) {
-                e.preventDefault();
+            if ((e.code === 'Space' || e.code === 'ArrowUp')) {
+                if ( !isGameOver){
+                    e.preventDefault();           
                 jump();
+                }
+                else {
+                    initGame()
+                }
+              
             }
         });
 
@@ -187,15 +212,22 @@
         });
 
         function spawnObstacle() {
-            let width = 20 + Math.random() * 20;
-            obstacles.push({
+            let width = 25;
+            let height = 35;
+
+            let obst = {
                 x: canvas.width,
-                y: 240 - (30 + Math.random() * 20),
+                y: 240-height,
                 width: width,
-                height: 30 + Math.random() * 20
-            });
+                height: height
+            }
+            if (Math.random() < 0.5) {
+                obst.y = height+20;
+            }
+            obstacles.push(obst);
         }
 
+        
         function rectIntersect(x1, y1, w1, h1, x2, y2, w2, h2) {
             return x2 < x1 + w1 && x2 + w2 > x1 && y2 < y1 + h1 && y2 + h2 > y1;
         }
@@ -216,12 +248,19 @@
 
         function update() {
             if (isGameOver) return;
+            const now = performance.now();
             frames++;
 
             if (frames % 600 === 0) speedMultiplier += 0.1;
 
             // Dino Physics
             dino.y += dino.dy;
+            // Cap at top
+            if (dino.y < 0) {
+                dino.y = 0;
+                dino.dy = 0;
+            }
+            // Ground collision
             if (dino.y + dino.height < 240) {
                 dino.dy += dino.gravity;
                 dino.grounded = false;
@@ -232,58 +271,83 @@
             }
 
             // Obstacles
-            if (frames % Math.floor(100 / speedMultiplier) === 0) {
+            if (frames % Math.max(40, Math.floor(100 / speedMultiplier)) === 0) {
                 if (Math.random() > 0.3) {
                     spawnObstacle();
                 }
             }
 
-            for (let i = 0; i < obstacles.length; i++) {
+            // Update obstacles and check collisions (reverse loop for safe removal)
+            for (let i = obstacles.length - 1; i >= 0; i--) {
                 let obs = obstacles[i];
                 obs.x -= 6 * speedMultiplier;
 
+                // Remove if completely offscreen
+                if (obs.x + obs.width < 0) {
+                    obstacles.splice(i, 1);
+                    continue;
+                }
+
                 if (rectIntersect(dino.x, dino.y, dino.width, dino.height, obs.x, obs.y, obs.width, obs.height)) {
                     gameOver();
+                    return;
+                }
+
+                if (circleRectIntersect(pong.x, pong.y, pong.radius, obs.x, obs.y, obs.width, obs.height)) {
+                    if (now - lastObstacleBallCollisionTime >= OBSTACLE_BALL_COLLISION_COOLDOWN_MS) {
+                        pong.dx *= -1;
+                        pong.dy *= -1;
+                        lastObstacleBallCollisionTime = now;
+                    }
                 }
             }
-
-            // Remove offscreen obstacles
-            obstacles = obstacles.filter(obs => obs.x + obs.width > 0);
 
             // Pong Physics
             pong.x += pong.dx * speedMultiplier;
             pong.y += pong.dy * speedMultiplier;
 
-            // Bounce top/bottom
-            if (pong.y - pong.radius < 0) { pong.y = pong.radius; pong.dy *= -1; }
-            if (pong.y + pong.radius > 240) { pong.y = 240 - pong.radius; pong.dy *= -1; }
-
-            // AI paddle tracking
-            if (pong.dx > 0) {
-                if (ai.y + ai.height / 2 < pong.y) ai.y += ai.speed;
-                else ai.y -= ai.speed;
+            // Bounce top/bottom/ground with proper positioning
+            if (pong.y - pong.radius < 0) { 
+                pong.y = pong.radius; 
+                pong.dy = Math.abs(pong.dy); // Ensure moving downward
             }
-            // keep AI in bounds
-            if (ai.y < 0) ai.y = 0;
-            if (ai.y + ai.height > 240) ai.y = 240 - ai.height;
+            if (pong.y + pong.radius > 240) { 
+                pong.y = 240 - pong.radius; 
+                pong.dy = -Math.abs(pong.dy); // Ensure moving upward
+            }
+            // Bounce off right wall
+            if (pong.x + pong.radius > canvas.width) {
+                pong.x = canvas.width - pong.radius;
+                pong.dx = -Math.abs(pong.dx); // Ensure moving left
+            }
+
+            // AI paddle tracking (only move if ball is heading toward AI)
+            if (pong.dx > 0) {
+                const targetY = ai.y + (ai.y + ai.height / 2 < pong.y ? ai.speed : -ai.speed);
+                ai.y = targetY < 0 ? 0 : (targetY + ai.height > 240 ? 240 - ai.height : targetY);
+            }
 
             // Pong collision with AI
             if (circleRectIntersect(pong.x, pong.y, pong.radius, ai.x, ai.y, ai.width, ai.height)) {
                 pong.x = ai.x - pong.radius;
-                pong.dx *= -1;
+                pong.dx = -Math.abs(pong.dx);
                 pong.dy += (Math.random() - 0.5) * 2;
+                if (pong.dy > 5) pong.dy = 5;
+                else if (pong.dy < -5) pong.dy = -5;
             }
 
             // Pong collision with Dino -> Dino acts as paddle
             if (circleRectIntersect(pong.x, pong.y, pong.radius, dino.x, dino.y, dino.width, dino.height)) {
                 pong.x = dino.x + dino.width + pong.radius;
-                pong.dx *= -1;
+                pong.dx = Math.abs(pong.dx);
                 pong.dy += (Math.random() - 0.5) * 2;
-                score += 10; // points for pinging ball back
+                if (pong.dy > 5) pong.dy = 5;
+                else if (pong.dy < -5) pong.dy = -5;
+                score += 10;
             }
 
             // Lose condition: ball passes Dino
-            if (pong.x + pong.radius < 0) {
+            if (pong.x < -pong.radius) {
                 gameOver();
             }
 
@@ -329,20 +393,27 @@
             ctx.font = '20px "Syne Mono", monospace';
             ctx.textAlign = 'right';
             ctx.fillText('Score: ' + Math.floor(score), canvas.width - 20, 30);
+
+            // Draw game over overlay from render loop so it's always visible
+            if (isGameOver) {
+                ctx.fillStyle = 'rgba(0,0,0,0.5)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.fillStyle = '#fff';
+                ctx.font = '40px "Syne Mono", monospace';
+                ctx.textAlign = 'center';
+                ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
+
+                ctx.font = '20px "Syne Mono", monospace';
+                ctx.fillText('Final Score: ' + finalScore, canvas.width / 2, canvas.height / 2 + 40);
+            }
         }
 
         function gameOver() {
+            if (isGameOver) return;
             isGameOver = true;
-            ctx.fillStyle = 'rgba(0,0,0,0.5)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#fff';
-            ctx.font = '40px "Syne Mono", monospace';
-            ctx.textAlign = 'center';
-            ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
-
-            ctx.font = '20px "Syne Mono", monospace';
-            ctx.fillText('Final Score: ' + Math.floor(score), canvas.width / 2, canvas.height / 2 + 40);
+            finalScore = Math.floor(score);
+            draw();
 
             restartBtn.style.display = 'block';
         }
