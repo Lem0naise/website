@@ -1654,6 +1654,9 @@ main {
 	font-size: 12px;
 }
 
+.sidebar-card {
+	display: none;
+}
 /* Hide the CTA text on smaller screens, keep just heart + number */
 @media (max-width: 900px) {
 	.kudos-nav-btn .kudos-cta {
@@ -1713,4 +1716,161 @@ main {
 .post-kudos-inner .kudos-cta {
 	color: var(--text-light);
 	font-size: 14px;
+}
+
+
+/* ══════════════════════════════════════════════════════
+   HOME PAGE — exit animation (desktop only)
+   Cards slide left + fade; title fades upward.
+   ══════════════════════════════════════════════════════ */
+
+@media (min-width: 900px) {
+	body.nav-exit .welcome-content h1 {
+		animation: navExitUp 0.3s ease forwards;
+	}
+
+	body.nav-exit .welcome-content .looking-for {
+		animation: navExitLeft 0.42s cubic-bezier(0.55, 0, 0.85, 0.5) 0.04s both;
+	}
+}
+
+@keyframes navExitUp {
+	to {
+		opacity: 0;
+		transform: translateY(-28px);
+	}
+}
+
+@keyframes navExitLeft {
+	to {
+		opacity: 0;
+		transform: translateX(-22vw);
+	}
+}
+
+
+/* ══════════════════════════════════════════════════════
+   NAV SIDEBAR  (desktop only, ≥ 900px)
+   ══════════════════════════════════════════════════════ */
+
+@media (min-width: 900px) {
+
+	/* ── sidebar container ── */
+	.nav-sidebar {
+		position: fixed;
+		top: 70px;
+		left: 0;
+		bottom: 0;
+		width: 220px;
+		padding: 20px 12px;
+		border-right: 1px solid var(--border);
+		background: var(--background);
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		z-index: 200;
+		overflow-y: auto;
+		scrollbar-width: none;
+	}
+
+	.nav-sidebar::-webkit-scrollbar {
+		display: none;
+	}
+
+	/* Entry animation when arriving from home page */
+	.nav-sidebar.sidebar-entering {
+		animation: sidebarSlideIn 0.42s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+	}
+
+	/* ── individual sidebar cards ── */
+	.sidebar-card {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 10px 14px;
+		border-radius: 12px;
+		border: 1px solid var(--border);
+		background: var(--card-bg);
+		text-decoration: none;
+		color: var(--text);
+		font-size: 13px;
+		font-weight: 500;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.sidebar-card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(135deg, var(--accent-soft), var(--accent-light));
+		transform: translateX(-100%);
+		transition: transform 0.3s ease;
+		z-index: -1;
+		will-change: transform;
+	}
+
+	.sidebar-card:hover {
+		border-color: var(--accent-light);
+		transform: translateX(4px);
+		box-shadow: 0 4px 12px var(--card-shadow);
+		color: var(--accent);
+	}
+
+	.sidebar-card:hover::before {
+		transform: translateX(0);
+	}
+
+	.sidebar-card.active {
+		background: var(--accent);
+		color: white;
+		border-color: var(--accent);
+		animation: glow 2s ease-in-out infinite alternate;
+	}
+
+	.sidebar-card.active svg {
+		fill: white;
+		animation: none;
+	}
+
+	.sidebar-card svg {
+		width: 18px;
+		height: 18px;
+		flex-shrink: 0;
+		fill: var(--accent);
+		animation: rainbowsvg 15s ease-in-out infinite;
+	}
+
+	/* ── layout: push main content right when sidebar is present ── */
+	body.has-sidebar main {
+		margin-left: 220px;
+	}
+
+	body.has-sidebar .content-section {
+		max-width: min(80vw, calc(100% - 20px));
+	}
+
+	body.has-sidebar .about-grid {
+		max-width: 100%;
+	}
+
+	body.has-sidebar .featured-project {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+@keyframes sidebarSlideIn {
+	from {
+		transform: translateX(-100%);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }
