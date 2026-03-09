@@ -36,7 +36,7 @@
 html.dark-mode {
 	--text: #fffef3;
 	--background: #1d1d1d;
-	--text-light: #b7b7b7;
+	--text-light: #c8c8c8;
 	--accent: #aa82a4;
 	--accent-light: #bd92b7;
 	--accent-soft: #2d2d2d;
@@ -53,7 +53,15 @@ html.dark-mode {
 }
 
 html.dark-mode a {
-	color: white;
+	color: var(--accent-light);
+}
+
+html.dark-mode .about-item ul {
+	color: var(--text);
+}
+
+html.dark-mode .project-item p {
+	color: var(--text-light);
 }
 
 
@@ -246,13 +254,37 @@ main {
 	top: 0;
 }
 
+.hero-intro {
+		margin-bottom: 7vh;
+}
+
+.hero-hey {
+	display: block;
+	font-size: 16px;
+	font-weight: 600;
+	letter-spacing: 0.25em;
+	color: var(--text-light);
+	text-transform: uppercase;
+	margin-bottom: 2px;
+}
+
 .welcome-content h1 {
-	font-size: 48px;
+	font-size: 85px;
 	font-weight: 700;
-	margin: 0 0 16px;
+	margin: 0 0 12px;
 	color: var(--accent-light);
 	transition: all 0.3s;
 	animation: rainbow 15s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+	line-height: 1.05;
+}
+
+.hero-tagline {
+	
+	font-size: 18px;
+	color: var(--text-light);
+	margin: 0 0 8px;
+	line-height: 1;
+	letter-spacing: 0.02em;
 }
 
 .welcome-content h1 a {
@@ -459,7 +491,7 @@ main {
 	padding: 20px 24px;
 	max-width: 80vw;
 	margin: 0 auto;
-	scroll-margin-top: 80px;
+	scroll-margin-top: 60px;
 }
 
 .content-section h2 {
@@ -574,7 +606,7 @@ main {
 }
 
 .primary-link {
-	color: white;
+	color: white !important;
 	font-weight: 600;
 	font-size: 16px;
 	text-decoration: none;
@@ -871,7 +903,6 @@ main {
 }
 
 .about-item {
-
 	border: 1px solid var(--border);
 	border-radius: 16px;
 	padding: 28px;
@@ -882,6 +913,10 @@ main {
 	overflow: hidden;
 	max-width: 60vw;
 	margin: 0 auto;
+	-webkit-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+	-moz-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+	-ms-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+	-o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .about-item:hover {
@@ -902,7 +937,7 @@ main {
 	font-size: 22px;
 	font-weight: 600;
 	margin: 0 0 20px;
-	color: var(--text);
+	color: var(--accent);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -925,7 +960,7 @@ main {
 	margin: 0;
 	padding: 0;
 	list-style: none;
-	font-size: 15px;
+	font-size: 18px;
 	line-height: 1.4;
 	color: var(--text-light);
 	text-align: left;
@@ -1000,7 +1035,7 @@ main {
 }
 
 #small-tools {
-	scroll-margin-top: 80px;
+	scroll-margin-top: 60px;
 }
 
 
@@ -1107,6 +1142,16 @@ main {
 @media (max-width: 768px) {
 
 
+
+
+.hero-intro {
+	margin-top: 2vh;
+		margin-bottom: 4vh;
+}
+.hero-tagline {
+	font-size: 15px;
+}
+
 	.project-links {
 		display: none;
 	}
@@ -1209,9 +1254,9 @@ main {
 	}
 
 	.welcome-content h1 {
-		font-size: 36px;
+		font-size: 52px;
 		margin: 0;
-		margin-bottom: 15px;
+		margin-bottom: 10px;
 	}
 
 	.looking-for h2 {
@@ -1320,7 +1365,7 @@ main {
 @media (max-width: 480px) {
 
 	.welcome-content h1 {
-		font-size: 32px;
+		font-size: 40px;
 	}
 
 	.options-grid {
@@ -1725,7 +1770,7 @@ main {
    ══════════════════════════════════════════════════════ */
 
 @media (min-width: 900px) {
-	body.nav-exit .welcome-content h1 {
+	body.nav-exit .hero-intro {
 		animation: navExitUp 0.3s ease forwards;
 	}
 
