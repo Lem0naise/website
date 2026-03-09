@@ -53,11 +53,14 @@ html.dark-mode {
 }
 
 html.dark-mode a {
-	color: var(--accent-light);
+	color: white;
 }
 
 html.dark-mode .about-item ul {
 	color: var(--text);
+}
+html.dark-mode .about-item ul a {
+	color: var(--accent-light);
 }
 
 html.dark-mode .project-item p {
