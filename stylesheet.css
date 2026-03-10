@@ -222,6 +222,7 @@ body {
 	color: white;
 	border-color: var(--accent);
 	animation: glow 2s ease-in-out infinite alternate;
+	-webkit-animation: glow 2s ease-in-out infinite alternate;
 }
 
 .tab-svg {
@@ -261,6 +262,7 @@ main {
 		margin-bottom: 7vh;
 }
 
+
 .hero-hey {
 	display: block;
 	font-size: 16px;
@@ -279,6 +281,7 @@ main {
 	transition: all 0.3s;
 	animation: rainbow 15s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
 	line-height: 1.05;
+	-webkit-animation: rainbow 15s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
 }
 
 .hero-tagline {
@@ -1029,18 +1032,19 @@ main {
 	font-weight: 700;
 	font-size: 1.1em;
 	letter-spacing: 1px;
-	animation: glow 2s ease-in-out infinite alternate;
+	animation: rainbow 2s ease-in-out infinite alternate;
+	-webkit-animation: rainbow 2s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
-	from {
-		filter: drop-shadow(0 0 0px var(--accent));
-	}
-
-	to {
-		filter: drop-shadow(0 0 2px var(--accent-light));
-	}
+    from {
+        text-shadow: 0 0 0px var(--accent);
+    }
+    to {
+        text-shadow: 0 0 8px var(--accent-light);
+    }
 }
+
 
 #small-tools {
 	scroll-margin-top: 60px;
@@ -1680,8 +1684,9 @@ main {
 .kudos-count {
 	font-weight: 700;
 	color: var(--accent-light);
-	animation: glow 2s ease-in-out infinite alternate;
+	animation: rainbow 15s ease-in-out infinite;
 	transition: color 0.5s;
+	-webkit-animation: rainbow 15s ease-in-out infinite;
 }
 
 .about-intro ul li:hover .kudos-count {
