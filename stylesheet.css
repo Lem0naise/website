@@ -449,7 +449,13 @@ main {
 	transition: all 0.3s;
 	position: relative;
 	overflow: hidden;
+	cursor: pointer; /* Ensure pointer cursor on both links and buttons */
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-appearance: none;
+	appearance: none;
 }
+
 
 .contact-method::before {
 	content: '';
@@ -1502,7 +1508,6 @@ main {
 
 	}
 
-	.download-link {}
 }
 
 .download-link {

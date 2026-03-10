@@ -92,5 +92,5 @@ I feel this captures a lot of the nuance that is lost with a 1-axis scale. I tes
 
 I'm about to begin implementing this on [favourites.me](https://headandheart.app). I'll transition from the 0-100 scale soon, but my eventual goal is to offer all possible rating systems, and even user-customisable ones in the future. I want you to *own* your media, but at the same time I want to explore the psychology of enjoyment and how different people rate and review media.
 
-It will require a lot of work to get just right, so [let me know what you think about this scale](mailto:fme@indigonolan.com), and hopefully you'll see it live soon!
+It will require a lot of work to get just right, so let me know what you think about this scale, and hopefully you'll see it live soon!
 
