@@ -1017,6 +1017,11 @@ main {
 	margin-bottom: 20px;
 }
 
+.about-intro ul li {
+	animation: rainbow 15s ease-in-out infinite;
+	-webkit-animation: rainbow 15s ease-in-out infinite;
+}
+
 /* Status Update Styles */
 .status-text {
 	font-weight: 600;
@@ -1032,8 +1037,8 @@ main {
 	font-weight: 700;
 	font-size: 1.1em;
 	letter-spacing: 1px;
-	animation: rainbow 2s ease-in-out infinite alternate;
-	-webkit-animation: rainbow 2s ease-in-out infinite alternate;
+	animation: rainbow 15s ease-in-out infinite alternate;
+	-webkit-animation: rainbow 15s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
