@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+   
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>404 - Dinopong - Indigo Nolan</title>
     <link rel="stylesheet" href="/stylesheet.css?version=0.9">
@@ -65,6 +66,7 @@
 
          
     </style>
+    
 </head>
 
 <body>
@@ -89,7 +91,7 @@
         <div class="welcome-section"
             style="min-height: calc(100vh - 70px); align-items: flex-start; padding-top: 20px;">
             <div class="welcome-content" style="width: 100%; max-width: 900px;">
-                <h1 >404: Dinopong</h1>
+                <h1 id='title'>404: Dinopong</h1>
                 <p style="font-size: 18px; color: var(--text-light); margin: 0 0 32px;">
                     Looks like you're lost. While you're here, why not play a game?
                 </p>
@@ -109,6 +111,37 @@
             </div>
         </div>
     </main>
+
+     <script>
+        (function () {
+            var redirects = {
+                '/git':      'https://github.com/lem0naise',
+                '/github':   'https://github.com/lem0naise',
+                '/csl':      'https://climatestorieslibrary.com',
+                '/link':     'https://www.linkedin.com/in/indigonolan',
+                '/linkedin': 'https://www.linkedin.com/in/indigonolan',
+
+                '/cashcat':    'https://cashcat.app', // Or the actual external URL
+                '/cc':         'https://cashcat.app', // Even shorter version!
+                '/tpp':        'https://polplay.indigo.spot',
+                '/playground': 'https://polplay.indigo.spot',
+                '/hnh':        'https://headandheart.app',
+
+                '/steam':      'https://store.steampowered.com/app/1790870/Fantasteroids/', 
+                '/wiki':       'https://kresimiria.wiki',
+                '/wolf' : 'https://indigowg.com',
+                '/other' : 'https://indigowg.com',
+                '/josh' : 'https://josh.software',
+                '/faves' : 'https://indigo.spot#faves' 
+            };
+            var path = window.location.pathname.toLowerCase().replace(/\/$/, '');
+            if (redirects[path]) {
+
+                document.getElementById('title').innerText = "Redirecting...";
+                window.location.replace(redirects[path] + window.location.search);
+            }
+        })();
+    </script>
 
     <script>
 
