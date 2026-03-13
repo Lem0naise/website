@@ -59,6 +59,7 @@ html.dark-mode a {
 html.dark-mode .about-item ul {
 	color: var(--text);
 }
+
 html.dark-mode .about-item ul a {
 	color: var(--accent-light);
 }
@@ -259,7 +260,7 @@ main {
 }
 
 .hero-intro {
-		margin-bottom: 7vh;
+	margin-bottom: 7vh;
 }
 
 
@@ -285,7 +286,7 @@ main {
 }
 
 .hero-tagline {
-	
+
 	font-size: 18px;
 	color: var(--text-light);
 	margin: 0 0 8px;
@@ -452,7 +453,8 @@ main {
 	transition: all 0.3s;
 	position: relative;
 	overflow: hidden;
-	cursor: pointer; /* Ensure pointer cursor on both links and buttons */
+	cursor: pointer;
+	/* Ensure pointer cursor on both links and buttons */
 	font-family: inherit;
 	font-size: inherit;
 	-webkit-appearance: none;
@@ -493,6 +495,10 @@ main {
 	max-width: 80vw;
 	margin: 0 auto;
 	scroll-margin-top: 60px;
+}
+
+#about {
+	max-width: 70vw;
 }
 
 .content-section h2 {
@@ -923,6 +929,7 @@ main {
 .about-item:hover {
 	border-color: var(--accent-light);
 }
+
 .about-item a {
 	transition: color .2s;
 	-webkit-transition: color .2s;
@@ -930,6 +937,7 @@ main {
 	-ms-transition: color .2s;
 	-o-transition: color .2s;
 }
+
 .about-item ul li:hover a {
 	color: white;
 }
@@ -1042,12 +1050,13 @@ main {
 }
 
 @keyframes glow {
-    from {
-        text-shadow: 0 0 0px var(--accent);
-    }
-    to {
-        text-shadow: 0 0 8px var(--accent-light);
-    }
+	from {
+		text-shadow: 0 0 0px var(--accent);
+	}
+
+	to {
+		text-shadow: 0 0 8px var(--accent-light);
+	}
 }
 
 
@@ -1166,13 +1175,14 @@ main {
 
 
 
-.hero-intro {
-	margin-top: 2vh;
+	.hero-intro {
+		margin-top: 2vh;
 		margin-bottom: 4vh;
-}
-.hero-tagline {
-	font-size: 15px;
-}
+	}
+
+	.hero-tagline {
+		font-size: 15px;
+	}
 
 	.project-links {
 		display: none;
@@ -1307,8 +1317,9 @@ main {
 		justify-content: left;
 		gap: 8px;
 	}
+
 	.option-card p {
-		display:none;
+		display: none;
 	}
 
 	.option-img {
@@ -1333,6 +1344,11 @@ main {
 		min-width: 95vw;
 		margin-left: 2.5vw;
 		margin-right: 2.5vw;
+	}
+
+
+	#about {
+		max-width: 95vw;
 	}
 
 	.section-content {
@@ -1767,6 +1783,7 @@ main {
 .sidebar-card {
 	display: none;
 }
+
 /* Hide the CTA text on smaller screens, keep just heart + number */
 @media (max-width: 900px) {
 	.kudos-nav-btn .kudos-cta {
@@ -1838,7 +1855,7 @@ main {
 	body.nav-exit .hero-intro {
 		animation: navExitUp 0.3s ease forwards;
 		-webkit-animation: navExitUp 0.3s ease forwards;
-}
+	}
 
 	body.nav-exit .welcome-content .looking-for {
 		animation: navExitLeft 0.42s cubic-bezier(0.55, 0, 0.85, 0.5) 0.04s both;
@@ -1981,6 +1998,7 @@ main {
 		transform: translateX(-100%);
 		opacity: 0;
 	}
+
 	to {
 		transform: translateX(0);
 		opacity: 1;
