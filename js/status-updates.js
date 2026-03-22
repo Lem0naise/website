@@ -200,10 +200,10 @@ class StatusUpdates {
     // --- CLAP COUNTER LOGIC --- (delegated to shared kudos.js)
 
     initClapCounter() {
-        const clapDisplay = document.getElementById('clap-display');
-        if (!clapDisplay) return;
+        const clapItem = document.getElementById('clap-item');
+        if (!clapItem) return;
         // Use the shared kudos module (inline layout, homepage-style)
-        window.mountKudos(clapDisplay, { ctaText: 'click to give kudos', layout: 'inline' });
+        window.mountKudos(clapItem, { ctaText: 'click to give one!', layout: 'inline' });
     }
 
     // --- SCHEDULE & WEATHER (Unchanged) ---
