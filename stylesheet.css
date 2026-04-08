@@ -368,12 +368,17 @@ main {
 	animation: rainbowsvg 15s ease-in-out infinite;
 }
 
-.option-card h3 {
+.option-card h2 {
 	font-size: 18px;
 	font-weight: 600;
 	margin: 0 0 8px;
 	color: var(--text);
 	transition: color 0.3s;
+}
+
+
+.option-card:hover h2 {
+	color: var(--accent);
 }
 
 .option-card:hover h3 {
@@ -1318,7 +1323,7 @@ main {
 		text-align: left;
 	}
 
-	.option-card h3 {
+	.option-card h2 {
 		margin-bottom: 4px;
 		display: flex;
 		align-items: center;
@@ -1337,7 +1342,7 @@ main {
 		height: 1.5em;
 	}
 
-	.smaller h3 {
+	.smaller h2 {
 		font-size: 18px;
 	}
 
@@ -2010,5 +2015,59 @@ main {
 	to {
 		transform: translateX(0);
 		opacity: 1;
+	}
+}
+
+
+/* ══════════════════════════════════════════════════════
+   FOCUS VISIBLE — keyboard navigation outlines
+   ══════════════════════════════════════════════════════ */
+
+:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+/* Remove outline on mouse click (only show for keyboard) */
+:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* Ensure tab nav items get a clear focus ring */
+.tab:focus-visible,
+.logo:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+}
+
+/* Option cards and project cards */
+.option-card:focus-visible,
+.project-item-link:focus-visible,
+.contact-method:focus-visible,
+.view-all-btn:focus-visible,
+.sidebar-card:focus-visible,
+.extra-link:focus-visible,
+.download-link:focus-visible,
+.project-blog-button:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 12px;
+}
+
+/* ══════════════════════════════════════════════════════
+   REDUCED MOTION — respect user preference
+   All animations are disabled unless the user has NOT
+   opted in to reduced motion.
+   ══════════════════════════════════════════════════════ */
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
 	}
 }
