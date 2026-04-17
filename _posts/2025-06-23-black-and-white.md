@@ -8,7 +8,7 @@ tags: design
 ---
 You probably use your phone too much. I know I do. If I'm bored, I check Twitter (or X, if you're like that), check my WhatsApp messages, or scroll Instagram. Looking at my screentime is a scary thought, even though I do honestly try to consciously reduce it.
 
-Somewhere, I had read that one of the reasons social media was so addictive was how colourful it was. The colours grab your attention, and the vibrant moving images keep hold of it. Bright red notification badges screaming for you to click on them. Now, I already use my phone in colourblind mode (on account of my colourblindness), but while exploring my phone's colour settings, I found an entirely 'Black and White' toggle. This immediately piqued my curiosity. What would happen if I drained my phone of colour? Not permanently of course, but just to see if what I thought was true. I discovered while googling this, that [this idea was already backed by science](https://www.wired.com/story/greyscale-ios-android-smartphone-addiction/). So, without further thought, I switched the setting on, and began my experiment.
+Somewhere, I had read that one of the reasons social media was so addictive was how colourful it was. The colours grab your attention, and the vibrant moving images keep hold of it. Bright red notification badges screaming for you to click on them. Now, I already use my phone in colourblind mode (on account of my colourblindness), but while exploring my phone's colour settings, I found an entirely 'Black and White' toggle. This immediately piqued my curiosity. What would happen if I drained my phone of colour? Not permanently of course, but just to see if what I thought was true. I discovered while googling this, that this idea was already backed by science[^1]. So, without further thought, I switched the setting on, and began my experiment.
 
 ## The First Day
 
@@ -37,3 +37,5 @@ I have, regrettably, since returned to using my phone in full colour. The experi
 While I'm no longer living in my monochrome world, I haven't abandonded it completely. I now have an accessibility shortcut set up, so I can tap an icon on my home screen to toggle greyscale on and off. I often switch it on in the evenings to help me before bed, or during the day when I am trying to work and want my phone to be as uninteresting as possible.
 
 I would highly recommend trying this for yourself. It's minimal effort, easy to find on most phones, and shows surprisingly effective results. You might not stick with it forever, but for a week, or even just a day, draining the colour from your screen can show you, in glorious black and white, how much power those colours have over you.
+
+[^1]: <https://www.wired.com/story/greyscale-ios-android-smartphone-addiction/>

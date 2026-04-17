@@ -38,7 +38,7 @@ Not only that, but documentation possesses inherent scalability that those AI ch
 
 Indeed, the reason behind all of these AI chatbots isn't genuine user need or operational efficiency - it's simply the illusion of innovation. As more and more companies adopt AI, product managers and research analysts feel 'left behind' if their company is seen as behind the times. They direct their developers to adopt AI, to get with the modern world - and so Stanley the AI is born. But no users ever asked for Stanley, and no users ever prefer Stanley.
 
-I think it's absolutely time for a re-evaluation of our priorities as a society. We really don't need to pour more energy, money, and development time into what is essentially a solved problem, and has been for many many years. Documentation, in its purest form, is an extremely powerful tool to provide to users - treat us like literate adults, please. Not only that, but it genuinely will bolster our reading and comprehension ability. Reducing everything to AI summaries and information retrieval will slowly chip away at our comprehension level until we rely on them irreversibly. In the book [Nineteen Eighty-Four](https://en.wikipedia.org/wiki/Nineteen_Eighty-Four), George Orwell writes about this exact situation - books being slowly reduced to summaries, which slowly collapses the population's literacy and mobility.
+I think it's absolutely time for a re-evaluation of our priorities as a society. We really don't need to pour more energy, money, and development time into what is essentially a solved problem, and has been for many many years. Documentation, in its purest form, is an extremely powerful tool to provide to users - treat us like literate adults, please. Not only that, but it genuinely will bolster our reading and comprehension ability. Reducing everything to AI summaries and information retrieval will slowly chip away at our comprehension level until we rely on them irreversibly. In the book Nineteen Eighty-Four[^1], George Orwell writes about this exact situation - books being slowly reduced to summaries, which slowly collapses the population's literacy and mobility.
 
 ## They Devalue Your Brand Reputation
 
@@ -53,3 +53,5 @@ A well-structured and easily searchable documentation portal can reduce support 
 An example of a knowledge base (Userpilot)
 
 So please, let's bring back the art of documentation. Let's get rid of Stanley and Gemma, and bring back that beautiful knowledge base, providing me everything I could ever want to know about your app. It'll be better for everyone, I promise.
+
+[^1]: <https://en.wikipedia.org/wiki/Nineteen_Eighty-Four>

@@ -8,15 +8,15 @@ tags: design
 ---
 I was recently at home with my parents and siblings for a week, and after a family dinner, we came to the inevitable choice of which board game to play that evening. As a family, this path is well-trodden. Classics such as Cluedo, Scotland Yard, and Ticket to Ride were all mentioned. There was one notable exception though, three copies of which were staring us down from the bookshelf: Monopoly.
 
-It's a game many families will have a box of, tucked away in a cupboard. Some will have a story of a game ending in a flipped board, a shouting match between two siblings - [and sometimes even violence.](https://www.dailymail.co.uk/news/article-2054704/Grandmother-stabs-boyfriend-cheating-game-Monopoly.html)
+It's a game many families will have a box of, tucked away in a cupboard. Some will have a story of a game ending in a flipped board, a shouting match between two siblings - and sometimes even violence.[^1]
 
-I brought this up, and we got talking: why is Monopoly so bad? From a modern game design perspective, Monopoly is simply a terrible game. It's incredibly long, it's based almost entirely on luck, and it forces players to sit out for hours after they're bankrupt. It even boasts a [4.4 out of 10 on BoardGameGeek.](https://boardgamegeek.com/boardgame/1406/monopoly) So why, for nearly a century, have we kept playing it?
+I brought this up, and we got talking: why is Monopoly so bad? From a modern game design perspective, Monopoly is simply a terrible game. It's incredibly long, it's based almost entirely on luck, and it forces players to sit out for hours after they're bankrupt. It even boasts a 4.4 out of 10 on BoardGameGeek.[^2] So why, for nearly a century, have we kept playing it?
 
 The answer is that the famous flaws and gripes of Monopoly aren't failures in the design - they were all intentional. Monopoly became a cultural phenomenon not because it's a good game, but because it's an almost perfect, if accidental, simulation of the very thing it was invented to critique.
 
 ## The Landlord's Game
 
-In 1904 in the US, a woman named Elizabeth "Lizzie" Magie, a prominent feminist and [Georgist](https://en.wikipedia.org/wiki/Georgism), patented the concept for a game named **The Landlord's Game**. Henry George, the namesake of Georgism, believed that the solutions to many of our problems with inequality could be solved via principles of land rights and the breakup of monopolies caused by land ownership - and Magie agreed.
+In 1904 in the US, a woman named Elizabeth "Lizzie" Magie, a prominent feminist and Georgist[^3], patented the concept for a game named **The Landlord's Game**. Henry George, the namesake of Georgism, believed that the solutions to many of our problems with inequality could be solved via principles of land rights and the breakup of monopolies caused by land ownership - and Magie agreed.
 
 So, she didn't design the game to be fun; she designed it as an **educational tool** to demonstrate the evils of land monopolies and the inherent unfairness of "land-grabbing".
 
@@ -27,7 +27,7 @@ In fact, she designed **two versions** of the same game:
 
 The game slowly became more popular, spreading among economics students, then their professors. Game designers in various towns soon realised they could customise the game by featuring street names and businesses from the cities they lived in - and the idea quickly gathered steam.
 
-[Charles Darrow](https://en.wikipedia.org/wiki/Charles_Darrow) is commonly credited with the invention of modern Monopoly. In fact, Magie's original game design made its way over to Darrow through Atlantic City, he decided that the Monopolist version was more fun, stripped out the anti-monopolist rules, simplified it, and sold it to the Parker Brothers - and the rest is history. He made millions. _(Darrow was actually the first ever game designer to become a millionare from royalties)._ By doing so, he and the publishers extinguished its entire political message, marketing it as a celebration of the American Dream and pushing the message that everybody could get rich off property - the exact opposite of its creator's intent. Not least because Lizzie Magie made less than five hundred dollars from the whole affair, after the Parker Brothers discovered her patent in 1935 and bought it outright to prevent any legal trouble.
+Charles Darrow[^4] is commonly credited with the invention of modern Monopoly. In fact, Magie's original game design made its way over to Darrow through Atlantic City, he decided that the Monopolist version was more fun, stripped out the anti-monopolist rules, simplified it, and sold it to the Parker Brothers - and the rest is history. He made millions. _(Darrow was actually the first ever game designer to become a millionare from royalties)._ By doing so, he and the publishers extinguished its entire political message, marketing it as a celebration of the American Dream and pushing the message that everybody could get rich off property - the exact opposite of its creator's intent. Not least because Lizzie Magie made less than five hundred dollars from the whole affair, after the Parker Brothers discovered her patent in 1935 and bought it outright to prevent any legal trouble.
 
 ## But What Makes It A Bad Game?
 
@@ -61,9 +61,15 @@ All of the game's "flaws" - the distinct lack of player agency, the brutal feedb
 
 Monopoly gives us a safe and consequence-free place to act out our most capitalistic impulses. I think it was so popular, and still is, because people feel powerful. It is an exhilarating experience to be handed thousands of fake banknotes, pretend you own dozens of luxury properties across the city, and that feeling of demanding hundreds in rent from a (soon-to-be-former) close friend is second to none.
 
-It's also a game with immense customisability - not just house rules, but the very way the game is designed has spawned over three thousand variants. The nature of the game being made up of various street names and utility companies means that anybody can change the words on the board, and suddenly you've created a whole new game. There are even [companies that sell customised Monopoly boards for you and your friends.](https://thegoto.com/products/custom-monopoly-board-game)
+It's also a game with immense customisability - not just house rules, but the very way the game is designed has spawned over three thousand variants. The nature of the game being made up of various street names and utility companies means that anybody can change the words on the board, and suddenly you've created a whole new game. There are even companies that sell customised Monopoly boards for you and your friends.[^5]
 
 
 It's now been ninety years since Charles Darrow sold 'Monopoly' to the Parker Brothers. It has sold over 275 million copies across the world, was banned temporarily in China for capitalist propaganda, and has made its way permanently into hundreds of thousands of households worldwide.
 
 But it remains a terrible game. It wasn't designed to be good, and it says something about the success of Lizzie Magie's original intent that I and so many other people hold this view. To celebrate the 90th anniversary of the game (121st, if you stick to the origin story), I plead with you and your family to [play a different game, for once.](https://boardgamegeek.com/geeklist/177440/top-50-must-have-boardgames-list)
+
+[^1]: <https://www.dailymail.co.uk/news/article-2054704/Grandmother-stabs-boyfriend-cheating-game-Monopoly.html>
+[^2]: <https://boardgamegeek.com/boardgame/1406/monopoly>
+[^3]: <https://en.wikipedia.org/wiki/Georgism>
+[^4]: <https://en.wikipedia.org/wiki/Charles_Darrow>
+[^5]: <https://thegoto.com/products/custom-monopoly-board-game>
