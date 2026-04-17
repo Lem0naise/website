@@ -552,6 +552,7 @@ main {
 	width: 50%;
 	margin-left: auto;
 }
+
 .featured-project:hover {
 	transform: scale(1.02);
 	box-shadow: 0 12px 30px rgba(139, 90, 131, 0.3);
@@ -1183,9 +1184,9 @@ main {
 
 
 	.featured-project img {
-	width: 100%;
-	margin-left: auto;
-}
+		width: 100%;
+		margin-left: auto;
+	}
 
 
 	.hero-intro {
@@ -2062,6 +2063,7 @@ main {
    ══════════════════════════════════════════════════════ */
 
 @media (prefers-reduced-motion: reduce) {
+
 	*,
 	*::before,
 	*::after {
@@ -2070,4 +2072,53 @@ main {
 		transition-duration: 0.01ms !important;
 		scroll-behavior: auto !important;
 	}
+}
+
+/* ══════════════════════════════════════════════════════
+   FOOTNOTES — kramdown citation styling
+   ══════════════════════════════════════════════════════ */
+
+.footnotes {
+	margin-top: 2rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--border);
+	font-size: 14px;
+	color: var(--text-light);
+}
+
+.footnotes p {
+	margin: 0 0 0.5rem;
+}
+
+.footnotes ol {
+	padding-left: 1.5rem;
+}
+
+sup[id^="fnref"] {
+	font-size: 1rem;
+	vertical-align: super;
+	line-height: 0;
+	margin-left: 2px;
+}
+
+sup[id^="fnref"] a {
+	color: var(--accent);
+	text-decoration: none;
+	font-weight: bold;
+}
+
+sup[id^="fnref"] a:hover {
+	text-decoration: underline;
+}
+
+.reversefootnote {
+	color: var(--accent-light);
+	text-decoration: none;
+	margin-left: 0.5rem;
+	font-family: monospace;
+}
+
+.reversefootnote:hover {
+	color: var(--accent);
+	text-decoration: none;
 }
