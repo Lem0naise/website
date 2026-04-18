@@ -13,3 +13,4 @@ vendor
 *.log
 *.out
 *.synctex.gz
+*.hide

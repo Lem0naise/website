@@ -2087,18 +2087,23 @@ main {
 }
 
 .footnotes p {
-	margin: 0 0 0.5rem;
+	margin: 0.5rem !important;
 }
 
 .footnotes ol {
 	padding-left: 1.5rem;
 }
+.footnotes ol li {
+	scroll-margin-top: 70px;
+}
 
 sup[id^="fnref"] {
-	font-size: 1rem;
+	font-size: 0.8rem;
 	vertical-align: super;
 	line-height: 0;
 	margin-left: 2px;
+
+	scroll-margin-top: 70px;
 }
 
 sup[id^="fnref"] a {
@@ -2113,7 +2118,7 @@ sup[id^="fnref"] a:hover {
 
 .reversefootnote {
 	color: var(--accent-light);
-	text-decoration: none;
+	text-decoration: none !important;
 	margin-left: 0.5rem;
 	font-family: monospace;
 }
