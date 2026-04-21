@@ -19,14 +19,29 @@ Nowadays, we've reached a relatively stable era with the widespread adoption of 
 [^1]: Pipewire was released in 2018 <https://archive.fosdem.org/2019/schedule/event/pipewire/>
 [^2]: In 2023: <https://www.phoronix.com/news/PipeWire-1.0-Released>
 
-| Feature | ALSA | PulseAudio | JACK | PipeWire |
-|---------|------|-----------|------|----------|
-| Layer | Kernel | Sound Server | Sound Server | Multimedia Framework |
-| Focus | Hardware Drivers | Desktop Ease | Low Latency | Unified Stability |
-| Mixing | Hard (dmix) | Automatic (software) | Manual (Graph) | Automatic + Graph |
-| Hotplugging | Bad | Good | Bad | Great |
+**ALSA (Advanced Linux Sound Architecture)**
+- Layer: Kernel
+- Focus: Hardware Drivers
+- Mixing: Hard (dmix)
+- Hotplugging: Bad
 
+**PulseAudio**
+- Layer: Sound Server
+- Focus: Desktop Ease
+- Mixing: Automatic (software)
+- Hotplugging: Good
 
+**JACK**
+- Layer: Sound Server
+- Focus: Low Latency
+- Mixing: Manual (Graph)
+- Hotplugging: Bad
+
+**PipeWire**
+- Layer: Multimedia Framework
+- Focus: Unified Stability
+- Mixing: Automatic + Graph
+- Hotplugging: Great
 
 
 ## The Prehistoric Era: OSS
