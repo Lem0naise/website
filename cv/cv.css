@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
+
+/* --- INLINE CV RENDER STYLES --- */
+.cv-html-container {
+    margin-top: 2rem;
+    padding: 3rem;
+    background: var(--card-bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px; /* Slightly softer corners for a modern web look */
+    font-family: var(--font-small, 'Faculty Glyphic', sans-serif);
+    font-size: 1rem;
+    line-height: 1.6;
+    box-shadow: var(--card-shadow);
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Header Styling (Name & Contact) */
+.cv-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.cv-header strong {
+    font-size: 2.8rem;
+    font-family: var(--font-main, inherit);
+    display: block;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    color: var(--text);
+    text-transform: uppercase;
+}
+
+.cv-header i {
+    color: var(--accent); /* Use your theme's purple accent for icons */
+    margin-right: 6px;
+    font-size: 1rem;
+}
+
+.cv-divider {
+    margin: 0 0.8rem;
+    color: var(--border); /* Soft divider */
+}
+
+/* Links */
+.cv-link,
+.cv-html-container a {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.cv-link:hover,
+.cv-html-container a:hover {
+    color: var(--accent);
+    text-decoration-color: var(--accent-light);
+}
+
+/* Remove the old LaTeX box borders */
+.cv-header .cv-link,
+.cv-project-header .cv-link {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Section Headings */
+.cv-section-title {
+    color: var(--accent);
+    border-bottom: 2px solid var(--border-colour);
+    padding-bottom: 0.5rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    font-family: var(--font-main, inherit);
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* Rows & Alignments (Jobs, Education, Projects) */
+.cv-entry {
+    margin-bottom: 1.5rem;
+}
+
+.cv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+}
+
+/* Primary item names (e.g., Company Name, Project Name) */
+.cv-row strong,
+.cv-project-header span:first-child {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+}
+
+/* Secondary info (e.g., Job Title, Tech Stack) */
+.cv-row em {
+    font-weight: 500;
+    color: var(--text);
+    font-style: italic;
+}
+
+/* Dates and Locations */
+.cv-date-loc,
+.cv-row span:last-child {
+    text-align: right;
+    white-space: nowrap;
+    color: var(--text-light); /* Softens dates so they don't fight the titles */
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Lists and Bullets */
+.cv-bullets {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding-left: 1.5rem;
+    list-style-type: none; /* Custom bullets below */
+}
+
+.cv-bullets li {
+    margin-bottom: 0.4rem;
+    position: relative;
+    color: var(--text-light);
+}
+
+/* Custom Web Bullet Points using the Accent Color */
+.cv-bullets li::before {
+    content: '▹'; /* A sleek, tech-oriented bullet */
+    position: absolute;
+    left: -1.2rem;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* Skills Section */
+.cv-skills {
+    padding-left: 0;
+    margin-top: 0;
+    list-style: none;
+}
+
+.cv-skills li {
+    margin-bottom: 0.6rem;
+    color: var(--text-light);
+}
+
+.cv-skills strong {
+    color: var(--text); /* Makes the category name pop against the list */
+    margin-right: 0.3rem;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .cv-html-container {
+        padding: 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .cv-header strong {
+        font-size: 2rem;
+    }
+
+    .cv-divider {
+        display: none; /* Hide dividers on mobile to prevent weird wrapping */
+    }
+
+    /* Stack header contact info gracefully */
+    .cv-header span, 
+    .cv-header a {
+        display: inline-block;
+        margin: 0.3rem 0.5rem;
+    }
+
+    .cv-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    /* Ensure dates align left under the job title on mobile */
+    .cv-date-loc,
+    .cv-row span:last-child {
+        text-align: left;
+        margin-top: 0.2rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.85rem;
+    }
+}
