@@ -13,7 +13,7 @@ observations."
         <button id="theme-toggle" class="theme-filter-btn">
             jump to topics
         </button>
-        <a class="theme-filter-btn" href="{{ " /feed.xml" | relative_url }}">follow (RSS)</a>
+        <a class="theme-filter-btn" href="{{ '/feed.xml' | relative_url }}">follow (RSS)</a>
     </p>
 
     <div id="theme-dropdown" class="theme-dropdown hidden">
@@ -28,9 +28,6 @@ observations."
         <a href='#{{tag}}' class="theme-tag">{{tag}}</a>
         {% endfor %}
     </div>
-    </p>
-
-
     <div class="section-separator" style="margin-top: 0px; margin-bottom: 0px;"></div>
 
 </div>

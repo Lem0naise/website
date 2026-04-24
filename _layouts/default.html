@@ -10,13 +10,9 @@
         <link rel="stylesheet" href="{{ '/blog/blog.css' | relative_url }}?version=0.9">
         <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
         
-        <meta name="description" content="{{ page.description | default: 'Personal blog by Indigo Nolan covering technology, UX design, programming, and random observations.' }}"/>
-        <meta name="keywords" content="Indigo Nolan, blog, technology, writing, short story, short stories, UX design, programming, democracy, tech commentary"/>
-        <meta name="author" content="Indigo Nolan"/>
-        
-        <meta name="description" content="Portfolio of projects by Indigo Nolan including CashCat budgeting app, Fantasteroids game, web development tools, and open source contributions."/>
-		<meta name="keywords" content="Indigo Nolan, portfolio, projects, CashCat, Fantasteroids, web development, game development, open source"/>
-		<meta name="author" content="Indigo Nolan"/>
+        <meta name="description" content="{{ page.description | default: 'Personal portfolio and blog by Indigo Nolan, covering web apps, games, tools, and writing.' }}"/>
+        <meta name="keywords" content="{{ page.keywords | default: 'Indigo Nolan, portfolio, blog, web development, React, Next.js, games, tools, writing' }}"/>
+        <meta name="author" content="{{ page.author | default: 'Indigo Nolan' }}"/>
         
         <script src="{{ '/js/dark-init.js' | relative_url }}"></script>
 		
