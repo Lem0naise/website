@@ -6,8 +6,8 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Tutoring Services - Indigo Nolan | Maths & Computer Science</title>
-	<link rel="stylesheet" href="/stylesheet.css?version=0.9">
-	<link rel="stylesheet" href="stylesheet.css?version=0.9">
+	<link rel="stylesheet" href="/stylesheet.css?version=0.10">
+	<link rel="stylesheet" href="stylesheet.css?version=0.10">
 	<link rel="icon" type="image/x-icon" href="../favicon.ico">
 	<link rel="canonical" href="https://indigo.spot/tutoring/">
 	<meta name="description"
@@ -69,7 +69,6 @@
 			],
 			"contactPoint": {
 				"@type": "ContactPoint",
-				"telephone": "+44-7775-156078",
 				"email": "tutor@indigonolan.com",
 				"contactType": "customer service"
 			}
@@ -85,8 +84,8 @@
 				<a href="../" class="tab">Home</a>
 				<a href="../portfolio" class="tab">Projects</a>
 				<a href="../blog" class="tab">Blog</a>
-				<span onclick="toggle()" class="tab tab-svg">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<span onclick="toggle()" class="tab tab-svg" role="button" aria-label="Toggle dark mode" tabindex="0">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 						<path id='toggle-button'
 							d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
 					</svg>
@@ -164,11 +163,7 @@
 						<div class="contact-methods-tutoring">
 							<div class="contact-method-tutoring">
 								<strong>📧 Email:</strong>
-								<a id="copy-email" data-email="tutor@indigonolan.com">>tutor@indigonolan.com</a>
-							</div>
-							<div class="contact-method-tutoring">
-								<strong>📱 Phone:</strong>
-								<span>+44 7775 156078</span>
+								<a id="copy-email" data-email="tutor@indigonolan.com">tutor@indigonolan.com</a>
 							</div>
 						</div>
 					</div>

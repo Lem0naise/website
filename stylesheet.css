@@ -245,7 +245,6 @@ main {
 /* Welcome Section */
 .welcome-section {
 	min-height: 90vh;
-	display: flex;
 	align-items: center;
 	justify-content: center;
 	padding: 40px 24px;
@@ -391,10 +390,6 @@ main {
 	margin: 0;
 	line-height: 1.4;
 	transition: color 0.3s;
-}
-
-.option-card:hover p {
-	color: var(--text);
 }
 
 .option-card:hover p {

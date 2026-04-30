@@ -178,7 +178,7 @@ We even have a draft of a Google Play Store page:
 
 ![Play Store Page](/assets/imgs/playstore.png)
 
-I've just begun Closed Testing (if you'd like to join, please email me at cashcat@indigonolan.com and I'll give you access!)
+I've just begun Closed Testing (if you'd like to join, please email me at cashcat<!-- -->@<!-- -->indigonolan<!-- -->.com and I'll give you access!)
 
 
 
@@ -190,4 +190,4 @@ We are nearly there. The web-first approach allowed us to move fast, and Capacit
 
 
 
-> *If you're interested in trying out [CashCat](https://cashcat.app), and you have an Android or iOS device, go sign up on the website, [join our discord](https://discord.gg/C9mYnEdAQA), or email me at cashcat@indigonolan.com to get added to our app tests!*
+> *If you're interested in trying out [CashCat](https://cashcat.app), and you have an Android or iOS device, go sign up on the website, [join our discord](https://discord.gg/C9mYnEdAQA), or email me at cashcat<!-- -->@<!-- -->indigonolan<!-- -->.com to get added to our app tests!*

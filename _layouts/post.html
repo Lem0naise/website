@@ -3,6 +3,8 @@
 
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://indigo-worker.soft-resonance-63c0.workers.dev https://api.github.com https://api.open-meteo.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
 	<title>{{page.title}} - Indigo Nolan</title>
 	<link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}">
 	<script src="{{ '/js/dark-init.js' | relative_url }}"></script>
@@ -31,7 +33,7 @@
 	<meta name="twitter:description"
 		content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
 	<meta name="twitter:image" content="{{ page.image | default: site.image | absolute_url }}">
-	<link rel="canonical" href="{{page.url | absolute_url}}" </head>
+	<link rel="canonical" href="{{page.url | absolute_url}}">
 
 <body class="">
 	<header id="header">
@@ -42,8 +44,8 @@
 				<a href="{{ '/portfolio' | relative_url}}" class="tab">Projects</a>
 
 				<a href="{{ '/blog' | relative_url}}" class="tab active">Blog</a>
-				<span onclick="toggle()" class="tab tab-svg">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+				<span onclick="toggle()" class="tab tab-svg" role="button" aria-label="Toggle dark mode" tabindex="0">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 						<path id='toggle-button'
 							d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
 					</svg>

@@ -4,139 +4,206 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 
 <url>
   <loc>https://indigo.spot/</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2026-04-30</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://indigo.spot/portfolio/</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://indigo.spot/blog/</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://indigo.spot/photos/</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://indigo.spot/tutoring/</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://indigo.spot/blog/bad-ux-design-undermining-democracy</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <loc>https://indigo.spot/cv/</loc>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://indigo.spot/portfolio/IndigoNolan-Resume.pdf</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/favourites-me</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/fantasteroids</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <loc>https://indigo.spot/music/</loc>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/wordle/</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/reaction/</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/palette/</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2026-04-30</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://indigo.spot/blog/burnout</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/the-ease-of-contactless</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/shifting-nature-of-a-political-party</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/online-safety-act</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/stop-putting-ai-everywhere</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/monopoly-is-designed-to-be-bad</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/black-and-white-phone</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/qwerty</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/blog/language-as-lossy-compression</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/writing/when-its-cold-id-like-to-die</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/writing/2245</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://indigo.spot/writing/solstice-and-sulphur</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <loc>https://indigo.spot/fantasteroids</loc>
+  <lastmod>2022-09-09</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://indigo.spot/writing/hot-hot-coffee</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
+  <lastmod>2024-05-19</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://indigo.spot/wordle/.</loc>
-  <lastmod>2025-09-14T17:14:12+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://indigo.spot/writing/solstice-and-sulphur</loc>
+  <lastmod>2024-05-23</lastmod>
+  <priority>0.64</priority>
 </url>
-
+<url>
+  <loc>https://indigo.spot/writing/2245</loc>
+  <lastmod>2024-06-14</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/qwerty</loc>
+  <lastmod>2025-06-12</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/bad-ux-design-undermining-democracy</loc>
+  <lastmod>2025-06-14</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/black-and-white-phone</loc>
+  <lastmod>2025-06-23</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/language-as-lossy-compression</loc>
+  <lastmod>2025-06-25</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/monopoly-is-designed-to-be-bad</loc>
+  <lastmod>2025-06-27</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/stop-putting-ai-everywhere</loc>
+  <lastmod>2025-07-01</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/online-safety-act</loc>
+  <lastmod>2025-07-27</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/writing/when-its-cold-id-like-to-die</loc>
+  <lastmod>2025-08-12</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/shifting-nature-of-a-political-party</loc>
+  <lastmod>2025-08-17</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/favourites-me</loc>
+  <lastmod>2025-09-07</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/the-ease-of-contactless</loc>
+  <lastmod>2025-09-07</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/burnout</loc>
+  <lastmod>2025-09-13</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/framework-laptop-linux-fedora</loc>
+  <lastmod>2025-09-19</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/rating-systems-head-and-heart-and-favourites-me</loc>
+  <lastmod>2025-09-24</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/netcraft-netcoin</loc>
+  <lastmod>2025-10-16</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/designing-a-personal-website</loc>
+  <lastmod>2025-11-02</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/framework-laptop-with-fedora-arch-linux-dualboot</loc>
+  <lastmod>2025-11-05</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/kresimiria</loc>
+  <lastmod>2025-12-22</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/politicalplayground</loc>
+  <lastmod>2026-01-10</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/damaskus</loc>
+  <lastmod>2026-02-02</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/headandheart</loc>
+  <lastmod>2026-02-05</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/cashcat-open-banking</loc>
+  <lastmod>2026-02-10</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/cashcat-on-android-and-ios-mobile-capacitor</loc>
+  <lastmod>2026-02-17</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/monetising-cashcat-lemonsqueezy-supabase</loc>
+  <lastmod>2026-03-06</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/blog/audio-on-linux</loc>
+  <lastmod>2026-04-21</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://indigo.spot/notes/</loc>
+  <lastmod>2026-04-30</lastmod>
+  <priority>0.64</priority>
+</url>
 
 </urlset>

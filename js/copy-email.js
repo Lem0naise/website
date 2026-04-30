@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const emailText = copyEmailBtn.querySelector('span');
     // Get email from data attribute or fallback to a default
-    const emailAddress = copyEmailBtn.getAttribute('data-email') || 'contact@indigonolan.com';
+    const emailAddress = copyEmailBtn.getAttribute('data-email');
+    if (!emailAddress) return;
 
     copyEmailBtn.addEventListener('click', async () => {
         try {
