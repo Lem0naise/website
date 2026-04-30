@@ -5,6 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://indigo-worker.soft-resonance-63c0.workers.dev https://api.github.com https://api.open-meteo.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+	<link rel="preconnect" href="https://indigo-worker.soft-resonance-63c0.workers.dev">
+	<link rel="preload" href="{{ '/fonts/syne-mono-v15-latin-regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 	<title>{{page.title}} - Indigo Nolan</title>
 	<link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}">
 	<script src="{{ '/js/dark-init.js' | relative_url }}"></script>
@@ -188,10 +190,10 @@
 
 	</main>
 </body>
-<script src="{{ '/js/dark.js' | relative_url }}"></script>
-<script src="{{ '/js/kudos.js' | relative_url }}"></script>
-<script src="{{ '/js/reading-progress.js' | relative_url }}"></script>
-<script src="/js/nav-transition.js"></script>
+<script src="{{ '/js/dark.js' | relative_url }}" defer></script>
+<script src="{{ '/js/kudos.js' | relative_url }}" defer></script>
+<script src="{{ '/js/reading-progress.js' | relative_url }}" defer></script>
+<script src="/js/nav-transition.js" defer></script>
 <script>
 	document.addEventListener('DOMContentLoaded', () => {
 		// Navbar compact button

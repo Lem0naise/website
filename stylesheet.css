@@ -1744,6 +1744,10 @@ main {
 }
 
 /* ── Navbar kudos button ───────────────────────────────── */
+.content-section {
+	content-visibility: auto;
+	contain-intrinsic-size: auto 500px;
+}
 
 .kudos-nav-btn {
 	display: inline-flex;
