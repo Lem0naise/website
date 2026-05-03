@@ -1,196 +1,353 @@
 @import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
 
-/* --- INLINE CV RENDER STYLES --- */
+/* ── CV Container ── */
 .cv-html-container {
     margin-top: 2rem;
-    padding: 3rem;
+    padding: 2.5rem 2rem;
     background: var(--card-bg);
     color: var(--text);
     border: 1px solid var(--border);
-    border-radius: 8px; /* Slightly softer corners for a modern web look */
+    border-radius: 8px;
     font-family: var(--font-small, 'Faculty Glyphic', sans-serif);
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    line-height: 1.55;
     box-shadow: var(--card-shadow);
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Header Styling (Name & Contact) */
-.cv-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.cv-header strong {
-    font-size: 2.8rem;
+/* ── Name ── */
+.cv-name {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin: 0 0 0.85rem 0;
     font-family: var(--font-main, inherit);
-    display: block;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     color: var(--text);
-    text-transform: uppercase;
 }
 
-.cv-header i {
-    color: var(--accent); /* Use your theme's purple accent for icons */
-    margin-right: 6px;
-    font-size: 1rem;
+/* ── Contact Pills ── */
+.cv-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 2rem;
 }
 
-.cv-divider {
-    margin: 0 0.8rem;
-    color: var(--border); /* Soft divider */
-}
-
-/* Links */
-.cv-link,
-.cv-html-container a {
+.cv-contact-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.2rem 0.7rem;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+    font-size: 0.82rem;
     color: var(--text);
-    text-decoration: underline;
-    text-decoration-color: var(--accent);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    text-decoration: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
 }
 
-.cv-link:hover,
-.cv-html-container a:hover {
+.cv-contact-pill:hover {
+    border-color: var(--accent);
     color: var(--accent);
-    text-decoration-color: var(--accent-light);
+    background: var(--accent-soft);
 }
 
-/* Remove the old LaTeX box borders */
-.cv-header .cv-link,
-.cv-project-header .cv-link {
-    border: none;
-    padding: 0;
-    margin: 0;
+.cv-contact-location {
+    opacity: 0.7;
+    pointer-events: none;
 }
 
-/* Section Headings */
+/* ── Sections ── */
+.cv-section {
+    margin-bottom: 1.75rem;
+}
+
 .cv-section-title {
     color: var(--accent);
-    border-bottom: 2px solid var(--border-colour);
-    padding-bottom: 0.5rem;
-    margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
-    text-transform: uppercase;
-    font-family: var(--font-main, inherit);
-    font-size: 1.3rem;
+    font-size: 1.15rem;
     font-weight: 800;
+    text-transform: uppercase;
     letter-spacing: 1px;
+    margin: 0 0 0.4rem 0;
+    font-family: var(--font-main, inherit);
 }
 
-/* Rows & Alignments (Jobs, Education, Projects) */
+.cv-section-rule {
+    border: none;
+    border-bottom: 2px solid var(--accent);
+    margin: 0 0 0.85rem 0;
+    opacity: 0.4;
+}
+
+/* ── Entries ── */
 .cv-entry {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.15rem;
 }
 
-.cv-row {
+.cv-entry-header {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 4px;
+    gap: 0.75rem;
 }
 
-/* Primary item names (e.g., Company Name, Project Name) */
-.cv-row strong,
-.cv-project-header span:first-child {
-    font-size: 1.1rem;
+.cv-entry-title {
+    font-size: 1rem;
     font-weight: 700;
+    margin: 0;
     color: var(--text);
 }
 
-/* Secondary info (e.g., Job Title, Tech Stack) */
-.cv-row em {
-    font-weight: 500;
+.cv-entry-title a {
     color: var(--text);
-    font-style: italic;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-/* Dates and Locations */
-.cv-date-loc,
-.cv-row span:last-child {
+.cv-entry-title a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.cv-entry-right {
     text-align: right;
     white-space: nowrap;
-    color: var(--text-light); /* Softens dates so they don't fight the titles */
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    color: var(--text-light, var(--text));
+    opacity: 0.75;
+    flex-shrink: 0;
 }
 
-/* Lists and Bullets */
+.cv-entry-right a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: opacity 0.2s ease;
+}
+
+.cv-entry-right a:hover {
+    opacity: 0.75;
+    text-decoration: underline;
+}
+
+/* Subtitle row */
+.cv-entry-subtitle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin: 0.1rem 0;
+}
+
+.cv-entry-subtitle {
+    font-size: 0.85rem;
+    color: var(--text);
+    font-style: italic;
+    margin: 0;
+}
+
+.cv-entry-subtitle-right {
+    font-size: 0.8rem;
+    color: var(--text-light, var(--text));
+    opacity: 0.75;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* Subtle divider between meta items in subtitles */
+.cv-divider {
+    opacity: 0.35;
+    margin: 0 0.35rem;
+    color: var(--border);
+    user-select: none;
+}
+
+/* ── Bullets ── */
 .cv-bullets {
-    margin-top: 0.5rem;
-    margin-bottom: 0;
-    padding-left: 1.5rem;
-    list-style-type: none; /* Custom bullets below */
+    list-style: none;
+    padding-left: 1.15rem;
+    margin: 0.35rem 0 0 0;
 }
 
-.cv-bullets li {
-    margin-bottom: 0.4rem;
+.cv-bullet {
     position: relative;
-    color: var(--text-light);
+    margin-bottom: 0.25rem;
+    font-size: 0.87rem;
+    color: var(--text-light, var(--text));
+    opacity: 0.9;
+    line-height: 1.55;
 }
 
-/* Custom Web Bullet Points using the Accent Color */
-.cv-bullets li::before {
-    content: '▹'; /* A sleek, tech-oriented bullet */
+.cv-bullet:last-child {
+    margin-bottom: 0;
+}
+
+.cv-bullet::before {
+    content: '▹';
     position: absolute;
-    left: -1.2rem;
+    left: -1.1rem;
     color: var(--accent);
     font-weight: bold;
 }
 
-/* Skills Section */
-.cv-skills {
-    padding-left: 0;
-    margin-top: 0;
-    list-style: none;
+.cv-bullet strong {
+    color: var(--text);
 }
 
-.cv-skills li {
-    margin-bottom: 0.6rem;
-    color: var(--text-light);
+/* ── Links inside content ── */
+.cv-link,
+.cv-html-container a.cv-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+    transition: opacity 0.2s ease;
 }
 
-.cv-skills strong {
-    color: var(--text); /* Makes the category name pop against the list */
-    margin-right: 0.3rem;
+.cv-link:hover,
+.cv-html-container a.cv-link:hover {
+    opacity: 0.75;
 }
 
-/* --- Mobile Responsiveness --- */
+.cv-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+}
+
+/* ── Skills ── */
+.cv-skills-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.cv-skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    font-size: 0.87rem;
+    line-height: 1.6;
+}
+
+.cv-skills-label {
+    color: var(--text);
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.cv-skills-value {
+    color: var(--text-light, var(--text));
+    opacity: 0.9;
+    min-width: 0;
+}
+
+.cv-skills-value em {
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
+
+/* ── Action buttons (above CV) ── */
+.cv-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ── Mobile ── */
 @media (max-width: 768px) {
     .cv-html-container {
-        padding: 1.5rem;
+        padding: 1.5rem 1.25rem;
+        font-size: 0.9rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .cv-name {
+        font-size: 1.7rem;
+    }
+
+    .cv-contacts {
+        gap: 0.35rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cv-contact-pill {
+        font-size: 0.78rem;
+        padding: 0.15rem 0.55rem;
+    }
+
+    .cv-section {
+        margin-bottom: 1.25rem;
+    }
+
+    .cv-section-title {
+        font-size: 1.05rem;
+    }
+
+    .cv-entry {
+        margin-bottom: 0.9rem;
+    }
+
+    .cv-entry-header,
+    .cv-entry-subtitle-row {
+        flex-direction: column;
+        gap: 0.1rem;
+    }
+
+    .cv-entry-right,
+    .cv-entry-subtitle-right {
+        text-align: left;
+        font-size: 0.78rem;
+        white-space: normal;
+    }
+
+    .cv-entry-title {
         font-size: 0.95rem;
     }
-    
-    .cv-header strong {
-        font-size: 2rem;
+
+    .cv-bullets {
+        padding-left: 1rem;
     }
 
-    .cv-divider {
-        display: none; /* Hide dividers on mobile to prevent weird wrapping */
+    .cv-bullet {
+        font-size: 0.84rem;
+        margin-bottom: 0.2rem;
     }
 
-    /* Stack header contact info gracefully */
-    .cv-header span, 
-    .cv-header a {
-        display: inline-block;
-        margin: 0.3rem 0.5rem;
+    .cv-bullet::before {
+        left: -0.95rem;
     }
 
-    .cv-row {
+    .cv-skills-row {
         flex-direction: column;
-        align-items: flex-start;
+        gap: 0.1rem;
     }
-    
-    /* Ensure dates align left under the job title on mobile */
-    .cv-date-loc,
-    .cv-row span:last-child {
-        text-align: left;
-        margin-top: 0.2rem;
-        margin-bottom: 0.4rem;
+}
+
+/* ── Small phones ── */
+@media (max-width: 480px) {
+    .cv-html-container {
+        padding: 1.25rem 1rem;
         font-size: 0.85rem;
+    }
+
+    .cv-name {
+        font-size: 1.5rem;
+    }
+
+    .cv-contact-pill {
+        font-size: 0.74rem;
+    }
+
+    .cv-section-title {
+        font-size: 1rem;
     }
 }
