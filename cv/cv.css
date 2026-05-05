@@ -84,7 +84,8 @@
 
 /* ── Entries ── */
 .cv-entry {
-    margin-bottom: 1.15rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.8rem;
 }
 
 .cv-entry-header {
