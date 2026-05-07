@@ -192,6 +192,9 @@ class StatusUpdates {
         if (songData && songData.isPlaying) {
             this.spotifyStatus.innerHTML = `Listening to <a href="${songData.url}" target="_blank" class='status-text'>${songData.title}</a> by ${songData.artist}.`;
             this.spotifyStatus.style.display = 'list-item';
+        } else if (songData && songData.lastPlayed) {
+            this.spotifyStatus.innerHTML = `Last listened to <a href="${songData.lastPlayed.url}" target="_blank" class='status-text'>${songData.lastPlayed.title}</a> by ${songData.lastPlayed.artist}.`;
+            this.spotifyStatus.style.display = 'list-item';
         } else {
             this.spotifyStatus.style.display = 'none';
         }
