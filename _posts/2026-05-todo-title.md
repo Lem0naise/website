@@ -8,3 +8,4 @@ tags:
     - essay
 ---
 
+University tests your work ethic, your cooking skills, your academic integrity, and more - but most importantly, your perseverance. 

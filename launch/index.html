@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>Launch — Indigo Nolan</title>
+	<link rel="stylesheet" href="../stylesheet.css?version=0.10">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+	<script src="../js/dark-init.js"></script>
+	<style>
+		.launch-container {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 0 24px;
+		}
+
+		.launch-search {
+			width: 100%;
+			max-width: 400px;
+			margin: 0 auto 32px;
+			display: block;
+			padding: 12px 20px;
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			background: var(--card-bg);
+			color: var(--text);
+			font-family: var(--font-main), monospace;
+			font-size: 16px;
+			outline: none;
+			transition: border-color 0.3s;
+		}
+
+		.launch-search:focus {
+			border-color: var(--accent);
+		}
+
+		.launch-category {
+			margin-bottom: 32px;
+		}
+
+		.launch-category h3 {
+			font-size: 18px;
+			font-weight: 600;
+			margin: 0 0 12px;
+			color: var(--accent-light);
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+			padding-left: 4px;
+		}
+
+		.launch-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+			gap: 12px;
+		}
+
+		.launch-link {
+			display: block;
+			padding: 16px 18px;
+			background: var(--card-bg);
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			color: var(--text);
+			text-decoration: none;
+			font-family: var(--font-main), monospace;
+			font-size: 15px;
+			font-weight: 500;
+			transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			position: relative;
+			overflow: hidden;
+		}
+
+		.launch-link::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(135deg, var(--accent-soft), var(--accent-light));
+			transform: translateX(-100%);
+			transition: transform 0.3s ease;
+			z-index: -1;
+		}
+
+		.launch-link:hover {
+			transform: translateY(-2px);
+			border-color: var(--accent-light);
+			box-shadow: 0 6px 20px var(--hover-shadow);
+		}
+
+		.launch-link:hover::before {
+			transform: translateX(0);
+		}
+
+		.launch-link .link-name {
+			display: block;
+			position: relative;
+			z-index: 1;
+		}
+
+		.launch-error {
+			text-align: center;
+			color: var(--text-light);
+			padding: 40px 0;
+		}
+
+		.launch-footer {
+			text-align: center;
+			padding: 20px 0 40px;
+			color: var(--text-light);
+			font-size: 13px;
+		}
+
+		.launch-footer a {
+			color: var(--accent-light);
+			text-decoration: none;
+		}
+	</style>
+</head>
+
+<body>
+	<header id="header">
+		<div class="header-content">
+			<a class="logo" href="../">Indigo Nolan</a>
+			<nav id="menu">
+				<a href="../" class="tab">Home</a>
+				<a href="../portfolio" class="tab">Projects</a>
+				<a href="../blog" class="tab">Blog</a>
+				<span onclick="toggle()" class="tab tab-svg" role="button" aria-label="Toggle dark mode" tabindex="0">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<path id='toggle-button'
+							d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
+					</svg>
+				</span>
+			</nav>
+		</div>
+	</header>
+
+	<main id="cont">
+		<section class="content-section">
+			<div class="launch-container">
+				<h2 style="text-align:center">Launch</h2>
+
+				<input type="text" class="launch-search" id="search" placeholder="Filter links…" autofocus>
+
+				<div id="link-container">
+					<p class="launch-error">Loading links…</p>
+				</div>
+
+				<p class="launch-footer">
+					Edit links at <a href="#" id="gist-link" target="_blank" rel="noopener">the gist</a>
+				</p>
+			</div>
+		</section>
+	</main>
+
+	<script src="../js/dark.js?version=0.10" defer></script>
+	<script>
+		const GIST_ID = 'da9c5600df475caeb0e50966f8947948';
+
+		const FALLBACK = [
+			{ name: 'GitHub', url: 'https://github.com', category: 'Dev' },
+			{ name: 'CashCat', url: 'https://cashcat.app', category: 'Projects' },
+			{ name: 'Head and Heart', url: 'https://headandheart.app', category: 'Projects' },
+			{ name: 'The Political Playground', url: 'https://polplay.indigo.spot', category: 'Projects' },
+			{ name: 'Gmail', url: 'https://mail.google.com', category: 'Daily' },
+			{ name: 'Calendar', url: 'https://calendar.google.com', category: 'Daily' },
+			{ name: 'YouTube', url: 'https://youtube.com', category: 'Media' },
+			{ name: 'Hacker News', url: 'https://news.ycombinator.com', category: 'Dev' },
+		];
+
+		function groupLinks(links) {
+			const groups = {};
+			for (const link of links) {
+				const cat = link.category || 'Other';
+				if (!groups[cat]) groups[cat] = [];
+				groups[cat].push(link);
+			}
+			return groups;
+		}
+
+		function renderLinks(links) {
+			const container = document.getElementById('link-container');
+			const groups = groupLinks(links);
+			const categories = Object.keys(groups).sort();
+
+			if (categories.length === 0) {
+				container.innerHTML = '<p class="launch-error">No links found.</p>';
+				return;
+			}
+
+			let html = '';
+			for (const cat of categories) {
+				html += '<div class="launch-category">';
+				html += '<h3>' + escapeHtml(cat) + '</h3>';
+				html += '<div class="launch-grid">';
+				for (const link of groups[cat]) {
+					html +=
+						'<a class="launch-link" href="' + escapeHtml(link.url) + '" target="_blank" rel="noopener">';
+					html += '<span class="link-name">' + escapeHtml(link.name) + '</span>';
+					html += '</a>';
+				}
+				html += '</div></div>';
+			}
+			container.innerHTML = html;
+		}
+
+		function escapeHtml(str) {
+			const div = document.createElement('div');
+			div.appendChild(document.createTextNode(str));
+			return div.innerHTML;
+		}
+
+		function filterLinks(term) {
+			const containers = document.querySelectorAll('.launch-category');
+			containers.forEach(function (cat) {
+				let visible = 0;
+				const links = cat.querySelectorAll('.launch-link');
+				links.forEach(function (link) {
+					const name = link.querySelector('.link-name').textContent.toLowerCase();
+					if (name.includes(term)) {
+						link.style.display = '';
+						visible++;
+					} else {
+						link.style.display = 'none';
+					}
+				});
+				cat.style.display = visible > 0 ? '' : 'none';
+			});
+		}
+
+		function setGistLink() {
+			const link = document.getElementById('gist-link');
+			if (GIST_ID === 'REPLACE_WITH_YOUR_GIST_ID') {
+				link.href = 'https://gist.github.com/';
+				link.textContent = 'GitHub Gist (replace GIST_ID)';
+			} else {
+				link.href = 'https://gist.github.com/Lem0naise/' + GIST_ID;
+				link.textContent = 'the gist';
+			}
+		}
+
+		document.addEventListener('DOMContentLoaded', function () {
+			setGistLink();
+
+			document.getElementById('search').addEventListener('input', function (e) {
+				filterLinks(e.target.value.toLowerCase());
+			});
+
+			if (GIST_ID === 'REPLACE_WITH_YOUR_GIST_ID') {
+				renderLinks(FALLBACK);
+				return;
+			}
+
+			var url = 'https://gist.githubusercontent.com/Lem0naise/' + GIST_ID + '/raw/links.json';
+			fetch(url)
+				.then(function (r) {
+					if (!r.ok) throw new Error('Gist fetch failed: ' + r.status);
+					return r.text();
+				})
+				.then(function (text) {
+					var cleaned = text.replace(/,\s*]/g, ']').replace(/,\s*}/g, '}');
+					return JSON.parse(cleaned);
+				})
+				.then(function (data) {
+					console.log('Launch: loaded', data.length, 'links from gist');
+					renderLinks(data);
+				})
+				.catch(function (err) {
+					console.error('Launch: gist fetch error:', err);
+					renderLinks(FALLBACK);
+				});
+		});
+	</script>
+</body>
+
+</html>
