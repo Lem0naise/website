@@ -40,6 +40,33 @@
             max-width: 600px;
         }
 
+        .not-found-view { display: block; }
+        .redirect-view { display: none; }
+
+        body.redirecting .not-found-view { display: none; }
+        body.redirecting .redirect-view {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
+        }
+
+        .redirect-spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin: 0 auto 24px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
       
         #jumpBtn {
             display: none;
@@ -88,6 +115,13 @@
     </header>
 
     <main style="padding-top: 70px;">
+        <div class="redirect-view" id="redirect-view">
+            <div class="redirect-spinner"></div>
+            <h1 style="color: var(--accent-light); animation: rainbow 15s ease-in-out infinite;">Redirecting</h1>
+            <p style="font-size: 16px; color: var(--text-light);" id="redirect-dest"></p>
+        </div>
+
+        <div class="not-found-view" id="not-found-view">
         <div class="welcome-section"
             style="min-height: calc(100vh - 70px); align-items: flex-start; padding-top: 20px;">
             <div class="welcome-content" style="width: 100%; max-width: 900px;">
@@ -110,38 +144,88 @@
                 </div>
             </div>
         </div>
+        </div>
     </main>
 
      <script>
         (function () {
-            var redirects = {
-                '/git':      'https://github.com/lem0naise',
-                '/github':   'https://github.com/lem0naise',
-                '/csl':      'https://climatestorieslibrary.com',
-                '/link':     'https://www.linkedin.com/in/indigonolan',
-                '/linkedin': 'https://www.linkedin.com/in/indigonolan',
+            var GIST_ID = '4bbe50922bbdd6a15ac64c028254c92c';
 
-                '/cashcat':    'https://cashcat.app', // Or the actual external URL
-                '/cc':         'https://cashcat.app', // Even shorter version!
+            var FALLBACK = {
+                '/git':        'https://github.com/lem0naise',
+                '/github':     'https://github.com/lem0naise',
+                '/csl':        'https://climatestorieslibrary.com',
+                '/link':       'https://www.linkedin.com/in/indigonolan',
+                '/linkedin':   'https://www.linkedin.com/in/indigonolan',
+                '/cashcat':    'https://cashcat.app',
+                '/cc':         'https://cashcat.app',
                 '/tpp':        'https://polplay.indigo.spot',
                 '/playground': 'https://polplay.indigo.spot',
                 '/hnh':        'https://headandheart.app',
-
-                '/steam':      'https://store.steampowered.com/app/1790870/Fantasteroids/', 
+                '/steam':      'https://store.steampowered.com/app/1790870/Fantasteroids/',
                 '/wiki':       'https://kresimiria.wiki',
-                '/wolf' : 'https://indigowg.com',
-                '/other' : 'https://indigowg.com',
-                '/josh' : 'https://josh.software',
-                '/faves' : 'https://indigo.spot#faves',
-                '/mycelium' : 'https://market.indigo.spot',
-                '/market' : 'https://market.indigo.spot'
+                '/wolf':       'https://indigowg.com',
+                '/other':      'https://indigowg.com',
+                '/josh':       'https://josh.software',
+                '/faves':      'https://indigo.spot#faves',
+                '/mycelium':   'https://market.indigo.spot',
+                '/market':     'https://market.indigo.spot',
+                '/launch':     'https://indigo.spot/launch'
             };
-            var path = window.location.pathname.toLowerCase().replace(/\/$/, '');
-            if (redirects[path]) {
 
-                document.getElementById('title').innerText = "Redirecting...";
-                window.location.replace(redirects[path] + window.location.search);
+            function parseRedirects(text) {
+                var map = {};
+                var lines = text.split('\n');
+                for (var i = 0; i < lines.length; i++) {
+                    var line = lines[i].trim();
+                    if (!line || line[0] === '#') continue;
+                    var parts = line.split(/\s+/);
+                    if (parts.length < 2) continue;
+                    var key = parts[0];
+                    if (key[0] !== '/') key = '/' + key;
+                    map[key.toLowerCase()] = parts.slice(1).join(' ');
+                }
+                return map;
             }
+
+            function handleRedirect(redirects) {
+                var path = window.location.pathname.toLowerCase().replace(/\/$/, '');
+                if (redirects[path]) {
+                    document.body.classList.add('redirecting');
+                    var el = document.getElementById('redirect-dest');
+                    el.innerHTML = 'Taking you to <a href="' + escapeAttr(redirects[path]) + '">' + escapeHtml(redirects[path]) + '</a>';
+                    setTimeout(function () {
+                        window.location.replace(redirects[path] + window.location.search);
+                    }, 400);
+                }
+            }
+
+            function escapeHtml(s) {
+                var d = document.createElement('div');
+                d.appendChild(document.createTextNode(s));
+                return d.innerHTML;
+            }
+            function escapeAttr(s) {
+                return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;').replace(/</g, '&lt;');
+            }
+
+            var url = 'https://gist.githubusercontent.com/Lem0naise/' + GIST_ID + '/raw/redirects.txt';
+            fetch(url)
+                .then(function (r) {
+                    if (!r.ok) throw new Error('Fetch failed');
+                    return r.text();
+                })
+                .then(function (text) {
+                    return parseRedirects(text);
+                })
+                .then(function (map) {
+                    console.log('404: loaded', Object.keys(map).length, 'redirects from gist');
+                    handleRedirect(map);
+                })
+                .catch(function (err) {
+                    console.warn('404: using fallback redirects:', err.message);
+                    handleRedirect(FALLBACK);
+                });
         })();
     </script>
 
