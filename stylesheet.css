@@ -2126,3 +2126,69 @@ sup[id^="fnref"] a:hover {
 	color: var(--accent);
 	text-decoration: none;
 }
+
+
+
+/* =========================================
+   STREAM / NOTES STYLING
+   ========================================= */
+
+
+.stream-header-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	margin-top: 0;
+	padding-top: 0;
+    border-bottom: 1px solid var(--accent-soft);
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.stream-date {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.stream-song {
+    font-size: 13px;
+    color: var(--text-light);
+    background: var(--method-bg);
+    padding: 4px 12px;
+    border-radius: 20px;
+	margin-top: 5px;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border);
+}
+
+/* Fix Blockquote Spacing and Styling */
+.stream-content blockquote {
+    margin: 0 0 20px 0;
+    padding: 12px 20px;
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 8px 8px 0;
+    color: var(--text);
+    font-style: italic;
+}
+
+/* Remove the huge gaps between paragraphs inside the quote */
+.stream-content blockquote p {
+    margin: 0 0 8px 0;
+}
+
+.stream-content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+.stream-content ul {
+    padding-left: 20px;
+}
+
+.stream-content li {
+    margin-bottom: 8px;
+}

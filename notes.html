@@ -19,18 +19,28 @@ description: "Fragments of thoughts, observations, and stream of consciousness b
 
 <div class="stream-container">
 
-    <div id="content-thoughts" class="tab-content hidden">
+  <div id="content-thoughts" class="tab-content hidden">
         {% assign sorted_stream = site.data.fragments | sort: 'date' | reverse %}
         {% for fragment in sorted_stream %}
         <div class="stream-entry" id="{{ fragment.date | date: '%Y-%m-%d-%H'}}">
-            <div class="stream-date">{{ fragment.date | date: "%b %-d, %Y"}}</div>
+            <div class="stream-header-info">
+                <div class="stream-date">{{ fragment.date | date: "%b %-d, %Y"}}</div>
+                
+            </div>
+            
             <div class="stream-content">
                 {{ fragment.content | markdownify }}
+                
             </div>
+            {% if fragment.song %}
+                <div class="stream-song">
+                    {{ fragment.song }}
+                </div>
+                {% endif %}
+            
         </div>
         {% endfor %}
     </div>
-
     <div id="content-tils" class="tab-content">
 
         <div id="tils-list">
