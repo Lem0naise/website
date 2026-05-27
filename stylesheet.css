@@ -121,7 +121,6 @@ body {
 	height: 20px;
 	padding-bottom: 4px;
 	vertical-align: middle;
-	will-change: filter;
 	fill: var(--accent);
 	animation: rainbowsvg 15s ease-in-out infinite;
 }
@@ -160,9 +159,7 @@ body {
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(90deg, transparent, rgba(139, 90, 131, 0.2), transparent);
-	transition: transform 0.5s;
-
-	will-change: transform;
+	transition: transform 0.2s;
 }
 
 .logo:hover {
@@ -204,8 +201,6 @@ body {
 	background: var(--accent-soft);
 	transition: transform 0.3s ease;
 	z-index: -1;
-
-	will-change: transform;
 }
 
 .tab:hover {
@@ -338,10 +333,8 @@ main {
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(135deg, var(--accent-soft), var(--accent-light));
-	transition: transform 0.4s ease;
+	transition: transform 0.3s ease;
 	z-index: -1;
-
-	will-change: transform;
 	transform: translateX(-100%);
 }
 
@@ -472,8 +465,6 @@ main {
 	background: var(--accent);
 	transition: transform 0.3s ease;
 	z-index: -1;
-
-	will-change: transform;
 
 	transform: translateX(-100%);
 }
@@ -642,7 +633,6 @@ main {
 	z-index: -1;
 
 	transform: translateX(-100%);
-	will-change: transform;
 }
 
 .primary-link:hover {
@@ -776,8 +766,6 @@ main {
 	transition: transform 0.3s ease;
 	z-index: -1;
 
-	will-change: transform;
-
 	transform: translateX(-100%);
 }
 
@@ -824,8 +812,6 @@ main {
 	background: var(--accent-light);
 	transition: transform 0.3s ease;
 	z-index: -1;
-
-	will-change: transform;
 
 	transform: translateX(-100%);
 }
@@ -930,6 +916,7 @@ main {
 	-ms-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 	-o-transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
+}
 
 .about-item:hover {
 	border-color: var(--accent-light);
@@ -1011,8 +998,6 @@ main {
 	background: var(--accent-light);
 	transition: transform 0.3s ease;
 	z-index: -1;
-
-	will-change: transform;
 
 	transform: translateX(-100%);
 }
@@ -1156,8 +1141,6 @@ main {
 	height: 100%;
 	background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
 	animation: shimmer 8s ease-in-out infinite;
-
-	will-change: transform;
 }
 
 @keyframes shimmer {
@@ -1569,7 +1552,6 @@ main {
 	background: var(--accent);
 	transition: transform 0.3s ease;
 	z-index: -1;
-	will-change: transform;
 	transform: translateX(-100%);
 }
 
@@ -1697,7 +1679,7 @@ main {
 
 /* Clap Counter */
 #clap-item {
-	transition: transform 0.15s ease;
+	transition: transform 0.3s ease;
 	user-select: none;
 }
 
@@ -1729,7 +1711,7 @@ main {
 
 .kudos-widget {
 	user-select: none;
-	transition: transform 0.15s ease;
+	transition: transform 0.3s ease;
 }
 
 .kudos-widget:active {
@@ -1860,38 +1842,6 @@ main {
 
 
 /* ══════════════════════════════════════════════════════
-   HOME PAGE — exit animation (desktop only)
-   Cards slide left + fade; title fades upward.
-   ══════════════════════════════════════════════════════ */
-
-@media (min-width: 900px) {
-	body.nav-exit .hero-intro {
-		animation: navExitUp 0.3s ease forwards;
-		-webkit-animation: navExitUp 0.3s ease forwards;
-	}
-
-	body.nav-exit .welcome-content .looking-for {
-		animation: navExitLeft 0.42s cubic-bezier(0.55, 0, 0.85, 0.5) 0.04s both;
-	}
-
-}
-
-@keyframes navExitUp {
-	to {
-		opacity: 0;
-		transform: translateY(-28px);
-	}
-}
-
-@keyframes navExitLeft {
-	to {
-		opacity: 0;
-		transform: translateX(-22vw);
-	}
-}
-
-
-/* ══════════════════════════════════════════════════════
    NAV SIDEBAR  (desktop only, ≥ 900px)
    ══════════════════════════════════════════════════════ */
 
@@ -1917,11 +1867,6 @@ main {
 
 	.nav-sidebar::-webkit-scrollbar {
 		display: none;
-	}
-
-	/* Entry animation when arriving from home page */
-	.nav-sidebar.sidebar-entering {
-		animation: sidebarSlideIn 0.42s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 	}
 
 	/* ── individual sidebar cards ── */
@@ -1953,7 +1898,6 @@ main {
 		transform: translateX(-100%);
 		transition: transform 0.3s ease;
 		z-index: -1;
-		will-change: transform;
 	}
 
 	.sidebar-card:hover {
@@ -2003,18 +1947,6 @@ main {
 	body.has-sidebar .featured-project {
 		margin-left: 0;
 		margin-right: 0;
-	}
-}
-
-@keyframes sidebarSlideIn {
-	from {
-		transform: translateX(-100%);
-		opacity: 0;
-	}
-
-	to {
-		transform: translateX(0);
-		opacity: 1;
 	}
 }
 
