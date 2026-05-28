@@ -9,10 +9,11 @@
 	<link rel="preconnect" href="https://api.github.com">
 	<link rel="preconnect" href="https://api.open-meteo.com">
 	<link rel="preconnect" href="https://indigo-worker.soft-resonance-63c0.workers.dev">
-	<link rel="preconnect" href="https://ghchart.rshah.org">
 	<link rel="preload" href="/fonts/syne-mono-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 	<title>Indigo Nolan - Building Web Apps, Games &amp; Tools</title>
 	<link rel="stylesheet" href="stylesheet.css?version=0.10">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/room.css?version=0.10">
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<script src="/js/dark-init.js"></script>
 	<link rel="canonical" href="https://indigo.spot/">
@@ -158,12 +159,9 @@
 					</div>
 				</div>
 			</div>
-
 		</section>
 
 		<div class="section-separator"></div>
-
-
 
 		<!-- About Section -->
 		<section id="about" class="content-section">
@@ -185,25 +183,45 @@
 							<li>Location: Southampton, UK</li>
 							<li>GitHub: <a href="https://github.com/Lem0naise">github.com/Lem0naise</a></li>
 							<li>Email: <a href="mailto:contact@indigonolan.com">contact@indigonolan.com</a></li>
+							<li>Spotify: <span id='spotify-status' style='display: none;'></span></li>
 						</ul>
 					</noscript>
-					<ul>
-						<li id='custom-status'>Currently: Building web applications and studying computer science</li>
-						<li id='github-activity'>Building <a target="_blank"
-								href="https://github.com/Lem0naise/cashcat">CashCat</a>...</li>
-						<li id='github-contributions'>
-							<img src="https://ghchart.rshah.org/8b5a83/lem0naise" alt="GitHub contribution graph"
-								class="github-contrib-graph" loading="lazy" decoding="async" />
-						</li>
 
-						<li id='weather-status'>My weather: Probably raining in Southampton.</li>
-						<li id='spotify-status' style='display: none;'></li>
+					<div class="room" id="room">
+						<div class="room-wall">
+							<div class="room-window">
+								<i id="room-weather-icon" class="fa-solid fa-cloud"></i>
+								<span class="room-weather-label" id="room-weather-label">…</span>
+							</div>
+							<div class="room-stats">
+								<div class="room-kudos" id="room-kudos">
+									<i class="fa-solid fa-heart"></i>
+									<span class="kudos-num" id="room-kudos-count">…</span>
+								</div>
+								<div class="room-streak">
+									<i class="fa-solid fa-fire"></i>
+									<span class="room-streak-num" id="room-streak-num">0</span>d
+								</div>
+								<div class="room-total" id="room-total">0 total</div>
+								<div class="room-last-commit" id="room-last-commit"></div>
+							</div>
+						</div>
 
-						<li id='clap-item' style='display: list-item; cursor: pointer;' title="Give kudos!">
-							<span id='clap-display'><span class='kudos-count'>...</span> kudos — click to give
-								one!</span>
-						</li>
-					</ul>
+						<div class="room-desk"></div>
+						<div class="room-monitor">
+							<div class="room-screen" id="room-screen">loading…</div>
+						</div>
+						<div class="room-monitor-stand"></div>
+
+						<i class="room-character fa-solid fa-user" id="room-character" data-pose="typing"></i>
+
+						<div class="room-speaker-wrap">
+							<span class="room-speaker-label" id="room-speaker-label"></span>
+							<i class="room-speaker fa-solid fa-volume-high" id="room-speaker"></i>
+						</div>
+
+						<div class="room-floor"></div>
+					</div>
 				</div>
 			</div>
 		</section>
