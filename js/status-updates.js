@@ -26,24 +26,24 @@ const WEATHER_LABELS = {
 };
 
 const schedule = [
-    { pose: 'typing', screen: 'building bots', days: ['Thursday'], start: 18, end: 23, label: 'CODING' },
-    { pose: 'absent', screen: 'parkrun!', days: ['Saturday'], start: 9, end: 10, label: 'RUNNING' },
-    { pose: 'absent', screen: 'at the gym', days: ['Monday', 'Wednesday', 'Friday', 'Saturday', 'Sunday'], start: 19, end: 22, label: 'LIFTING' },
-    { pose: 'typing', screen: 'planning', days: ['Sunday'], start: 21, end: 24, label: 'PLANNING' },
-    { pose: 'relaxing', screen: 'eating dinner', days: allDays, start: 18, end: 20, label: 'EATING' },
-    { pose: 'relaxing', screen: 'breakfast', days: allDays, start: 7, end: 9, label: 'EATING' },
-    { pose: 'absent', screen: 'at uni', days: weekdays, start: 9, end: 17, label: 'STUDYING' },
-    { pose: 'sleeping', screen: 'zzz...', days: allDays, start: 23, end: 7, label: 'SLEEPING' },
-    { pose: 'relaxing', screen: 'weekend :)', days: weekends, start: 0, end: 24, label: 'CHILLING' },
-    { pose: 'relaxing', screen: 'unwinding', days: weekdays, start: 0, end: 24, label: 'CHILLING' }
+    { screen: 'building bots', days: ['Thursday'], start: 18, end: 23 },
+    { screen: 'parkrun!', days: ['Saturday'], start: 9, end: 10 },
+    { screen: 'at the gym!', days: ['Monday', 'Wednesday', 'Friday', 'Saturday', 'Sunday'], start: 19, end: 22 },
+    { screen: 'planning', days: ['Sunday'], start: 21, end: 24 },
+    { screen: 'eating dinner', days: allDays, start: 18, end: 20 },
+    { screen: 'breakfast', days: allDays, start: 7, end: 9 },
+    { screen: 'at uni', days: weekdays, start: 9, end: 17 },
+    { screen: 'zzz...', days: allDays, start: 23, end: 7 },
+    { screen: 'weekend :)', days: weekends, start: 0, end: 24 },
+    { screen: 'unwinding', days: weekdays, start: 0, end: 24 }
 ];
 
 class StatusUpdates {
     constructor() {
         // Collect NodeLists for both layouts
         this.ascTimes   = document.querySelectorAll('.asc-time-display');
+        this.ascDays    = document.querySelectorAll('.asc-day');
         this.ascActs    = document.querySelectorAll('.asc-act');
-        this.ascCBubs   = document.querySelectorAll('.asc-c-bub');
         this.ascSBubs   = document.querySelectorAll('.asc-s-bub');
         this.ascWIcos   = document.querySelectorAll('.asc-w-icon');
         this.ascWLbls   = document.querySelectorAll('.asc-w-lbl');
@@ -179,37 +179,43 @@ class StatusUpdates {
         }
 
         if (!displayStr) {
-            this.stopMarquee();
-            this.updateAsciiFields(this.ascSBubs, '', 16, 'right');
+            this.stopMarquee('_song');
+            this.updateAsciiFields(this.ascSBubs, '', 20, 'right');
             return;
         }
 
-        this.startMarquee(displayStr);
+        this.startMarquee('_song', this.ascSBubs, displayStr, 20, 'right');
     }
 
-    startMarquee(text) {
-        this.stopMarquee();
-        const target = text + '  ♪  ';
+    startMarquee(key, elements, text, width, align) {
+        this.stopMarquee(key);
+
+        if (text.length <= width) {
+            this.updateAsciiFields(elements, text, width, align);
+            return;
+        }
+
+        const sep = key === '_song' ? '  ♪  ' : '  |  ';
+        const target = text + sep;
         let pos = 0;
-        const width = 16;
 
         const tick = () => {
             let segment = '';
             for (let i = 0; i < width; i++) {
                 segment += target[(pos + i) % target.length];
             }
-            this.updateAsciiFields(this.ascSBubs, segment, width, 'right');
+            this.updateAsciiFields(elements, segment, width, align);
             pos = (pos + 1) % target.length;
         };
 
         tick();
-        this._marqueeTimer = setInterval(tick, 350);
+        this[key + 'Timer'] = setInterval(tick, 350);
     }
 
-    stopMarquee() {
-        if (this._marqueeTimer) {
-            clearInterval(this._marqueeTimer);
-            this._marqueeTimer = null;
+    stopMarquee(key) {
+        if (this[key + 'Timer']) {
+            clearInterval(this[key + 'Timer']);
+            this[key + 'Timer'] = null;
         }
     }
 
@@ -228,24 +234,19 @@ class StatusUpdates {
             if (ev.date && ev.date !== dateStr) continue;
             if (ev.days.includes(day)) {
                 if (ev.start > ev.end) {
-                    if (hour >= ev.start || hour < ev.end) return { msg: ev, hour, minute };
+                    if (hour >= ev.start || hour < ev.end) return { msg: ev, hour, minute, day };
                 } else {
-                    if (hour >= ev.start && hour < ev.end) return { msg: ev, hour, minute };
+                    if (hour >= ev.start && hour < ev.end) return { msg: ev, hour, minute, day };
                 }
             }
         }
-        return { msg: schedule[schedule.length - 1], hour, minute };
+        return { msg: schedule[schedule.length - 1], hour, minute, day };
     }
 
     applyCurrentlyDoing() {
         const doing = this.generateCurrentlyDoing();
-        this.updateAsciiFields(this.ascActs, doing.msg.screen, 14);
-        
-        if (doing.msg.pose === 'absent') {
-            this.updateAsciiFields(this.ascCBubs, " ", 8);
-        } else {
-            this.updateAsciiFields(this.ascCBubs, doing.msg.label, 8);
-        }
+        this.startMarquee('_act', this.ascActs, doing.msg.screen, 14, 'left');
+        this.updateAsciiFields(this.ascDays, doing.day.toUpperCase(), 9);
     }
 
     /* ── Weather ──────────────────────────────────── */

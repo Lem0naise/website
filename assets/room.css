@@ -15,6 +15,7 @@
     white-space: pre !important;
 
     overflow: scroll;
+
 }
 
 .ascii-room .asc-accent { color: var(--accent); }
