@@ -1,256 +1,34 @@
-/* ══════════════════════════════════════════════════════
-   Room Scene — Flexbox Layout, Compact
-   ══════════════════════════════════════════════════════ */
-
-.room {
-    position: relative;
-    width: 100%;
-    height: 170px; /* Slightly more compact */
+/* Base styles for both ASCII variants */
+.ascii-room {
+    text-align: left !important;
+    font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace !important;
+    font-size: 16px;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+    background: var(--background);
     border: 1px solid var(--border);
     border-radius: 12px;
-    overflow: hidden;
-    background: var(--background);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* ── Backgrounds (Absolute) ────────────────────────── */
-
-.room-wall {
-    position: absolute;
-    inset: 0 0 20px 0;
-    background: var(--background);
-    z-index: 1;
-}
-
-.room-floor {
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 20px;
-    background: var(--border);
-    opacity: 0.3;
-    z-index: 1;
-}
-
-.room-desk {
-    position: absolute;
-    bottom: 20px; left: 4px; right: 4px;
-    height: 28px;
-    background: var(--accent-soft);
-    border-top: 2px solid var(--border);
-    border-radius: 6px 6px 0 0;
-    z-index: 1;
-}
-
-/* ── Top Bar (Window & Stats) ──────────────────────── */
-
-.room-top-bar {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 10px 14px;
-}
-
-.room-window {
-    width: 54px; height: 50px;
-    background: var(--card-bg);
-    border: 2px solid var(--border);
-    border-top-color: var(--border-colour, var(--border));
-    border-left-color: var(--border-colour, var(--border));
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    box-shadow: inset 0 0 8px rgba(0,0,0,0.06);
-}
-
-.room-window i {
-    font-size: 20px;
-    color: var(--accent-light);
-}
-
-.room-weather-label {
-    font-family: var(--font-main), monospace;
-    font-size: 8px;
+    padding: 20px;
+    margin-top: 20px;
     color: var(--text-light);
-    text-transform: uppercase;
-    margin-top: 4px;
+    display: block !important;
+    white-space: pre !important;
+
+    overflow: scroll;
 }
 
-.room-stats {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 4px;
-    font-family: var(--font-main), monospace;
-    font-size: 11px;
-    color: var(--text-light);
+.ascii-room .asc-accent { color: var(--accent); }
+.ascii-room .asc-data { color: var(--accent-light); }
+.ascii-room .asc-time-display { color: #554a54; }
+html.dark-mode .asc-time-display { color: #e0e0e0; }
+
+/* Responsive Visibility Toggles */
+@media (max-width: 1150px) {
+    .ascii-desktop { display: none !important; }
+    .ascii-mobile { display: block !important; font-size: 12px }
 }
 
-.room-stats .room-kudos {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    cursor: pointer;
-    user-select: none;
-    transition: transform 0.15s ease;
-}
-
-.room-stats .room-kudos:hover { transform: scale(1.06); }
-.room-stats .room-kudos:active { transform: scale(0.95); }
-
-.room-stats .room-kudos i,
-.room-stats .kudos-num,
-.room-stats .room-streak-num {
-    color: var(--accent-light);
-    font-weight: 700;
-}
-
-.room-total, .room-last-commit {
-    font-size: 10px;
-}
-
-.room-last-commit {
-    max-width: 140px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-.room-last-commit a {
-    color: var(--accent-light);
-    text-decoration: none;
-}
-
-/* ── Bottom Bar (Desk Items) ───────────────────────── */
-
-.room-bottom-bar {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    padding: 0 10px 22px 10px; /* 22px to sit perfectly on the desk */
-}
-
-/* Workspace (Monitor + Stand) */
-.room-workspace {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.room-monitor {
-    width: 100px;
-    height: 44px;
-    background: var(--card-bg);
-    border: 2px solid var(--border);
-    border-radius: 4px 4px 0 0;
-    padding: 4px 8px;
-    display: flex;
-    align-items: center;
-    z-index: 3;
-}
-
-.room-screen {
-    font-family: var(--font-main), monospace;
-    font-size: 9px;
-    color: var(--accent-light);
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    width: 100%;
-}
-
-.room-monitor-stand {
-    width: 12px; 
-    height: 8px;
-    background: var(--border);
-    clip-path: polygon(0 0, 100% 0, 70% 100%, 30% 100%);
-    margin-top: -2px; /* tuck under monitor */
-    z-index: 2;
-}
-
-/* Character */
-.room-character {
-    font-size: 24px;
-    color: var(--accent);
-    margin-bottom: 8px;
-}
-
-.room-character[data-pose="absent"] {
-    opacity: 0; /* Keeps spacing intact without completely breaking layout like display: none does */
-    pointer-events: none;
-}
-
-/* Speaker */
-.room-speaker-wrap {
-    display: flex;
-    align-items: flex-end;
-    gap: 6px;
-    margin-bottom: 6px;
-}
-
-.room-speaker {
-    width: 26px; height: 20px;
-    background: var(--method-bg);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    color: var(--border);
-    flex-shrink: 0;
-    transition: all 0.2s ease;
-}
-
-.room-speaker.active {
-    border-color: var(--accent-light);
-    color: var(--accent-light);
-    background: var(--accent-soft);
-}
-
-.room-speaker-label {
-    font-family: var(--font-main), monospace;
-    font-size: 9px;
-    color: var(--text-light);
-    white-space: nowrap;
-    max-width: 60px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    opacity: 0;
-    transition: max-width 0.3s ease, opacity 0.3s ease;
-}
-
-.room-speaker-label.visible {
-    opacity: 1;
-}
-
-.room-speaker-wrap:hover .room-speaker-label.visible {
-    max-width: 160px;
-    overflow: visible;
-}
-
-/* ── Dark mode ─────────────────────────────────────── */
-html.dark-mode .room-window { background: #1a1a2e; }
-html.dark-mode .room-monitor { background: #1a1a1a; }
-
-/* ── Responsive ────────────────────────────────────── */
-@media (max-width: 600px) {
-    .room { height: 150px; }
-    .room-desk { height: 24px; }
-    .room-bottom-bar { padding-bottom: 18px; justify-content: space-between; }
-    .room-monitor { width: 80px; height: 36px; }
-    .room-character { font-size: 20px; margin-bottom: 4px; }
-    .room-speaker-wrap { margin-bottom: 4px; }
-    .room-speaker { width: 22px; height: 16px; font-size: 8px; }
-    .room-window { width: 44px; height: 44px; }
-    .room-window i { font-size: 18px; }
-    .room-speaker-wrap:hover .room-speaker-label.visible { max-width: 90px; }
+@media (min-width: 1151px) {
+    .ascii-desktop { display: block !important; }
+    .ascii-mobile { display: none !important; }
 }

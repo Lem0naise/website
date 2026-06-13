@@ -3,67 +3,114 @@ const weekends = ['Saturday', 'Sunday'];
 const allDays = [...weekdays, ...weekends];
 
 const API_BASE = 'https://indigo-worker.soft-resonance-63c0.workers.dev';
+const GIST_URL = 'https://gist.githubusercontent.com/Lem0naise/5a9a13fb6f77909b8d2833f9e69565cb/raw/schedule.json';
 
 const WEATHER_ICONS = {
-    0:  'fa-sun', 1:  'fa-sun', 2:  'fa-cloud-sun', 3:  'fa-cloud',
-    45: 'fa-smog', 48: 'fa-smog', 51: 'fa-cloud-rain', 53: 'fa-cloud-rain',
-    55: 'fa-cloud-rain', 56: 'fa-cloud-meatball', 57: 'fa-cloud-meatball',
-    61: 'fa-cloud-rain', 63: 'fa-cloud-rain', 65: 'fa-cloud-showers-heavy',
-    66: 'fa-cloud-meatball', 67: 'fa-cloud-showers-heavy', 71: 'fa-snowflake',
-    73: 'fa-snowflake', 75: 'fa-snowflake', 77: 'fa-snowflake',
-    80: 'fa-cloud-rain', 81: 'fa-cloud-rain', 82: 'fa-cloud-showers-heavy',
-    85: 'fa-snowflake', 86: 'fa-snowflake', 95: 'fa-bolt', 96: 'fa-bolt', 99: 'fa-bolt'
+    0: '[*]', 1: '[*]', 2: '[~]', 3: '[~]',
+    45: '[=]', 48: '[=]', 51: '[/]', 53: '[/]',
+    55: '[/]', 56: '[!]', 57: '[!]', 61: '[/]',
+    63: '[/]', 65: '[///]', 66: '[!]', 67: '[///]',
+    71: '[*]', 73: '[*]', 75: '[*]', 77: '[*]',
+    80: '[/]', 81: '[/]', 82: '[///]', 85: '[*]',
+    86: '[*]', 95: '[Z]', 96: '[Z]', 99: '[Z]'
 };
 
 const WEATHER_LABELS = {
-    0:  'clear', 1:  'sunny', 2:  'clouds', 3:  'cloudy',
-    45: 'fog', 48: 'fog', 51: 'rain', 53: 'rain',
-    55: 'rain', 56: 'ice', 57: 'ice', 61: 'rain',
-    63: 'rain', 65: 'storm', 66: 'ice', 67: 'storm',
-    71: 'snow', 73: 'snow', 75: 'snow', 77: 'snow',
-    80: 'rain', 81: 'rain', 82: 'storm', 85: 'snow',
-    86: 'snow', 95: 'storm', 96: 'storm', 99: 'storm'
+    0: 'CLEAR', 1: 'SUNNY', 2: 'CLOUDS', 3: 'CLOUDY',
+    45: 'FOG', 48: 'FOG', 51: 'RAIN', 53: 'RAIN',
+    55: 'RAIN', 56: 'ICE', 57: 'ICE', 61: 'RAIN',
+    63: 'RAIN', 65: 'STORM', 66: 'ICE', 67: 'STORM',
+    71: 'SNOW', 73: 'SNOW', 75: 'SNOW', 77: 'SNOW',
+    80: 'RAIN', 81: 'RAIN', 82: 'STORM', 85: 'SNOW',
+    86: 'SNOW', 95: 'STORM', 96: 'STORM', 99: 'STORM'
 };
 
 const schedule = [
-    { pose: 'typing',   screen: 'building robots',     days: ['Thursday'], start: 18, end: 23 },
-    { pose: 'absent',   screen: 'parkrun!',            days: ['Saturday'], start: 9,  end: 10 },
-    { pose: 'absent',   screen: 'at the gym',          days: ['Monday', 'Wednesday', 'Friday', 'Saturday', 'Sunday'], start: 19, end: 22 },
-    { pose: 'typing',   screen: 'planning',            days: ['Sunday'],   start: 21, end: 24 },
-    { pose: 'relaxing', screen: 'eating dinner',       days: allDays,      start: 18, end: 20 },
-    { pose: 'relaxing', screen: 'breakfast',           days: allDays,      start: 7,  end: 9 },
-    { pose: 'absent',   screen: 'at uni',              days: weekdays,     start: 9,  end: 17 },
-    { pose: 'sleeping', screen: 'zzz...',              days: allDays,      start: 23, end: 7 },
-    { pose: 'relaxing', screen: 'weekend :)',          days: weekends,     start: 0,  end: 24 },
-    { pose: 'relaxing', screen: 'unwinding',           days: weekdays,     start: 0,  end: 24 }
+    { pose: 'typing', screen: 'building bots', days: ['Thursday'], start: 18, end: 23, label: 'CODING' },
+    { pose: 'absent', screen: 'parkrun!', days: ['Saturday'], start: 9, end: 10, label: 'RUNNING' },
+    { pose: 'absent', screen: 'at the gym', days: ['Monday', 'Wednesday', 'Friday', 'Saturday', 'Sunday'], start: 19, end: 22, label: 'LIFTING' },
+    { pose: 'typing', screen: 'planning', days: ['Sunday'], start: 21, end: 24, label: 'PLANNING' },
+    { pose: 'relaxing', screen: 'eating dinner', days: allDays, start: 18, end: 20, label: 'EATING' },
+    { pose: 'relaxing', screen: 'breakfast', days: allDays, start: 7, end: 9, label: 'EATING' },
+    { pose: 'absent', screen: 'at uni', days: weekdays, start: 9, end: 17, label: 'STUDYING' },
+    { pose: 'sleeping', screen: 'zzz...', days: allDays, start: 23, end: 7, label: 'SLEEPING' },
+    { pose: 'relaxing', screen: 'weekend :)', days: weekends, start: 0, end: 24, label: 'CHILLING' },
+    { pose: 'relaxing', screen: 'unwinding', days: weekdays, start: 0, end: 24, label: 'CHILLING' }
 ];
 
 class StatusUpdates {
     constructor() {
-        this.roomScreen     = document.getElementById('room-screen');
-        this.roomWeather    = document.getElementById('room-weather-icon');
-        this.roomWeatherLbl = document.getElementById('room-weather-label');
-        this.roomStreak     = document.getElementById('room-streak-num');
-        this.roomTotal      = document.getElementById('room-total');
-        this.roomLastCommit = document.getElementById('room-last-commit');
-        this.roomSpeaker    = document.getElementById('room-speaker');
-        this.roomSpeakerLbl = document.getElementById('room-speaker-label');
-        this.roomCharacter  = document.getElementById('room-character');
+        // Collect NodeLists for both layouts
+        this.ascTimes   = document.querySelectorAll('.asc-time-display');
+        this.ascActs    = document.querySelectorAll('.asc-act');
+        this.ascCBubs   = document.querySelectorAll('.asc-c-bub');
+        this.ascSBubs   = document.querySelectorAll('.asc-s-bub');
+        this.ascWIcos   = document.querySelectorAll('.asc-w-icon');
+        this.ascWLbls   = document.querySelectorAll('.asc-w-lbl');
+        this.ascKudos   = document.querySelectorAll('.asc-kudos');
+        this.ascStreaks = document.querySelectorAll('.asc-streak');
+        this.ascTotals  = document.querySelectorAll('.asc-total');
+        this.ascLasts   = document.querySelectorAll('.asc-last');
 
         this.init();
     }
 
-    init() {
-        if (!this.roomScreen) return;
+    async init() {
+        const overrides = await this.getGistOverrides();
+        if (overrides.length > 0) {
+            schedule.unshift(...overrides);
+        }
 
+        this.startClock();
         this.loadGitHubActivity();
         this.applyCurrentlyDoing();
         this.applyWeatherStatus();
         this.applySpotifyStatus();
-        this.initKudos();
 
         setInterval(() => this.applyCurrentlyDoing(), 60000);
         setInterval(() => this.applySpotifyStatus(), 30000);
+        
+        // Mock Kudos display
+        this.updateAsciiFields(this.ascKudos, "1,112", 10);
+    }
+
+    async getGistOverrides() {
+        try {
+            const res = await fetch(GIST_URL);
+            if (!res.ok) return [];
+            const data = await res.json();
+            return Array.isArray(data) ? data : [];
+        } catch (e) {
+            return [];
+        }
+    }
+
+    // Loops over the target array elements to prevent duplicating logic
+    updateAsciiFields(elements, text, maxLength, align = 'left') {
+        if (!elements || elements.length === 0) return;
+        
+        let safeText = text.length > maxLength ? text.substring(0, maxLength - 2) + '..' : text;
+        let paddedText = align === 'right' ? safeText.padStart(maxLength, ' ') : safeText.padEnd(maxLength, ' ');
+        let formattedHTML = paddedText.replace(/ /g, '&nbsp;');
+
+        elements.forEach(el => {
+            el.innerHTML = formattedHTML;
+        });
+    }
+    
+    startClock() {
+        const updateClock = () => {
+            const now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            this.updateAsciiFields(this.ascTimes, `${hours}:${minutes} ${ampm}`, 8);
+        };
+        updateClock();
+        setInterval(updateClock, 1000);
     }
 
     /* ── GitHub activity ─────────────────────────── */
@@ -99,19 +146,17 @@ class StatusUpdates {
             const streak = githubData.streak || 0;
             const total = githubData.totalContributions || 0;
 
-            this.roomStreak.textContent = streak > 0 ? streak : '0';
-            this.roomTotal.textContent = total > 0 ? `${total.toLocaleString()} total` : '0 total';
+            this.updateAsciiFields(this.ascStreaks, `${streak}d`, 10);
+            this.updateAsciiFields(this.ascTotals, `${total.toLocaleString()}`, 10);
 
             if (activity && activity.repo) {
                 const diff = new Date() - new Date(activity.date);
                 const hoursAgo = Math.floor(diff / (1000 * 60 * 60));
                 const timeText = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
-                const repoName = activity.repo.split('/')[1] || activity.repo;
-                
-                this.roomLastCommit.innerHTML = `<a href="https://github.com/${activity.repo}" target="_blank">${repoName}</a> ${timeText}`;
+                this.updateAsciiFields(this.ascLast, timeText, 10);
             }
         } catch (e) {
-            this.roomScreen.textContent = 'building things…';
+             this.updateAsciiFields(this.ascLast, "error", 10);
         }
     }
 
@@ -125,29 +170,50 @@ class StatusUpdates {
 
     async applySpotifyStatus() {
         const song = await this.getSpotifyStatus();
+        let displayStr = '';
 
         if (song && song.isPlaying) {
-            this.roomSpeaker.classList.add('active');
-            this.roomSpeakerLbl.textContent = `${song.title} — ${song.artist}`;
-            this.roomSpeakerLbl.classList.add('visible');
+            displayStr = song.title + ' — ' + song.artist;
         } else if (song && song.lastPlayed) {
-            this.roomSpeaker.classList.remove('active');
-            this.roomSpeakerLbl.textContent = `${song.lastPlayed.title} — ${song.lastPlayed.artist}`;
-            this.roomSpeakerLbl.classList.add('visible');
-        } else {
-            this.roomSpeaker.classList.remove('active');
-            this.roomSpeakerLbl.classList.remove('visible');
+            displayStr = song.lastPlayed.title + ' — ' + song.lastPlayed.artist;
+        }
+
+        if (!displayStr) {
+            this.stopMarquee();
+            this.updateAsciiFields(this.ascSBubs, '', 16, 'right');
+            return;
+        }
+
+        this.startMarquee(displayStr);
+    }
+
+    startMarquee(text) {
+        this.stopMarquee();
+        const target = text + '  ♪  ';
+        let pos = 0;
+        const width = 16;
+
+        const tick = () => {
+            let segment = '';
+            for (let i = 0; i < width; i++) {
+                segment += target[(pos + i) % target.length];
+            }
+            this.updateAsciiFields(this.ascSBubs, segment, width, 'right');
+            pos = (pos + 1) % target.length;
+        };
+
+        tick();
+        this._marqueeTimer = setInterval(tick, 350);
+    }
+
+    stopMarquee() {
+        if (this._marqueeTimer) {
+            clearInterval(this._marqueeTimer);
+            this._marqueeTimer = null;
         }
     }
 
-    /* ── Kudos ────────────────────────────────────── */
-    initKudos() {
-        const el = document.getElementById('room-kudos');
-        if (!el || typeof window.mountKudos !== 'function') return;
-        window.mountKudos(el, { layout: 'inline', ctaText: '' });
-    }
-
-    /* ── Activity / character pose ────────────────── */
+    /* ── Activity ── */
     generateCurrentlyDoing() {
         const now = new Date();
         const opts = { timeZone: 'Europe/London', weekday: 'long', hour: 'numeric', minute: 'numeric', hour12: false };
@@ -156,8 +222,10 @@ class StatusUpdates {
         const day = parts.find(p => p.type === 'weekday').value;
         const hour = parseInt(parts.find(p => p.type === 'hour').value, 10);
         const minute = parseInt(parts.find(p => p.type === 'minute').value, 10);
+        const dateStr = now.toISOString().substring(0, 10);
 
         for (const ev of schedule) {
+            if (ev.date && ev.date !== dateStr) continue;
             if (ev.days.includes(day)) {
                 if (ev.start > ev.end) {
                     if (hour >= ev.start || hour < ev.end) return { msg: ev, hour, minute };
@@ -169,23 +237,14 @@ class StatusUpdates {
         return { msg: schedule[schedule.length - 1], hour, minute };
     }
 
-    pad2(n) { return (n < 10 ? '0' : '') + n; }
-
     applyCurrentlyDoing() {
         const doing = this.generateCurrentlyDoing();
-        const timeStr = `${this.pad2(doing.hour)}:${this.pad2(doing.minute)}`;
+        this.updateAsciiFields(this.ascActs, doing.msg.screen, 14);
         
-        this.roomScreen.textContent = `> ${timeStr} ${doing.msg.screen}`;
-        
-        if (this.roomCharacter) {
-            this.roomCharacter.setAttribute('data-pose', doing.msg.pose);
-            if (doing.msg.pose === 'sleeping') {
-                this.roomCharacter.className = 'room-character fa-solid fa-moon';
-            } else if (doing.msg.pose === 'relaxing') {
-                this.roomCharacter.className = 'room-character fa-solid fa-mug-hot';
-            } else {
-                this.roomCharacter.className = 'room-character fa-solid fa-user';
-            }
+        if (doing.msg.pose === 'absent') {
+            this.updateAsciiFields(this.ascCBubs, " ", 8);
+        } else {
+            this.updateAsciiFields(this.ascCBubs, doing.msg.label, 8);
         }
     }
 
@@ -211,11 +270,12 @@ class StatusUpdates {
         const hour = `${new Date().toISOString().substring(0, 13)}:00`;
         const idx = data.hourly.time.findIndex(t => t.startsWith(hour));
         const code = idx !== -1 ? data.hourly.weather_code[idx] : 3;
-        const faClass = WEATHER_ICONS[code] || 'fa-cloud';
-        const label = WEATHER_LABELS[code] || '?';
+        
+        const icon = WEATHER_ICONS[code] || '[?]';
+        const label = WEATHER_LABELS[code] || 'UNKNOWN';
 
-        this.roomWeather.className = `fa-solid ${faClass}`;
-        this.roomWeatherLbl.textContent = label;
+        this.updateAsciiFields(this.ascWIcos, icon, 7); // Keep both desktop/mobile rooms in sync
+        this.updateAsciiFields(this.ascWLbls, label, 7);
     }
 }
 
