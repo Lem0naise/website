@@ -177,8 +177,15 @@ class StatusUpdates {
 
     setAsciiLink(elements, html, maxLength) {
         if (!elements || elements.length === 0) return;
+        var div = document.createElement('div');
+        div.innerHTML = html;
+        var visible = div.textContent || '';
+        var pad = maxLength - visible.length;
+        if (pad < 0) pad = 0;
+        var padded = html;
+        for (var i = 0; i < pad; i++) padded += '&nbsp;';
         elements.forEach(function (el) {
-            el.innerHTML = html;
+            el.innerHTML = padded;
         });
     }
 
