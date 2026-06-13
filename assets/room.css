@@ -1,0 +1,39 @@
+/* Base styles for both ASCII variants */
+.ascii-room {
+    text-align: left !important;
+    font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace !important;
+    font-size: 16px;
+    line-height: 1.2;
+    font-variant-numeric: tabular-nums;
+    background: var(--background);
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 20px;
+    color: var(--text-light);
+    display: block !important;
+    white-space: pre !important;
+
+    
+    overflow: scroll;
+
+}
+.about-room img {
+    align-self: center;
+    margin: auto;
+}
+
+.ascii-room .asc-accent { color: var(--accent); }
+.ascii-room .asc-data { color: var(--accent-light); }
+.ascii-room .asc-time-display { color: #554a54; }
+html.dark-mode .asc-time-display { color: #e0e0e0; }
+
+/* Responsive Visibility Toggles */
+@media (max-width: 1150px) {
+    .ascii-desktop { display: none !important; }
+    .ascii-mobile { display: block !important; font-size: 12px }
+}
+
+@media (min-width: 1151px) {
+    .ascii-desktop { display: block !important; }
+    .ascii-mobile { display: none !important; }
+}
