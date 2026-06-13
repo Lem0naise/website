@@ -6,7 +6,6 @@
     line-height: 1.2;
     font-variant-numeric: tabular-nums;
     background: var(--background);
-    border: 1px solid var(--border);
     border-radius: 12px;
     padding: 20px;
     margin-top: 20px;
@@ -14,8 +13,13 @@
     display: block !important;
     white-space: pre !important;
 
+    
     overflow: scroll;
 
+}
+.about-room img {
+    align-self: center;
+    margin: auto;
 }
 
 .ascii-room .asc-accent { color: var(--accent); }

@@ -6,13 +6,13 @@ const API_BASE = 'https://indigo-worker.soft-resonance-63c0.workers.dev';
 const GIST_URL = 'https://gist.githubusercontent.com/Lem0naise/5a9a13fb6f77909b8d2833f9e69565cb/raw/schedule.json';
 
 const WEATHER_ICONS = {
-    0: '[*]', 1: '[*]', 2: '[~]', 3: '[~]',
-    45: '[=]', 48: '[=]', 51: '[/]', 53: '[/]',
-    55: '[/]', 56: '[!]', 57: '[!]', 61: '[/]',
-    63: '[/]', 65: '[///]', 66: '[!]', 67: '[///]',
-    71: '[*]', 73: '[*]', 75: '[*]', 77: '[*]',
-    80: '[/]', 81: '[/]', 82: '[///]', 85: '[*]',
-    86: '[*]', 95: '[Z]', 96: '[Z]', 99: '[Z]'
+    0: 'fa-sun', 1: 'fa-sun', 2: 'fa-cloud-sun', 3: 'fa-cloud',
+    45: 'fa-smog', 48: 'fa-smog', 51: 'fa-cloud-rain', 53: 'fa-cloud-rain',
+    55: 'fa-cloud-rain', 56: 'fa-cloud-meatball', 57: 'fa-cloud-meatball', 61: 'fa-cloud-rain',
+    63: 'fa-cloud-rain', 65: 'fa-cloud-showers-heavy', 66: 'fa-cloud-meatball', 67: 'fa-cloud-showers-heavy',
+    71: 'fa-snowflake', 73: 'fa-snowflake', 75: 'fa-snowflake', 77: 'fa-snowflake',
+    80: 'fa-cloud-rain', 81: 'fa-cloud-rain', 82: 'fa-cloud-showers-heavy', 85: 'fa-snowflake',
+    86: 'fa-snowflake', 95: 'fa-bolt', 96: 'fa-bolt', 99: 'fa-bolt'
 };
 
 const WEATHER_LABELS = {
@@ -143,21 +143,43 @@ class StatusUpdates {
     async loadGitHubActivity() {
         try {
             const [activity, githubData] = await Promise.all([this.getRecentGitHubActivity(), this.getCodingStreak()]);
-            const streak = githubData.streak || 0;
             const total = githubData.totalContributions || 0;
 
-            this.updateAsciiFields(this.ascStreaks, `${streak}d`, 10);
-            this.updateAsciiFields(this.ascTotals, `${total.toLocaleString()}`, 10);
+            if (githubData.createdAt) {
+                const created = new Date(githubData.createdAt);
+                const now = new Date();
+                var years = now.getFullYear() - created.getFullYear();
+                var months = now.getMonth() - created.getMonth();
+                var days = now.getDate() - created.getDate();
+                if (days < 0) { months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
+                if (months < 0) { years--; months += 12; }
+                var activeStr = years + 'yr ' + months + 'mo ' + days + 'd';
+                this.updateAsciiFields(this.ascStreaks, activeStr, 13);
+            } else {
+                this.updateAsciiFields(this.ascStreaks, '--', 10);
+            }
+
+            this.updateAsciiFields(this.ascTotals, total.toLocaleString(), 10);
 
             if (activity && activity.repo) {
                 const diff = new Date() - new Date(activity.date);
-                const hoursAgo = Math.floor(diff / (1000 * 60 * 60));
-                const timeText = hoursAgo < 24 ? `${hoursAgo}h ago` : `${Math.floor(hoursAgo / 24)}d ago`;
-                this.updateAsciiFields(this.ascLast, timeText, 10);
+                var repoName = activity.repo.split('/')[1] || activity.repo;
+                var maxRepo = 10 - 1;
+                if (repoName.length > maxRepo) repoName = repoName.substring(0, maxRepo - 1) + '\u2026';
+                const link = '<a href="https://github.com/' + activity.repo + '" target="_blank">' + repoName + '</a> ';
+                 
+                this.setAsciiLink(this.ascLasts, link, 12);
             }
         } catch (e) {
-             this.updateAsciiFields(this.ascLast, "error", 10);
+             this.setAsciiLink(this.ascLasts, 'error', 12);
         }
+    }
+
+    setAsciiLink(elements, html, maxLength) {
+        if (!elements || elements.length === 0) return;
+        elements.forEach(function (el) {
+            el.innerHTML = html;
+        });
     }
 
     /* ── Spotify ──────────────────────────────────── */
@@ -195,7 +217,7 @@ class StatusUpdates {
             return;
         }
 
-        const sep = key === '_song' ? '  ♪  ' : '  |  ';
+        const sep = key === '_song' ? '  ♪  ' : '  ';
         const target = text + sep;
         let pos = 0;
 
@@ -245,7 +267,7 @@ class StatusUpdates {
 
     applyCurrentlyDoing() {
         const doing = this.generateCurrentlyDoing();
-        this.startMarquee('_act', this.ascActs, doing.msg.screen, 14, 'left');
+        this.startMarquee('_act', this.ascActs, doing.msg.screen, 24, 'left');
         this.updateAsciiFields(this.ascDays, doing.day.toUpperCase(), 9);
     }
 
@@ -272,10 +294,12 @@ class StatusUpdates {
         const idx = data.hourly.time.findIndex(t => t.startsWith(hour));
         const code = idx !== -1 ? data.hourly.weather_code[idx] : 3;
         
-        const icon = WEATHER_ICONS[code] || '[?]';
+        const faClass = WEATHER_ICONS[code] || 'fa-cloud';
         const label = WEATHER_LABELS[code] || 'UNKNOWN';
 
-        this.updateAsciiFields(this.ascWIcos, icon, 7); // Keep both desktop/mobile rooms in sync
+        this.ascWIcos.forEach(function (el) {
+            el.className = 'asc-accent asc-w-icon fa-solid ' + faClass;
+        });
         this.updateAsciiFields(this.ascWLbls, label, 7);
     }
 }
