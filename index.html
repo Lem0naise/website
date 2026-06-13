@@ -163,68 +163,74 @@
 
 		<div class="section-separator"></div>
 
-		<!-- About Section -->
 		<section id="about" class="content-section">
-			<div class="section-content">
-				<h2>About Me</h2>
-				<div class="about-item about-intro">
-					<ul>
-						<li>I'm a full-stack developer and CS student who loves building software that solves real
-							problems. I like modern web frameworks and data visualisation, and I'm at my best with ten Wikipedia tabs open, deep in a rabbithole. <br /><br /> Whether it's a
-							personal finance tool like <a href='https://cashcat.app'>CashCat</a>, a <a
-								href='https://polplay.indigo.spot'>complex political simulation</a>, or <a
-								href='/portfolio'>anything
-								else</a>, I'm always looking for new things to work on.</li>
-					</ul>
-				</div>
-				<div class='about-item about-intro'>
-					<noscript>
-						<ul>
-							<li>Location: Southampton, UK</li>
-							<li>GitHub: <a href="https://github.com/Lem0naise">github.com/Lem0naise</a></li>
-							<li>Email: <a href="mailto:contact@indigonolan.com">contact@indigonolan.com</a></li>
-							<li>Spotify: <span id='spotify-status' style='display: none;'></span></li>
-						</ul>
-					</noscript>
+    <div class="section-content">
+        <h2>About Me</h2>
+        <div class="about-item about-intro">
+            <ul>
+                <li>I'm a full-stack developer and CS student who loves building software that solves real
+                    problems. I like modern web frameworks and data visualisation, and I'm at my best with ten Wikipedia tabs open, deep in a rabbithole. <br /><br /> Whether it's a
+                    personal finance tool like <a href='https://cashcat.app'>CashCat</a>, a <a
+                        href='https://polplay.indigo.spot'>complex political simulation</a>, or <a
+                        href='/portfolio'>anything
+                        else</a>, I'm always looking for new things to work on.</li>
+            </ul>
+        </div>
+        
+        <div class='about-item about-intro'>
+            <noscript>
+                <ul>
+                    <li>Location: Southampton, UK</li>
+                    <li>GitHub: <a href="https://github.com/Lem0naise">github.com/Lem0naise</a></li>
+                    <li>Email: <a href="mailto:contact@indigonolan.com">contact@indigonolan.com</a></li>
+                    <li>Spotify: <span id='spotify-status' style='display: none;'></span></li>
+                </ul>
+            </noscript>
 
-					<div class="room" id="room">
-						<div class="room-wall">
-							<div class="room-window">
-								<i id="room-weather-icon" class="fa-solid fa-cloud"></i>
-								<span class="room-weather-label" id="room-weather-label">…</span>
-							</div>
-							<div class="room-stats">
-								<div class="room-kudos" id="room-kudos">
-									<i class="fa-solid fa-heart"></i>
-									<span class="kudos-num" id="room-kudos-count">…</span>
-								</div>
-								<div class="room-streak">
-									<i class="fa-solid fa-fire"></i>
-									<span class="room-streak-num" id="room-streak-num">0</span>d
-								</div>
-								<div class="room-total" id="room-total">0 total</div>
-								<div class="room-last-commit" id="room-last-commit"></div>
-							</div>
-						</div>
+            <div class="room" id="room">
+                <div class="room-wall"></div>
+                <div class="room-floor"></div>
+                <div class="room-desk"></div>
 
-						<div class="room-desk"></div>
-						<div class="room-monitor">
-							<div class="room-screen" id="room-screen">loading…</div>
-						</div>
-						<div class="room-monitor-stand"></div>
+                <div class="room-top-bar">
+                    <div class="room-window">
+                        <i id="room-weather-icon" class="fa-solid fa-cloud"></i>
+                        <span class="room-weather-label" id="room-weather-label">…</span>
+                    </div>
+                    <div class="room-stats">
+                        <div class="room-kudos" id="room-kudos">
+                            <i class="fa-solid fa-heart"></i>
+                            <span class="kudos-num" id="room-kudos-count">…</span>
+                        </div>
+                        <div class="room-streak">
+                            <i class="fa-solid fa-fire"></i>
+                            <span class="room-streak-num" id="room-streak-num">0</span>d
+                        </div>
+                        <div class="room-total" id="room-total">0 total</div>
+                        <div class="room-last-commit" id="room-last-commit"></div>
+                    </div>
+                </div>
 
-						<i class="room-character fa-solid fa-user" id="room-character" data-pose="typing"></i>
+                <div class="room-bottom-bar">
+                    <div class="room-workspace">
+                        <div class="room-monitor">
+                            <div class="room-screen" id="room-screen">loading…</div>
+                        </div>
+                        <div class="room-monitor-stand"></div>
+                    </div>
 
-						<div class="room-speaker-wrap">
-							<span class="room-speaker-label" id="room-speaker-label"></span>
-							<i class="room-speaker fa-solid fa-volume-high" id="room-speaker"></i>
-						</div>
+                    <i class="room-character fa-solid fa-user" id="room-character" data-pose="typing"></i>
 
-						<div class="room-floor"></div>
-					</div>
-				</div>
-			</div>
-		</section>
+                    <div class="room-speaker-wrap">
+                        <span class="room-speaker-label" id="room-speaker-label"></span>
+                        <i class="room-speaker fa-solid fa-volume-high" id="room-speaker"></i>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
 
 
 

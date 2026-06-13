@@ -1,237 +1,240 @@
 /* ══════════════════════════════════════════════════════
-   Room Scene — Font Awesome, well-spaced, compact
+   Room Scene — Flexbox Layout, Compact
    ══════════════════════════════════════════════════════ */
 
 .room {
-	position: relative;
-	width: 100%;
-	height: 185px;
-	border: 1px solid var(--border);
-	border-radius: 12px;
-	overflow: hidden;
-	background: var(--background);
+    position: relative;
+    width: 100%;
+    height: 170px; /* Slightly more compact */
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* ── Wall ──────────────────────────────────────────── */
+/* ── Backgrounds (Absolute) ────────────────────────── */
 
 .room-wall {
-	position: absolute;
-	top: 0; left: 0; right: 0;
-	height: 128px;
-	background: var(--background);
+    position: absolute;
+    inset: 0 0 20px 0;
+    background: var(--background);
+    z-index: 1;
 }
 
-/* ── Window ────────────────────────────────────────── */
+.room-floor {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 20px;
+    background: var(--border);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.room-desk {
+    position: absolute;
+    bottom: 20px; left: 4px; right: 4px;
+    height: 28px;
+    background: var(--accent-soft);
+    border-top: 2px solid var(--border);
+    border-radius: 6px 6px 0 0;
+    z-index: 1;
+}
+
+/* ── Top Bar (Window & Stats) ──────────────────────── */
+
+.room-top-bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 14px;
+}
 
 .room-window {
-	position: absolute;
-	top: 10px; left: 14px;
-	width: 60px; height: 56px;
-	background: var(--card-bg);
-	border: 2px solid var(--border);
-	border-top-color: var(--border-colour);
-	border-left-color: var(--border-colour);
-	border-radius: 4px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	box-shadow: inset 0 0 8px rgba(0,0,0,0.06);
+    width: 54px; height: 50px;
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-top-color: var(--border-colour, var(--border));
+    border-left-color: var(--border-colour, var(--border));
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.06);
 }
 
 .room-window i {
-	font-size: 24px;
-	color: var(--accent-light);
+    font-size: 20px;
+    color: var(--accent-light);
 }
 
 .room-weather-label {
-	font-family: var(--font-main), monospace;
-	font-size: 8px;
-	color: var(--text-light);
-	text-transform: uppercase;
-	margin-top: 2px;
+    font-family: var(--font-main), monospace;
+    font-size: 8px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-top: 4px;
 }
 
-/* ── Right wall stats ──────────────────────────────── */
-
 .room-stats {
-	position: absolute;
-	top: 10px; right: 14px;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	gap: 4px;
-	font-family: var(--font-main), monospace;
-	font-size: 11px;
-	color: var(--text-light);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-family: var(--font-main), monospace;
+    font-size: 11px;
+    color: var(--text-light);
 }
 
 .room-stats .room-kudos {
-	display: flex;
-	align-items: center;
-	gap: 4px;
-	cursor: pointer;
-	user-select: none;
-	transition: transform 0.15s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.15s ease;
 }
 
 .room-stats .room-kudos:hover { transform: scale(1.06); }
 .room-stats .room-kudos:active { transform: scale(0.95); }
 
-.room-stats .room-kudos i {
-	color: var(--accent-light);
-	font-size: 13px;
-}
-
-.room-stats .room-kudos .kudos-num {
-	font-weight: 700;
-	color: var(--accent-light);
-}
-
+.room-stats .room-kudos i,
+.room-stats .kudos-num,
 .room-stats .room-streak-num {
-	font-weight: 700;
-	color: var(--accent-light);
+    color: var(--accent-light);
+    font-weight: 700;
 }
 
-.room-total {
-	font-size: 10px;
+.room-total, .room-last-commit {
+    font-size: 10px;
 }
 
-.room-stats .room-last-commit {
-	font-size: 10px;
-	max-width: 140px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
+.room-last-commit {
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
-.room-stats .room-last-commit a {
-	color: var(--accent-light);
-	text-decoration: none;
+.room-last-commit a {
+    color: var(--accent-light);
+    text-decoration: none;
 }
 
-/* ── Desk ──────────────────────────────────────────── */
+/* ── Bottom Bar (Desk Items) ───────────────────────── */
 
-.room-desk {
-	position: absolute;
-	bottom: 20px; left: 4px; right: 4px;
-	height: 32px;
-	background: var(--accent-soft);
-	border-top: 2px solid var(--border);
-	border-radius: 6px 6px 0 0;
+.room-bottom-bar {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0 10px 22px 10px; /* 22px to sit perfectly on the desk */
 }
 
-/* ── Monitor ───────────────────────────────────────── */
+/* Workspace (Monitor + Stand) */
+.room-workspace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 .room-monitor {
-	position: absolute;
-	bottom: 22px;
-	left: 92px;
-	width: 110px;
-	height: 48px;
-	background: var(--card-bg);
-	border: 2px solid var(--border);
-	border-radius: 4px 4px 0 0;
-	padding: 6px 8px;
-	display: flex;
-	align-items: center;
+    width: 100px;
+    height: 44px;
+    background: var(--card-bg);
+    border: 2px solid var(--border);
+    border-radius: 4px 4px 0 0;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    z-index: 3;
 }
 
 .room-screen {
-	font-family: var(--font-main), monospace;
-	font-size: 9px;
-	color: var(--accent-light);
-	line-height: 1.2;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	width: 100%;
+    font-family: var(--font-main), monospace;
+    font-size: 9px;
+    color: var(--accent-light);
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 100%;
 }
 
 .room-monitor-stand {
-	position: absolute;
-	bottom: 14px;
-	left: 138px;
-	width: 12px; height: 10px;
-	background: var(--border);
-	clip-path: polygon(0 0, 100% 0, 70% 100%, 30% 100%);
+    width: 12px; 
+    height: 8px;
+    background: var(--border);
+    clip-path: polygon(0 0, 100% 0, 70% 100%, 30% 100%);
+    margin-top: -2px; /* tuck under monitor */
+    z-index: 2;
 }
 
-/* ── Character ─────────────────────────────────────── */
-
+/* Character */
 .room-character {
-	position: absolute;
-	bottom: 22px;
-	left: 230px;
-	transform: translateX(-50%);
-	font-size: 24px;
-	color: var(--accent);
-	display: block;
+    font-size: 24px;
+    color: var(--accent);
+    margin-bottom: 8px;
 }
 
 .room-character[data-pose="absent"] {
-	display: none;
+    opacity: 0; /* Keeps spacing intact without completely breaking layout like display: none does */
+    pointer-events: none;
 }
 
-/* ── Speaker + song label ──────────────────────────── */
-
+/* Speaker */
 .room-speaker-wrap {
-	position: absolute;
-	bottom: 17px;
-	right: 30px;
-	display: flex;
-	align-items: flex-end;
-	gap: 6px;
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    margin-bottom: 6px;
 }
 
 .room-speaker {
-	width: 28px; height: 22px;
-	background: var(--method-bg);
-	border: 1px solid var(--border);
-	border-radius: 4px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	font-size: 11px;
-	color: var(--border);
-	flex-shrink: 0;
+    width: 26px; height: 20px;
+    background: var(--method-bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: var(--border);
+    flex-shrink: 0;
+    transition: all 0.2s ease;
 }
 
 .room-speaker.active {
-	border-color: var(--accent-light);
-	color: var(--accent-light);
-	background: var(--accent-soft);
+    border-color: var(--accent-light);
+    color: var(--accent-light);
+    background: var(--accent-soft);
 }
 
 .room-speaker-label {
-	font-family: var(--font-main), monospace;
-	font-size: 9px;
-	color: var(--text-light);
-	white-space: nowrap;
-	max-width: 60px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	display: none;
-	transition: max-width 0.2s ease;
+    font-family: var(--font-main), monospace;
+    font-size: 9px;
+    color: var(--text-light);
+    white-space: nowrap;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0;
+    transition: max-width 0.3s ease, opacity 0.3s ease;
 }
 
 .room-speaker-label.visible {
-	display: block;
+    opacity: 1;
 }
 
-.room-speaker-wrap:hover .room-speaker-label {
-	max-width: 160px;
-	overflow: visible;
-}
-
-/* ── Floor ─────────────────────────────────────────── */
-
-.room-floor {
-	position: absolute;
-	bottom: 0; left: 0; right: 0;
-	height: 20px;
-	background: var(--border);
-	opacity: 0.3;
+.room-speaker-wrap:hover .room-speaker-label.visible {
+    max-width: 160px;
+    overflow: visible;
 }
 
 /* ── Dark mode ─────────────────────────────────────── */
@@ -240,18 +243,14 @@ html.dark-mode .room-monitor { background: #1a1a1a; }
 
 /* ── Responsive ────────────────────────────────────── */
 @media (max-width: 600px) {
-	.room { height: 150px; }
-	.room-wall { height: 100px; }
-	.room-desk { bottom: 16px; height: 24px; }
-	.room-floor { height: 16px; }
-	.room-monitor { width: 80px; height: 36px; left: 70px; bottom: 16px; }
-	.room-monitor-stand { left: 106px; bottom: 10px; width: 8px; height: 7px; }
-	.room-character { font-size: 18px; bottom: 16px; left: 175px; }
-	.room-speaker-wrap { right: 16px; bottom: 13px; }
-	.room-speaker { width: 22px; height: 16px; font-size: 8px; }
-	.room-speaker-label { font-size: 8px; max-width: 40px; }
-	.room-speaker-wrap:hover .room-speaker-label { max-width: 100px; }
-	.room-window { width: 46px; height: 42px; top: 8px; left: 10px; }
-	.room-window i { font-size: 18px; }
-	.room-stats { font-size: 10px; top: 6px; right: 10px; }
+    .room { height: 150px; }
+    .room-desk { height: 24px; }
+    .room-bottom-bar { padding-bottom: 18px; justify-content: space-between; }
+    .room-monitor { width: 80px; height: 36px; }
+    .room-character { font-size: 20px; margin-bottom: 4px; }
+    .room-speaker-wrap { margin-bottom: 4px; }
+    .room-speaker { width: 22px; height: 16px; font-size: 8px; }
+    .room-window { width: 44px; height: 44px; }
+    .room-window i { font-size: 18px; }
+    .room-speaker-wrap:hover .room-speaker-label.visible { max-width: 90px; }
 }
