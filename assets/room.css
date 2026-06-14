@@ -27,6 +27,13 @@
 .ascii-room .asc-time-display { color: #554a54; }
 html.dark-mode .asc-time-display { color: #e0e0e0; }
 
+.ascii-room .asc-w-icon {
+	display: inline-block;
+	width: 20px;
+	text-align: center;
+	font-size: 13px;
+}
+
 /* Responsive Visibility Toggles */
 @media (max-width: 1150px) {
     .ascii-desktop { display: none !important; }
