@@ -129,12 +129,20 @@ class StatusUpdates {
     }
 
     async getRecentGitHubActivity() {
+        var cached = localStorage.getItem('githubActivity');
+        if (cached) {
+            var parsed = JSON.parse(cached);
+            if (Date.now() - parsed.timestamp < 60 * 60 * 1000) return parsed.data;
+        }
         try {
             const res = await fetch('https://api.github.com/users/Lem0naise/events/public');
+            if (!res.ok) throw new Error('API limit');
             const events = await res.json();
             const pushEvent = events.find(e => e.type === 'PushEvent');
             if (pushEvent) {
-                return { repo: pushEvent.repo.name, date: new Date(pushEvent.created_at) };
+                var data = { repo: pushEvent.repo.name, date: pushEvent.created_at };
+                localStorage.setItem('githubActivity', JSON.stringify({ data: data, timestamp: Date.now() }));
+                return data;
             }
         } catch (e) {}
         return null;
@@ -162,13 +170,14 @@ class StatusUpdates {
             this.updateAsciiFields(this.ascTotals, total.toLocaleString(), 10);
 
             if (activity && activity.repo) {
-                const diff = new Date() - new Date(activity.date);
+                const diff = Date.now() - new Date(activity.date).getTime();
                 var repoName = activity.repo.split('/')[1] || activity.repo;
                 var maxRepo = 10 - 1;
                 if (repoName.length > maxRepo) repoName = repoName.substring(0, maxRepo - 1) + '\u2026';
-                const link = '<a href="https://github.com/' + activity.repo + '" target="_blank">' + repoName + '</a> ';
-                 
+                var link = '<a href="https://github.com/' + activity.repo + '" target="_blank">' + repoName + '</a> ';
                 this.setAsciiLink(this.ascLasts, link, 12);
+            } else {
+                this.setAsciiLink(this.ascLasts, 'caching...', 12);
             }
         } catch (e) {
              this.setAsciiLink(this.ascLasts, 'error', 12);
