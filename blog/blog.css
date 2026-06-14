@@ -130,7 +130,7 @@ h4,
 }
 
 .posts-header h2 {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 600;
     margin: 0;
     color: var(--text);
@@ -290,24 +290,24 @@ h4,
 }
 
 .post-content h2 {
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 600;
     margin: 40px 0 20px;
     font-family: var(--font-main), monospace;
     letter-spacing: -0.02em;
     line-height: 1;
-    color: var(--accent-light);
+    color: var(--accent-light);;
     animation: rainbow 15s ease-in-out infinite;
 }
 
 .post-content h3 {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 600;
     margin: 32px 0 16px;
     color: var(--text);
 
     font-family: var(--font-main), monospace;
-
+    
     color: var(--accent-light);
     animation: rainbow 15s ease-in-out infinite;
 }

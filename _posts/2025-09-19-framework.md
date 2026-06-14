@@ -25,13 +25,15 @@ However, this is where my journey hits its first snag. In my excitment during pu
 
 ![The broken bezel](/assets/imgs/fw.jpg)
 
-The broken bezel ^ 
+The broken bezel
+{: .caption}
 
 The great thing about the Framework laptop is, with such a breakage as this, I don't need a thousand-pound replacement - I can just buy a new bezel. I've contacted Framework support and explained what happened, but I'm doubtful they'll send me a replacement bezel as it was technically 'my fault', so I have also placed an order for a replacement bezel - this time, I've gone for a fun translucent purple, so I'm excited about that. 
 
 ![Translucent purple bezel](https://preview.redd.it/new-purple-translucent-bezel-on-fw13-v0-pvmgfrqgrqxe1.jpg?width=640&crop=smart&auto=webp&s=c482ce63c895472879b7af4d844681d7d6de7381)
 
-(Not my laptop - but hopefully what it'll look like soon!)
+Not my laptop - but hopefully what it'll look like soon!
+{: .caption}
 
 ## Installing Linux
 

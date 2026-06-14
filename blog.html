@@ -39,7 +39,8 @@ observations."
 
 
         <h2 class="tag-heading">latest </h2>
-        {% for post in site.posts limit: 3 %}
+        {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
+        {% for post in visible_posts limit: 3 %}
         <article class="blog-post">
             <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
             <span class="post-information">{{ post.date | date: "%-d %b %Y" }}</span>
@@ -53,7 +54,8 @@ observations."
         <div class="tag-group">
             <h2 class="tag-heading" id="{{tag}}">{{ tag}}</h2>
 
-            {% for post in site.tags[tag] %}
+            {% assign visible_tag_posts = site.tags[tag] | where_exp: "post", "post.hidden != true" %}
+            {% for post in visible_tag_posts %}
             <article class="blog-post">
                 <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
                 <span class="post-information">{{ post.date | date: "%-d %b %Y" }}</span>

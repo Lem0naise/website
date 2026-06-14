@@ -1,0 +1,114 @@
+---
+layout: post
+title: "Three weeks up and down Montenegro"
+date: 2026-06-14 08:00:00 +0000
+author: Indigo Nolan
+permalink: /blog/montenegro
+hidden: true
+tags: 
+    - travel
+---
+
+Would you believe that a country less populous than Glasgow could have beachside resorts, raving party hubs, 10th century churches, and Nordic-style sprawling mountain peaks, all within several hours of each other? And all on a Balkan budget?
+
+My girlfriend and I spent three weeks travelling the length of Montenegro, a nation that is small but packed to bursting with things to offer tourists who are willing to be adaptable to make their holiday as memorable as it can be.
+
+We visited in June, so the temperature by the sea was in the warm high-twenties, which dropped to the mid-teens up in the highest peaks. I'd recommend bringing shorts and a t-shirt for the coastal regions, and hiking trousers and a thin raincoat for the freezing wind-chill higher up!
+
+## The Bay of Kotor
+
+We flew into Podgorica, picked up our rental car from local car hire company Terrae-Car (todo review them) and drove north-west across the coast to the Bay of Kotor, where we had an AirBnB in the western town of Muo!
+
+### Franz Joseph Stairs
+
+This historic trail zigzags its way up the mountain towards Fort Vrmac, an entirely abandoned Austro-Hungarian fortress. Be prepared for a dramatic change in climate - the sweltering sun of the coast drops off and you are rewarded with a cool sea breeze at the top of the ridge, which acts as a wind tunnel.
+
+You will want to climb this in the morning - this way, you'll arrive at the peak at about midday, in time to explore the fort. 'Explore' is truly the right word - the fort is completely abandoned, no ticket booths or safety rails, which means rusty nails, broken glass, and sharp rocks lying around everywhere. Walking through the dark, empty halls gives you a sense of what an Austro-Hungarian soldier stationed here in the 1800s might have felt.
+
+The ridge also houses a local farm owned by a man called Goran, who you'll likely discover as you're greeted by his chickens, pigs, goats, and some farm dogs! While we didn't go in, he sells eggs, cheese, and milk, so if you want to support local Montenegrin farmers, it's a stunning location to do so.
+
+We tracked around 25,000 steps this day, a solid start to our hiking journey!
+
+![Lizard!](/assets/imgs/montenegro/lizard.webp)
+
+We were joined by a slithery friend halfway through 
+{: .caption}
+
+### Kotor Cat Museum
+
+If you are looking for a break in this hiking holiday to buy some souvenirs, Kotor Old Town is the place. It's probably the most touristy place we'll visit on this trip - but it's still worth a visit. We initially thought Kotor felt a bit industrial and unfinished, but when you enter the gate into the old town you suddenly get hit by the Western European style old town vibes, old churches, cobbled streets, ice cream stores, and dozens of identical souvenir shops. 
+
+The highlight of the old town in my opinion was the Cat Museum - a strange theme throughout the whole town, due to the large numbers of stray cats. The museum takes an entry fee of €1, in cash only, which is negligible and goes towards the upkeep of the local stray cats. For an extra €2.50, you can buy a certificate to sign up your cat to be officially part of the Kotor Cat Society!
+
+![Cat Museum](/assets/imgs/montenegro/catmuseum.webp)
+
+We tracked around 22,000 steps this day - we really don't know the meaning of 'rest' day.
+
+
+### Ladder of Kotor
+
+If you are hiking the Ladder of Kotor, try to start early - the middle of the day gets boiling hot and the sun is unforgiveable. Unlike the Franz Joseph stairs, the Ladder doesn't provide any shade until at least three-quarters of the way up, so it's worth bringing sun hats, suncream and lots of bottles of water. If you want a hike that doubles as a relationship test, go for this one - I'm proud to say we made it out of this one even stronger than before. 
+
+The switchbacks seem endless, but the views of the bay opening up beneath you as you climb are well worth the burning calves. 
+
+![Bay of Kotor](/assets/imgs/montenegro/kotor.webp)
+
+
+
+The Bay from the top of the Ladder
+{: .caption}
+
+> Pro tip - you don't need to climb to the absolute summit - just before the very top there is a perfect, shady tree. We packed some poppy seed bread from Kordic Bakery and Pastry Shop (for only a euro per slice!), and had a cool and shaded lunch looking out at the water. 
+
+### Boat Tours, Perast, and the Cable Car
+
+For our last day in Kotor, the two main hikes exhausted, we decided to lean fully into tourism.
+
+We booked a boat tour via GetYourGuide, but you could just as easily find one on the day - there are literally dozens of companies waterside shouting 'boat tour? boat tour' at you constantly. We opted for the Lady of the Rocks and Perast tour, so our speedboat drove around the artificial Lady of the Rocks island with a church on it, giving us a panoramic view of the old, more picturesque town of Perast, before dropping us off in Perast for an hour of exploration. 
+
+> Some boat tours offer to let you explore the church on the island - in my view, it's not worth it. You have to pay to enter, cover up if you're wearing shorts or a t-shirt, and it's not that impressive inside - the best view is from the water.
+
+![Castle]()
+
+Island
+{: .caption}
+
+If you want to take the [Kotor Cable Car](https://www.kotorcablecar.me/), I'd recommend getting to the bottom around 5pm, so you can experience sunset on the peak. The cable car takes you to the heights of Mount Lovcen, at 1,348m above the sea-level base station.
+
+The wind chill is intense at the top, so bring a jumper or a coat, even if it's sweltering in Kotor - I made this mistake and was shivering as the sun set. 
+
+We rode the Alpine Coaster for €12 each, and while a very touristy thing to do, evidenced by the half-hour long queue, the views you see of the sea below you as the wind blows in your hair are honestly worth it.
+
+After our coaster ride, we shared a four-cheese pizza and drinks at Forza Kuk, the panoramic balcony restaurant which looks over the entire Bay of Boka below you. We also got a frozen banana at Bob's Frozen Bananas, a ridiculous and overpriced delicacy which was well worth the price for the whimsical experience of running to the cable car queue brandishing a chocolate-covered banana on a stick.
+
+![Kotor cable car](/assets/imgs/montenegro/alpine.webp)
+
+The views from the Kotor Cable Car are well worth the trip
+{: .caption}
+
+
+## Durmitor National Park 
+
+Leaving the Bay of Kotor behind, we packed up our Terrae-Car and headed north. If you are following this route, I highly recommend stopping at a VOLI or IDEA supermarket on the way to stock up on snacks and food for dinners when you get into more remote areas. 
+
+> Getting petrol in Montenegro may throw you off if you're not used to full-service stations! You can just pull up to a pump and say 'Puno, molim' for a full tank and the attendant will handle everything for you. 
+
+The drive north from Kotor is an adventure in itself. With the heat of the coast fading and *Six* the musical blasting in the car, the rolling hills of the Mediterranean were slowly replaced with rugged, dramatic alpine peaks.
+
+> Quick heads-up as you unpack - While the heat was gone, bugs are ever-present in Durmitor - a good bug spray is vital, and most houses will have bug nets over large windows. 
+
+### Black Lake 
+
+Black Lake is an entry-level hike - it's more of a walk, around a 5km round trip around Black Lake (Crno Jezero) in the national park. 
+
+The entry fee to enter the Durmitor National Park is €5, paid in cash at the booths by car parks at the entrances to the park - but I would strongly recommend buying the Annual Membership to all Montenegro's national parks for €13.50, which you can [do online here](https://nparkovi.me/sections/1/online-tickets). If you're going into any of the national parks (Durmitor, Lovcen, Prokletije, and Skadar Lake all feature on this trip) more than twice it will save you dozens of euros. Buying this pass gives you a QR code on your phone you can show to the guards for them to scan.
+
+The lake itself is almost split into two parts by peninsulas, and features some incredible views with the towering Mount Međed providing a backdrop to the rocky circular loop.
+
+We went through a packet of trail mix and some sunflower seeds and sat on one of the benches for a while listening to the birds and looking at the small fields of alpine buttercups swaying in the breeze. Despite a lot of people being around and on the path, it still felt remote and quiet enough to contemplate the mountainous scene surrounding us. 
+
+![Black lake](/assets/imgs/montenegro/black_lake.webp)
+
+Black Lake, Durmitor National Park 
+{: .caption}
+

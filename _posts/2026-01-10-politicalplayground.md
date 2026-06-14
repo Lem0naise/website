@@ -135,6 +135,7 @@ export function applyTrendStep(
 ![Trend example](/assets/imgs/pptrend.png)
 
 An example of a temporary trend (pro-globalist).
+{: .caption}
 
 I also had to solve the 'centrists flip-flop very easily' problem. To counter this, I added *Turnout Gating* and *Loyalty Inertia*. If the least-bad party is still mathematically distant (defined by a `TOO_FAR_DISTANCE` constant), then they simply stay home. Voters have memory - the engine tracks `LAST_CHOICES` and applies a `LOYALTY_UTILITY` bonus. You can't just flip a voter by changing one policy - you have to break their existing habits and loyalty bit by bit.
 

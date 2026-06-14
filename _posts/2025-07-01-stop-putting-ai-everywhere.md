@@ -13,18 +13,21 @@ Let's be clear; AI is an incredibly powerful and useful tool - behind the scenes
 ![](https://the-mobile-network.com/wp-content/uploads/2024/07/TOBI-HI.jpg)
 
 TOBi, Vodafone's AI helper
+{: .caption}
 
 Nothing annoys me more than those 'helpful' AI assistants on websites nowadays which are actually just glorified ChatGPT wrappers with almost no ability to answer my question, much less act upon it. There's no hope of me trying to tell the Vodafone bot that I want to switch plans - I just clumsily dismiss the pop-up window and try to find the menu on their website like I used to.
 
 ![](/assets/imgs/dpd2.jpg)
 
 DPD's chatbot, via @codfish246 on Twitter
+{: .caption}
 
 In cases where I am forced to interact with this powerless AI, I will resort to every tactic in the book to get connected to a real human, or get rid of it as soon as possible. If it genuinely is just a badly-made wrapper of an LLM, you can often get connected to a human with some sneaky prompt engineering.
 
 ![](/assets/imgs/dpd.jpg)
 
 The user finally being connected to a human
+{: .caption}
 
 That said, simple functionality without these AIs on websites seems to be harder than ever to find, in this new era of minimalist settings pages and navigation bars.
 
@@ -51,6 +54,7 @@ A well-structured and easily searchable documentation portal can reduce support 
 ![](https://images.storychief.com/account_6827/chatbots-vs-knowledge-bases-userpilot_e41d0496f7388354d9a87ba21265df2f_800.png)
 
 An example of a knowledge base (Userpilot)
+{: .caption}
 
 So please, let's bring back the art of documentation. Let's get rid of Stanley and Gemma, and bring back that beautiful knowledge base, providing me everything I could ever want to know about your app. It'll be better for everyone, I promise.
 
