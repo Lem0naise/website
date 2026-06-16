@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Three weeks up and down Montenegro"
+title: "Montenegro - sprawling peaks and coastal fortresses on a Balkan budget"
 date: 2026-06-14 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/montenegro
@@ -125,17 +125,11 @@ If you're looking for a big day out of driving and hiking, look no further than 
 
 The trail itself is a 8km round-trip, and it took us about 4 hours to complete, 2.5hrs to the top and 1.5hrs down again. 
 
-We kicked the day off at 11am from Zabljak, making a pitstop at the local VOLI to get some lunch: traditional flaky pastries (*Pita*) containing potato and onion (*kromprisua*), spinach (*zeljanica*), and cheese (*sirnica*). They were delicious, and felt absolutely deserved at the peak of the mountain. We also brought 4 litres of water, plus our cameras, suncream, and some trail mix.
+We kicked the day off at 11am from Zabljak, making a pitstop at the local VOLI to get some lunch: traditional flaky pastries (*Pita*) containing potato and onion (*krompiruša*), spinach (*zeljanica*), and cheese (*sirnica*). They were delicious, and felt absolutely deserved at the peak of the mountain. We also brought 4 litres of water, plus our cameras, suncream, and some trail mix.
 
 We're driving a Toyota Yaris, which is worth mentioning because the Ring is a narrow road which fits around one and a half cars - you frequently have to pull up on the side or reverse around a corner. A larger SUV would definitely struggle, so go for the smaller cars. 
 
 We headed south from Zabljak, and entered the ring **counter-clockwise**, heading to *Sedlo Pass* on our maps. We drove through this pass, where there is another parking lot, about 10 more minutes down the road to the Dobri Do Valley (Kamp Sarban) parking lot, where you'll see several campervans parked in the valley below. We parked here, for free, to start our hike, which starts just off the right of the road, in a little rocky scramble up to the ridge.
-
-![Mountain](/assets/imgs/montenegro/mountain.webp)
-
-The view from just below the summit
-{: .caption}
-
 
 > While it doesn't feel it in the valleys, the peak *will* be windy and chilly - be sure to bring a raincoat and hiking trousers!
 
