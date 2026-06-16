@@ -15,6 +15,13 @@ My girlfriend and I spent three weeks travelling the length of Montenegro, a nat
 
 We visited in June, so the temperature by the sea was in the warm high-twenties, which dropped to the mid-teens up in the highest peaks. I'd recommend bringing shorts and a t-shirt for the coastal regions, and hiking trousers and a thin raincoat for the freezing wind-chill higher up!
 
+> [At the bottom of this page, there's a Know Before You Go](#know-before-you-go) that you can refer back to for a packing list and key tips!
+
+![Durmitor Prutas Peak](/assets/imgs/montenegro/broadview.webp)
+
+The view from the top of Mount Prutas
+{: .caption}
+
 ## The Bay of Kotor
 
 We flew into Podgorica, picked up our rental car from local car hire company Terrae-Car (todo review them) and drove north-west across the coast to the Bay of Kotor, where we had an AirBnB in the western town of Muo!
@@ -95,7 +102,7 @@ Leaving the Bay of Kotor behind, we packed up our Terrae-Car and headed north. I
 
 The drive north from Kotor is an adventure in itself. With the heat of the coast fading and *Six* the musical blasting in the car, the rolling hills of the Mediterranean were slowly replaced with rugged, dramatic alpine peaks.
 
-> Quick heads-up as you unpack - While the heat was gone, bugs are ever-present in Durmitor - a good bug spray is vital, and most houses will have bug nets over large windows. 
+> Quick heads-up as you unpack - while the heat was gone, bugs are ever-present in Durmitor - a good bug spray is vital, and most houses will have bug nets over large windows. 
 
 ### Black Lake 
 
@@ -112,3 +119,57 @@ We went through a packet of trail mix and some sunflower seeds and sat on one of
 Black Lake, Durmitor National Park 
 {: .caption}
 
+## Durmitor Ring and Mount Prutas
+
+If you're looking for a big day out of driving and hiking, look no further than Mount Prutas, found forty minutes on the 76km Durmitor Ring Road which circles through the Durmitor National Park. 
+
+The trail itself is a 8km round-trip, and it took us about 4 hours to complete, 2.5hrs to the top and 1.5hrs down again. 
+
+We kicked the day off at 11am from Zabljak, making a pitstop at the local VOLI to get some lunch: traditional flaky pastries (*Pita*) containing potato and onion (*kromprisua*), spinach (*zeljanica*), and cheese (*sirnica*). They were delicious, and felt absolutely deserved at the peak of the mountain. We also brought 4 litres of water, plus our cameras, suncream, and some trail mix.
+
+We're driving a Toyota Yaris, which is worth mentioning because the Ring is a narrow road which fits around one and a half cars - you frequently have to pull up on the side or reverse around a corner. A larger SUV would definitely struggle, so go for the smaller cars. 
+
+We headed south from Zabljak, and entered the ring **counter-clockwise**, heading to *Sedlo Pass* on our maps. We drove through this pass, where there is another parking lot, about 10 more minutes down the road to the Dobri Do Valley (Kamp Sarban) parking lot, where you'll see several campervans parked in the valley below. We parked here, for free, to start our hike, which starts just off the right of the road, in a little rocky scramble up to the ridge.
+
+![Mountain](/assets/imgs/montenegro/mountain.webp)
+
+The view from just below the summit
+{: .caption}
+
+
+> While it doesn't feel it in the valleys, the peak *will* be windy and chilly - be sure to bring a raincoat and hiking trousers!
+
+The top is absolutely worth the climb - from all sides, you overlook massive drops - the deep, glacial valley containing the Skrcko Lakes, the jutting limestone daggers which are famous for their unusual formation, and most importantly, the grassy hills below where you just spent two hours hiking up.
+
+![The summit!](/assets/imgs/montenegro/peakofmountprutas.webp)
+
+The summit!
+{: .caption}
+
+The wildlife is sparse, but watch out for mountain goats (*Chamois*, a goat-antelope) on the trail - they live there, you're just passing through! Walk around the trail if possible and keep your distance.
+
+![Goat](/assets/imgs/montenegro/goatrude.webp)
+
+Goat-antelope we saw on our way down
+{: .caption}
+
+We got back in the car at around 4pm - with still around four hours until sunset, we decided to continue driving the Durmitor Ring. This took us through several villages, including the scattered *Lice* and the farming village of *Trsa*.
+
+![Durmitor Ring](/assets/imgs/montenegro/ring.webp)
+
+The Durmitor Ring 
+{: .caption}
+
+The drive is well-worth it if you are a sucker for views - we drove through plateaus, ridges, over the hills as the sun set across fields of buttercups, through dense forests, down the Susica Canyon, before finally looping back up again, after about two more hours of driving, to Zabljak for dinner! 
+
+## Know Before You Go
+
+- **Rent a small car**: The mountain roads (especially the Durmitor Ring) are incredibly narrow. Also, prepare for full-service petrol stations - just say *Puno, molim* for a full tank.
+
+- **Cash is king**: While touristy spots and major supermarkets take card, the mountains and anything more local runs entirely on cash. Keep a healthy stack of Euros and visit ATMs whenever you're in a city.
+
+- **Pack for two climates**: The sweltering heat of the coast and the wind chill of the mountains call for two entirely different wardrobes - pack smartly to combine these outfits.
+
+- **[Buy the Annual Parks Pass](https://nparkovi.me/sections/1/online-tickets)**: At €13.50 (at the time of writing) this pass is well worth it. 
+
+- **Suncream and bug spray**: The alpine valleys are stunning, but the UV level is high and the mosquitos are out. 
