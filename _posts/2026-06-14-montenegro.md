@@ -13,13 +13,21 @@ Would you believe that a country less populous than Glasgow could have beachside
 
 My girlfriend and I spent three weeks travelling the length of Montenegro, a nation that is small but packed to bursting with things to offer tourists who are willing to be adaptable to make their holiday as memorable as it can be.
 
-We visited in June, so the temperature by the sea was in the warm high-twenties, which dropped to the mid-teens up in the highest peaks. I'd recommend bringing shorts and a t-shirt for the coastal regions, and hiking trousers and a thin raincoat for the freezing wind-chill higher up!
+This trip had **four main parts**, which you can jump to with these links, or continue reading:
+
+- [Bay of Kotor](#the-bay-of-kotor) 
+
+- [Durmitor National Park](#durmitor-national-park)
+
+- [Prokletije National Park](#prokletije-national-park)
+
+- [Skadar Lake](#skadar-lake)
 
 > [At the bottom of this page, there's a Know Before You Go](#know-before-you-go) that you can refer back to for a packing list and key tips!
 
 ![Durmitor Prutas Peak](/assets/imgs/montenegro/broadview.webp)
 
-The view from the top of Mount Prutas
+The view from the top of [Mount Prutas](#durmitor-ring-and-mount-prutas)
 {: .caption}
 
 ## The Bay of Kotor
@@ -119,7 +127,7 @@ We went through a packet of trail mix and some sunflower seeds and sat on one of
 Black Lake, Durmitor National Park 
 {: .caption}
 
-## Durmitor Ring and Mount Prutas
+### Durmitor Ring and Mount Prutas
 
 If you're looking for a big day out of driving and hiking, look no further than Mount Prutas, found forty minutes on the 76km Durmitor Ring Road which circles through the Durmitor National Park. 
 
@@ -156,13 +164,54 @@ The Durmitor Ring
 
 The drive is well-worth it if you are a sucker for views - we drove through plateaus, ridges, over the hills as the sun set across fields of buttercups, through dense forests, down the Susica Canyon, before finally looping back up again, after about two more hours of driving, to Zabljak for dinner! 
 
+We spent our last day in Durmitor visiting the [Curevac Viewpoint](https://roadtripster.net/montenegro/curevac-tara-river-canyon), which was a twenty-minute drive from Zabljak and offered stunning views of the canyon below. We avoided visiting Tara Bridge, as it was under construction at the time and not accessible via car. If the construction has finished when you're reading (around 2027) then I would recommend a visit, as it's only another 30 minutes and is an incredible feat of architecture.
+
+
+## Prokletije National Park
+
+We packed up our things from the AirBnB and got back on the road, with another stop at a VOLI (in Bijelo Polje) to get food, snacks, pastries, and importantly, withdraw Euros from the ATM. The Prokletije National Park is very rural, and most places (Booking.com, restaurants, and most importantly any guides you book) will only take cash. We withdrew €400, €130 for Ethno Katun Rosi (the camp where we stayed), €80 for meals and snacks, €120 for guides, and €70 for backup cash in case anything went wrong.
+
+### Volušnica loop
+
+We opted out of the full three-peak circuit to save our legs, and instead did a modified, 4-hour clockwise out-and-back hike up to the first peak, Volušnica. The trail starts in the Grebaje Valley, just past **Katun Maja Karanfil**. If you're driving from the north, you can drive past the restaurant and park in a free parking lot just south of the guestrooms, on the grass. You'll also pass a checkpoint on the way where a guard will check your national park passes. 
+
+The trail started in a dense, shady forest, where you'll stay for the first forty-five minutes. It's a steep and grueling start but the shade is forgiving. Breaking out of the tree-line gives you sun and a breeze, leading you into an open meadow with a huge variety of beautiful flowers. We kept left at every turn, to make sure we went clockwise to the first Volušnica peak.
+
+Standing on the edge of the Volušnica peak was a very rewarding view. The sheer jagged limestone ridges of the Karanfili peaks go straight up, looking wild and dramatic. After we stopped to eat our packed snacks and take lots of photos, we turned around and retraced our steps into the forest and back to our car, satisfied with our hike.
+
+![Me in front of the Volušnica Peak](/assets/imgs/montenegro/indyprokletije.webp)
+
+The Karanfili peaks behind me
+{: .caption}
+
+We drove through Gusinje on the way back, stopping in the local IDEA to stock up on snacks and drinks. It is a remarkably lovely little town, with a local mosque and a pedestrianised town square.
+
+### Ethno Katun ROSI
+
+We cannot recommend [Ethno Katun Rosi](https://www.booking.com/hotel/me/ethno-katun-rosi-agrotourism.html) enough. It is run by a big family, and they are incredibly kind and accommodating. The food is cheap and filling, and the breakfast is included and comes with eggs and pancakes! There are also quite a few stray cats and dogs hanging around the camp. While it is important to be careful (especially of rabies!) some are very friendly, including this puppy we called Mak (after the poppy seed bread, *Mak pirog*) for whom we bought some dog food for the duration of our stay.
+
+![Mak the puppy](/assets/imgs/montenegro/mak.webp)
+
+Mak the puppy!
+{: .caption}
+
+
+### Horse Riding
+
+
+## Skadar Lake
+
+### Boat tours
+
+
 ## Know Before You Go
 
 - **Rent a small car**: The mountain roads (especially the Durmitor Ring) are incredibly narrow. Also, prepare for full-service petrol stations - just say *Puno, molim* for a full tank.
 
 - **Cash is king**: While touristy spots and major supermarkets take card, the mountains and anything more local runs entirely on cash. Keep a healthy stack of Euros and visit ATMs whenever you're in a city.
 
-- **Pack for two climates**: The sweltering heat of the coast and the wind chill of the mountains call for two entirely different wardrobes - pack smartly to combine these outfits.
+- **Pack for two climates**: The sweltering heat of the coast and the wind chill of the mountains call for two entirely different wardrobes - pack smartly to combine these outfits. We visited in June, so the temperature by the sea was in the warm high-twenties, which dropped to the mid-teens up in the highest peaks. I'd recommend bringing shorts and a t-shirt for the coastal regions, and hiking trousers and a thin raincoat for the freezing wind-chill higher up!
+
 
 - **[Buy the Annual Parks Pass](https://nparkovi.me/sections/1/online-tickets)**: At €13.50 (at the time of writing) this pass is well worth it. 
 
