@@ -198,6 +198,15 @@ Mak the puppy!
 
 ### Horse Riding
 
+On a whim after seeing a video online, we decided to see if we could do some horse-riding in the Grebaje valley while we were here! Because we gave less than two days notice, I put out a post on the local Facebook and messaged a bunch of local companies to see who had space. I ended up in contact with [Ergela Prokletije](https://ergelaprokletije.com/), a family-run camp (Eco Jasavic on Google Maps) who offered a 2-hour ride for €60 each. While maybe a bit on the pricey side, we thought it was worth it and agreed to a 5pm sunset ride.
+
+We were complete beginners, but the horses were well-trained and confident. Riding through the alpine meadows on horseback was an unforgettable experience and absolutely worth it in our opinion!
+
+
+![Horseback](/assets/imgs/montenegro/horseback.webp)
+
+The view from horseback!
+{: .caption}
 
 ## Skadar Lake
 
