@@ -33,6 +33,14 @@ The view from the top of [Mount Prutas](#durmitor-ring-and-mount-prutas)
 
 We flew into Podgorica, picked up our rental car from local car hire company Terrae-Car and drove north-west across the coast to the Bay of Kotor, where we had an AirBnB in the western town of Muo!
 
+On the way, we passed Sveti Stefan, famous for its peninsula island. While the island is reserved for guests of the luxury hotel, you can park at the higher St Sava Church, where the view (and the sea breeze!) is better.
+
+
+![Sveti Stefan from St Sava Church](/assets/imgs/montenegro/svetistefan.webp)
+
+Sveti Stefan from St Sava Church
+{: .caption}
+
 ### Franz Joseph Stairs
 
 This historic trail zigzags its way up the mountain towards Fort Vrmac, an entirely abandoned Austro-Hungarian fortress. Be prepared for a dramatic change in climate - the sweltering sun of the coast drops off and you are rewarded with a cool sea breeze at the top of the ridge, which acts as a wind tunnel.
@@ -68,7 +76,6 @@ The switchbacks seem endless, but the views of the bay opening up beneath you as
 ![Bay of Kotor](/assets/imgs/montenegro/kotor.webp)
 
 
-
 The Bay from the top of the Ladder
 {: .caption}
 
@@ -81,7 +88,6 @@ For our last day in Kotor, the two main hikes exhausted, we decided to lean full
 We booked a boat tour via GetYourGuide, but you could just as easily find one on the day - there are literally dozens of companies waterside shouting 'boat tour? boat tour' at you constantly. We opted for the Lady of the Rocks and Perast tour, so our speedboat drove around the artificial Lady of the Rocks island with a church on it, giving us a panoramic view of the old, more picturesque town of Perast, before dropping us off in Perast for an hour of exploration. 
 
 > Some boat tours offer to let you explore the church on the island - in my view, it's not worth it. You have to pay to enter, cover up if you're wearing shorts or a t-shirt, and it's not that impressive inside - the best view is from the water.
-
 
 If you want to take the [Kotor Cable Car](https://www.kotorcablecar.me/), I'd recommend getting to the bottom around 5pm, so you can experience sunset on the peak. The cable car takes you to the heights of Mount Lovcen, at 1,348m above the sea-level base station.
 
@@ -197,16 +203,20 @@ On a whim after seeing a video online, we decided to see if we could do some hor
 
 We were complete beginners, but the horses were well-trained and confident. Riding through the alpine meadows on horseback was an unforgettable experience and absolutely worth it in our opinion!
 
-
 ![Horseback](/assets/imgs/montenegro/horseback.webp)
 
 The view from horseback!
 {: .caption}
 
+We were very sad to leave Mak the dog, but we had to hit the road on Saturday morning after a lovely breakfast and coffee.  
+
 ## Skadar Lake
 
-### Boat tours
+A three-hour drive south through Podgorica and another stop for fuel, we arrived by the side of Lake Skadar! We were greeted at our apartment, [Plamenatz Studio Apartments](https://www.booking.com/hotel/me/plamenatz-studio-apartments.sr.html), by a very friendly family, two shots of alcohol and an extremely welcomed air conditioned room.
 
+### Boat tour
+
+Coming soon!
 
 ## Know Before You Go
 
