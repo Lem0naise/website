@@ -1,10 +1,9 @@
 ---
 layout: post
 title: "Montenegro - sprawling peaks and coastal fortresses on a Balkan budget"
-date: 2026-06-14 08:00:00 +0000
+date: 2026-06-20 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/montenegro
-hidden: true
 tags: 
     - travel
 ---
