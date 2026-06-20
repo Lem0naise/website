@@ -8,7 +8,7 @@ tags:
     - travel
 ---
 
-Would you believe that a country smaller than Connecticut less populous than Glasgow could have beachside resorts, 10th century churches, and Nordic-style sprawling mountain peaks, all within several hours of each other? And all on a Balkan budget?
+Would you believe that a country smaller than Connecticut and less populous than Glasgow could have beachside resorts, 10th century churches, and Nordic-style sprawling mountain peaks, all within several hours of each other? And all on a Balkan budget?
 
 My girlfriend and I spent three weeks travelling the length of Montenegro, a nation that is small but packed to bursting with things to offer travellers willing to stay flexible.
 
