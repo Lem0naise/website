@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Montenegro - sprawling peaks and coastal fortresses on a Balkan budget"
+title: "Montenegro - untamed peaks and coastal sun on a Balkan budget"
 date: 2026-06-20 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/montenegro
@@ -8,17 +8,17 @@ tags:
     - travel
 ---
 
-Would you believe that a country smaller than Connecticut and less populous than Glasgow could have beachside resorts, 10th century churches, and Nordic-style sprawling mountain peaks, all within several hours of each other? And all on a Balkan budget? We spent three weeks travelling the length of Montenegro, a nation that is small but packed to bursting.
+One morning, we were eating pastries on a balcony looking out on a Mediterranean bay. Two days later, we were standing on a windswept mountain peak at 2300m, looking over the jagged alpine landscape. 
 
-This trip had **four main parts**, which you can jump to with these links:
+Montenegro may be smaller than Connecticut and less populous than Glaslow, but it packs incredible variety into a country you can cross in a few hours, and all on a Balkan budget. If you're only visiting some of these places, our three-week trip had **four main parts**, which you can jump to with these links:
 
-- [Bay of Kotor](#the-bay-of-kotor) 
+- [Bay of Kotor (5 nights)](#the-bay-of-kotor)
 
-- [Durmitor National Park](#durmitor-national-park)
+- [Durmitor National Park (4 nights)](#durmitor-national-park)
 
-- [Prokletije National Park](#prokletije-national-park)
+- [Prokletije National Park (3 nights)](#prokletije-national-park)
 
-- [Skadar Lake](#skadar-lake)
+- [Skadar Lake (3 nights)](#skadar-lake)
 
 ![Map](/assets/imgs/montenegro/map.webp)
 Our rough route
@@ -66,7 +66,7 @@ The highlight of the old town in my opinion was the Cat Museum - a strange theme
 
 ![Cat Museum](/assets/imgs/montenegro/catmuseum.webp)
 
-We tracked around 22,000 steps this day - we really don't know the meaning of 'rest' day.
+We walked so much, we really don't know the meaning of 'rest' day.
 
 
 ### Ladder of Kotor
@@ -214,11 +214,22 @@ We were very sad to leave Mak the dog, but we had to hit the road on Saturday mo
 
 ## Skadar Lake
 
-A three-hour drive south through Podgorica and another stop for fuel, we arrived by the side of Lake Skadar! We were greeted at our apartment, [Plamenatz Studio Apartments](https://www.booking.com/hotel/me/plamenatz-studio-apartments.sr.html), by a very friendly family, two shots of alcohol and an extremely welcomed air conditioned room.
+A three-hour drive south through Podgorica and another stop for fuel, we arrived by the side of Lake Skadar! We were greeted at our apartment, [Plamenatz Studio Apartments](https://www.booking.com/hotel/me/plamenatz-studio-apartments.sr.html), by a very friendly family, two shots of alcohol and a lovely air conditioned room.
+
+The apartment offers a dinner menu cooked by the mother, and we had several courses, including trout and chicken, soups, bread, and even *homemade wine* brewed by the son.
+
+![Wine](/assets/imgs/montenegro/wine.webp)
+The main course in the sunset
+{: .caption}
+
+Our schedule for Skadar Lake was relax, relax, and relax. We'd spent two weeks hiking and some resting was on the agenda.
 
 ### Boat tour
 
-Coming soon!
+The only thing we had planned for Skadar was a boat tour on the lake, which we organised through our host family.
+
+> Ignore at **all costs** anybody who comes up to you as you drive into Virpazar. They are **scammers**, they will rinse you for an overpriced boat tour. They force you into the car park, claim it is 'private property' (it is **not**, it is a **free car park**) and tell you that if you don't buy their boat tour, they will damage your car.
+
 
 ## Know Before You Go
 
