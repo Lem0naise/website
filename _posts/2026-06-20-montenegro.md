@@ -8,9 +8,7 @@ tags:
     - travel
 ---
 
-Would you believe that a country smaller than Connecticut and less populous than Glasgow could have beachside resorts, 10th century churches, and Nordic-style sprawling mountain peaks, all within several hours of each other? And all on a Balkan budget?
-
-My girlfriend and I spent three weeks travelling the length of Montenegro, a nation that is small but packed to bursting with things to offer travellers willing to stay flexible.
+Would you believe that a country smaller than Connecticut and less populous than Glasgow could have beachside resorts, 10th century churches, and Nordic-style sprawling mountain peaks, all within several hours of each other? And all on a Balkan budget? We spent three weeks travelling the length of Montenegro, a nation that is small but packed to bursting.
 
 This trip had **four main parts**, which you can jump to with these links:
 
@@ -21,6 +19,10 @@ This trip had **four main parts**, which you can jump to with these links:
 - [Prokletije National Park](#prokletije-national-park)
 
 - [Skadar Lake](#skadar-lake)
+
+![Map](/assets/imgs/montenegro/map.webp)
+Our rough route
+{: .caption}
 
 > [At the bottom of this page, there's a Know Before You Go](#know-before-you-go) that you can refer back to for a packing list and key tips!
 
@@ -58,9 +60,9 @@ We were joined by a slithery friend halfway through
 
 ### Kotor Cat Museum
 
-If you are looking for a break in this hiking holiday to buy some souvenirs, Kotor Old Town is the place. It's probably the most touristy place we'll visit on this trip - but it's still worth a visit. We initially thought Kotor felt a bit industrial and unfinished, but when you enter the gate into the old town you suddenly get hit by the Western European style old town vibes, old churches, cobbled streets, ice cream stores, and dozens of identical souvenir shops. 
+If you are looking for a break in this hiking holiday to buy some souvenirs, Kotor Old Town is the place. It's probably the most touristy place we'll visit on this trip - but it's still worth a visit. We initially thought Kotor felt a bit unfinished, but when you enter the gate into the old town you suddenly get hit by the Western European style old town vibes, old churches, cobbled streets, ice cream stores, and dozens of identical souvenir shops. 
 
-The highlight of the old town in my opinion was the Cat Museum - a strange theme throughout the whole town, due to the large numbers of stray cats. The museum takes an entry fee of €1, in cash only, which is negligible and goes towards the upkeep of the local stray cats. For an extra €2.50, you can buy a certificate to sign up your cat to be officially part of the Kotor Cat Society!
+The highlight of the old town in my opinion was the Cat Museum - a strange theme throughout the whole town, due to the large numbers of stray cats. The museum takes an entry fee of €1, in cash only, which is negligible and goes towards the upkeep of the local stray cats. For an extra €2.50, you can buy a certificate to sign up your cat to be officially part of the Kotor Cat Society! It's packed with old stamps, advertisements, cartoon strips, and other cat media throughout history. 
 
 ![Cat Museum](/assets/imgs/montenegro/catmuseum.webp)
 
@@ -69,7 +71,7 @@ We tracked around 22,000 steps this day - we really don't know the meaning of 'r
 
 ### Ladder of Kotor
 
-If you are hiking the Ladder of Kotor, try to start early - the middle of the day gets boiling hot and the sun is unforgiveable. Unlike the Franz Joseph stairs, the Ladder doesn't provide any shade until at least three-quarters of the way up, so it's worth bringing sun hats, suncream and lots of bottles of water. If you want a hike that doubles as a relationship test, go for this one - I'm proud to say we made it out of this one even stronger than before. 
+If you are hiking the Ladder of Kotor, try to start early - the middle of the day gets boiling hot and the sun is unforgiving. Unlike the Franz Joseph stairs, the Ladder doesn't provide any shade until at least three-quarters of the way up, so it's worth bringing sun hats, suncream and lots of bottles of water. If you want a hike that doubles as a relationship test, go for this one - I'm proud to say we made it out of this one even stronger than before. 
 
 The switchbacks seem endless, but the views of the bay opening up beneath you as you climb are well worth the burning calves. 
 
@@ -156,14 +158,14 @@ The wildlife is sparse, but watch out for mountain goats (*Chamois*, a goat-ante
 Goat-antelope we saw on our way down
 {: .caption}
 
-We got back in the car at around 4pm - with still around four hours until sunset, we decided to continue driving the Durmitor Ring. This took us through several villages, including the scattered *Lice* and the farming village of *Trsa*.
+We got back in the car at around 4pm - with still around four hours until sunset, we decided to continue driving the Durmitor Ring. This took us through several villages, including the scattered *Lice* and the farming village of *Trsa*. It took about two and a half more hours of driving until we ended up back in Zabljak.
 
 ![Durmitor Ring](/assets/imgs/montenegro/ring.webp)
 
 The Durmitor Ring 
 {: .caption}
 
-The drive is well-worth it if you are a sucker for views - we drove through plateaus, ridges, over the hills as the sun set across fields of buttercups, through dense forests, down the Susica Canyon, before finally looping back up again, after about two more hours of driving, to Zabljak for dinner! 
+The drive is well worth it if you are a sucker for views - we drove through plateaus, ridges, over the hills as the sun set across fields of buttercups, through dense forests, down the Susica Canyon, before finally looping back up again, after about two more hours of driving, to Zabljak for dinner! 
 
 We spent our last day in Durmitor visiting the [Curevac Viewpoint](https://roadtripster.net/montenegro/curevac-tara-river-canyon), which was a twenty-minute drive from Zabljak and offered stunning views of the canyon below. We avoided visiting Tara Bridge, as it was under construction at the time and not accessible via car. If the construction has finished when you're reading (around 2027) then I would recommend a visit, as it's only another 30 minutes and is an incredible feat of architecture.
 
@@ -176,7 +178,7 @@ We packed up our things from the AirBnB and got back on the road, with another s
 
 We opted out of the full three-peak circuit to save our legs, and instead did a modified, 4-hour clockwise out-and-back hike up to the first peak, Volušnica. The trail starts in the Grebaje Valley, just past **Katun Maja Karanfil**. If you're driving from the north, you can drive past the restaurant and park in a free parking lot just south of the guestrooms, on the grass. You'll also pass a checkpoint on the way where a guard will check your national park passes. 
 
-The trail started in a dense, shady forest, where you'll stay for the first forty-five minutes. It's a steep and grueling start but the shade is forgiving. Breaking out of the tree-line gives you sun and a breeze, leading you into an open meadow with a huge variety of beautiful flowers. We kept left at every turn, to make sure we went clockwise to the first Volušnica peak.
+The trail starts in a dense, shady forest, where you'll stay for the first forty-five minutes. It's a steep and grueling start but the shade is forgiving. Breaking out of the tree-line gives you sun and a breeze, leading you into an open meadow with a huge variety of beautiful flowers. We kept left at every turn, to make sure we went clockwise to the first Volušnica peak.
 
 Standing on the edge of the Volušnica peak was a very rewarding view. The sheer jagged limestone ridges of the Karanfili peaks go straight up, looking wild and dramatic. After we stopped to eat our packed snacks and take lots of photos, we turned around and retraced our steps into the forest and back to our car, satisfied with our hike.
 
