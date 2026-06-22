@@ -209,7 +209,7 @@
 		mountKudos(document.getElementById('nav-kudos'), { layout: 'button' });
 		// End-of-post kudos banner
 		const inner = document.getElementById('post-kudos-inner');
-		if (inner) mountKudos(inner, { layout: 'button', label: 'Enjoyed it?', ctaText: 'likes', path: '{{ page.url }}' });
+		if (inner) mountKudos(inner, { layout: 'button', label: '', ctaText: 'likes', path: '{{ page.url }}' });
 
 		var shareBtn = document.getElementById('post-share-btn');
 		if (shareBtn) {

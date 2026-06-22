@@ -9,7 +9,7 @@
 const KUDOS_API = 'https://indigo-worker.soft-resonance-63c0.workers.dev/visit';
 const KUDOS_TTL = 5 * 60 * 1000;
 const KUDOS_RATE = 60 * 1000;
-const KUDOS_MAX = 1000; //10
+const KUDOS_MAX = 5; //5
 
 function cacheKey(path) {
     return 'kudosCount_' + (path || '_global');
@@ -90,7 +90,7 @@ window.mountKudos = async function mountKudos(container, opts = {}) {
 
     const {
         ctaText = 'click to give kudos',
-        thanksText = 'thank you!',
+        thanksText = 'thanks',
         layout = 'inline',
         label = '',
         path = null,
