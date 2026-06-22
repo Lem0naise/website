@@ -45,9 +45,9 @@ observations."
             <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
             <span class="post-information">{{ post.date | date: "%-d %b %Y" }}</span>
             <span class="post-information">{{ post.tags[0] }}</span>
+            <span class="post-likes" data-path="{{ post.url }}">♥ …</span>
         </article>
         {% endfor %}
-
 
 
         {% for tag in sortedtags %}
@@ -59,6 +59,7 @@ observations."
             <article class="blog-post">
                 <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
                 <span class="post-information">{{ post.date | date: "%-d %b %Y" }}</span>
+                <span class="post-likes" data-path="{{ post.url }}">♥ …</span>
             </article>
             {% endfor %}
         </div>
@@ -67,3 +68,29 @@ observations."
 
 </div>
 <script src="{{ '/js/reading-progress.js' | relative_url }}"></script>
+<script src="{{ '/js/kudos.js' | relative_url }}" defer></script>
+
+<style>
+.post-likes {
+    display: inline;
+    font-size: 13px;
+    color: var(--accent-light);
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    var likes = document.querySelectorAll('.post-likes');
+    likes.forEach(function (el) {
+        var path = el.getAttribute('data-path');
+        if (!path || !window.fetchKudosCount) return;
+        window.fetchKudosCount(path).then(function (count) {
+            el.textContent = '♥ ' + count.toLocaleString();
+        }).catch(function () {
+            el.textContent = '';
+        });
+    });
+});
+</script>

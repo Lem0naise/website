@@ -134,6 +134,7 @@
 
 			<div class="post-kudos-section">
 				<div id="post-kudos-inner" class="post-kudos-inner"></div>
+				<button id="post-share-btn" class="post-share-btn" title="Copy link">Share</button>
 			</div>
 
 			<nav class="post-navigation">
@@ -200,7 +201,17 @@
 		mountKudos(document.getElementById('nav-kudos'), { layout: 'button' });
 		// End-of-post kudos banner
 		const inner = document.getElementById('post-kudos-inner');
-		if (inner) mountKudos(inner, { layout: 'button', label: 'Enjoyed it?', ctaText: 'give kudos' });
+		if (inner) mountKudos(inner, { layout: 'button', label: 'Enjoyed it?', ctaText: 'likes', path: '{{ page.url }}' });
+
+		var shareBtn = document.getElementById('post-share-btn');
+		if (shareBtn) {
+			shareBtn.addEventListener('click', function () {
+				navigator.clipboard.writeText(window.location.href).then(function () {
+					shareBtn.textContent = 'Copied!';
+					setTimeout(function () { shareBtn.textContent = 'Share'; }, 2000);
+				});
+			});
+		}
 	});
 </script>
 

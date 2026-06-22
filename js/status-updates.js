@@ -70,8 +70,16 @@ class StatusUpdates {
         setInterval(() => this.applyCurrentlyDoing(), 60000);
         setInterval(() => this.applySpotifyStatus(), 30000);
         
-        // Mock Kudos display
-        this.updateAsciiFields(this.ascKudos, "1,112", 10);
+        this.initKudos();
+    }
+
+    initKudos() {
+        var self = this;
+        if (window.fetchTotalCount) {
+            window.fetchTotalCount().then(function (total) {
+                self.updateAsciiFields(self.ascKudos, total.toLocaleString(), 10);
+            }).catch(function () {});
+        }
     }
 
     async getGistOverrides() {

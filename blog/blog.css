@@ -751,3 +751,33 @@ h4,
     }
 
 }
+
+.post-share-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 14px 28px;
+	border-radius: 99px;
+	border: 1.5px solid var(--accent-light);
+	background: var(--accent-soft);
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: 500;
+	color: var(--text);
+	font-family: var(--font-main), monospace;
+	transition: all 0.25s ease;
+	user-select: none;
+	box-shadow: 0 2px 8px var(--card-shadow);
+	margin-left: 12px;
+}
+
+.post-share-btn:hover {
+	background: var(--accent-soft);
+	border-color: var(--accent);
+	transform: translateY(-3px) scale(1.03);
+	box-shadow: 0 8px 20px var(--hover-shadow);
+}
+
+.post-share-btn:active {
+	transform: scale(0.97);
+}
