@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Montenegro - untamed peaks and coastal sun on a Balkan budget"
-date: 2026-06-20 08:00:00 +0000
+date: 2026-06-22 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/montenegro
 tags: 
@@ -10,7 +10,7 @@ tags:
 
 One morning, we were eating pastries on a balcony looking out on a Mediterranean bay. Two days later, we were standing on a windswept mountain peak at 2300m, looking over the jagged alpine landscape. 
 
-Montenegro may be smaller than Connecticut and less populous than Glaslow, but it packs incredible variety into a country you can cross in a few hours, and all on a Balkan budget. If you're only visiting some of these places, our three-week trip had **four main parts**, which you can jump to with these links:
+That's Montenegro - it may be smaller than Connecticut and less populous than Glaslow, but it packs incredible variety into a country you can cross in a few hours, and all on a Balkan budget. If you're only visiting some of these places, our three-week trip had **four main parts**, which you can jump to with these links:
 
 - [Bay of Kotor (5 nights)](#the-bay-of-kotor)
 
