@@ -228,8 +228,18 @@ Our schedule for Skadar Lake was relax, relax, and relax. We'd spent two weeks h
 
 The only thing we had planned for Skadar was a boat tour on the lake, which we organised through our host family.
 
-> Ignore at **all costs** anybody who comes up to you as you drive into Virpazar. They are **scammers**, they will rinse you for an overpriced boat tour. They force you into the car park, claim it is 'private property' (it is **not**, it is a **free car park**) and tell you that if you don't buy their boat tour, they will damage your car.
+> **Ignore** the people coming up to you as you drive into Virpazar. They are **con artists**, they will rinse you for an overpriced boat tour. They force you into the car park, claim it is 'private property' (it is **not**, it is a **free car park**) and tell you that if you don't buy their boat tour, they will damage your car. Instead, book through the many other, cheaper boat operators by the water, or online.
 
+We went on the lake in a private wooden boat, captained by a very competent English-speaking Montenegrin 18-year old. The tour was a romantic and relaxing 2-hour exploration of the lily-pad covered lake, interspersed with historic facts about the 13th century monastery, or the abandonded ruin of *Grmozur Fortress* on the lake. Nicknamed *the Montenegrin Alcatraz*, it was an island prison built by the Ottomans, and to prevent escape it was populated only by inmates who did not know how to swim.
+
+![Skadar Lake](/assets/imgs/montenegro/lake2.webp)
+Lily pads on Lake Skadar
+{: .caption}
+
+
+## Overall
+
+We were very sad to leave Montenegro, as we had become quite attached to VOLIs and the local customs.
 
 ## Know Before You Go
 
