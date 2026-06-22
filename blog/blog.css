@@ -781,3 +781,73 @@ h4,
 .post-share-btn:active {
 	transform: scale(0.97);
 }
+
+/* ── Sidebar buttons on blog posts (desktop) ──────── */
+
+@media (min-width: 900px) {
+	.post-sidebar {
+		position: fixed;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 100;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+	}
+
+	.post-sidebar.left {
+		left: 5vw;
+	}
+
+	.post-sidebar.right {
+		right: 5vw;
+	}
+
+	.side-btn {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 4px;
+		padding: 14px 10px;
+		border-radius: 99px;
+		border: 1.5px solid var(--accent-light);
+		background: var(--card-bg);
+		color: var(--text);
+		font-size: 14px;
+		font-family: var(--font-main), monospace;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		box-shadow: 0 2px 8px var(--card-shadow);
+	}
+
+	.side-btn:hover {
+		transform: scale(1.08);
+		border-color: var(--accent);
+		box-shadow: 0 8px 20px var(--hover-shadow);
+		-webkit-transform: scale(1.08);
+		-moz-transform: scale(1.08);
+		-ms-transform: scale(1.08);
+		-o-transform: scale(1.08);
+}
+
+	.side-btn:active {
+		transform: scale(0.95);
+		-webkit-transform: scale(0.95);
+		-moz-transform: scale(0.95);
+		-ms-transform: scale(0.95);
+		-o-transform: scale(0.95);
+}
+
+	.side-share-btn {
+		font-size: 16px;
+		padding: 16px 12px;
+	}
+}
+
+@media (max-width: 899px) {
+	.post-sidebar {
+		display: none;
+	}
+}

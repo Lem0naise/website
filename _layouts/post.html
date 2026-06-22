@@ -57,6 +57,14 @@
 	</header>
 
 	<main style="padding-top: 70px;">
+
+		<aside class="post-sidebar right" aria-label="Share post">
+			<button class="side-btn side-kudos-btn" id="side-kudos-btn" title="Give kudos">
+				♥ <span id="side-kudos-num">…</span>
+			</button>
+			<button class="side-btn side-share-btn" id="side-share-btn" title="Copy link">Share</button>
+		</aside>
+
 		<article class="post-container">
 			<header class="post-header">
 				<h1 class="post-title">{{page.title}}</h1>
@@ -209,6 +217,33 @@
 				navigator.clipboard.writeText(window.location.href).then(function () {
 					shareBtn.textContent = 'Copied!';
 					setTimeout(function () { shareBtn.textContent = 'Share'; }, 2000);
+				});
+			});
+		}
+
+		// Side kudos button
+		var sideKudos = document.getElementById('side-kudos-btn');
+		var sideNum = document.getElementById('side-kudos-num');
+		if (sideKudos && sideNum && window.fetchKudosCount) {
+			window.fetchKudosCount('{{ page.url }}').then(function (count) {
+				sideNum.textContent = count.toLocaleString();
+			});
+			sideKudos.addEventListener('click', function () {
+				var val = parseInt(sideNum.textContent.replace(/,/g, '')) || 0;
+				sideNum.textContent = (val + 1).toLocaleString();
+				window.postKudos('{{ page.url }}').then(function (count) {
+					sideNum.textContent = count.toLocaleString();
+				});
+			});
+		}
+
+		// Side share button
+		var sideShare = document.getElementById('side-share-btn');
+		if (sideShare) {
+			sideShare.addEventListener('click', function () {
+				navigator.clipboard.writeText(window.location.href).then(function () {
+					sideShare.textContent = 'Done!';
+					setTimeout(function () { sideShare.textContent = 'Share'; }, 2000);
 				});
 			});
 		}
