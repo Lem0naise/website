@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Montenegro - untamed peaks and coastal sun on a Balkan budget"
-date: 2026-06-22 08:00:00 +0000
+date: 2026-06-23 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/montenegro
 tags: 
@@ -33,7 +33,7 @@ The view from the top of [Mount Prutas](#durmitor-ring-and-mount-prutas)
 
 ## The Bay of Kotor
 
-We flew into Podgorica, picked up our rental car from local car hire company Terrae-Car and drove north-west across the coast to the Bay of Kotor, where we had an AirBnB in the western town of Muo!
+We flew into Podgorica, picked up our rental car from local car hire company Terrae-Car (*we recommend*) and drove north-west across the coast to the Bay of Kotor, where we had an AirBnB in the western town of Muo!
 
 On the way, we passed Sveti Stefan, famous for its peninsula island. While the island is reserved for guests of the luxury hotel, you can park at the higher St Sava Church, where the view (and the sea breeze!) is better.
 
@@ -236,6 +236,10 @@ We went on the lake in a private wooden boat, captained by a very competent Engl
 Lily pads on Lake Skadar
 {: .caption}
 
+
+We woke up on the last day, reluctantly stuffed our belongings into our checkin bag, packed it into the hirecar, and left our last Montenegrin beds! We made a last pit stop at VOLI for a hot lunch, and then drove to Podgorica Airport to return our Toyota to Marko of Terrae-Car scratch-free. We made a dash across the hot car park to the air conditioned terminal, and checked our bag into the Ryanair return flight home!
+
+Landing in London was a bittersweet but very satisfied ending to what has been the best holiday of my life. (Note that unlike usual, we landed in thirty-five degree heat as London is in a heatwave. Bay of Kotor here we come again!)
 
 ## Overall
 
