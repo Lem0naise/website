@@ -4,6 +4,7 @@ title: "A child-free internet, at what cost?"
 date: 2026-06-15 09:30:00 +0100
 author: Indigo Nolan
 permalink: /blog/child-free-internet
+image: "https://feweek.co.uk/wp-content/uploads/2024/12/Pete-Middleton-social-media-ban.jpg"
 manual_related: 
     - /blog/online-safety-act
 tags: essay

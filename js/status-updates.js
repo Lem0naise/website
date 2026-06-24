@@ -44,6 +44,7 @@ class StatusUpdates {
         this.ascStreaks = document.querySelectorAll('.asc-streak');
         this.ascTotals  = document.querySelectorAll('.asc-total');
         this.ascLasts   = document.querySelectorAll('.asc-last');
+        this.ascBlogs   = document.querySelectorAll('.asc-blog');
 
         this.init();
     }
@@ -59,6 +60,7 @@ class StatusUpdates {
         this.applyCurrentlyDoing();
         this.applyWeatherStatus();
         this.applySpotifyStatus();
+        this.loadLatestPost();
 
         setInterval(() => this.applyCurrentlyDoing(), 60000);
         setInterval(() => this.applySpotifyStatus(), 30000);
@@ -289,6 +291,38 @@ class StatusUpdates {
     }
 
     /* ── Weather ──────────────────────────────────── */
+    async loadLatestPost() {
+    try {
+        const res = await fetch('/feed.xml');
+        const xmlText = await res.text();
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+
+        // Find the first <entry> (Jekyll uses Atom)
+        const entry = xmlDoc.querySelector('entry');
+        if (!entry) throw new Error('No entries found');
+
+        // Get the title (plain text, no CDATA)
+        const titleElem = entry.querySelector('title');
+        const title = titleElem ? titleElem.textContent : 'Untitled';
+
+        // Get the link (href attribute)
+        const linkElem = entry.querySelector('link[href]');
+        const link = linkElem ? linkElem.getAttribute('href') : '#';
+
+        // Truncate title if needed
+        let displayTitle = title;
+        if (displayTitle.length > 14) {
+            displayTitle = displayTitle.substring(0, 12) + '\u2026';
+        }
+
+        const html = `<a href="${link}">${displayTitle}</a>`;
+        this.setAsciiLink(this.ascBlogs, html, 15);
+    } catch (e) {
+        // Optionally log the error for debugging
+        console.warn('Failed to load latest post:', e);
+    }
+}
     async getWeatherStatus() {
         const cached = localStorage.getItem('weather');
         if (cached) {
