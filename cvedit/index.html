@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>CV Edit — Indigo Nolan</title>
+	<link rel="stylesheet" href="../stylesheet.css?version=0.10">
+	<link rel="icon" type="image/x-icon" href="../favicon.ico">
+	<script src="../js/dark-init.js"></script>
+	<style>
+		.cve-container { max-width: 900px; margin: 0 auto; padding: 0 24px 60px; }
+
+		.cve-textarea {
+			width: 100%; height: 200px; padding: 16px;
+			border: 1px solid var(--border); border-radius: 12px;
+			background: var(--card-bg); color: var(--text);
+			font-family: var(--font-main), monospace; font-size: 13px;
+			resize: vertical; outline: none;
+		}
+		.cve-textarea:focus { border-color: var(--accent); }
+
+		.cve-btn {
+			padding: 10px 20px; border-radius: 10px; border: 1px solid var(--border);
+			background: var(--card-bg); color: var(--text);
+			font-family: var(--font-main), monospace; font-size: 14px;
+			cursor: pointer; transition: all 0.2s ease; margin: 8px 4px 8px 0;
+		}
+		.cve-btn:hover { border-color: var(--accent); color: var(--accent); }
+		.cve-btn.primary { background: var(--accent); color: white; border-color: var(--accent); }
+		.cve-btn.primary:hover { background: var(--accent-light); }
+		.cve-btn.danger { color: #c44; border-color: #c44; }
+		.cve-btn.small { padding: 4px 12px; font-size: 12px; border-radius: 6px; }
+
+		.cve-section {
+			border: 1px solid var(--border); border-radius: 12px;
+			padding: 16px 20px; margin-bottom: 12px;
+			background: var(--card-bg);
+		}
+		.cve-section-header {
+			display: flex; align-items: center; gap: 10px;
+			font-family: var(--font-main), monospace; font-size: 18px;
+			font-weight: 600; color: var(--accent-light); margin-bottom: 12px;
+		}
+		.cve-section-header input[type=checkbox] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+
+		.cve-entry {
+			border: 1px solid var(--border); border-radius: 8px;
+			padding: 12px 16px; margin: 6px 0;
+			background: var(--accent-soft); display: flex;
+			align-items: center; justify-content: space-between;
+			font-family: var(--font-main), monospace; font-size: 14px;
+		}
+		.cve-entry-info { flex: 1; }
+		.cve-entry-info .title { font-weight: 600; color: var(--text); }
+		.cve-entry-info .sub { font-size: 12px; color: var(--text-light); margin-top: 2px; }
+		.cve-entry-actions { display: flex; gap: 6px; flex-shrink: 0; }
+
+		.cve-edit-panel {
+			border: 1px solid var(--accent-light); border-radius: 10px;
+			padding: 16px 20px; margin: 8px 0 12px;
+			background: var(--card-bg);
+		}
+		.cve-field { margin-bottom: 10px; }
+		.cve-field label {
+			display: block; font-family: var(--font-main), monospace;
+			font-size: 12px; color: var(--text-light); margin-bottom: 3px;
+		}
+		.cve-field input, .cve-field textarea {
+			width: 100%; padding: 8px 12px;
+			border: 1px solid var(--border); border-radius: 8px;
+			background: var(--background); color: var(--text);
+			font-family: var(--font-main), monospace; font-size: 13px;
+			outline: none;
+		}
+		.cve-field input:focus, .cve-field textarea:focus { border-color: var(--accent); }
+		.cve-field textarea { height: 60px; resize: vertical; }
+
+		.cve-bullet-row { display: flex; gap: 8px; margin-bottom: 6px; align-items: center; }
+		.cve-bullet-row input { flex: 1; }
+
+		.cve-add-row { display: none; }
+
+		.cve-output {
+			width: 100%; height: 180px; padding: 12px;
+			border: 1px solid var(--border); border-radius: 10px;
+			background: var(--card-bg); color: var(--text);
+			font-family: 'Courier New', monospace; font-size: 12px;
+			resize: vertical; outline: none; margin-top: 8px;
+		}
+
+		.cve-empty { text-align: center; color: var(--text-light); padding: 40px 0; }
+
+		.cve-toast {
+			position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+			background: var(--accent); color: white; padding: 10px 24px;
+			border-radius: 20px; font-family: var(--font-main), monospace;
+			font-size: 13px; z-index: 1000; opacity: 0; transition: opacity 0.3s;
+		}
+		.cve-toast.show { opacity: 1; }
+	</style>
+</head>
+
+<body>
+	<header id="header">
+		<div class="header-content">
+			<a class="logo" href="../">Indigo Nolan</a>
+			<nav id="menu">
+				<a href="../" class="tab">Home</a>
+				<a href="../portfolio" class="tab">Projects</a>
+				<a href="../blog" class="tab">Blog</a>
+				<span onclick="toggle()" class="tab tab-svg" role="button" aria-label="Toggle dark mode" tabindex="0">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<path id='toggle-button' d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
+					</svg>
+				</span>
+			</nav>
+		</div>
+	</header>
+
+	<main style="padding-top: 70px;">
+		<section class="content-section">
+			<div class="cve-container">
+				<h2 style="text-align:center">CV Edit</h2>
+				<p style="text-align:center; color:var(--text-light); margin-bottom:24px;">
+					Paste a <code>cv-full.tex</code> → toggle sections → edit entries → copy your tailored resume
+				</p>
+
+				<div id="cve-paste-area">
+					<textarea class="cve-textarea" id="cve-tex-input" placeholder="Paste your cv-full.tex here..."></textarea>
+					<button class="cve-btn primary" id="cve-parse-btn">Parse &amp; Edit</button>
+					<button class="cve-btn" id="cve-load-btn" style="display:none;">Load Saved</button>
+					<button class="cve-btn" id="cve-clear-btn" style="display:none;">Start Fresh</button>
+				</div>
+
+				<div id="cve-editor-area" style="display:none;">
+					<div id="cve-sections"></div>
+					<div style="margin-top:20px;">
+						<button class="cve-btn primary" id="cve-generate-btn">Generate .tex</button>
+						<button class="cve-btn" id="cve-reset-btn" style="margin-left:8px;">Start Fresh</button>
+					</div>
+				</div>
+
+				<div id="cve-output-area" style="display:none; margin-top:24px;">
+					<h3 style="font-family:var(--font-main); margin-bottom:8px;">Output</h3>
+					<textarea class="cve-output" id="cve-output-text" readonly></textarea>
+					<button class="cve-btn primary" id="cve-copy-btn" style="margin-top:8px;">Copy to Clipboard</button>
+					<button class="cve-btn" id="cve-download-btn">Download .tex</button>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<div class="cve-toast" id="cve-toast"></div>
+
+	<script src="../js/dark.js?version=0.10" defer></script>
+	<script>
+	(function () {
+		var STORAGE_KEY = 'cvedit';
+		var PREAMBLE = '';
+		var SECTIONS = [];
+		var editingId = null;
+
+		var pasteArea = document.getElementById('cve-paste-area');
+		var texInput = document.getElementById('cve-tex-input');
+		var parseBtn = document.getElementById('cve-parse-btn');
+		var loadBtn = document.getElementById('cve-load-btn');
+		var clearBtn = document.getElementById('cve-clear-btn');
+		var editorArea = document.getElementById('cve-editor-area');
+		var outputArea = document.getElementById('cve-output-area');
+		var sectionsEl = document.getElementById('cve-sections');
+		var outputText = document.getElementById('cve-output-text');
+		var generateBtn = document.getElementById('cve-generate-btn');
+		var copyBtn = document.getElementById('cve-copy-btn');
+		var downloadBtn = document.getElementById('cve-download-btn');
+		var resetBtn = document.getElementById('cve-reset-btn');
+		var toast = document.getElementById('cve-toast');
+
+		function showToast(msg) {
+			toast.textContent = msg; toast.classList.add('show');
+			setTimeout(function () { toast.classList.remove('show'); }, 2000);
+		}
+
+		// ── Brace-aware helpers ─────────────────────────
+
+		function extractArgs(str, pos, count) {
+			var args = [];
+			pos = pos || 0;
+			while (args.length < count && pos < str.length) {
+				while (pos < str.length && /\s/.test(str[pos])) pos++;
+				if (str[pos] !== '{') break;
+				var depth = 0, start = pos;
+				do {
+					if (str[pos] === '{') depth++;
+					else if (str[pos] === '}') depth--;
+					pos++;
+				} while (depth > 0 && pos < str.length);
+				args.push(str.substring(start + 1, pos - 1));
+			}
+			return { args: args, end: pos };
+		}
+
+		function isDateLike(str) {
+			return /(19|20)\d{2}|Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec|Present|Expected|Incoming|\d{4}\s*--|\d+\s*(mo|yr|year)/i.test(str);
+		}
+
+		function extractBullets(str) {
+			var bullets = [];
+			var bRegex = /\\resumeItem\{/g;
+			var bMatch;
+			while ((bMatch = bRegex.exec(str)) !== null) {
+				var result = extractArgs(str, bMatch.index + bMatch[0].length - 1, 1);
+				if (result.args.length > 0) {
+					var text = result.args[0].trim();
+					if (text && text.length < 500) bullets.push(text);
+				}
+			}
+			return bullets;
+		}
+
+		// ── Parsing ─────────────────────────────────────
+
+		function parseLatex(tex) {
+			var docMatch = tex.match(/\\begin\{document\}([\s\S]*)\\end\{document\}/);
+			if (!docMatch) { alert('Could not find \\begin{document}'); return null; }
+
+			PREAMBLE = tex.substring(0, tex.indexOf('\\begin{document}'));
+			var body = docMatch[1];
+
+			var sections = [];
+			var secRegex = /\\section\{/g;
+			var secMatch, lastIdx = 0;
+
+			while ((secMatch = secRegex.exec(body)) !== null) {
+				if (lastIdx > 0) {
+					var prevName = sections[sections.length - 1].name;
+					sections[sections.length - 1].content = body.substring(lastIdx, secMatch.index).trim();
+				}
+				var nameResult = extractArgs(body, secMatch.index + secMatch[0].length - 1, 1);
+				if (nameResult.args.length === 0) continue;
+				var name = nameResult.args[0].trim();
+				lastIdx = nameResult.end;
+				sections.push({ name: name, type: '', entries: [], enabled: true, content: '' });
+			}
+			if (sections.length > 0) {
+				sections[sections.length - 1].content = body.substring(lastIdx).trim();
+			}
+
+			for (var i = 0; i < sections.length; i++) {
+				var sec = sections[i];
+				var content = sec.content;
+				sec.type = sec.name.toLowerCase().includes('education') ? 'education' :
+					sec.name.toLowerCase().includes('skill') ? 'skills' :
+					sec.name.toLowerCase().includes('experience') ? 'experience' :
+					sec.name.toLowerCase().includes('project') ? 'projects' : 'other';
+
+				if (sec.type === 'skills') {
+					var itemIdx = content.indexOf('\\item');
+					var raw = itemIdx > -1 ? content.substring(itemIdx) : content;
+					sec.entries = [{ type: 'skills', raw: raw, name: 'Technical Skills', bullets: [], enabled: true }];
+				} else {
+					var entries = [];
+
+					// Parse \resumeSubheading entries
+					var subIdx = 0;
+					while ((subIdx = content.indexOf('\\resumeSubheading', subIdx)) !== -1) {
+						var result = extractArgs(content, subIdx + '\\resumeSubheading'.length, 4);
+						if (result.args.length === 4) {
+							var endOfEntry = result.end;
+							var bullets = extractBullets(content.substring(subIdx, endOfEntry + 300));
+							entries.push({
+								type: sec.type,
+								name: result.args[0].trim(),
+								field1: result.args[0].trim(),
+								field2: result.args[1].trim(),
+								field3: result.args[2].trim(),
+								field4: result.args[3].trim(),
+								bullets: bullets,
+								enabled: true
+							});
+							subIdx = result.end;
+						} else {
+							subIdx++;
+						}
+					}
+
+					// Parse \resumeProjectHeading entries
+					var projIdx = 0;
+					while ((projIdx = content.indexOf('\\resumeProjectHeading', projIdx)) !== -1) {
+						var result = extractArgs(content, projIdx + '\\resumeProjectHeading'.length, 2);
+						if (result.args.length >= 2) {
+							var endOfEntry = result.end;
+							var projBullets = extractBullets(content.substring(projIdx, endOfEntry + 300));
+							var rawHeading = result.args[0].trim();
+							var name = rawHeading;
+							var tech = '';
+							// Strip template: \textbf{Name} $|$ \emph{Tech}
+							var bfMatch = rawHeading.match(/\\textbf\{([^}]*)\}/);
+							if (bfMatch) name = bfMatch[1];
+							var emMatch = rawHeading.match(/\\emph\{([^}]*)\}/);
+							if (emMatch) tech = emMatch[1];
+							entries.push({
+								type: 'projects',
+								name: name,
+								field1: name,
+								tech: tech,
+								field2: result.args[1].trim(),
+								field3: '',
+								field4: '',
+								bullets: projBullets,
+								enabled: true
+							});
+							projIdx = result.end;
+						} else {
+							projIdx++;
+						}
+					}
+
+					sec.entries = entries;
+				}
+			}
+
+			return sections;
+		}
+
+		// ── Rendering ───────────────────────────────────
+
+		function renderSections() {
+			var html = '';
+			for (var i = 0; i < SECTIONS.length; i++) {
+				var sec = SECTIONS[i];
+				html += '<div class="cve-section">';
+				html += '<div class="cve-section-header">';
+				html += '<input type="checkbox" ' + (sec.enabled ? 'checked' : '') + ' onchange="toggleSection(' + i + ', this.checked)">';
+				html += escapeHtml(sec.name);
+				html += '</div>';
+
+				if (sec.type === 'skills') {
+					html += '<div class="cve-entry"><div class="cve-entry-info"><span class="title">Technical Skills</span></div></div>';
+				} else {
+					for (var j = 0; j < sec.entries.length; j++) {
+						var entry = sec.entries[j];
+						var id = i + '_' + j;
+						var subtitle = entry.type === 'projects' ? (entry.tech || entry.field2 || '') : (entry.field3 || entry.field2);
+						html += '<div class="cve-entry">';
+						html += '<input type="checkbox" style="width:16px;height:16px;accent-color:var(--accent);cursor:pointer;flex-shrink:0;" ' + (entry.enabled !== false ? 'checked' : '') + ' onchange="toggleEntry(\'' + id + '\', this.checked)" title="Include in output">';
+						html += '<div class="cve-entry-info">';
+						html += '<span class="title">' + (entry.field1 || entry.name) + '</span>';
+						html += '<span class="sub">' + subtitle + '</span>';
+						html += '</div>';
+						html += '<div class="cve-entry-actions">';
+						html += '<button class="cve-btn small" onclick="editEntry(\'' + id + '\')">Edit</button>';
+						html += '<button class="cve-btn small danger" onclick="deleteEntry(\'' + id + '\')">×</button>';
+						html += '</div>';
+						html += '</div>';
+						html += '<div id="cve-edit-' + id + '" style="display:none;"></div>';
+					}
+				}
+
+				if (sec.type === 'experience' || sec.type === 'education') {
+					html += '<button class="cve-btn small" style="margin-top:8px;" onclick="addEntry(' + i + ')">+ Add ' + (sec.type === 'education' ? 'Education' : 'Experience') + '</button>';
+				}
+				if (sec.type === 'projects') {
+					html += '<button class="cve-btn small" style="margin-top:8px;" onclick="addProject(' + i + ')">+ Add Project</button>';
+				}
+
+				html += '</div>';
+			}
+			sectionsEl.innerHTML = html;
+
+			if (editingId) {
+				showEditForm(editingId);
+			}
+		}
+
+		function escapeHtml(str) {
+			var d = document.createElement('div');
+			d.appendChild(document.createTextNode(str));
+			return d.innerHTML;
+		}
+
+		// ── Edit form ───────────────────────────────────
+
+		function getEntryById(id) {
+			var parts = id.split('_');
+			var si = parseInt(parts[0]);
+			var ei = parseInt(parts[1]);
+			if (isNaN(si) || isNaN(ei)) return null;
+			return SECTIONS[si].entries[ei];
+		}
+
+		function showEditForm(id) {
+			var panel = document.getElementById('cve-edit-' + id);
+			if (!panel) return;
+			panel.style.display = 'block';
+			editingId = id;
+			var entry = getEntryById(id);
+			if (!entry) return;
+
+			var isProject = entry.type === 'projects';
+
+			// Smart labels: detect date vs location for field2/field4
+			var f2IsDate = isDateLike(entry.field2 || '');
+			var f4IsDate = isDateLike(entry.field4 || '');
+			var f1label = isProject ? 'Name' : 'Organisation';
+			var f2label = isProject ? 'Tech Stack' : (f2IsDate ? 'Dates' : 'Location');
+			var f3label = isProject ? 'URL' : 'Role / Title';
+			var f4label = isProject ? '' : (f4IsDate ? 'Dates' : (f2IsDate ? 'Location' : 'Dates'));
+
+			var html = '<div class="cve-edit-panel">';
+			html += '<div class="cve-field"><label>' + f1label + '</label><input id="ef-1" value="' + escapeHtml(entry.field1 || '') + '"></div>';
+
+			if (isProject) {
+				html += '<div class="cve-field"><label>' + f2label + '</label><input id="ef-2" value="' + escapeHtml(entry.tech || '') + '"></div>';
+				html += '<div class="cve-field"><label>' + f3label + '</label><input id="ef-3" value="' + escapeHtml(entry.field2 || '') + '"></div>';
+			} else {
+				html += '<div class="cve-field"><label>' + f2label + '</label><input id="ef-2" value="' + escapeHtml(entry.field2 || '') + '"></div>';
+				html += '<div class="cve-field"><label>' + f3label + '</label><input id="ef-3" value="' + escapeHtml(entry.field3 || '') + '"></div>';
+				html += '<div class="cve-field"><label>' + f4label + '</label><input id="ef-4" value="' + escapeHtml(entry.field4 || '') + '"></div>';
+			}
+			html += '<div class="cve-field"><label>Bullets</label>';
+			html += '<div id="cve-bullet-list">';
+			for (var k = 0; k < entry.bullets.length; k++) {
+				html += '<div class="cve-bullet-row">';
+				html += '<input value="' + escapeHtml(entry.bullets[k]) + '" class="cve-bullet-val">';
+				html += '<button class="cve-btn small danger" onclick="deleteBullet(this)">×</button>';
+				html += '</div>';
+			}
+			html += '</div>';
+			html += '<button class="cve-btn small" onclick="addBullet()" style="margin-top:4px;">+ Add bullet</button>';
+			html += '</div>';
+			html += '<div style="margin-top:10px;">';
+			html += '<button class="cve-btn primary small" onclick="saveEdit(\'' + id + '\')">Save</button>';
+			html += '<button class="cve-btn small" onclick="cancelEdit()" style="margin-left:4px;">Cancel</button>';
+			html += '</div>';
+			html += '</div>';
+
+			panel.innerHTML = html;
+		}
+
+		// ── Edit actions ────────────────────────────────
+
+		window.editEntry = function (id) {
+			editingId = id;
+			showEditForm(id);
+		};
+
+		window.saveEdit = function (id) {
+			var entry = getEntryById(id);
+			if (!entry) return;
+			var f1 = document.getElementById('ef-1');
+			var f2 = document.getElementById('ef-2');
+			var f3 = document.getElementById('ef-3');
+			var f4 = document.getElementById('ef-4');
+			if (f1) entry.field1 = f1.value.trim();
+			var isProject = entry.type === 'projects';
+			if (isProject) {
+				if (f2) entry.tech = f2.value.trim();
+				if (f3) entry.field2 = f3.value.trim();
+			} else {
+				if (f2) entry.field2 = f2.value.trim();
+				if (f3) entry.field3 = f3.value.trim();
+				if (f4) entry.field4 = f4.value.trim();
+			}
+			entry.bullets = [];
+			var bulletInputs = document.querySelectorAll('.cve-bullet-val');
+			for (var i = 0; i < bulletInputs.length; i++) {
+				var val = bulletInputs[i].value.trim();
+				if (val) entry.bullets.push(val);
+			}
+			cancelEdit();
+			saveState();
+			renderSections();
+		};
+
+		window.cancelEdit = function () {
+			editingId = null;
+			renderSections();
+		};
+
+		window.addBullet = function () {
+			var list = document.getElementById('cve-bullet-list');
+			if (!list) return;
+			var row = document.createElement('div');
+			row.className = 'cve-bullet-row';
+			row.innerHTML = '<input class="cve-bullet-val"><button class="cve-btn small danger" onclick="deleteBullet(this)">×</button>';
+			list.appendChild(row);
+		};
+
+		window.deleteBullet = function (btn) {
+			btn.parentElement.remove();
+		};
+
+		window.deleteEntry = function (id) {
+			var parts = id.split('_');
+			var si = parseInt(parts[0]);
+			var ei = parseInt(parts[1]);
+			if (isNaN(si) || isNaN(ei)) return;
+			SECTIONS[si].entries.splice(ei, 1);
+			editingId = null;
+			saveState();
+			renderSections();
+		};
+
+		window.toggleSection = function (i, checked) {
+			SECTIONS[i].enabled = checked;
+			saveState();
+		};
+
+		window.toggleEntry = function (id, checked) {
+			var entry = getEntryById(id);
+			if (entry) { entry.enabled = checked; saveState(); }
+		};
+
+		window.addEntry = function (si) {
+			var sec = SECTIONS[si];
+			sec.entries.push({
+				type: sec.type,
+				name: 'New Entry',
+				field1: 'Company',
+				field2: 'City',
+				field3: 'Role',
+				field4: 'Jan 2026 -- Present',
+				bullets: [],
+				enabled: true
+			});
+			saveState();
+			renderSections();
+			var id = si + '_' + (sec.entries.length - 1);
+			setTimeout(function () { editEntry(id); }, 100);
+		};
+
+		window.addProject = function (si) {
+			var sec = SECTIONS[si];
+			sec.entries.push({
+				type: 'projects',
+				name: 'New Project',
+				field1: 'New Project',
+				tech: '',
+				field2: 'https://',
+				field3: '',
+				field4: '',
+				bullets: [],
+				enabled: true
+			});
+			saveState();
+			renderSections();
+			var id = si + '_' + (sec.entries.length - 1);
+			setTimeout(function () { editEntry(id); }, 100);
+		};
+
+		// ── Generate output ─────────────────────────────
+
+		function generateTex() {
+			var out = PREAMBLE + '\n\\begin{document}\n\n% --- HEADING ---\n';
+			for (var i = 0; i < SECTIONS.length; i++) {
+				var sec = SECTIONS[i];
+				if (!sec.enabled) continue;
+
+				out += '\n\\section{' + sec.name + '}\n';
+
+				if (sec.type === 'skills') {
+					if (sec.entries.length > 0 && sec.entries[0].raw) {
+						out += ' ' + sec.entries[0].raw + '\n';
+					}
+				} else {
+					out += '  \\resumeSubHeadingListStart\n';
+					for (var j = 0; j < sec.entries.length; j++) {
+						var e = sec.entries[j];
+						if (!e.enabled) continue;
+
+						if (e.type === 'projects') {
+							out += '    \\resumeProjectHeading\n';
+							var tech = e.tech || '';
+							var url = e.field2 || '';
+							out += '      {\\textbf{' + e.field1 + '}' + (tech ? ' $|$ \\emph{' + tech + '}' : '') + '}{\\href{' + url + '}{' + url + '}}\n';
+						} else {
+							out += '    \\resumeSubheading\n';
+							out += '      {' + e.field1 + '}{' + e.field2 + '}\n';
+							out += '      {' + e.field3 + '}{' + e.field4 + '}\n';
+						}
+
+						if (e.bullets && e.bullets.length > 0) {
+							out += '      \\resumeItemListStart\n';
+							for (var k = 0; k < e.bullets.length; k++) {
+								out += '        \\resumeItem{' + e.bullets[k] + '}\n';
+							}
+							out += '       \\resumeItemListEnd\n';
+						}
+					}
+					out += '  \\resumeSubHeadingListEnd\n';
+				}
+			}
+			out += '\n\\end{document}\n';
+			return out;
+		}
+
+		// ── Persistence ─────────────────────────────────
+
+		function saveState() {
+			try {
+				var data = { preamble: PREAMBLE, sections: SECTIONS };
+				localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+			} catch (e) {}
+		}
+
+		function loadState() {
+			try {
+				var raw = localStorage.getItem(STORAGE_KEY);
+				if (!raw) return false;
+				var data = JSON.parse(raw);
+				PREAMBLE = data.preamble;
+				SECTIONS = data.sections;
+				return true;
+			} catch (e) { return false; }
+		}
+
+		function clearState() {
+			localStorage.removeItem(STORAGE_KEY);
+			PREAMBLE = '';
+			SECTIONS = [];
+			editingId = null;
+			pasteArea.style.display = '';
+			editorArea.style.display = 'none';
+			outputArea.style.display = 'none';
+			texInput.value = '';
+			loadBtn.style.display = 'none';
+			clearBtn.style.display = 'none';
+			sectionsEl.innerHTML = '';
+			outputText.value = '';
+		}
+
+		// ── Event wiring ────────────────────────────────
+
+		parseBtn.addEventListener('click', function () {
+			var tex = texInput.value.trim();
+			if (!tex) { showToast('Paste your .tex file first'); return; }
+			var sections = parseLatex(tex);
+			if (!sections) { showToast('Could not parse .tex'); return; }
+			SECTIONS = sections;
+			saveState();
+			showEditor();
+		});
+
+		loadBtn.addEventListener('click', function () {
+			if (loadState()) showEditor();
+		});
+
+		clearBtn.addEventListener('click', clearState);
+
+		resetBtn.addEventListener('click', clearState);
+
+		function showEditor() {
+			pasteArea.style.display = 'none';
+			editorArea.style.display = '';
+			outputArea.style.display = 'none';
+			renderSections();
+			loadBtn.style.display = 'none';
+			clearBtn.style.display = 'none';
+		}
+
+		generateBtn.addEventListener('click', function () {
+			outputText.value = generateTex();
+			outputArea.style.display = '';
+			outputText.scrollIntoView({ behavior: 'smooth' });
+		});
+
+		copyBtn.addEventListener('click', function () {
+			var tex = outputText.value;
+			if (!tex) { showToast('Generate first'); return; }
+			navigator.clipboard.writeText(tex).then(function () {
+				showToast('Copied to clipboard!');
+			}).catch(function () {
+				outputText.select();
+				showToast('Select and copy manually');
+			});
+		});
+
+		downloadBtn.addEventListener('click', function () {
+			var tex = outputText.value;
+			if (!tex) { showToast('Generate first'); return; }
+			var blob = new Blob([tex], { type: 'text/plain' });
+			var a = document.createElement('a');
+			a.href = URL.createObjectURL(blob);
+			a.download = 'resume.tex';
+			a.click();
+		});
+
+		// ── Init ─────────────────────────────────────────
+
+		if (loadState()) {
+			editorArea.style.display = '';
+			pasteArea.style.display = 'none';
+			renderSections();
+			loadBtn.style.display = 'none';
+		} else {
+			loadBtn.style.display = 'block';
+		}
+		clearBtn.style.display = 'block';
+	})();
+	</script>
+</body>
+
+</html>
