@@ -26,14 +26,7 @@ const WEATHER_LABELS = {
 };
 
 const schedule = [
-    { screen: 'building bots', days: ['Thursday'], start: 18, end: 23 },
-    { screen: 'parkrun!', days: ['Saturday'], start: 9, end: 10 },
-    { screen: 'at the gym!', days: ['Monday', 'Wednesday', 'Friday', 'Saturday', 'Sunday'], start: 19, end: 22 },
-    { screen: 'planning', days: ['Sunday'], start: 21, end: 24 },
-    { screen: 'eating dinner', days: allDays, start: 18, end: 20 },
-    { screen: 'breakfast', days: allDays, start: 7, end: 9 },
-    { screen: 'at uni', days: weekdays, start: 9, end: 17 },
-    { screen: 'zzz...', days: allDays, start: 23, end: 7 },
+    { screen: '....zzzzzz....', days: allDays, start: 23, end: 7 },
     { screen: 'weekend :)', days: weekends, start: 0, end: 24 },
     { screen: 'unwinding', days: weekdays, start: 0, end: 24 }
 ];
