@@ -4,13 +4,15 @@ title: "Montenegro - untamed peaks and coastal sun on a Balkan budget"
 date: 2026-06-23 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/montenegro
+image: "/assets/imgs/montenegro/broadview.webp"
+description: "A complete 3-week Montenegro road trip itinerary. Discover how to explore the Bay of Kotor, hike Durmitor, and relax on Lake Skadar on a budget."
 tags: 
     - travel
 ---
 
 One morning, we were eating pastries on a balcony looking out on a Mediterranean bay. Two days later, we were standing on a windswept mountain peak at 2300m, looking over the jagged alpine landscape. 
 
-That's Montenegro - it may be smaller than Connecticut and less populous than Glaslow, but it packs incredible variety into a country you can cross in a few hours, and all on a Balkan budget. If you're only visiting some of these places, our three-week trip had **four main parts**, which you can jump to with these links:
+That's Montenegro - it may be smaller than Connecticut and less populous than Glasgow, but it packs incredible variety into a country you can cross in a few hours, and all on a Balkan budget. If you're only visiting some of these places, our three-week trip had **four main parts**, which you can jump to with these links:
 
 - [Bay of Kotor (5 nights)](#the-bay-of-kotor)
 
@@ -20,7 +22,7 @@ That's Montenegro - it may be smaller than Connecticut and less populous than Gl
 
 - [Skadar Lake (3 nights)](#skadar-lake)
 
-![Map](/assets/imgs/montenegro/map.webp)
+![Rough three-week travel route map of Montenegro](/assets/imgs/montenegro/map.webp)
 Our rough route
 {: .caption}
 
@@ -33,10 +35,9 @@ The view from the top of [Mount Prutas](#durmitor-ring-and-mount-prutas)
 
 ## The Bay of Kotor
 
-We flew into Podgorica, picked up our rental car from local car hire company Terrae-Car (*we recommend*) and drove north-west across the coast to the Bay of Kotor, where we had an AirBnB in the western town of Muo!
+We flew into Podgorica and picked up our rental car from local car hire company Terrae-Car, who we'd happily recommend. After spending a night in a nearby airport hotel, we woke up and drove north-west across the coast to the Bay of Kotor, where we checked into our AirBnB in the western town of Muo!
 
 On the way, we passed Sveti Stefan, famous for its peninsula island. While the island is reserved for guests of the luxury hotel, you can park at the higher St Sava Church, where the view (and the sea breeze!) is better.
-
 
 ![Sveti Stefan from St Sava Church](/assets/imgs/montenegro/svetistefan.webp)
 
@@ -53,7 +54,7 @@ The ridge also houses a local farm owned by a man called Goran, who you'll likel
 
 We tracked around 25,000 steps this day, a solid start to our hiking journey!
 
-![Lizard!](/assets/imgs/montenegro/lizard.webp)
+![Lizard on Franz Joseph Stairs, Montenegro](/assets/imgs/montenegro/lizard.webp)
 
 We were joined by a slithery friend halfway through 
 {: .caption}
@@ -64,7 +65,7 @@ If you are looking for a break in this hiking holiday to buy some souvenirs, Kot
 
 The highlight of the old town in my opinion was the Cat Museum - a strange theme throughout the whole town, due to the large numbers of stray cats. The museum takes an entry fee of €1, in cash only, which is negligible and goes towards the upkeep of the local stray cats. For an extra €2.50, you can buy a certificate to sign up your cat to be officially part of the Kotor Cat Society! It's packed with old stamps, advertisements, cartoon strips, and other cat media throughout history. 
 
-![Cat Museum](/assets/imgs/montenegro/catmuseum.webp)
+![Cat Museum, Kotor Old Town, Montenegro](/assets/imgs/montenegro/catmuseum.webp)
 
 We walked so much, we really don't know the meaning of 'rest' day.
 
@@ -75,7 +76,7 @@ If you are hiking the Ladder of Kotor, try to start early - the middle of the da
 
 The switchbacks seem endless, but the views of the bay opening up beneath you as you climb are well worth the burning calves. 
 
-![Bay of Kotor](/assets/imgs/montenegro/kotor.webp)
+![Bay of Kotor, Montenegro](/assets/imgs/montenegro/kotor.webp)
 
 
 The Bay from the top of the Ladder
@@ -99,7 +100,7 @@ We rode the Alpine Coaster for €12 each, and while a very touristy thing to do
 
 After our coaster ride, we shared a four-cheese pizza and drinks at Forza Kuk, the panoramic balcony restaurant which looks over the entire Bay of Boka below you. We also got a frozen banana at Bob's Frozen Bananas, a ridiculous and overpriced delicacy which was well worth the price for the whimsical experience of running to the cable car queue brandishing a chocolate-covered banana on a stick.
 
-![Kotor cable car](/assets/imgs/montenegro/alpine.webp)
+![Kotor cable car peak, Montenegro](/assets/imgs/montenegro/alpine.webp)
 
 The views from the Kotor Cable Car are well worth the trip
 {: .caption}
@@ -125,7 +126,7 @@ The lake itself is almost split into two parts by peninsulas, and features some 
 
 We went through a packet of trail mix and some sunflower seeds and sat on one of the benches for a while listening to the birds and looking at the small fields of alpine buttercups swaying in the breeze. Despite a lot of people being around and on the path, it still felt remote and quiet enough to contemplate the mountainous scene surrounding us. 
 
-![Black lake](/assets/imgs/montenegro/black_lake.webp)
+![Black lake, Durmitor National Park, Montenegro](/assets/imgs/montenegro/black_lake.webp)
 
 Black Lake, Durmitor National Park 
 {: .caption}
@@ -146,26 +147,25 @@ We headed south from Zabljak, and entered the ring **counter-clockwise**, headin
 
 The top is absolutely worth the climb - from all sides, you overlook massive drops - the deep, glacial valley containing the Skrcko Lakes, the jutting limestone daggers which are famous for their unusual formation, and most importantly, the grassy hills below where you just spent two hours hiking up.
 
-![The summit!](/assets/imgs/montenegro/peakofmountprutas.webp)
+![The summit of Mount Prutas, Durmitor National Park, Montenegro](/assets/imgs/montenegro/peakofmountprutas.webp)
 
 The summit!
 {: .caption}
 
 The wildlife is sparse, but watch out for mountain goats (*Chamois*, a goat-antelope) on the trail - they live there, you're just passing through! Walk around the trail if possible and keep your distance.
 
-![Goat](/assets/imgs/montenegro/goatrude.webp)
+![Mountain Goat Chamois Montenegro](/assets/imgs/montenegro/goatrude.webp)
 
 Goat-antelope we saw on our way down
 {: .caption}
 
-We got back in the car at around 4pm - with still around four hours until sunset, we decided to continue driving the Durmitor Ring. This took us through several villages, including the scattered *Lice* and the farming village of *Trsa*. It took about two and a half more hours of driving until we ended up back in Zabljak.
+We got back in the car at around 4pm - with still around four hours until sunset, we decided to continue driving the Durmitor Ring. 
+The drive is well worth it if you are a sucker for views - we drove through plateaus, ridges, over the hills as the sun set across fields of buttercups, through dense forests, and down the dramatic Susica Canyon. It took us through several small villages, including the scattered *Lice* and the farming village of *Trsa*. After around two and a half hours of driving, we ended up back in Zabljak for dinner.
 
-![Durmitor Ring](/assets/imgs/montenegro/ring.webp)
+![Durmitor Ring, National Park, Drive](/assets/imgs/montenegro/ring.webp)
 
 The Durmitor Ring 
 {: .caption}
-
-The drive is well worth it if you are a sucker for views - we drove through plateaus, ridges, over the hills as the sun set across fields of buttercups, through dense forests, down the Susica Canyon, before finally looping back up again, after about two more hours of driving, to Zabljak for dinner! 
 
 We spent our last day in Durmitor visiting the [Curevac Viewpoint](https://roadtripster.net/montenegro/curevac-tara-river-canyon), which was a twenty-minute drive from Zabljak and offered stunning views of the canyon below. We avoided visiting Tara Bridge, as it was under construction at the time and not accessible via car. If the construction has finished when you're reading (around 2027) then I would recommend a visit, as it's only another 30 minutes and is an incredible feat of architecture.
 
@@ -182,7 +182,7 @@ The trail starts in a dense, shady forest, where you'll stay for the first forty
 
 Standing on the edge of the Volušnica peak was a very rewarding view. The sheer jagged limestone ridges of the Karanfili peaks go straight up, looking wild and dramatic. After we stopped to eat our packed snacks and take lots of photos, we turned around and retraced our steps into the forest and back to our car, satisfied with our hike.
 
-![Me in front of the Volušnica Peak](/assets/imgs/montenegro/indyprokletije.webp)
+![Me in front of the Volušnica Peak, Prokletije National Park](/assets/imgs/montenegro/indyprokletije.webp)
 
 The Karanfili peaks behind me
 {: .caption}
@@ -205,7 +205,7 @@ On a whim after seeing a video online, we decided to see if we could do some hor
 
 We were complete beginners, but the horses were well-trained and confident. Riding through the alpine meadows on horseback was an unforgettable experience and absolutely worth it in our opinion!
 
-![Horseback](/assets/imgs/montenegro/horseback.webp)
+![Horse ride in Prokletije National Park, Grebaje Valley](/assets/imgs/montenegro/horseback.webp)
 
 The view from horseback!
 {: .caption}
@@ -214,11 +214,11 @@ We were very sad to leave Mak the dog, but we had to hit the road on Saturday mo
 
 ## Skadar Lake
 
-A three-hour drive south through Podgorica and another stop for fuel, we arrived by the side of Lake Skadar! We were greeted at our apartment, [Plamenatz Studio Apartments](https://www.booking.com/hotel/me/plamenatz-studio-apartments.sr.html), by a very friendly family, two shots of alcohol and a lovely air conditioned room.
+A three-hour drive south through Podgorica and another stop for fuel, we arrived by the side of Lake Skadar! We were greeted at our apartment, [Plamenatz Studio Apartments](https://www.booking.com/hotel/me/plamenatz-studio-apartments.sr.html), by a very friendly family, two shots of alcohol and a lovely air-conditioned room.
 
 The apartment offers a dinner menu cooked by the mother, and we had several courses, including trout and chicken, soups, bread, and even *homemade wine* brewed by the son.
 
-![Wine](/assets/imgs/montenegro/wine.webp)
+![Traditional trout dinner and homemade wine at sunset over Lake Skadar](/assets/imgs/montenegro/wine.webp)
 The main course in the sunset
 {: .caption}
 
@@ -230,20 +230,20 @@ The only thing we had planned for Skadar was a boat tour on the lake, which we o
 
 > **Ignore** the people coming up to you as you drive into Virpazar. They are **con artists**, they will rinse you for an overpriced boat tour. They force you into the car park, claim it is 'private property' (it is **not**, it is a **free car park**) and tell you that if you don't buy their boat tour, they will damage your car. Instead, book through the many other, cheaper boat operators by the water, or online.
 
-We went on the lake in a private wooden boat, captained by a very competent English-speaking Montenegrin 18-year old. The tour was a romantic and relaxing 2-hour exploration of the lily-pad covered lake, interspersed with historic facts about the 13th century monastery, or the abandonded ruin of *Grmozur Fortress* on the lake. Nicknamed *the Montenegrin Alcatraz*, it was an island prison built by the Ottomans, and to prevent escape it was populated only by inmates who did not know how to swim.
+We went on the lake in a private wooden boat, captained by a very competent English-speaking Montenegrin 18-year old. The tour was a romantic and relaxing 2-hour exploration of the lily-pad covered lake, interspersed with historic facts about the 13th-century monastery, or the abandoned ruin of *Grmozur Fortress* on the lake. Nicknamed *the Montenegrin Alcatraz*, it was an island prison built by the Ottomans, and to prevent escape it was populated only by inmates who did not know how to swim.
 
 ![Skadar Lake](/assets/imgs/montenegro/lake2.webp)
 Lily pads on Lake Skadar
 {: .caption}
 
 
-We woke up on the last day, reluctantly stuffed our belongings into our checkin bag, packed it into the hirecar, and left our last Montenegrin beds! We made a last pit stop at VOLI for a hot lunch, and then drove to Podgorica Airport to return our Toyota to Marko of Terrae-Car scratch-free. We made a dash across the hot car park to the air conditioned terminal, and checked our bag into the Ryanair return flight home!
+We woke up on the last day, reluctantly stuffed our belongings into our check-in bag, packed it into the hire car, and left our last Montenegrin beds! We made a last pit stop at VOLI for a hot lunch, and then drove to Podgorica Airport to return our Toyota to Marko of Terrae-Car scratch-free. We made a dash across the hot car park to the air conditioned terminal, and checked our bag into the Ryanair return flight home!
 
-Landing in London was a bittersweet but very satisfied ending to what has been the best holiday of my life. (Note that unlike usual, we landed in thirty-five degree heat as London is in a heatwave. Bay of Kotor here we come again!)
+Landing in London was a deserved ending to this incredible holiday. Note that unlike usual, we landed in 35-degree heat, as London is suffering from a heatwave. Bay of Kotor here we come again!
 
 ## Overall
 
-We were very sad to leave Montenegro, as we had become quite attached to VOLIs and the local customs.
+We were very sad to leave Montenegro, as we had become quite attached to VOLIs and the local customs. It is rare to find a destination where you can transition from a coastal Mediterranean paradise to alpine wilderness in a single afternoon. What makes Montenegro so special is its rawness - exploring abandoned fortresses, finding stray puppies, and booking boat tours through local families. It requires adaptability and a wallet full of cash, but for a budget-friendly destination, it delivers a world-class adventure. It was a bittersweet goodbye to a country that had given us the best trip of our lives.   
 
 ## Know Before You Go
 
