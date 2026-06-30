@@ -256,16 +256,16 @@
 					<div class="about-item">
 						<h3 id="faves">My Favourite Things</h3>
 						<ul>
-						<li><b>Films:</b> Dr Strangelove, 12 Angry Men, Trainspotting, The Italian Job,
-							Electric Dreams, Duel</li>
-							<li><b>Books:</b> I Who Have Never Known Men, Before the Coffee Gets Cold, The Invisible
+						<li><b>Films:</b> <span data-fave="films">Dr Strangelove, 12 Angry Men, Trainspotting, The Italian Job,
+							Electric Dreams, Duel</span></li>
+							<li><b>Books:</b> <span data-fave="books">Douglas Adams, Before the Coffee Gets Cold, The Invisible
 								Man,
 								Piranesi, Smiley's
-								People</li>
-							<li><b>Games:</b> Portal 1 & 2, OpenTTD, Rimworld, Celeste, Papers Please, Professor Layton,
-								The Sims (2), Driver San Francisco</li>
-							<li><b>Music:</b> New Order, Ultravox, Edenheight, Eels, Los Campesinos!, Montreal, Tonka B,
-								Moby, Muse, Bright Eyes, Dire Straits</li>
+								People</span></li>
+							<li><b>Games:</b> <span data-fave="games">Portal 1 & 2, OpenTTD, Rimworld, Celeste, Papers Please, Professor Layton,
+								The Sims (2), Driver San Francisco</span></li>
+							<li><b>Music:</b> <span data-fave="music">New Order, Ultravox, Edenheight, Eels, Los Campesinos!, Montreal, Tonka B,
+								Moby, Muse, Bright Eyes, Dire Straits</span></li>
 							<li>If you want an easy way to track your favourite things too, check out <a
 									href="https://headandheart.app">Head and Heart</a>!</li>
 						</ul>
@@ -326,6 +326,21 @@
 	<script src="js/status-updates.js" defer></script>
 	<script src="js/nav-transition.js" defer></script>
 	<script src="js/copy-email.js" defer></script>
+	<script>
+		(function () {
+			var GIST_ID = 'a21e6d6b15cdc211d40baf971b472fb5';
+			var url = 'https://gist.githubusercontent.com/Lem0naise/' + GIST_ID + '/raw/faves.json';
+			fetch(url)
+				.then(function (r) { if (!r.ok) throw Error(); return r.json(); })
+				.then(function (data) {
+					['films', 'books', 'games', 'music'].forEach(function (key) {
+						var el = document.querySelector('[data-fave="' + key + '"]');
+						if (el && data[key]) el.textContent = data[key];
+					});
+				})
+				.catch(function () {});
+		})();
+	</script>
 </body>
 
 </html>

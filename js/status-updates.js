@@ -100,6 +100,24 @@ class StatusUpdates {
             el.innerHTML = formattedHTML;
         });
     }
+
+    // Like updateAsciiFields but preserves HTML (links etc) — no &nbsp; conversion,
+    // no truncation. Used for screen text where <a> tags may appear.
+    setAsciiHTML(elements, html, maxLength, align) {
+        if (!elements || elements.length === 0) return;
+        align = align || 'left';
+        var plain = (html || '').replace(/<[^>]*>/g, '');
+        var safeText = plain.length > maxLength ? plain.substring(0, maxLength - 2) + '..' : plain;
+        var pad = Math.max(0, maxLength - plain.length);
+        var padded = align === 'right' ? safeText.padStart(maxLength, ' ') : safeText.padEnd(maxLength, ' ');
+        // Only pad the plain part, keep HTML intact
+        var result = html;
+        for (var i = 0; i < pad; i++) result += ' ';
+        elements.forEach(function (el) {
+            el.scrollLeft = 0;
+            el.innerHTML = result.replace(/ /g, '&nbsp;');
+        });
+    }
     
     startClock() {
         const updateClock = () => {
@@ -286,7 +304,7 @@ class StatusUpdates {
 
     applyCurrentlyDoing() {
         const doing = this.generateCurrentlyDoing();
-        this.startMarquee('_act', this.ascActs, doing.msg.screen, 24, 'left');
+        this.setAsciiHTML(this.ascActs, doing.msg.screen, 24, 'left');
         this.updateAsciiFields(this.ascDays, doing.day.toUpperCase(), 9);
     }
 
