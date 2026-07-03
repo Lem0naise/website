@@ -26,6 +26,7 @@
     font-family: var(--font-main, inherit);
     letter-spacing: 1px;
     color: var(--text);
+    display: none;
 }
 
 /* ── Contact Pills ── */
@@ -33,7 +34,8 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    display: none;
 }
 
 .cv-contact-pill {
@@ -71,7 +73,7 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin: 0 0 0.4rem 0;
+    margin: 0 0 0 0 !important;
     font-family: var(--font-main, inherit);
 }
 
@@ -114,6 +116,7 @@
 }
 
 .cv-entry-right {
+    display: inline;
     text-align: right;
     white-space: nowrap;
     font-size: 0.8rem;
@@ -277,7 +280,7 @@
 
     .cv-contacts {
         gap: 0.35rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 0.2rem;
     }
 
     .cv-contact-pill {
@@ -286,7 +289,7 @@
     }
 
     .cv-section {
-        margin-bottom: 1.25rem;
+        margin-bottom: 0.5rem;
     }
 
     .cv-section-title {
@@ -299,7 +302,6 @@
 
     .cv-entry-header,
     .cv-entry-subtitle-row {
-        flex-direction: column;
         gap: 0.1rem;
     }
 
@@ -312,6 +314,7 @@
 
     .cv-entry-title {
         font-size: 0.95rem;
+        color: var(--text);
     }
 
     .cv-bullets {
