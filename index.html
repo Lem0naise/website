@@ -98,7 +98,7 @@
 				<div class="hero-intro">
 					<span class="hero-hey">HEY, I'M</span>
 					<h1>Indigo Nolan</h1>
-					<p class="hero-tagline">Full-stack web dev building webapps, games, and tools</p>
+					<p class="hero-tagline">Intern @ Netcraft, CS Student @ Southampton</p>
 				</div>
 
 				<div class="looking-for">
@@ -327,6 +327,17 @@
 	<script src="js/nav-transition.js" defer></script>
 	<script src="js/copy-email.js" defer></script>
 	<script>
+		(function () {
+			var GIST_ID = '33f03b846e4abd4f05fc698d9b6ee1fc';
+			var url = 'https://gist.githubusercontent.com/Lem0naise/' + GIST_ID + '/raw/aboutme.txt';
+			fetch(url)
+				.then(function (r) { if (!r.ok) throw Error(); return r.text(); })
+				.then(function (text) {
+					var el = document.querySelector('.hero-tagline');
+					if (el && text.trim()) el.textContent = text.trim();
+				})
+				.catch(function () {});
+		})();
 		(function () {
 			var GIST_ID = 'a21e6d6b15cdc211d40baf971b472fb5';
 			var url = 'https://gist.githubusercontent.com/Lem0naise/' + GIST_ID + '/raw/faves.json';
