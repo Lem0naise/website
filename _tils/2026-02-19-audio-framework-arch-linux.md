@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: til
 title: "Fix Audio on Framework Laptop (Arch Linux)"
-date: 2026-02-19 10:00:00 0000
+date: 2026-02-19 10:00:00 +0000
 permalink: /guides/audio-framework-arch-linux
 tags: 
     - linux

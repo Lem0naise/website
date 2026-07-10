@@ -6,13 +6,13 @@ const API_BASE = 'https://indigo-worker.soft-resonance-63c0.workers.dev';
 const GIST_URL = 'https://gist.githubusercontent.com/Lem0naise/5a9a13fb6f77909b8d2833f9e69565cb/raw/schedule.json';
 
 const WEATHER_ICONS = {
-    0: 'fa-sun', 1: 'fa-sun', 2: 'fa-cloud-sun', 3: 'fa-cloud',
-    45: 'fa-smog', 48: 'fa-smog', 51: 'fa-cloud-rain', 53: 'fa-cloud-rain',
-    55: 'fa-cloud-rain', 56: 'fa-cloud-meatball', 57: 'fa-cloud-meatball', 61: 'fa-cloud-rain',
-    63: 'fa-cloud-rain', 65: 'fa-cloud-showers-heavy', 66: 'fa-cloud-meatball', 67: 'fa-cloud-showers-heavy',
-    71: 'fa-snowflake', 73: 'fa-snowflake', 75: 'fa-snowflake', 77: 'fa-snowflake',
-    80: 'fa-cloud-rain', 81: 'fa-cloud-rain', 82: 'fa-cloud-showers-heavy', 85: 'fa-snowflake',
-    86: 'fa-snowflake', 95: 'fa-bolt', 96: 'fa-bolt', 99: 'fa-bolt'
+    0: '☀', 1: '☀', 2: '⛅', 3: '☁',
+    45: '🌫', 48: '🌫', 51: '🌧', 53: '🌧',
+    55: '🌧', 56: '🌨', 57: '🌨', 61: '🌧',
+    63: '🌧', 65: '🌧', 66: '🌨', 67: '🌧',
+    71: '❄', 73: '❄', 75: '❄', 77: '❄',
+    80: '🌧', 81: '🌧', 82: '🌧', 85: '❄',
+    86: '❄', 95: '⛈', 96: '⛈', 99: '⛈'
 };
 
 const WEATHER_LABELS = {
@@ -33,7 +33,6 @@ const schedule = [
 
 class StatusUpdates {
     constructor() {
-        // Collect NodeLists for both layouts
         this.ascTimes   = document.querySelectorAll('.asc-time-display');
         this.ascDays    = document.querySelectorAll('.asc-day');
         this.ascActs    = document.querySelectorAll('.asc-act');
@@ -45,8 +44,33 @@ class StatusUpdates {
         this.ascTotals  = document.querySelectorAll('.asc-total');
         this.ascLasts   = document.querySelectorAll('.asc-last');
         this.ascBlogs   = document.querySelectorAll('.asc-blog');
+        this.intervals = [];
 
         this.init();
+    }
+
+    setInterval(fn, ms) {
+        const id = window.setInterval(fn, ms);
+        this.intervals.push(id);
+        return id;
+    }
+
+    clearAllIntervals() {
+        this.intervals.forEach(function (id) { clearInterval(id); });
+        this.intervals = [];
+        this.stopMarquee('_song');
+    }
+
+    bindVisibility() {
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                this.stopMarquee('_song');
+                return;
+            }
+            this.applyCurrentlyDoing();
+            this.applyWeatherStatus();
+            this.applySpotifyStatus();
+        });
     }
 
     async init() {
@@ -55,17 +79,24 @@ class StatusUpdates {
             schedule.unshift(...overrides);
         }
 
+        this.bindVisibility();
         this.startClock();
         this.loadGitHubActivity();
         this.applyCurrentlyDoing();
         this.applyWeatherStatus();
         this.applySpotifyStatus();
         this.loadLatestPost();
-
-        setInterval(() => this.applyCurrentlyDoing(), 60000);
-        setInterval(() => this.applySpotifyStatus(), 30000);
-        
         this.initKudos();
+
+        this.setInterval(() => {
+            if (document.hidden) return;
+            this.applyCurrentlyDoing();
+            this.applyWeatherStatus();
+        }, 60000);
+        this.setInterval(() => {
+            if (document.hidden) return;
+            this.applySpotifyStatus();
+        }, 60000);
     }
 
     initKudos() {
@@ -79,6 +110,10 @@ class StatusUpdates {
 
     async getGistOverrides() {
         try {
+            if (window.GistLoader) {
+                const data = await GistLoader.fetchGistJson('Lem0naise', '5a9a13fb6f77909b8d2833f9e69565cb', 'schedule.json');
+                return Array.isArray(data) ? data : [];
+            }
             const res = await fetch(GIST_URL);
             if (!res.ok) return [];
             const data = await res.json();
@@ -131,7 +166,7 @@ class StatusUpdates {
             this.updateAsciiFields(this.ascTimes, `${hours}:${minutes} ${ampm}`, 8);
         };
         updateClock();
-        setInterval(updateClock, 1000);
+        this.setInterval(updateClock, 1000);
     }
 
     /* ── GitHub activity ─────────────────────────── */
@@ -143,6 +178,7 @@ class StatusUpdates {
         }
         try {
             const res = await fetch(`${API_BASE}/github`);
+            if (!res.ok) throw new Error('Worker github fetch failed');
             const data = await res.json();
             localStorage.setItem('codingStreak', JSON.stringify({ data, timestamp: Date.now() }));
             return data;
@@ -171,7 +207,10 @@ class StatusUpdates {
 
     async loadGitHubActivity() {
         try {
-            const [activity, githubData] = await Promise.all([this.getRecentGitHubActivity(), this.getCodingStreak()]);
+            const [activity, githubData] = await Promise.all([
+                this.getRecentGitHubActivity(),
+                this.getCodingStreak()
+            ]);
             const total = githubData.totalContributions || 0;
 
             if (githubData.createdAt) {
@@ -191,17 +230,16 @@ class StatusUpdates {
             this.updateAsciiFields(this.ascTotals, total.toLocaleString(), 10);
 
             if (activity && activity.repo) {
-                const diff = Date.now() - new Date(activity.date).getTime();
                 var repoName = activity.repo.split('/')[1] || activity.repo;
                 var maxRepo = 10 - 1;
                 if (repoName.length > maxRepo) repoName = repoName.substring(0, maxRepo - 1) + '\u2026';
                 var link = '<a href="https://github.com/' + activity.repo + '" target="_blank">' + repoName + '</a> ';
                 this.setAsciiLink(this.ascLasts, link, 12);
             } else {
-                this.setAsciiLink(this.ascLasts, 'caching...', 12);
+                this.setAsciiLink(this.ascLasts, '--', 12);
             }
         } catch (e) {
-             this.setAsciiLink(this.ascLasts, 'error', 12);
+             this.setAsciiLink(this.ascLasts, '--', 12);
         }
     }
 
@@ -247,6 +285,7 @@ class StatusUpdates {
     }
 
     startMarquee(key, elements, text, width, align) {
+        if (document.hidden) return;
         this.stopMarquee(key);
 
         if (text.length <= width) {
@@ -268,7 +307,7 @@ class StatusUpdates {
         };
 
         tick();
-        this[key + 'Timer'] = setInterval(tick, 350);
+        this[key + 'Timer'] = window.setInterval(tick, 350);
     }
 
     stopMarquee(key) {
@@ -359,15 +398,25 @@ class StatusUpdates {
         const data = await this.getWeatherStatus();
         if (!data) return;
 
-        const hour = `${new Date().toISOString().substring(0, 13)}:00`;
+        const londonHour = new Intl.DateTimeFormat('en-GB', {
+            timeZone: 'Europe/London',
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            hour12: false
+        }).formatToParts(new Date());
+        const parts = Object.fromEntries(londonHour.map(p => [p.type, p.value]));
+        const hour = `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:00`;
         const idx = data.hourly.time.findIndex(t => t.startsWith(hour));
         const code = idx !== -1 ? data.hourly.weather_code[idx] : 3;
-        
-        const faClass = WEATHER_ICONS[code] || 'fa-cloud';
+
+        const icon = WEATHER_ICONS[code] || '☁';
         const label = WEATHER_LABELS[code] || 'UNKNOWN';
 
         this.ascWIcos.forEach(function (el) {
-            el.className = 'asc-accent asc-w-icon fa-solid ' + faClass;
+            el.textContent = icon;
+            el.className = 'asc-accent asc-w-icon';
         });
         this.updateAsciiFields(this.ascWLbls, label, 7);
     }

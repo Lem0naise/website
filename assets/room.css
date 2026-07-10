@@ -14,7 +14,8 @@
     white-space: pre !important;
 
     
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
 
 }
 .about-room img {
@@ -29,9 +30,10 @@ html.dark-mode .asc-time-display { color: #e0e0e0; }
 
 .ascii-room .asc-w-icon {
 	display: inline-block;
-	width: 20px;
+	width: 1.2em;
 	text-align: center;
-	font-size: 13px;
+	font-size: 1em;
+	line-height: 1;
 }
 
 /* Responsive Visibility Toggles */

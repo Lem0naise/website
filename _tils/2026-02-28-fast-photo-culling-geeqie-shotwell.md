@@ -1,7 +1,8 @@
 ---
-layout: post
+layout: til
 title: "Fast Lightweight Photo Culling and Editing on Linux"
 date: 2026-02-28 13:21:26 +0000
+permalink: /guides/fast-photo-culling-and-editing-on-linux
 tags: 
     - linux
     - photography

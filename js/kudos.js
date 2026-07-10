@@ -4,12 +4,14 @@
  *
  * localStorage keys:
  *   kudosCount_<path>  { count, timestamp }  — cached per-path
- *   kudosClicks        { count, windowStart } — rate-limit: max 10/min
+ *   kudosClicks        { count, windowStart } — rate-limit: max 5/min
  */
 const KUDOS_API = 'https://indigo-worker.soft-resonance-63c0.workers.dev/visit';
 const KUDOS_TTL = 5 * 60 * 1000;
 const KUDOS_RATE = 60 * 1000;
-const KUDOS_MAX = 5; //5
+const KUDOS_MAX = 5;
+
+const kudosListeners = new Map();
 
 function cacheKey(path) {
     return 'kudosCount_' + (path || '_global');
@@ -26,9 +28,28 @@ function getCachedCount(path) {
 }
 
 function setCachedCount(path, count) {
+    if (typeof count !== 'number') return;
     try {
         localStorage.setItem(cacheKey(path), JSON.stringify({ count, timestamp: Date.now() }));
     } catch (_) {}
+}
+
+function notifyKudosListeners(path, count) {
+    const key = path || '';
+    const listeners = kudosListeners.get(key);
+    if (!listeners) return;
+    listeners.forEach(function (fn) {
+        try { fn(count); } catch (_) {}
+    });
+}
+
+function subscribeKudosCount(path, fn) {
+    const key = path || '';
+    if (!kudosListeners.has(key)) kudosListeners.set(key, new Set());
+    kudosListeners.get(key).add(fn);
+    return function unsubscribe() {
+        kudosListeners.get(key).delete(fn);
+    };
 }
 
 function getRateState() {
@@ -52,6 +73,20 @@ function recordClick() {
     return updated.count;
 }
 
+async function parseKudosResponse(resp) {
+    if (!resp.ok) throw new Error('Kudos fetch failed: ' + resp.status);
+    const data = await resp.json();
+    if (typeof data.count !== 'number') throw new Error('Invalid kudos response');
+    return data.count;
+}
+
+async function parseTotalResponse(resp) {
+    if (!resp.ok) throw new Error('Total fetch failed: ' + resp.status);
+    const data = await resp.json();
+    if (typeof data.total !== 'number') throw new Error('Invalid total response');
+    return data.total;
+}
+
 // ── Core API calls ────────────────────────────────────────────────────
 
 async function fetchKudosCount(path) {
@@ -59,17 +94,19 @@ async function fetchKudosCount(path) {
     if (cached !== null) return cached;
     const url = path ? KUDOS_API + '?path=' + path : KUDOS_API;
     const resp = await fetch(url);
-    const data = await resp.json();
-    setCachedCount(path, data.count);
-    return data.count;
+    const count = await parseKudosResponse(resp);
+    setCachedCount(path, count);
+    notifyKudosListeners(path, count);
+    return count;
 }
 
 async function postKudos(path) {
     const url = path ? KUDOS_API + '?path=' + path : KUDOS_API;
     const resp = await fetch(url, { method: 'POST' });
-    const data = await resp.json();
-    setCachedCount(path, data.count);
-    return data.count;
+    const count = await parseKudosResponse(resp);
+    setCachedCount(path, count);
+    notifyKudosListeners(path, count);
+    return count;
 }
 
 async function fetchTotalCount() {
@@ -77,10 +114,42 @@ async function fetchTotalCount() {
     if (cached !== null) return cached;
     try {
         const resp = await fetch(KUDOS_API.replace('/visit', '/total'));
-        const data = await resp.json();
-        setCachedCount('__total', data.total);
-        return data.total;
+        const total = await parseTotalResponse(resp);
+        setCachedCount('__total', total);
+        return total;
     } catch (_) { return null; }
+}
+
+function initLazyKudosCounts(selector) {
+    const elements = document.querySelectorAll(selector);
+    if (!elements.length) return;
+
+    const load = function (el) {
+        const path = el.getAttribute('data-path');
+        if (!path || el.dataset.kudosLoaded) return;
+        el.dataset.kudosLoaded = '1';
+        fetchKudosCount(path).then(function (count) {
+            el.textContent = '♥ ' + count.toLocaleString();
+        }).catch(function () {
+            el.textContent = '';
+        });
+    };
+
+    if (!('IntersectionObserver' in window)) {
+        elements.forEach(load);
+        return;
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                load(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { rootMargin: '100px' });
+
+    elements.forEach(function (el) { observer.observe(el); });
 }
 
 // ── Mount a kudos widget ──────────────────────────────────────────────
@@ -94,6 +163,7 @@ window.mountKudos = async function mountKudos(container, opts = {}) {
         layout = 'inline',
         label = '',
         path = null,
+        onCountChange = null,
     } = opts;
 
     container.classList.add('kudos-widget');
@@ -126,6 +196,7 @@ window.mountKudos = async function mountKudos(container, opts = {}) {
                 container.innerHTML = '<span class="kudos-count">' + fmt + '</span> kudos — <span class="kudos-count">' + ctaText + '</span>';
             }
         }
+        if (onCountChange) onCountChange(count);
     }
 
     let renderTimeout = null;
@@ -147,6 +218,11 @@ window.mountKudos = async function mountKudos(container, opts = {}) {
         render('default');
     }
 
+    subscribeKudosCount(path, function (newCount) {
+        count = newCount;
+        render('default');
+    });
+
     container.addEventListener('click', function () {
         if (getRateState().count >= KUDOS_MAX) {
             render('slow');
@@ -161,11 +237,16 @@ window.mountKudos = async function mountKudos(container, opts = {}) {
 
         postKudos(path).then(function (newCount) {
             count = newCount;
-        }).catch(function () {});
+            render('default');
+        }).catch(function () {
+            count = Math.max(0, count - 1);
+            render('default');
+        });
     });
 };
 
-// Expose for use by status-updates.js and blog page
 window.fetchKudosCount = fetchKudosCount;
 window.postKudos = postKudos;
 window.fetchTotalCount = fetchTotalCount;
+window.initLazyKudosCounts = initLazyKudosCounts;
+window.subscribeKudosCount = subscribeKudosCount;

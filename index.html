@@ -6,13 +6,13 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
+	<link rel="preconnect" href="https://gist.githubusercontent.com">
 	<link rel="preconnect" href="https://api.github.com">
 	<link rel="preconnect" href="https://api.open-meteo.com">
 	<link rel="preconnect" href="https://indigo-worker.soft-resonance-63c0.workers.dev">
 	<link rel="preload" href="/fonts/syne-mono-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 	<title>Indigo Nolan - Building Web Apps, Games &amp; Tools</title>
 	<link rel="stylesheet" href="stylesheet.css?version=0.10">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 	<link rel="stylesheet" href="assets/room.css?version=0.10">
 	<link rel="icon" type="image/x-icon" href="favicon.ico">
 	<script src="/js/dark-init.js"></script>
@@ -94,7 +94,7 @@
 
 	<main id="cont">
 		<section class="welcome-section">
-			<div class="welcome-content glass-card">
+			<div class="welcome-content">
 				<div class="hero-intro">
 					<span class="hero-hey">HEY, I'M</span>
 					<h1>Indigo Nolan</h1>
@@ -186,7 +186,7 @@
    +-------------+                           +-------------------------+
    | ~ WEATHER ~ |                           |     ~ MY STATS ~        |
    |             |                           | Blogged: <span class="asc-blog asc-data">...       </span>|
-   |     <i class="asc-accent asc-w-icon fa-solid fa-cloud"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |                           | Active: <span class="asc-streak asc-data">...       </span>   |
+   |     <span class="asc-accent asc-w-icon">☁</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |                           | Active: <span class="asc-streak asc-data">...       </span>   |
    |             |                           | Commits:  <span class="asc-total asc-data">...       </span>    |
    +-------------+                           | Push: <span class="asc-last asc-data">...     </span>      |
                                              | Likes: <span class="asc-kudos asc-data">...       </span>       |
@@ -204,7 +204,7 @@
 +-------------+  +----------------------+
 | ~ WEATHER ~ |  |     ~ MY STATS ~     |
 |             |  | Blog: <span class="asc-blog asc-data">...       </span>|
-|    <i class="asc-accent asc-w-icon fa-solid fa-cloud"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  | Active: <span class="asc-streak asc-data">...       </span>|
+|    <span class="asc-accent asc-w-icon">☁</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |  | Active: <span class="asc-streak asc-data">...       </span>|
 |             |  | Push:  <span class="asc-last asc-data">...       </span>  |
 +-------------+  | Commits:  <span class="asc-total asc-data">...       </span> |
                  | Likes: <span class="asc-kudos asc-data">...       </span>    |
@@ -322,27 +322,22 @@
 		</section>
 	</main>
 	<script src="js/dark.js?version=0.10" defer></script>
+	<script src="js/gist-loader.js" defer></script>
 	<script src="js/kudos.js" defer></script>
 	<script src="js/status-updates.js" defer></script>
 	<script src="js/nav-transition.js" defer></script>
+	<script src="js/copy-feedback.js" defer></script>
 	<script src="js/copy-email.js" defer></script>
 	<script>
-		(function () {
-			var GIST_ID = '33f03b846e4abd4f05fc698d9b6ee1fc';
-			var url = 'https://gist.githubusercontent.com/Lem0naise/' + GIST_ID + '/raw/aboutme.txt';
-			fetch(url)
-				.then(function (r) { if (!r.ok) throw Error(); return r.text(); })
+		document.addEventListener('DOMContentLoaded', function () {
+			GistLoader.fetchGistText('Lem0naise', '33f03b846e4abd4f05fc698d9b6ee1fc', 'aboutme.txt')
 				.then(function (text) {
 					var el = document.querySelector('.hero-tagline');
 					if (el && text.trim()) el.textContent = text.trim();
 				})
 				.catch(function () {});
-		})();
-		(function () {
-			var GIST_ID = 'a21e6d6b15cdc211d40baf971b472fb5';
-			var url = 'https://gist.githubusercontent.com/Lem0naise/' + GIST_ID + '/raw/faves.json';
-			fetch(url)
-				.then(function (r) { if (!r.ok) throw Error(); return r.json(); })
+
+			GistLoader.fetchGistJson('Lem0naise', 'a21e6d6b15cdc211d40baf971b472fb5', 'faves.json')
 				.then(function (data) {
 					['films', 'books', 'games', 'music'].forEach(function (key) {
 						var el = document.querySelector('[data-fave="' + key + '"]');
@@ -350,7 +345,7 @@
 					});
 				})
 				.catch(function () {});
-		})();
+		});
 	</script>
 </body>
 

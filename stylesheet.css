@@ -29,6 +29,15 @@
 
 	--font-main: 'Syne Mono';
 	--font-small: 'Faculty Glyphic';
+
+	/* Aliases used by blog, photos, and music stylesheets */
+	--title: var(--text);
+	--item: var(--card-bg);
+	--item-background-2: var(--method-bg);
+	--text-color: var(--text);
+	--text-secondary: var(--text-light);
+	--accent-hover: var(--accent-light);
+	--bg-secondary: var(--method-bg);
 }
 
 
@@ -85,6 +94,11 @@ body {
 }
 
 /* Keyframes for animations */
+
+@keyframes bounce {
+	0%, 100% { transform: translateY(0); }
+	50% { transform: translateY(-4px); }
+}
 
 @keyframes rainbow {
 	0% {
@@ -273,10 +287,9 @@ main {
 	font-weight: 700;
 	margin: 0 0 12px;
 	color: var(--accent-light);
-	transition: all 0.3s;
-	animation: rainbow 15s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
+	transition: color 0.3s;
+	animation: rainbow 15s ease-in-out infinite;
 	line-height: 1.05;
-	-webkit-animation: rainbow 15s ease-in-out infinite, glow 3s ease-in-out infinite alternate;
 }
 
 .hero-tagline {
@@ -1018,10 +1031,6 @@ main {
 	margin-bottom: 20px;
 }
 
-.about-intro ul li {
-	animation: rainbow 15s ease-in-out infinite;
-	-webkit-animation: rainbow 15s ease-in-out infinite;
-}
 
 /* Status Update Styles */
 .status-text {
@@ -1192,13 +1201,10 @@ main {
 
 .section-content h2 {
 	color: var(--accent);
-	animation: rainbow 15s ease-in-out infinite;
-
 }
 
 .contact-content h2 {
 	color: var(--accent);
-	animation: rainbow 15s ease-in-out infinite;
 }
 
 
@@ -1702,9 +1708,7 @@ main {
 .kudos-count {
 	font-weight: 700;
 	color: var(--accent-light);
-	animation: rainbow 15s ease-in-out infinite;
 	transition: color 0.5s;
-	-webkit-animation: rainbow 15s ease-in-out infinite;
 }
 
 .about-intro ul li:hover .kudos-count {
@@ -1733,6 +1737,11 @@ main {
 
 /* ── Navbar kudos button ───────────────────────────────── */
 .content-section {
+	/* default: no content-visibility to avoid above-fold layout jumps */
+}
+
+#interests,
+#contact-info {
 	content-visibility: auto;
 	contain-intrinsic-size: auto 500px;
 }
@@ -1804,6 +1813,9 @@ main {
 .post-kudos-section {
 	display: flex;
 	justify-content: center;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
 	margin: 32px 0 16px;
 }
 

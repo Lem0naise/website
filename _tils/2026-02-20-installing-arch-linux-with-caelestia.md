@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: til
 title: "Installing Arch Linux with Caelestia alongside another OS"
-date: 2026-02-20 10:00:00 0000
+date: 2026-02-20 10:00:00 +0000
 permalink: /guides/installing-arch-linux-with-caelestia
 tags: 
     - linux

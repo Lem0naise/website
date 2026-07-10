@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
-
 .blog-header {
     text-align: center;
     padding: 10px 0 10px;
@@ -21,7 +19,6 @@ h4,
     letter-spacing: -0.02em;
     line-height: 1;
     color: var(--accent-light);
-    animation: rainbow 15s ease-in-out infinite;
 }
 
 .blog-subtitle {
@@ -168,14 +165,23 @@ h4,
 }
 
 .post-information {
-    background: var(--item);
     padding: 6px 12px;
     border-radius: 6px;
-    border: 1px solid var(--border);
     margin: 0;
     font-size: 13px;
     color: var(--title);
     display: inline;
+    background: transparent;
+}
+
+.post-header .post-information {
+    border: 1px solid var(--border);
+    background: transparent;
+}
+
+.blog-post .post-information {
+    border: none;
+    background: transparent;
 }
 
 .post-tag {
@@ -247,6 +253,9 @@ h4,
     line-height: 1;
 
     color: var(--accent-light);
+}
+
+.post-page .post-title {
     animation: rainbow 15s ease-in-out infinite;
 }
 
@@ -297,7 +306,6 @@ h4,
     letter-spacing: -0.02em;
     line-height: 1;
     color: var(--accent-light);;
-    animation: rainbow 15s ease-in-out infinite;
 }
 
 .post-content h3 {
@@ -309,7 +317,6 @@ h4,
     font-family: var(--font-main), monospace;
     
     color: var(--accent-light);
-    animation: rainbow 15s ease-in-out infinite;
 }
 
 .post-content a {
@@ -606,7 +613,6 @@ h4,
     letter-spacing: -0.02em;
     line-height: 1;
     color: var(--accent-light);
-    animation: rainbow 15s ease-in-out infinite;
 }
 
 .stream-subtitle {
@@ -768,7 +774,6 @@ h4,
 	transition: all 0.25s ease;
 	user-select: none;
 	box-shadow: 0 2px 8px var(--card-shadow);
-	margin-left: 12px;
 }
 
 .post-share-btn:hover {

@@ -125,7 +125,7 @@
 
 .pricing-btn.active:hover {
 	transform: scale(1.05);
-	color: var(--accent);
+	color: white;
 }
 
 .pricing-grid {
@@ -297,37 +297,7 @@
     .contact-benefits {
         text-align: left;
     }
-	.welcome-content h1 {
-		font-size: 32px;
-	}
-	
-	.welcome-subtitle {
-		font-size: 18px;
-	}
-	
-	.options-grid {
-		margin-top: 15px;
-		grid-template-columns: 1fr;
-	}
-	
-	.option-card {
-		padding: 10px;
-	}
-	
-	.featured-header {
-		flex-direction: row;
-		align-items: flex-start;
-		gap: 12px;
-	}
-	
-	.about-grid {
-		grid-template-columns: 1fr;
-	}
-	
-	.about-item {
-		padding: 16px;
-	}
-	
+
 	.pricing-grid {
 		grid-template-columns: 1fr;
 	}

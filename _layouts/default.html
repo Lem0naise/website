@@ -5,7 +5,7 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8">
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://indigo-worker.soft-resonance-63c0.workers.dev https://api.github.com https://api.open-meteo.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://indigo-worker.soft-resonance-63c0.workers.dev https://api.github.com https://api.open-meteo.com https://gist.githubusercontent.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
         <link rel="preconnect" href="https://api.github.com">
         <link rel="preconnect" href="https://api.open-meteo.com">
         <link rel="preload" href="{{ '/fonts/syne-mono-v15-latin-regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
@@ -13,6 +13,7 @@
         
         <link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}?version=0.10">
         <link rel="stylesheet" href="{{ '/blog/blog.css' | relative_url }}?version=0.10">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap">
         <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
         
         <meta name="description" content="{{ page.description | default: 'Personal portfolio and blog by Indigo Nolan, covering web apps, games, tools, and writing.' }}"/>
@@ -21,16 +22,15 @@
         
         <script src="{{ '/js/dark-init.js' | relative_url }}"></script>
 		
-		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website">
-		<meta property="og:url" content="https://indigo.spot/blog">
-		<meta property="og:title" content="Blog - Indigo Nolan">
-		<meta property="og:description" content="A blog full of design thoughts, democracy opinions, and short stories.">
+		<meta property="og:url" content="{{ page.url | absolute_url }}">
+		<meta property="og:title" content="{{ page.title | default: 'Indigo Nolan' }} - Indigo Nolan">
+		<meta property="og:description" content="{{ page.description | default: 'Personal portfolio and blog by Indigo Nolan, covering web apps, games, tools, and writing.' }}">
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image">
-		<meta property="twitter:title" content="Blog - Indigo Nolan">
-		<meta property="twitter:description" content="Blog of web applications, games, and development tools">
+		<meta property="twitter:title" content="{{ page.title | default: 'Indigo Nolan' }} - Indigo Nolan">
+		<meta property="twitter:description" content="{{ page.description | default: 'Personal portfolio and blog by Indigo Nolan, covering web apps, games, tools, and writing.' }}">
 		
 
         <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
@@ -56,8 +56,8 @@
                 <nav id="menu">
                     <a href="{{ "/" | relative_url }}" class="tab">Home</a>
                     <a href="{{ "/portfolio/" | relative_url }}" class="tab">Projects</a>
-                    <a href="{{ "/blog/" | relative_url }}" class="tab {% if page.url == '/blog/' or page.url == '/thoughts/' %}active{% endif %}">Blog</a>
-                    <span onclick="toggle()" class="tab tab-svg">
+                    <a href="{{ "/blog/" | relative_url }}" class="tab {% if page.url == '/blog/' %}active{% endif %}">Blog</a>
+                    <span onclick="toggle()" class="tab tab-svg" role="button" aria-label="Toggle dark mode" tabindex="0">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 						<path id='toggle-button'
 							d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
@@ -98,7 +98,7 @@
             </a>
         </nav>
 
-        <main style="padding-top: 70px;">
+        <main>
             {{ content }}
         </main>
 
@@ -127,9 +127,10 @@
 				</div>
 			</section>
         
-        <script src="{{ '../js/dark.js' | relative_url }}" defer></script>
-        <script src="{{'../js/themes.js' | relative_url}}" defer></script>
-        <script src="/js/nav-transition.js" defer></script>
-        <script src="/js/copy-email.js" defer></script>
+        <script src="{{ '/js/dark.js' | relative_url }}" defer></script>
+        <script src="{{ '/js/themes.js' | relative_url }}" defer></script>
+        <script src="{{ '/js/nav-transition.js' | relative_url }}" defer></script>
+        <script src="{{ '/js/copy-feedback.js' | relative_url }}" defer></script>
+        <script src="{{ '/js/copy-email.js' | relative_url }}" defer></script>
     </body>
 </html>

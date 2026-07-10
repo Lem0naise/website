@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' https: data:; connect-src 'self' https://indigo-worker.soft-resonance-63c0.workers.dev https://api.open-meteo.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self';">
+	<link rel="preconnect" href="https://indigo-worker.soft-resonance-63c0.workers.dev">
+	<link rel="preload" href="{{ '/fonts/syne-mono-v15-latin-regular.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+	<title>{{ page.title }} - Indigo Nolan</title>
+	<link rel="stylesheet" href="{{ '/stylesheet.css' | relative_url }}?version=0.10">
+	<script src="{{ '/js/dark-init.js' | relative_url }}"></script>
+	<link rel="stylesheet" href="{{ '/blog/blog.css' | relative_url }}?version=0.10">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap">
+	<link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
+
+	<meta name="description" content="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape | truncate: 150 }}" />
+	<meta name="author" content="Indigo Nolan" />
+
+	<meta property="og:title" content="{{ page.title | default: site.title }}">
+	<meta property="og:description" content="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape | truncate: 150 }}">
+	<meta property="og:url" content="{{ page.url | absolute_url }}">
+	<meta property="og:site_name" content="{{ site.title }}">
+	<meta property="og:type" content="article">
+	{% if page.image %}
+	<meta property="og:image" content="{{ page.image | absolute_url }}">
+	{% endif %}
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="{{ page.title | default: site.title }}">
+	<meta name="twitter:description" content="{{ page.description | default: page.excerpt | strip_html | normalize_whitespace | escape | truncate: 150 }}">
+	<link rel="canonical" href="{{ page.url | absolute_url }}">
+</head>
+
+<body class="">
+	<header id="header">
+		<div class="header-content">
+			<a class="logo" href="{{ '/' | relative_url }}">Indigo Nolan</a>
+			<nav id="menu">
+				<a href="{{ '/' | relative_url }}" class="tab">Home</a>
+				<a href="{{ '/portfolio' | relative_url }}" class="tab">Projects</a>
+				<a href="{{ '/blog' | relative_url }}" class="tab active">Blog</a>
+				<span onclick="toggle()" class="tab tab-svg" role="button" aria-label="Toggle dark mode" tabindex="0">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+						<path id="toggle-button" d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
+					</svg>
+				</span>
+			</nav>
+		</div>
+	</header>
+
+	<main>
+		<article class="post-container">
+			<header class="post-header">
+				<h1 class="post-title">{{ page.title }}</h1>
+				<div class="post-meta">
+					<div class="post-information">{{ page.date | date: "%B %d, %Y" }}</div>
+					{% if page.tags %}
+					<div class="post-information">
+						{% for tag in page.tags %}
+						<a href="{{ '/notes#' | append: tag | relative_url }}">{{ tag }}</a>{% unless forloop.last %} • {% endunless %}
+						{% endfor %}
+					</div>
+					{% endif %}
+				</div>
+			</header>
+
+			<div class="post-content">
+				{{ content }}
+			</div>
+
+			<nav class="post-navigation">
+				<a href="{{ '/notes' | relative_url }}" class="nav-link primary">← Back to Notes</a>
+				<a href="{{ '/blog' | relative_url }}" class="nav-link">Blog</a>
+				<a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
+			</nav>
+		</article>
+	</main>
+
+	<script src="{{ '/js/dark.js' | relative_url }}" defer></script>
+	<script src="{{ '/js/reading-progress.js' | relative_url }}" defer></script>
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			document.querySelectorAll('.post-content pre').forEach(function (pre) {
+				var wrapper = document.createElement('div');
+				wrapper.className = 'code-wrapper';
+				pre.parentNode.insertBefore(wrapper, pre);
+				wrapper.appendChild(pre);
+
+				var btn = document.createElement('button');
+				btn.className = 'copy-btn';
+				btn.textContent = 'Copy';
+				btn.addEventListener('click', function () {
+					var code = pre.querySelector('code');
+					var text = code ? code.textContent : pre.textContent;
+					navigator.clipboard.writeText(text).then(function () {
+						btn.textContent = 'Copied!';
+						setTimeout(function () { btn.textContent = 'Copy'; }, 2000);
+					});
+				});
+				wrapper.appendChild(btn);
+			});
+		});
+	</script>
+</body>
+
+</html>

@@ -67,7 +67,7 @@ observations."
     </div>
 
 </div>
-<script src="{{ '/js/reading-progress.js' | relative_url }}"></script>
+<script src="{{ '/js/reading-progress.js' | relative_url }}" defer></script>
 <script src="{{ '/js/kudos.js' | relative_url }}" defer></script>
 
 <style>
@@ -82,15 +82,8 @@ observations."
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    var likes = document.querySelectorAll('.post-likes');
-    likes.forEach(function (el) {
-        var path = el.getAttribute('data-path');
-        if (!path || !window.fetchKudosCount) return;
-        window.fetchKudosCount(path).then(function (count) {
-            el.textContent = '♥ ' + count.toLocaleString();
-        }).catch(function () {
-            el.textContent = '';
-        });
-    });
+    if (window.initLazyKudosCounts) {
+        initLazyKudosCounts('.post-likes');
+    }
 });
 </script>
