@@ -38,7 +38,7 @@ We also need to rid ourselves of this stigma that 'politics' is a dirty word. It
 
 And it is for this crucial reason we need to show people that their votes count. First Past the Post creates this toxic atmosphere and sense that your vote is 'wasted'. And they're right - your vote has the potential to be wasted however you vote under FPTP, even if you vote tactically. This is _terrible user experience design._ What is the point of a system where the majority of users' input ends up being wasted?[^4]
 
-After the 2024 election in the UK, 6 out of 10 citizens were represented by an MP they did not vote for.[^5]. This is clearly unsustainable.
+After the 2024 election in the UK, 6 out of 10 citizens were represented by an MP they did not vote for.[^5] This is clearly unsustainable.
 
 ![](https://www.fairvote.ca/wp-content/uploads/2024/07/UK-Election-2024.png)
 

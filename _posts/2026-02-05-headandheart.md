@@ -35,7 +35,7 @@ In [Part 2](blog/rating-systems-head-and-heart-and-favourites-me), I theorised t
 
 As soon as I started coding the actual grid component, I realised I had made a mistake. 1-3 is too vague. If I rate *Interstellar* a 3 on Head, where do I put *The Menu*? I liked it a lot, I thought it was excellently made. Is it also a 3? Probably. But is it the *same* 3? Is it as good? I don't think so. I don't want to give it a 2, because then I'm equating it with worse films, and then I fell into the same pattern again.
 
-So, I decided to expand the grid to 5x5. It gives juust enough precision so you can differentiate "Good" from "Masterpiece" without falling back into the trap of "Is this a 72 or a 73 out of 100?" (which I did a lot when I used favourites.me)
+So, I decided to expand the grid to 5x5. It gives just enough precision so you can differentiate "Good" from "Masterpiece" without falling back into the trap of "Is this a 72 or a 73 out of 100?" (which I did a lot when I used favourites.me)
 
 I built this using a custom SVG component. Each cell in the grid represents a coordinate pair: `headRating` and `heartRating`.
 

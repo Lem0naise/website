@@ -75,7 +75,7 @@ Things like *Naked Gun* and *Airplane*. I absolutely love these movies, but on m
 Here's my initial thoughts about the Head vs Heart scale:
 
 * **Head**
-    * 1: Flawed: (Noticable issues, poor script, weak acting, clumsy directing)
+    * 1: Flawed: (Noticeable issues, poor script, weak acting, clumsy directing)
     * 2: Competent (Well-made, solid piece of work)
     * 3: Masterful (Exceptional artistry in every way)
 * **Heart**
@@ -84,7 +84,7 @@ Here's my initial thoughts about the Head vs Heart scale:
     * 3: Loved it (You were captivated or enjoyed it a lot. Something you'd rewatch in a heartbeat)
 
 
-Something like *Schindlers List* could even be a Head: 3 Heart: 1. It's all deeply personal and subjective, but you could genuinely recognise the artistry and the importance of the film, but felt deeply uncomfortable (understandable) and would not re-watch it. 
+Something like *Schindler's List* could even be a Head: 3 Heart: 1. It's all deeply personal and subjective, but you could genuinely recognise the artistry and the importance of the film, but felt deeply uncomfortable (understandable) and would not re-watch it. 
 
 I feel this captures a lot of the nuance that is lost with a 1-axis scale. I tested the scale by inputting some examples from my personal library (all opinions subject to change, made in a rush in photoshop):
 

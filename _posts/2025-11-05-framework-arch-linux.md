@@ -27,7 +27,7 @@ I shrank my main `btrfs` partition and created two new ones:
 With my partitions ready, I booted from my Arch Live USB. My secret weapon, I thought, would be the `archinstall` script I'd seen on YouTube. I've used Linux before but I was doing this in my spare time and I didn't want to spend hours setting up arch. This script was supposed to automate the whole process. 
 
 I ran `archinstall`, selected 'Manual partitioning' (so it didn't overwrite my entire Fedora install) and pointed it at the new partitions I'd just made earlier:
-- `/dev/nmve0n1p5` (my `ext4` partition) - mount point `/`
+- `/dev/nvme0n1p5` (my `ext4` partition) - mount point `/`
 - `/dev/nvme0n1p1` (my existing EFI partition) - mount point `/boot/efi`
 
 I hit install, and ... `ValueError: mount point is not specified`
@@ -105,7 +105,7 @@ Look at this. Could you ever go back?
 
 One of the most surprising things I experienced was when I plugged my laptop into my HDMI cable, fully expecting absolutely nothing to happen, the display to tear, or some horrendously scaled image to appear - only for a beautifully intact, perfectly scaled monitor to materialise in front of my eyes. It actually worked *better* on Hyprland / Arch than it did on Fedora with GNOME. There's no going back now.
 
-Yes, it does get a bit tiring connecting to WiFi and Bluetooth devices with my terminal using `nmcli dev wifi connect "eduroam"` and `bluetootctl devices`, but it's probably good practice for me to understand more about the operating system anyway - for when it inevitably breaks and I need to fix it on the fly. 
+Yes, it does get a bit tiring connecting to WiFi and Bluetooth devices with my terminal using `nmcli dev wifi connect "eduroam"` and `bluetoothctl devices`, but it's probably good practice for me to understand more about the operating system anyway - for when it inevitably breaks and I need to fix it on the fly. 
 
 Most importantly, I can now, finally, say:
 

@@ -21,7 +21,7 @@ Today Keir Starmer announced at a Downing Street press conference what the gover
 
 ## What is Australia Plus?
 
-Australia's badly thought-out social media ban wasn't bad enough, Starmer thought, and decided to add in dozens of equally unenforcable provisions. These 'world-leading' restrictions are going to weaken internet freedom in the UK and undermine our already-feeble standing in the world's freedom index. Name a tech company willing to launch or operate in such a hostile environment as the one being created now?
+Australia's badly thought-out social media ban wasn't bad enough, Starmer thought, and decided to add in dozens of equally unenforceable provisions. These 'world-leading' restrictions are going to weaken internet freedom in the UK and undermine our already-feeble standing in the world's freedom index. Name a tech company willing to launch or operate in such a hostile environment as the one being created now?
 
 Under the new proposals, the government wants to impose restrictions on gaming apps and messaging platforms, completely removing the ability to chat with strangers. They are also looking into enforcing overnight digital curfews and banning infinite scrolling for anyone under 18.
 

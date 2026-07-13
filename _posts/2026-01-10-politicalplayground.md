@@ -141,7 +141,7 @@ I also had to solve the 'centrists flip-flop very easily' problem. To counter th
 
 ## News and Events
 
-To model the event cycle, I decided to lean into the newspaper-style UI I'd already build, and treat the events as news articles. 
+To model the event cycle, I decided to lean into the newspaper-style UI I'd already built, and treat the events as news articles. 
 
 To make each game feel more dynamic, I have some dynamic elements in the headline generation - again, there's a massive JSON file with a bunch of headlines and what triggers them, such as the player professing support for a specific policy, or a national trend, with code that looks a bit like this:
 ```

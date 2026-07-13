@@ -19,7 +19,7 @@ Her first customers of today would come by shortly after the morning heat starte
 
 Ding.
 
-The tinny bell by the door rang quietly as the drapes fluttered in the wind. The first customer of the day. Right on cue. An fair-skinned man stepped through the doorway, bending his head carefully to avoid the low-hanging ceramic décor. He held out his hand behind him, and with a delicate swirl of floral fabric a beautiful young woman followed.
+The tinny bell by the door rang quietly as the drapes fluttered in the wind. The first customer of the day. Right on cue. A fair-skinned man stepped through the doorway, bending his head carefully to avoid the low-hanging ceramic décor. He held out his hand behind him, and with a delicate swirl of floral fabric a beautiful young woman followed.
 
 “Good morning,” the man said in impeccable Spanish. His eyes sparkled, and a warm scent of freshly baked bread filled the room as he spoke. Almost immediately his gaze snapped to the three plates hanging on the wall. She too felt compelled to look at them again, their vibrant decoration, their ornately circular nature, their absolute beauty and lust, their complete splendour. Perhaps it was not such a good idea to sell them. “How much for these plates?” the man asked, with a sudden vigour.
 

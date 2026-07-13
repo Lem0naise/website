@@ -34,7 +34,7 @@ Of course, there were some apps this couldn't be avoided in - photo editing was 
 
 I have, regrettably, since returned to using my phone in full colour. The experience nevertheless gave me a new awareness of how deliberately the digital world is designed to manipulate us. The psychology of colour in app design is a powerful and under-discussed force, and turning it off, even for a little while, felt like taking back a bit of my life.
 
-While I'm no longer living in my monochrome world, I haven't abandonded it completely. I now have an accessibility shortcut set up, so I can tap an icon on my home screen to toggle greyscale on and off. I often switch it on in the evenings to help me before bed, or during the day when I am trying to work and want my phone to be as uninteresting as possible.
+While I'm no longer living in my monochrome world, I haven't abandoned it completely. I now have an accessibility shortcut set up, so I can tap an icon on my home screen to toggle greyscale on and off. I often switch it on in the evenings to help me before bed, or during the day when I am trying to work and want my phone to be as uninteresting as possible.
 
 I would highly recommend trying this for yourself. It's minimal effort, easy to find on most phones, and shows surprisingly effective results. You might not stick with it forever, but for a week, or even just a day, draining the colour from your screen can show you, in glorious black and white, how much power those colours have over you.
 
