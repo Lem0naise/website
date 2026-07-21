@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<link rel="preload" href="/fonts/syne-mono-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 	<title>Portfolio - Indigo Nolan | Web Apps, Games & Tools</title>
-	<link rel="stylesheet" href="/stylesheet.css?version=0.10">
+	<link rel="stylesheet" href="/stylesheet.css?version=0.11">
 	<link rel="icon" type="image/x-icon" href="../favicon.ico">
 	<link rel="canonical" href="https://indigo.spot/portfolio/">
 	<meta name="description"
@@ -18,20 +18,17 @@
 	<meta name="author" content="Indigo Nolan" />
 	<script src="../js/dark-init.js"></script>
 
-	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://indigo.spot/portfolio">
 	<meta property="og:title" content="Portfolio - Indigo Nolan | Web Apps, Games & Tools">
 	<meta property="og:description"
 		content="Portfolio of full-stack web applications, games, and tools by Indigo Nolan. Features Next.js and React projects including CashCat budgeting app and Fantasteroids.">
 
-	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image">
 	<meta property="twitter:title" content="Portfolio - Indigo Nolan | Web Apps, Games & Tools">
 	<meta property="twitter:description"
 		content="Portfolio of full-stack web applications, games, and tools by Indigo Nolan. Features Next.js and React projects including CashCat budgeting app and Fantasteroids.">
 
-	<!-- Structured Data -->
 	<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -51,7 +48,7 @@
 				},
 				{
 					"@type": "VideoGame",
-					"name": "Fantasteroids", 
+					"name": "Fantasteroids",
 					"description": "Fast-paced arcade Asteroids-style game available free on Steam",
 					"url": "https://store.steampowered.com/app/1790870/Fantasteroids/",
 					"gamePlatform": "Steam"
@@ -91,7 +88,6 @@
 			<nav id="menu">
 				<a href="../" class="tab">Home</a>
 				<a href="./" class="tab active">Projects</a>
-
 				<a href="../blog" class="tab">Blog</a>
 				<span onclick="toggle()" class="tab tab-svg" role="button" aria-label="Toggle dark mode" tabindex="0">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -155,17 +151,16 @@
 	</nav>
 
 	<main id="cont">
-
-		<!-- All Projects Section -->
 		<section class="content-section all-projects">
 			<div class="section-content">
-				<div class="projects-grid">
+				<p class="portfolio-intro">my best work</p>
 
-					<article class="project-item" itemscope itemtype="https://schema.org/SoftwareApplication">
-						<a href="https://cashcat.app" target="_blank" rel="noopener"
-							class="project-item-link">
-							<img src="https://cashcat.app/media/og.png" alt="cashcat screenshot"
-								class="project-image" width="1200" height="630" loading="lazy" decoding="async">
+				<!-- Featured -->
+				<div class="projects-grid featured-grid">
+					<article class="project-item featured" itemscope itemtype="https://schema.org/SoftwareApplication">
+						<a href="https://cashcat.app" target="_blank" rel="noopener" class="project-item-link">
+							<img src="https://cashcat.app/media/og.png" alt="CashCat screenshot"
+								class="project-image" width="1200" height="630" loading="eager" decoding="async">
 							<h4 itemprop="name">
 								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 									<path
@@ -173,18 +168,16 @@
 								</svg>
 								CashCat
 							</h4>
-							<p itemprop="description">A user-focused personal budgeting app for students, young adults, and business owners.</p>
+							<p itemprop="description">Personal budgeting for students and young adults on web and mobile.</p>
 						</a>
 						<a class="project-blog-button" href="https://cashcat.app">Visit Site</a>
 					</article>
 
-
-
-					<article class="project-item">
+					<article class="project-item featured">
 						<a href="https://www.climatestorieslibrary.com" target="_blank" rel="noopener"
 							class="project-item-link" itemscope itemtype="https://schema.org/WebSite">
 							<img src="/blog/whyibuilt/imgs/csl3.webp" alt="Climate Stories Library screenshot"
-								class="project-image" width="2352" height="950" loading="lazy" decoding="async">
+								class="project-image" width="2352" height="950" loading="eager" decoding="async">
 							<h4 itemprop="name">
 								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 									<path
@@ -192,19 +185,12 @@
 								</svg>
 								Climate Stories Library
 							</h4>
-							<p itemprop="description">A comprehensive full-stack website which hosts videos and stories
-								on an interactive world map from people around the world sharing their responses to the
-								climate crisis.</p>
+							<p itemprop="description">Climate stories and videos from around the world on an interactive map.</p>
 						</a>
 						<a class="project-blog-button" href="https://climatestorieslibrary.com">Visit Site</a>
-
 					</article>
 
-
-
-
-			
-					<article class="project-item" itemscope itemtype="https://schema.org/WebSite">
+					<article class="project-item featured" itemscope itemtype="https://schema.org/WebSite">
 						<a href="https://society.ecs.soton.ac.uk" target="_blank" rel="noopener" class="project-item-link">
 							<img src="/blog/whyibuilt/imgs/ecss.webp" alt="ECSS screenshot"
 								class="project-image" width="1753" height="1283" loading="lazy" decoding="async">
@@ -215,330 +201,115 @@
 								</svg>
 								ECSS Website
 							</h4>
-							<p itemprop="description">Rebuilt and maintain the society's full web platform for 500+ members, supporting our events, elections, sponsors, and merch. I manage deployment using Docker and Nginx and a CMS (Payload) with a MongoDB backend.</p>
+							<p itemprop="description">Full web platform for 500+ members with events, elections, merch all on a CMS.</p>
 						</a>
 						<a class="project-blog-button" href="https://society.ecs.soton.ac.uk">Visit Site</a>
-
 					</article>
+				</div>
 
-
-
-					<article class="project-item" itemscope itemtype="https://schema.org/WebSite">
-						<a href="https://allegedly.news" target="_blank" rel="noopener" class="project-item-link">
-							<img src="/blog/whyibuilt/imgs/alnews.webp" alt="Allegedly News screenshot"
-								class="project-image" width="2906" height="1704" loading="lazy" decoding="async">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<title>newspaper-variant-multiple-outline</title>
-									<path
-										d="M4 7V19H19V21H4C2 21 2 19 2 19V7H4M21 5V15H8V5H21M21.3 3H7.7C6.76 3 6 3.7 6 4.55V15.45C6 16.31 6.76 17 7.7 17H21.3C22.24 17 23 16.31 23 15.45V4.55C23 3.7 22.24 3 21.3 3M9 6H12V11H9V6M20 14H9V12H20V14M20 8H14V6H20V8M20 11H14V9H20V11Z" />
-								</svg>
-								Allegedly News
-							</h4>
-							<p itemprop="description">Generate your very own alternate history scenario - newspaper front pages, social media posts, for anything you can think of!</p>
+				<!-- More work -->
+				<h3 class="portfolio-section-label">More work</h3>
+				<div class="projects-grid">
+					<article class="project-item" itemscope itemtype="https://schema.org/VideoGame">
+						<a href="https://electland.indigo.spot" target="_blank" rel="noopener" class="project-item-link">
+							<img src="/assets/imgs/electland.png" alt="Electland screenshot"
+								class="project-image" width="1200" height="630" loading="lazy" decoding="async">
+							<h4 itemprop="name">Electland</h4>
+							<p itemprop="description">Multi-party local election game with constituency simulation.</p>
 						</a>
-
-
-						<a class="project-blog-button" href="https://allegedly.news">Visit Site</a>
-
-
+						<a class="project-blog-button" href="https://electland.indigo.spot">Visit Site</a>
 					</article>
 
+					<article class="project-item">
+						<a href="https://headandheart.app" target="_blank" rel="noopener" class="project-item-link"
+							itemscope itemtype="https://schema.org/WebSite">
+							<img src="/assets/imgs/headandheart.webp" alt="Head and Heart screenshot" class="project-image" width="544" height="244" loading="lazy" decoding="async">
+							<h4 itemprop="name">Head and Heart</h4>
+							<p itemprop="description">Private media library with films, books, games all in one place.</p>
+						</a>
+						<a class="project-blog-button" href="/headandheart">Blog Post</a>
+					</article>
 
 					<article class="project-item" itemscope itemtype="https://schema.org/VideoGame">
 						<a href="https://polplay.indigo.spot" target="_blank" rel="noopener" class="project-item-link">
 							<img src="/blog/whyibuilt/imgs/polplayground.webp" alt="Political Playground screenshot"
 								class="project-image" width="3100" height="1702" loading="lazy" decoding="async">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M18,13H17.32L15.32,15H17.23L19,17H5L6.78,15H8.83L6.83,13H6L3,16V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V16L18,13M17,7.95L12.05,12.9L8.5,9.36L13.46,4.41L17,7.95M12.76,2.29L6.39,8.66C6,9.05 6,9.68 6.39,10.07L11.34,15C11.73,15.41 12.36,15.41 12.75,15L19.11,8.66C19.5,8.27 19.5,7.64 19.11,7.25L14.16,2.3C13.78,1.9 13.15,1.9 12.76,2.29Z" />
-								</svg>
-								The Political Playground
-							</h4>
-							<p itemprop="description">A political simulation and semi-educational game inspired by games
-								like The Campaign Trail and The Political Process. I think games are a great way to get
-								people engaged in democracy!</p>
+							<h4 itemprop="name">The Political Playground</h4>
+							<p itemprop="description">Semi-educational election simulator with dozens of countries and parties.</p>
 						</a>
 						<a class="project-blog-button" href="/politicalplayground">Blog Post</a>
-
 					</article>
 
-
-
-
-					<article class="project-item">
-						<a href="https://headandheart.app" target="_blank" rel="noopener" class="project-item-link"
-							itemscope itemtype="https://schema.org/WebSite">
-							<img src="/assets/imgs/headandheart.webp" alt="favourites screenshot" class="project-image" width="544" height="244" loading="lazy" decoding="async">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M16.23,18L12,15.45L7.77,18L8.89,13.19L5.16,9.96L10.08,9.54L12,5L13.92,9.53L18.84,9.95L15.11,13.18L16.23,18M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
-								</svg>
-								Head and Heart
-							</h4>
-							<p itemprop="description">A private media library manager to track your favorite films, TV
-								shows, books, games, and board games. Forget spreading everything across Letterboxd and
-								Goodreads!</p>
+					<article class="project-item" itemscope itemtype="https://schema.org/WebSite">
+						<a href="https://allegedly.news" target="_blank" rel="noopener" class="project-item-link">
+							<img src="/blog/whyibuilt/imgs/alnews.webp" alt="Allegedly News screenshot"
+								class="project-image" width="2906" height="1704" loading="lazy" decoding="async">
+							<h4 itemprop="name">Allegedly News</h4>
+							<p itemprop="description">Generate alternate-history newspapers and social feeds with AI.</p>
 						</a>
-						<a class="project-blog-button" href="/headandheart">Blog Post</a>
+						<a class="project-blog-button" href="https://allegedly.news">Visit Site</a>
 					</article>
-
-
-					<article class="project-item" itemscope itemtype="https://schema.org/VideoGame">
-						<a href="https://electland.indigo.spot" target="_blank" rel="noopener" class="project-item-link">
-							<img src="/assets/imgs/electland.png" alt="Electland screenshot"
-								class="project-image" width="1200" height="630" loading="lazy" decoding="async">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M18,13H17.32L15.32,15H17.23L19,17H5L6.78,15H8.83L6.83,13H6L3,16V20A2,2 0 0,0 5,22H19A2,2 0 0,0 21,20V16L18,13M17,7.95L12.05,12.9L8.5,9.36L13.46,4.41L17,7.95M12.76,2.29L6.39,8.66C6,9.05 6,9.68 6.39,10.07L11.34,15C11.73,15.41 12.36,15.41 12.75,15L19.11,8.66C19.5,8.27 19.5,7.64 19.11,7.25L14.16,2.3C13.78,1.9 13.15,1.9 12.76,2.29Z" />
-								</svg>
-								Electland
-							</h4>
-							<p itemprop="description">A multi-party local election game with constituency-based simulation logic.</p>
-						</a>
-						<a class="project-blog-button" href="https://electland.indigo.spot">Visit Site</a>
-					</article>
-
-
-
-					
-
-					<article class="project-item" itemscope itemtype="https://schema.org/WebApplication">
-						<a href="https://mycelium.indigo.spot" target="_blank" rel="noopener" class="project-item-link">
-							<img src="/assets/imgs/mycelium.webp" alt="Mycelium Market screenshot" class="project-image" width="2973" height="1301" loading="lazy" decoding="async">
-
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M3,3V21H21V19H5V3H3M18.59,8.58L14.5,12.67L11.5,9.67L7,14.18L8.41,15.59L11.5,12.5L14.5,15.5L20,10L18.59,8.58Z" />
-								</svg>
-								Mycelium Market
-							</h4>
-							<p itemprop="description">A hackathon project where wind, soil moisture, rainfall, humidity,
-								and other natural properties drive stock prices, volatility, and tradeability across a
-								3D world map filled with cities.</p>
-						</a>
-						<!-- <a class="project-blog-button" href="/blog/myceliummarket">Blog Post</a> -->
-
-						<a class="project-blog-button" href="https://mycelium.indigo.spot">Visit Site</a>
-					</article>
-
-
 
 					<article class="project-item" itemscope itemtype="https://schema.org/VideoGame">
 						<a href="https://damaskus.indigo.spot" target="_blank" rel="noopener" class="project-item-link">
 							<img src="/assets/imgs/damaskus.webp" alt="Damaskus screenshot" class="project-image" width="1342" height="913" loading="lazy" decoding="async">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M7.97,16L5,19C4.67,19.3 4.23,19.5 3.75,19.5A1.75,1.75 0 0,1 2,17.75V17.5L3,10.12C3.21,7.81 5.14,6 7.5,6H16.5C18.86,6 20.79,7.81 21,10.12L22,17.5V17.75A1.75,1.75 0 0,1 20.25,19.5C19.77,19.5 19.33,19.3 19,19L16.03,16H7.97M7,8V10H5V11H7V13H8V11H10V10H8V8H7M16.5,8A0.75,0.75 0 0,0 15.75,8.75A0.75,0.75 0 0,0 16.5,9.5A0.75,0.75 0 0,0 17.25,8.75A0.75,0.75 0 0,0 16.5,8M14.75,9.75A0.75,0.75 0 0,0 14,10.5A0.75,0.75 0 0,0 14.75,11.25A0.75,0.75 0 0,0 15.5,10.5A0.75,0.75 0 0,0 14.75,9.75M18.25,9.75A0.75,0.75 0 0,0 17.5,10.5A0.75,0.75 0 0,0 18.25,11.25A0.75,0.75 0 0,0 19,10.5A0.75,0.75 0 0,0 18.25,9.75M16.5,11.5A0.75,0.75 0 0,0 15.75,12.25A0.75,0.75 0 0,0 16.5,13A0.75,0.75 0 0,0 17.25,12.25A0.75,0.75 0 0,0 16.5,11.5Z" />
-								</svg>
-								Damaskus
-							</h4>
-							<p itemprop="description">A linear puzzle game made for Global Game Jam 2026! It also
-								features community levels and a level editor.</p>
+							<h4 itemprop="name">Damaskus</h4>
+							<p itemprop="description">Desert-themed puzzle game for Global Game Jam 2026 with a level editor.</p>
 						</a>
 						<a class="project-blog-button" href="/damaskus">Blog Post</a>
-
 					</article>
-
-
-
-
-
-
 
 					<article class="project-item">
 						<a href="https://store.steampowered.com/app/1790870/Fantasteroids/" target="_blank"
 							rel="noopener" class="project-item-link" itemscope itemtype="https://schema.org/VideoGame">
 							<img src="/blog/whyibuilt/imgs/fant.webp" alt="Fantasteroids game screenshot"
 								class="project-image" width="460" height="215" loading="lazy" decoding="async">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M7.97,16L5,19C4.67,19.3 4.23,19.5 3.75,19.5A1.75,1.75 0 0,1 2,17.75V17.5L3,10.12C3.21,7.81 5.14,6 7.5,6H16.5C18.86,6 20.79,7.81 21,10.12L22,17.5V17.75A1.75,1.75 0 0,1 20.25,19.5C19.77,19.5 19.33,19.3 19,19L16.03,16H7.97M7,8V10H5V11H7V13H8V11H10V10H8V8H7M16.5,8A0.75,0.75 0 0,0 15.75,8.75A0.75,0.75 0 0,0 16.5,9.5A0.75,0.75 0 0,0 17.25,8.75A0.75,0.75 0 0,0 16.5,8M14.75,9.75A0.75,0.75 0 0,0 14,10.5A0.75,0.75 0 0,0 14.75,11.25A0.75,0.75 0 0,0 15.5,10.5A0.75,0.75 0 0,0 14.75,9.75M18.25,9.75A0.75,0.75 0 0,0 17.5,10.5A0.75,0.75 0 0,0 18.25,11.25A0.75,0.75 0 0,0 19,10.5A0.75,0.75 0 0,0 18.25,9.75M16.5,11.5A0.75,0.75 0 0,0 15.75,12.25A0.75,0.75 0 0,0 16.5,13A0.75,0.75 0 0,0 17.25,12.25A0.75,0.75 0 0,0 16.5,11.5Z" />
-								</svg>
-								Fantasteroids
-							</h4>
-							<p itemprop="description"> An Asteroids-style game you can play for free on Steam. A project
-								I made to learn game development and liked it so much I finished and published it.</p>
+							<h4 itemprop="name">Fantasteroids</h4>
+							<p itemprop="description">Asteroids-style arcade game free on Steam.</p>
 						</a>
 						<a class="project-blog-button" href="/fantasteroids">Blog Post</a>
-
 					</article>
 
-
-
-
-
-
-
-
+					<article class="project-item" itemscope itemtype="https://schema.org/WebApplication">
+						<a href="https://mycelium.indigo.spot" target="_blank" rel="noopener" class="project-item-link">
+							<img src="/assets/imgs/mycelium.webp" alt="Mycelium Market screenshot" class="project-image" width="2973" height="1301" loading="lazy" decoding="async">
+							<h4 itemprop="name">Mycelium Market</h4>
+							<p itemprop="description">Hackathon project, stock market driven by weather on a 3D map.</p>
+						</a>
+						<a class="project-blog-button" href="https://mycelium.indigo.spot">Visit Site</a>
+					</article>
 
 					<article class="project-item" itemscope itemtype="https://schema.org/WebSite">
 						<a href="https://kresimiria.wiki" target="_blank" rel="noopener" class="project-item-link">
 							<img src="/assets/imgs/kresimiria.webp" alt="Kresimiria.Wiki screenshot"
 								class="project-image" width="2210" height="1318" loading="lazy" decoding="async">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<title>earth</title>
-									<path
-										d="M17.9,17.39C17.64,16.59 16.89,16 16,16H15V13A1,1 0 0,0 14,12H8V10H10A1,1 0 0,0 11,9V7H13A2,2 0 0,0 15,5V4.59C17.93,5.77 20,8.64 20,12C20,14.08 19.2,15.97 17.9,17.39M11,19.93C7.05,19.44 4,16.08 4,12C4,11.38 4.08,10.78 4.21,10.21L9,15V16A2,2 0 0,0 11,18M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" />
-								</svg>
-								Kresimiria Wiki
-							</h4>
-							<p itemprop="description">A fictional worldbuilding wiki built from scratch with Jekyll and
-								custom CSS.</p>
+							<h4 itemprop="name">Kresimiria Wiki</h4>
+							<p itemprop="description">Fictional worldbuilding wiki, personal pet project.</p>
 						</a>
 						<a class="project-blog-button" href="/kresimiria">Blog Post</a>
-
-					</article>
-
-
-
-
-
-
-				</div>
-
-				<!-- Tools/Fun Section -->
-				<h3 id='small-tools'
-					style="text-align: center; margin-top: 60px; margin-bottom: 24px; font-size: 24px; color: var(--text-light);">
-					Small Tools and Fun</h3>
-
-				<div class="projects-grid tools-grid">
-					<article class="project-item smaller">
-						<a href="https://todo.indigo.spot" class="project-item-link" itemscope
-							itemtype="https://schema.org/WebApplication">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M12,20A7,7 0 0,1 5,13A7,7 0 0,1 12,6A7,7 0 0,1 19,13A7,7 0 0,1 12,20M19.03,7.39L20.45,5.97C20,5.46 19.55,5 19.04,4.56L17.62,6C16.07,4.74 14.12,4 12,4A9,9 0 0,0 3,13A9,9 0 0,0 12,22C17,22 21,17.97 21,13C21,10.88 20.26,8.93 19.03,7.39M11,14H13V8H11M15,1H9V3H15V1Z" />
-								</svg>
-								Pomodoro Timer and Todolist
-							</h4>
-							<p itemprop="description">Focus timer with work/break cycles</p>
-						</a>
-					</article>
-
-
-					<article class="project-item smaller">
-						<a href="../choose" class="project-item-link" itemscope
-							itemtype="https://schema.org/WebApplication">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<title>calendar-badge</title>
-									<path
-										d="M11,2V4.07C7.38,4.53 4.53,7.38 4.07,11H2V13H4.07C4.53,16.62 7.38,19.47 11,19.93V22H13V19.93C16.62,19.47 19.47,16.62 19.93,13H22V11H19.93C19.47,7.38 16.62,4.53 13,4.07V2M11,6.08V8H13V6.09C15.5,6.5 17.5,8.5 17.92,11H16V13H17.91C17.5,15.5 15.5,17.5 13,17.92V16H11V17.91C8.5,17.5 6.5,15.5 6.08,13H8V11H6.09C6.5,8.5 8.5,6.5 11,6.08M12,11A1,1 0 0,0 11,12A1,1 0 0,0 12,13A1,1 0 0,0 13,12A1,1 0 0,0 12,11Z" />
-								</svg>
-								Decision Maker
-							</h4>
-							<p itemprop="description">Simple decision maker which chooses between options for you using
-								physics</p>
-						</a>
-					</article>
-
-
-					<article class="project-item smaller">
-						<a href="../dinopong" class="project-item-link" itemscope
-							itemtype="https://schema.org/WebApplication">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<title>calendar-badge</title>
-									<path
-										d="M13 2V3H12V9H11V10H9V11H8V12H7V13H5V12H4V11H3V9H2V15H3V16H4V17H5V18H6V22H8V21H7V20H8V19H9V18H10V19H11V22H13V21H12V17H13V16H14V15H15V12H16V13H17V11H15V9H20V8H17V7H22V3H21V2M14 3H15V4H14Z" />
-								</svg>
-								Dinopong
-							</h4>
-							<p itemprop="description">Physics-based mashup between the Chrome Dinosaur game and pong</p>
-						</a>
-					</article>
-
-
-
-
-
-					<article class="project-item smaller">
-						<a href="../wordle" class="project-item-link" itemscope
-							itemtype="https://schema.org/WebApplication">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12C22,10.84 21.79,9.69 21.39,8.61L19.79,10.21C19.93,10.8 20,11.4 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4C12.6,4 13.2,4.07 13.79,4.21L15.4,2.6C14.31,2.21 13.16,2 12,2M19,2L15,6V7.5L12.45,10.05C12.3,10 12.15,10 12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12C14,11.85 14,11.7 13.95,11.55L16.5,9H18L22,5H19V2M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12H16A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8V6Z" />
-								</svg>
-								Unlimited Wordle
-							</h4>
-							<p itemprop="description">Unlimited word puzzle game</p>
-						</a>
-					</article>
-
-
-					<article class="project-item smaller">
-						<a href="../reaction" class="project-item-link" itemscope
-							itemtype="https://schema.org/WebApplication">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M11.5,20L16.36,10.27H13V4L8,13.73H11.5V20M12,2C14.75,2 17.1,3 19.05,4.95C21,6.9 22,9.25 22,12C22,14.75 21,17.1 19.05,19.05C17.1,21 14.75,22 12,22C9.25,22 6.9,21 4.95,19.05C3,17.1 2,14.75 2,12C2,9.25 3,6.9 4.95,4.95C6.9,3 9.25,2 12,2Z" />
-								</svg>
-								Reaction Time Test
-							</h4>
-							<p itemprop="description">Test your reflexes and reaction speed</p>
-						</a>
-					</article>
-
-					<article class="project-item smaller">
-						<a href="../palette" class="project-item-link" itemscope
-							itemtype="https://schema.org/WebApplication">
-							<h4 itemprop="name">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M17.5,12A1.5,1.5 0 0,1 16,10.5A1.5,1.5 0 0,1 17.5,9A1.5,1.5 0 0,1 19,10.5A1.5,1.5 0 0,1 17.5,12M14.5,8A1.5,1.5 0 0,1 13,6.5A1.5,1.5 0 0,1 14.5,5A1.5,1.5 0 0,1 16,6.5A1.5,1.5 0 0,1 14.5,8M9.5,8A1.5,1.5 0 0,1 8,6.5A1.5,1.5 0 0,1 9.5,5A1.5,1.5 0 0,1 11,6.5A1.5,1.5 0 0,1 9.5,8M6.5,12A1.5,1.5 0 0,1 5,10.5A1.5,1.5 0 0,1 6.5,9A1.5,1.5 0 0,1 8,10.5A1.5,1.5 0 0,1 6.5,12M12,3A9,9 0 0,0 3,12A9,9 0 0,0 12,21A1.5,1.5 0 0,0 13.5,19.5C13.5,19.11 13.35,18.76 13.11,18.5C12.88,18.23 12.73,17.88 12.73,17.5A1.5,1.5 0 0,1 14.23,16H16A5,5 0 0,0 21,11C21,6.58 16.97,3 12,3Z" />
-								</svg>
-								Colour Palette Generator
-							</h4>
-							<p itemprop="description">Generate beautiful colour schemes</p>
-						</a>
 					</article>
 				</div>
 
-				<div class="projects-grid">
-					<a href="https://github.com/Lem0naise" target="_blank" rel="noopener" class="project-item-link"
-						itemscope itemtype="https://schema.org/SoftwareSourceCode">
-						<article class="project-item github-special">
-							<h4 itemprop="name">
-								<svg class='project-icon icon-invert' xmlns="http://www.w3.org/2000/svg"
-									viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-								</svg>
-								Explore More on GitHub
-							</h4>
-							<p itemprop="description" style="color:white;">There might be more interesting projects and
-								experiments on my
-								GitHub profile. Feel free to explore and see what else I've been working on!</p>
-						</article>
-					</a>
-				</div>
-
-				<!-- Extra Links -->
-				<div class="extra-links-section">
-					<span class="extra-links-label">Also</span>
-					<div class="extra-links">
-						<a href="../planyourday" class="extra-link">Plan your day quickly</a>
-						<a href="../convert" class="extra-link">Cheatsheet for ffmpeg / imagemagick</a>
-						<a href="../tempo" class="extra-link">Tap for tempo</a>
-						<a href="../daylio" class="extra-link">Daylio</a>
+				<!-- Playground: tools + also, collapsed -->
+				<div class="playground-strip">
+					<span class="playground-label">Playground</span>
+					<div class="playground-links">
+						<a href="https://todo.indigo.spot">Pomodoro &amp; Todo</a>
+						<a href="../choose">Decision Maker</a>
+						<a href="../dinopong">Dinopong</a>
+						<a href="../wordle">Unlimited Wordle</a>
+						<a href="../reaction">Reaction Test</a>
+						<a href="../palette">Colour Palette</a>
+						<a href="../planyourday">Plan your day</a>
+						<a href="../convert">ffmpeg / imagemagick</a>
+						<a href="../tempo">Tap for tempo</a>
+						<a href="../daylio">Daylio</a>
+						<a href="https://github.com/Lem0naise" target="_blank" rel="noopener">More on GitHub →</a>
 					</div>
 				</div>
-
 			</div>
 		</section>
-		<!-- Contact Info -->
+
 		<div class="section-separator"></div>
 		<section id="contact-info" class="contact-info-section">
 			<div class="contact-content">
@@ -547,15 +318,16 @@
 					<a href="./IndigoNolan-Resume.pdf" target="_blank" class="contact-method" rel="noopener">
 						<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
 							<path
-								d="M8 17V15H16V17H8M16 10L12 14L8 10H10.5V7H13.5V10H16M5 3H19C20.11 3 21 3.9 21 5V19C21 20.11 20.11 21 19 21H5C3.9 21 3 20.11 3 19V5C3 3.9 3.9 3 5 3M5 5V19H19V5H5Z"" /></svg>
-							<span>CV / Resume</span>
-						</a>
-						<a href="https://github.com/Lem0naise" target="_blank" class="contact-method" rel="noopener">
-								<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-									<path
-										d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
-								</svg>
-								<span>GitHub</span>
+								d="M8 17V15H16V17H8M16 10L12 14L8 10H10.5V7H13.5V10H16M5 3H19C20.11 3 21 3.9 21 5V19C21 20.11 20.11 21 19 21H5C3.9 21 3 20.11 3 19V5C3 3.9 3.9 3 5 3M5 5V19H19V5H5Z" />
+						</svg>
+						<span>CV / Resume</span>
+					</a>
+					<a href="https://github.com/Lem0naise" target="_blank" class="contact-method" rel="noopener">
+						<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+							<path
+								d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+						</svg>
+						<span>GitHub</span>
 					</a>
 					<a href="https://linkedin.com/in/indigonolan" target="_blank" class="contact-method" rel="noopener">
 						<svg class='project-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -577,6 +349,7 @@
 	</main>
 	<script src="../js/dark.js" defer></script>
 	<script src="/js/nav-transition.js" defer></script>
+	<script src="/js/copy-feedback.js" defer></script>
 	<script src="/js/copy-email.js" defer></script>
 </body>
 
