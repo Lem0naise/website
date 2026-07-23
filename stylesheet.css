@@ -1,3 +1,6 @@
+/* Body / prose font — swap family name here + in --font-body to try alternatives */
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&display=swap');
+
 /* syne-mono-regular - latin */
 @font-face {
 	font-display: swap;
@@ -9,9 +12,20 @@
 	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
+/* im-fell-english-regular - latin */
+@font-face {
+	font-display: swap;
+	/* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+	font-family: 'IM Fell English';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/fonts/IMFellEnglish-Regular.ttf') format('truetype');	
+	/* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+	size-adjust: 110%;
+}
 
 :root {
-	--background: #fffef3;
+	--background: #fcfaf3;
 	--text: #2d2d2d;
 	--text-light: #666;
 	--accent: #8b5a83;
@@ -28,7 +42,8 @@
 	--border-colour: #222222;
 
 	--font-main: 'Syne Mono';
-	--font-small: 'Faculty Glyphic';
+	--font-body: 'IM Fell English', monospace, serif; /* mono to test if font loads correctly */
+	--font-small: var(--font-body); /* alias — prefer --font-body */
 
 	/* Aliases used by blog, photos, and music stylesheets */
 	--title: var(--text);
@@ -43,7 +58,7 @@
 
 
 html.dark-mode {
-	--text: #fffef3;
+	--text: #fcfaf3;
 	--background: #242022;
 	--text-light: #c8c8c8;
 	--accent: #aa82a4;

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Faculty+Glyphic&display=swap');
-
 /* ── CV Container ── */
 .cv-html-container {
     margin-top: 2rem;
@@ -8,7 +6,7 @@
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 8px;
-    font-family: var(--font-small, 'Faculty Glyphic', sans-serif);
+    font-family: var(--font-body);
     font-size: 0.95rem;
     line-height: 1.55;
     box-shadow: var(--card-shadow);

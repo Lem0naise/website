@@ -92,7 +92,7 @@ function startGame(mode) {
             width: window.innerWidth,
             height: window.innerHeight,
             wireframes: false,
-            background: '#fffef3',
+            background: '#fcfaf3',
             pixelRatio: window.devicePixelRatio
         }
     });

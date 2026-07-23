@@ -284,7 +284,7 @@ h4,
     max-width: 80vw;
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Faculty Glyphic', 'sans';
+    font-family: var(--font-body);
 }
 
 .tag-heading {
@@ -655,7 +655,7 @@ h4,
     border-radius: 8px;
     padding: 12px 12px;
 
-    font-family: 'Faculty Glyphic', serif;
+    font-family: var(--font-body);
     font-size: 18px;
     line-height: 1.6;
     color: var(--text);
