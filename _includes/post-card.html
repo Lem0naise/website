@@ -1,0 +1,21 @@
+{% assign primary_tag = include.post.tags[0] | default: "" %}
+{% assign tag_class = "" %}
+{% if primary_tag != "" %}{% assign tag_class = primary_tag | prepend: "tag-" %}{% endif %}
+
+<article class="blog-post {{ tag_class }}" data-tags="{{ include.post.tags | join: ',' }}">
+    <div class="post-card-body">
+        <h3><a href="{{ include.post.url | relative_url }}">{{ include.post.title }}</a></h3>
+        {% if primary_tag == "short-story" %}
+        <p class="post-excerpt story-excerpt">{{ include.post.excerpt | strip_html | truncatewords: 20 }}</p>
+        {% else %}
+        <p class="post-excerpt">{{ include.post.excerpt | strip_html | truncatewords: 30 }}</p>
+        {% endif %}
+        <div class="post-card-meta">
+            <span class="post-date">{{ include.post.date | date: "%-d %b %Y" }}</span>
+            {% if primary_tag != "" %}
+            <span class="post-tag-pill">{{ primary_tag }}</span>
+            {% endif %}
+            <span class="post-likes" data-path="{{ include.post.url }}">♥ …</span>
+        </div>
+    </div>
+</article>

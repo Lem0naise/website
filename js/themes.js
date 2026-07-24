@@ -1,39 +1,82 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeDropdown = document.getElementById('theme-dropdown');
+    const viewBtns = document.querySelectorAll('.view-btn');
+    const tagChips = document.querySelectorAll('.tag-chip');
+    const timelineView = document.getElementById('timeline-view');
+    const groupedView = document.getElementById('grouped-view');
+    const noResults = document.getElementById('no-results');
 
-    if (!themeToggle || !themeDropdown) return;
+    if (!timelineView || !groupedView) return;
 
-    function closeDropdown() {
-        themeDropdown.classList.add('hidden');
-        themeToggle.setAttribute('aria-expanded', 'false');
+    const STORAGE_KEY = 'blog-view';
+    let currentView = localStorage.getItem(STORAGE_KEY) || 'timeline';
+    let activeTag = 'all';
+
+    function setView(view) {
+        currentView = view;
+        localStorage.setItem(STORAGE_KEY, view);
+
+        viewBtns.forEach(btn => {
+            const isActive = btn.dataset.view === view;
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-selected', isActive);
+        });
+
+        timelineView.classList.toggle('hidden', view !== 'timeline');
+        groupedView.classList.toggle('hidden', view !== 'topics');
+
+        applyFilter();
     }
 
-    function openDropdown() {
-        themeDropdown.classList.remove('hidden');
-        themeToggle.setAttribute('aria-expanded', 'true');
-    }
+    function applyFilter() {
+        if (noResults) noResults.classList.add('hidden');
 
-    themeToggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (themeDropdown.classList.contains('hidden')) {
-            openDropdown();
+        if (currentView === 'timeline') {
+            filterTimeline();
         } else {
-            closeDropdown();
+            filterGroups();
         }
-    });
+    }
 
-    document.addEventListener('click', (e) => {
-        if (!themeDropdown.contains(e.target) && e.target !== themeToggle) {
-            closeDropdown();
+    function filterTimeline() {
+        const cards = timelineView.querySelectorAll('.blog-post');
+        let visibleCount = 0;
+
+        cards.forEach(card => {
+            const tags = card.dataset.tags ? card.dataset.tags.split(',') : [];
+            const show = activeTag === 'all' || tags.includes(activeTag);
+            card.classList.toggle('hidden', !show);
+            if (show) visibleCount++;
+        });
+
+        if (noResults && visibleCount === 0 && activeTag !== 'all') {
+            noResults.classList.remove('hidden');
         }
+    }
+
+    function filterGroups() {
+        const groups = groupedView.querySelectorAll('.tag-group');
+        groups.forEach(group => {
+            const groupTag = group.dataset.groupTag;
+            const show = activeTag === 'all' || groupTag === activeTag;
+            group.classList.toggle('hidden', !show);
+        });
+    }
+
+    function setTag(tag) {
+        activeTag = tag;
+        tagChips.forEach(chip => {
+            chip.classList.toggle('active', chip.dataset.tag === tag);
+        });
+        applyFilter();
+    }
+
+    viewBtns.forEach(btn => {
+        btn.addEventListener('click', () => setView(btn.dataset.view));
     });
 
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeDropdown();
+    tagChips.forEach(chip => {
+        chip.addEventListener('click', () => setTag(chip.dataset.tag));
     });
 
-    themeDropdown.querySelectorAll('a').forEach((link) => {
-        link.addEventListener('click', closeDropdown);
-    });
+    setView(currentView);
 });

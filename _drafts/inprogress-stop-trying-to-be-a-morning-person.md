@@ -6,7 +6,7 @@ author: Indigo Nolan
 permalink: /blog/stop-trying-to-be-a-morning-person
 description: "Don't try to force yourself into being something you're not. Instead, make other adaptions which will actually improve your life."
 tags: 
-    - essays
+    - essay
 ---
 
 Stop trying to force yourself to be a morning person. If you just thought "why", then you're exactly who I'm talking to.
