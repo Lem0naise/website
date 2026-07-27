@@ -25,6 +25,20 @@ h4,
     color: var(--accent-light);
 }
 
+/* blog/notebook/guides headers show all three section names on desktop,
+   but "notebook"/"guides" don't fit next to "blog" at heading size on
+   narrow screens — so mobile swaps to a shorter two-word version instead
+   (see the mobile media queries below). */
+.stream-title-compact {
+    display: none;
+}
+
+/* On the blog page specifically, "guides" drops out of the compact mobile
+   heading entirely and reappears as a plain-link chip in the tag strip. */
+.guides-chip {
+    display: none;
+}
+
 /* ── Tag strip (filter chips + RSS) ── */
 
 .tag-strip {
@@ -55,7 +69,8 @@ h4,
     color: var(--accent);
 }
 
-.tag-chip {
+.tag-chip,
+.chip-link {
     background: transparent;
     border: 1px solid var(--border);
     padding: 5px 14px;
@@ -68,7 +83,8 @@ h4,
     text-transform: lowercase;
 }
 
-.tag-chip:hover {
+.tag-chip:hover,
+.chip-link:hover {
     border-color: var(--accent-light);
     color: var(--accent);
 }
@@ -77,6 +93,14 @@ h4,
     background: var(--accent);
     color: white;
     border-color: var(--accent);
+}
+
+/* .chip-link looks like a tag chip but is a plain navigation link (e.g.
+   "guides" in the blog header) — not part of the tag-filter JS, so it never
+   gets an "active" state and isn't picked up by the .tag-chip filter query. */
+.chip-link {
+    text-decoration: none;
+    display: inline-block;
 }
 
 /* ── Post list container ── */
@@ -273,6 +297,18 @@ h4,
         font-size: 36px;
     }
 
+    .stream-title-full {
+        display: none;
+    }
+
+    .stream-title-compact {
+        display: inline;
+    }
+
+    .guides-chip {
+        display: inline-block;
+    }
+
     .blog-posts {
         padding: 0 16px;
     }
@@ -431,7 +467,6 @@ h4,
     padding: 20px 24px;
     margin: 32px 0;
     border-radius: 8px;
-    font-style: italic;
     color: var(--title);
     font-family: var(--font-main), monospace;
 }
@@ -765,7 +800,6 @@ h4,
     padding: 4px 6px;
     margin: 0 0 10px 0;
     border-radius: 4px;
-    font-style: italic;
     color: var(--title);
 }
 
@@ -783,6 +817,10 @@ h4,
     margin: 60px 0 40px;
     padding: 24px 0;
     border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
@@ -792,6 +830,14 @@ h4,
 
     .stream-header h1 {
         font-size: 36px;
+    }
+
+    .stream-title-full {
+        display: none;
+    }
+
+    .stream-title-compact {
+        display: inline;
     }
 
     .stream-container {
@@ -950,7 +996,6 @@ h4,
     border-left: 4px solid var(--accent);
     border-radius: 0 8px 8px 0;
     color: var(--text);
-    font-style: italic;
 }
 
 .stream-content blockquote p {

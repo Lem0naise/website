@@ -1,0 +1,32 @@
+---
+layout: default
+title: Guides
+permalink: /guides
+description: "Short technical how-to guides and troubleshooting notes by Indigo Nolan."
+---
+
+<div class="stream-header">
+    <h1>
+        <span class="stream-title-full"><a href="/blog">blog</a> • <a href="/notebook">notebook</a> • guides</span>
+        <span class="stream-title-compact"><a href="/blog">blog</a> • guides</span>
+    </h1>
+    <div class="section-separator" style="margin-top: 10px; margin-bottom: 20px;"></div>
+</div>
+
+<div class="stream-container">
+    <div id="tils-list">
+        {% assign sorted_tils = site.tils | sort: 'date' | reverse %}
+        {% for til in sorted_tils %}
+        <article class="blog-post">
+            <h3><a href="{{ til.url | relative_url }}">{{ til.title }}</a></h3>
+            <span class="post-information">{{ til.date | date: "%-d %b %Y" }}</span>
+            <span class="post-information">{{ til.tags | join: ', ' }}</span>
+        </article>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="stream-navigation">
+    <a href="{{ '/blog/' | relative_url }}" class="nav-link">← back to blog</a>
+    <a href="{{ '/notebook' | relative_url }}" class="nav-link">Notebook</a>
+</div>

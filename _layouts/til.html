@@ -58,7 +58,7 @@
 					{% if page.tags %}
 					<div class="post-information">
 						{% for tag in page.tags %}
-						<a href="{{ '/notes#' | append: tag | relative_url }}">{{ tag }}</a>{% unless forloop.last %} • {% endunless %}
+						<a href="{{ '/guides#' | append: tag | relative_url }}">{{ tag }}</a>{% unless forloop.last %} • {% endunless %}
 						{% endfor %}
 					</div>
 					{% endif %}
@@ -70,7 +70,7 @@
 			</div>
 
 			<nav class="post-navigation">
-				<a href="{{ '/notes' | relative_url }}" class="nav-link primary">← Back to Notes</a>
+				<a href="{{ '/guides' | relative_url }}" class="nav-link primary">← Back to Guides</a>
 				<a href="{{ '/blog' | relative_url }}" class="nav-link">Blog</a>
 				<a href="{{ '/' | relative_url }}" class="nav-link">Home</a>
 			</nav>

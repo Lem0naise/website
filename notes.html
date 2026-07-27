@@ -2,78 +2,15 @@
 layout: default
 title: Notes
 permalink: /notes
-description: "Fragments of thoughts, observations, and stream of consciousness by Indigo Nolan."
+description: "This page has moved."
 ---
 
 <div class="stream-header">
-    <h1><a href="/blog">blog</a> • notes </h1>
-
-    <p class="stream-subtitle">
-
-        <button id="tab-tils" class="theme-filter-btn active" onclick="switchTab('tils')">guides</button>
-        <button id="tab-thoughts" class="theme-filter-btn" onclick="switchTab('thoughts')">thoughts</button>
-    </p>
-
-    <div class="section-separator" style="margin-top: 10px; margin-bottom: 20px;"></div>
+    <h1>notes</h1>
+    <p class="stream-subtitle">This page has split into two:</p>
 </div>
 
-<div class="stream-container">
-
-  <div id="content-thoughts" class="tab-content hidden">
-        {% assign sorted_stream = site.data.fragments | sort: 'date' | reverse %}
-        {% for fragment in sorted_stream %}
-        <div class="stream-entry" id="{{ fragment.date | date: '%Y-%m-%d-%H'}}">
-            <div class="stream-header-info">
-                <div class="stream-date">{{ fragment.date | date: "%b %-d, %Y"}}</div>
-                
-            </div>
-            
-            <div class="stream-content">
-                {{ fragment.content | markdownify }}
-                
-            </div>
-            {% if fragment.song %}
-                <div class="stream-song">
-                    {{ fragment.song }}
-                </div>
-                {% endif %}
-            
-        </div>
-        {% endfor %}
-    </div>
-    <div id="content-tils" class="tab-content">
-
-        <div id="tils-list">
-            {% assign sorted_tils = site.tils | sort: 'date' | reverse %}
-            {% for til in sorted_tils %}
-            <article class="blog-post">
-                <h3><a href="{{ til.url | relative_url }}">{{ til.title }}</a></h3>
-                <span class="post-information">{{ til.date | date: "%-d %b %Y" }}</span>
-                <span class="post-information">{{ til.tags | join: ', ' }}</span>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
-
+<div class="stream-container" style="text-align: center; padding-bottom: 60px;">
+    <p><a href="/notebook" class="nav-link">→ Notebook</a> &mdash; songs, passing thoughts, small observations</p>
+    <p style="margin-top: 16px;"><a href="/guides" class="nav-link">→ Guides</a> &mdash; technical how-to guides</p>
 </div>
-
-<div class="stream-navigation">
-    <a href="{{ '/blog/' | relative_url }}" class="nav-link">← back to blog</a>
-</div>
-
-<script>
-    function switchTab(tabName) {
-        // Toggle Buttons
-        document.querySelectorAll('.theme-filter-btn').forEach(btn => {
-            btn.classList.remove('active');
-        });
-        document.getElementById('tab-' + tabName).classList.add('active');
-
-        // Toggle Content
-        document.querySelectorAll('.tab-content').forEach(content => {
-            content.classList.add('hidden');
-        });
-        document.getElementById('content-' + tabName).classList.remove('hidden');
-    }
-</script>
-<script src="{{ '/js/reading-progress.js' | relative_url }}"></script>

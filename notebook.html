@@ -1,0 +1,33 @@
+---
+layout: default
+title: Notebook
+permalink: /notebook
+description: "A running notebook of songs, passing thoughts, and small observations by Indigo Nolan."
+---
+
+<div class="stream-header">
+    <h1>
+        <span class="stream-title-full"><a href="/blog">blog</a> • notebook • <a href="/guides">guides</a></span>
+        <span class="stream-title-compact"><a href="/blog">blog</a> • notes</span>
+    </h1>
+    <div class="section-separator" style="margin-top: 10px; margin-bottom: 20px;"></div>
+</div>
+
+<div class="stream-container">
+    <div id="notebook-list">
+        <p class="no-results">Loading&hellip;</p>
+    </div>
+</div>
+
+<div class="stream-navigation">
+    <a href="{{ '/blog/' | relative_url }}" class="nav-link">← back to blog</a>
+    <a href="{{ '/guides' | relative_url }}" class="nav-link">Guides</a>
+</div>
+
+<script src="{{ '/js/gist-loader.js' | relative_url }}"></script>
+<script src="{{ '/js/notebook.js' | relative_url }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    NotebookLoader.init('notebook-list', 'Lem0naise', '64da029d16f1267005fff68050c7206a', 'notebook');
+});
+</script>

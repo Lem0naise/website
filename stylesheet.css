@@ -148,7 +148,6 @@ body {
 
 #header svg {
 	height: 20px;
-	padding-bottom: 4px;
 	vertical-align: middle;
 	fill: var(--accent);
 	animation: rainbowsvg 15s ease-in-out infinite;
@@ -2277,7 +2276,6 @@ sup[id^="fnref"] a:hover {
     border-left: 4px solid var(--accent);
     border-radius: 0 8px 8px 0;
     color: var(--text);
-    font-style: italic;
 }
 
 /* Remove the huge gaps between paragraphs inside the quote */
