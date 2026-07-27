@@ -1,0 +1,462 @@
+/* ═══════════════════════════════════════════════════
+   THE WALK — homepage layout
+   ═══════════════════════════════════════════════════ */
+
+/* Soft header over the photographic hero */
+body.walk-page #header {
+	background: color-mix(in srgb, var(--background) 88%, transparent);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+
+/* Walk-page overrides for dark toggle (no animation/lift on hero) */
+body.walk-page button.tab.tab-svg {
+	animation: none;
+}
+
+body.walk-page button.tab.tab-svg:hover {
+	transform: none;
+}
+
+/* ── Hero / arrive ── */
+
+.walk-hero {
+	position: relative;
+	min-height: 100vh;
+	min-height: 100dvh;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-start;
+	overflow: hidden;
+	color: #f7f3ec;
+}
+
+.walk-hero-media {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+}
+
+.walk-hero-media img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center 40%;
+	display: block;
+	transform: scale(1.02);
+}
+
+.walk-hero-scrim {
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	background:
+		linear-gradient(180deg, rgba(28, 22, 26, 0.35) 0%, rgba(28, 22, 26, 0.15) 30%, rgba(28, 22, 26, 0.55) 65%, var(--background) 100%),
+		linear-gradient(90deg, rgba(28, 22, 26, 0.5) 0%, rgba(28, 22, 26, 0.1) 50%, transparent 100%);
+	pointer-events: none;
+}
+
+.walk-hero-inner {
+	position: relative;
+	z-index: 2;
+	width: min(720px, 92vw);
+	padding: 0 24px 12vh;
+	animation: walk-hero-in 0.9s ease both;
+}
+
+.walk-eyebrow {
+	margin: 0 0 8px;
+	font-family: var(--font-main), monospace;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.28em;
+	text-transform: uppercase;
+	color: rgba(247, 243, 236, 0.78);
+}
+
+.walk-hero h1 {
+	margin: 0 0 14px;
+	font-size: clamp(48px, 9vw, 86px);
+	font-weight: 700;
+	line-height: 1.02;
+	letter-spacing: -0.02em;
+	color: #f7f3ec;
+	text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+}
+
+.walk-headline {
+	margin: 0;
+	font-family: var(--font-main), monospace;
+	font-size: clamp(20px, 2.6vw, 28px);
+	line-height: 1.35;
+	color: rgba(247, 243, 236, 0.94);
+	max-width: 22ch;
+}
+
+.walk-tagline {
+	margin: 0 0 28px;
+	font-family: var(--font-main), monospace;
+	font-size: 15px;
+	letter-spacing: 0.02em;
+	color: rgba(247, 243, 236, 0.72);
+}
+
+/* ── Hero nav grid ── */
+
+.hero-nav {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 10px;
+	margin-top: 28px;
+	width: 100%;
+	max-width: 540px;
+}
+
+.hero-nav-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 16px 8px;
+	border-radius: 10px;
+	background: rgba(247, 243, 236, 0.1);
+	border: 1px solid rgba(247, 243, 236, 0.18);
+	backdrop-filter: blur(6px);
+	-webkit-backdrop-filter: blur(6px);
+	text-decoration: none;
+	transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.hero-nav-card:hover,
+.hero-nav-card:focus-visible {
+	background: rgba(247, 243, 236, 0.2);
+	border-color: rgba(247, 243, 236, 0.45);
+	transform: translateY(-2px);
+}
+
+.hero-nav-primary {
+	background: rgba(247, 243, 236, 0.92);
+	border-color: rgba(247, 243, 236, 0.95);
+}
+
+.hero-nav-primary .hero-nav-icon {
+	fill: #2a2226;
+}
+
+.hero-nav-primary .hero-nav-label {
+	color: #2a2226;
+}
+
+.hero-nav-primary:hover,
+.hero-nav-primary:focus-visible {
+	background: #f7f3ec;
+	border-color: #f7f3ec;
+}
+
+.hero-nav-icon {
+	width: 22px;
+	height: 22px;
+	fill: rgba(247, 243, 236, 0.85);
+	flex-shrink: 0;
+}
+
+.hero-nav-label {
+	font-family: var(--font-main), monospace;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.03em;
+	color: rgba(247, 243, 236, 0.88);
+	text-align: center;
+}
+
+/* ═══════════════════════════════════════════════════
+   TEST — "words" variant of the hero nav.
+   Delete this block (and the "hero-nav-words" class in
+   index.html) to revert to the original card grid.
+   ═══════════════════════════════════════════════════ */
+
+.hero-nav-words .hero-nav-card {
+	background: transparent;
+	border-color: transparent;
+	backdrop-filter: none;
+	-webkit-backdrop-filter: none;
+	box-shadow: none;
+	padding: 8px 4px;
+	border-radius: 0;
+}
+
+.hero-nav-words .hero-nav-card:hover,
+.hero-nav-words .hero-nav-card:focus-visible {
+	background: transparent;
+	border-color: transparent;
+	transform: none;
+}
+
+.hero-nav-words .hero-nav-icon {
+	display: none;
+}
+
+.hero-nav-words .hero-nav-label {
+	font-size: 16px;
+	font-weight: 600;
+	color: rgba(247, 243, 236, 0.85);
+	text-decoration: underline;
+	text-decoration-color: transparent;
+	text-underline-offset: 5px;
+	text-decoration-thickness: 1.5px;
+	transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.hero-nav-words .hero-nav-card:hover .hero-nav-label,
+.hero-nav-words .hero-nav-card:focus-visible .hero-nav-label {
+	color: #f7f3ec;
+	text-decoration-color: currentColor;
+}
+
+.hero-nav-words .hero-nav-primary {
+	background: transparent;
+	border-color: transparent;
+}
+
+.hero-nav-words .hero-nav-primary:hover,
+.hero-nav-words .hero-nav-primary:focus-visible {
+	background: transparent;
+	border-color: transparent;
+}
+
+.hero-nav-words .hero-nav-primary .hero-nav-label {
+	color: #f7f3ec;
+	font-weight: 700;
+}
+
+@keyframes walk-hero-in {
+	from {
+		opacity: 0;
+		transform: translateY(16px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* ── Shared sections ── */
+
+.walk-section {
+	padding: 72px 24px;
+}
+
+.walk-section-inner {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+.walk-section-label {
+	margin: 0 0 8px;
+	font-family: var(--font-main), monospace;
+	font-size: 12px;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--accent);
+}
+
+.walk-section h2 {
+	margin: 0 0 32px;
+	font-size: clamp(28px, 4vw, 36px);
+	font-weight: 700;
+	color: var(--text);
+	line-height: 1.15;
+}
+
+.walk-section-lede {
+	margin: 0 0 36px;
+	font-family: var(--font-body), serif;
+	font-size: 18px;
+	line-height: 1.5;
+	color: var(--text-light);
+	max-width: 42ch;
+}
+
+#workbench,
+#about,
+#about-more,
+#contact-info {
+	scroll-margin-top: 80px;
+}
+
+/* ── Workbench ── */
+
+.walk-workbench .about-room {
+	margin-top: 8px;
+	padding: 0;
+	background: transparent;
+	border: none;
+	box-shadow: none;
+	border-radius: 0;
+}
+
+.walk-workbench .about-room:hover {
+	border-color: transparent;
+}
+
+.walk-workbench .github-contrib-graph {
+	display: block;
+	margin: 0 auto 20px;
+	max-width: 100%;
+}
+
+
+/* ── About on walk page ── */
+
+/* Neutralise legacy #about width rules from stylesheet.css so this
+   section uses the same width/padding as the other walk sections. */
+#about {
+	max-width: none;
+}
+
+.walk-about .about-intro {
+	/* Override the generic .about-item's viewport-relative max-width (50vw),
+	   which made this card narrower than the rest of the section on wide
+	   screens. Let it fill the section width like every other element here,
+	   and keep the text itself readable via the max-width on the list below. */
+	max-width: none;
+	width: 100%;
+	margin-bottom: 28px;
+	border: none;
+	background-color: none;
+	box-shadow: none;
+}
+
+.walk-about .about-intro ul {
+	max-width: 62ch;
+	margin: 0 auto;
+}
+
+/* Focus rings for interactive bits */
+.hero-nav-card:focus-visible,
+button.tab:focus-visible {
+	outline: 2px solid var(--accent);
+	outline-offset: 3px;
+}
+
+.hero-nav-card:focus-visible {
+	outline-color: #f7f3ec;
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 860px) {
+	.hero-nav {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+	}
+
+	.hero-nav-card {
+		padding: 12px 6px;
+	}
+
+	.hero-nav-icon {
+		width: 20px;
+		height: 20px;
+	}
+
+	.hero-nav-label {
+		font-size: 11px;
+	}
+
+	.hero-nav-words .hero-nav-label {
+		font-size: 13px;
+	}
+}
+
+@media (max-width: 768px) {
+	.walk-hero {
+		min-height: 100vh;
+		min-height: 100dvh;
+		align-items: flex-end;
+	}
+
+	.walk-hero-inner {
+		padding: 0 20px 10vh;
+		width: min(100%, 92vw);
+	}
+
+	.walk-headline {
+		max-width: none;
+	}
+
+	.walk-section {
+		padding: 56px 16px;
+	}
+
+	.walk-section-lede {
+		font-size: 17px;
+		margin-bottom: 28px;
+	}
+
+}
+
+@media (max-width: 480px) {
+	.walk-hero h1 {
+		font-size: 44px;
+	}
+
+	.hero-nav {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 6px;
+		max-width: none;
+	}
+
+	.hero-nav-card {
+		padding: 10px 4px;
+		gap: 4px;
+	}
+
+	.hero-nav-icon {
+		width: 18px;
+		height: 18px;
+	}
+
+	.hero-nav-label {
+		font-size: 10px;
+	}
+
+	.hero-nav-words .hero-nav-label {
+		font-size: 12px;
+	}
+}
+
+/* Dark mode adjustments */
+html.dark-mode .walk-hero-scrim {
+	background:
+		linear-gradient(180deg, rgba(20, 16, 18, 0.45) 0%, rgba(20, 16, 18, 0.2) 30%, rgba(20, 16, 18, 0.65) 65%, var(--background) 100%),
+		linear-gradient(90deg, rgba(20, 16, 18, 0.55) 0%, rgba(20, 16, 18, 0.15) 50%, transparent 100%);
+}
+
+html.dark-mode .walk-section-label {
+	color: var(--accent-light);
+}
+
+body.walk-page #header {
+	border-bottom-color: transparent;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.walk-hero-inner {
+		animation: none !important;
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+
+	.walk-hero-media img {
+		transform: none;
+	}
+
+	.hero-nav-card:hover,
+	.hero-nav-card:focus-visible {
+		transform: none;
+	}
+}

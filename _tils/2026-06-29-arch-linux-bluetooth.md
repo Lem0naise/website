@@ -1,6 +1,6 @@
 ---
 layout: til
-title: "Bluetooth device connection arch linux"
+title: "Bluetooth device connection for Arch linux"
 date: 2026-06-29 10:00:00 +0500
 permalink: /guides/bluetooth-linux
 tags: 

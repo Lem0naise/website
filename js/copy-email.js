@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const emailAddress = copyEmailBtn.getAttribute('data-email');
     if (!emailAddress) return;
 
-    copyEmailBtn.addEventListener('click', async () => {
+    copyEmailBtn.addEventListener('click', async (e) => {
+        e.preventDefault();
         try {
             if (window.copyWithFeedback && emailText !== copyEmailBtn) {
                 await copyWithFeedback(emailText, emailAddress, { copied: 'Copied!' });
