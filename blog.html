@@ -16,59 +16,22 @@ observations."
 <div class="blog-header">
     <h1>blog • <a href="/notes">notes</a></h1>
 
-    <div class="blog-controls">
-        <div class="view-toggle" role="tablist">
-            <button class="view-btn active" data-view="timeline" role="tab" aria-selected="true">timeline</button>
-            <button class="view-btn" data-view="topics" role="tab" aria-selected="false">by topic</button>
-        </div>
-        <a class="rss-btn" href="{{ '/feed.xml' | relative_url }}">RSS</a>
-    </div>
-
     <div class="tag-strip" role="toolbar" aria-label="Filter by tag">
         <button class="tag-chip active" data-tag="all">all</button>
         {% for tag in sortedtags %}
         <button class="tag-chip" data-tag="{{ tag }}">{{ tag }}</button>
         {% endfor %}
+        <a class="rss-btn" href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </div>
 
     <div class="section-separator" style="margin-top: 0px; margin-bottom: 0px;"></div>
 </div>
 
 <div class="blog-posts">
-
-    <div id="timeline-view">
-        {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
-        {% for post in visible_posts %}
-        {% include post-card.html post=post %}
-        {% endfor %}
-    </div>
-
-    <div id="grouped-view" class="hidden">
-        {% for tag in sortedtags %}
-        <div class="tag-group" data-group-tag="{{ tag }}">
-            <h2 class="tag-heading" id="{{ tag }}">{{ tag }}</h2>
-            {% assign visible_tag_posts = site.tags[tag] | where_exp: "post", "post.hidden != true" %}
-            {% for post in visible_tag_posts %}
-            {% include post-card.html post=post %}
-            {% endfor %}
-        </div>
-        {% endfor %}
-
-        {% assign has_untagged = false %}
-        {% for post in visible_posts %}
-        {% if post.tags[0] == nil or post.tags[0] == "" %}{% assign has_untagged = true %}{% endif %}
-        {% endfor %}
-        {% if has_untagged %}
-        <div class="tag-group" data-group-tag="other">
-            <h2 class="tag-heading" id="other">other</h2>
-            {% for post in visible_posts %}
-            {% if post.tags[0] == nil or post.tags[0] == "" %}
-            {% include post-card.html post=post %}
-            {% endif %}
-            {% endfor %}
-        </div>
-        {% endif %}
-    </div>
+    {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
+    {% for post in visible_posts %}
+    {% include post-card.html post=post %}
+    {% endfor %}
 
     <p class="no-results hidden" id="no-results">No posts match that filter.</p>
 </div>

@@ -25,72 +25,34 @@ h4,
     color: var(--accent-light);
 }
 
-/* ── View toggle + RSS row ── */
-
-.blog-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
-}
-
-.view-toggle {
-    display: inline-flex;
-    background: var(--accent-soft);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.view-btn {
-    background: transparent;
-    border: none;
-    padding: 8px 18px;
-    font-size: 13px;
-    font-family: var(--font-main), monospace;
-    color: var(--text-light);
-    cursor: pointer;
-    transition: all 0.25s;
-    position: relative;
-}
-
-.view-btn.active {
-    background: var(--accent);
-    color: white;
-}
-
-.view-btn:not(.active):hover {
-    color: var(--accent);
-    background: var(--item-background-2);
-}
-
-.rss-btn {
-    background: var(--item);
-    border: 1px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 8px;
-    color: var(--text-light);
-    font-size: 13px;
-    font-family: var(--font-main), monospace;
-    text-decoration: none;
-    transition: all 0.25s;
-}
-
-.rss-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-/* ── Tag strip ── */
+/* ── Tag strip (filter chips + RSS) ── */
 
 .tag-strip {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 6px;
     margin-bottom: 14px;
     padding: 0 16px;
+}
+
+.rss-btn {
+    background: var(--item);
+    border: 1px solid var(--border);
+    padding: 5px 14px;
+    border-radius: 99px;
+    color: var(--text-light);
+    font-size: 12px;
+    font-family: var(--font-main), monospace;
+    text-decoration: none;
+    transition: all 0.25s;
+    margin-left: 6px;
+}
+
+.rss-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
 }
 
 .tag-chip {
@@ -226,36 +188,76 @@ h4,
     border: 1px solid var(--accent-light);
 }
 
-/* ── Topic tints — hue-shifted from --accent-soft ── */
-
-.blog-post.tag-short-story { background: #f0e9e6; }
-.blog-post.tag-travel      { background: #f0ede6; }
-.blog-post.tag-design      { background: #e8f0e7; }
-.blog-post.tag-coding      { background: #e6ecf0; }
-.blog-post.tag-essay        { background: #ece6f0; }
-.blog-post.tag-meta         { background: #eae6f0; }
-
-html.dark-mode .blog-post.tag-short-story { background: #2f2b29; }
-html.dark-mode .blog-post.tag-travel      { background: #2f2d29; }
-html.dark-mode .blog-post.tag-design      { background: #292f2a; }
-html.dark-mode .blog-post.tag-coding      { background: #292b2f; }
-html.dark-mode .blog-post.tag-essay        { background: #2d292f; }
-html.dark-mode .blog-post.tag-meta         { background: #2b292f; }
-
 .blog-post.tag-short-story .story-excerpt {
     font-style: italic;
 }
 
-/* ── Tag group headings (grouped view) ── */
+/* ═══════════════════════════════════════════════════
+   BLOG INDEX — flowing list
 
-.tag-heading {
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    text-decoration: underline;
+   Overrides the generic .blog-post "card" styling above
+   (still used as-is for related-posts and the notes page)
+   with an unboxed, editorial reading list: hairline
+   dividers instead of borders, a serif title, and a
+   left accent bar that reveals on hover. Scoped to
+   .blog-posts so nothing else on the site is affected.
+   ═══════════════════════════════════════════════════ */
+
+.blog-posts .blog-post {
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    padding: 32px 4px 32px 24px;
+    margin-bottom: 0;
+    box-shadow: none;
+    transition: border-color 0.25s ease;
 }
 
-.tag-group:first-child .tag-heading {
-    margin-top: 0.5rem;
+.blog-posts .blog-post:first-child {
+    border-top: none;
+}
+
+.blog-posts .blog-post:hover {
+    transform: none;
+    box-shadow: none;
+    border-top-color: var(--accent-light);
+}
+
+.blog-posts .blog-post::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 32px;
+    bottom: 32px;
+    width: 2px;
+    border-radius: 2px;
+    background: transparent;
+    transition: background 0.25s ease;
+}
+
+.blog-posts .blog-post:hover::before {
+    background: var(--accent);
+}
+
+.blog-posts .blog-post h3 {
+    font-family: var(--font-body), serif;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 8px;
+}
+
+.blog-posts .post-excerpt {
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 68ch;
+    -webkit-line-clamp: 3;
+    margin-bottom: 14px;
+}
+
+.blog-posts .post-card-meta {
+    font-size: 12px;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -275,18 +277,9 @@ html.dark-mode .blog-post.tag-meta         { background: #2b292f; }
         padding: 0 16px;
     }
 
-    .blog-controls {
-        gap: 8px;
-    }
-
-    .view-btn {
-        padding: 7px 14px;
-        font-size: 12px;
-    }
-
     .rss-btn {
-        padding: 7px 12px;
-        font-size: 12px;
+        padding: 4px 10px;
+        font-size: 11px;
     }
 
     .tag-strip {
@@ -300,22 +293,26 @@ html.dark-mode .blog-post.tag-meta         { background: #2b292f; }
         font-size: 11px;
     }
 
-    .blog-post {
-        padding: 10px 12px;
+    .blog-posts .blog-post {
+        padding: 22px 2px 22px 16px;
+    }
+
+    .blog-posts .blog-post::before {
+        top: 22px;
+        bottom: 22px;
+    }
+
+    .blog-posts .blog-post h3 {
+        font-size: 17px;
+    }
+
+    .blog-posts .post-excerpt {
+        font-size: 14px;
+        -webkit-line-clamp: 2;
         margin-bottom: 8px;
     }
 
-    .blog-post h3 {
-        font-size: 15px;
-    }
-
-    .post-excerpt {
-        font-size: 13px;
-        -webkit-line-clamp: 2;
-        margin-bottom: 6px;
-    }
-
-    .post-card-meta {
+    .blog-posts .post-card-meta {
         gap: 6px;
     }
 }
