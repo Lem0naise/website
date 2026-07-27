@@ -9,11 +9,7 @@ body.walk-page #header {
 	-webkit-backdrop-filter: blur(10px);
 }
 
-/* Walk-page overrides for dark toggle (no animation/lift on hero) */
-body.walk-page button.tab.tab-svg {
-	animation: none;
-}
-
+/* Walk-page override for dark toggle (no lift on hover over the hero) */
 body.walk-page button.tab.tab-svg:hover {
 	transform: none;
 }
@@ -91,14 +87,6 @@ body.walk-page button.tab.tab-svg:hover {
 	line-height: 1.35;
 	color: rgba(247, 243, 236, 0.94);
 	max-width: 22ch;
-}
-
-.walk-tagline {
-	margin: 0 0 28px;
-	font-family: var(--font-main), monospace;
-	font-size: 15px;
-	letter-spacing: 0.02em;
-	color: rgba(247, 243, 236, 0.72);
 }
 
 /* ── Hero nav grid ── */
@@ -252,30 +240,12 @@ body.walk-page button.tab.tab-svg:hover {
 	margin: 0 auto;
 }
 
-.walk-section-label {
-	margin: 0 0 8px;
-	font-family: var(--font-main), monospace;
-	font-size: 12px;
-	letter-spacing: 0.22em;
-	text-transform: uppercase;
-	color: var(--accent);
-}
-
 .walk-section h2 {
 	margin: 0 0 32px;
 	font-size: clamp(28px, 4vw, 36px);
 	font-weight: 700;
 	color: var(--text);
 	line-height: 1.15;
-}
-
-.walk-section-lede {
-	margin: 0 0 36px;
-	font-family: var(--font-body), serif;
-	font-size: 18px;
-	line-height: 1.5;
-	color: var(--text-light);
-	max-width: 42ch;
 }
 
 #workbench,
@@ -323,9 +293,6 @@ body.walk-page button.tab.tab-svg:hover {
 	max-width: none;
 	width: 100%;
 	margin-bottom: 28px;
-	border: none;
-	background-color: none;
-	box-shadow: none;
 }
 
 .walk-about .about-intro ul {
@@ -389,12 +356,6 @@ button.tab:focus-visible {
 	.walk-section {
 		padding: 56px 16px;
 	}
-
-	.walk-section-lede {
-		font-size: 17px;
-		margin-bottom: 28px;
-	}
-
 }
 
 @media (max-width: 480px) {
@@ -432,10 +393,6 @@ html.dark-mode .walk-hero-scrim {
 	background:
 		linear-gradient(180deg, rgba(20, 16, 18, 0.45) 0%, rgba(20, 16, 18, 0.2) 30%, rgba(20, 16, 18, 0.65) 65%, var(--background) 100%),
 		linear-gradient(90deg, rgba(20, 16, 18, 0.55) 0%, rgba(20, 16, 18, 0.15) 50%, transparent 100%);
-}
-
-html.dark-mode .walk-section-label {
-	color: var(--accent-light);
 }
 
 body.walk-page #header {

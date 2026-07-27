@@ -1014,32 +1014,3 @@ h4,
     margin-bottom: 8px;
 }
 
-/* ═══════════════════════════════════════════════════
-   SHARED — tab buttons (used by notes page)
-   ═══════════════════════════════════════════════════ */
-
-.theme-filter-btn {
-    background: var(--item);
-    border: 1px solid var(--border);
-    padding: 8px 16px;
-    border-radius: 6px;
-    color: var(--text);
-    cursor: pointer;
-    font-size: 14px;
-    font-family: var(--font-main), monospace;
-    transition: all 0.3s;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.theme-filter-btn:hover {
-    background: var(--item-background-2);
-    border-color: var(--accent);
-}
-
-.theme-filter-btn.active {
-    background: var(--accent);
-    color: white;
-    border-color: var(--accent);
-}
