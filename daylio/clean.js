@@ -1,122 +1,162 @@
-// Browser-compatible Daylio CSV cleaner - AI Log Format
-// Exposes window.cleanDaylioCSV(text) => { "2023-P1.txt": string, ... }
+// Browser-compatible Daylio parser and AI-log formatter.
+// Exposes window.parseDaylioCSV(text) => Entry[] and
+// window.cleanDaylioCSV(text) => { "2023-P1.txt": string, ... }.
 
-function parseCSVLine(text) {
-    const result = [];
-    let cur = '';
-    let inQuote = false;
-    for (let i = 0; i < text.length; i++) {
-        const char = text[i];
+function parseCSV(text) {
+    const rows = [];
+    let row = [];
+    let field = '';
+    let inQuotes = false;
+
+    for (let index = 0; index < text.length; index += 1) {
+        const char = text[index];
+        const next = text[index + 1];
+
         if (char === '"') {
-            inQuote = !inQuote;
-        } else if (char === ',' && !inQuote) {
-            result.push(cur);
-            cur = '';
-            continue;
+            if (inQuotes && next === '"') {
+                field += '"';
+                index += 1;
+            } else {
+                inQuotes = !inQuotes;
+            }
+        } else if (char === ',' && !inQuotes) {
+            row.push(field);
+            field = '';
+        } else if ((char === '\n' || char === '\r') && !inQuotes) {
+            if (char === '\r' && next === '\n') index += 1;
+            row.push(field);
+            if (row.some((value) => value.trim() !== '')) rows.push(row);
+            row = [];
+            field = '';
+        } else {
+            field += char;
         }
-        cur += char;
     }
-    result.push(cur);
-    return result;
+
+    row.push(field);
+    if (row.some((value) => value.trim() !== '')) rows.push(row);
+    return rows;
 }
 
-function stripQuotes(s) {
-    if (!s) return "";
-    return s.replace(/^"|"$/g, '');
+function normaliseHeader(value) {
+    return value.replace(/^\uFEFF/, '').trim().toLowerCase().replace(/[\s-]/g, '_');
+}
+
+function to24Hour(timeRaw) {
+    const match = String(timeRaw || '').trim().match(/^(\d{1,2}):(\d{2})(?:\s*([ap]m))?$/i);
+    if (!match) return '00:00';
+
+    let hour = Number.parseInt(match[1], 10);
+    const minute = Number.parseInt(match[2], 10);
+    const suffix = match[3] ? match[3].toUpperCase() : '';
+
+    if (suffix === 'PM' && hour < 12) hour += 12;
+    if (suffix === 'AM' && hour === 12) hour = 0;
+    if (hour > 23 || minute > 59) return '00:00';
+
+    return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
+}
+
+function cleanActivities(value) {
+    return String(value || '')
+        .replace(/[|/]/g, ',')
+        .split(',')
+        .map((activity) => activity.trim())
+        .filter(Boolean);
+}
+
+function cleanNote(value) {
+    return String(value || '').replace(/<br\s*\/?>/gi, ' ').replace(/\s+/g, ' ').trim();
+}
+
+function makeDate(date, time) {
+    const dateMatch = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!dateMatch) return null;
+
+    const [hours, minutes] = time.split(':').map(Number);
+    const datetime = new Date(
+        Number(dateMatch[1]),
+        Number(dateMatch[2]) - 1,
+        Number(dateMatch[3]),
+        hours,
+        minutes
+    );
+
+    return Number.isNaN(datetime.getTime()) ? null : datetime;
+}
+
+function getColumnMap(headers) {
+    const map = {};
+    headers.forEach((header, index) => {
+        map[normaliseHeader(header)] = index;
+    });
+
+    const required = ['full_date', 'time', 'mood', 'activities'];
+    const missing = required.filter((key) => map[key] === undefined);
+    if (missing.length) {
+        throw new Error(`This does not look like a Daylio CSV. Missing: ${missing.join(', ')}.`);
+    }
+
+    return map;
+}
+
+function parseDaylioCSV(text) {
+    const rows = parseCSV(String(text || ''));
+    if (rows.length < 2) throw new Error('This file has no Daylio entries to explore.');
+
+    const columns = getColumnMap(rows[0]);
+    const entries = [];
+
+    rows.slice(1).forEach((row) => {
+        const date = String(row[columns.full_date] || '').trim();
+        const time = to24Hour(row[columns.time]);
+        const datetime = makeDate(date, time);
+        if (!datetime) return;
+
+        const noteTitle = cleanNote(row[columns.note_title]);
+        const note = cleanNote(row[columns.note]);
+        entries.push({
+            date,
+            time,
+            datetime,
+            mood: String(row[columns.mood] || '').trim(),
+            activities: cleanActivities(row[columns.activities]),
+            noteTitle,
+            note,
+            timestamp: `${date} ${time}`
+        });
+    });
+
+    if (!entries.length) throw new Error('No valid dated entries were found in this Daylio CSV.');
+    return entries.sort((first, second) => first.datetime - second.datetime);
+}
+
+function formatEntryForLog(entry) {
+    let line = `[${entry.timestamp}]`;
+    if (entry.mood) line += ` Mood: ${entry.mood}`;
+    if (entry.activities.length) line += ` | Activities: ${entry.activities.join(', ')}`;
+
+    const note = [entry.noteTitle, entry.note].filter(Boolean).join(': ');
+    if (note) line += ` | Note: ${note}`;
+    return line;
+}
+
+function formatLogsByHalfYear(entries) {
+    return entries.reduce((files, entry) => {
+        const month = Number.parseInt(entry.date.slice(5, 7), 10);
+        const filename = `${entry.date.slice(0, 4)}-${month <= 6 ? 'P1' : 'P2'}.txt`;
+        if (!files[filename]) files[filename] = '';
+        files[filename] += `${formatEntryForLog(entry)}\n`;
+        return files;
+    }, {});
 }
 
 function cleanDaylioCSV(text) {
-    const lines = text.split(/\r?\n/);
-    const parsedEntries = [];
-
-    // Parse and format each line
-    for (let i = 1; i < lines.length; i++) { // Skip header
-        const line = lines[i];
-        if (!line.trim()) continue;
-
-        const columns = parseCSVLine(line);
-        if (columns.length < 9) continue; // Safety check for column presence
-
-        const fullDate = stripQuotes(columns[0]);
-        const timeRaw = stripQuotes(columns[3]);
-        const mood = stripQuotes(columns[4]);
-        const activitiesRaw = stripQuotes(columns[5]);
-        const noteTitle = stripQuotes(columns[7]);
-        const noteRaw = stripQuotes(columns[8]);
-
-        // --- Time Formatting (12h to 24h) ---
-        let hourStr = "00", minStr = "00";
-        if (timeRaw) {
-            const timeParts = timeRaw.split(' ');
-            if (timeParts.length === 2) {
-                const hm = timeParts[0].split(':');
-                let h = parseInt(hm[0], 10);
-                let m = parseInt(hm[1], 10);
-                const ampm = timeParts[1].toUpperCase();
-
-                if (ampm === "PM" && h < 12) h += 12;
-                if (ampm === "AM" && h === 12) h = 0;
-
-                hourStr = h.toString().padStart(2, '0');
-                minStr = m.toString().padStart(2, '0');
-            }
-        }
-        
-        const timestamp = `[${fullDate} ${hourStr}:${minStr}]`;
-
-        // --- Clean Activities ---
-        let actStr = "";
-        if (activitiesRaw) {
-            const cleanActString = activitiesRaw.replace(/[|\/]/g, ',');
-            const actArray = cleanActString.split(',');
-            const finalActs = actArray.map(a => a.trim()).filter(a => a !== "");
-            actStr = finalActs.join(", ");
-        }
-
-        // --- Clean Note and Title ---
-        let finalNote = "";
-        const cleanNote = noteRaw.replace(/<br>/gi, ' ').trim();
-        if (noteTitle) finalNote += `${noteTitle}: `;
-        if (cleanNote) finalNote += cleanNote;
-
-        // --- Build Output Line ---
-        let outLine = timestamp;
-        if (mood) outLine += ` Mood: ${mood}`;
-        if (actStr) outLine += ` | Activities: ${actStr}`;
-        if (finalNote) outLine += ` | Note: ${finalNote}`;
-
-        parsedEntries.push(outLine);
-    }
-
-    // Sort chronologically 
-    // (Because standard alphabetical string sorting works perfectly on [YYYY-MM-DD HH:MM] prefixes)
-    parsedEntries.sort();
-
-    // Split into Half-Year Files
-    const outputFiles = {};
-    for (const entry of parsedEntries) {
-        // Look for [YYYY-MM at the start of the string
-        const match = entry.match(/^\[(\d{4})-(\d{2})/);
-        
-        if (match) {
-            const year = match[1];
-            const month = parseInt(match[2], 10);
-            
-            const part = (month >= 1 && month <= 6) ? "P1" : "P2";
-            const filename = `${year}-${part}.txt`;
-
-            if (!outputFiles[filename]) outputFiles[filename] = "";
-            outputFiles[filename] += entry + '\n';
-        } else {
-            if (!outputFiles["misc_entries.txt"]) outputFiles["misc_entries.txt"] = "";
-            outputFiles["misc_entries.txt"] += entry + '\n';
-        }
-    }
-
-    return outputFiles;
+    return formatLogsByHalfYear(parseDaylioCSV(text));
 }
 
-// Expose for browser
 if (typeof window !== 'undefined') {
+    window.parseDaylioCSV = parseDaylioCSV;
+    window.formatLogsByHalfYear = formatLogsByHalfYear;
     window.cleanDaylioCSV = cleanDaylioCSV;
 }

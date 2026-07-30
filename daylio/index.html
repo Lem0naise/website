@@ -3,50 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Daylio CSV to AI Log Converter</title>
-    <meta name="description" content="Clean and convert Daylio mood tracker CSV exports into optimized, half-year text logs. Privacy-friendly, runs in your browser.">
-    <meta name="keywords" content="daylio, mood tracker, csv, cleaner, ai log, Indigo Nolan">
+    <title>Daylio — Journal Explorer & AI Log Export</title>
+    <meta name="description" content="Explore your Daylio history privately in your browser, or export it as clean half-year text logs for AI context.">
+    <meta name="keywords" content="daylio, mood tracker, journal, explorer, csv, ai log, Indigo Nolan">
     <meta name="author" content="Indigo Nolan">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://indigo.spot/daylio/">
     <meta name="theme-color" content="#fcfaf3">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="apple-touch-icon" href="../apple-touch-icon.png">
-    <link rel="stylesheet" href="stylesheet.css?version=1.0">
+    <link rel="stylesheet" href="stylesheet.css?version=4.0">
 </head>
 <body>
     <main id="main-content">
-        <div class="tool-header">
-            <div class="tool-title">
-                <h1>Daylio CSV Cleaner</h1>
-                <p class="tool-subtitle">Convert your Daylio CSV into chronologically sorted, half-year text logs optimized for AI context.</p>
+        <button class="home-button" type="button" data-action="home" aria-label="Return home">← home</button>
+
+        <section class="mode-view is-active" id="landing-view" aria-labelledby="daylio-title">
+            <div class="landing-copy">
+                <p class="eyebrow">a private record of days</p>
+                <h1 id="daylio-title">Daylio</h1>
+                <p class="landing-intro">Bring a CSV back to life: trace the days, search the small details, notice the patterns.</p>
             </div>
-        </div>
-         
-            <form id="upload-form">
-                <label for="csv-upload" class="file-label" >  
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>upload-box</title><path d="M5 3H19C20.11 3 21 3.9 21 5V19C21 20.11 20.11 21 19 21H5C3.9 21 3 20.11 3 19V5C3 3.9 3.9 3 5 3M16 17V15H8V17H16M16 11L12 7L8 11H10.5V14H13.5V11H16Z" /></svg>  
-                    Upload your Daylio CSV export
-                </label>
-                <input type="file" id="csv-upload" accept=".csv">
+            <div class="mode-choices" aria-label="Choose a Daylio mode">
+                <button class="mode-choice explore-choice" type="button" data-mode="explore">
+                    <span class="choice-number">01</span>
+                    <span class="choice-title">Explore your journal</span>
+                    <span class="choice-copy">Timeline, search, dreams, calendar, and patterns in your own words.</span>
+                    <span class="choice-arrow" aria-hidden="true">↘</span>
+                </button>
+                <button class="mode-choice export-choice" type="button" data-mode="export">
+                    <span class="choice-number">02</span>
+                    <span class="choice-title">Export for AI</span>
+                    <span class="choice-copy">Turn your CSV into clean, chronological half-year text logs.</span>
+                    <span class="choice-arrow" aria-hidden="true">↘</span>
+                </button>
+            </div>
+            <p class="privacy-note">Your data stays in this browser. Nothing is uploaded or saved.</p>
+        </section>
+
+        <section class="mode-view" id="export-view" aria-labelledby="export-title" hidden>
+            <button class="back-button" type="button" data-action="landing">← all modes</button>
+            <header class="view-header">
+                <p class="eyebrow">01 / archive</p>
+                <h2 id="export-title">Export your days<br>for a new reader.</h2>
+                <p>Convert a Daylio CSV to tidy half-year text logs, arranged for long AI context.</p>
+            </header>
+            <form id="export-upload-form" class="upload-form">
+                <label for="export-upload" class="upload-label"><span>Choose your Daylio CSV</span><span aria-hidden="true">↗</span></label>
+                <input type="file" id="export-upload" accept=".csv,text/csv">
             </form>
+            <p class="form-status" id="export-status" role="status" aria-live="polite"></p>
+            <section class="export-results" id="export-results" hidden aria-labelledby="download-title">
+                <div class="export-results-heading">
+                    <p class="eyebrow">ready to keep</p>
+                    <h3 id="download-title">Your text logs</h3>
+                </div>
+                <pre class="log-preview" id="export-preview"></pre>
+                <div class="download-links" id="csv-links"></div>
+                <button id="download-zip" class="text-button" type="button" hidden>Download everything as a ZIP</button>
+            </section>
+            <p class="mode-help">The cleaner supports current and legacy Daylio exports, including notes spanning multiple lines.</p>
+        </section>
 
-            <div id="download-section" style="display:none;">
-                <h4>Download Generated Text Logs:</h4>
-                <div id="csv-links"></div>
-                <button id="download-zip" class="small-btn" style="display:none;">Download All as ZIP</button>
+        <section class="mode-view" id="explore-view" aria-labelledby="explore-title" hidden>
+            <button class="back-button" type="button" data-action="landing">← all modes</button>
+            <header class="view-header explore-header">
+                <p class="eyebrow">02 / field notes</p>
+                <h2 id="explore-title">Find your way<br>through the days.</h2>
+                <p>Search a memory, follow a mood, or let the calendar surface a moment.</p>
+            </header>
+            <form id="explore-upload-form" class="upload-form">
+                <label for="explore-upload" class="upload-label"><span>Open your Daylio CSV</span><span aria-hidden="true">↗</span></label>
+                <input type="file" id="explore-upload" accept=".csv,text/csv">
+            </form>
+            <p class="form-status" id="explore-status" role="status" aria-live="polite"></p>
+
+            <div id="explorer-shell" hidden>
+                <section class="journal-bar" aria-label="Journal controls">
+                    <div class="journal-heading"><p class="eyebrow" id="journal-range"></p><h3 id="journal-title">The journal</h3></div>
+                    <div class="journal-actions"><button class="icon-button" id="new-journal" type="button">new CSV</button><button class="icon-button" id="return-to-explorer-upload" type="button">change file</button></div>
+                </section>
+                <nav class="explorer-tabs" aria-label="Choose an explorer view">
+                    <button class="explorer-tab is-active" type="button" data-explorer-view="journal" aria-pressed="true">Journal</button>
+                    <button class="explorer-tab" type="button" data-explorer-view="patterns" aria-pressed="false">Patterns</button>
+                    <button class="explorer-tab" type="button" data-explorer-view="connections" aria-pressed="false">Connections</button>
+                </nav>
+                <section class="filter-bar" aria-label="Filter journal entries">
+                    <label class="search-control" for="entry-search"><span class="sr-only">Search journal</span><input id="entry-search" type="search" autocomplete="off" placeholder="search notes, moods, activities…"><span aria-hidden="true">⌕</span></label>
+                    <label class="select-control" for="mood-filter"><span>mood</span><select id="mood-filter"><option value="">Every mood</option></select></label>
+                    <label class="date-control" for="date-from"><span>from</span><input id="date-from" type="date"></label>
+                    <label class="date-control" for="date-to"><span>to</span><input id="date-to" type="date"></label>
+                    <button class="dream-toggle" id="dream-toggle" type="button" aria-pressed="false">Dream mode</button>
+                    <button class="clear-filters" id="clear-filters" type="button" hidden>clear</button>
+                </section>
+                <section class="explorer-panel is-active" id="journal-panel" data-panel="journal" aria-labelledby="calendar-title">
+                <section class="calendar-section" aria-labelledby="calendar-title">
+                    <div class="section-heading">
+                        <div><p class="eyebrow">a year in days</p><h3 id="calendar-title">Calendar of entries</h3></div>
+                        <div class="calendar-controls">
+                            <label for="calendar-metric" class="sr-only">Calendar metric</label>
+                            <select id="calendar-metric"><option value="density">entry density</option><option value="mood">average mood</option></select>
+                            <button type="button" id="calendar-previous" aria-label="Previous year">←</button><span id="calendar-year"></span><button type="button" id="calendar-next" aria-label="Next year">→</button>
+                        </div>
+                    </div>
+                    <div class="calendar-grid" id="calendar-grid"></div>
+                </section>
+                <div class="journal-layout">
+                    <section class="timeline-section" aria-labelledby="timeline-title">
+                        <div class="section-heading timeline-heading">
+                            <div><p class="eyebrow" id="timeline-count"></p><h3 id="timeline-title">The record</h3></div>
+                            <button class="text-button" type="button" id="sort-timeline" aria-pressed="true">newest first</button>
+                        </div>
+                        <div class="timeline" id="timeline" aria-live="polite"></div>
+                    </section>
+                    <aside class="insights-section" aria-labelledby="insights-title">
+                        <div class="section-heading"><div><p class="eyebrow">the shape of it</p><h3 id="insights-title">Insights</h3></div></div>
+                        <div class="insight-block" id="mood-insight"></div>
+                        <div class="insight-block" id="trend-insight"></div>
+                        <div class="insight-block" id="activity-insight"></div>
+                        <div class="insight-block" id="association-insight"></div>
+                    </aside>
+                </div>
+                </section>
+                <section class="explorer-panel" id="patterns-panel" data-panel="patterns" hidden aria-labelledby="patterns-title">
+                    <div class="patterns-intro">
+                        <p class="eyebrow">patterns, not predictions</p>
+                        <h3 id="patterns-title">The way you wrote it down.</h3>
+                        <p>Every comparison shows its sample size. These are observations in this journal, not explanations of mood.</p>
+                    </div>
+                    <div class="patterns-controls">
+                        <label for="pattern-grouping">group entries by <select id="pattern-grouping"><option value="month">month</option><option value="week">week</option></select></label>
+                    </div>
+                    <section class="pattern-section" id="cadence-insight"></section>
+                    <div class="pattern-grid">
+                        <section class="pattern-section" id="length-mood-insight"></section>
+                        <section class="pattern-section" id="weekday-insight"></section>
+                        <section class="pattern-section" id="time-insight"></section>
+                        <section class="pattern-section" id="correlation-insight"></section>
+                    </div>
+                </section>
+                <section class="explorer-panel" id="connections-panel" data-panel="connections" hidden aria-labelledby="connections-title">
+                    <div class="connections-intro">
+                        <p class="eyebrow">follow a thread</p>
+                        <h3 id="connections-title">Connections</h3>
+                        <p>Search a person, place, activity, or phrase above to map where it appears in your journal.</p>
+                    </div>
+                    <div id="connection-empty" class="connection-empty">Start with a search, such as an activity or a name.</div>
+                    <div id="connection-results" hidden>
+                        <section class="connection-profile" id="connection-profile"></section>
+                        <section class="constellation-section" aria-labelledby="constellation-title">
+                            <div class="section-heading"><div><p class="eyebrow">co-occurring details</p><h4 id="constellation-title">A small constellation</h4></div></div>
+                            <div class="constellation" id="connection-constellation"></div>
+                        </section>
+                        <section class="mentions-section" aria-labelledby="mentions-title">
+                            <div class="section-heading"><div><p class="eyebrow">first to latest</p><h4 id="mentions-title">Mentions</h4></div></div>
+                            <div class="mentions-strip" id="connection-mentions"></div>
+                        </section>
+                    </div>
+                </section>
             </div>
-
-            <div class="instructions">
-                <h4>What is Daylio?</h4>
-                <p><a href='https://daylio.net/' target="_blank"><strong>Daylio</strong></a> is a mood tracking app that lets you record your mood and activities each day. This tool helps you clean and split your Daylio CSV export into half-year text files (`P1` and `P2`), making them easier to read and drastically improving token efficiency for AI inputs.</p>
-            </div>
-
-        <div class="home-button-container">
-            <a href="../" class="home-btn">← Home</a>
-        </div>
+        </section>
     </main>
-    <script src="clean.js?version=3.0"></script>
-    <script src="daylio.js?version=3.0"></script>
+    <script src="clean.js?version=4.0"></script>
+    <script src="daylio.js?version=4.0"></script>
+    <script src="analysis.js?version=1.0"></script>
+    <script src="explore.js?version=2.0"></script>
 </body>
 </html>
