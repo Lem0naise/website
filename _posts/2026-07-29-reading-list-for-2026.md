@@ -9,9 +9,9 @@ tags:
   - essay
 ---
 
-The last few years have been bad for my reading. I don't think I read a full book from 2023 to 2025. Doomscrolling and work mostly took over my life, and I noticeably felt the damage that did to my mental health and attention span. 
+The last few years have been bad for my reading. I've read a couple of books, but it never became the habit I wanted it to be. Doomscrolling and work mostly took over my life, and I noticeably felt the damage that did to my mental health and attention span. 
 
-As part of my perpetually ill-fated resolutions this year, I have begun reading again! I bought a couple of books for cheap at charity shops, fell down a Julian Symons rabbit hole, and have been thoroughly enjoying it. Below is a tailored list of books I've read so far (subject to update) that I would recommend, along with a reason why, and a little plot summary. 
+As part of my perpetually ill-fated resolutions this year, I have begun reading more consistently again! I bought a couple of books for cheap at charity shops, fell down a Julian Symons rabbit hole, and have been thoroughly enjoying it. Below is a tailored list of books I've read so far (subject to update) that I would recommend, along with a reason why, and a little plot summary. 
 
 ![A Kobo E-reader on a desk](/assets/imgs/kobo.webp)
 My trusty Kobo e-reader, which I use to read most of the books on this list.
@@ -100,3 +100,5 @@ My attention span has still not reverted, and I still find myself doomscrolling 
 I hope this list is useful, and if it causes just one person out there to pick up a book even for a little while, it has served its purpose. Reading is a joy to share with others.
 
 This list *may* update until December 2026, and if I enjoy writing it, may be followed by a sequel!
+
+> Small self-promotion - I use my website [headandheart.app](https://headandheart.app) to track my books - see if you like it too! 
