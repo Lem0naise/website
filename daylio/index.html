@@ -16,66 +16,27 @@
 </head>
 <body>
     <main id="main-content">
-        <button class="home-button" type="button" data-action="home" aria-label="Return home">← home</button>
+        <header class="app-toolbar">
+            <a class="home-button" href="../" aria-label="Return home">← home</a>
+            <button class="menu-button" id="app-menu-toggle" type="button" aria-expanded="false" aria-controls="app-menu" aria-label="Open application menu"><span></span><span></span><span></span></button>
+            <nav class="app-menu" id="app-menu" hidden aria-label="Application menu">
+                <button id="menu-download-zip" type="button" disabled>Download AI logs as ZIP</button>
+                <button id="menu-change-csv" type="button">Change CSV</button>
+                <button id="menu-open-groups" type="button">People & groups</button>
+                <a href="../">Return home</a>
+            </nav>
+        </header>
 
-        <section class="mode-view is-active" id="landing-view" aria-labelledby="daylio-title">
-            <div class="landing-copy">
-                <p class="eyebrow">a private record of days</p>
-                <h1 id="daylio-title">Daylio</h1>
-                <p class="landing-intro">Bring a CSV back to life: trace the days, search the small details, notice the patterns.</p>
-            </div>
-            <div class="mode-choices" aria-label="Choose a Daylio mode">
-                <button class="mode-choice explore-choice" type="button" data-mode="explore">
-                    <span class="choice-number">01</span>
-                    <span class="choice-title">Explore your journal</span>
-                    <span class="choice-copy">Timeline, search, dreams, calendar, and patterns in your own words.</span>
-                    <span class="choice-arrow" aria-hidden="true">↘</span>
-                </button>
-                <button class="mode-choice export-choice" type="button" data-mode="export">
-                    <span class="choice-number">02</span>
-                    <span class="choice-title">Export for AI</span>
-                    <span class="choice-copy">Turn your CSV into clean, chronological half-year text logs.</span>
-                    <span class="choice-arrow" aria-hidden="true">↘</span>
-                </button>
-            </div>
-            <p class="privacy-note">Your data stays in this browser. Nothing is uploaded or saved.</p>
-        </section>
-
-        <section class="mode-view" id="export-view" aria-labelledby="export-title" hidden>
-            <button class="back-button" type="button" data-action="landing">← all modes</button>
-            <header class="view-header">
-                <p class="eyebrow">01 / archive</p>
-                <h2 id="export-title">Export your days<br>for a new reader.</h2>
-                <p>Convert a Daylio CSV to tidy half-year text logs, arranged for long AI context.</p>
-            </header>
-            <form id="export-upload-form" class="upload-form">
-                <label for="export-upload" class="upload-label"><span>Choose your Daylio CSV</span><span aria-hidden="true">↗</span></label>
-                <input type="file" id="export-upload" accept=".csv,text/csv">
-            </form>
-            <p class="form-status" id="export-status" role="status" aria-live="polite"></p>
-            <section class="export-results" id="export-results" hidden aria-labelledby="download-title">
-                <div class="export-results-heading">
-                    <p class="eyebrow">ready to keep</p>
-                    <h3 id="download-title">Your text logs</h3>
-                </div>
-                <pre class="log-preview" id="export-preview"></pre>
-                <div class="download-links" id="csv-links"></div>
-                <button id="download-zip" class="text-button" type="button" hidden>Download everything as a ZIP</button>
-            </section>
-            <p class="mode-help">The cleaner supports current and legacy Daylio exports, including notes spanning multiple lines.</p>
-        </section>
-
-        <section class="mode-view" id="explore-view" aria-labelledby="explore-title" hidden>
-            <button class="back-button" type="button" data-action="landing">← all modes</button>
-            <header class="view-header explore-header">
-                <p class="eyebrow">02 / field notes</p>
-                <h2 id="explore-title">Find your way<br>through the days.</h2>
-                <p>Search a memory, follow a mood, or let the calendar surface a moment.</p>
-            </header>
+        <section class="upload-screen" id="landing-view" aria-labelledby="daylio-title">
+            <h1 id="daylio-title">Daylio</h1>
             <form id="explore-upload-form" class="upload-form">
-                <label for="explore-upload" class="upload-label"><span>Open your Daylio CSV</span><span aria-hidden="true">↗</span></label>
+                <label for="explore-upload" class="upload-label"><span>Open Daylio CSV</span><span aria-hidden="true">↗</span></label>
                 <input type="file" id="explore-upload" accept=".csv,text/csv">
             </form>
+            <p class="privacy-note">Your CSV stays in this browser. Optional People & Groups settings are saved locally on this device.</p>
+        </section>
+
+        <section class="dashboard-view" id="explore-view" aria-label="Daylio dashboard" hidden>
             <p class="form-status" id="explore-status" role="status" aria-live="polite"></p>
 
             <div id="explorer-shell" hidden>
@@ -84,11 +45,13 @@
                     <div class="journal-actions"><button class="icon-button" id="new-journal" type="button">new CSV</button><button class="icon-button" id="return-to-explorer-upload" type="button">change file</button></div>
                 </section>
                 <nav class="explorer-tabs" aria-label="Choose an explorer view">
-                    <button class="explorer-tab is-active" type="button" data-explorer-view="journal" aria-pressed="true">Journal</button>
-                    <button class="explorer-tab" type="button" data-explorer-view="patterns" aria-pressed="false">Patterns</button>
+                    <button class="explorer-tab is-active" type="button" data-explorer-view="patterns" aria-pressed="true">Explore</button>
                     <button class="explorer-tab" type="button" data-explorer-view="connections" aria-pressed="false">Connections</button>
+                    <button class="explorer-tab" type="button" data-explorer-view="review" aria-pressed="false">Year in review</button>
+                    <button class="explorer-tab" type="button" data-explorer-view="journal" aria-pressed="false">Entries & search</button>
                 </nav>
-                <section class="filter-bar" aria-label="Filter journal entries">
+                <section class="explorer-panel" id="journal-panel" data-panel="journal" hidden aria-labelledby="calendar-title">
+                <section class="filter-bar" aria-label="Search and filter journal entries">
                     <label class="search-control" for="entry-search"><span class="sr-only">Search journal</span><input id="entry-search" type="search" autocomplete="off" placeholder="search notes, moods, activities…"><span aria-hidden="true">⌕</span></label>
                     <label class="select-control" for="mood-filter"><span>mood</span><select id="mood-filter"><option value="">Every mood</option></select></label>
                     <label class="date-control" for="date-from"><span>from</span><input id="date-from" type="date"></label>
@@ -96,7 +59,6 @@
                     <button class="dream-toggle" id="dream-toggle" type="button" aria-pressed="false">Dream mode</button>
                     <button class="clear-filters" id="clear-filters" type="button" hidden>clear</button>
                 </section>
-                <section class="explorer-panel is-active" id="journal-panel" data-panel="journal" aria-labelledby="calendar-title">
                 <section class="calendar-section" aria-labelledby="calendar-title">
                     <div class="section-heading">
                         <div><p class="eyebrow">a year in days</p><h3 id="calendar-title">Calendar of entries</h3></div>
@@ -125,29 +87,53 @@
                     </aside>
                 </div>
                 </section>
-                <section class="explorer-panel" id="patterns-panel" data-panel="patterns" hidden aria-labelledby="patterns-title">
+                <section class="explorer-panel is-active" id="patterns-panel" data-panel="patterns" aria-labelledby="patterns-title">
                     <div class="patterns-intro">
-                        <p class="eyebrow">patterns, not predictions</p>
-                        <h3 id="patterns-title">The way you wrote it down.</h3>
-                        <p>Every comparison shows its sample size. These are observations in this journal, not explanations of mood.</p>
+                        <h3 id="patterns-title">The shape of your days.</h3>
                     </div>
                     <div class="patterns-controls">
-                        <label for="pattern-grouping">group entries by <select id="pattern-grouping"><option value="month">month</option><option value="week">week</option></select></label>
+                        <label for="pattern-grouping">Group writing cadence by <select id="pattern-grouping" class="control-select"><option value="month">month</option><option value="week">week</option></select></label>
                     </div>
-                    <section class="pattern-section" id="cadence-insight"></section>
+                    <div class="chart-dashboard">
+                        <section class="chart-section" aria-labelledby="moving-average-title">
+                            <div class="pattern-heading"><p class="eyebrow">mood over time</p><h4 id="moving-average-title">The long weather</h4><p class="insight-copy">A 14-day moving average. Click a point to read that day.</p></div>
+                            <div class="chart-canvas-wrap"><canvas id="mood-moving-chart" aria-label="Fourteen-day rolling average mood chart"></canvas></div>
+                        </section>
+                        <section class="chart-section" aria-labelledby="social-shifter-title">
+                            <div class="pattern-heading"><p class="eyebrow">people and groups</p><h4 id="social-shifter-title">The social shifter</h4><p class="insight-copy" id="social-shifter-copy">Add local groups to compare how their mentions shift over time.</p><div class="social-chart-controls"><label for="social-shifter-mode">show <select id="social-shifter-mode"><option value="groups">groups</option><option value="terms">individual people & terms</option></select></label><button class="download-button" id="open-sphere-settings" type="button">Manage people & groups</button><button class="text-button" id="download-social-data" type="button">Download CSV</button></div></div>
+                            <div class="chart-canvas-wrap"><canvas id="social-shifter-chart" aria-label="Social sphere mentions by half-year"></canvas></div>
+                        </section>
+                    </div>
+                    <section class="pattern-section chart-section" aria-labelledby="cadence-title">
+                        <div class="pattern-heading"><p class="eyebrow">writing cadence</p><h4 id="cadence-title">How much, and how often</h4><p class="insight-copy">Median words are shown as bars; entry frequency is the line.</p></div>
+                        <div class="chart-canvas-wrap"><canvas id="cadence-chart" aria-label="Writing cadence chart"></canvas></div>
+                    </section>
                     <div class="pattern-grid">
-                        <section class="pattern-section" id="length-mood-insight"></section>
-                        <section class="pattern-section" id="weekday-insight"></section>
-                        <section class="pattern-section" id="time-insight"></section>
+                        <section class="pattern-section chart-section"><div class="pattern-heading"><p class="eyebrow">writing and mood</p><h4>How much you wrote</h4></div><div class="chart-canvas-wrap"><canvas id="length-mood-chart" aria-label="Entry length by mood"></canvas></div></section>
+                        <section class="pattern-section chart-section"><div class="pattern-heading"><p class="eyebrow">time and routine</p><h4>Mood by weekday</h4></div><div class="chart-canvas-wrap"><canvas id="weekday-chart" aria-label="Mood by weekday"></canvas></div></section>
+                        <section class="pattern-section chart-section"><div class="pattern-heading"><p class="eyebrow">time and routine</p><h4>Mood by time of day</h4></div><div class="chart-canvas-wrap"><canvas id="time-chart" aria-label="Mood by time of day"></canvas></div></section>
+                        <section class="pattern-section chart-section">
+                            <div class="pattern-heading"><h4>Custom radar</h4><div class="radar-year-picker" id="radar-year-picker" aria-label="Compare years"></div><button class="text-button" id="radar-copy-groups" type="button">Use people & groups as axes</button></div>
+                            <div class="chart-canvas-wrap"><canvas id="hobby-radar-chart" aria-label="Hobby activity radar"></canvas></div>
+                            <details class="radar-targets" id="radar-targets">
+                                <summary>Customize radar targets</summary>
+                                <div id="radar-target-list" class="radar-target-list"></div>
+                                <form id="radar-target-form" class="radar-target-form">
+                                    <input id="radar-target-id" type="hidden">
+                                    <label>Axis <input id="radar-target-name" required maxlength="30" placeholder="e.g. Reading"></label>
+                                    <label>Keywords <input id="radar-target-terms" required maxlength="300" placeholder="e.g. book, reading, novel"></label>
+                                    <button class="download-button" id="radar-target-save" type="submit">Save target</button>
+                                </form>
+                            </details>
+                        </section>
                         <section class="pattern-section" id="correlation-insight"></section>
                     </div>
                 </section>
                 <section class="explorer-panel" id="connections-panel" data-panel="connections" hidden aria-labelledby="connections-title">
                     <div class="connections-intro">
-                        <p class="eyebrow">follow a thread</p>
                         <h3 id="connections-title">Connections</h3>
-                        <p>Search a person, place, activity, or phrase above to map where it appears in your journal.</p>
                     </div>
+                    <label class="connection-search search-control" for="connection-search"><span class="sr-only">Search connections</span><input id="connection-search" type="search" autocomplete="off" placeholder="Search a person, place, activity, or phrase"><span aria-hidden="true">⌕</span></label>
                     <div id="connection-empty" class="connection-empty">Start with a search, such as an activity or a name.</div>
                     <div id="connection-results" hidden>
                         <section class="connection-profile" id="connection-profile"></section>
@@ -155,18 +141,47 @@
                             <div class="section-heading"><div><p class="eyebrow">co-occurring details</p><h4 id="constellation-title">A small constellation</h4></div></div>
                             <div class="constellation" id="connection-constellation"></div>
                         </section>
+                        <section class="safe-harbor-section" aria-labelledby="safe-harbor-title">
+                            <div class="section-heading"><div><p class="eyebrow">mood around this connection</p><h4 id="safe-harbor-title">Safe Harbor</h4></div></div>
+                            <div class="chart-canvas-wrap"><canvas id="safe-harbor-chart" aria-label="Mood scores across entries matching the current connection"></canvas></div>
+                        </section>
                         <section class="mentions-section" aria-labelledby="mentions-title">
                             <div class="section-heading"><div><p class="eyebrow">first to latest</p><h4 id="mentions-title">Mentions</h4></div></div>
                             <div class="mentions-strip" id="connection-mentions"></div>
                         </section>
                     </div>
                 </section>
+                <section class="explorer-panel" id="review-panel" data-panel="review" hidden aria-labelledby="review-title">
+                    <div class="patterns-intro"><h3 id="review-title">Year in review</h3></div>
+                    <div class="patterns-controls"><label for="review-year">year <select id="review-year"></select></label><button class="download-button" id="print-review" type="button">Print this year</button></div>
+                    <article class="annual-report" id="annual-report"></article>
+                </section>
             </div>
         </section>
+        <dialog class="sphere-dialog" id="sphere-settings-dialog" aria-labelledby="sphere-settings-title">
+            <form class="sphere-settings" id="sphere-settings-form">
+                <div class="dialog-heading">
+                    <div><p class="eyebrow">saved only in this browser</p><h3 id="sphere-settings-title">People & groups</h3></div>
+                    <button class="icon-button" id="close-sphere-settings" type="button">close</button>
+                </div>
+                <p class="insight-copy">Create your own groups and aliases. You might begin with Family, Friends, Work, or Hobbies. They are stored in this browser’s localStorage; your Daylio entries are never saved.</p>
+                <div class="sphere-list" id="sphere-settings-list"></div>
+                <fieldset class="sphere-form-fields">
+                    <legend>Add a group</legend>
+                    <input id="sphere-id" name="id" type="hidden">
+                    <label>Group name <input id="sphere-name" name="name" required maxlength="40" placeholder="e.g. Friends"></label>
+                    <label>Names or terms, separated by commas <input id="sphere-terms" name="terms" required maxlength="500" placeholder="e.g. alex, jamie, book club"></label>
+                </fieldset>
+                <div class="dialog-actions"><button class="download-button" id="save-sphere-settings" type="submit">Save group</button><span><button class="text-button" id="export-sphere-settings" type="button">Export</button><label class="text-button import-settings">Import<input id="import-sphere-settings" type="file" accept="application/json"></label><button class="text-button" id="clear-sphere-settings" type="button">Clear saved groups</button></span></div>
+            </form>
+        </dialog>
     </main>
+    <script src="vendor/chart.umd.js?version=4.5.1"></script>
     <script src="clean.js?version=4.0"></script>
     <script src="daylio.js?version=4.0"></script>
-    <script src="analysis.js?version=1.0"></script>
-    <script src="explore.js?version=2.0"></script>
+    <script src="settings.js?version=1.0"></script>
+    <script src="analysis.js?version=2.0"></script>
+    <script src="charts.js?version=1.0"></script>
+    <script src="explore.js?version=3.0"></script>
 </body>
 </html>

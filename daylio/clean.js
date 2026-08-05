@@ -106,12 +106,16 @@ function parseDaylioCSV(text) {
 
     const columns = getColumnMap(rows[0]);
     const entries = [];
+    const warnings = [];
 
-    rows.slice(1).forEach((row) => {
+    rows.slice(1).forEach((row, index) => {
         const date = String(row[columns.full_date] || '').trim();
         const time = to24Hour(row[columns.time]);
         const datetime = makeDate(date, time);
-        if (!datetime) return;
+        if (!datetime) {
+            warnings.push(`Row ${index + 2} has no valid full_date and was skipped.`);
+            return;
+        }
 
         const noteTitle = cleanNote(row[columns.note_title]);
         const note = cleanNote(row[columns.note]);
@@ -128,6 +132,7 @@ function parseDaylioCSV(text) {
     });
 
     if (!entries.length) throw new Error('No valid dated entries were found in this Daylio CSV.');
+    parseDaylioCSV.lastWarnings = warnings;
     return entries.sort((first, second) => first.datetime - second.datetime);
 }
 
@@ -159,4 +164,5 @@ if (typeof window !== 'undefined') {
     window.parseDaylioCSV = parseDaylioCSV;
     window.formatLogsByHalfYear = formatLogsByHalfYear;
     window.cleanDaylioCSV = cleanDaylioCSV;
+    window.getDaylioParseWarnings = () => [...(parseDaylioCSV.lastWarnings || [])];
 }

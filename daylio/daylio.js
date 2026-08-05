@@ -1,19 +1,19 @@
-// Landing navigation and AI-log export UI.
+// Shared application menu and AI-log ZIP export.
 
-const exportUpload = document.getElementById('export-upload');
-const exportResults = document.getElementById('export-results');
-const exportStatus = document.getElementById('export-status');
-const exportPreview = document.getElementById('export-preview');
-const csvLinks = document.getElementById('csv-links');
-const downloadZipBtn = document.getElementById('download-zip');
+const menuToggle = document.getElementById('app-menu-toggle');
+const appMenu = document.getElementById('app-menu');
+const menuDownloadZip = document.getElementById('menu-download-zip');
+const menuChangeCsv = document.getElementById('menu-change-csv');
+const menuOpenGroups = document.getElementById('menu-open-groups');
 let jsZipPromise;
+let currentEntries = [];
 
 function showMode(mode) {
-    document.querySelectorAll('.mode-view').forEach((view) => {
-        const active = view.id === `${mode}-view`;
-        view.hidden = !active;
-        view.classList.toggle('is-active', active);
-    });
+    const landing = document.getElementById('landing-view');
+    const explore = document.getElementById('explore-view');
+    const isExplore = mode === 'explore';
+    landing.hidden = isExplore;
+    explore.hidden = !isExplore;
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -56,64 +56,52 @@ async function createZip(files) {
     return zip.generateAsync({ type: 'blob' });
 }
 
-function renderExport(files, entryCount) {
-    csvLinks.replaceChildren();
-    const filenames = Object.keys(files).sort();
-    exportPreview.textContent = files[filenames[0]].split('\n').filter(Boolean).slice(0, 4).join('\n');
-
-    filenames.forEach((filename) => {
-        const button = document.createElement('button');
-        button.className = 'download-button';
-        button.type = 'button';
-        button.textContent = `Download ${filename}`;
-        button.addEventListener('click', () => {
-            downloadBlob(new Blob([files[filename]], { type: 'text/plain;charset=utf-8' }), filename);
-        });
-        csvLinks.appendChild(button);
-    });
-
-    exportResults.hidden = false;
-    exportStatus.textContent = `${entryCount} ${entryCount === 1 ? 'entry' : 'entries'} arranged into ${filenames.length} ${filenames.length === 1 ? 'log' : 'logs'}.`;
-    downloadZipBtn.hidden = filenames.length < 2;
-    downloadZipBtn.onclick = async () => {
-        downloadZipBtn.disabled = true;
-        downloadZipBtn.textContent = 'Preparing ZIP…';
-        try {
-            downloadBlob(await createZip(files), 'daylio_logs.zip');
-        } catch (error) {
-            exportStatus.textContent = error.message;
-        } finally {
-            downloadZipBtn.disabled = false;
-            downloadZipBtn.textContent = 'Download everything as a ZIP';
-        }
-    };
+function closeMenu() {
+    appMenu.hidden = true;
+    menuToggle.setAttribute('aria-expanded', 'false');
 }
 
-async function handleExportUpload(event) {
-    const file = event.target.files[0];
-    if (!file) return;
+function toggleMenu() {
+    const open = appMenu.hidden;
+    appMenu.hidden = !open;
+    menuToggle.setAttribute('aria-expanded', String(open));
+    if (open) appMenu.querySelector('button:not(:disabled), a').focus();
+}
 
-    exportStatus.textContent = 'Reading your journal…';
-    exportResults.hidden = true;
+async function downloadAiZip() {
+    if (!currentEntries.length) return;
+    menuDownloadZip.disabled = true;
+    menuDownloadZip.textContent = 'Preparing ZIP…';
     try {
-        const entries = window.parseDaylioCSV(await file.text());
-        renderExport(window.formatLogsByHalfYear(entries), entries.length);
+        downloadBlob(await createZip(window.formatLogsByHalfYear(currentEntries)), 'daylio_logs.zip');
+        closeMenu();
     } catch (error) {
-        exportStatus.textContent = error.message || 'This CSV could not be read.';
+        window.dispatchEvent(new CustomEvent('daylio:status', { detail: error.message }));
     } finally {
-        event.target.value = '';
+        menuDownloadZip.disabled = false;
+        menuDownloadZip.textContent = 'Download AI logs as ZIP';
     }
 }
 
-document.querySelectorAll('[data-mode]').forEach((button) => {
-    button.addEventListener('click', () => showMode(button.dataset.mode));
+menuToggle.addEventListener('click', toggleMenu);
+menuDownloadZip.addEventListener('click', downloadAiZip);
+menuChangeCsv.addEventListener('click', () => {
+    closeMenu();
+    showMode('landing');
+    document.getElementById('explore-upload').click();
 });
-document.querySelectorAll('[data-action="landing"]').forEach((button) => {
-    button.addEventListener('click', () => showMode('landing'));
+menuOpenGroups.addEventListener('click', () => {
+    closeMenu();
+    window.dispatchEvent(new Event('daylio:open-groups'));
 });
-document.querySelector('[data-action="home"]').addEventListener('click', () => {
-    window.location.href = '../';
+document.addEventListener('click', (event) => {
+    if (!appMenu.hidden && !appMenu.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
 });
-
-exportUpload.addEventListener('change', handleExportUpload);
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeMenu();
+});
+window.addEventListener('daylio:entries-loaded', (event) => {
+    currentEntries = event.detail.entries;
+    menuDownloadZip.disabled = currentEntries.length < 2;
+});
 window.daylioShowMode = showMode;
