@@ -93,7 +93,7 @@ body.walk-page button.tab.tab-svg:hover {
 
 .hero-nav {
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(2, 1fr);
 	gap: 10px;
 	margin-top: 28px;
 	width: 100%;
@@ -315,7 +315,7 @@ button.tab:focus-visible {
 
 @media (max-width: 860px) {
 	.hero-nav {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		gap: 8px;
 	}
 
@@ -364,7 +364,7 @@ button.tab:focus-visible {
 	}
 
 	.hero-nav {
-		grid-template-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
 		gap: 6px;
 		max-width: none;
 	}
