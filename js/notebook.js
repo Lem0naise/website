@@ -3,7 +3,8 @@
  *
  * Source format (plain text, one gist file): entries separated by a line
  * containing only "---". Each entry starts with a date line
- * ("YYYY-MM-DD HH:MM:SS", UTC), optionally followed by a "song: ..." line,
+ * ("YYYY-MM-DD HH:MM:SS", UTC), optionally followed by a "song: ..." line
+ * (with an optional "spotify: <url>" line after it for an exact track link),
  * then freeform markdown-ish content (blank-line paragraphs, ">" blockquotes
  * with blank ">" lines as paragraph breaks, "* " bullet lists, [text](url)
  * links, and *italic*).
@@ -105,13 +106,17 @@
             if (isNaN(date.getTime())) return;
 
             var song = null;
+            var songUrl = null;
             if (lines.length && /^song:\s*/i.test(lines[0])) {
                 song = lines.shift().replace(/^song:\s*/i, '').trim();
+                if (lines.length && /^spotify:\s*/i.test(lines[0])) {
+                    songUrl = lines.shift().replace(/^spotify:\s*/i, '').trim();
+                }
             }
 
             while (lines.length && lines[0].trim() === '') lines.shift();
 
-            entries.push({ date: date, song: song, content: lines.join('\n') });
+            entries.push({ date: date, song: song, songUrl: songUrl, content: lines.join('\n') });
         });
 
         return entries;
@@ -133,10 +138,14 @@
     function renderEntry(entry) {
         var html = '<div class="stream-entry" id="' + anchorId(entry.date) + '">';
         html += '<div class="stream-header-info"><div class="stream-date">' + formatDate(entry.date) + '</div></div>';
-        html += '<div class="stream-content">' + renderContent(entry.content) + '</div>';
         if (entry.song) {
-            html += '<div class="stream-song">' + GistLoader.escapeHtml(entry.song) + '</div>';
+            var href = entry.songUrl ||
+                'https://open.spotify.com/search/' + encodeURIComponent(entry.song);
+            html += '<a class="stream-song" href="' + GistLoader.escapeAttr(href) +
+                '" target="_blank" rel="noopener noreferrer">' +
+                GistLoader.escapeHtml(entry.song) + '</a>';
         }
+        html += '<div class="stream-content">' + renderContent(entry.content) + '</div>';
         html += '</div>';
         return html;
     }

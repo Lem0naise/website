@@ -2261,11 +2261,21 @@ sup[id^="fnref"] a:hover {
     color: var(--text-light);
     background: var(--method-bg);
     padding: 4px 12px;
-    border-radius: 20px;
+    border-radius: 6px;
 	margin-top: 5px;
+    margin-bottom: 10px;
     display: inline-flex;
     align-items: center;
     border: 1px solid var(--border);
+    text-decoration: none;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.stream-song:hover,
+.stream-song:focus-visible {
+    color: var(--text);
+    background: var(--accent-soft);
+    border-color: var(--accent);
 }
 
 /* Fix Blockquote Spacing and Styling */
