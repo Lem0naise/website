@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const progressBar = document.createElement("div");
+    progressBar.className = "reading-progress-bar";
     progressBar.style.position = "fixed";
     progressBar.style.top = "0";
     progressBar.style.left = "0";

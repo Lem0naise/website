@@ -576,6 +576,288 @@ h4,
     text-indent: 0;
 }
 
+/* ── Short-story paged reader ── */
+
+.story-reader {
+    max-width: 820px;
+    margin: 18px auto 48px;
+}
+
+.story-mode-toggle {
+    display: inline-flex;
+    gap: 2px;
+    margin: 4px auto 0;
+    padding: 3px;
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    background: transparent;
+}
+
+.story-mode-option {
+    padding: 4px 12px;
+    border: none;
+    border-radius: 99px;
+    background: transparent;
+    color: var(--text-light);
+    font-family: var(--font-main), monospace;
+    font-size: 11px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.story-mode-option:hover,
+.story-mode-option:focus-visible {
+    color: var(--accent);
+}
+
+.story-mode-option.is-active {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.short-story-page:not(.story-mode-scroll) .reading-progress-bar {
+    display: none;
+}
+
+.story-reader-viewport {
+    position: relative;
+    touch-action: pan-y;
+}
+
+.story-reader.is-paginating .story-reader-viewport,
+.story-reader.is-ready .story-reader-viewport {
+    height: clamp(500px, 68vh, 700px);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card-bg);
+    box-shadow: 0 18px 45px var(--card-shadow);
+}
+
+.story-reader.is-scroll .story-reader-viewport {
+    height: auto;
+    overflow: visible;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    touch-action: auto;
+}
+
+.story-reader.is-scroll .story-reader-source {
+    max-width: none;
+    padding: 12px 20px 0;
+}
+
+.story-reader.is-scroll .story-reader-controls,
+.story-reader.is-scroll .story-reader-pages {
+    display: none;
+}
+
+.story-reader-viewport:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+.story-reader-source {
+    box-sizing: border-box;
+    max-width: 68ch;
+    margin: 0 auto;
+    padding: 42px clamp(28px, 7vw, 72px);
+}
+
+.story-reader-pages {
+    position: absolute;
+    inset: 0;
+}
+
+.story-reader-page {
+    position: absolute;
+    inset: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 42px clamp(42px, 8vw, 86px) 54px;
+    overflow: hidden;
+    background: var(--card-bg);
+    font-size: 19px;
+    line-height: 1.68;
+    opacity: 0;
+    transform: translateX(0) rotateY(0);
+    transform-origin: left center;
+    transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.story-reader-page::after {
+    content: attr(aria-label);
+    position: absolute;
+    right: clamp(42px, 8vw, 86px);
+    bottom: 19px;
+    color: var(--text-light);
+    font-family: var(--font-main), monospace;
+    font-size: 11px;
+}
+
+.story-reader-page.is-current {
+    z-index: 2;
+    opacity: 1;
+}
+
+.story-reader-page.enter-from-right {
+    transform: translateX(6%) rotateY(-2deg);
+}
+
+.story-reader-page.enter-from-left {
+    transform: translateX(-6%) rotateY(2deg);
+}
+
+/* The outgoing page keeps its opacity: the incoming page is opaque and sits on
+   top, so fading it out would only hide its movement behind that cover. */
+.story-reader-page.leave-to-left {
+    z-index: 1;
+    opacity: 1;
+    transform: translateX(-5%) rotateY(2deg);
+}
+
+.story-reader-page.leave-to-right {
+    z-index: 1;
+    opacity: 1;
+    transform: translateX(5%) rotateY(-2deg);
+}
+
+.story-reader-page p {
+    margin: 0;
+}
+
+.story-reader-page p + p {
+    text-indent: 1.7em;
+}
+
+.story-reader-page h2,
+.story-reader-page h3 {
+    margin-top: 0;
+}
+
+.story-reader-page .story-reader-continuation {
+    text-indent: 0;
+}
+
+.story-reader-page blockquote {
+    margin: 0 0 20px;
+}
+
+.story-reader-controls {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 16px;
+    margin-top: 18px;
+}
+
+.story-reader:not(.is-ready) .story-reader-controls {
+    display: none;
+}
+
+.story-reader-button {
+    width: max-content;
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    background: var(--card-bg);
+    color: var(--text);
+    font-family: var(--font-main), monospace;
+    font-size: 13px;
+    cursor: pointer;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.story-reader-button:last-child {
+    justify-self: end;
+}
+
+.story-reader-button:hover:not(:disabled),
+.story-reader-button:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.story-reader-button:disabled {
+    cursor: default;
+    opacity: 0.38;
+}
+
+.story-reader-status {
+    min-width: 88px;
+    color: var(--text-light);
+    font-family: var(--font-main), monospace;
+    font-size: 12px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .story-reader {
+        margin: 12px -4px 36px;
+    }
+
+    .story-mode-toggle {
+        margin-top: 8px;
+    }
+
+    .story-reader.is-paginating .story-reader-viewport,
+    .story-reader.is-ready .story-reader-viewport {
+        height: min(68svh, 580px);
+        min-height: 430px;
+        border-radius: 7px;
+        box-shadow: 0 10px 28px var(--card-shadow);
+    }
+
+    .story-reader.is-scroll .story-reader-source {
+        padding: 8px 5px 0;
+    }
+
+    .story-reader-source,
+    .story-reader-page {
+        padding: 26px 22px 42px;
+    }
+
+    .story-reader-page {
+        font-size: 16px;
+        line-height: 1.62;
+    }
+
+    .story-reader-page::after {
+        right: 22px;
+        bottom: 14px;
+    }
+
+    .story-reader-controls {
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .story-reader-button {
+        padding: 8px 11px;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .story-reader-page,
+    .story-reader-button {
+        transition: none;
+    }
+
+    .story-reader-page.enter-from-right,
+    .story-reader-page.enter-from-left,
+    .story-reader-page.leave-to-left,
+    .story-reader-page.leave-to-right {
+        transform: none;
+    }
+}
+
 .caption {
     font-size: 14px;
     color: var(--title);
