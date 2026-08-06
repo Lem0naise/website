@@ -18,7 +18,7 @@ observations."
         <span class="stream-title-full">blog • <a href="/notebook">notebook</a> • <a href="/guides">guides</a></span>
         <span class="stream-title-compact">blog • <a href="/notebook">notes</a></span>
     </h1>
-
+    
     <div class="tag-strip" role="toolbar" aria-label="Filter by tag">
         <button class="tag-chip active" data-tag="all">all</button>
         {% for tag in sortedtags %}
@@ -31,7 +31,7 @@ observations."
     <div class="section-separator" style="margin-top: 0px; margin-bottom: 0px;"></div>
 </div>
 
-<div class="blog-posts">
+<div class="blog-posts release-timeline">
     {% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
     {% for post in visible_posts %}
     {% include post-card.html post=post %}

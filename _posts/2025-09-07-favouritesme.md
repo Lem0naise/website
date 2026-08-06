@@ -6,6 +6,7 @@ author: Indigo Nolan
 permalink: /favourites-me
 tags: 
     - coding
+kind: minor
 manual_related: 
     - /blog/rating-systems-head-and-heart-and-favourites-me
     - /headandheart

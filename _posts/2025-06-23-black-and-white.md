@@ -5,6 +5,7 @@ date: 2025-06-23 14:15:00 +0100
 permalink: /blog/black-and-white-phone
 author: Indigo Nolan
 tags: design
+kind: minor
 ---
 You probably use your phone too much. I know I do. If I'm bored, I check Twitter (or X, if you're like that), check my WhatsApp messages, or scroll Instagram. Looking at my screentime is a scary thought, even though I do honestly try to consciously reduce it.
 

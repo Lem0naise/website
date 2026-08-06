@@ -4,6 +4,7 @@ title: "How we ported CashCat from Next.js to Native Mobile"
 date: 2026-02-17 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/cashcat-on-android-and-ios-mobile-capacitor
+kind: minor
 tags: 
     - coding
 manual_related: 

@@ -4,6 +4,7 @@ title: "The death of Open Banking for hobbyists"
 date: 2026-02-10 08:00:00 +0000
 author: Indigo Nolan
 permalink: /cashcat-open-banking
+kind: minor
 tags: 
     - coding
 manual_related: 
