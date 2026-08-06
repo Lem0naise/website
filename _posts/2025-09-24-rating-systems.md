@@ -70,7 +70,7 @@ Both of these are on scales of 1-3. This is to minimise friction - I considered 
 
 The reason I really liked this idea was because it immediately solved a pain point I had been struggling with for a while - movies that are so good they're bad. 
 
-Things like *Naked Gun* and *Airplane*. I absolutely love these movies, but on my previous scales, I felt bad putting them next to my absolute favourites like *12 Angry Men* and *Duel*, because cinematically speaking, they were simply nowhere near as good - but god are they fun to watch! So I needed some way to express that yes, they may not quite be *Dune*, but I would heartily recommend them. So, on the Head,Heart scale, I would give them a 2,3. They're a middle of the road with respect to cinematography, acting, directing, et cetera, but a 'approved', a 'recommended' when it comes to my personal enjoyment.
+Things like *Naked Gun* and *Airplane*. I absolutely love these movies, but on my previous scales, I felt bad putting them next to my absolute favourites like *12 Angry Men* and *Duel*, because cinematically speaking, they were simply nowhere near as good - but god are they fun to watch! So I needed some way to express that yes, they may not quite be *Dune*, but I would heartily recommend them. So, on the Head, Heart scale, I would give them a 2,3. They're a middle of the road with respect to cinematography, acting, directing, et cetera, but an 'approved', a 'recommended' when it comes to my personal enjoyment.
 
 Here's my initial thoughts about the Head vs Heart scale:
 

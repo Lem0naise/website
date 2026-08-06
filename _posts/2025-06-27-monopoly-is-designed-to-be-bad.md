@@ -5,6 +5,7 @@ date: 2025-06-27 14:15:00 +0100
 author: Indigo Nolan
 permalink: /blog/monopoly-is-designed-to-be-bad
 tags: design
+kind: minor
 ---
 I was recently at home with my parents and siblings for a week, and after a family dinner, we came to the inevitable choice of which board game to play that evening. As a family, this path is well-trodden. Classics such as Cluedo, Scotland Yard, and Ticket to Ride were all mentioned. There was one notable exception though, three copies of which were staring us down from the bookshelf: Monopoly.
 

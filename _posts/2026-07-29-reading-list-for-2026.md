@@ -7,6 +7,7 @@ permalink: /blog/reading-list-2026
 image: /assets/imgs/kobo.webp
 tags: 
   - essay
+kind: minor
 ---
 
 The last few years have been bad for my reading. I've read a couple of books, but it never became the habit I wanted it to be. Doomscrolling and work mostly took over my life, and I noticeably felt the damage that did to my mental health and attention span. 

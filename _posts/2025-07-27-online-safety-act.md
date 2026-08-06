@@ -12,14 +12,14 @@ You may have heard the outcry over the recent Online Safety Act, in particular i
 
 ## What Is the Online Safety Act?
 
-The Online Safety Act gives unprecedented powers to Ofcom, the UK's communications regulator, to police online content. Platforms and websites are now legally required to proactively monitor, filter, and remove content deemed 'harmful' -a term that is worryingly vague and open to interpretation. Laws are meant to be specific and prevent ambiguity - 'harmful' is a term that can be argued to mean practically anything. Before much-needed amendments, the law also covered not just illegal material, but also so-called "legal but harmful" content, which could have included anything from political opinions to satire. While this phrase was taken out of the final Act, accountability provisions still remain which pressure platforms into censoring 'by default'.
+The Online Safety Act gives unprecedented powers to Ofcom, the UK's communications regulator, to police online content. Platforms and websites are now legally required to proactively monitor, filter, and remove content deemed 'harmful' - a term that is worryingly vague and open to interpretation. Laws are meant to be specific and prevent ambiguity - 'harmful' is a term that can be argued to mean practically anything. Before much-needed amendments, the law also covered not just illegal material, but also so-called "legal but harmful" content, which could have included anything from political opinions to satire. While this phrase was taken out of the final Act, accountability provisions still remain which pressure platforms into censoring 'by default'.
 
 Do you remember net neutrality? When ISPs were told they couldn't throttle and block specific content on the Internet just because they didn't like it? That pales in comparison to this. While net neutrality majorly focused on access speeds to different types of content, this Act gives broad censorship powers to government bodies, and tech companies by extension.
 
 
 It is already blocking many things such as the subreddits r/cider, r/stopsmoking, and r/sexualassault. Wonderful - children can no longer access incredibly useful internet resources to spot signs of dangerous familial environments, nor can people access help with addictions without providing all of their identification to the government (via a third party company!) (I say blocking, what I really mean is slapping an identification wall in front of the content - but for children, and people who don't want to fork over their private information, it's a de facto block.)
 
-Of course, it is absolutely true that it is important to protect children from falling into dark rabbitholes, especially on the internet, but in my view this is absolutely not the way to do it. Similar 'adult content' censorship policies inevitably slip into censorship. Once upon a time, a particularly strict internet firewall at my secondary school derailed an entire PSHE curriculum as nobody could access the search terms 'abortion', 'pregnancy', or 'menstruation' for an entire week. Is that really the Internet we want to cultivate? Do we want to make it 'taboo' to talk about things like that? It makes me draw eerie comparisons to book bans in places like Florida.
+Of course, it is absolutely true that it is important to protect children from falling into dark rabbit holes, especially on the internet, but in my view this is absolutely not the way to do it. Similar 'adult content' censorship policies inevitably slip into censorship. Once upon a time, a particularly strict internet firewall at my secondary school derailed an entire PSHE curriculum as nobody could access the search terms 'abortion', 'pregnancy', or 'menstruation' for an entire week. Is that really the Internet we want to cultivate? Do we want to make it 'taboo' to talk about things like that? It makes me draw eerie comparisons to book bans in places like Florida.
 
 ![](https://pbs.twimg.com/media/GwsiA4kWQAEaK_I?format=jpg&name=large)
 
@@ -42,7 +42,7 @@ Sure you can. If you want to hand over your sensitive information to dozens of t
 *   The right to share this with third parties
 *   The right to use this data to 'infer' information about you
 
-So if you, as an adult in the UK, wish to continue with your rehab journey on r/stopsmoking, you need to give up these privacies, which really should be expected. (Or, use a VPN. We can always use a VPN. But that's not the point. This is the UK I'm talking about, not North Korea, not Russia. I don't want to have to use a VPN to browse the web in my own country. Come on.)
+So if you, as an adult in the UK, wish to continue with your rehab journey on r/stopsmoking, you need to give up these privacies, which really should not be expected. (Or, use a VPN. We can always use a VPN. But that's not the point. This is the UK I'm talking about, not North Korea, not Russia. I don't want to have to use a VPN to browse the web in my own country. Come on.)
 
 ![](https://pbs.twimg.com/media/GwsiA7bWsAAvW30?format=jpg&name=large)
 

@@ -33,7 +33,7 @@ Translating between languages is equally a challenge. Words like the German `Sch
 
 How about describing a dream? Dreams are an excellent example of a high-fidelity internal experience that inevitably becomes absurd and nonsensical when you try to compress it into communicable language. You were falling, but then you weren't, but it all felt real? You can't convey that via speech, you can't express how you physically felt at the time - we don't have all the words to describe the human experience. Not yet.
 
-## Difference Languages, Different Codecs?
+## Different Languages, Different Codecs?
 
 This idea, that the specific tools our language gives us can shape what we are able to express, relates to a fascinating linguistic concept and personal favourite of mine - the Sapir-Whorf hypothesis, commonly known as linguistic relativity[^2]. In short, it suggests that the 'compression algorithm' we are given (our native language), doesn't simply convey our thoughts - it can actually shape and limit the thoughts we're able to have in the first place. This guarantees a certain amount of 'loss' when communicating between different linguistic systems - if English doesn't have a word for a concept, do English speakers simply encounter that concept less often?
 
@@ -67,7 +67,7 @@ This is of course a simplification, and no culture can be entirely 'high' or 'lo
 
 ## When Is It Useful?
 
-This incredibly advanced capability of human language is not all bad. We are very good at efficiently utilising 'codecs' - shortcuts to convert data streams into simpler, more understable ones. If you were to write down the tone of voice, the facial expressions, the body language - and deliver this packaged with the actual content of the message - this would likely overwhelm us. But when we are talking to someone in person, we all do this daily and subconsciously, adapting our behaviour and our interpretation of what we are being told, because of all those factors.
+This incredibly advanced capability of human language is not all bad. We are very good at efficiently utilising 'codecs' - shortcuts to convert data streams into simpler, more understandable ones. If you were to write down the tone of voice, the facial expressions, the body language - and deliver this packaged with the actual content of the message - this would likely overwhelm us. But when we are talking to someone in person, we all do this daily and subconsciously, adapting our behaviour and our interpretation of what we are being told, because of all those factors.
 
 When you have a deep connection or a shared history with someone, like a partner, best friend, or sibling, you develop a highly efficient, personalised, and partially shared compression system. An inside joke, for example, is a tiny packet of information that can decompress into a huge, shared memory - while not making sense to an outsider.
 

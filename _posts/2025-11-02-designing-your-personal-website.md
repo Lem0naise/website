@@ -6,6 +6,7 @@ author: Indigo Nolan
 permalink: /blog/designing-a-personal-website
 tags: 
     - design
+kind: minor
 ---
 My website used to be a lot flashier. There was a period where I had typewriter effects on almost every textbox, I had flashy animations covering the screen, swooshing shapes, scroll snapping, projects jumping up at you, the works. It was, for all intents and purposes, a tech demo masquerading as a portfolio. It was a digital playground to show off every cool new CSS and JavaScript trick I'd just learned. As every personal site, it evolved over time, and one day I removed my triangular-style header animations, simply because I was practicing making hamburger menus instead.
 

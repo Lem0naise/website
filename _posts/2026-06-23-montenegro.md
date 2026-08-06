@@ -135,7 +135,7 @@ Black Lake, Durmitor National Park
 
 If you're looking for a big day out of driving and hiking, look no further than Mount Prutas, found forty minutes on the 76km Durmitor Ring Road which circles through the Durmitor National Park. 
 
-The trail itself is a 8km round-trip, and it took us about 4 hours to complete, 2.5hrs to the top and 1.5hrs down again. 
+The trail itself is an 8km round-trip, and it took us about 4 hours to complete, 2.5hrs to the top and 1.5hrs down again. 
 
 We kicked the day off at 11am from Zabljak, making a pitstop at the local VOLI to get some lunch: traditional flaky pastries (*Pita*) containing potato and onion (*krompiruša*), spinach (*zeljanica*), and cheese (*sirnica*). They were delicious, and felt absolutely deserved at the peak of the mountain. We also brought 4 litres of water, plus our cameras, suncream, and some trail mix.
 

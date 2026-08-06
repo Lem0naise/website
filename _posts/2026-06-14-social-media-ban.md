@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A child-free internet, at what cost?"
-date: 2026-06-15 09:30:00 +0100
+date: 2026-06-14 09:30:00 +0100
 author: Indigo Nolan
 permalink: /blog/child-free-internet
 image: "https://feweek.co.uk/wp-content/uploads/2024/12/Pete-Middleton-social-media-ban.jpg"
@@ -76,7 +76,7 @@ And, what happens when the mainstream moderated platforms become too much of a h
 
 ## Device-level Photo Scanning
 
-The social media ban is not the only ban going into effect soon - there is a second ban, hidden in the shadow of the first one, which is coming into place much sooner. It is a 'nudity-detection' feature that the government want phone companies to implement at device-level [^6]. Yes, so VPNs won't get around this one! It will essentially require every adult to prove they're an adult in order to use their devices without photo restrictions. Their ultimatum for tech companies to implement this voluntarily is *September*. In fact, Safeguarding Minister Jess Phillips resigned in May because Starmer wasn't pushing this hard enough - so perhaps her resignation forced his hand into rushing the legislation through [^7].
+The social media ban is not the only ban going into effect soon - there is a second ban, hidden in the shadow of the first one, which is coming into place much sooner. It is a 'nudity-detection' feature that the government wants phone companies to implement at device-level [^6]. Yes, so VPNs won't get around this one! It will essentially require every adult to prove they're an adult in order to use their devices without photo restrictions. Their ultimatum for tech companies to implement this voluntarily is *September*. In fact, Safeguarding Minister Jess Phillips resigned in May because Starmer wasn't pushing this hard enough - so perhaps her resignation forced his hand into rushing the legislation through [^7].
 
 [^6]: <https://www.gov.uk/government/news/new-plans-to-stop-children-taking-sharing-or-viewing-nude-images>
 
@@ -96,7 +96,7 @@ I'm still holding out hope that either one of these scenarios will happen:
 
 Otherwise, I fear the state of the internet and the British tech industry is slowly whirling down a sinkhole into oblivion.
 
-Write to your MP. Support digital rights organizations like the Open Rights Group. I think we should absolutely fight to get kids off social media - through regulation, better public spaces, and cultural shifts. But do not let them pass this ban off as a 'child safety' measure when it is, in reality, the largest expansion of mass surveillance this country has ever seen [^10].
+Write to your MP. Support digital rights organisations like the Open Rights Group. I think we should absolutely fight to get kids off social media - through regulation, better public spaces, and cultural shifts. But do not let them pass this ban off as a 'child safety' measure when it is, in reality, the largest expansion of mass surveillance this country has ever seen [^10].
 
 [^10]: <https://www.openrightsgroup.org>
 

@@ -43,7 +43,7 @@ After making an initial working demo, I decided quite quickly I wanted to publis
 
 After making an account on the Steamworks Developer Portal (or whatever they call it nowadays), the 'Leaderboards' button caught my eye. After reading up on the page a little, I decided I would definitely add Steam leaderboards into the game - just like a traditional arcade game, leaderboards are what drives it. You would go back again and again to the arcade to try and beat your friends' high scores, and I think leaderboards create a huge sense of friendly competition and community engagement.
 
-The Steam APIs are not super easy to work with, but after weeks and weeks of bugfixing, I got steam leaderboards to work! Wonderful. We are getting close to release time!
+The Steam APIs are not super easy to work with, but after weeks and weeks of bugfixing, I got Steam leaderboards to work! Wonderful. We are getting close to release time!
 
 ## Release And Beyond
 
