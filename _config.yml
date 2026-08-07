@@ -3,7 +3,7 @@ title: Indigo's Blog
 email: contact@indigonolan.com
 description: >-
   A blog by Indigo Nolan
-baseurl: "/"
+baseurl: ""
 url: "https://indigo.spot"
 
 collections:
@@ -13,10 +13,12 @@ collections:
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-
+  - jekyll-redirect-from
 exclude:
   - .templates
   - template.config.js
   - README.md
   - Gemfile.lock
   - vendor
+  - push-changes
+  - pull-changes
