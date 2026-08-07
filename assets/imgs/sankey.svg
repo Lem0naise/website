@@ -1,0 +1,75 @@
+<svg height="600" width="600" xmlns="http://www.w3.org/2000/svg">
+<title>Your Diagram Title</title>
+<!-- Generated with SankeyMATIC: 8/7/2026, 10:04:41 AM -->
+<rect height="600" width="600" fill="#ffffff"></rect>
+<g transform="translate(113.36334,18)">
+<g id="sankey_flows">
+<path id="flow6" d="M188.62 279.685C270.93 279.685 270.93 383.875 353.24 383.875" fill="none" stroke-width="113.2" stroke="#a4c2f4" opacity="0.45"><title>Caroline after Ronald out → Caroline (final): 40</title></path>
+<path id="flow1" d="M12 234.805C94.31 234.805 94.31 268.365 176.62 268.365" fill="none" stroke-width="90.56" stroke="#a4c2f4" opacity="0.45"><title>Caroline (1st) → Caroline after Ronald out: 32</title></path>
+<path id="flow5" d="M188.62 108.055C270.93 108.055 270.93 144.325 353.24 144.325" fill="none" stroke-width="90.56" stroke="#f1c232" opacity="0.45"><title>Louis after Ronald out → Louis (elected): 32</title></path>
+<path id="flow0" d="M12 77.325C94.31 77.325 94.31 105.225 176.62 105.225" fill="none" stroke-width="84.9" stroke="#f1c232" opacity="0.45"><title>Louis (1st) → Louis after Ronald out: 30</title></path>
+<path id="flow2" d="M12 487.505C94.31 487.505 94.31 445.655 176.62 445.655" fill="none" stroke-width="79.24" stroke="#cc0000" opacity="0.45"><title>Sam (1st) → Sam after Ronald out: 28</title></path>
+<path id="flow7" d="M188.62 439.995C270.93 439.995 270.93 223.565 353.24 223.565" fill="none" stroke-width="67.92" stroke="#f1c232" opacity="0.45"><title>Sam after Ronald out → Louis (elected): 24</title></path>
+<path id="flow3" d="M12 366.815C94.31 366.815 94.31 324.965 176.62 324.965" fill="none" stroke-width="22.64" stroke="#6aa84f" opacity="0.45"><title>Ronald (1st) → Caroline after Ronald out: 8</title></path>
+<path id="flow8" d="M188.62 479.615C270.93 479.615 270.93 446.135 353.24 446.135" fill="none" stroke-width="11.32" stroke="#a4c2f4" opacity="0.45"><title>Sam after Ronald out → Caroline (final): 4</title></path>
+<path id="flow4" d="M12 352.665C94.31 352.665 94.31 150.505 176.62 150.505" fill="none" stroke-width="5.66" stroke="#6aa84f" opacity="0.45"><title>Ronald (1st) → Louis after Ronald out: 2</title></path>
+</g>
+<g id="sankey_nodes">
+<g class="node">
+<rect id="r0" class="for_r0" x="0" y="34.875" height="84.9" width="12" fill="#f1c232" fill-opacity="1"><title>Louis (1st):
+30</title></rect>
+</g>
+<g class="node">
+<rect id="r1" class="for_r1" x="176.62" y="62.775" height="90.56" width="12" fill="#f1c232" fill-opacity="1"><title>Louis after Ronald out:
+32</title></rect>
+</g>
+<g class="node">
+<rect id="r2" class="for_r2" x="0" y="189.525" height="90.56" width="12" fill="#a4c2f4" fill-opacity="1"><title>Caroline (1st):
+32</title></rect>
+</g>
+<g class="node">
+<rect id="r3" class="for_r3" x="176.62" y="223.085" height="113.2" width="12" fill="#a4c2f4" fill-opacity="1"><title>Caroline after Ronald out:
+40</title></rect>
+</g>
+<g class="node">
+<rect id="r4" class="for_r4" x="0" y="447.885" height="79.24" width="12" fill="#cc0000" fill-opacity="1"><title>Sam (1st):
+28</title></rect>
+</g>
+<g class="node">
+<rect id="r5" class="for_r5" x="176.62" y="406.035" height="79.24" width="12" fill="#cc0000" fill-opacity="1"><title>Sam after Ronald out:
+28</title></rect>
+</g>
+<g class="node">
+<rect id="r6" class="for_r6" x="0" y="349.835" height="28.3" width="12" fill="#6aa84f" fill-opacity="1"><title>Ronald (1st):
+10</title></rect>
+</g>
+<g class="node">
+<rect id="r7" class="for_r7" x="353.24" y="99.045" height="158.48" width="12" fill="#f1c232" fill-opacity="1"><title>Louis (elected):
+56</title></rect>
+</g>
+<g class="node">
+<rect id="r8" class="for_r8" x="353.24" y="327.275" height="124.52" width="12" fill="#a4c2f4" fill-opacity="1"><title>Caroline (final):
+44</title></rect>
+</g>
+</g>
+<g id="sankey_labels" font-family="sans-serif" font-size="16px" fill="#000000">
+<rect id="label0_bg" class="for_r0" x="-81.14667" y="55.415" width="80" height="43.32" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label0" class="for_r0" text-anchor="end" x="-7.51333" y="77.325" font-weight="400" font-size="14.4px" dy="-4.91">Louis (1st)<tspan x="-7.51333" dy="19.32" font-weight="400" font-size="17.6px">30</tspan></text>
+<rect id="label1_bg" class="for_r1" x="105.76166" y="86.145" width="153.71667" height="43.31999" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label1" class="for_r1" text-anchor="middle" x="182.62" y="108.055" font-weight="400" font-size="14.4px" dy="-4.91">Louis after Ronald out<tspan x="182.62" dy="19.32" font-weight="400" font-size="17.6px">32</tspan></text>
+<rect id="label2_bg" class="for_r2" x="-100.36333" y="212.89499" width="99.21667" height="43.32001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label2" class="for_r2" text-anchor="end" x="-7.51333" y="234.805" font-weight="400" font-size="14.4px" dy="-4.91">Caroline (1st)<tspan x="-7.51333" dy="19.32" font-weight="400" font-size="17.6px">32</tspan></text>
+<rect id="label3_bg" class="for_r3" x="96.15333" y="257.77499" width="172.93335" height="43.32001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label3" class="for_r3" text-anchor="middle" x="182.62" y="279.685" font-weight="400" font-size="14.4px" dy="-4.91">Caroline after Ronald out<tspan x="182.62" dy="19.32" font-weight="400" font-size="17.6px">40</tspan></text>
+<rect id="label4_bg" class="for_r4" x="-76.31333" y="465.595" width="75.16667" height="43.32001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label4" class="for_r4" text-anchor="end" x="-7.51333" y="487.505" font-weight="400" font-size="14.4px" dy="-4.91">Sam (1st)<tspan x="-7.51333" dy="19.32" font-weight="400" font-size="17.6px">28</tspan></text>
+<rect id="label5_bg" class="for_r5" x="108.17833" y="423.745" width="148.88333" height="43.32001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label5" class="for_r5" text-anchor="middle" x="182.62" y="445.655" font-weight="400" font-size="14.4px" dy="-4.91">Sam after Ronald out<tspan x="182.62" dy="19.32" font-weight="400" font-size="17.6px">28</tspan></text>
+<rect id="label6_bg" class="for_r6" x="-92.36333" y="342.07498" width="91.21667" height="43.32001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label6" class="for_r6" text-anchor="end" x="-7.51333" y="363.985" font-weight="400" font-size="14.4px" dy="-4.91">Ronald (1st)<tspan x="-7.51333" dy="19.32" font-weight="400" font-size="17.6px">10</tspan></text>
+<rect id="label7_bg" class="for_r7" x="366.38666" y="156.375" width="107.25" height="43.32001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label7" class="for_r7" text-anchor="start" x="372.75333" y="178.285" font-weight="400" font-size="14.4px" dy="-4.91">Louis (elected)<tspan x="372.75333" dy="19.32" font-weight="400" font-size="17.6px">56</tspan></text>
+<rect id="label8_bg" class="for_r8" x="366.38666" y="367.625" width="106.43331" height="43.32001" rx="4" fill="#fff" fill-opacity="0.75" stroke="none" stroke-width="0" stroke-opacity="0"></rect>
+<text id="label8" class="for_r8" text-anchor="start" x="372.75333" y="389.535" font-weight="400" font-size="14.4px" dy="-4.91">Caroline (final)<tspan x="372.75333" dy="19.32" font-weight="400" font-size="17.6px">44</tspan></text>
+</g>
+</g></svg>
