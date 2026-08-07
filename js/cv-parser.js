@@ -50,16 +50,16 @@ class CVParser {
             content = content.replace(/\\emph\{([^}]+)\}/g, '<em>$1</em>');
         }
 
-        // 9. Sections
-        content = content.replace(/\\section\{([^}]+)\}/g, '</div><div class="cv-section visible"><h2 class="cv-section-title">$1</h2><hr class="cv-section-rule">');
+        // 9. Section markers (wrapped after entries are built)
+        content = content.replace(/\\section\{([^}]+)\}/g, '<!--cvsec:$1-->');
 
-        // 10. ResumeSubheading: 4 args → compact entry with header + subtitle row
+        // 10. ResumeSubheading: 4 args → header + subtitle (entry closed after optional bullets)
         content = content.replace(/\\resumeSubheading\s*\{([\s\S]*?)\}\s*\{([\s\S]*?)\}\s*\{([\s\S]*?)\}\s*\{([\s\S]*?)\}/g,
-            '<div class="cv-entry"><div class="cv-entry-header"><h3 class="cv-entry-title"><span>$1</span></h3><span class="cv-entry-right"><span>$2</span></span></div><div class="cv-entry-subtitle-row"><p class="cv-entry-subtitle"><span>$3</span></p><span class="cv-entry-subtitle-right"><span>$4</span></span></div></div>');
+            '<div class="cv-entry"><div class="cv-entry-header"><h3 class="cv-entry-title">$1</h3><span class="cv-entry-right">$2</span></div><div class="cv-entry-subtitle-row"><p class="cv-entry-subtitle">$3</p><span class="cv-entry-subtitle-right">$4</span></div></div>');
 
         // 11. ResumeProjectHeading: 2 args
         content = content.replace(/\\resumeProjectHeading\s*\{([\s\S]*?)\}\s*\{([\s\S]*?)\}/g,
-            '<div class="cv-entry"><div class="cv-entry-header"><h3 class="cv-entry-title"><span>$1</span></h3><span class="cv-entry-right"><span>$2</span></span></div></div>');
+            '<div class="cv-entry"><div class="cv-entry-header"><h3 class="cv-entry-title">$1</h3><span class="cv-entry-right">$2</span></div></div>');
 
         // 12. List wrappers
         content = content.replace(/\\resumeSubHeadingListStart/g, '');
@@ -67,10 +67,10 @@ class CVParser {
         content = content.replace(/\\resumeItemListStart/g, '<ul class="cv-bullets">');
         content = content.replace(/\\resumeItemListEnd/g, '</ul>');
 
-        // 13. ResumeItem: full match with proper closing
-        content = content.replace(/\\resumeItem\s*\{([^}]*)\}/g, '<li class="cv-bullet"><span>$1</span></li>');
+        // 13. ResumeItem
+        content = content.replace(/\\resumeItem\s*\{([^}]*)\}/g, '<li class="cv-bullet">$1</li>');
 
-        // 14. Skills block: process before general \item so we can handle \item inside specially
+        // 14. Skills block
         content = content.replace(/\\begin\{itemize\}\[[^\]]+\]\s*([\s\S]*?)\\end\{itemize\}/g, (match, inner) => {
             inner = inner.replace(/\\small\b/g, '');
             inner = inner.replace(/\\item\s*\{([^}]*)\}/, '$1');
@@ -79,7 +79,7 @@ class CVParser {
             const rows = lines.map(line => {
                 const m = line.trim().match(/<strong>\s*(.+?)\s*<\/strong>\s*:\s*(.*)/);
                 if (m) {
-                    return `<div class="cv-skills-row"><span class="cv-skills-label"><span><strong>${m[1]}:</strong></span></span><span class="cv-skills-value"><span>${m[2].trim()}</span></span></div>`;
+                    return `<div class="cv-skills-row"><span class="cv-skills-label"><strong>${m[1]}</strong></span><span class="cv-skills-value">${m[2].trim()}</span></div>`;
                 }
                 return `<div class="cv-skills-row">${line.trim()}</div>`;
             });
@@ -87,18 +87,27 @@ class CVParser {
         });
 
         // 15. Standard \item (for non-skills blocks)
-        content = content.replace(/\\item\s*\{([^}]*)\}/g, '<li class="cv-bullet"><span>$1</span></li>');
-        content = content.replace(/\\item\b/g, '<li class="cv-bullet"><span>');
+        content = content.replace(/\\item\s*\{([^}]*)\}/g, '<li class="cv-bullet">$1</li>');
+        content = content.replace(/\\item\b/g, '<li class="cv-bullet">');
 
-        // 17. Final brace cleanup
+        // 16. Final brace cleanup
         content = content.replace(/[{}]/g, '');
 
-        // 18. Cleanup wrapper divs
+        // 17. Nest bullet lists inside the preceding entry
+        content = content.replace(
+            /(<div class="cv-entry">[\s\S]*?)<\/div>\s*(<ul class="cv-bullets">[\s\S]*?<\/ul>)/g,
+            '$1$2</div>'
+        );
+
+        // 18. Wrap section markers into proper section divs
+        content = content.replace(
+            /<!--cvsec:([^>]+)-->\s*([\s\S]*?)(?=<!--cvsec:|$)/g,
+            '<div class="cv-section"><h2 class="cv-section-title">$1</h2><hr class="cv-section-rule" aria-hidden="true">$2</div>'
+        );
+
         let result = headerHtml + content;
-        result = result.replace(/^\s*<\/div>/, '');
-        result = result.replace(/<div class="cv-section visible">\s*<\/div>/g, '');
-        result = result.replace(/<\/div>\s*$/, '');
-        result = result.replace(/<span class="cv-entry-right"><span>\s*<\/span><\/span>/g, '');
+        result = result.replace(/<span class="cv-entry-right">\s*<\/span>/g, '');
+        result = result.replace(/\n{3,}/g, '\n\n');
 
         return result;
     }
@@ -132,13 +141,11 @@ class CVParser {
                 display = display.replace(/\\underline\{([^}]+)\}/g, '$1');
                 display = display.trim();
                 contacts.push(`<a class="cv-contact-pill" href="${href}" target="_blank" rel="noopener noreferrer">${display}</a>`);
+            } else if (/^[\d\s+]+$/.test(part)) {
+                const phone = part.replace(/\s+/g, '');
+                contacts.push(`<a class="cv-contact-pill" href="tel:${phone}">${part}</a>`);
             } else {
-                if (part && /^[\d\s+]+$/.test(part)) {
-                    const phone = part.replace(/\s+/g, '');
-                    contacts.push(`<a class="cv-contact-pill" href="tel:${phone}" target="_blank" rel="noopener noreferrer">${part}</a>`);
-                } else if (part) {
-                    contacts.push(`<span class="cv-contact-pill cv-contact-location">${part}</span>`);
-                }
+                contacts.push(`<span class="cv-contact-pill cv-contact-location">${part}</span>`);
             }
         }
 
