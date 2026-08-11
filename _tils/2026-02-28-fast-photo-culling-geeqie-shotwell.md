@@ -21,7 +21,7 @@ Instead of complicated rating systems, keep things simple:
 3. If you like a photo, press `1` or `2` to toggle a "mark" (marks are essentially tags in Geeqie).
 4. Once you're done going through the album, press `Shift + 1` or `Shift + 2` to select all of your marked photos.
 5. Right-click the selected photos and move them to a new, custom directory.
-6. Once the good photos are gone, simply delete the original directory containing all your non-marked (discarded) files to free up space.
+6. **Warning:** Before deleting the original directory, verify that every marked photo has been moved to the new directory and is backed up. Deleting the original directory can permanently remove every unmarked (discarded) file. Once you have checked, delete it to free up space.
 
 *(Installation on Arch Linux: `sudo pacman -S geeqie`)*
 

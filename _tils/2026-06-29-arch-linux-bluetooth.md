@@ -1,13 +1,13 @@
 ---
 layout: til
-title: "Bluetooth device connection for Arch linux"
+title: "Bluetooth device connection for Arch Linux"
 date: 2026-06-29 10:00:00 +0500
 permalink: /guides/bluetooth-linux
 tags: 
     - linux
 ---
 
-If you need to connect to a bluetooth device on arch linux:
+If you need to connect to a Bluetooth device on Arch Linux:
 
 (Especially if it's worked before, but you need to disconnect and reconnect):
 
@@ -18,7 +18,7 @@ Open bluetoothctl:
 bluetoothctl
 ```
 
-List all paired devices to find your devices's MAC address (it will look like XX:XX:XX:XX:XX:XX):
+List all paired devices to find your device's MAC address (it will look like XX:XX:XX:XX:XX:XX):
     
 ```
 devices
@@ -67,4 +67,3 @@ Finally, exit
 ```
 exit
 ```
-

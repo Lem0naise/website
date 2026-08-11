@@ -34,6 +34,8 @@ Do this from a [GParted Live USB](https://gparted.org/liveusb.php) so you aren't
 
 Shrink your existing OS (Windows or Fedora) to make unallocated space.
 
+**Warning:** Resizing or formatting a partition can permanently destroy data. Back up anything important, confirm the disk and partition identifiers in GParted, and do not format the existing EFI partition.
+
 Create new partitions:
 
 * Root (/): Format as ext4 (or btrfs).
@@ -84,7 +86,7 @@ arch-chroot /mnt
 
 ### Phase 3: System Configuration & User Setup
 
-This is the most critical initialization step where you set up your timezones, localization, root password, new user account, and graphics drivers. Run the following step-by-step.
+This is the most critical initialization step, where you set up your timezone, localisation, root password, new user account, and graphics drivers. Run the following steps one by one.
 
 **Note:** You are currently logged in as `root`. Stay as root for this entire phase.
 

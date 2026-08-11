@@ -171,7 +171,7 @@
                 if (target) target.scrollIntoView();
             }
         } catch (e) {
-            container.innerHTML = '<p class="no-results">Couldn\u2019t load the notebook right now &mdash; try refreshing in a bit.</p>';
+            // Keep the server-rendered notebook entries available when the gist cannot load.
         }
     }
 

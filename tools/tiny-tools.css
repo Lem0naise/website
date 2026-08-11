@@ -1,0 +1,30 @@
+.tiny-tool-footer {
+    display: flex;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.tiny-tool-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--border, #e8e6e0);
+    border-radius: 4px;
+    background: var(--card-bg, #ffffff);
+    color: var(--text, #2d2d2d);
+    text-decoration: none;
+}
+
+.tiny-tool-home:hover,
+.tiny-tool-home:focus-visible {
+    border-color: var(--accent, #8b5a83);
+    color: var(--accent, #8b5a83);
+}
+
+.tiny-tool-home svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}

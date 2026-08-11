@@ -144,6 +144,27 @@
     margin-bottom: 1.5rem;
 }
 
+.photo-license {
+    margin: 0 0 0.75rem;
+}
+
+.copy-attribution {
+    margin-left: 0.4rem;
+    padding: 0.2rem 0.45rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--card-bg);
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+}
+
+.copy-attribution:hover,
+.copy-attribution:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
 /* Responsive design */
 @media (min-width: 768px) {
 
