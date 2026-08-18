@@ -1,0 +1,163 @@
+.gerald-header {
+	text-align: center;
+	padding: 60px 24px 20px;
+}
+
+.gerald-header h1 {
+	font-size: 36px;
+	font-weight: 700;
+	margin: 0 0 8px;
+	color: var(--accent);
+}
+
+.gerald-sub {
+	font-size: 15px;
+	color: var(--text-light);
+	margin: 0;
+}
+
+/* Grid */
+.gerald-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 16px;
+	padding: 20px 24px 60px;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.gerald-item {
+	margin: 0;
+	cursor: pointer;
+	border-radius: 8px;
+	overflow: hidden;
+	border: 1px solid var(--border);
+	background: var(--card-bg);
+}
+
+.gerald-item a {
+	display: block;
+	line-height: 0;
+}
+
+.gerald-item img {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+.gerald-item figcaption {
+	padding: 8px 12px;
+	font-size: 13px;
+	color: var(--text-light);
+	text-align: center;
+}
+
+.gerald-item figcaption time {
+	display: block;
+	font-size: 12px;
+	color: var(--text-light);
+	opacity: 0.7;
+	margin-top: 2px;
+}
+
+.gerald-empty {
+	text-align: center;
+	padding: 80px 24px;
+	color: var(--text-light);
+	font-size: 16px;
+}
+
+/* Lightbox */
+.gerald-lightbox {
+	position: fixed;
+	inset: 0;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.gerald-lightbox[hidden] {
+	display: none;
+}
+
+.lightbox-backdrop {
+	position: absolute;
+	inset: 0;
+	background: rgba(0, 0, 0, 0.85);
+}
+
+.lightbox-content {
+	position: relative;
+	max-width: 90vw;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#lightbox-img {
+	max-width: 90vw;
+	max-height: 75vh;
+	object-fit: contain;
+	border-radius: 4px;
+}
+
+.lightbox-title {
+	color: #ccc;
+	font-size: 14px;
+	margin: 10px 0 4px;
+	min-height: 1.2em;
+}
+
+.lightbox-controls {
+	display: flex;
+	gap: 12px;
+	margin-top: 8px;
+}
+
+.lb-btn {
+	background: rgba(255, 255, 255, 0.12);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #fff;
+	padding: 8px 20px;
+	border-radius: 6px;
+	cursor: pointer;
+	font-size: 14px;
+	font-family: inherit;
+	transition: background 0.2s;
+}
+
+.lb-btn:hover {
+	background: rgba(255, 255, 255, 0.25);
+}
+
+.lb-close {
+	position: absolute;
+	top: -40px;
+	right: 0;
+	background: none;
+	border: none;
+	color: #fff;
+	font-size: 32px;
+	cursor: pointer;
+	line-height: 1;
+	padding: 4px 8px;
+}
+
+@media (max-width: 600px) {
+	.gerald-grid {
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		gap: 10px;
+		padding: 16px;
+	}
+
+	.gerald-header h1 {
+		font-size: 26px;
+	}
+
+	.lb-close {
+		top: -32px;
+	}
+}
