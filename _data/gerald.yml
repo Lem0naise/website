@@ -1,12 +1,16 @@
-# The Adventures of Gerald — comic entries
 # To add a new comic: drop the image into gerald/comics/ and add an entry here.
-#
-#   - file: my-comic.png
-#     title: "Episode title"          (optional)
-#     date: 2026-08-18                (optional)
-#
-# Comics display in the order listed (newest first is recommended).
+# Comics display newest first, defaulting to the lower down comic for sameday entries
+
+
+
+
 
 - file: shoes.jpg
   title: "New Shoes"
   date: 2026-08-18
+
+
+- file: getsajob.jpg
+  title: "Gerald Needs a Job"
+  date: 2026-08-18
+
