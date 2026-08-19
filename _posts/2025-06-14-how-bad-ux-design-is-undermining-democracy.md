@@ -9,6 +9,7 @@ redirect_from:
     - /blog/voting
 tags: 
     - essay
+image: "/assets/imgs/fptpelec1.svg"
 ---
 
 You've just downloaded a brand-new app. It asks for your preferences, you tap through setup, and you're in. Nothing is like what you wanted. The icons are bright blue, and all the text is in Mandarin. That's because the app ignored *your* preferences and ships whatever is most popular worldwide - blue, and Mandarin - so that's what everybody gets.
@@ -77,7 +78,7 @@ Now, I hear you protest again, this is still essentially FPTP - just with a litt
 
 ### The Irish System (Single Transferable Vote)
 
-In Ireland, voters use the Single Transferable Vote (STV) system — a model often praised for being one of the fairest and most representative. Here's how it works: instead of choosing just one candidate, voters rank them in order of preference — 1st, 2nd, 3rd, and so on. If you've been following the news lately, this is similar to the Ranked Choice Voting model used in the New York Mayoral Primary[^8]. 
+In Ireland, voters use the Single Transferable Vote (STV) system, a model often praised for being one of the fairest and most representative. Here's how it works: instead of choosing just one candidate, voters rank them in order of preference: 1st, 2nd, 3rd, and so on. If you've been following the news lately, this is similar to the Ranked Choice Voting model used in the New York Mayoral Primary[^8]. 
 
 ![A Sankey Diagram of STV transfer for Louis](/assets/imgs/sankey.svg)
 An example of Ranked Choice applied to our simulation: 
@@ -118,5 +119,5 @@ The future of voting is a design problem, not a political problem. And we deserv
 [^9]: <https://electoral-reform.org.uk/in-ireland-it-actually-feels-like-my-vote-makes-a-difference/> ERS interview with a voter comparing Irish STV to UK FPTP
 [^10]: <https://post.parliament.uk/elections-and-their-reform/> UK Parliament POST note; cites YouGov finding 45% prefer PR vs 26% keep FPTP
 [^11]: <https://www.pewresearch.org/global/2024/03/13/electoral-reform-and-direct-democracy/> Pew: electoral reform ranked in the top five issues in 7 of 24 countries, and 2nd in the UK
-[^12]: <https://electoral-reform.org.uk/> Electoral Reform Society — UK campaign for fairer voting systems
-[^13]: <https://makevotesmatter.org.uk/> Make Votes Matter — UK campaign for proportional representation
+[^12]: <https://electoral-reform.org.uk/> Electoral Reform Society - UK campaign for fairer voting systems
+[^13]: <https://makevotesmatter.org.uk/> Make Votes Matter - UK campaign for proportional representation

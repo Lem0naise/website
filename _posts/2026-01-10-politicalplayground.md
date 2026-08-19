@@ -6,6 +6,7 @@ author: Indigo Nolan
 permalink: /politicalplayground
 tags: 
     - coding
+image: "/assets/imgs/ppvoters.png"
 ---
 
 
@@ -159,7 +160,7 @@ switch (valueKey) {
         const votPrefNews = [
         `${nameChoice}'s Social Spending Push Resonates with Voters`,
         `Public Backs ${nameChoice}'s Vision for a Fairer Society`,
-        `${nameChoice} Promises 'Healthcare for All'—Crowds Erupt in Cheers`,
+        `${nameChoice} Promises 'Healthcare for All'-Crowds Erupt in Cheers`,
             // ... strings ...
         ];
         voterPreferenceAnalysis.push(votPrefNews[Math.floor(Math.random() * votPrefNews.length)]);

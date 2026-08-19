@@ -7,6 +7,7 @@ permalink: /blog/online-safety-act
 manual_related: 
     - /blog/child-free-internet
 tags: essay
+image: "https://pbs.twimg.com/media/GwsiA4kWQAEaK_I?format=jpg&name=large"
 ---
 
 You may have heard the outcry over the recent Online Safety Act, in particular in relation to adult content online; "I now need permission from Keir Starmer to get off" as one Reddit user succinctly put it. But along with requiring age verification to view adult sites[^1], this act has much worse, far-reaching and frankly dangerous consequences for our society.

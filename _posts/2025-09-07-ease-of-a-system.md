@@ -6,6 +6,7 @@ author: Indigo Nolan
 permalink: /blog/the-ease-of-contactless
 tags: design
 kind: minor
+image: "/assets/imgs/transit.png"
 ---
 
 I've just come back from a week in Brussels, a city that gets so much right, but especially public transport. I enjoyed my time there very much, but along with the green spaces and good food, the thing that stood out to me most was how easy it was to get around. As a tourist, nothing could be easier than using the trams and buses. There are signs EVERYWHERE showing the routes, and the trams even have electronic boards with little lit-up dots showing you where all the trams on the line are currently at. Finally - and most crucially for this blog post - payment was entirely frictionless. As dozens of advertising boards say across the city, "Your bank card is your ticket", meaning that contactless is supported everywhere.

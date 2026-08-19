@@ -9,6 +9,7 @@ tags:
 manual_related: 
     - /favourites-me
     - /headandheart
+image: "https://static.rogerebert.com/redactor_assets/pictures/rogers-journal/you-give-out-too-many-stars/littleman-thumb-500x49.jpg"
 ---
 
 What does a three-star rating *really* mean? Is it a positive recommendation? Is it a 'meh'? Is it a warning? We've all been trapped for far too long, in my opinion, by the vague tyranny of the five-star system. It's a system that *feels* objective, but is actually deeply personal, often failing to capture how we truly feel about a film, book, or album. 

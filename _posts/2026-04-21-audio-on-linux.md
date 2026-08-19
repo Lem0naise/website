@@ -6,6 +6,7 @@ author: Indigo Nolan
 permalink: /blog/audio-on-linux
 tags: 
     - coding
+image: "https://miro.medium.com/v2/1*F4s5_JaQTeLDSE9JzTjujg.png"
 ---
 
 Any Linux user will tell you that audio is a nightmare. While Windows and macOS users have spent the last two decades[^windows] benefiting from unified, vertically integrated audio (CoreAudio, WASAPI), Linux users have to deal with every distribution managing audio slightly differently, every new laptop requiring a new open-source driver to be acquired, and every year, a newcomer entering the field who thinks their new sound server will fix everything. 

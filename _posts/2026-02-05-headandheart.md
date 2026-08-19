@@ -9,6 +9,7 @@ tags:
 manual_related: 
     - /blog/rating-systems-head-and-heart-and-favourites-me
     - /favourites-me
+image: "/blog/whyibuilt/imgs/headandheartheatmap.png"
 ---
 
 I've written extensively about 5-star rating systems and their flaws, so where are my alternative solutions? Right here: a 2D grid, two axes, not just one. 'Head': the quality of the media, how much you respect it and recognise its craftsmanship; and 'Heart': how much you personally enjoyed it, regardless of society's view on it. 

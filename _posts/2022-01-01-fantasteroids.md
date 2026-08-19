@@ -6,6 +6,7 @@ author: Indigo Nolan
 permalink: /fantasteroids
 tags: 
     - coding
+image: "https://shared.steamstatic.com/store_item_assets/steam/apps/1790870/header.jpg?t=1663613994"
 ---
 [Here's a link to the game!](https://store.steampowered.com/app/1790870/Fantasteroids/)
 

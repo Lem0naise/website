@@ -20,6 +20,9 @@ permalink: /gerald
 	<meta property="og:title" content="The Adventures of Gerald">
 	<meta property="og:description" content="A webcomic by Indigo Nolan.">
 	<meta property="twitter:card" content="summary_large_image">
+	{% assign first_comic = site.data.gerald | sort: "date" | reverse | first %}
+	{% if first_comic %}<meta property="og:image" content="https://indigo.spot/gerald/comics/{{ first_comic.file }}">
+	<meta property="twitter:image" content="https://indigo.spot/gerald/comics/{{ first_comic.file }}">{% endif %}
 </head>
 <body>
 	<header id="header">
@@ -65,7 +68,7 @@ permalink: /gerald
 		</section>
 		{% else %}
 		<section class="gerald-empty">
-			<p>No comics yet — check back soon!</p>
+			<p>No comics yet, check back soon!</p>
 		</section>
 		{% endif %}
 	</main>
@@ -99,7 +102,17 @@ permalink: /gerald
 			if (!el) return null;
 			var img = el.querySelector('img');
 			var cap = el.querySelector('figcaption');
-			return { src: img.src, alt: img.alt, title: cap ? cap.textContent : '', slug: el.dataset.slug };
+			var title = '';
+			if (cap) {
+				var time = cap.querySelector('time');
+				var parts = [];
+				cap.childNodes.forEach(function (n) {
+					if (n.nodeType === 3 && n.textContent.trim()) parts.push(n.textContent.trim());
+				});
+				if (time) parts.push(time.textContent.trim());
+				title = parts.join(' - ');
+			}
+			return { src: img.src, alt: img.alt, title: title, slug: el.dataset.slug };
 		}
 
 		function open(i) {

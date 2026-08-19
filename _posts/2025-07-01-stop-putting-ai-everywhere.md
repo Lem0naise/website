@@ -5,6 +5,7 @@ date: 2025-07-01 14:15:00 +0100
 author: Indigo Nolan
 permalink: /blog/stop-putting-ai-everywhere
 tags: essay
+image: "https://the-mobile-network.com/wp-content/uploads/2024/07/TOBI-HI.jpg"
 ---
 I don't need AI to summarise a news article I'm already reading. I don't need an AI to help me switch phone plans. I don't need AI when I'm searching up an actor's name - I just want a list of their films! In fact, there are remarkably few situations in which I truly _need_ a user-facing, conversational AI.
 

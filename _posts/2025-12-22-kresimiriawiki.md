@@ -6,6 +6,7 @@ author: Indigo Nolan
 permalink: /kresimiria
 tags: 
     - coding
+image: "/assets/imgs/secundum.png"
 ---
 
 
