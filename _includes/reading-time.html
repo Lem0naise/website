@@ -1,0 +1,3 @@
+{% assign rt_words = include.post.content | number_of_words %}
+{% assign rt_minutes = rt_words | divided_by: 200.0 | ceil | at_least: 1 %}
+{{ rt_minutes }} min read

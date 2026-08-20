@@ -201,6 +201,12 @@ h4,
     letter-spacing: 0.05em;
 }
 
+.np-likes {
+    margin-left: 8px;
+    color: var(--accent);
+    text-transform: none;
+}
+
 .np-rule {
     height: 2px;
     background: var(--text);
