@@ -5,6 +5,7 @@ date: 2026-03-06 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/monetising-cashcat-lemonsqueezy-supabase
 kind: minor
+image: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4uYx_DoWErNerik7UHbGir0AGcLdaDIA94aYwXJvPZw&s=10
 tags: 
     - coding
 manual_related: 

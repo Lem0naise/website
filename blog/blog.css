@@ -179,6 +179,8 @@ h4,
    ═══════════════════════════════════════════════════ */
 
 .np-content {
+    max-width: 1040px;
+    margin: 0 auto;
     padding: 0 20px;
 }
 
@@ -1297,10 +1299,10 @@ h4,
 		top: 50%;
 		transform: translateY(-50%);
 		z-index: 100;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		text-align: center;
 	}
 
 	.post-sidebar.left {
@@ -1313,35 +1315,24 @@ h4,
 
 	.side-btn {
 		display: flex;
-		flex-direction: row;
 		align-items: center;
 		justify-content: center;
 		gap: 4px;
-		padding: 14px 10px;
+		padding: 10px;
 		border-radius: 99px;
-		border: 1.5px solid var(--accent-light);
-		background: var(--card-bg);
-		color: var(--text);
-		font-size: 14px;
+		border: 1px solid var(--border);
+		background: transparent;
+		color: var(--text-light);
+		font-size: 13px;
 		font-family: var(--font-main), monospace;
 		cursor: pointer;
-		transition: all 0.2s ease;
-		box-shadow: 0 2px 8px var(--card-shadow);
+		text-decoration: none;
+		transition: color 0.2s, border-color 0.2s;
 	}
 
 	.side-btn:hover {
-		transform: scale(1.08);
+		color: var(--accent);
 		border-color: var(--accent);
-		box-shadow: 0 8px 20px var(--hover-shadow);
-	}
-
-	.side-btn:active {
-		transform: scale(0.95);
-	}
-
-	.side-share-btn {
-		font-size: 16px;
-		padding: 16px 12px;
 	}
 }
 
