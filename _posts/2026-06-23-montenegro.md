@@ -6,6 +6,8 @@ author: Indigo Nolan
 permalink: /blog/montenegro
 image: "/assets/imgs/montenegro/broadview.webp"
 description: "A complete 3-week Montenegro road trip itinerary. Discover how to explore the Bay of Kotor, hike Durmitor, and relax on Lake Skadar on a budget."
+redirect_from:
+    - /montenegro
 tags: 
     - travel
 ---

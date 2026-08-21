@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Kresimiria Story"
-date: 2026-08-07 11:15:00 +0100
+date: 2024-08-07 11:15:00 +0100
 author: Indigo Nolan
-permalink: /writing/kresimiria
+permalink: /writing/kresimzziria
 tags: short-story
 ---
 

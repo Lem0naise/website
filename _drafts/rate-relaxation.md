@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "You don't need to rate your relaxation"
-date: 2026-07-22 08:00:00 +0000
+date: 2024-07-22 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/gamification-of-hobbies
 description: "We are too obsessed with tracking our hobbies that we sometimes forget to just sit back and enjoy them."

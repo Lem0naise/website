@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Nastavak Story"
-date: 2026-08-06 11:15:00 +0100
+date: 2024-08-06 11:15:00 +0100
 author: Indigo Nolan
 permalink: /writing/kresimiria
 tags: short-story

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Stop trying to be a morning person"
-date: 2026-07-22 08:00:00 +0000
+date: 2024-07-22 08:00:00 +0000
 author: Indigo Nolan
 permalink: /blog/stop-trying-to-be-a-morning-person
 description: "Don't try to force yourself into being something you're not. Instead, make other adaptions which will actually improve your life."

@@ -22,3 +22,5 @@ exclude:
   - vendor
   - push-changes
   - pull-changes
+include:
+  - daylio/vendor

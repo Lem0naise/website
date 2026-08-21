@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From anxious to (mostly) secure: what attachment styles taught me about texting"
-date: 2026-07-13 10:00:00 +0100
+date: 2024-07-13 10:00:00 +0100
 author: Indigo Nolan
 permalink: /blog/attachment-styles-anxious-to-secure
 tags: 

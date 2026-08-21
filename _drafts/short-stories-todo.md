@@ -1,3 +1,13 @@
+---
+layout: post
+title: "You don't need to rate your relaxation"
+date: 2024-07-22 08:00:00 +0000
+author: Indigo Nolan
+permalink: /blog/gamification-osdsdsf-hobbies
+description: "We are too obsessed with tracking our hobbies that we sometimes forget to just sit back and enjoy them."
+tags: 
+    - essay
+---
 -lossless:
 Imagine a near-future where a tech company invents a neural implant that bypasses language entirely, transmitting raw, 8K, 120fps thoughts and emotions directly between two people's brains. The story could follow a struggling couple who use the device to fix their communication issues, only to horrifically realize that the "lossy" filter of language was actually a necessary defense mechanism to protect human relationships and sanity
 
