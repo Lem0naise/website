@@ -111,3 +111,8 @@ Very few of my 6,000 entries are interesting by themselves. Some are, but most a
 - Back it up. This applies whether you're writing it digitally or physically. Export your data, scan the pages in, back it up. There's nothing like losing all your journalling history to discourage you from starting again.
 
 I have no idea when I'll write my 12,000th entry. Most of the next 6,000 will be about random meals, dog walks, arguments, films, and lots and lots of tired mornings. But I know those are the exact days worth writing down.
+
+
+
+
+

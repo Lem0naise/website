@@ -41,12 +41,12 @@
         block.split('\n').forEach(function (l) {
             var stripped = l.trim().replace(/^>\s?/, '');
             if (stripped === '') {
-                if (current.length) { paras.push(current.join(' ')); current = []; }
+                if (current.length) { paras.push(current.join('\n')); current = []; }
             } else {
                 current.push(stripped);
             }
         });
-        if (current.length) paras.push(current.join(' '));
+        if (current.length) paras.push(current.join('\n'));
         return '<blockquote>' + paras.map(function (p) {
             return '<p>' + inline(p) + '</p>';
         }).join('') + '</blockquote>';
@@ -58,8 +58,39 @@
             .map(function (l) { return l.trim().replace(/^\*\s+/, ''); });
     }
 
+    function splitMixedBlock(block) {
+        var lines = block.split('\n');
+        var quoteLines = [];
+        var proseLines = [];
+        var pastQuote = false;
+        for (var j = 0; j < lines.length; j++) {
+            var t = lines[j].trim();
+            if (!pastQuote && (t === '' || t.charAt(0) === '>')) {
+                quoteLines.push(lines[j]);
+            } else {
+                pastQuote = true;
+                proseLines.push(lines[j]);
+            }
+        }
+        var result = [];
+        var q = quoteLines.join('\n').trim();
+        var p = proseLines.join('\n').trim();
+        if (q) result.push(q);
+        if (p) result.push(p);
+        return result;
+    }
+
     function renderContent(content) {
         var blocks = content.split(/\n\s*\n/).map(function (b) { return b.trim(); }).filter(Boolean);
+        var expanded = [];
+        for (var e = 0; e < blocks.length; e++) {
+            if (!isBlockquoteBlock(blocks[e]) && blocks[e].trim().charAt(0) === '>') {
+                expanded = expanded.concat(splitMixedBlock(blocks[e]));
+            } else {
+                expanded.push(blocks[e]);
+            }
+        }
+        blocks = expanded;
         var html = [];
         var i = 0;
 
@@ -85,7 +116,7 @@
                 continue;
             }
 
-            html.push('<p>' + inline(blocks[i].split('\n').join(' ').trim()) + '</p>');
+            html.push('<p>' + inline(blocks[i].trim()) + '</p>');
             i++;
         }
 
@@ -102,7 +133,10 @@
 
             var lines = block.split('\n');
             var dateLine = lines.shift().trim();
-            var date = new Date(dateLine.replace(' ', 'T') + 'Z');
+            var dateStr = dateLine.indexOf(' ') !== -1
+                ? dateLine.replace(' ', 'T') + 'Z'
+                : dateLine + 'T00:00:00Z';
+            var date = new Date(dateStr);
             if (isNaN(date.getTime())) return;
 
             var song = null;
