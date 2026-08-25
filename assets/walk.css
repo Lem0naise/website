@@ -2,16 +2,9 @@
    THE WALK — homepage layout
    ═══════════════════════════════════════════════════ */
 
-/* Soft header over the photographic hero */
-body.walk-page #header {
-	background: color-mix(in srgb, var(--background) 88%, transparent);
-	backdrop-filter: blur(10px);
-	-webkit-backdrop-filter: blur(10px);
-}
-
-/* Walk-page override for dark toggle (no lift on hover over the hero) */
-body.walk-page button.tab.tab-svg:hover {
-	transform: none;
+/* No fixed header here, so the hero can start at the very top of the page. */
+body.walk-page main {
+	padding-top: 0;
 }
 
 /* ── Hero / arrive ── */
@@ -300,9 +293,49 @@ body.walk-page button.tab.tab-svg:hover {
 	margin: 0 auto;
 }
 
+/* Theme toggle, sat beside the "About me" heading */
+.about-heading-row {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	margin: 0 0 32px;
+}
+
+.walk-section .about-heading-row h2 {
+	margin: 0;
+}
+
+.theme-toggle-inline {
+	appearance: none;
+	-webkit-appearance: none;
+	background: transparent;
+	border: none;
+	padding: 4px;
+	margin: 0;
+	line-height: 0;
+	cursor: pointer;
+	color: var(--text);
+	opacity: 0.35;
+	transition: opacity 0.2s ease, color 0.2s ease, transform 0.3s ease;
+}
+
+.theme-toggle-inline svg {
+	display: block;
+	width: 18px;
+	height: 18px;
+	fill: currentColor;
+}
+
+.theme-toggle-inline:hover,
+.theme-toggle-inline:focus-visible {
+	opacity: 1;
+	color: var(--accent);
+	transform: rotate(-15deg);
+}
+
 /* Focus rings for interactive bits */
 .hero-nav-card:focus-visible,
-button.tab:focus-visible {
+.theme-toggle-inline:focus-visible {
 	outline: 2px solid var(--accent);
 	outline-offset: 3px;
 }
@@ -395,10 +428,6 @@ html.dark-mode .walk-hero-scrim {
 		linear-gradient(90deg, rgba(20, 16, 18, 0.55) 0%, rgba(20, 16, 18, 0.15) 50%, transparent 100%);
 }
 
-body.walk-page #header {
-	border-bottom-color: transparent;
-}
-
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	.walk-hero-inner {
@@ -414,6 +443,11 @@ body.walk-page #header {
 
 	.hero-nav-card:hover,
 	.hero-nav-card:focus-visible {
+		transform: none;
+	}
+
+	.theme-toggle-inline:hover,
+	.theme-toggle-inline:focus-visible {
 		transform: none;
 	}
 }

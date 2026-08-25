@@ -88,23 +88,6 @@ permalink: /
 <body class="walk-page">
 	<a class="skip-link" href="#main">Skip to content</a>
 
-	<header id="header">
-		<div class="header-content">
-			<a class="logo" href="./">Indigo Nolan</a>
-			<nav id="menu" aria-label="Primary">
-				<a href="./" class="tab active">Home</a>
-				<a href="./portfolio" class="tab">Projects</a>
-				<a href="./blog" class="tab">Blog</a>
-				<button type="button" class="tab tab-svg" aria-label="Toggle dark mode" onclick="toggle()">
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-						<path id="toggle-button"
-							d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
-					</svg>
-				</button>
-			</nav>
-		</div>
-	</header>
-
 	<main id="main">
 		{% assign visible_posts = site.posts | where_exp: "post", "post.hidden != true" %}
 		{% assign bloom_post = visible_posts[0] %}
@@ -147,7 +130,15 @@ permalink: /
 		<!-- 2. About (intro) -->
 		<section id="about" class="walk-section walk-about" aria-labelledby="about-heading">
 			<div class="walk-section-inner">
-				<h2 id="about-heading">About me</h2>
+				<div class="about-heading-row">
+					<h2 id="about-heading">About me</h2>
+					<button type="button" class="theme-toggle-inline" aria-label="Toggle dark mode" onclick="toggle()">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+							<path id="toggle-button"
+								d="M12 2A9.91 9.91 0 0 0 9 2.46A10 10 0 0 1 9 21.54A10 10 0 1 0 12 2Z" />
+						</svg>
+					</button>
+				</div>
 
 				<div class="about-item about-intro">
 					<ul>
