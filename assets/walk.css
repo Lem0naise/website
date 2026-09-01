@@ -100,7 +100,7 @@ body.walk-page main {
 	justify-content: center;
 	gap: 6px;
 	padding: 16px 8px;
-	border-radius: 10px;
+	border-radius: 4px;
 	background: rgba(247, 243, 236, 0.1);
 	border: 1px solid rgba(247, 243, 236, 0.18);
 	backdrop-filter: blur(6px);
@@ -293,6 +293,94 @@ body.walk-page main {
 	margin: 0 auto;
 }
 
+/* ── Project cards, sitting under the about card ── */
+
+.about-projects-head {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 16px;
+	margin: 0 0 16px;
+}
+
+.about-projects-head h3 {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 600;
+	color: var(--accent);
+}
+
+.about-projects-more {
+	font-family: var(--font-main), monospace;
+	font-size: 14px;
+	color: var(--accent-light);
+	text-decoration: none;
+	white-space: nowrap;
+	border-bottom: 1px solid transparent;
+	transition: border-color 0.2s ease;
+}
+
+.about-projects-more:hover,
+.about-projects-more:focus-visible {
+	border-bottom-color: var(--accent-light);
+}
+
+.about-projects-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 16px;
+}
+
+.mini-project {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid var(--border);
+	border-radius: 4px;
+	overflow: hidden;
+	background: var(--background);
+	box-shadow: 0 2px 8px var(--card-shadow);
+	text-decoration: none;
+	color: inherit;
+	transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mini-project:hover,
+.mini-project:focus-visible {
+	border-color: var(--accent-light);
+	box-shadow: 0 8px 20px var(--card-shadow);
+}
+
+.mini-project-thumb {
+	display: block;
+	width: 100%;
+	height: 132px;
+	object-fit: cover;
+	object-position: top;
+	background: var(--accent-soft);
+	border-bottom: 1px solid var(--border);
+}
+
+.mini-project-body {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+	padding: 14px 16px 18px;
+	text-align: left;
+}
+
+.mini-project-name {
+	font-family: var(--font-main), monospace;
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--accent-light);
+}
+
+.mini-project-desc {
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--text-light);
+}
+
 /* Theme toggle, sat beside the "About me" heading */
 .about-heading-row {
 	display: flex;
@@ -389,6 +477,14 @@ body.walk-page main {
 	.walk-section {
 		padding: 56px 16px;
 	}
+
+	.about-projects-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.mini-project-thumb {
+		height: 120px;
+	}
 }
 
 @media (max-width: 480px) {
@@ -448,6 +544,11 @@ html.dark-mode .walk-hero-scrim {
 
 	.theme-toggle-inline:hover,
 	.theme-toggle-inline:focus-visible {
+		transform: none;
+	}
+
+	.mini-project:hover,
+	.mini-project:focus-visible {
 		transform: none;
 	}
 }
