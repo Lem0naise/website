@@ -4,7 +4,10 @@
  * Source format (plain text, one gist file): entries separated by a line
  * containing only "---". Each entry starts with a date line
  * ("YYYY-MM-DD HH:MM:SS", UTC), optionally followed by a "song: ..." line
- * (with an optional "spotify: <url>" line after it for an exact track link),
+ * and at most one of:
+ *   spotify: <track/album/playlist url>
+ *   soundcloud: <permalink>
+ *   bandcamp: <embed src or album/track url>
  * then freeform markdown-ish content (blank-line paragraphs, ">" blockquotes
  * with blank ">" lines as paragraph breaks, "* " bullet lists, [text](url)
  * links, and *italic*).
@@ -141,16 +144,27 @@
 
             var song = null;
             var songUrl = null;
+            var embedKind = null;
             if (lines.length && /^song:\s*/i.test(lines[0])) {
                 song = lines.shift().replace(/^song:\s*/i, '').trim();
-                if (lines.length && /^spotify:\s*/i.test(lines[0])) {
-                    songUrl = lines.shift().replace(/^spotify:\s*/i, '').trim();
+                while (lines.length) {
+                    var embedLine = lines[0].trim().match(/^(spotify|bandcamp|soundcloud):\s*(.+)$/i);
+                    if (!embedLine) break;
+                    lines.shift();
+                    embedKind = embedLine[1].toLowerCase();
+                    songUrl = embedLine[2].trim();
                 }
             }
 
             while (lines.length && lines[0].trim() === '') lines.shift();
 
-            entries.push({ date: date, song: song, songUrl: songUrl, content: lines.join('\n') });
+            entries.push({
+                date: date,
+                song: song,
+                songUrl: songUrl,
+                embedKind: embedKind,
+                content: lines.join('\n')
+            });
         });
 
         return entries;
@@ -169,6 +183,58 @@
         return MONTHS[date.getUTCMonth()] + ' ' + date.getUTCDate() + ', ' + date.getUTCFullYear();
     }
 
+    function iframeHtml(src, height, extraAttrs) {
+        return '<iframe class="stream-song-embed" src="' + GistLoader.escapeAttr(src) +
+            '" width="100%" height="' + height + '" frameborder="0" loading="lazy"' +
+            (extraAttrs ? ' ' + extraAttrs : '') + '></iframe>';
+    }
+
+    function songEmbedHtml(kind, url) {
+        if (!kind || !url) return '';
+
+        if (kind === 'spotify') {
+            var spotify = url.match(/open\.spotify\.com\/(?:embed\/)?(track|album|playlist)\/([A-Za-z0-9]+)/);
+            if (!spotify) return '';
+            return iframeHtml(
+                'https://open.spotify.com/embed/' + spotify[1] + '/' + spotify[2],
+                80,
+                'allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen title="Spotify player"'
+            );
+        }
+
+        if (kind === 'soundcloud') {
+            var scSrc = /w\.soundcloud\.com\/player/i.test(url)
+                ? url
+                : 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(url.split('?')[0]) +
+                    '&color=%23664455&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false';
+            return iframeHtml(
+                scSrc,
+                20,
+                'scrolling="no" allow="autoplay" title="SoundCloud player"'
+            );
+        }
+
+        if (kind === 'bandcamp') {
+            var bcSrc = url;
+            if (!/bandcamp\.com\/EmbeddedPlayer/i.test(bcSrc)) {
+                var album = url.match(/[?&/]album=(\d+)/i);
+                var track = url.match(/[?&/]track=(\d+)/i);
+                if (album) {
+                    bcSrc = 'https://bandcamp.com/EmbeddedPlayer/album=' + album[1] +
+                        '/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/';
+                } else if (track) {
+                    bcSrc = 'https://bandcamp.com/EmbeddedPlayer/track=' + track[1] +
+                        '/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/';
+                } else {
+                    return '';
+                }
+            }
+            return iframeHtml(bcSrc, 42, 'seamless title="Bandcamp player"');
+        }
+
+        return '';
+    }
+
     function renderEntry(entry) {
         var html = '<div class="stream-entry" id="' + anchorId(entry.date) + '">';
         html += '<div class="stream-header-info"><div class="stream-date">' + formatDate(entry.date) + '</div></div>';
@@ -178,6 +244,7 @@
             html += '<a class="stream-song" href="' + GistLoader.escapeAttr(href) +
                 '" target="_blank" rel="noopener noreferrer">' +
                 GistLoader.escapeHtml(entry.song) + '</a>';
+            html += songEmbedHtml(entry.embedKind, entry.songUrl);
         }
         html += '<div class="stream-content">' + renderContent(entry.content) + '</div>';
         html += '</div>';
