@@ -163,7 +163,7 @@ body.walk-page main {
 	backdrop-filter: none;
 	-webkit-backdrop-filter: none;
 	box-shadow: none;
-	padding: 8px 4px;
+	padding: 14px 8px;
 	border-radius: 0;
 }
 
@@ -179,7 +179,7 @@ body.walk-page main {
 }
 
 .hero-nav-words .hero-nav-label {
-	font-size: 16px;
+	font-size: 22px;
 	font-weight: 600;
 	color: rgba(247, 243, 236, 0.85);
 	text-decoration: underline;
@@ -454,7 +454,7 @@ body.walk-page main {
 	}
 
 	.hero-nav-words .hero-nav-label {
-		font-size: 13px;
+		font-size: 19px;
 	}
 }
 
@@ -513,7 +513,7 @@ body.walk-page main {
 	}
 
 	.hero-nav-words .hero-nav-label {
-		font-size: 12px;
+		font-size: 17px;
 	}
 }
 
