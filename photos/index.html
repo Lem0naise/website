@@ -8,6 +8,7 @@
 	<meta charset="UTF-8">
 	<link rel="preload" href="/fonts/syne-mono-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
 	<link rel="preconnect" href="https://live.staticflickr.com">
+	<link rel="preconnect" href="https://gist.githubusercontent.com">
 	<title>Photography - Indigo Nolan | Photo Portfolio</title>
 	<link rel="stylesheet" href="/stylesheet.css?version=0.10">
 	<link rel="stylesheet" href="./stylesheet.css?version=0.10">
@@ -131,7 +132,8 @@
 						Un-Aligned</a>, and more.</p>
 				</div>
 			</div>
-			<div class="photos-grid">
+			<!-- Static fallback grid: replaced by the gist list when it loads. -->
+			<div class="photos-grid" id="photos-grid">
 				<article class="photo-item featured-photo">
 					<div class="photo-container">
 						<a href="https://live.staticflickr.com/65535/55450765751_e32de33087_o.jpg"><img
@@ -490,6 +492,24 @@
 	<script src="/js/nav-transition.js" defer></script>
 
 	<script src="/js/copy-email.js" defer></script>
+	<!--
+		The photo list is loaded from the GitHub gist at
+		https://gist.github.com/Lem0naise/1e29b5c17cc178aacfbde6f6e29a675f
+		(file: photos.json), so photos can be added or removed by editing that
+		gist without touching this page.
+
+		If the gist cannot be loaded, the static grid above is shown instead.
+	-->
+	<script src="../js/gist-loader.js" defer></script>
+	<script src="../js/photos.js" defer></script>
+	<script>
+		var PHOTOS_GIST_ID = '1e29b5c17cc178aacfbde6f6e29a675f';
+
+		document.addEventListener('DOMContentLoaded', function () {
+			if (!window.PhotosLoader) return;
+			PhotosLoader.init('photos-grid', 'Lem0naise', PHOTOS_GIST_ID, 'photos.json');
+		});
+	</script>
 	<script>
 		document.addEventListener('DOMContentLoaded', function () {
 			var button = document.querySelector('.copy-attribution');
