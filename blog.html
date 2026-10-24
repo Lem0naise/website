@@ -36,14 +36,16 @@ observations."
 <!-- Duo: the 2 newest posts -->
 <section class="np-duo">
     {% for post in visible limit:2 %}
-    <a href="{{ post.url | relative_url }}" class="np-duo-card" data-tags="{{ post.tags | join: ',' }}">
+    <a href="{{ post.url | relative_url }}" class="np-duo-card{% if post.image %} has-image{% endif %}" data-tags="{{ post.tags | join: ',' }}">
         {% if post.image %}
         <div class="np-duo-img"><img src="{{ post.image }}" alt="" loading="eager"></div>
         {% endif %}
-        <h3>{{ post.title }}</h3>
-        <p class="np-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
-        <span class="np-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.tags[0] %} · {{ post.tags[0] }}{% endif %} · {% include reading-time.html post=post %}</span>
-        <span class="np-meta np-likes post-likes" data-path="{{ post.url }}">♥ …</span>
+        <div class="np-card-text">
+            <h3>{{ post.title }}</h3>
+            <p class="np-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
+            <span class="np-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.tags[0] %} · {{ post.tags[0] }}{% endif %} · {% include reading-time.html post=post %}</span>
+            <span class="np-meta np-likes post-likes" data-path="{{ post.url }}">♥ …</span>
+        </div>
     </a>
     {% endfor %}
 </section>
@@ -53,14 +55,16 @@ observations."
 <!-- Trio: the next 3 posts -->
 <section class="np-trio">
     {% for post in visible offset:2 limit:3 %}
-    <a href="{{ post.url | relative_url }}" class="np-trio-card" data-tags="{{ post.tags | join: ',' }}">
+    <a href="{{ post.url | relative_url }}" class="np-trio-card{% if post.image %} has-image{% endif %}" data-tags="{{ post.tags | join: ',' }}">
         {% if post.image %}
         <div class="np-trio-img"><img src="{{ post.image }}" alt="" loading="lazy"></div>
         {% endif %}
-        <h3>{{ post.title }}</h3>
-        <p class="np-excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
-        <span class="np-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.tags[0] %} · {{ post.tags[0] }}{% endif %} · {% include reading-time.html post=post %}</span>
-        <span class="np-meta np-likes post-likes" data-path="{{ post.url }}">♥ …</span>
+        <div class="np-card-text">
+            <h3>{{ post.title }}</h3>
+            <p class="np-excerpt">{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
+            <span class="np-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.tags[0] %} · {{ post.tags[0] }}{% endif %} · {% include reading-time.html post=post %}</span>
+            <span class="np-meta np-likes post-likes" data-path="{{ post.url }}">♥ …</span>
+        </div>
     </a>
     {% endfor %}
 </section>
@@ -74,7 +78,7 @@ observations."
         {% if post.image %}
         <div class="np-river-img"><img src="{{ post.image }}" alt="" loading="lazy"></div>
         {% endif %}
-        <div class="np-river-text">
+        <div class="np-river-text np-card-text">
             <h3>{{ post.title }}</h3>
             <p class="np-excerpt">{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
             <span class="np-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.tags[0] %} · {{ post.tags[0] }}{% endif %} · {% include reading-time.html post=post %}</span>
@@ -96,9 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     var chips = document.querySelectorAll('.tag-chip');
+    var content = document.querySelector('.np-content');
     var allItems = document.querySelectorAll('.np-duo-card, .np-trio-card, .np-river-item');
-    var featured = document.querySelectorAll('.np-duo, .np-trio');
-    var rules = document.querySelectorAll('.np-rule-thin');
     var noResults = document.getElementById('no-results');
 
     chips.forEach(function (chip) {
@@ -118,15 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            featured.forEach(function (s) {
-                var hasVisible = s.querySelector('[style=""], :not([style])');
-                var anyVisible = false;
-                s.querySelectorAll('.np-duo-card, .np-trio-card').forEach(function (c) {
-                    if (c.style.display !== 'none') anyVisible = true;
-                });
-                s.style.display = (tag === 'all' || anyVisible) ? '' : 'none';
-            });
-            rules.forEach(function (r) { r.style.display = tag === 'all' ? '' : 'none'; });
+            if (content) content.classList.toggle('is-filtering', tag !== 'all');
 
             if (noResults) noResults.classList.toggle('hidden', shown > 0);
         });
