@@ -4,12 +4,12 @@ title: "A reading list for 2026"
 date: 2026-07-29 22:00:00 +0100
 author: Indigo Nolan
 permalink: /blog/reading-list-2026
-image: /assets/imgs/kobo.webp
+image: "https://images.squarespace-cdn.com/content/v1/59a83c18f9a61e9447f5900f/1506614263867-YKPXFXZ1DT58N45G2MZI/hurlingham-bookshop-5.jpg"
 tags: 
   - review
 ---
 
-The last few years have been bad for my reading. I've read a couple of books, but it never became the habit I wanted it to be. Doomscrolling and work mostly took over my life, and I noticeably felt the damage that did to my mental health and attention span. 
+When I was a child, I read all the time, I would read between lessons, after school, on the weekends. When I got a phone, reading fell out of my life and no matter how much I tried, it never became the habit I wanted it to be. Doomscrolling and work took over my life, and I have noticeably felt the damage that did to my mental health and attention span. 
 
 As part of my perpetually ill-fated resolutions this year, I have begun reading more consistently again! I bought a couple of books for cheap at charity shops, fell down a Julian Symons rabbit hole, and have been thoroughly enjoying it. Below is a tailored list of books I've read so far (subject to update) that I would recommend, along with a reason why, and a little plot summary. 
 
@@ -19,7 +19,7 @@ My trusty Kobo e-reader, which I use to read most of the books on this list.
 
 ### The Man Who Killed Himself - Julian Symons
 
-I would credit this as the book that got me back into reading, after picking it up for £1 in a charity shop. Symons was a crime writer, and one of the things that impressed me most about this book is I genuinely did not know what was going to happen, all the way up until the end. To me that's Agatha Christie levels of suspense, and Symons does that without making you want to put down the book out of frustration or boredom.
+I would credit this as the book that got me back into reading, after picking it up for £1 in a charity shop. The main thing that impressed me most about this book is I genuinely did not know what was going to happen all the way up until the end. To me that's Agatha Christie levels of suspense, and Symons does that without making you want to put down the book out of frustration or boredom.
 
 We follow Arthur Brownjohn, an aptly-named meek man who lives in fear of his wife. To cope, he builds a secret second life, under the alter ego 'Major Easonby Mellon'. You find out early on that Mellon has a wife himself, an unsuspecting woman who believes her husband is secretly a spy. He can't keep this up for long - and you are constantly left guessing how his life continues to unravel.
 
@@ -53,16 +53,12 @@ By this point, Arthur has been stuck on prehistoric Earth for ages, until Ford a
 
 I read this right after *The Man Who Killed Himself*. It is a little drier and more biting, with a clearer edge of social commentary. Nevertheless, the writing is engaging. 
 
-It follows a local gang of youths who are caught up in a village murder on Guy Fawkes night. Did they kill the man? Or are they being scapegoated by the local police force? That's for Symons to tell you...
-
 If you've enjoyed the first two, and you want another Julian Symons book, I would recommend *The End of Solomon Grundy*. It's not quite as good, which is why I haven't given it a standalone recommendation, but it still lives up to Symons' standards.
 
 
 ### The Invisible Man - HG Wells
 
 I'd heard this was a classic, and I did feel it lived up to its hype. It has the short length that was typical of books of its era, but manages to pack a cynical and atmospheric writing style into relatively concise chapters. 
-
-The story is by now well-known, but it follows a scientist who is experimenting on making human flesh invisible, tests and succeeds on himself, but cannot reverse it and is stuck terrorising local villages as an invisible monster.
 
 
 ### Before the Coffee Gets Cold - Toshikazu Kawaguchi
@@ -74,8 +70,6 @@ The premise alone should sell you - a Tokyo cafe where you can travel back in ti
 ### I Who Have Never Known Men - Jacqueline Harpman
 
 A book which has a lot going on thematically, touching on anti-patriarchal social structure, the concept of non-verbal communication, and evolutionary re-building. It was a marginally stressful read, in the sense I was constantly anticipating things to happen, but those things never quite came, and I was never quite put at ease. I would recommend it if you are interested in being challenged and forced to think.
-
-In the book, forty women are being held underground by guards who never speak. One of them, the narrator, is the *only one* with no memory of the world outside the cage at all. She doesn't know why she's there, and from the looks of it, nobody wants to tell her. 
 
 ### The Wonderful Story of Henry Sugar - Roald Dahl
 
