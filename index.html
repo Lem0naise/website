@@ -182,37 +182,6 @@ permalink: /
 					</div>
 				</div>
 
-				{% comment %}
-				  Latest writing. Mirrors the blog index's major/minor logic: the three
-				  newest "major" posts take the slots first, and "minor" posts only fill
-				  any slots left over.
-				{% endcomment %}
-				{% assign writing_urls = "" %}
-				{% assign writing_count = 0 %}
-				{% for post in visible_posts %}
-					{% if writing_count < 3 %}
-						{% assign writing_kind = post.kind | default: "major" %}
-						{% if writing_kind != "minor" %}
-							{% assign writing_urls = writing_urls | append: post.url | append: "|" %}
-							{% assign writing_count = writing_count | plus: 1 %}
-						{% endif %}
-					{% endif %}
-				{% endfor %}
-				{% if writing_count < 3 %}
-					{% for post in visible_posts %}
-						{% if writing_count < 3 %}
-							{% assign writing_kind = post.kind | default: "major" %}
-							{% if writing_kind == "minor" %}
-								{% assign writing_check = post.url | append: "|" %}
-								{% unless writing_urls contains writing_check %}
-									{% assign writing_urls = writing_urls | append: post.url | append: "|" %}
-									{% assign writing_count = writing_count | plus: 1 %}
-								{% endunless %}
-							{% endif %}
-						{% endif %}
-					{% endfor %}
-				{% endif %}
-
 				<div class="about-writing">
 					<div class="about-writing-head">
 						<h3 id="about-writing-heading">Things I've written</h3>
@@ -220,9 +189,7 @@ permalink: /
 					</div>
 
 					<div class="about-writing-grid" role="list" aria-labelledby="about-writing-heading">
-						{% for post in visible_posts %}
-							{% assign writing_check = post.url | append: "|" %}
-							{% if writing_urls contains writing_check %}
+						{% for post in visible_posts limit:3 %}
 						<a class="writing-card" role="listitem" href="{{ post.url | relative_url }}">
 							{% if post.image %}
 							<img class="writing-card-thumb" src="{{ post.image }}" alt=""
@@ -234,7 +201,6 @@ permalink: /
 								<span class="writing-card-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.tags[0] %} · {{ post.tags[0] }}{% endif %} · {% include reading-time.html post=post %}</span>
 							</span>
 						</a>
-							{% endif %}
 						{% endfor %}
 					</div>
 				</div>

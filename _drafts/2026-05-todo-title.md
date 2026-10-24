@@ -6,7 +6,6 @@ author: Indigo Nolan
 permalink: /blog/navigating-university-life
 tags: 
     - essay
-kind: minor
 ---
 
 University tests your work ethic, your cooking skills, your academic integrity, and more - but most importantly, your perseverance. 

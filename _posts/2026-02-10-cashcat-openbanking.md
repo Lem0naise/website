@@ -4,12 +4,12 @@ title: "The death of Open Banking for hobbyists"
 date: 2026-02-10 08:00:00 +0000
 author: Indigo Nolan
 permalink: /cashcat-open-banking
-kind: minor
 tags: 
     - coding
 manual_related: 
     - /blog/cashcat-on-android-and-ios-mobile-capacitor
     - /blog/monetising-cashcat-lemonsqueezy-supabase
+image: "https://smartdev.com/wp-content/uploads/2024/05/Anh-1.png"
 ---
 
 Open Banking is a wonderful concept. A more transparent society, boosting competition, allowing immense analytical power of financial data, and only with user's consent and desire! So why is it collapsing? 

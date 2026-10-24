@@ -5,7 +5,6 @@ date: 2025-09-07 14:15:00 +0100
 author: Indigo Nolan
 permalink: /blog/the-ease-of-contactless
 tags: design
-kind: minor
 image: "/assets/imgs/transit.png"
 ---
 

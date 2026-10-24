@@ -16,10 +16,7 @@ observations."
 {% assign visible = site.posts | where_exp: "p", "p.hidden != true" %}
 
 <div class="blog-header">
-    <h1>
-        <span class="stream-title-full">blog • <a href="/notebook">notebook</a> • <a href="/guides">guides</a></span>
-        <span class="stream-title-compact">blog • <a href="/notebook">notes</a></span>
-    </h1>
+
     
     <div class="tag-strip" role="toolbar" aria-label="Filter by tag">
         <button class="tag-chip active" data-tag="all">all</button>
@@ -27,6 +24,7 @@ observations."
         <button class="tag-chip" data-tag="{{ tag }}">{{ tag }}</button>
         {% endfor %}
         <a class="chip-link guides-chip" href="/guides">guides</a>
+        <a class="chip-link guides-chip" href="/notebook">notebook</a>
         <a class="rss-btn" href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </div>
 </div>
@@ -35,60 +33,9 @@ observations."
 
 <div class="np-content">
 
-{% comment %}
-  Single pass: bucket each post into duo / trio / river.
-  Duo: first 2 major posts (minors skipped).
-  Trio: next 3 posts of any kind that weren't in the duo.
-  River: everything else.
-{% endcomment %}
-
-{% assign duo_urls = "" %}
-{% assign trio_urls = "" %}
-{% assign deferred_urls = "" %}
-{% assign duo_count = 0 %}
-{% assign trio_count = 0 %}
-{% for post in visible %}
-    {% assign k = post.kind | default: "major" %}
-    {% if duo_count < 2 and k != "minor" %}
-        {% assign duo_urls = duo_urls | append: post.url | append: "|" %}
-        {% assign duo_count = duo_count | plus: 1 %}
-    {% elsif duo_count < 2 and k == "minor" %}
-        {% assign deferred_urls = deferred_urls | append: post.url | append: "|" %}
-    {% elsif trio_count < 3 %}
-        {% assign trio_urls = trio_urls | append: post.url | append: "|" %}
-        {% assign trio_count = trio_count | plus: 1 %}
-    {% endif %}
-{% endfor %}
-{% comment %}Deferred minors (appeared before duo filled) go to front of trio{% endcomment %}
-{% assign deferred_count = 0 %}
-{% assign deferred_list = deferred_urls | split: "|" %}
-{% for url in deferred_list %}
-    {% if url != "" %}{% assign deferred_count = deferred_count | plus: 1 %}{% endif %}
-{% endfor %}
-{% if deferred_count > 0 %}
-    {% assign old_trio = trio_urls %}
-    {% assign trio_urls = "" %}
-    {% assign trio_count = 0 %}
-    {% for url in deferred_list %}
-        {% if url != "" and trio_count < 3 %}
-            {% assign trio_urls = trio_urls | append: url | append: "|" %}
-            {% assign trio_count = trio_count | plus: 1 %}
-        {% endif %}
-    {% endfor %}
-    {% assign old_trio_list = old_trio | split: "|" %}
-    {% for url in old_trio_list %}
-        {% if url != "" and trio_count < 3 %}
-            {% assign trio_urls = trio_urls | append: url | append: "|" %}
-            {% assign trio_count = trio_count | plus: 1 %}
-        {% endif %}
-    {% endfor %}
-{% endif %}
-
-<!-- Duo: first 2 major posts -->
+<!-- Duo: the 2 newest posts -->
 <section class="np-duo">
-    {% for post in visible %}
-        {% assign check = post.url | append: "|" %}
-        {% if duo_urls contains check %}
+    {% for post in visible limit:2 %}
     <a href="{{ post.url | relative_url }}" class="np-duo-card" data-tags="{{ post.tags | join: ',' }}">
         {% if post.image %}
         <div class="np-duo-img"><img src="{{ post.image }}" alt="" loading="eager"></div>
@@ -98,17 +45,14 @@ observations."
         <span class="np-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.tags[0] %} · {{ post.tags[0] }}{% endif %} · {% include reading-time.html post=post %}</span>
         <span class="np-meta np-likes post-likes" data-path="{{ post.url }}">♥ …</span>
     </a>
-        {% endif %}
     {% endfor %}
 </section>
 
 <div class="np-rule-thin"></div>
 
-<!-- Trio: next 3 posts (any kind) after the duo -->
+<!-- Trio: the next 3 posts -->
 <section class="np-trio">
-    {% for post in visible %}
-        {% assign check = post.url | append: "|" %}
-        {% if trio_urls contains check %}
+    {% for post in visible offset:2 limit:3 %}
     <a href="{{ post.url | relative_url }}" class="np-trio-card" data-tags="{{ post.tags | join: ',' }}">
         {% if post.image %}
         <div class="np-trio-img"><img src="{{ post.image }}" alt="" loading="lazy"></div>
@@ -118,17 +62,14 @@ observations."
         <span class="np-meta">{{ post.date | date: "%-d %b %Y" }}{% if post.tags[0] %} · {{ post.tags[0] }}{% endif %} · {% include reading-time.html post=post %}</span>
         <span class="np-meta np-likes post-likes" data-path="{{ post.url }}">♥ …</span>
     </a>
-        {% endif %}
     {% endfor %}
 </section>
 
 <div class="np-rule-thin"></div>
 
-<!-- River: everything not in duo or trio -->
+<!-- River: everything else -->
 <section class="np-river">
-    {% for post in visible %}
-        {% assign check = post.url | append: "|" %}
-        {% unless duo_urls contains check or trio_urls contains check %}
+    {% for post in visible offset:5 %}
     <a href="{{ post.url | relative_url }}" class="np-river-item{% if post.image %} has-image{% endif %}" data-tags="{{ post.tags | join: ',' }}">
         {% if post.image %}
         <div class="np-river-img"><img src="{{ post.image }}" alt="" loading="lazy"></div>
@@ -140,7 +81,6 @@ observations."
         <span class="np-meta np-likes post-likes" data-path="{{ post.url }}">♥ …</span>
         </div>
     </a>
-        {% endunless %}
     {% endfor %}
 
     <p class="no-results hidden" id="no-results">No posts match that filter.</p>

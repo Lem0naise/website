@@ -42,10 +42,9 @@ h4,
     line-height: 1.5;
 }
 
-/* On the blog page specifically, "guides" drops out of the compact mobile
-   heading entirely and reappears as a plain-link chip in the tag strip. */
+/* Guides/notebook are plain navigation chips in the tag strip at every width. */
 .guides-chip {
-    display: none;
+    display: inline-block;
 }
 
 /* ── Tag strip (filter chips + RSS) ── */
@@ -218,7 +217,7 @@ h4,
     margin: 14px 0;
 }
 
-/* ── Duo (top 2 major posts) ── */
+/* ── Duo (top 2 posts) ── */
 
 .np-duo {
     display: grid;
@@ -400,10 +399,6 @@ h4,
 
     .stream-title-compact {
         display: inline;
-    }
-
-    .guides-chip {
-        display: inline-block;
     }
 
     .rss-btn {
