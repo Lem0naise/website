@@ -3,7 +3,7 @@ layout: post
 title: "Dreams by Dag Johan Haugerud"
 date: 2026-10-21 14:15:00 +0100
 author: Indigo Nolan
-permalink: /drommer-dreams-film-review
+permalink: /blog/drommer-dreams-film-review
 tags: 
     - review
 image: "https://m.media-amazon.com/images/M/MV5BYTY3Y2ViMzYtN2FjOS00MDljLThkNTQtOTE2ZWY2MGRmN2MzXkEyXkFqcGc@._V1_.jpg"

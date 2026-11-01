@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Why I Refuse to Disown the Rocky Horror Picture Show"
+title: "Why I refuse to disown The Rocky Horror Picture Show"
 date: 2026-10-26 00:15:00 +0000
 author: Indigo Nolan
-permalink: /rocky-horror
+permalink: /blog/rocky-horror
 tags: 
     - review
 image: "https://m.media-amazon.com/images/M/MV5BMTY4MzA1MzM2OV5BMl5BanBnXkFtZTgwMzE1NTU5MTE@._V1_.jpg"
