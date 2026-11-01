@@ -43,8 +43,11 @@ function normaliseHeader(value) {
 }
 
 function to24Hour(timeRaw) {
-    const match = String(timeRaw || '').trim().match(/^(\d{1,2}):(\d{2})(?:\s*([ap]m))?$/i);
-    if (!match) return '00:00';
+    const raw = String(timeRaw || '').trim();
+    if (!raw) return null;
+
+    const match = raw.match(/^(\d{1,2}):(\d{2})(?:\s*([ap]m))?$/i);
+    if (!match) return null;
 
     let hour = Number.parseInt(match[1], 10);
     const minute = Number.parseInt(match[2], 10);
@@ -52,15 +55,16 @@ function to24Hour(timeRaw) {
 
     if (suffix === 'PM' && hour < 12) hour += 12;
     if (suffix === 'AM' && hour === 12) hour = 0;
-    if (hour > 23 || minute > 59) return '00:00';
+    if (hour > 23 || minute > 59) return null;
 
     return `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`;
 }
 
 function cleanActivities(value) {
+    // Daylio separates activities with " | ". Slashes and commas are part of
+    // activity names (e.g. "gym / workout"), so they must not split anything.
     return String(value || '')
-        .replace(/[|/]/g, ',')
-        .split(',')
+        .split('|')
         .map((activity) => activity.trim())
         .filter(Boolean);
 }
@@ -73,7 +77,9 @@ function makeDate(date, time) {
     const dateMatch = date.match(/^(\d{4})-(\d{2})-(\d{2})$/);
     if (!dateMatch) return null;
 
-    const [hours, minutes] = time.split(':').map(Number);
+    // A missing/invalid time sorts to the start of the day but is never
+    // written into the log; see entry.timestamp below.
+    const [hours, minutes] = (time || '00:00').split(':').map(Number);
     const datetime = new Date(
         Number(dateMatch[1]),
         Number(dateMatch[2]) - 1,
@@ -110,24 +116,30 @@ function parseDaylioCSV(text) {
 
     rows.slice(1).forEach((row, index) => {
         const date = String(row[columns.full_date] || '').trim();
-        const time = to24Hour(row[columns.time]);
+        const rawTime = String(row[columns.time] || '').trim();
+        const time = to24Hour(rawTime);
         const datetime = makeDate(date, time);
         if (!datetime) {
             warnings.push(`Row ${index + 2} has no valid full_date and was skipped.`);
             return;
         }
+        if (rawTime && !time) {
+            warnings.push(`Row ${index + 2} has an invalid time and was exported without one.`);
+        }
 
         const noteTitle = cleanNote(row[columns.note_title]);
         const note = cleanNote(row[columns.note]);
+        const scales = cleanNote(row[columns.scales]);
         entries.push({
             date,
-            time,
+            time: time || '',
             datetime,
             mood: String(row[columns.mood] || '').trim(),
             activities: cleanActivities(row[columns.activities]),
+            scales,
             noteTitle,
             note,
-            timestamp: `${date} ${time}`
+            timestamp: time ? `${date} ${time}` : date
         });
     });
 
@@ -139,7 +151,9 @@ function parseDaylioCSV(text) {
 function formatEntryForLog(entry) {
     let line = `[${entry.timestamp}]`;
     if (entry.mood) line += ` Mood: ${entry.mood}`;
-    if (entry.activities.length) line += ` | Activities: ${entry.activities.join(', ')}`;
+    // "; " keeps activity names containing commas or slashes unambiguous.
+    if (entry.activities.length) line += ` | Activities: ${entry.activities.join('; ')}`;
+    if (entry.scales) line += ` | Scales: ${entry.scales}`;
 
     const note = [entry.noteTitle, entry.note].filter(Boolean).join(': ');
     if (note) line += ` | Note: ${note}`;

@@ -18,9 +18,16 @@
         { key: 'evening', label: 'Evening', start: 18, end: 23 }
     ];
     const MOOD_SCORES = {
-        awful: 1, bad: 1, sad: 2, tired: 2, 'not good': 2,
-        okay: 3, alright: 3, meh: 3, neutral: 3,
-        good: 4, great: 5, excited: 5, rad: 5, amazing: 5
+        // 1 = worst. Daylio lets people rename or extend the mood set, so keep
+        // common custom labels here; unknown labels still fall back to 3.
+        awful: 1, terrible: 1, horrible: 1, dreadful: 1, miserable: 1,
+        hopeless: 1, depressed: 1, bad: 1,
+        sad: 2, tired: 2, exhausted: 2, anxious: 2, stressed: 2, worried: 2,
+        nervous: 2, angry: 2, frustrated: 2, annoyed: 2, lonely: 2,
+        overwhelmed: 2, numb: 2, low: 2, down: 2, 'not good': 2,
+        okay: 3, ok: 3, alright: 3, meh: 3, neutral: 3, fine: 3,
+        good: 4, content: 4, happy: 4, cheerful: 4, grateful: 4, hopeful: 4, calm: 4,
+        great: 5, excited: 5, rad: 5, amazing: 5, ecstatic: 5
     };
 
     function scoreMood(mood) {

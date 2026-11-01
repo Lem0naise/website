@@ -53,7 +53,12 @@ async function createZip(files) {
     for (const [filename, content] of Object.entries(files)) {
         zip.file(filename, content);
     }
-    return zip.generateAsync({ type: 'blob' });
+    // JSZip defaults to STORE (no compression); text logs deflate ~4x.
+    return zip.generateAsync({
+        type: 'blob',
+        compression: 'DEFLATE',
+        compressionOptions: { level: 9 }
+    });
 }
 
 function closeMenu() {

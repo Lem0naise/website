@@ -303,8 +303,8 @@
             const meta = document.createElement('div');
             meta.className = 'entry-meta';
             const date = document.createElement('time');
-            date.dateTime = `${entry.date}T${entry.time}`;
-            date.textContent = `${shortDate(entry.date)} · ${entry.time}`;
+            date.dateTime = entry.time ? `${entry.date}T${entry.time}` : entry.date;
+            date.textContent = entry.time ? `${shortDate(entry.date)} · ${entry.time}` : shortDate(entry.date);
             meta.append(date);
             if (entry.mood) setText(meta, entry.mood, 'mood-name');
             item.append(meta);
