@@ -6,12 +6,7 @@ description: "Personal blog by Indigo Nolan covering technology, UX design, prog
 observations."
 ---
 
-{% capture tags %}
-{% for tag in site.tags %}
-{{ tag[0] }}
-{% endfor %}
-{% endcapture %}
-{% assign sortedtags = tags | split:' ' | sort %}
+{% assign sortedtags = site.tags | sort %}
 
 {% assign visible = site.posts | where_exp: "p", "p.hidden != true" %}
 
@@ -19,9 +14,9 @@ observations."
 
     
     <div class="tag-strip" role="toolbar" aria-label="Filter by tag">
-        <button class="tag-chip active" data-tag="all">all</button>
+        <button class="tag-chip active" data-tag="all" aria-pressed="true">all</button>
         {% for tag in sortedtags %}
-        <button class="tag-chip" data-tag="{{ tag }}">{{ tag }}</button>
+        <button class="tag-chip" data-tag="{{ tag[0] | escape }}" aria-pressed="false">{{ tag[0] | escape }}</button>
         {% endfor %}
         <a class="chip-link guides-chip" href="/guides">guides</a>
         <a class="chip-link guides-chip" href="/notebook">notebook</a>
@@ -98,33 +93,83 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.initLazyKudosCounts) {
         initLazyKudosCounts('.post-likes');
     }
+});
 
-    var chips = document.querySelectorAll('.tag-chip');
-    var content = document.querySelector('.np-content');
-    var allItems = document.querySelectorAll('.np-duo-card, .np-trio-card, .np-river-item');
-    var noResults = document.getElementById('no-results');
+var chips = document.querySelectorAll('.tag-chip');
+var content = document.querySelector('.np-content');
+var items = document.querySelectorAll('.np-duo-card, .np-trio-card, .np-river-item');
+var noResults = document.getElementById('no-results');
 
+function setFilter(tag) {
+    tag = (tag || '').toLowerCase();
+
+    var active = null;
+    for (var i = 0; i < chips.length; i++) {
+        if ((chips[i].dataset.tag || '').toLowerCase() === tag) {
+            active = chips[i];
+            break;
+        }
+    }
+    if (!active) return null;
+
+    tag = (active.dataset.tag || '').toLowerCase();
     chips.forEach(function (chip) {
-        chip.addEventListener('click', function () {
-            chips.forEach(function (c) { c.classList.remove('active'); });
-            chip.classList.add('active');
-            var tag = chip.dataset.tag;
-            var shown = 0;
+        var isActive = chip === active;
+        chip.classList.toggle('active', isActive);
+        chip.setAttribute('aria-pressed', String(isActive));
+    });
 
-            allItems.forEach(function (el) {
-                var tags = (el.dataset.tags || '').split(',');
-                if (tag === 'all' || tags.indexOf(tag) !== -1) {
-                    el.style.display = '';
-                    shown++;
-                } else {
-                    el.style.display = 'none';
-                }
-            });
+    var shown = 0;
+    items.forEach(function (el) {
+        var matches = tag === 'all' ||
+            (el.dataset.tags || '').toLowerCase().split(',').indexOf(tag) !== -1;
+        el.style.display = matches ? '' : 'none';
+        if (matches) shown++;
+    });
 
-            if (content) content.classList.toggle('is-filtering', tag !== 'all');
+    if (content) content.classList.toggle('is-filtering', tag !== 'all');
+    if (noResults) noResults.classList.toggle('hidden', tag === 'all' || shown > 0);
+    return active;
+}
 
-            if (noResults) noResults.classList.toggle('hidden', shown > 0);
-        });
+function syncUrl(chip) {
+    if (!window.history || !window.history.replaceState) return;
+    var tag = (chip.dataset.tag || '').toLowerCase();
+    var url = window.location.pathname + window.location.search;
+    if (tag !== 'all') {
+        url += '#' + encodeURIComponent(tag);
+    }
+    try {
+        window.history.replaceState(null, '', url);
+    } catch (err) {
+        // Filtering should still work if the URL cannot be rewritten.
+    }
+}
+
+function activate(tag) {
+    var chip = setFilter(tag);
+    if (chip) syncUrl(chip);
+}
+
+function applyHash() {
+    var tag = window.location.hash.slice(1);
+    if (tag) {
+        try {
+            tag = decodeURIComponent(tag);
+        } catch (err) {
+            // Keep the raw fragment if it is not valid percent-encoding.
+        }
+    }
+    activate(tag || 'all');
+}
+
+chips.forEach(function (chip) {
+    chip.addEventListener('click', function () {
+        activate(chip.dataset.tag);
     });
 });
+
+setFilter('all');
+if (window.location.hash) applyHash();
+window.addEventListener('hashchange', applyHash);
 </script>
