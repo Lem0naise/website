@@ -28,7 +28,9 @@ description: "Short technical how-to guides and troubleshooting notes by Indigo 
 
 <div class="stream-navigation">
     <a href="{{ '/blog/' | relative_url }}" class="nav-link">← back to blog</a>
+    {% if site.show_drafts %}
     <a href="{{ '/notebook' | relative_url }}" class="nav-link">Notebook</a>
+    {% endif %}
 </div>
 
 <script src="{{ '/js/reading-progress.js' | relative_url }}"></script>

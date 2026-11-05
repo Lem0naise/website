@@ -19,7 +19,9 @@ observations."
         <button class="tag-chip" data-tag="{{ tag[0] | escape }}" aria-pressed="false">{{ tag[0] | escape }}</button>
         {% endfor %}
         <a class="chip-link guides-chip" href="/guides">guides</a>
+        {% if site.show_drafts %}
         <a class="chip-link guides-chip" href="/notebook">notebook</a>
+        {% endif %}
         <a class="rss-btn" href="{{ '/feed.xml' | relative_url }}">RSS</a>
     </div>
 </div>

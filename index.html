@@ -319,7 +319,7 @@ permalink: /
 							{% if third_post %}
 							<li><a href="{{ third_post.url | relative_url }}">{{ third_post.title }}</a></li>
 							{% endif %}
-							<li><a href="./blog">All posts</a> &middot; <a href="./notebook">Notebook</a> &middot; <a href="./guides">Guides</a></li>
+							<li><a href="./blog">All posts</a>{% if site.show_drafts %} &middot; <a href="./notebook">Notebook</a>{% endif %} &middot; <a href="./guides">Guides</a></li>
 						</ul>
 					</div>
 
