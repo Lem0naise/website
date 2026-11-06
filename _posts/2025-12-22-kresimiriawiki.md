@@ -10,7 +10,7 @@ image: "/assets/imgs/secundum.png"
 ---
 
 
-> **TLDR:** I got way too into a Crusader Kings 3 game playing as Croatia, started writing in-character peace treaties with my friend, then wrote an entire religious text, and now I'm writing a full [Wikipedia-style wiki (kresimiria.wiki)](https://kresimiria.wiki) about the fictional country using Jekyll. It's worldbuilding without the (sometimes) annoying parts of actual storytelling.
+> **TLDR:** I got way too into a Crusader Kings 3 game playing as Croatia, started writing in-character peace treaties with my friend, then wrote an entire religious text, and now I'm writing a full [Wikipedia-style wiki (vosti.wiki)](https://vosti.wiki) about the fictional country using Jekyll. It's worldbuilding without the (sometimes) annoying parts of actual storytelling.
 
 ---
 
@@ -30,7 +30,7 @@ Here's a random page from the Books: (You'll notice distinct similarities to Gen
 
 Eventually we stopped playing the actual Crusader Kings game, but I wasn't done with Kresimiria. I wanted to keep writing in this world, so I started creating laws. Government structures. I wrote an entire 1921 constitution, along with a historical precedent for it, a group of constitution signatories ('founding fathers' if you will) and a map.
 
-The map of Kresimiria (remember, you can see all of this at [kresimiria.wiki](https://kresimiria.wiki)).
+The map of Kresimiria (remember, you can see all of this at [vosti.wiki](https://vosti.wiki)).
 
 ![A Map of Kresimiria](/assets/imgs/i.webp)
 
@@ -51,9 +51,9 @@ At some point I looked at this mess of documents and thought "there's got to be 
 
 Then it hit me. I'd just started using Jekyll for this blog you're reading right now. Jekyll is literally designed for creating websites from Markdown files. And guess what? Wikipedia articles can just be Markdown files. I didn't need some heavyweight wiki software. I just needed a static site generator and some Wikipedia-looking CSS.
 
-## Building kresimiria.wiki
+## Building vosti.wiki
 
-So I spent a couple of days whipping up custom CSS and HTML to make a Wikipedia clone. 'Borrowed' some styling ideas (basically copied Wikipedia's infoboxes almost exactly), tweaked the layout, made it look like a proper encyclopedia. I added some Markdown articles, made a homepage, and voila, proof of concept achieved. (Have a look at [kresimiria.wiki](https://kresimiria.wiki)).
+So I spent a couple of days whipping up custom CSS and HTML to make a Wikipedia clone. 'Borrowed' some styling ideas (basically copied Wikipedia's infoboxes almost exactly), tweaked the layout, made it look like a proper encyclopedia. I added some Markdown articles, made a homepage, and voila, proof of concept achieved. (Have a look at [vosti.wiki](https://vosti.wiki)).
 
 And then I just - kept writing. Politicians, businessmen, soldiers, businesses and organizations and companies, legal cases, both landmark and mundane, historical events, cultural movements, sports teams, the whole ecosystem of a functioning country.
 
@@ -63,4 +63,4 @@ With Kresimiria, I can just worldbuild forever. I can write an entire article ab
 
 The best (or worst?) part is I don't know if this project will ever be 'done'. There's always another business to create, an even more minor politician to write about, another cultural figure to make. And I think I'm fine with that - it's become my go-to creative outlet as a source of relaxation. I'd recommend it to anyone who is an embarrassingly massive nerd, is creative, but doesn't have the discipline to finish a novel.
 
-(Remember, go [check it out! Kresimiria dot wiki.](https://kresimiria.wiki))
+(Remember, go [check it out! Kresimiria dot wiki.](https://vosti.wiki))
